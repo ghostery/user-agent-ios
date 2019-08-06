@@ -312,7 +312,6 @@ class LeanPlumClient {
             alert.addAction(UIAlertAction(title: context.stringNamed(LPMessage.ArgAcceptButtonText), style: .default, handler: { (action) -> Void in
                 // Log accept event and present push permission modal
                 context.runTrackedActionNamed(LPMessage.ArgAcceptAction)
-                FxALoginHelper.sharedInstance.requestUserNotifications(UIApplication.shared)
                 self.prefs?.setBool(true, forKey: AppRequestedUserNotificationsPrefKey)
             }))
 

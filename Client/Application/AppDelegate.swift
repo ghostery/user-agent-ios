@@ -151,9 +151,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         self.updateAuthenticationInfo()
         SystemUtils.onFirstRun()
 
-        let fxaLoginHelper = FxALoginHelper.sharedInstance
-        fxaLoginHelper.application(application, didLoadProfile: profile)
-
         profile.cleanupHistoryIfNeeded()
 
         log.info("startApplication end")
@@ -504,12 +501,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 extension AppDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        FxALoginHelper.sharedInstance.apnsRegisterDidSucceed(deviceToken)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("failed to register. \(error)")
-        FxALoginHelper.sharedInstance.apnsRegisterDidFail()
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

@@ -126,7 +126,7 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // This is a leftover from when we remoeved the Account and Sync modules
+        // This method stub is a leftover from when we remoeved the Account and Sync modules
         if refreshControl != nil {
             removeRefreshControl()
         }
