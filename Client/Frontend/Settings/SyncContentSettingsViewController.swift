@@ -65,39 +65,6 @@ class DisconnectSetting: Setting {
     }
 }
 
-class DeviceNamePersister: SettingValuePersister {
-    let profile: Profile
-
-    init(profile: Profile) {
-        self.profile = profile
-    }
-
-    func readPersistedValue() -> String? {
-        // This method stub is a leftover from when we removed the Account and Sync modules
-        return nil
-    }
-
-    func writePersistedValue(value: String?) {
-        // This method stub is a leftover from when we removed the Account and Sync modules
-        return
-    }
-}
-
-class DeviceNameSetting: StringSetting {
-
-    init(settings: SettingsTableViewController) {
-        let settingsIsValid: (String?) -> Bool = { !($0?.isEmpty ?? true) }
-        super.init(defaultValue: DeviceInfo.defaultClientName(), placeholder: "", accessibilityIdentifier: "DeviceNameSetting", persister: DeviceNamePersister(profile: settings.profile), settingIsValid: settingsIsValid)
-
-    }
-
-    override func onConfigureCell(_ cell: UITableViewCell) {
-        super.onConfigureCell(cell)
-        textField.textAlignment = .natural
-    }
-
-}
-
 // TODO: Check if we can remove this entire class, seeing that we don't have Accounts and Sync Modules any more
 class SyncContentSettingsViewController: SettingsTableViewController {
     fileprivate var enginesToSyncOnExit: Set<String> = Set()
@@ -144,12 +111,9 @@ class SyncContentSettingsViewController: SettingsTableViewController {
 
         let enginesSection = SettingSection(title: NSAttributedString(string: Strings.FxASettingsSyncSettings), footerTitle: nil, children: [bookmarks, history, tabs, passwords])
 
-        let deviceName = DeviceNameSetting(settings: self)
-        let deviceNameSection = SettingSection(title: NSAttributedString(string: Strings.FxASettingsDeviceName), footerTitle: nil, children: [deviceName])
-
         let disconnect = DisconnectSetting(settings: self)
         let disconnectSection = SettingSection(title: nil, footerTitle: nil, children: [disconnect])
 
-        return [manageSection, enginesSection, deviceNameSection, disconnectSection]
+        return [manageSection, enginesSection, disconnectSection]
     }
 }
