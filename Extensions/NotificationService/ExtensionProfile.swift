@@ -10,7 +10,6 @@ import Shared
 class ExtensionProfile: BrowserProfile {
     init(localName: String) {
         super.init(localName: localName, clear: false)
-        self.syncManager = ExtensionSyncManager(profile: self)
     }
 }
 
@@ -24,25 +23,4 @@ open class PanelDataObservers {
 // Mock class required by `BrowserProfile`
 open class SearchEngines {
     init(prefs: Any, files: Any) {}
-}
-
-class ExtensionSyncManager: BrowserProfile.BrowserSyncManager {
-    init(profile: ExtensionProfile) {
-        super.init(profile: profile)
-    }
-
-    // We don't want to send ping data at all while we're in the extension.
-    override func canSendUsageData() -> Bool {
-        return false
-    }
-
-    // We should probably only want to sync client commands while we're in the extension.
-    override func syncNamedCollections(why: SyncReason, names: [String]) -> Success {
-        let names = names.filter { extensionSafeNames.contains($0) }
-        return super.syncNamedCollections(why: why, names: names)
-    }
-
-    override func takeActionsOnEngineStateChanges<T: EngineStateChanges>(_ changes: T) -> Deferred<Maybe<T>> {
-        return deferMaybe(changes)
-    }
 }

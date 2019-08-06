@@ -27,32 +27,8 @@ extension FxAPushMessageHandler {
     /// This method then decrypts it according to the content-encoding (aes128gcm or aesgcm)
     /// and then effects changes on the logged in account.
     @discardableResult func handle(userInfo: [AnyHashable: Any]) -> PushMessageResult {
-        guard let subscription = profile.getAccount()?.pushRegistration?.defaultSubscription else {
-            return deferMaybe(PushMessageError.notDecrypted)
-        }
-
-        guard let encoding = userInfo["con"] as? String, // content-encoding
-            let payload = userInfo["body"] as? String else {
-                return handleVerification()
-        }
-        // ver == endpointURL path, chid == channel id, aps == alert text and content_available.
-
-        let plaintext: String?
-        if let cryptoKeyHeader = userInfo["cryptokey"] as? String,  // crypto-key
-            let encryptionHeader = userInfo["enc"] as? String, // encryption
-            encoding == "aesgcm" {
-            plaintext = subscription.aesgcm(payload: payload, encryptionHeader: encryptionHeader, cryptoHeader: cryptoKeyHeader)
-        } else if encoding == "aes128gcm" {
-            plaintext = subscription.aes128gcm(payload: payload)
-        } else {
-            plaintext = nil
-        }
-
-        guard let string = plaintext else {
-            return deferMaybe(PushMessageError.notDecrypted)
-        }
-
-        return handle(plaintext: string)
+        // This is a method stub from when we removed Accounts and Sync modules
+        return Deferred<Maybe<PushMessage>>()
     }
 
     func handle(plaintext: String) -> PushMessageResult {
@@ -106,12 +82,6 @@ extension FxAPushMessageHandler {
     // doesn't tap on the notification), but that's okay because:
     // We'll naturally be syncing shortly after startup.
     func postVerification() -> Success {
-        if let account = profile.getAccount(),
-            let syncManager = profile.syncManager {
-            return account.advance().bind { _ in
-                return syncManager.syncEverything(why: .didLogin)
-            } >>> succeed
-        }
         return succeed()
     }
 }
@@ -119,23 +89,8 @@ extension FxAPushMessageHandler {
 /// An extension to handle each of the messages.
 extension FxAPushMessageHandler {
     func handleCommandReceived(_ data: JSON?) -> PushMessageResult {
-        log.info("[FxA Commands] Push notification received: \(data?.stringify() ?? "nil")")
-
-        guard let index = data?["index"].int,
-            let account = profile.getAccount() else {
-            log.error("[FxA Commands] Push notification JSON is missing required 'index' value")
-            return messageIncomplete(.commandReceived)
-        }
-
-        return account.commandsClient.consumeRemoteCommand(index: index) >>== { items in
-            guard let item = items.first else {
-                log.error("[FxA Commands] Unable to consume remote command for index \(index)")
-                return self.messageIncomplete(.commandReceived)
-            }
-
-            let message = PushMessage.commandReceived(tab: ["title": item.title, "url": item.url])
-            return deferMaybe(message)
-        }
+        // This is a method stub from when we removed Accounts and Sync modules
+        return Deferred<Maybe<PushMessage>>()
     }
 }
 
@@ -151,39 +106,8 @@ extension FxAPushMessageHandler {
 
 extension FxAPushMessageHandler {
     func handleDeviceDisconnected(_ data: JSON?) -> PushMessageResult {
-        guard let deviceId = data?["id"].string else {
-            return messageIncomplete(.deviceDisconnected)
-        }
-
-        if let ourDeviceId = self.getOurDeviceId(), deviceId == ourDeviceId {
-            // We can't disconnect the device from the account until we have
-            // access to the application, so we'll handle this properly in the AppDelegate,
-            // by calling the FxALoginHelper.applicationDidDisonnect(application).
-            profile.prefs.setBool(true, forKey: PendingAccountDisconnectedKey)
-            return deferMaybe(PushMessage.thisDeviceDisconnected)
-        }
-
-        guard let profile = self.profile as? BrowserProfile else {
-            // We can't look up a name in testing, so this is the same as
-            // not knowing about it.
-            return deferMaybe(PushMessage.deviceDisconnected(nil))
-        }
-
-        let clients = profile.remoteClientsAndTabs
-        let getClient = clients.getClient(fxaDeviceId: deviceId)
-
-        return getClient >>== { device in
-            let message = PushMessage.deviceDisconnected(device?.name)
-            if let id = device?.guid {
-                return clients.deleteClient(guid: id) >>== { _ in deferMaybe(message) }
-            }
-
-            return deferMaybe(message)
-        }
-    }
-
-    fileprivate func getOurDeviceId() -> String? {
-        return profile.getAccount()?.deviceRegistration?.id
+        // This is a method stub from when we removed Accounts and Sync modules
+        return Deferred<Maybe<PushMessage>>()
     }
 }
 
@@ -207,14 +131,8 @@ extension FxAPushMessageHandler {
 
 extension FxAPushMessageHandler {
     func handleCollectionChanged(_ data: JSON?) -> PushMessageResult {
-        guard let collections = data?["collections"].arrayObject as? [String] else {
-            print("collections_changed received but incomplete: \(data ?? "nil")")
-            return deferMaybe(PushMessageError.messageIncomplete)
-        }
-        // Possible values: "addons", "bookmarks", "history", "forms", "prefs", "tabs", "passwords", "clients"
-
-        // syncManager will only do a subset; others will be ignored.
-        return profile.syncManager.syncNamedCollections(why: .push, names: collections) >>== { deferMaybe(.collectionChanged(collections: collections)) }
+        // This is a method stub from when we removed Accounts and Sync modules
+        return Deferred<Maybe<PushMessage>>()
     }
 }
 
