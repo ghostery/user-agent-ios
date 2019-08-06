@@ -223,12 +223,6 @@ class IntroViewController: UIViewController {
         LeanPlumClient.shared.track(event: .dismissedOnboarding, withParameters: ["dismissedOnSlide": String(pageControl.currentPage)])
     }
 
-    @objc func login() {
-        // This method stub is a leftover from when we remöved the Account and Sync modules
-        delegate?.introViewControllerDidFinish(self)
-        LeanPlumClient.shared.track(event: .dismissedOnboardingShowLogin, withParameters: ["dismissedOnSlide": String(pageControl.currentPage)])
-    }
-
     @objc func changePage() {
         let swipeCoordinate = CGFloat(pageControl.currentPage) * scrollView.frame.size.width
         scrollView.setContentOffset(CGPoint(x: swipeCoordinate, y: 0), animated: true)
@@ -436,9 +430,9 @@ struct IntroCard: Codable {
     }
 
     static func defaultCards() -> [IntroCard] {
-        let welcome = IntroCard(title: Strings.CardTitleWelcome, text: Strings.CardTextWelcome, imageName: "tour-Welcome")
-        let sync = IntroCard(title: Strings.CardTitleSync, text: Strings.CardTextSync, imageName: "tour-Sync", buttonText: Strings.SignInButtonTitle, buttonSelector: #selector(IntroViewController.login).description)
-        return [welcome, sync]
+        let welcome = IntroCard(title: "Welcome to BigFork", text: Strings.CardTextWelcome, imageName: "tour-Welcome")
+        let cliqzCard = IntroCard(title: "This card is a placeholder", text: "This welcome thing needs at least two cards, and the last one needs to have a large Call to Action button. Hence this card. 🤷‍♀️", imageName: "tour-Sync", buttonText: "Start Browsing", buttonSelector: #selector(IntroViewController.startBrowsing).description)
+        return [welcome, cliqzCard]
     }
 
     /* Codable doesnt allow quick conversion to a dictonary */
