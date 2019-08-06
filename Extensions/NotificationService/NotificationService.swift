@@ -34,7 +34,6 @@ class NotificationService: UNNotificationServiceExtension {
         let queue = profile.queue
         let display = SyncDataDisplay(content: content, contentHandler: contentHandler, tabQueue: queue)
         self.display = display
-        profile.syncDelegate = display
 
         let handler = FxAPushMessageHandler(with: profile)
 
@@ -278,17 +277,6 @@ extension SyncDataDisplay {
         // This is the only place we change messageDelivered. We can check if contentHandler hasn't be called because of
         // our logic (rather than something funny with our environment, or iOS killing us).
         messageDelivered = true
-    }
-}
-
-extension SyncDataDisplay: SyncDelegate {
-    func displaySentTab(for url: URL, title: String, from deviceName: String?) {
-        if url.isWebPage() {
-            sentTabs.append(SentTab(url: url, title: title, deviceName: deviceName))
-
-            let item = ShareItem(url: url.absoluteString, title: title, favicon: nil)
-            _ = tabQueue?.addToQueue(item).value // Force synchronous.
-        }
     }
 }
 
