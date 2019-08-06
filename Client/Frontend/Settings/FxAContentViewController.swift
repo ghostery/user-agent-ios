@@ -43,8 +43,6 @@ class FxAContentViewController: SettingsContentViewController, WKScriptMessageHa
         super.init(backgroundColor: UIColor.Photon.Grey20, title: NSAttributedString(string: "Firefox Accounts"))
 
         self.url = URL(string: "http://example.com")!
-
-        NotificationCenter.default.addObserver(self, selector: #selector(userDidVerify), name: .FirefoxAccountVerified, object: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -92,27 +90,6 @@ class FxAContentViewController: SettingsContentViewController, WKScriptMessageHa
         // Don't allow overscrolling.
         webView.scrollView.bounces = false
         return webView
-    }
-
-    // The user has signed in to a Firefox Account.  We're done!
-    fileprivate func onLogin(_ data: JSON) {
-
-
-        let app = UIApplication.shared
-        let helper = FxALoginHelper.sharedInstance
-        helper.delegate = self
-        helper.application(app, didReceiveAccountJSON: data)
-
-        if profile.hasAccount() {
-            LeanPlumClient.shared.set(attributes: [LPAttributeKey.signedInSync: true])
-        }
-
-        LeanPlumClient.shared.track(event: .signsInFxa)
-    }
-
-    @objc fileprivate func userDidVerify(_ notification: Notification) {
-        // This method stub is a leftover from when we removed the Account and Sync modules
-        return
     }
 
     // The content server page is ready to be shown.
