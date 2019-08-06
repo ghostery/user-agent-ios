@@ -111,18 +111,8 @@ class FxAContentViewController: SettingsContentViewController, WKScriptMessageHa
     }
 
     @objc fileprivate func userDidVerify(_ notification: Notification) {
-        guard let account = profile.getAccount() else {
-            return
-        }
-        // We can't verify against the actionNeeded of the account,
-        // because of potential race conditions.
-        // However, we restrict visibility of this method, and make sure
-        // we only Notify via the FxALoginStateMachine.
-        let flags = FxALoginFlags(pushEnabled: false, verified: true)
-        LeanPlumClient.shared.set(attributes: [LPAttributeKey.signedInSync: true])
-        DispatchQueue.main.async {
-            self.delegate?.contentViewControllerDidSignIn(self, withFlags: flags)
-        }
+        // This method stub is a leftover from when we removed the Account and Sync modules
+        return
     }
 
     // The content server page is ready to be shown.
@@ -134,20 +124,7 @@ class FxAContentViewController: SettingsContentViewController, WKScriptMessageHa
 
     // Dispatch webkit messages originating from our child webview.
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        // Make sure we're communicating with a trusted page. That is, ensure the origin of the
-        // message is the same as the origin of the URL we initially loaded in this web view.
-        // Note that this exploit wouldn't be possible if we were using WebChannels; see
-        // https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/WebChannel.jsm
-        let origin = message.frameInfo.securityOrigin
-        guard origin.`protocol` == url.scheme && origin.host == url.host && origin.port == (url.port ?? 0) else {
-            print("Ignoring message - \(origin) does not match expected origin: \(url.origin ?? "nil")")
-            return
-        }
-
-        if message.name == "accountsCommandHandler" {
-            let body = JSON(message.body)
-            let detail = body["detail"]
-        }
+        // This method stub is a leftover from when we removed the Account and Sync modules
     }
 }
 

@@ -276,6 +276,7 @@ public class RustPlaces {
     }
 
     public func syncBookmarks(unlockInfo: SyncUnlockInfo) -> Success {
+        // TODO: Check if this method is needed since we removed Sync and Accounts
         let deferred = Success()
 
         writerQueue.async {
@@ -285,7 +286,7 @@ public class RustPlaces {
             }
 
             do {
-                try self.api?.syncBookmarks(unlockInfo: unlockInfo)
+                try _ = self.api?.syncBookmarks(unlockInfo: unlockInfo)
                 deferred.fill(Maybe(success: ()))
             } catch let err as NSError {
                 if let placesError = err as? PlacesError {

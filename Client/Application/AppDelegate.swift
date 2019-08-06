@@ -185,7 +185,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         if let profile = self.profile {
             return profile
         }
-        let p = BrowserProfile(localName: "profile", syncDelegate: nil)
+        let p = BrowserProfile(localName: "profile")
         self.profile = p
         return p
     }
