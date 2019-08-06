@@ -126,22 +126,11 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // Add a refresh control if the user is logged in and the control was not added before. If the user is not
-        // logged in, remove any existing control.
-        if profile.hasSyncableAccount() && refreshControl == nil {
-            addRefreshControl()
-        } else if !profile.hasSyncableAccount() && refreshControl != nil {
+        // This is a leftover from when we remoeved the Account and Sync modules
+        if refreshControl != nil {
             removeRefreshControl()
         }
-
-        if profile.hasSyncableAccount() {
-            syncDetailText = " "
-            updateSyncedDevicesCount().uponQueue(.main) { result in
-                self.updateNumberOfSyncedDevices(self.currentSyncedDevicesCount)
-            }
-        } else {
-            syncDetailText = ""
-        }
+        syncDetailText = ""
     }
 
     // MARK: - Refreshing TableView
@@ -163,9 +152,7 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         refreshControl?.endRefreshing()
 
         // Remove the refresh control if the user has logged out in the meantime
-        if !profile.hasSyncableAccount() {
-            removeRefreshControl()
-        }
+        removeRefreshControl()
     }
 
     // MARK: - Loading data
@@ -213,20 +200,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         }
     }
 
-    func resyncHistory() {
-        profile.syncManager.syncHistory().uponQueue(.main) { syncResult in
-            self.updateSyncedDevicesCount().uponQueue(.main) { result in
-                self.endRefreshing()
-
-                self.updateNumberOfSyncedDevices(self.currentSyncedDevicesCount)
-
-                if syncResult.isSuccess {
-                    self.reloadData()
-                }
-            }
-        }
-    }
-
     func updateNumberOfSyncedDevices(_ count: Int) {
         if count > 0 {
             syncDetailText = String.localizedStringWithFormat(Strings.SyncedTabsTableViewCellDescription, count)
@@ -238,15 +211,9 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
     }
 
     func updateSyncedDevicesCount() -> Success {
-        guard profile.hasSyncableAccount() else {
-            currentSyncedDevicesCount = 0
-            return succeed()
-        }
-
-        return chainDeferred(profile.getCachedClientsAndTabs()) { tabsAndClients in
-            self.currentSyncedDevicesCount = tabsAndClients.count
-            return succeed()
-        }
+        // This is a stub from when we removed Accounts and Sync modules
+        currentSyncedDevicesCount = 0
+        return succeed()
     }
 
     // MARK: - Actions
@@ -414,9 +381,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         case .FirefoxAccountChanged, .PrivateDataClearedHistory:
             reloadData()
 
-            if profile.hasSyncableAccount() {
-                resyncHistory()
-            }
             break
         case .DynamicFontChanged:
             reloadData()
@@ -425,7 +389,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
                 emptyStateOverlayView.removeFromSuperview()
             }
             emptyStateOverlayView = createEmptyStateOverlayView()
-            resyncHistory()
             break
         case .DatabaseWasReopened:
             if let dbName = notification.object as? String, dbName == "browser.db" {
@@ -450,7 +413,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
 
     func onRefreshPulled() {
         refreshControl?.beginRefreshing()
-        resyncHistory()
     }
 
     // MARK: - UITableViewDataSource

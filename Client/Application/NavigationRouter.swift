@@ -189,11 +189,10 @@ enum NavigationPath {
             viewController.profile = profile
             viewController.tabManager = tabManager
             controller.pushViewController(viewController, animated: true)
-        case .fxa:
-            let viewController = bvc.getSignInViewController()
-            controller.pushViewController(viewController, animated: true)
         case .theme:
             controller.pushViewController(ThemeSettingsController(), animated: true)
+        default:
+            break
         }
     }
 }

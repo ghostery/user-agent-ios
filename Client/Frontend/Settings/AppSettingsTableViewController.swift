@@ -4,7 +4,6 @@
 
 import UIKit
 import Shared
-import Account
 
 /// App Settings Screen (triggered by tapping the 'Gear' in the Tab Tray Controller)
 class AppSettingsTableViewController: SettingsTableViewController {
@@ -19,10 +18,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
         navigationItem.rightBarButtonItem?.accessibilityIdentifier = "AppSettingsTableViewController.navigationItem.leftBarButtonItem"
 
         tableView.accessibilityIdentifier = "AppSettingsTableViewController.tableView"
-
-        // Refresh the user's FxA profile upon viewing settings. This will update their avatar,
-        // display name, etc.
-        profile.getAccount()?.updateProfile()
 
     }
 

@@ -10,7 +10,6 @@ import Shared
 import Storage
 import SnapKit
 import XCGLogger
-import Account
 import MobileCoreServices
 import SDWebImage
 import SwiftyJSON
@@ -1937,26 +1936,9 @@ extension BrowserViewController: IntroViewControllerDelegate {
             }
         }
     }
-
-    func getSignInViewController(_ fxaOptions: FxALaunchParams? = nil) -> UIViewController {
-        // Show the settings page if we have already signed in. If we haven't then show the signin page
-        guard profile.hasAccount(), let status = profile.getAccount()?.actionNeeded, status == .none else {
-            let signInVC = FxAContentViewController(profile: profile, fxaOptions: fxaOptions)
-            signInVC.delegate = self
-            return signInVC
-        }
-
-        let settingsTableViewController = SyncContentSettingsViewController()
-        settingsTableViewController.profile = profile
-        return settingsTableViewController
-    }
-
+    
     func presentSignInViewController(_ fxaOptions: FxALaunchParams? = nil) {
-        let vcToPresent = getSignInViewController(fxaOptions)
-        vcToPresent.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSignInViewController))
-        let themedNavigationController = ThemedNavigationController(rootViewController: vcToPresent)
-        themedNavigationController.navigationBar.isTranslucent = false
-        self.present(themedNavigationController, animated: true, completion: nil)
+        // This method stub is a leftover from when we remoeved the Account and Sync modules
     }
 
     @objc func dismissSignInViewController() {
@@ -2455,9 +2437,6 @@ extension BrowserViewController: DevicePickerViewControllerDelegate, Instruction
             alert.addAction(UIAlertAction(title: Strings.SendToErrorOKButton, style: .default) { _ in self.popToBVC()})
             present(alert, animated: true, completion: nil)
             return
-        }
-        profile.sendItem(shareItem, toDevices: devices).uponQueue(.main) { _ in
-            self.popToBVC()
         }
     }
 }

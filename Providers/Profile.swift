@@ -85,6 +85,9 @@ protocol Profile: AnyObject {
 
     func cleanupHistoryIfNeeded()
 
+    func hasAccount() -> Bool
+    func getAccount() -> Any?
+
     @discardableResult func storeTabs(_ tabs: [RemoteTab]) -> Deferred<Maybe<Int>>
 }
 
@@ -426,5 +429,15 @@ open class BrowserProfile: Profile {
 
     class NoAccountError: MaybeErrorType {
         var description = "No account."
+    }
+
+    func hasAccount() -> Bool {
+        // This is a stub from when we removed Acount and Sync Modules
+        return false
+    }
+
+    func getAccount() -> Any? {
+        // This is a stub from when we removed Acount and Sync Modules
+        return nil
     }
 }

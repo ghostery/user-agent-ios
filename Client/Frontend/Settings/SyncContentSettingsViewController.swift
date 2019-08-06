@@ -4,7 +4,6 @@
 
 import Foundation
 import Shared
-import Sync
 
 class ManageSetting: Setting {
     let profile: Profile
@@ -21,14 +20,6 @@ class ManageSetting: Setting {
 
     override func onClick(_ navigationController: UINavigationController?) {
         let viewController = FxAContentViewController(profile: profile)
-
-        if let account = profile.getAccount() {
-            var cs = URLComponents(url: account.configuration.settingsURL, resolvingAgainstBaseURL: false)
-            cs?.queryItems?.append(URLQueryItem(name: "email", value: account.email))
-            if let url = cs?.url {
-                viewController.url = url
-            }
-        }
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
@@ -60,7 +51,6 @@ class DisconnectSetting: Setting {
         })
         alertController.addAction(
             UIAlertAction(title: Strings.SettingsDisconnectDestructiveAction, style: .destructive) { (action) in
-                FxALoginHelper.sharedInstance.applicationDidDisconnect(UIApplication.shared)
                 LeanPlumClient.shared.set(attributes: [LPAttributeKey.signedInSync: self.profile.hasAccount()])
 
                 // If there is more than one view controller in the navigation controller, we can pop.
@@ -83,17 +73,13 @@ class DeviceNamePersister: SettingValuePersister {
     }
 
     func readPersistedValue() -> String? {
-        return self.profile.getAccount()?.deviceName
+        // This method stub is a leftover from when we removed the Account and Sync modules
+        return nil
     }
 
     func writePersistedValue(value: String?) {
-        guard let newName = value,
-              let account = self.profile.getAccount() else {
-            return
-        }
-        account.updateDeviceName(newName)
-        self.profile.flushAccount()
-        _ = self.profile.syncManager.syncNamedCollections(why: .clientNameChanged, names: ["clients"])
+        // This method stub is a leftover from when we removed the Account and Sync modules
+        return
     }
 }
 
@@ -112,6 +98,7 @@ class DeviceNameSetting: StringSetting {
 
 }
 
+// TODO: Check if we can remove this entire class, seeing that we don't have Accounts and Sync Modules any more
 class SyncContentSettingsViewController: SettingsTableViewController {
     fileprivate var enginesToSyncOnExit: Set<String> = Set()
 
@@ -128,7 +115,6 @@ class SyncContentSettingsViewController: SettingsTableViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         if !enginesToSyncOnExit.isEmpty {
-            _ = self.profile.syncManager.syncNamedCollections(why: SyncReason.engineEnabled, names: Array(enginesToSyncOnExit))
             enginesToSyncOnExit.removeAll()
         }
         super.viewWillDisappear(animated)

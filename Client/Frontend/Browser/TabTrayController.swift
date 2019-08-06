@@ -908,9 +908,7 @@ fileprivate class EmptyPrivateTabsView: UIView {
 
 extension TabTrayController: DevicePickerViewControllerDelegate {
     func devicePickerViewController(_ devicePickerViewController: DevicePickerViewController, didPickDevices devices: [RemoteDevice]) {
-        if let item = devicePickerViewController.shareItem {
-            _ = self.profile.sendItem(item, toDevices: devices)
-        }
+        // This method stub is a leftover from when we remoeved the Account and Sync modules
         devicePickerViewController.dismiss(animated: true, completion: nil)
     }
 

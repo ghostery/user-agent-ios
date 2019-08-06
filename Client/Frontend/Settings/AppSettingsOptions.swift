@@ -4,7 +4,6 @@
 
 import Foundation
 import Shared
-import Account
 import SwiftKeychainWrapper
 import LocalAuthentication
 
@@ -113,57 +112,25 @@ class SyncNowSetting: WithAccountSetting {
     override var accessoryType: UITableViewCell.AccessoryType { return .none }
 
     override var image: UIImage? {
-        guard let syncStatus = profile.syncManager.syncDisplayState else {
-            return syncIcon
-        }
-
-        switch syncStatus {
-        case .inProgress:
-            return syncBlueIcon
-        default:
-            return syncIcon
-        }
+        // This method stub is a leftover from when we removed the Account and Sync modules
+        return syncIcon
     }
 
     override var title: NSAttributedString? {
-        guard let syncStatus = profile.syncManager.syncDisplayState else {
-            return syncNowTitle
-        }
-
-        switch syncStatus {
-        case .bad(let message):
-            guard let message = message else { return syncNowTitle }
-            return NSAttributedString(string: message, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.errorText, NSAttributedString.Key.font: DynamicFontHelper.defaultHelper.DefaultStandardFont])
-        case .warning(let message):
-            return  NSAttributedString(string: message, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.warningText, NSAttributedString.Key.font: DynamicFontHelper.defaultHelper.DefaultStandardFont])
-        case .inProgress:
-            return syncingTitle
-        default:
-            return syncNowTitle
-        }
+        // This method stub is a leftover from when we removed the Account and Sync modules
+        return syncNowTitle
     }
 
     override var status: NSAttributedString? {
-        guard let timestamp = profile.syncManager.lastSyncFinishTime else {
-            return nil
-        }
-
-        let formattedLabel = timestampFormatter.string(from: Date.fromTimestamp(timestamp))
-        let attributedString = NSMutableAttributedString(string: formattedLabel)
-        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)]
-        let range = NSRange(location: 0, length: attributedString.length)
-        attributedString.setAttributes(attributes, range: range)
-        return attributedString
+        // This method stub is a leftover from when we removed the Account and Sync modules
+        return nil
     }
 
     override var hidden: Bool { return !enabled }
 
     override var enabled: Bool {
-        if !DeviceInfo.hasConnectivity() {
-            return false
-        }
-
-        return profile.hasSyncableAccount()
+        // This method stub is a leftover from when we removed the Account and Sync modules
+        return false
     }
 
     fileprivate lazy var troubleshootButton: UIButton = {
@@ -200,36 +167,9 @@ class SyncNowSetting: WithAccountSetting {
         cell.textLabel?.attributedText = title
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .byWordWrapping
-        if let syncStatus = profile.syncManager.syncDisplayState {
-            switch syncStatus {
-            case .bad(let message):
-                if let _ = message {
-                    // add the red warning symbol
-                    // add a link to the MANA page
-                    cell.detailTextLabel?.attributedText = nil
-                    cell.accessoryView = troubleshootButton
-                    addIcon(errorIcon, toCell: cell)
-                } else {
-                    cell.detailTextLabel?.attributedText = status
-                    cell.accessoryView = nil
-                }
-            case .warning(_):
-                // add the amber warning symbol
-                // add a link to the MANA page
-                cell.detailTextLabel?.attributedText = nil
-                cell.accessoryView = troubleshootButton
-                addIcon(warningIcon, toCell: cell)
-            case .good:
-                cell.detailTextLabel?.attributedText = status
-                fallthrough
-            default:
-                cell.accessoryView = nil
-            }
-        } else {
-            cell.accessoryView = nil
-        }
+        cell.accessoryView = nil
         cell.accessoryType = accessoryType
-        cell.isUserInteractionEnabled = !profile.syncManager.isSyncing && DeviceInfo.hasConnectivity()
+        cell.isUserInteractionEnabled = false
 
         // Animation that loops continously until stopped
         continuousRotateAnimation.fromValue = 0.0
@@ -246,15 +186,6 @@ class SyncNowSetting: WithAccountSetting {
         cell.imageView?.subviews.forEach({ $0.removeFromSuperview() })
         cell.imageView?.image = syncIconWrapper
         cell.imageView?.addSubview(imageView)
-
-        if let syncStatus = profile.syncManager.syncDisplayState {
-            switch syncStatus {
-            case .inProgress:
-                self.startRotateSyncIcon()
-            default:
-                self.stopRotateSyncIcon()
-            }
-        }
     }
 
     fileprivate func addIcon(_ image: UIImageView, toCell cell: UITableViewCell) {
@@ -278,7 +209,6 @@ class SyncNowSetting: WithAccountSetting {
         }
 
         NotificationCenter.default.post(name: .UserInitiatedSyncManually, object: nil)
-        profile.syncManager.syncEverything(why: .syncNow)
     }
 }
 
@@ -296,75 +226,19 @@ class AccountStatusSetting: WithAccountSetting {
     }
 
     override var image: UIImage? {
-        if let image = profile.getAccount()?.fxaProfile?.avatar.image {
-            return image.createScaled(CGSize(width: 30, height: 30))
-        }
-
         let image = UIImage(named: "placeholder-avatar")
         return image?.createScaled(CGSize(width: 30, height: 30))
     }
 
     override var accessoryType: UITableViewCell.AccessoryType {
-        if let account = profile.getAccount() {
-            switch account.actionNeeded {
-            case .needsVerification:
-                // We link to the resend verification email page.
-                return .disclosureIndicator
-            case .needsPassword:
-                 // We link to the re-enter password page.
-                return .disclosureIndicator
-            case .none:
-                // We link to FxA web /settings.
-                return .disclosureIndicator
-            case .needsUpgrade:
-                // In future, we'll want to link to an upgrade page.
-                return .none
-            }
-        }
         return .disclosureIndicator
     }
 
     override var title: NSAttributedString? {
-        if let account = profile.getAccount() {
-
-            if let displayName = account.fxaProfile?.displayName {
-                return NSAttributedString(string: displayName, attributes: [NSAttributedString.Key.font: DynamicFontHelper.defaultHelper.DefaultStandardFontBold, NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.syncText])
-            }
-
-            if let email = account.fxaProfile?.email {
-                return NSAttributedString(string: email, attributes: [NSAttributedString.Key.font: DynamicFontHelper.defaultHelper.DefaultStandardFontBold, NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.syncText])
-            }
-
-            return NSAttributedString(string: account.email, attributes: [NSAttributedString.Key.font: DynamicFontHelper.defaultHelper.DefaultStandardFontBold, NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.syncText])
-        }
         return nil
     }
 
     override var status: NSAttributedString? {
-        if let account = profile.getAccount() {
-            var string: String
-
-            switch account.actionNeeded {
-            case .none:
-                return nil
-            case .needsVerification:
-                string = Strings.FxAAccountVerifyEmail
-                break
-            case .needsPassword:
-                string = Strings.FxAAccountVerifyPassword
-                break
-            case .needsUpgrade:
-                string = Strings.FxAAccountUpgradeFirefox
-                break
-            }
-
-            let orange = UIColor.theme.tableView.warningText
-            let range = NSRange(location: 0, length: string.count)
-            let attrs = [NSAttributedString.Key.foregroundColor: orange]
-            let res = NSMutableAttributedString(string: string)
-            res.setAttributes(attrs, range: range)
-            return res
-        }
         return nil
     }
 
@@ -372,31 +246,6 @@ class AccountStatusSetting: WithAccountSetting {
         let fxaParams = FxALaunchParams(query: ["entrypoint": "preferences"])
         let viewController = FxAContentViewController(profile: profile, fxaOptions: fxaParams)
         viewController.delegate = self
-
-        if let account = profile.getAccount() {
-            switch account.actionNeeded {
-            case .none:
-                let viewController = SyncContentSettingsViewController()
-                viewController.profile = profile
-                navigationController?.pushViewController(viewController, animated: true)
-                return
-            case .needsVerification:
-                var cs = URLComponents(url: account.configuration.settingsURL, resolvingAgainstBaseURL: false)
-                cs?.queryItems?.append(URLQueryItem(name: "email", value: account.email))
-                if let url = cs?.url {
-                    viewController.url = url
-                }
-            case .needsPassword:
-                var cs = URLComponents(url: account.configuration.forceAuthURL, resolvingAgainstBaseURL: false)
-                cs?.queryItems?.append(URLQueryItem(name: "email", value: account.email))
-                if let url = cs?.url {
-                    viewController.url = url
-                }
-            case .needsUpgrade:
-                // In future, we'll want to link to an upgrade page.
-                return
-            }
-        }
         navigationController?.pushViewController(viewController, animated: true)
     }
 
@@ -418,9 +267,6 @@ class RequirePasswordDebugSetting: WithAccountSetting {
         if !ShowDebugSettings {
             return true
         }
-        if let account = profile.getAccount(), account.actionNeeded != FxAActionNeeded.needsPassword {
-            return false
-        }
         return true
     }
 
@@ -429,7 +275,6 @@ class RequirePasswordDebugSetting: WithAccountSetting {
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
-        profile.getAccount()?.makeSeparated()
         settings.tableView.reloadData()
     }
 }
@@ -440,9 +285,6 @@ class RequireUpgradeDebugSetting: WithAccountSetting {
         if !ShowDebugSettings {
             return true
         }
-        if let account = profile.getAccount(), account.actionNeeded != FxAActionNeeded.needsUpgrade {
-            return false
-        }
         return true
     }
 
@@ -451,7 +293,6 @@ class RequireUpgradeDebugSetting: WithAccountSetting {
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
-        profile.getAccount()?.makeDoghouse()
         settings.tableView.reloadData()
     }
 }
@@ -473,7 +314,6 @@ class ForgetSyncAuthStateDebugSetting: WithAccountSetting {
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
-        profile.getAccount()?.syncAuthState.invalidate()
         settings.tableView.reloadData()
     }
 }
@@ -979,7 +819,8 @@ class StageSyncServiceDebugSetting: WithoutAccountSetting {
     }
 
     override var status: NSAttributedString? {
-        let configurationURL = profile.accountConfiguration.authEndpointURL
+        // This method stub is a leftover from when we removed the Account and Sync modules
+        let configurationURL = URL(string: "http://example.com")!
         return NSAttributedString(string: configurationURL.absoluteString, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight])
     }
 

@@ -2,7 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import Account
 import Shared
 import UIKit
 
@@ -615,16 +614,7 @@ class SettingsTableViewController: ThemedTableViewController {
     }
 
     @objc fileprivate func refresh() {
-        // Through-out, be aware that modifying the control while a refresh is in progress is /not/ supported and will likely crash the app.
-        if let account = self.profile.getAccount() {
-            account.advance().upon { state in
-                DispatchQueue.main.async { () -> Void in
-                    self.tableView.reloadData()
-                }
-            }
-        } else {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
 
     @objc func firefoxAccountDidChange() {
