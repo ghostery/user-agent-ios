@@ -420,12 +420,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         if let url = userActivity.webpageURL {
             let query = url.getQuery()
 
-            // Check for fxa sign-in code and launch the login screen directly
-            if query["signin"] != nil {
-                browserViewController.launchFxAFromDeeplinkURL(url)
-                return true
-            }
-
             // Per Adjust documenation, https://docs.adjust.com/en/universal-links/#running-campaigns-through-universal-links,
             // it is recommended that links contain the `deep_link` query parameter. This link will also
             // be url encoded.

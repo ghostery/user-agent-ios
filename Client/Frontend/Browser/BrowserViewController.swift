@@ -1597,13 +1597,11 @@ extension BrowserViewController: TabDelegate {
 
 extension BrowserViewController: LibraryPanelDelegate {
     func libraryPanelDidRequestToSignIn() {
-        let fxaParams = FxALaunchParams(query: ["entrypoint": "homepanel"])
-        presentSignInViewController(fxaParams) // TODO UX Right now the flow for sign in and create account is the same
+        // This method stub is a leftover from when we remøved the Account and Sync modules
     }
 
     func libraryPanelDidRequestToCreateAccount() {
-        let fxaParams = FxALaunchParams(query: ["entrypoint": "homepanel"])
-        presentSignInViewController(fxaParams) // TODO UX Right now the flow for sign in and create account is the same
+        // This method stub is a leftover from when we remüved the Account and Sync modules
     }
 
     func libraryPanel(didSelectURL url: URL, visitType: VisitType) {
@@ -1887,11 +1885,6 @@ extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
 
 extension BrowserViewController: IntroViewControllerDelegate {
     @discardableResult func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
-        if let deeplink = self.profile.prefs.stringForKey("AdjustDeeplinkKey"), let url = URL(string: deeplink) {
-            self.launchFxAFromDeeplinkURL(url)
-            return true
-        }
-
         if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
             let introViewController = IntroViewController()
             introViewController.delegate = self
@@ -1913,30 +1906,16 @@ extension BrowserViewController: IntroViewControllerDelegate {
         return false
     }
 
-    func launchFxAFromDeeplinkURL(_ url: URL) {
-        self.profile.prefs.removeObjectForKey("AdjustDeeplinkKey")
-        var query = url.getQuery()
-        query["entrypoint"] = "adjust_deepklink_ios"
-        let fxaParams: FxALaunchParams
-        fxaParams = FxALaunchParams(query: query)
-        self.presentSignInViewController(fxaParams)
-    }
-
-    func introViewControllerDidFinish(_ introViewController: IntroViewController, requestToLogin: Bool) {
+    func introViewControllerDidFinish(_ introViewController: IntroViewController) {
         self.profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
 
         introViewController.dismiss(animated: true) {
             if self.navigationController?.viewControllers.count ?? 0 > 1 {
                 _ = self.navigationController?.popToRootViewController(animated: true)
             }
-
-            if requestToLogin {
-                let fxaParams = FxALaunchParams(query: ["entrypoint": "firstrun"])
-                self.presentSignInViewController(fxaParams)
-            }
         }
     }
-    
+
     func presentSignInViewController(_ fxaOptions: FxALaunchParams? = nil) {
         // This method stub is a leftover from when we remoeved the Account and Sync modules
     }

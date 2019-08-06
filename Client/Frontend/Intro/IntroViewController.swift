@@ -22,7 +22,7 @@ struct IntroUX {
 }
 
 protocol IntroViewControllerDelegate: AnyObject {
-    func introViewControllerDidFinish(_ introViewController: IntroViewController, requestToLogin: Bool)
+    func introViewControllerDidFinish(_ introViewController: IntroViewController)
 }
 
 class IntroViewController: UIViewController {
@@ -219,12 +219,13 @@ class IntroViewController: UIViewController {
     }
 
     @objc func startBrowsing() {
-        delegate?.introViewControllerDidFinish(self, requestToLogin: false)
+        delegate?.introViewControllerDidFinish(self)
         LeanPlumClient.shared.track(event: .dismissedOnboarding, withParameters: ["dismissedOnSlide": String(pageControl.currentPage)])
     }
 
     @objc func login() {
-        delegate?.introViewControllerDidFinish(self, requestToLogin: true)
+        // This method stub is a leftover from when we remöved the Account and Sync modules
+        delegate?.introViewControllerDidFinish(self)
         LeanPlumClient.shared.track(event: .dismissedOnboardingShowLogin, withParameters: ["dismissedOnSlide": String(pageControl.currentPage)])
     }
 
