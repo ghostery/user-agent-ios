@@ -16,8 +16,6 @@ class NotificationService: UNNotificationServiceExtension {
     // AppDelegate.application(_:didReceiveRemoteNotification:completionHandler:)
     // Once the notification is tapped, then the same userInfo is passed to the same method in the AppDelegate.
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
-        let userInfo = request.content.userInfo
-
         guard let content = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
             return self.didFinish(PushMessage.accountVerified)
         }
@@ -34,12 +32,6 @@ class NotificationService: UNNotificationServiceExtension {
         let queue = profile.queue
         let display = SyncDataDisplay(content: content, contentHandler: contentHandler, tabQueue: queue)
         self.display = display
-
-        let handler = FxAPushMessageHandler(with: profile)
-
-        handler.handle(userInfo: userInfo).upon { res in
-            self.didFinish(res.successValue, with: res.failureValue as? PushMessageError)
-        }
     }
 
     func didFinish(_ what: PushMessage? = nil, with error: PushMessageError? = nil) {

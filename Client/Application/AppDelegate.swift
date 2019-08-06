@@ -533,7 +533,7 @@ extension AppDelegate {
         // Either way, we should zero the badge number.
         application.applicationIconBadgeNumber = 0
 
-        guard let profile = self.profile else {
+        guard self.profile != nil else {
             return completionHandler(.noData)
         }
 
@@ -559,28 +559,6 @@ extension AppDelegate {
 
                 return completionHandler(.newData)
             }
-        }
-
-        // By now, we've dealt with any sent tab notifications.
-        //
-        // The only thing left to do now is to perform actions that can only be performed
-        // while the app is foregrounded.
-        //
-        // Use the push message handler to re-parse the message,
-        // this time with a BrowserProfile and processing the return
-        // differently than in NotificationService.
-        let handler = FxAPushMessageHandler(with: profile)
-        handler.handle(userInfo: userInfo).upon { res in
-            if let message = res.successValue {
-                switch message {
-                case .accountVerified:
-                    _ = handler.postVerification()
-                default:
-                    break
-                }
-            }
-
-            completionHandler(res.isSuccess ? .newData : .failed)
         }
     }
 
