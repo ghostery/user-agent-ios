@@ -3,7 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import Shared
-import Sync
 
 // This is a cut down version of the Profile.
 // This will only ever be used in the NotificationService extension.
