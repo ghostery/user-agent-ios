@@ -1,5 +1,4 @@
 github "DaveWoodCom/XCGLogger" "7.0.0"
-github "Leanplum/Leanplum-iOS-SDK" "2.4.2"
 github "SnapKit/SnapKit" "5.0.0"
 github "SwiftyJSON/SwiftyJSON" "5.0.0"
 github "adjust/ios_sdk" "v4.17.2"
