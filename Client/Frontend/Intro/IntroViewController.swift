@@ -84,7 +84,6 @@ class IntroViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        syncViaLP()
 
         assert(cards.count > 1, "Intro is empty. At least 2 cards are required")
         view.backgroundColor = UIColor.Photon.White100
@@ -121,45 +120,6 @@ class IntroViewController: UIViewController {
 
         createSlides()
         pageControl.addTarget(self, action: #selector(changePage), for: .valueChanged)
-    }
-
-    func syncViaLP() {
-        let startTime = Date.now()
-        LeanPlumClient.shared.introScreenVars?.onValueChanged({ [weak self] in
-            guard let newIntro = LeanPlumClient.shared.introScreenVars?.object(forKey: nil) as? [[String: Any]] else {
-                return
-            }
-            let decoder = JSONDecoder()
-            let newCards = newIntro.compactMap { (obj) -> IntroCard? in
-                guard let object = try? JSONSerialization.data(withJSONObject: obj, options: []) else {
-                    return nil
-                }
-                let card = try? decoder.decode(IntroCard.self, from: object)
-                // Make sure the selector actually goes somewhere. Otherwise dont show that slide
-                if let selectorString = card?.buttonSelector, let wself = self {
-                    return wself.responds(to: NSSelectorFromString(selectorString)) ? card : nil
-                } else {
-                    return card
-                }
-            }
-
-            guard newCards != IntroCard.defaultCards(), newCards.count > 1 else {
-                return
-            }
-
-            // We need to still be on the first page otherwise the content will change underneath the user's finger
-            // We also need to let LP know this happened so we can track when a A/B test was not run
-            guard self?.pageControl.currentPage == 0 else {
-                let totalTime = Date.now() - startTime
-                LeanPlumClient.shared.track(event: .onboardingTestLoadedTooSlow, withParameters: ["Total time": "\(totalTime) ms"])
-                return
-            }
-
-            self?.cards = newCards
-            self?.createSlides()
-            self?.viewDidLayoutSubviews()
-
-        })
     }
 
     override func viewDidLayoutSubviews() {
@@ -220,7 +180,6 @@ class IntroViewController: UIViewController {
 
     @objc func startBrowsing() {
         delegate?.introViewControllerDidFinish(self)
-        LeanPlumClient.shared.track(event: .dismissedOnboarding, withParameters: ["dismissedOnSlide": String(pageControl.currentPage)])
     }
 
     @objc func changePage() {

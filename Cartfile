@@ -11,4 +11,3 @@ github "SwiftyJSON/SwiftyJSON"              ~> 5.0
 github "google/EarlGrey"                    ~> 1.15
 github "mozilla-mobile/telemetry-ios"      ~> 1.1
 github "mozilla-mobile/MappaMundi"          "master"
-github "Leanplum/Leanplum-iOS-SDK"          ~> 2.4
