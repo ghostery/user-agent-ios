@@ -337,7 +337,6 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
             navigationController?.pushViewController(nextController, animated: true)
         case let bookmarkItem as BookmarkItem:
             libraryPanelDelegate?.libraryPanel(didSelectURLString: bookmarkItem.url, visitType: .bookmark)
-            LeanPlumClient.shared.track(event: .openedBookmark)
             UnifiedTelemetry.recordEvent(category: .action, method: .open, object: .bookmark, value: .bookmarksPanel)
         default:
             return // Likely a separator was selected so do nothing.

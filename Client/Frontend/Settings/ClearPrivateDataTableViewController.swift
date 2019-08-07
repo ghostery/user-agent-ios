@@ -147,8 +147,6 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
                     .uponQueue(.main) { result in
                         assert(result.isSuccess, "Private data cleared successfully")
 
-                        LeanPlumClient.shared.track(event: .clearPrivateData)
-
                         self.profile.prefs.setObject(self.toggles, forKey: TogglesPrefKey)
 
                         // Disable the Clear Private Data button after it's clicked.

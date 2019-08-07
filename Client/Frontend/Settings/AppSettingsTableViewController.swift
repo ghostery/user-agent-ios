@@ -25,14 +25,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         var settings = [SettingSection]()
 
         let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
-        let accountDebugSettings = [
-            // Debug settings:
-            RequirePasswordDebugSetting(settings: self),
-            RequireUpgradeDebugSetting(settings: self),
-            ForgetSyncAuthStateDebugSetting(settings: self),
-            StageSyncServiceDebugSetting(settings: self),
-        ]
-
+        
         let prefs = profile.prefs
         var generalSettings: [Setting] = [
             SearchSetting(settings: self),

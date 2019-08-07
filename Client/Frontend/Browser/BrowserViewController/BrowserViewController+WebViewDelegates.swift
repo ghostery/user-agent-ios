@@ -257,8 +257,6 @@ extension BrowserViewController: WKNavigationDelegate {
                 } else {
                     UIApplication.shared.open(url, options: [:])
                 }
-
-                LeanPlumClient.shared.track(event: .openedMailtoLink)
             }
 
             decisionHandler(.cancel)
