@@ -233,74 +233,9 @@ class DevicePickerViewController: UITableViewController {
         }
     }
 
-    fileprivate func reloadClients() {
-        guard let profile = self.ensureOpenProfile() as? BrowserProfile, let account = profile.getAccount() else { return }
-        self.loadState = .LoadingFromServer
+    fileprivate func reloadClients() {}
 
-        account.updateFxADevices(remoteDevices: profile.remoteClientsAndTabs) >>== {
-            profile.remoteClientsAndTabs.getRemoteDevices() >>== { devices in
-                profile.getClients().uponQueue(.main) { result in
-                    guard let clients = result.successValue else { return }
-                    withExtendedLifetime(profile) {
-                        self.loadState = .Loaded
-
-                        // If we are running from an app extension then make sure we shut down the profile as soon as we are
-                        // done with it.
-                        if self.profileNeedsShutdown {
-                            profile._shutdown()
-                        }
-
-                        self.loadState = .Loaded
-
-                        self.update(devices: devices, clients: clients, endRefreshing: true)
-                    }
-                }
-            }
-        }
-    }
-
-    fileprivate func update(devices: [RemoteDevice], clients: [RemoteClient], endRefreshing: Bool) {
-        assert(Thread.isMainThread)
-        guard let profile = self.ensureOpenProfile() as? BrowserProfile, let account = profile.getAccount() else { return }
-
-        let fxaDeviceIds = devices.compactMap { $0.id }
-        let newRemoteDevices = devices.filter { account.commandsClient.sendTab.isDeviceCompatible($0) }
-
-        func findClient(forDevice device: RemoteDevice) -> RemoteClient? {
-            return clients.find({ $0.fxaDeviceId == device.id })
-        }
-        let oldRemoteClients = devices.filter { !account.commandsClient.sendTab.isDeviceCompatible($0) }
-            .compactMap { findClient(forDevice: $0) }
-
-        let fullList = newRemoteDevices.sorted { $0.id ?? "" > $1.id ?? "" }.map { DeviceOrClient.device($0) }
-            + oldRemoteClients.sorted { $0.guid ?? "" > $1.guid ?? "" }.map { DeviceOrClient.client($0) }
-
-        // Sort the lists, and compare guids and modified, to see if the list has changed and tableview needs reloading.
-        let isSame = fullList.elementsEqual(devicesAndClients) { new, old in
-            new == old // equatable
-        }
-
-        guard !isSame else {
-            if endRefreshing {
-                refreshControl?.endRefreshing()
-            }
-            return
-        }
-
-        devicesAndClients = fullList
-
-        if devicesAndClients.isEmpty {
-            navigationItem.rightBarButtonItem = nil
-        } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.SendToSendButtonTitle, style: .done, target: self, action: #selector(self.send))
-            navigationItem.rightBarButtonItem?.isEnabled = false
-        }
-
-        tableView.reloadData()
-        if endRefreshing {
-            refreshControl?.endRefreshing()
-        }
-    }
+    fileprivate func update(devices: [RemoteDevice], clients: [RemoteClient], endRefreshing: Bool) {}
 
     @objc func refresh() {
         if let refreshControl = self.refreshControl {

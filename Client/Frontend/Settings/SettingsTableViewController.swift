@@ -2,7 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import Account
 import Shared
 import UIKit
 
@@ -479,7 +478,7 @@ class ButtonSetting: Setting {
 
 // A helper class for prefs that deal with sync. Handles reloading the tableView data if changes to
 // the fxAccount happen.
-class AccountSetting: Setting, FxAContentViewControllerDelegate {
+class AccountSetting: Setting {
     unowned var settings: SettingsTableViewController
 
     var profile: Profile {
@@ -501,28 +500,6 @@ class AccountSetting: Setting, FxAContentViewControllerDelegate {
     }
 
     override var accessoryType: UITableViewCell.AccessoryType { return .none }
-
-    func contentViewControllerDidSignIn(_ viewController: FxAContentViewController, withFlags flags: FxALoginFlags) {
-        // This method will get called twice: once when the user signs in, and once
-        // when the account is verified by email – on this device or another.
-        // If the user hasn't dismissed the fxa content view controller,
-        // then we should only do that (thus finishing the sign in/verification process)
-        // once the account is verified.
-        // By the time we get to here, we should be syncing or just about to sync in the
-        // background, most likely from FxALoginHelper.
-        if flags.verified {
-            _ = settings.navigationController?.popToRootViewController(animated: true)
-            // Reload the data to reflect the new Account immediately.
-            settings.tableView.reloadData()
-            // And start advancing the Account state in the background as well.
-            settings.refresh()
-        }
-    }
-
-    func contentViewControllerDidCancel(_ viewController: FxAContentViewController) {
-        NSLog("didCancel")
-        _ = settings.navigationController?.popToRootViewController(animated: true)
-    }
 }
 
 class WithAccountSetting: AccountSetting {
@@ -615,16 +592,7 @@ class SettingsTableViewController: ThemedTableViewController {
     }
 
     @objc fileprivate func refresh() {
-        // Through-out, be aware that modifying the control while a refresh is in progress is /not/ supported and will likely crash the app.
-        if let account = self.profile.getAccount() {
-            account.advance().upon { state in
-                DispatchQueue.main.async { () -> Void in
-                    self.tableView.reloadData()
-                }
-            }
-        } else {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
     }
 
     @objc func firefoxAccountDidChange() {

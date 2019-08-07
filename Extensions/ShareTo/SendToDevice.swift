@@ -28,17 +28,7 @@ class SendToDevice: DevicePickerViewControllerDelegate, InstructionsViewControll
     }
 
     func devicePickerViewController(_ devicePickerViewController: DevicePickerViewController, didPickDevices devices: [RemoteDevice]) {
-        guard let item = sharedItem else {
-            return finish()
-        }
 
-        let profile = BrowserProfile(localName: "profile")
-        profile.sendItem(item, toDevices: devices).uponQueue(.main) { _ in
-            profile._shutdown()
-            self.finish()
-
-            addAppExtensionTelemetryEvent(forMethod: "send-to-device")
-        }
     }
 
     func devicePickerViewControllerDidCancel(_ devicePickerViewController: DevicePickerViewController) {
@@ -50,10 +40,6 @@ class SendToDevice: DevicePickerViewControllerDelegate, InstructionsViewControll
     }
 
     private func hasAccount() -> Bool {
-        let profile = BrowserProfile(localName: "profile")
-        defer {
-            profile._shutdown()
-        }
-        return profile.hasAccount()
+        return false
     }
 }

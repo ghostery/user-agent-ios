@@ -160,7 +160,7 @@ class LeanPlumClient {
             LPAttributeKey.klarInstalled: klarInstalled(),
             LPAttributeKey.pocketInstalled: pocketInstalled(),
             LPAttributeKey.signedInSync: profile?.hasAccount() ?? false,
-            LPAttributeKey.fxaAccountVerified: profile?.hasSyncableAccount() ?? false
+            LPAttributeKey.fxaAccountVerified: false
         ]
 
         self.setupCustomTemplates()
@@ -297,7 +297,6 @@ class LeanPlumClient {
 
             // Don't display permission screen if they have already allowed/disabled push permissions
             if self.prefs?.boolForKey(AppRequestedUserNotificationsPrefKey) ?? false {
-                FxALoginHelper.sharedInstance.readyForSyncing()
                 return false
             }
 
@@ -308,13 +307,11 @@ class LeanPlumClient {
             alert.addAction(UIAlertAction(title: context.stringNamed(LPMessage.ArgCancelButtonText), style: .cancel, handler: { (action) -> Void in
                 // Log cancel event and call ready for syncing
                 context.runTrackedActionNamed(LPMessage.ArgCancelAction)
-                FxALoginHelper.sharedInstance.readyForSyncing()
             }))
 
             alert.addAction(UIAlertAction(title: context.stringNamed(LPMessage.ArgAcceptButtonText), style: .default, handler: { (action) -> Void in
                 // Log accept event and present push permission modal
                 context.runTrackedActionNamed(LPMessage.ArgAcceptAction)
-                FxALoginHelper.sharedInstance.requestUserNotifications(UIApplication.shared)
                 self.prefs?.setBool(true, forKey: AppRequestedUserNotificationsPrefKey)
             }))
 

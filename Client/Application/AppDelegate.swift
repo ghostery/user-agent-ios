@@ -11,7 +11,6 @@ import SDWebImage
 import SwiftKeychainWrapper
 import LocalAuthentication
 import SyncTelemetry
-import Sync
 import CoreSpotlight
 import UserNotifications
 
@@ -142,10 +141,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             }
         }
 
-        NotificationCenter.default.addObserver(forName: .FirefoxAccountDeviceRegistrationUpdated, object: nil, queue: nil) { _ in
-            profile.flushAccount()
-        }
-
         adjustIntegration = AdjustIntegration(profile: profile)
 
         if LeanPlumClient.shouldEnable(profile: profile) {
@@ -155,9 +150,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         self.updateAuthenticationInfo()
         SystemUtils.onFirstRun()
-
-        let fxaLoginHelper = FxALoginHelper.sharedInstance
-        fxaLoginHelper.application(application, didLoadProfile: profile)
 
         profile.cleanupHistoryIfNeeded()
 
@@ -190,7 +182,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         if let profile = self.profile {
             return profile
         }
-        let p = BrowserProfile(localName: "profile", syncDelegate: application.syncDelegate)
+        let p = BrowserProfile(localName: "profile")
         self.profile = p
         return p
     }
@@ -267,12 +259,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         if let profile = self.profile {
             profile._reopen()
 
-            if profile.prefs.boolForKey(PendingAccountDisconnectedKey) ?? false {
-                FxALoginHelper.sharedInstance.applicationDidDisconnect(application)
-            }
-
-            profile.syncManager.applicationDidBecomeActive()
-
             setUpWebServer(profile)
         }
 
@@ -331,8 +317,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             return
         }
 
-        profile.syncManager.applicationDidEnterBackground()
-
         var taskId: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
         taskId = application.beginBackgroundTask (expirationHandler: {
             print("Running out of background time, but we have a profile shutdown pending.")
@@ -340,15 +324,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             application.endBackgroundTask(taskId)
         })
 
-        if profile.hasSyncableAccount() {
-            profile.syncManager.syncEverything(why: .backgrounded).uponQueue(.main) { _ in
-                self.shutdownProfileWhenNotActive(application)
-                application.endBackgroundTask(taskId)
-            }
-        } else {
-            profile._shutdown()
-            application.endBackgroundTask(taskId)
-        }
+        profile._shutdown()
+        application.endBackgroundTask(taskId)
     }
 
     fileprivate func shutdownProfileWhenNotActive(_ application: UIApplication) {
@@ -440,12 +417,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         if let url = userActivity.webpageURL {
             let query = url.getQuery()
 
-            // Check for fxa sign-in code and launch the login screen directly
-            if query["signin"] != nil {
-                browserViewController.launchFxAFromDeeplinkURL(url)
-                return true
-            }
-
             // Per Adjust documenation, https://docs.adjust.com/en/universal-links/#running-campaigns-through-universal-links,
             // it is recommended that links contain the `deep_link` query parameter. This link will also
             // be url encoded.
@@ -530,15 +501,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 extension AppDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        FxALoginHelper.sharedInstance.apnsRegisterDidSucceed(deviceToken)
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("failed to register. \(error)")
-        FxALoginHelper.sharedInstance.apnsRegisterDidFail()
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // TODO: Check if this whole method can be removed, seeing that we don't Accound and Sync modules any more
+
         if Logger.logPII && log.isEnabledFor(level: .info) {
             NSLog("APNS NOTIFICATION \(userInfo)")
         }
@@ -551,7 +522,7 @@ extension AppDelegate {
         // Either way, we should zero the badge number.
         application.applicationIconBadgeNumber = 0
 
-        guard let profile = self.profile else {
+        guard self.profile != nil else {
             return completionHandler(.noData)
         }
 
@@ -578,30 +549,6 @@ extension AppDelegate {
                 return completionHandler(.newData)
             }
         }
-
-        // By now, we've dealt with any sent tab notifications.
-        //
-        // The only thing left to do now is to perform actions that can only be performed
-        // while the app is foregrounded.
-        //
-        // Use the push message handler to re-parse the message,
-        // this time with a BrowserProfile and processing the return
-        // differently than in NotificationService.
-        let handler = FxAPushMessageHandler(with: profile)
-        handler.handle(userInfo: userInfo).upon { res in
-            if let message = res.successValue {
-                switch message {
-                case .accountVerified:
-                    _ = handler.postVerification()
-                case .thisDeviceDisconnected:
-                    FxALoginHelper.sharedInstance.applicationDidDisconnect(application)
-                default:
-                    break
-                }
-            }
-
-            completionHandler(res.isSuccess ? .newData : .failed)
-        }
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
@@ -611,65 +558,10 @@ extension AppDelegate {
 }
 
 extension UIApplication {
-    var syncDelegate: SyncDelegate {
-        return AppSyncDelegate(app: self)
-    }
 
     static var isInPrivateMode: Bool {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         return appDelegate?.browserViewController.tabManager.selectedTab?.isPrivate ?? false
-    }
-}
-
-class AppSyncDelegate: SyncDelegate {
-    let app: UIApplication
-
-    init(app: UIApplication) {
-        self.app = app
-    }
-
-    open func displaySentTab(for url: URL, title: String, from deviceName: String?) {
-        DispatchQueue.main.sync {
-            if let appDelegate = app.delegate as? AppDelegate, app.applicationState == .active {
-                appDelegate.browserViewController.switchToTabForURLOrOpen(url, isPrivileged: false)
-                return
-            }
-
-            // check to see what the current notification settings are and only try and send a notification if
-            // the user has agreed to them
-            UNUserNotificationCenter.current().getNotificationSettings { settings in
-                if settings.alertSetting == .enabled {
-                    if Logger.logPII {
-                        log.info("Displaying notification for URL \(url.absoluteString)")
-                    }
-
-                    let notificationContent = UNMutableNotificationContent()
-                    let title: String
-                    if let deviceName = deviceName {
-                        title = String(format: Strings.SentTab_TabArrivingNotification_WithDevice_title, deviceName)
-                    } else {
-                        title = Strings.SentTab_TabArrivingNotification_NoDevice_title
-                    }
-                    notificationContent.title = title
-                    notificationContent.body = url.absoluteDisplayExternalString
-                    notificationContent.userInfo = [SentTabAction.TabSendURLKey: url.absoluteString, SentTabAction.TabSendTitleKey: title]
-                    notificationContent.categoryIdentifier = "org.mozilla.ios.SentTab.placeholder"
-
-                    // `timeInterval` must be greater than zero
-                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
-
-                    // The identifier for each notification request must be unique in order to be created
-                    let requestIdentifier = "\(SentTabAction.TabSendCategory).\(url.absoluteString)"
-                    let request = UNNotificationRequest(identifier: requestIdentifier, content: notificationContent, trigger: trigger)
-
-                    UNUserNotificationCenter.current().add(request) { error in
-                        if let error = error {
-                            log.error(error.localizedDescription)
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 

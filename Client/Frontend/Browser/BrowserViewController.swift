@@ -10,7 +10,6 @@ import Shared
 import Storage
 import SnapKit
 import XCGLogger
-import Account
 import MobileCoreServices
 import SDWebImage
 import SwiftyJSON
@@ -1598,13 +1597,11 @@ extension BrowserViewController: TabDelegate {
 
 extension BrowserViewController: LibraryPanelDelegate {
     func libraryPanelDidRequestToSignIn() {
-        let fxaParams = FxALaunchParams(query: ["entrypoint": "homepanel"])
-        presentSignInViewController(fxaParams) // TODO UX Right now the flow for sign in and create account is the same
+        // This method stub is a leftover from when we remøved the Account and Sync modules
     }
 
     func libraryPanelDidRequestToCreateAccount() {
-        let fxaParams = FxALaunchParams(query: ["entrypoint": "homepanel"])
-        presentSignInViewController(fxaParams) // TODO UX Right now the flow for sign in and create account is the same
+        // This method stub is a leftover from when we remüved the Account and Sync modules
     }
 
     func libraryPanel(didSelectURL url: URL, visitType: VisitType) {
@@ -1888,11 +1885,6 @@ extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
 
 extension BrowserViewController: IntroViewControllerDelegate {
     @discardableResult func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
-        if let deeplink = self.profile.prefs.stringForKey("AdjustDeeplinkKey"), let url = URL(string: deeplink) {
-            self.launchFxAFromDeeplinkURL(url)
-            return true
-        }
-
         if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
             let introViewController = IntroViewController()
             introViewController.delegate = self
@@ -1914,67 +1906,24 @@ extension BrowserViewController: IntroViewControllerDelegate {
         return false
     }
 
-    func launchFxAFromDeeplinkURL(_ url: URL) {
-        self.profile.prefs.removeObjectForKey("AdjustDeeplinkKey")
-        var query = url.getQuery()
-        query["entrypoint"] = "adjust_deepklink_ios"
-        let fxaParams: FxALaunchParams
-        fxaParams = FxALaunchParams(query: query)
-        self.presentSignInViewController(fxaParams)
-    }
-
-    func introViewControllerDidFinish(_ introViewController: IntroViewController, requestToLogin: Bool) {
+    func introViewControllerDidFinish(_ introViewController: IntroViewController) {
         self.profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
 
         introViewController.dismiss(animated: true) {
             if self.navigationController?.viewControllers.count ?? 0 > 1 {
                 _ = self.navigationController?.popToRootViewController(animated: true)
             }
-
-            if requestToLogin {
-                let fxaParams = FxALaunchParams(query: ["entrypoint": "firstrun"])
-                self.presentSignInViewController(fxaParams)
-            }
         }
-    }
-
-    func getSignInViewController(_ fxaOptions: FxALaunchParams? = nil) -> UIViewController {
-        // Show the settings page if we have already signed in. If we haven't then show the signin page
-        guard profile.hasAccount(), let status = profile.getAccount()?.actionNeeded, status == .none else {
-            let signInVC = FxAContentViewController(profile: profile, fxaOptions: fxaOptions)
-            signInVC.delegate = self
-            return signInVC
-        }
-
-        let settingsTableViewController = SyncContentSettingsViewController()
-        settingsTableViewController.profile = profile
-        return settingsTableViewController
     }
 
     func presentSignInViewController(_ fxaOptions: FxALaunchParams? = nil) {
-        let vcToPresent = getSignInViewController(fxaOptions)
-        vcToPresent.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissSignInViewController))
-        let themedNavigationController = ThemedNavigationController(rootViewController: vcToPresent)
-        themedNavigationController.navigationBar.isTranslucent = false
-        self.present(themedNavigationController, animated: true, completion: nil)
+        // This method stub is a leftover from when we remoeved the Account and Sync modules
     }
 
     @objc func dismissSignInViewController() {
         self.dismiss(animated: true, completion: nil)
     }
 
-}
-
-extension BrowserViewController: FxAContentViewControllerDelegate {
-    func contentViewControllerDidSignIn(_ viewController: FxAContentViewController, withFlags flags: FxALoginFlags) {
-        if flags.verified {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-
-    func contentViewControllerDidCancel(_ viewController: FxAContentViewController) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }
 
 extension BrowserViewController: ContextMenuHelperDelegate {
@@ -2455,9 +2404,6 @@ extension BrowserViewController: DevicePickerViewControllerDelegate, Instruction
             alert.addAction(UIAlertAction(title: Strings.SendToErrorOKButton, style: .default) { _ in self.popToBVC()})
             present(alert, animated: true, completion: nil)
             return
-        }
-        profile.sendItem(shareItem, toDevices: devices).uponQueue(.main) { _ in
-            self.popToBVC()
         }
     }
 }

@@ -3,11 +3,9 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import UIKit
-import Account
 import Shared
 import SnapKit
 import Storage
-import Sync
 import XCGLogger
 
 private let log = Logger.browserLogger
@@ -510,9 +508,7 @@ fileprivate class RemoteTabsTableViewController: UITableViewController {
 
         // Add a refresh control if the user is logged in and the control was not added before. If the user is not
         // logged in, remove any existing control.
-        if profile.hasSyncableAccount() && refreshControl == nil {
-            addRefreshControl()
-        } else if !profile.hasSyncableAccount() && refreshControl != nil {
+        if refreshControl != nil {
             removeRefreshControl()
         }
 
@@ -541,11 +537,7 @@ fileprivate class RemoteTabsTableViewController: UITableViewController {
     func endRefreshing() {
         // Always end refreshing, even if we failed!
         refreshControl?.endRefreshing()
-
-        // Remove the refresh control if the user has logged out in the meantime
-        if !profile.hasSyncableAccount() {
-            removeRefreshControl()
-        }
+        removeRefreshControl()
     }
 
     func updateDelegateClientAndTabData(_ clientAndTabs: [ClientAndTabs]) {
@@ -565,40 +557,8 @@ fileprivate class RemoteTabsTableViewController: UITableViewController {
     fileprivate func refreshTabs(updateCache: Bool = false) {
         guard let remoteTabsPanel = remoteTabsPanel else { return }
 
-        assert(Thread.isMainThread)
-
-        // Short circuit if the user is not logged in
-        guard profile.hasSyncableAccount() else {
-            self.endRefreshing()
-            self.tableViewDelegate = RemoteTabsPanelErrorDataSource(libraryPanel: remoteTabsPanel, error: .notLoggedIn)
-            return
-        }
-
-        // Get cached tabs.
-        self.profile.getCachedClientsAndTabs().uponQueue(.main) { result in
-            guard let clientAndTabs = result.successValue else {
-                self.endRefreshing()
-                self.tableViewDelegate = RemoteTabsPanelErrorDataSource(libraryPanel: remoteTabsPanel, error: .failedToSync)
-                return
-            }
-
-            // Update UI with cached data.
-            self.updateDelegateClientAndTabData(clientAndTabs)
-
-            if updateCache {
-                // Fetch updated tabs.
-                self.profile.getClientsAndTabs().uponQueue(.main) { result in
-                    if let clientAndTabs = result.successValue {
-                        // Update UI with updated tabs.
-                        self.updateDelegateClientAndTabData(clientAndTabs)
-                    }
-
-                    self.endRefreshing()
-                }
-            } else {
-                self.endRefreshing()
-            }
-        }
+        self.endRefreshing()
+        self.tableViewDelegate = RemoteTabsPanelErrorDataSource(libraryPanel: remoteTabsPanel, error: .notLoggedIn)
     }
 
     @objc fileprivate func longPress(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {

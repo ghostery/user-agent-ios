@@ -4,7 +4,6 @@
 
 import UIKit
 import Shared
-import Account
 
 /// App Settings Screen (triggered by tapping the 'Gear' in the Tab Tray Controller)
 class AppSettingsTableViewController: SettingsTableViewController {
@@ -19,10 +18,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
         navigationItem.rightBarButtonItem?.accessibilityIdentifier = "AppSettingsTableViewController.navigationItem.leftBarButtonItem"
 
         tableView.accessibilityIdentifier = "AppSettingsTableViewController.tableView"
-
-        // Refresh the user's FxA profile upon viewing settings. This will update their avatar,
-        // display name, etc.
-        profile.getAccount()?.updateProfile()
 
     }
 
@@ -57,15 +52,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
             generalSettings.insert(TranslationSetting(settings: self), at: 6)
         }
 
-        let accountChinaSyncSetting: [Setting]
-        if !BrowserProfile.isChinaEdition {
-            accountChinaSyncSetting = []
-        } else {
-            accountChinaSyncSetting = [
-                // Show China sync service setting:
-                ChinaSyncServiceSetting(settings: self)
-            ]
-        }
         // There is nothing to show in the Customize section if we don't include the compact tab layout
         // setting on iPad. When more options are added that work on both device types, this logic can
         // be changed.
@@ -75,19 +61,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
                         titleText: Strings.SettingsOfferClipboardBarTitle,
                         statusText: Strings.SettingsOfferClipboardBarStatus)
         ]
-
-        let accountSectionTitle = NSAttributedString(string: Strings.FxAFirefoxAccount)
-
-        let footerText = !profile.hasAccount() ? NSAttributedString(string: Strings.FxASyncUsageDetails) : nil
-        settings += [
-            SettingSection(title: accountSectionTitle, footerTitle: footerText, children: [
-                // Without a Firefox Account:
-                ConnectSetting(settings: self),
-                AdvancedAccountSetting(settings: self),
-                // With a Firefox Account:
-                AccountStatusSetting(settings: self),
-                SyncNowSetting(settings: self)
-            ] + accountChinaSyncSetting + accountDebugSettings)]
 
         settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsGeneralSectionTitle), children: generalSettings)]
 

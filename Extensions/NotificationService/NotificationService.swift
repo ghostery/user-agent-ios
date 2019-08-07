@@ -2,10 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import Account
 import Shared
 import Storage
-import Sync
 import UserNotifications
 
 class NotificationService: UNNotificationServiceExtension {
@@ -18,8 +16,6 @@ class NotificationService: UNNotificationServiceExtension {
     // AppDelegate.application(_:didReceiveRemoteNotification:completionHandler:)
     // Once the notification is tapped, then the same userInfo is passed to the same method in the AppDelegate.
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
-        let userInfo = request.content.userInfo
-
         guard let content = (request.content.mutableCopy() as? UNMutableNotificationContent) else {
             return self.didFinish(PushMessage.accountVerified)
         }
@@ -36,13 +32,6 @@ class NotificationService: UNNotificationServiceExtension {
         let queue = profile.queue
         let display = SyncDataDisplay(content: content, contentHandler: contentHandler, tabQueue: queue)
         self.display = display
-        profile.syncDelegate = display
-
-        let handler = FxAPushMessageHandler(with: profile)
-
-        handler.handle(userInfo: userInfo).upon { res in
-            self.didFinish(res.successValue, with: res.failureValue as? PushMessageError)
-        }
     }
 
     func didFinish(_ what: PushMessage? = nil, with error: PushMessageError? = nil) {
@@ -280,17 +269,6 @@ extension SyncDataDisplay {
         // This is the only place we change messageDelivered. We can check if contentHandler hasn't be called because of
         // our logic (rather than something funny with our environment, or iOS killing us).
         messageDelivered = true
-    }
-}
-
-extension SyncDataDisplay: SyncDelegate {
-    func displaySentTab(for url: URL, title: String, from deviceName: String?) {
-        if url.isWebPage() {
-            sentTabs.append(SentTab(url: url, title: title, deviceName: deviceName))
-
-            let item = ShareItem(url: url.absoluteString, title: title, favicon: nil)
-            _ = tabQueue?.addToQueue(item).value // Force synchronous.
-        }
     }
 }
 
