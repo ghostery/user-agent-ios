@@ -13,8 +13,8 @@ pool:
 
 steps:
 - bash: |
-    sudo xcode-select --switch /Applications/Xcode_10.1.app
-  displayName: 'Change XCode to 10.1'
+    sudo xcode-select --switch /Applications/Xcode_10.3.app
+  displayName: 'Change XCode to 10.3'
 
 # - script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
 #   displayName: 'Carthage Bootstrap'
