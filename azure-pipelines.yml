@@ -16,13 +16,12 @@ steps:
     sudo xcode-select --switch /Applications/Xcode_10.1.app
   displayName: 'Change XCode to 10.1'
 
+- script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
+  displayName: 'Carthage Bootstrap'
+
 - bash: |
-    ./bootstrap.sh
-  displayName: 'Run bootstrap.sh'
-# - script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
-#   displayName: 'Carthage Bootstrap'
-
-
+  ./bootstrap.sh
+displayName: 'Run bootstrap.sh'
 # - task: NodeTool@0
 #   displayName: 'Define Node to v9.11.2'
 #   inputs:
