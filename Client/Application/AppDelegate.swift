@@ -30,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     var rootViewController: UIViewController!
     weak var profile: Profile?
     var tabManager: TabManager!
-    var adjustIntegration: AdjustIntegration?
     var applicationCleanlyBackgrounded = true
     var shutdownWebServer: DispatchSourceTimer?
 
@@ -141,8 +140,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             }
         }
 
-        adjustIntegration = AdjustIntegration(profile: profile)
-
         self.updateAuthenticationInfo()
         SystemUtils.onFirstRun()
 
@@ -185,8 +182,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
-
-        adjustIntegration?.triggerApplicationDidFinishLaunchingWithOptions(launchOptions)
 
         UNUserNotificationCenter.current().delegate = self
         SentTabAction.registerActions()

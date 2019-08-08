@@ -345,9 +345,7 @@ class SendAnonymousUsageDataSetting: BoolSetting {
             prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true,
             attributedTitleText: NSAttributedString(string: Strings.SendUsageSettingTitle),
             attributedStatusText: statusText,
-            settingDidChange: {
-                AdjustIntegration.setEnabled($0)
-            }
+            settingDidChange: nil
         )
     }
 
