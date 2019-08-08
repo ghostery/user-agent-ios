@@ -19,11 +19,11 @@ steps:
 # - script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
 #   displayName: 'Carthage Bootstrap
 
-- bash: carthage bootstrap --platform iOS
+- bash: ./bootstrap.sh
   env:
     GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
 
-- bash: npm ci
+# - bash: npm ci
 
 # - task: NodeTool@0
 #   displayName: 'Define Node to v9.11.2'
