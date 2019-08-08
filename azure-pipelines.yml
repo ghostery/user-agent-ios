@@ -17,11 +17,16 @@ steps:
   displayName: 'Change XCode to 10.3'
 
 # - script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
-#   displayName: 'Carthage Bootstrap'
+#   displayName: 'Carthage Bootstrap
 
-- bash: |
-    rm -rf ~/Library/Caches/org.carthage.CarthageKit && ./bootstrap.sh
-  displayName: 'Run bootstrap.sh'
+- bash: 
+  carthage bootstrap
+  env:
+    GITHUB_ACCESS_TOKEN: $(System.AccessToken)
+
+- bash: 
+  npm ci
+
 # - task: NodeTool@0
 #   displayName: 'Define Node to v9.11.2'
 #   inputs:
