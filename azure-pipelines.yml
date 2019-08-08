@@ -16,8 +16,8 @@ steps:
     sudo xcode-select --switch /Applications/Xcode_10.1.app
   displayName: 'Change XCode to 10.1'
 
-- script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
-  displayName: 'Carthage Bootstrap'
+# - script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
+#   displayName: 'Carthage Bootstrap'
 
 - bash: |
     ./bootstrap.sh
