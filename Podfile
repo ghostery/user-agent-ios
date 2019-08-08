@@ -1,0 +1,16 @@
+plugin 'cocoapods-binary'
+
+platform :ios, '11.4'
+
+inhibit_all_warnings!
+all_binary!
+
+target 'Client' do
+  use_frameworks!
+end
+
+target 'Shared' do
+  use_frameworks!
+
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
+end
