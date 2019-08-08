@@ -36,28 +36,19 @@ public final class GCDReadWriteLock: ReadWriteLock {
 }
 
 public final class SpinLock: ReadWriteLock {
-    private var lock: UnsafeMutablePointer<Int32>
-
-    public init() {
-        lock = UnsafeMutablePointer.allocate(capacity: 1)
-        lock.pointee = OS_SPINLOCK_INIT
-    }
-
-    deinit {
-        lock.deallocate()
-    }
-
+    private var unfairLock = os_unfair_lock_s()
+    
     public func withReadLock<T>(block: () -> T) -> T {
-        OSSpinLockLock(lock)
+        os_unfair_lock_lock(&unfairLock)
         let result = block()
-        OSSpinLockUnlock(lock)
+        os_unfair_lock_unlock(&unfairLock)
         return result
     }
 
     public func withWriteLock<T>(block: () -> T) -> T {
-        OSSpinLockLock(lock)
+        os_unfair_lock_lock(&unfairLock)
         let result = block()
-        OSSpinLockUnlock(lock)
+        os_unfair_lock_unlock(&unfairLock)
         return result
     }
 }
