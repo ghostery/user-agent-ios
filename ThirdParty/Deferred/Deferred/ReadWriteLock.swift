@@ -37,7 +37,7 @@ public final class GCDReadWriteLock: ReadWriteLock {
 
 public final class SpinLock: ReadWriteLock {
     private var unfairLock = os_unfair_lock_s()
-    
+
     public func withReadLock<T>(block: () -> T) -> T {
         os_unfair_lock_lock(&unfairLock)
         let result = block()
@@ -77,6 +77,8 @@ public final class CASSpinLock: ReadWriteLock {
         // spin until we acquire write lock
         repeat {
             let state = _state.pointee
+
+            atomic_compare_exchange_strong()
 
             // if there are no readers and no one holds the write lock, try to grab the write lock immediately
             if (state == 0 || state == Masks.WRITER_WAITING_BIT) &&

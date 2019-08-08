@@ -6,4 +6,6 @@
 #import "FSUtils.h"
 #import "CrashSimulator.h"
 
+#import <stdatomic.h>
+
 #endif
