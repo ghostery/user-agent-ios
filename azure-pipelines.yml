@@ -21,7 +21,7 @@ steps:
 
 - bash: carthage bootstrap
   env:
-    GITHUB_ACCESS_TOKEN: $(System.AccessToken)
+    GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
 
 - bash: npm ci
 
