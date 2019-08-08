@@ -20,7 +20,7 @@ steps:
 #   displayName: 'Carthage Bootstrap'
 
 - bash: |
-    ./bootstrap.sh
+    rm -rf ~/Library/Caches/org.carthage.CarthageKit && ./bootstrap.sh
   displayName: 'Run bootstrap.sh'
 # - task: NodeTool@0
 #   displayName: 'Define Node to v9.11.2'
