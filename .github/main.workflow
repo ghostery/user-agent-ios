@@ -1,10 +1,6 @@
 workflow "Pull request" {
   resolves = ["GitHub Action for npm"]
   on = "pull_request"
-  runs-on = "macOS-10.14"
-}
-action "Checkout"{
-  uses = actions/checkout@ci
 }
 
 action "Setup Node.js for use with actions" {
@@ -17,7 +13,9 @@ action "GitHub Action for npm" {
   runs = "npm install"
   args = "--global npm@latest"
 }
-action "Bootstrap"{
-  needs = ["Github Action for npm"]
+
+action "Bootstrap" {
+  uses = "actions/bash@v1"
+  needs = ["GitHub Action for npm"]
   runs = "./bootstrap.sh"
 }
