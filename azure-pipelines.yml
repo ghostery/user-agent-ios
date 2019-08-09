@@ -20,8 +20,8 @@ steps:
 #   displayName: 'Carthage Bootstrap
 
 - bash: ./bootstrap.sh
-  env:
-    GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
+  # env:
+  #   GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
 
 # - bash: npm ci
 
