@@ -34,8 +34,13 @@ steps:
 - bash: |
     set -x
     npm i -g npm@6.5
-    /usr/local/bin/npm ci
-  
+    npm ci
+
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '2.6'
+    addToPath: true
+    
 - task: CocoaPods@0
 
 - script: xcodebuild -workspace Client.xcworkspace -scheme $(scheme) -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.1,name=iPhone 6s" OTHER_SWIFT_FLAGS='$(value) -DAUTOMATION' ONLY_ACTIVE_ARCH=NO -derivedDataPath $(actions)
