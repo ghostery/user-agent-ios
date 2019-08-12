@@ -20,9 +20,7 @@ steps:
 #   displayName: 'Carthage Bootstrap
 
 - bash: carthage bootstrap --platform iOS
-  env:
-    GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
-
+  
 - bash: npm ci
 
 # - task: NodeTool@0
