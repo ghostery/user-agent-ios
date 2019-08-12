@@ -24,8 +24,9 @@ steps:
     versionSpec: '2.6'
     addToPath: true
     
-- script: |
-    gem install bundler@2.0.2
+- bash: |
+    set -x
+    gem install bundler:2.0.2
     bundle install --retry=3
     bundle exec pod install
   displayName: 'Install CocoaPods'
