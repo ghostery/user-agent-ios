@@ -1,8 +1,11 @@
 # Prepare, Build and Archive Cliqz-Browser-ios
 
+variables:
+- group: AccessTokens
 
 trigger:
 - master
+
 strategy:
   matrix:
     Cliqz:
