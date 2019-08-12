@@ -35,6 +35,8 @@ steps:
   set -x
   npm i -g npm@6.5
   /usr/local/bin/npm ci
+  
+- task: CocoaPods@0
 
 - script: xcodebuild -workspace Client.xcworkspace -scheme $(scheme) -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.1,name=iPhone 6s" OTHER_SWIFT_FLAGS='$(value) -DAUTOMATION' ONLY_ACTIVE_ARCH=NO -derivedDataPath $(actions)
   displayName: 'Xcode Build for Simulator'
