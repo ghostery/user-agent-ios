@@ -32,9 +32,9 @@ steps:
     versionSpec: '9.11.2'
 
 - bash: |
-  set -x
-  npm i -g npm@6.5
-  /usr/local/bin/npm ci
+    set -x
+    npm i -g npm@6.5
+    /usr/local/bin/npm ci
   
 - task: CocoaPods@0
 
