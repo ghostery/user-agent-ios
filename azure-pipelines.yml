@@ -25,7 +25,7 @@ steps:
     addToPath: true
     
 - script: |
-    CALL gem install bundler
+    gem install bundler@2.0.2
     bundle install --retry=3
     bundle exec pod install
   displayName: 'Install CocoaPods'
