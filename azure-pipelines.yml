@@ -29,6 +29,8 @@ steps:
     gem install bundler:2.0.2
     bundle install --retry=3
     bundle exec pod install
+  env:
+    GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
   displayName: 'Install CocoaPods'
 
 - bash: carthage bootstrap --platform iOS
