@@ -22,23 +22,19 @@ steps:
 # - script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
 #   displayName: 'Carthage Bootstrap
 
-- bash: carthage bootstrap --platform iOS 
+- bash: carthage bootstrap --platform iOS
   env:
     GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
-  
-- bash: npm ci
 
-# - task: NodeTool@0
-#   displayName: 'Define Node to v9.11.2'
-#   inputs:
-#     versionSpec: '9.11.2'
+- task: NodeTool@0
+  displayName: 'Define Node to v9.11.2'
+  inputs:
+    versionSpec: '9.11.2'
 
-# - bash: |
-#       set -x
-#       npm i -g npm@6.5
-#       /usr/local/bin/npm ci
-#       /usr/local/bin/npm run
-# displayName: 'Install and Build React Native'
+- bash: |
+  set -x
+  npm i -g npm@6.5
+  /usr/local/bin/npm ci
 
 - script: xcodebuild -workspace Client.xcworkspace -scheme $(scheme) -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.1,name=iPhone 6s" OTHER_SWIFT_FLAGS='$(value) -DAUTOMATION' ONLY_ACTIVE_ARCH=NO -derivedDataPath $(actions)
   displayName: 'Xcode Build for Simulator'
