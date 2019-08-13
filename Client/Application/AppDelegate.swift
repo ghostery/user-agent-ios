@@ -56,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             self.applicationCleanlyBackgrounded = defaults.bool(forKey: "ApplicationCleanlyBackgrounded")
         }
         defaults.set(false, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         // Hold references to willFinishLaunching parameters for delayed app launch
         self.application = application
@@ -256,7 +255,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         let defaults = UserDefaults()
         defaults.set(false, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         if let profile = self.profile {
             profile._reopen()
@@ -292,7 +290,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         let defaults = UserDefaults()
         defaults.set(true, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         // Pause file downloads.
         browserViewController.downloadQueue.pauseAll()
