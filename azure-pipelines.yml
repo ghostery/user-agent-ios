@@ -29,8 +29,6 @@ steps:
     gem install bundler:2.0.2
     bundle install --retry=3
     bundle exec pod install
-  env:
-    GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
   displayName: 'Install CocoaPods'
 
 - bash: carthage bootstrap --platform iOS
@@ -48,19 +46,5 @@ steps:
     /usr/local/bin/npm ci
   displayName: 'Install Node modules'
 
-- script: xcodebuild -workspace Client.xcworkspace -scheme $(scheme) -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.1,name=iPhone 6s" OTHER_SWIFT_FLAGS='$(value) -DAUTOMATION' ONLY_ACTIVE_ARCH=NO -derivedDataPath $(actions)
+- script: xcodebuild -workspace Client.xcworkspace -scheme $(scheme) -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.4,name=iPhone 6s" ONLY_ACTIVE_ARCH=NO -derivedDataPath $(actions)
   displayName: 'Xcode Build for Simulator'
-
-# - task: ArchiveFiles@2
-#   displayName: 'Archive Build'
-#   inputs:
-#     rootFolderOrFile: 'clean/Build/Products/$(scheme)-iphonesimulator/Client.app'
-#     archiveType: 'zip'
-#     tarCompression: 'none'
-#     archiveFile: '$(Build.ArtifactStagingDirectory)/$(scheme).zip'
-
-# - task: PublishBuildArtifacts@1
-#   displayName: 'Publish Build'
-#   inputs:
-#     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#     artifactName: $(scheme)
