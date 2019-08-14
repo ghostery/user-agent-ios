@@ -49,8 +49,8 @@ node('gideon') {
             vagrant.inside(
                 'Vagrantfile',
                 '/jenkins',
-                2, // CPU
-                8000, // MEMORY
+                6, // CPU
+                12000, // MEMORY
                 12000, // VNC port
                 false, // rebuild image
             ) { nodeId ->
