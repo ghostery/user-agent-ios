@@ -1,69 +1,137 @@
-pipeline {
-    agent any
-    triggers {
-        cron(env.BRANCH_NAME == 'master' ? 'H 0 * * *' : '')
-    }
-    options {
-        timestamps()
-        timeout(time: 1, unit: 'HOURS')
-    }
-    stages {
-        stage('checkout') {
-            when { branch 'master' }
-            steps {
-                checkout scm
-            }
-        }
-        stage('bootstrap') {
-            when { branch 'master' }
-            steps {
-                sh './bootstrap.sh'
-            }
-        }
-        stage('test') {
-            when { branch 'master' }
-            steps {
-                dir('SyncIntegrationTests') {
-                    sh 'pipenv install'
-                    sh 'pipenv check'
-                    sh 'pipenv run pytest ' +
-                        '--color=yes ' +
-                        '--junit-xml=results/junit.xml ' +
-                        '--html=results/index.html'
-                }
-            }
-        }
-    }
-    post {
-        always {
-             script {
-                 if (env.BRANCH_NAME == 'master') {
-                 archiveArtifacts 'SyncIntegrationTests/results/*'
-                 junit 'SyncIntegrationTests/results/*.xml'
-                 publishHTML(target: [
-                     allowMissing: false,
-                     alwaysLinkToLastBuild: true,
-                     keepAll: true,
-                     reportDir: 'SyncIntegrationTests/results',
-                     reportFiles: 'index.html',
-                     reportName: 'HTML Report'])
-                 }
-             }
-        }
+#!/bin/env groovy
 
-        failure {
-            script {
-                if (env.BRANCH_NAME == 'master') {
-                    slackSend(
-                        color: 'danger',
-                        message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+@Library('cliqz-shared-library@vagrant') _
+
+properties([
+    disableConcurrentBuilds(),
+    [$class: 'JobRestrictionProperty']
+])
+
+def jobStatus = 'FAIL'
+
+node('gideon') {
+    try{
+        timeout(120){
+            writeFile file: 'Vagrantfile', text: '''
+            Vagrant.configure("2") do |config|
+                config.vm.box = "xcode-10.1"
+                config.vm.synced_folder ".", "/vagrant", disabled: true
+                config.vm.define "publishios" do |publishios|
+                    publishios.vm.hostname ="publishios"
+                    config.ssh.private_key_path = "/Users/jenkins/reusable-VMs/publishios/.vagrant/machines/publishios/virtualbox/private_key"
+                    publishios.vm.network "public_network", :bridge => "en0: Ethernet 1", auto_config: false
+                    publishios.vm.boot_timeout = 900
+                    publishios.ssh.forward_agent = true
+                    publishios.vm.provider "virtualbox" do |v|
+                        v.name = "publishios"
+                        v.gui = false
+                        v.memory = ENV["NODE_MEMORY"]
+                        v.cpus = ENV["NODE_CPU_COUNT"]
+                    end
+                    publishios.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
+                        set -e
+                        set -x
+                        rm -f agent.jar
+                        curl -LO #{ENV['JENKINS_URL']}/jnlpJars/agent.jar
+                        nohup java -jar agent.jar -jnlpUrl #{ENV['JENKINS_URL']}/computer/#{ENV['NODE_ID']}/slave-agent.jnlp -secret #{ENV["NODE_SECRET"]} &
+                    SHELL
+                end
+            end
+            '''
+            sh '''#!/bin/bash -l
+                set -e
+                set -x
+                mkdir -p .vagrant/machines/publishios/virtualbox
+                cd .vagrant/machines/publishios/virtualbox/
+                if [ ! -f id ]; then touch id && echo "1b070f2c-9c26-470f-9d81-58e109313b47" >> id; fi
+            '''
+
+            vagrant.inside(
+                'Vagrantfile',
+                '/jenkins',
+                2, // CPU
+                8000, // MEMORY
+                12000, // VNC port
+                false, // rebuild image
+            ) { nodeId ->
+                node(nodeId) {
+                    try {
+                        stage('Checkout') {
+                            checkout scm
+                        }
+                        stage('Prepare') {
+                            sh '''#!/bin/bash -l
+                                set -e
+                                set -x
+                                java -version
+                                node -v
+                                npm -v
+                                brew -v
+                                xcodebuild -version
+                                pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
+                                sudo xcodebuild -license accept
+                                fastlane clearCache
+                                fastlane prepare
+                            '''
+                        }
+                        stage('Build & Upload') {
+                            withCredentials([
+                                [
+                                    $class          : 'UsernamePasswordMultiBinding',
+                                    credentialsId   : '85859bba-4927-4b14-bfdf-aca726009962',
+                                    passwordVariable: 'GITHUB_PASSWORD',
+                                    usernameVariable: 'GITHUB_USERNAME',
+                                ],
+                                string(credentialsId: '8b4f7459-c446-4058-be61-3c3d98fe72e2', variable: 'ITUNES_USER'),
+                                string(credentialsId: 'c21d2e60-e4b9-4f75-bad7-6736398a1a05', variable: 'SentryDSN'),
+                                string(credentialsId: '05be12cd-5177-4adf-9812-809f01451fa0', variable: 'FASTLANE_PASSWORD'),
+                                string(credentialsId: 'ea8c47ad-1de8-4300-ae93-ec9ff4b68f39', variable: 'MATCH_PASSWORD'),
+                                string(credentialsId: 'f206e880-e09a-4369-a3f6-f86ee94481f2', variable: 'SENTRY_AUTH_TOKEN'),
+                                string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID')])
+                            {
+                                sh '''#!/bin/bash -l
+                                    set -x
+                                    set -e
+                                    rm -rf /Users/vagrant/Library/Keychains/ios-build.keychain*
+                                    rm -rf ../build-tools
+
+                                    export MATCH_KEYCHAIN_NAME=ios-build.keychain
+                                    export CommitHash=`git rev-parse --short HEAD`
+                                    export PATH="$PATH:/Users/vagrant/Library/Python/2.7/bin"
+
+                                    fastlane CliqzNightly
+                                '''
+                            }
+                        }
+                        jobStatus = 'PASS'
+                    }
+                    catch(all) {
+                        jobStatus = 'FAIL'
+                        print "Something Failed. Check the above logs."
+                        emailext(
+                                to: 'krzysztof@cliqz.com',
+                                subject: '$PROJECT_NAME - Build # $BUILD_NUMBER Failed!!!',
+                                body: '\n\nCheck console output at ' + env.BUILD_URL + ' to view the cause.'
+                        )
+                        currentBuild.result = 'FAILURE'
+                    }
+                    finally {
+                        stage("Clean Up"){
+                            sh '''#!/bin/bash -l
+                                set -x
+                                set -e
+                                fastlane clearCache
+                            '''
+                        }
+                    }
                 }
             }
         }
-        fixed {
-            slackSend(
-                color: 'good',
-                message: "FIXED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-        }
+    } catch(err){
+        echo 'Build was not completed before timeout'
+        currentBuild.result = 'FAILURE'
     }
 }
+
+
+
