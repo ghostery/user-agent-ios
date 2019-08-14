@@ -1,11 +1,8 @@
-plugin 'cocoapods-binary'
-
 platform :ios, '11.4'
 
 project './Client.xcodeproj'
 
 inhibit_all_warnings!
-all_binary!
 
 target 'Client' do
   use_frameworks!
