@@ -9,7 +9,7 @@ trigger:
 strategy:
   matrix:
     Cliqz:
-      scheme: 'Fennec'
+      scheme: 'Cliqz'
       actions: 'clean build'
 pool:
   vmImage: 'macOS 10.14'

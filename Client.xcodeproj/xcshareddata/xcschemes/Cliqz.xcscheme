@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1020"
+   LastUpgradeVersion = "1030"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,14 +16,14 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
                BuildableName = "Client.app"
-               BlueprintName = "Client"
+               BlueprintName = "Cliqz"
                ReferencedContainer = "container:Client.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Firefox"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       language = "en"
@@ -139,7 +139,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
             BuildableName = "Client.app"
-            BlueprintName = "Client"
+            BlueprintName = "Cliqz"
             ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -147,7 +147,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Firefox"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -162,7 +162,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
             BuildableName = "Client.app"
-            BlueprintName = "Client"
+            BlueprintName = "Cliqz"
             ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -177,7 +177,7 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Firefox"
+      buildConfiguration = "Debug"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -188,16 +188,16 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
             BuildableName = "Client.app"
-            BlueprintName = "Client"
+            BlueprintName = "Cliqz"
             ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Firefox">
+      buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Firefox"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

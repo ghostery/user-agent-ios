@@ -4,7 +4,15 @@ project './Client.xcodeproj'
 
 inhibit_all_warnings!
 
-target 'Client' do
+target 'Cliqz' do
+  use_frameworks!
+end
+
+target 'Lumen' do
+  use_frameworks!
+end
+
+target 'Ghostery' do
   use_frameworks!
 end
 
