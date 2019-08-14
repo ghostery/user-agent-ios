@@ -78,8 +78,6 @@ public final class CASSpinLock: ReadWriteLock {
         repeat {
             let state = _state.pointee
 
-            atomic_compare_exchange_strong()
-
             // if there are no readers and no one holds the write lock, try to grab the write lock immediately
             if (state == 0 || state == Masks.WRITER_WAITING_BIT) &&
                 OSAtomicCompareAndSwap32Barrier(state, Masks.WRITER_BIT, _state) {
