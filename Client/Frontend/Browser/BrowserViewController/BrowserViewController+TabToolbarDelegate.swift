@@ -61,23 +61,6 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         libraryDrawerViewController?.close(immediately: true)
         var actions: [[PhotonActionSheetItem]] = []
 
-        let isLoginsButtonShowing = LoginListViewController.shouldShowAppMenuShortcut(forPrefs: profile.prefs)
-        let viewLogins: PhotonActionSheetItem? = !isLoginsButtonShowing ? nil :
-            PhotonActionSheetItem(title: Strings.LoginsAndPasswordsTitle, iconString: "key", iconType: .Image, iconAlignment: .left, isEnabled: true) { _ in
-            guard let navController = self.navigationController else { return }
-            LoginListViewController.create(authenticateInNavigationController: navController, profile: self.profile, settingsDelegate: self).uponQueue(.main) { loginsVC in
-                guard let loginsVC = loginsVC else { return }
-                loginsVC.shownFromAppMenu = true
-                let navController = ThemedNavigationController(rootViewController: loginsVC)
-                self.present(navController, animated: true)
-            }
-        }
-
-        let optionalActions = [viewLogins].compactMap { $0 }
-        if !optionalActions.isEmpty {
-            actions.append(optionalActions)
-        }
-
         actions.append(getLibraryActions(vcDelegate: self))
         actions.append(getOtherPanelActions(vcDelegate: self))
         // force a modal if the menu is being displayed in compact split screen

@@ -399,43 +399,6 @@ class SearchSetting: Setting {
     }
 }
 
-class LoginsSetting: Setting {
-    let profile: Profile
-    var tabManager: TabManager!
-    weak var navigationController: UINavigationController?
-    weak var settings: AppSettingsTableViewController?
-
-    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
-
-    override var accessibilityIdentifier: String? { return "Logins" }
-
-    init(settings: SettingsTableViewController, delegate: SettingsDelegate?) {
-        self.profile = settings.profile
-        self.tabManager = settings.tabManager
-        self.navigationController = settings.navigationController
-        self.settings = settings as? AppSettingsTableViewController
-        
-        super.init(title: NSAttributedString(string: Strings.LoginsAndPasswordsTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]),
-                   delegate: delegate)
-    }
-
-    func deselectRow () {
-        if let selectedRow = self.settings?.tableView.indexPathForSelectedRow {
-            self.settings?.tableView.deselectRow(at: selectedRow, animated: true)
-        }
-    }
-
-    override func onClick(_: UINavigationController?) {
-        deselectRow()
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let navController = navigationController else { return }
-        LoginListViewController.create(authenticateInNavigationController: navController, profile: profile, settingsDelegate: appDelegate.browserViewController).uponQueue(.main) { loginsVC in
-            guard let loginsVC = loginsVC else { return }
-            navController.pushViewController(loginsVC, animated: true)
-        }
-    }
-}
-
 class TouchIDPasscodeSetting: Setting {
     let profile: Profile
     var tabManager: TabManager!
