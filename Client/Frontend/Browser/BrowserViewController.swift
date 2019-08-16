@@ -13,7 +13,6 @@ import XCGLogger
 import MobileCoreServices
 import SDWebImage
 import SwiftyJSON
-import Telemetry
 import Sentry
 
 private let KVOs: [KVOConstants] = [
@@ -1127,13 +1126,11 @@ extension BrowserViewController: QRCodeViewControllerDelegate {
     func didScanQRCodeWithURL(_ url: URL) {
         guard let tab = tabManager.selectedTab else { return }
         finishEditingAndSubmit(url, visitType: VisitType.typed, forTab: tab)
-        UnifiedTelemetry.recordEvent(category: .action, method: .scan, object: .qrCodeURL)
     }
 
     func didScanQRCodeWithText(_ text: String) {
         guard let tab = tabManager.selectedTab else { return }
         submitSearchText(text, forTab: tab)
-        UnifiedTelemetry.recordEvent(category: .action, method: .scan, object: .qrCodeText)
     }
 }
 
@@ -1272,10 +1269,8 @@ extension BrowserViewController: URLBarDelegate {
         switch readerMode.state {
         case .available:
             enableReaderMode()
-            UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .readerModeOpenButton)
         case .active:
             disableReaderMode()
-            UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .readerModeCloseButton)
         case .unavailable:
             break
         }
@@ -1426,7 +1421,6 @@ extension BrowserViewController: URLBarDelegate {
 
         if let searchURL = engine.searchURLForQuery(text) {
             // We couldn't find a matching search keyword, so do a search query.
-            Telemetry.default.recordSearch(location: .actionBar, searchEngine: engine.engineID ?? "other")
             finishEditingAndSubmit(searchURL, visitType: VisitType.typed, forTab: tab)
         } else {
             // We still don't have a valid URL, so something is broken. Give up.
@@ -1969,14 +1963,12 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             let bookmarkAction = UIAlertAction(title: Strings.ContextMenuBookmarkLink, style: .default) { _ in
                 self.addBookmark(url: url.absoluteString, title: elements.title)
                 SimpleToast().showAlertWithText(Strings.AppMenuAddBookmarkConfirmMessage, bottomContainer: self.webViewContainer)
-                UnifiedTelemetry.recordEvent(category: .action, method: .add, object: .bookmark, value: .contextMenu)
             }
             actionSheetController.addAction(bookmarkAction, accessibilityIdentifier: "linkContextMenu.bookmarkLink")
 
             let downloadAction = UIAlertAction(title: Strings.ContextMenuDownloadLink, style: .default) { _ in
                 self.pendingDownloadWebView = currentTab.webView
                 currentTab.webView?.evaluateJavaScript("window.__firefox__.download('\(url.absoluteString)', '\(UserScriptManager.securityToken)')")
-                UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .downloadLinkButton)
             }
             actionSheetController.addAction(downloadAction, accessibilityIdentifier: "linkContextMenu.download")
 
@@ -2319,7 +2311,6 @@ extension BrowserViewController: TabTrayDelegate {
         guard let url = tab.url?.absoluteString, !url.isEmpty else { return }
         let tabState = tab.tabState
         addBookmark(url: url, title: tabState.title, favicon: tabState.favicon)
-        UnifiedTelemetry.recordEvent(category: .action, method: .add, object: .bookmark, value: .tabTray)
     }
 
     func tabTrayDidAddToReadingList(_ tab: Tab) -> ReadingListItem? {

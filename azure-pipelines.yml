@@ -10,7 +10,7 @@ strategy:
   matrix:
     Cliqz:
       scheme: 'Cliqz'
-      actions: 'clean build'
+      actions: 'clean test build'
 pool:
   vmImage: 'macOS 10.14'
 

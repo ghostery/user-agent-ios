@@ -106,7 +106,6 @@ class ContentBlockerSettingViewController: ContentBlockerSettingsTableView {
                 self.prefs.setString(self.currentBlockingStrength.rawValue, forKey: ContentBlockingConfig.Prefs.StrengthKey)
                 TabContentBlocker.prefsChanged()
                 self.tableView.reloadData()
-                UnifiedTelemetry.recordEvent(category: .action, method: .change, object: .setting, value: ContentBlockingConfig.Prefs.StrengthKey, extras: ["to": option.rawValue])
             })
         }
 

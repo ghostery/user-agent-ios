@@ -323,7 +323,6 @@ class DownloadsPanel: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
 
         if let downloadedFile = downloadedFileForIndexPath(indexPath) {
-            UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .download, value: .downloadsPanel)
 
             if downloadedFile.mimeType == MIMEType.Calendar {
                 let dc = UIDocumentInteractionController(url: downloadedFile.path)
@@ -363,14 +362,12 @@ class DownloadsPanel: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.tableView.deleteRows(at: [indexPath], with: .right)
                     self.tableView.endUpdates()
                     self.updateEmptyPanelState()
-                    UnifiedTelemetry.recordEvent(category: .action, method: .delete, object: .download, value: .downloadsPanel)
                 }
             }
         })
         let share = UITableViewRowAction(style: .normal, title: shareTitle, handler: { (action, indexPath) in
             if let downloadedFile = self.downloadedFileForIndexPath(indexPath) {
                 self.shareDownloadedFile(downloadedFile, indexPath: indexPath)
-                UnifiedTelemetry.recordEvent(category: .action, method: .share, object: .download, value: .downloadsPanel)
             }
         })
         share.backgroundColor = view.tintColor

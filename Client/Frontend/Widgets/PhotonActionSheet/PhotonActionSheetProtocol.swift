@@ -158,7 +158,6 @@ extension PhotonActionSheetProtocol {
             guard let url = tab.url?.displayURL else { return }
 
             self.profile.readingList.createRecordWithURL(url.absoluteString, title: tab.title ?? "", addedBy: UIDevice.current.name)
-            UnifiedTelemetry.recordEvent(category: .action, method: .add, object: .readingListItem, value: .pageActionMenu)
             success(Strings.AppMenuAddToReadingListConfirmMessage)
         }
 
@@ -168,7 +167,6 @@ extension PhotonActionSheetProtocol {
                 return
             }
             bvc.addBookmark(url: url.absoluteString, title: tab.title, favicon: tab.displayFavicon)
-            UnifiedTelemetry.recordEvent(category: .action, method: .add, object: .bookmark, value: .pageActionMenu)
             success(Strings.AppMenuAddBookmarkConfirmMessage)
         }
 
@@ -180,8 +178,6 @@ extension PhotonActionSheetProtocol {
                     success(Strings.AppMenuRemoveBookmarkConfirmMessage)
                 }
             }
-
-            UnifiedTelemetry.recordEvent(category: .action, method: .delete, object: .bookmark, value: .pageActionMenu)
         }
 
         let pinToTopSites = PhotonActionSheetItem(title: Strings.PinTopsiteActionTitle, iconString: "action_pin") { action in
@@ -350,7 +346,6 @@ extension PhotonActionSheetProtocol {
         let statList = [totalCount, adCount, analyticsCount, socialCount, contentCount]
 
         let addToWhitelist = PhotonActionSheetItem(title: Strings.TrackingProtectionDisableTitle, iconString: "menu-TrackingProtection-Off") { _ in
-            UnifiedTelemetry.recordEvent(category: .action, method: .add, object: .trackingProtectionWhitelist)
             ContentBlocker.shared.whitelist(enable: true, url: currentURL) {
                 tab.reload()
             }
@@ -385,7 +380,6 @@ extension PhotonActionSheetProtocol {
             let actions = menuActionsForTrackingProtectionEnabled(for: tab)
             let tpBlocking = PhotonActionSheetItem(title: Strings.SettingsTrackingProtectionSectionName, text: Strings.TPBlockingDescription, iconString: "menu-TrackingProtection", isEnabled: false, accessory: .Disclosure) { _ in
                 guard let bvc = self as? PresentableVC else { return }
-                UnifiedTelemetry.recordEvent(category: .action, method: .view, object: .trackingProtectionStatistics)
                 self.presentSheetWith(title: Strings.SettingsTrackingProtectionSectionName, actions: actions, on: bvc, from: urlBar)
             }
             return [tpBlocking]

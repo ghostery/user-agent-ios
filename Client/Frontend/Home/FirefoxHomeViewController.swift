@@ -783,8 +783,6 @@ extension FirefoxHomeViewController: HomePanelContextMenu {
                     self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: false)
                     site.setBookmarked(false)
                 }
-
-                UnifiedTelemetry.recordEvent(category: .action, method: .delete, object: .bookmark, value: .activityStream)
             })
         } else {
             bookmarkAction = PhotonActionSheetItem(title: Strings.BookmarkContextMenuTitle, iconString: "action_bookmark", handler: { action in
@@ -800,7 +798,6 @@ extension FirefoxHomeViewController: HomePanelContextMenu {
                                                                                     toApplication: .shared)
                 site.setBookmarked(true)
                 self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
-                UnifiedTelemetry.recordEvent(category: .action, method: .add, object: .bookmark, value: .activityStream)
             })
         }
 
