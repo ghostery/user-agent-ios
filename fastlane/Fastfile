@@ -3,6 +3,13 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
 
+  lane :lint do 
+    swiftlint(
+      executable: "Pods/SwiftLint/swiftlint",
+      ignore_exit_status: false
+    )
+  end
+
   lane :clearCache do
     # Remove the Cache
     sh("cd .. && npm cache clean --force && rm -rf Cartfile.resolved Carthage node_modules Pods && rm -rf ~/Library/Caches/org.carthage.CarthageKit")
@@ -86,5 +93,5 @@ platform :ios do
     #   org_slug: 'cliqz',
     #   project_slug: 'cliqz-ios',
     # )
-  end
+  end  
 end
