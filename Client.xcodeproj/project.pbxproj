@@ -491,7 +491,6 @@
 		ACB7382C23042BAB00FA5626 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
 		ACB7382D23042BAB00FA5626 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		ACB7382E23042BAB00FA5626 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
-		ACB7382F23042BAB00FA5626 /* SyncTelemetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */; };
 		ACB7383023042BAB00FA5626 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
 		ACB7383123042BAB00FA5626 /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA4A9451C4CED780091D032 /* GCDWebServers.framework */; };
 		ACB7383223042BAB00FA5626 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
@@ -503,7 +502,6 @@
 		ACB7383823042BAB00FA5626 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */; };
 		ACB7383923042BAB00FA5626 /* Pods_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C70D0A590F32A69664AA1 /* Pods_Client.framework */; };
 		ACB7383C23042BAB00FA5626 /* ShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* ShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		ACB7383F23042BAB00FA5626 /* SyncTelemetry.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7384023042BAB00FA5626 /* Storage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7384123042BAB00FA5626 /* Shared.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7385723042C4400FA5626 /* SiriShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CD747216CF86A004FF5B0 /* SiriShortcuts.swift */; };
@@ -776,7 +774,6 @@
 		ACB7396423042C4400FA5626 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
 		ACB7396523042C4400FA5626 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		ACB7396623042C4400FA5626 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
-		ACB7396723042C4400FA5626 /* SyncTelemetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */; };
 		ACB7396823042C4400FA5626 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
 		ACB7396923042C4400FA5626 /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA4A9451C4CED780091D032 /* GCDWebServers.framework */; };
 		ACB7396A23042C4400FA5626 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
@@ -788,7 +785,6 @@
 		ACB7397023042C4400FA5626 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */; };
 		ACB7397123042C4400FA5626 /* Pods_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 710C70D0A590F32A69664AA1 /* Pods_Client.framework */; };
 		ACB7397423042C4400FA5626 /* ShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* ShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		ACB7397723042C4400FA5626 /* SyncTelemetry.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7397823042C4400FA5626 /* Storage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7397923042C4400FA5626 /* Shared.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
@@ -971,7 +967,6 @@
 		E60D03271D511554002FE3F6 /* SyncStatusResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60D03171D511398002FE3F6 /* SyncStatusResolver.swift */; };
 		E60D032A1D5118DB002FE3F6 /* SyncStatusResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60D03291D5118DB002FE3F6 /* SyncStatusResolverTests.swift */; };
 		E6108FF91C84E91C005D25E8 /* BasePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6108FF81C84E91C005D25E8 /* BasePasscodeViewController.swift */; };
-		E610B0191EDC68FC00DC9372 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610B0181EDC68FC00DC9372 /* EventTests.swift */; };
 		E61453BE1B750A1700C3F9D7 /* RollingFileLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61453BD1B750A1700C3F9D7 /* RollingFileLoggerTests.swift */; };
 		E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
 		E6231C051B90A472005ABB0D /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C041B90A472005ABB0D /* libxml2.2.tbd */; };
@@ -1058,11 +1053,7 @@
 		E693F0D91E9D64BD0086DC17 /* OptionalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E693F0D81E9D64BD0086DC17 /* OptionalExtensions.swift */; };
 		E698FFDA1B4AADF40001F623 /* TabScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698FFD91B4AADF40001F623 /* TabScrollController.swift */; };
 		E69922171B94E3EF007C480D /* Licenses.html in Resources */ = {isa = PBXBuildFile; fileRef = E69922121B94E3EF007C480D /* Licenses.html */; };
-		E69DB07E1E97DEAA008A67E6 /* SyncTelemetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */; };
-		E69DB08A1E97DEAA008A67E6 /* SyncTelemetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */; };
-		E69DB08B1E97DEAA008A67E6 /* SyncTelemetry.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E69DB0A91E97DF73008A67E6 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
-		E69DB0B71E97E2AC008A67E6 /* SyncTelemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DB0B51E97E2AC008A67E6 /* SyncTelemetry.swift */; };
+    E69DB0A91E97DF73008A67E6 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		E69E06BA1C76173D00D0F926 /* RequirePasscodeIntervalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69E06B91C76173D00D0F926 /* RequirePasscodeIntervalViewController.swift */; };
 		E69E06C91C76198000D0F926 /* AuthenticationManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69E06C81C76198000D0F926 /* AuthenticationManagerConstants.swift */; };
 		E6CF28E71CB43B7900151AB3 /* SensitiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF28E61CB43B7900151AB3 /* SensitiveViewController.swift */; };
@@ -1088,7 +1079,6 @@
 		EB9A179D20E69A7F00B12184 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A179A20E69A7E00B12184 /* Theme.swift */; };
 		EB9A179F20E6C1A200B12184 /* ThemedWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A179E20E6C1A200B12184 /* ThemedWidgets.swift */; };
 		EBA1CC1E214AB8FD009E6B06 /* StorageTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A4C121C4EB90600A460E3 /* StorageTestUtils.swift */; };
-		EBA31D7B1F79990C0055463D /* SyncTelemetryEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA31D7A1F79990C0055463D /* SyncTelemetryEvents.swift */; };
 		EBA31D861F799BE20055463D /* Telemetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA31D7E1F799BE20055463D /* Telemetry.framework */; };
 		EBA3B2C32268F16300728BDB /* PhotonActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2C22268F16300728BDB /* PhotonActionSheetCell.swift */; };
 		EBA3B2CD2268F27500728BDB /* PhotonActionSheetWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2CC2268F27500728BDB /* PhotonActionSheetWidgets.swift */; };
@@ -1210,13 +1200,6 @@
 			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
 			remoteInfo = Storage;
 		};
-		ACB7371723042BAB00FA5626 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E69DB0741E97DEA9008A67E6;
-			remoteInfo = SyncTelemetry;
-		};
 		ACB7371B23042BAB00FA5626 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -1238,26 +1221,12 @@
 			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
 			remoteInfo = Storage;
 		};
-		ACB7384F23042C4400FA5626 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E69DB0741E97DEA9008A67E6;
-			remoteInfo = SyncTelemetry;
-		};
 		ACB7385323042C4400FA5626 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F84B22481A0920C600AAB793;
 			remoteInfo = ShareFirefox;
-		};
-		D09A0CE01FAA25C5009A0273 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
-			remoteInfo = Shared;
 		};
 		D09A0CF01FAA2C7E009A0273 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1279,27 +1248,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = F84B21BD1A090F8100AAB793;
 			remoteInfo = Client;
-		};
-		E69DB07F1E97DEAA008A67E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E69DB0741E97DEA9008A67E6;
-			remoteInfo = SyncTelemetry;
-		};
-		E69DB0811E97DEAA008A67E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F84B21BD1A090F8100AAB793;
-			remoteInfo = Client;
-		};
-		E69DB0881E97DEAA008A67E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E69DB0741E97DEA9008A67E6;
-			remoteInfo = SyncTelemetry;
 		};
 		F84B21D41A090F8100AAB793 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1345,7 +1293,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ACB7383F23042BAB00FA5626 /* SyncTelemetry.framework in Copy Frameworks */,
 				ACB7384023042BAB00FA5626 /* Storage.framework in Copy Frameworks */,
 				ACB7384123042BAB00FA5626 /* Shared.framework in Copy Frameworks */,
 			);
@@ -1369,7 +1316,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				ACB7397723042C4400FA5626 /* SyncTelemetry.framework in Copy Frameworks */,
 				ACB7397823042C4400FA5626 /* Storage.framework in Copy Frameworks */,
 				ACB7397923042C4400FA5626 /* Shared.framework in Copy Frameworks */,
 			);
@@ -1382,7 +1328,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E69DB08B1E97DEAA008A67E6 /* SyncTelemetry.framework in Copy Frameworks */,
 				E60138661C89EB7D00DF9756 /* Storage.framework in Copy Frameworks */,
 				E60138651C89EB7600DF9756 /* Shared.framework in Copy Frameworks */,
 			);
@@ -1886,7 +1831,6 @@
 		E60D03171D511398002FE3F6 /* SyncStatusResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncStatusResolver.swift; sourceTree = "<group>"; };
 		E60D03291D5118DB002FE3F6 /* SyncStatusResolverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncStatusResolverTests.swift; sourceTree = "<group>"; };
 		E6108FF81C84E91C005D25E8 /* BasePasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePasscodeViewController.swift; sourceTree = "<group>"; };
-		E610B0181EDC68FC00DC9372 /* EventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		E61453BD1B750A1700C3F9D7 /* RollingFileLoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollingFileLoggerTests.swift; sourceTree = "<group>"; };
 		E6231C001B90A44F005ABB0D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E6231C041B90A472005ABB0D /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
@@ -1976,12 +1920,6 @@
 		E693F0D81E9D64BD0086DC17 /* OptionalExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalExtensions.swift; sourceTree = "<group>"; };
 		E698FFD91B4AADF40001F623 /* TabScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabScrollController.swift; sourceTree = "<group>"; };
 		E69922121B94E3EF007C480D /* Licenses.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Licenses.html; sourceTree = "<group>"; };
-		E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SyncTelemetry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E69DB0771E97DEA9008A67E6 /* SyncTelemetry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SyncTelemetry.h; sourceTree = "<group>"; };
-		E69DB0781E97DEA9008A67E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E69DB07D1E97DEA9008A67E6 /* SyncTelemetryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyncTelemetryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E69DB0861E97DEAA008A67E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E69DB0B51E97E2AC008A67E6 /* SyncTelemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncTelemetry.swift; sourceTree = "<group>"; };
 		E69E06B91C76173D00D0F926 /* RequirePasscodeIntervalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequirePasscodeIntervalViewController.swift; sourceTree = "<group>"; };
 		E69E06C81C76198000D0F926 /* AuthenticationManagerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerConstants.swift; sourceTree = "<group>"; };
 		E6C191D41E38F7B7000A213B /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -2014,7 +1952,6 @@
 		EB9A179920E69A7E00B12184 /* DarkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		EB9A179A20E69A7E00B12184 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		EB9A179E20E6C1A200B12184 /* ThemedWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedWidgets.swift; sourceTree = "<group>"; };
-		EBA31D7A1F79990C0055463D /* SyncTelemetryEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncTelemetryEvents.swift; sourceTree = "<group>"; };
 		EBA31D7E1F799BE20055463D /* Telemetry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Telemetry.framework; path = Carthage/Build/iOS/Telemetry.framework; sourceTree = "<group>"; };
 		EBA3B2C22268F16300728BDB /* PhotonActionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCell.swift; sourceTree = "<group>"; };
 		EBA3B2CC2268F27500728BDB /* PhotonActionSheetWidgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetWidgets.swift; sourceTree = "<group>"; };
@@ -2096,7 +2033,6 @@
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
 				288A2D9D1AB8B3260023ABC3 /* Shared.framework in Frameworks */,
 				2FCAE2311ABB51F800877008 /* Storage.framework in Frameworks */,
-				E69DB08A1E97DEAA008A67E6 /* SyncTelemetry.framework in Frameworks */,
 				3BA9A0231D2C208C00BD418C /* Fuzi.framework in Frameworks */,
 				7BA4A9471C4CED900091D032 /* GCDWebServers.framework in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
@@ -2157,7 +2093,6 @@
 				ACB7382C23042BAB00FA5626 /* libz.tbd in Frameworks */,
 				ACB7382D23042BAB00FA5626 /* Shared.framework in Frameworks */,
 				ACB7382E23042BAB00FA5626 /* Storage.framework in Frameworks */,
-				ACB7382F23042BAB00FA5626 /* SyncTelemetry.framework in Frameworks */,
 				ACB7383023042BAB00FA5626 /* Fuzi.framework in Frameworks */,
 				ACB7383123042BAB00FA5626 /* GCDWebServers.framework in Frameworks */,
 				ACB7383223042BAB00FA5626 /* ImageIO.framework in Frameworks */,
@@ -2182,7 +2117,6 @@
 				ACB7396423042C4400FA5626 /* libz.tbd in Frameworks */,
 				ACB7396523042C4400FA5626 /* Shared.framework in Frameworks */,
 				ACB7396623042C4400FA5626 /* Storage.framework in Frameworks */,
-				ACB7396723042C4400FA5626 /* SyncTelemetry.framework in Frameworks */,
 				ACB7396823042C4400FA5626 /* Fuzi.framework in Frameworks */,
 				ACB7396923042C4400FA5626 /* GCDWebServers.framework in Frameworks */,
 				ACB7396A23042C4400FA5626 /* ImageIO.framework in Frameworks */,
@@ -2193,22 +2127,6 @@
 				ACB7396F23042C4400FA5626 /* Telemetry.framework in Frameworks */,
 				ACB7397023042C4400FA5626 /* XCGLogger.framework in Frameworks */,
 				ACB7397123042C4400FA5626 /* Pods_Client.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E69DB0711E97DEA9008A67E6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E69DB0A91E97DF73008A67E6 /* Shared.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E69DB07A1E97DEA9008A67E6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E69DB07E1E97DEAA008A67E6 /* SyncTelemetry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3066,34 +2984,6 @@
 			path = About;
 			sourceTree = "<group>";
 		};
-		E69DB0761E97DEA9008A67E6 /* SyncTelemetry */ = {
-			isa = PBXGroup;
-			children = (
-				EBA31D7A1F79990C0055463D /* SyncTelemetryEvents.swift */,
-				E69DB0B81E97E2B5008A67E6 /* Supporting Files */,
-				E69DB0B51E97E2AC008A67E6 /* SyncTelemetry.swift */,
-			);
-			path = SyncTelemetry;
-			sourceTree = "<group>";
-		};
-		E69DB0831E97DEAA008A67E6 /* SyncTelemetryTests */ = {
-			isa = PBXGroup;
-			children = (
-				E69DB0861E97DEAA008A67E6 /* Info.plist */,
-				E610B0181EDC68FC00DC9372 /* EventTests.swift */,
-			);
-			path = SyncTelemetryTests;
-			sourceTree = "<group>";
-		};
-		E69DB0B81E97E2B5008A67E6 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E69DB0771E97DEA9008A67E6 /* SyncTelemetry.h */,
-				E69DB0781E97DEA9008A67E6 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		E69DB0B91E97E301008A67E6 /* Telemetry */ = {
 			isa = PBXGroup;
 			children = (
@@ -3230,8 +3120,6 @@
 				2FCAE21B1ABB51F800877008 /* Storage */,
 				3B43E3D11D95C48D00BBA9DB /* StoragePerfTests */,
 				2FCAE22A1ABB51F800877008 /* StorageTests */,
-				E69DB0761E97DEA9008A67E6 /* SyncTelemetry */,
-				E69DB0831E97DEAA008A67E6 /* SyncTelemetryTests */,
 				28CE83EF1A1D246900576538 /* Third-Party Source */,
 				ACB739882306837000FA5626 /* Translations */,
 				3BFE4B081D342FB900DDF53F /* XCUITests */,
@@ -3251,8 +3139,6 @@
 				E6F9650C1B2F1CF20034B023 /* SharedTests.xctest */,
 				3BFE4B071D342FB800DDF53F /* XCUITests.xctest */,
 				3B43E3D01D95C48D00BBA9DB /* StoragePerfTests.xctest */,
-				E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */,
-				E69DB07D1E97DEA9008A67E6 /* SyncTelemetryTests.xctest */,
 				ACB7384723042BAB00FA5626 /* Ghostery.app */,
 				ACB7397F23042C4400FA5626 /* Lumen.app */,
 			);
@@ -3468,7 +3354,6 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
-
 /* Begin PBXNativeTarget section */
 		288A2D851AB8B3260023ABC3 /* Shared */ = {
 			isa = PBXNativeTarget;
@@ -3581,7 +3466,6 @@
 			dependencies = (
 				ACB7371223042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371423042BAB00FA5626 /* PBXTargetDependency */,
-				ACB7371623042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371A23042BAB00FA5626 /* PBXTargetDependency */,
 			);
 			name = Ghostery;
@@ -3608,50 +3492,12 @@
 			dependencies = (
 				ACB7384A23042C4400FA5626 /* PBXTargetDependency */,
 				ACB7384C23042C4400FA5626 /* PBXTargetDependency */,
-				ACB7384E23042C4400FA5626 /* PBXTargetDependency */,
 				ACB7385223042C4400FA5626 /* PBXTargetDependency */,
 			);
 			name = Lumen;
 			productName = Client;
 			productReference = ACB7397F23042C4400FA5626 /* Lumen.app */;
 			productType = "com.apple.product-type.application";
-		};
-		E69DB0741E97DEA9008A67E6 /* SyncTelemetry */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E69DB08C1E97DEAA008A67E6 /* Build configuration list for PBXNativeTarget "SyncTelemetry" */;
-			buildPhases = (
-				E69DB0701E97DEA9008A67E6 /* Sources */,
-				E69DB0711E97DEA9008A67E6 /* Frameworks */,
-				E69DB0731E97DEA9008A67E6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D09A0CE11FAA25C5009A0273 /* PBXTargetDependency */,
-			);
-			name = SyncTelemetry;
-			productName = SyncTelemetry;
-			productReference = E69DB0751E97DEA9008A67E6 /* SyncTelemetry.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		E69DB07C1E97DEA9008A67E6 /* SyncTelemetryTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E69DB0921E97DEAA008A67E6 /* Build configuration list for PBXNativeTarget "SyncTelemetryTests" */;
-			buildPhases = (
-				E69DB0791E97DEA9008A67E6 /* Sources */,
-				E69DB07A1E97DEA9008A67E6 /* Frameworks */,
-				E69DB07B1E97DEA9008A67E6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E69DB0801E97DEAA008A67E6 /* PBXTargetDependency */,
-				E69DB0821E97DEAA008A67E6 /* PBXTargetDependency */,
-			);
-			name = SyncTelemetryTests;
-			productName = SyncTelemetryTests;
-			productReference = E69DB07D1E97DEA9008A67E6 /* SyncTelemetryTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		E6F9650B1B2F1CF20034B023 /* SharedTests */ = {
 			isa = PBXNativeTarget;
@@ -3691,7 +3537,6 @@
 			dependencies = (
 				288A2D9C1AB8B3260023ABC3 /* PBXTargetDependency */,
 				2FCAE2301ABB51F800877008 /* PBXTargetDependency */,
-				E69DB0891E97DEAA008A67E6 /* PBXTargetDependency */,
 				F84B22521A0920C600AAB793 /* PBXTargetDependency */,
 			);
 			name = Cliqz;
@@ -3785,19 +3630,6 @@
 					ACB7384923042C4400FA5626 = {
 						DevelopmentTeam = 43AQ936H96;
 					};
-					E69DB0741E97DEA9008A67E6 = {
-						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 43AQ936H96;
-						LastSwiftMigration = 1000;
-						ProvisioningStyle = Manual;
-					};
-					E69DB07C1E97DEA9008A67E6 = {
-						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 43AQ936H96;
-						LastSwiftMigration = 1000;
-						ProvisioningStyle = Automatic;
-						TestTargetID = F84B21BD1A090F8100AAB793;
-					};
 					E6F9650B1B2F1CF20034B023 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 43AQ936H96;
@@ -3875,13 +3707,11 @@
 				F84B22481A0920C600AAB793 /* ShareTo */,
 				288A2D851AB8B3260023ABC3 /* Shared */,
 				2FCAE2191ABB51F800877008 /* Storage */,
-				E69DB0741E97DEA9008A67E6 /* SyncTelemetry */,
 				F84B21D21A090F8100AAB793 /* ClientTests */,
 				2FCAE2231ABB51F800877008 /* StorageTests */,
 				E6F9650B1B2F1CF20034B023 /* SharedTests */,
 				3BFE4B061D342FB800DDF53F /* XCUITests */,
 				3B43E3CF1D95C48D00BBA9DB /* StoragePerfTests */,
-				E69DB07C1E97DEA9008A67E6 /* SyncTelemetryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -4031,20 +3861,6 @@
 				ACB7395C23042C4400FA5626 /* LaunchScreen.xib in Resources */,
 				ACB7395D23042C4400FA5626 /* FiraSans-BoldItalic.ttf in Resources */,
 				ACB7395E23042C4400FA5626 /* AllFramesAtDocumentStart.js in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E69DB0731E97DEA9008A67E6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E69DB07B1E97DEA9008A67E6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5064,23 +4880,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E69DB0701E97DEA9008A67E6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E69DB0B71E97E2AC008A67E6 /* SyncTelemetry.swift in Sources */,
-				EBA31D7B1F79990C0055463D /* SyncTelemetryEvents.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E69DB0791E97DEA9008A67E6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E610B0191EDC68FC00DC9372 /* EventTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E6F965081B2F1CF20034B023 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5442,11 +5241,6 @@
 			target = 2FCAE2191ABB51F800877008 /* Storage */;
 			targetProxy = ACB7371523042BAB00FA5626 /* PBXContainerItemProxy */;
 		};
-		ACB7371623042BAB00FA5626 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E69DB0741E97DEA9008A67E6 /* SyncTelemetry */;
-			targetProxy = ACB7371723042BAB00FA5626 /* PBXContainerItemProxy */;
-		};
 		ACB7371A23042BAB00FA5626 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F84B22481A0920C600AAB793 /* ShareTo */;
@@ -5462,40 +5256,15 @@
 			target = 2FCAE2191ABB51F800877008 /* Storage */;
 			targetProxy = ACB7384D23042C4400FA5626 /* PBXContainerItemProxy */;
 		};
-		ACB7384E23042C4400FA5626 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E69DB0741E97DEA9008A67E6 /* SyncTelemetry */;
-			targetProxy = ACB7384F23042C4400FA5626 /* PBXContainerItemProxy */;
-		};
 		ACB7385223042C4400FA5626 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F84B22481A0920C600AAB793 /* ShareTo */;
 			targetProxy = ACB7385323042C4400FA5626 /* PBXContainerItemProxy */;
 		};
-		D09A0CE11FAA25C5009A0273 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 288A2D851AB8B3260023ABC3 /* Shared */;
-			targetProxy = D09A0CE01FAA25C5009A0273 /* PBXContainerItemProxy */;
-		};
 		D09A0CF11FAA2C7E009A0273 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 288A2D851AB8B3260023ABC3 /* Shared */;
 			targetProxy = D09A0CF01FAA2C7E009A0273 /* PBXContainerItemProxy */;
-		};
-		E69DB0801E97DEAA008A67E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E69DB0741E97DEA9008A67E6 /* SyncTelemetry */;
-			targetProxy = E69DB07F1E97DEAA008A67E6 /* PBXContainerItemProxy */;
-		};
-		E69DB0821E97DEAA008A67E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F84B21BD1A090F8100AAB793 /* Cliqz */;
-			targetProxy = E69DB0811E97DEAA008A67E6 /* PBXContainerItemProxy */;
-		};
-		E69DB0891E97DEAA008A67E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E69DB0741E97DEA9008A67E6 /* SyncTelemetry */;
-			targetProxy = E69DB0881E97DEAA008A67E6 /* PBXContainerItemProxy */;
 		};
 		E6F965141B2F1CF20034B023 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -6216,75 +5985,6 @@
 			};
 			name = Adhoc;
 		};
-		ACB7370A2304289100FA5626 /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				APP_IDENTIFIER_PREFIX = 43AQ936H96;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = SyncTelemetry/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.SyncTelemetry;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Adhoc;
-		};
 		ACB7370B2304289100FA5626 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -6438,65 +6138,6 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozilla.StoragePerfTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Client.app/Client";
-			};
-			name = Adhoc;
-		};
-		ACB737102304289100FA5626 /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 43AQ936H96;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = SyncTelemetryTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.SyncTelemetryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -7052,246 +6693,6 @@
 			};
 			name = Release;
 		};
-		E69DB08D1E97DEAA008A67E6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				APP_IDENTIFIER_PREFIX = 43AQ936H96;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = SyncTelemetry/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.SyncTelemetry;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E69DB08F1E97DEAA008A67E6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_BITCODE = NO;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = SyncTelemetry/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.SyncTelemetry;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E69DB0931E97DEAA008A67E6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 43AQ936H96;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = SyncTelemetryTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.SyncTelemetryTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Client.app/Client";
-			};
-			name = Debug;
-		};
-		E69DB0951E97DEAA008A67E6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 43AQ936H96;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = SyncTelemetryTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.SyncTelemetryTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Client.app/Client";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		E6F965151B2F1CF20034B023 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -7581,26 +6982,6 @@
 				ACB7397C23042C4400FA5626 /* Debug */,
 				ACB7397D23042C4400FA5626 /* Adhoc */,
 				ACB7397E23042C4400FA5626 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E69DB08C1E97DEAA008A67E6 /* Build configuration list for PBXNativeTarget "SyncTelemetry" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E69DB08D1E97DEAA008A67E6 /* Debug */,
-				ACB7370A2304289100FA5626 /* Adhoc */,
-				E69DB08F1E97DEAA008A67E6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E69DB0921E97DEAA008A67E6 /* Build configuration list for PBXNativeTarget "SyncTelemetryTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E69DB0931E97DEAA008A67E6 /* Debug */,
-				ACB737102304289100FA5626 /* Adhoc */,
-				E69DB0951E97DEAA008A67E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
