@@ -37,6 +37,17 @@ disabled_rules: # rule identifiers to exclude from running
   - legacy_cggeometry_functions
   - unneeded_break_in_switch
   - closure_parameter_position
+
+# The following rules are disabled for now because firefox code breaks them. Try to reintroduce them gradually
+  - force_try
+  - force_cast
+  - empty_string
+  - unused_setter_value
+  - void_return
+  - reduce_boolean
+  - notification_center_detachment
+
+
 opt_in_rules: # some rules are only opt-in
   - closing_brace
   - opening_brace
@@ -45,9 +56,7 @@ opt_in_rules: # some rules are only opt-in
   - statement_position
   - explicit_init
   - shorthand_operator
-  - file_header
   - deployment_target
-  - discouraged_optional_collection
   - duplicate_imports
   - empty_string
   - overridden_super_call
@@ -55,10 +64,13 @@ opt_in_rules: # some rules are only opt-in
   - prohibited_super_call
   - protocol_property_accessors_order
   - redundant_objc_attribute
-  - redundant_type_annotation
   - unused_import
-  # Find all the available rules by running:
-  # swiftlint rules
+
+  # The following rules are disabled for now because firefox code breaks them. Try to reintroduce them gradually
+  # - discouraged_optional_collection
+  # - redundant_type_annotation
+  # - file_header
+  
 included: # paths to include during linting. `--path` is ignored if present.
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Carthage
@@ -95,9 +107,8 @@ comma: error
 force_try: warning
 force_cast: warning
 
-
-file_header:
-  required_string: "/* This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/. */"
+# The following rule is useless, but is kept for compatibility with firefox code for now. 
+# Try to reduce to 140 gradually.
 line_length: 1000
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle)
