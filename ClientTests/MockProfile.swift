@@ -62,7 +62,6 @@ open class MockProfile: Client.Profile {
     public var places: RustPlaces
     public var files: FileAccessor
     public var history: BrowserHistory & SyncableHistory & ResettableSyncStorage
-    public var logins: RustLogins
 
     fileprivate var legacyPlaces: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations
 
@@ -77,8 +76,6 @@ open class MockProfile: Client.Profile {
 
     init(databasePrefix: String = "mock") {
         files = MockFiles()
-        let loginsDatabasePath = URL(fileURLWithPath: (try! files.getAndEnsureDirectory()), isDirectory: true).appendingPathComponent("\(databasePrefix)_logins.db").path
-        logins = RustLogins(databasePath: loginsDatabasePath, encryptionKey: "AAAAAAAA")
         db = BrowserDB(filename: "\(databasePrefix).db", schema: BrowserSchema(), files: files)
         readingListDB = BrowserDB(filename: "\(databasePrefix)_ReadingList.db", schema: ReadingListSchema(), files: files)
         let placesDatabasePath = URL(fileURLWithPath: (try! files.getAndEnsureDirectory()), isDirectory: true).appendingPathComponent("\(databasePrefix)_places.db").path
@@ -96,7 +93,6 @@ open class MockProfile: Client.Profile {
         isShutdown = false
 
         db.reopenIfClosed()
-        _ = logins.reopenIfClosed()
         _ = places.reopenIfClosed()
     }
 
@@ -104,7 +100,6 @@ open class MockProfile: Client.Profile {
         isShutdown = true
 
         db.forceClose()
-        _ = logins.forceClose()
         _ = places.forceClose()
     }
 

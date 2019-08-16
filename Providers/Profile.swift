@@ -56,7 +56,6 @@ protocol Profile: AnyObject {
     var metadata: Metadata { get }
     var recommendations: HistoryRecommendations { get }
     var favicons: Favicons { get }
-    var logins: RustLogins { get }
     var certStore: CertStore { get }
     var recentlyClosedTabs: ClosedTabsStore { get }
     var panelDataObservers: PanelDataObservers { get }
@@ -264,7 +263,6 @@ open class BrowserProfile: Profile {
         isShutdown = false
 
         db.reopenIfClosed()
-        _ = logins.reopenIfClosed()
         _ = places.reopenIfClosed()
     }
 
@@ -273,7 +271,6 @@ open class BrowserProfile: Profile {
         isShutdown = true
 
         db.forceClose()
-        _ = logins.forceClose()
         _ = places.forceClose()
     }
 
@@ -406,11 +403,6 @@ open class BrowserProfile: Profile {
     func storeTabs(_ tabs: [RemoteTab]) -> Deferred<Maybe<Int>> {
         return self.remoteClientsAndTabs.insertOrUpdateTabs(tabs)
     }
-
-    lazy var logins: RustLogins = {
-        let databasePath = URL(fileURLWithPath: (try! files.getAndEnsureDirectory()), isDirectory: true).appendingPathComponent("logins.db").path
-        return RustLogins(databasePath: databasePath, encryptionKey: BrowserProfile.loginsKey)
-    }()
 
     static var isChinaEdition: Bool = {
         return Locale.current.identifier == "zh_CN"
