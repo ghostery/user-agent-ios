@@ -15,7 +15,6 @@ import SwiftKeychainWrapper
 // Import these dependencies ONLY for the main `Client` application target.
 #if MOZ_TARGET_CLIENT
     import SwiftyJSON
-    import SyncTelemetry
 #endif
 
 private let log = Logger.syncLogger
