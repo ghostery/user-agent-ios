@@ -2672,6 +2672,29 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		ACB739882306837000FA5626 /* Translations */ = {
+			isa = PBXGroup;
+			children = (
+				1D5C457AA78148172BE8231E /* Shared.strings */,
+				9CE94446954F6DCEF9FCCDAB /* HistoryPanel.strings */,
+				87334596ACEFC08E1CEC3543 /* Storage.strings */,
+				5F9E430FA4DF366BB519164A /* Search.strings */,
+				187C48DAA7ADAA94202B7F33 /* Menu.strings */,
+				7D7B450E95C275F8CCB3062C /* AuthenticationManager.strings */,
+				FEEC42F589C10B5A25A90238 /* PrivateBrowsing.strings */,
+				794F44B78C79F0DA5BA91463 /* Localizable.strings */,
+				8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */,
+				CE8D49D1A948B49ADAAEC6EC /* Intro.strings */,
+				C69A4445A044D7F52824B948 /* 3DTouchActions.strings */,
+				1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */,
+				89284761B16A536C0985FB01 /* LoginManager.strings */,
+				9A5540EB8DEED346508AE041 /* ClearPrivateData.strings */,
+				E178452EA7469EB0EF3611B9 /* FindInPage.strings */,
+				6B144025BB2AFEA7FF2CCC04 /* ErrorPages.strings */,
+			);
+			path = Translations;
+			sourceTree = "<group>";
+		};
 		C8F457A61F1FD75A000CB895 /* BrowserViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -3319,22 +3342,7 @@
 				E69DB0B91E97E301008A67E6 /* Telemetry */,
 				E65075551E37F714006961AC /* Utils */,
 				74821FFD1DB6D3AC00EEEA72 /* MailSchemes.plist */,
-				1D5C457AA78148172BE8231E /* Shared.strings */,
-				9CE94446954F6DCEF9FCCDAB /* HistoryPanel.strings */,
-				87334596ACEFC08E1CEC3543 /* Storage.strings */,
-				5F9E430FA4DF366BB519164A /* Search.strings */,
-				187C48DAA7ADAA94202B7F33 /* Menu.strings */,
-				7D7B450E95C275F8CCB3062C /* AuthenticationManager.strings */,
-				FEEC42F589C10B5A25A90238 /* PrivateBrowsing.strings */,
-				794F44B78C79F0DA5BA91463 /* Localizable.strings */,
-				8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */,
-				CE8D49D1A948B49ADAAEC6EC /* Intro.strings */,
-				C69A4445A044D7F52824B948 /* 3DTouchActions.strings */,
-				1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */,
-				89284761B16A536C0985FB01 /* LoginManager.strings */,
-				9A5540EB8DEED346508AE041 /* ClearPrivateData.strings */,
-				E178452EA7469EB0EF3611B9 /* FindInPage.strings */,
-				6B144025BB2AFEA7FF2CCC04 /* ErrorPages.strings */,
+				ACB739882306837000FA5626 /* Translations */,
 			);
 			path = Client;
 			sourceTree = "<group>";
