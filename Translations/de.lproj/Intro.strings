@@ -1,0 +1,36 @@
+/* Description for the 'Mail' panel in the First Run tour. */
+"Intro.Slides.Mail.Description" = "Nutzen Sie eine beliebige E-Mail-App – nicht nur Mail – mit Firefox.";
+
+/* Title for the fourth panel 'Mail' in the First Run tour. */
+"Intro.Slides.Mail.Title" = "Einstellungen zu E-Mails";
+
+/* Description for the 'Private Browsing' panel in the First Run tour. */
+"Intro.Slides.Private.Description" = "Tippen Sie auf das Maskensymbol, um den privaten Modus zu aktivieren.";
+
+/* Title for the third panel 'Private Browsing' in the First Run tour. */
+"Intro.Slides.Private.Title" = "Surfen Sie, als würde niemand zusehen";
+
+/* Description for the 'Favorite Search Engine' panel in the First Run tour. */
+"Intro.Slides.Search.Description" = "Suchen Sie etwas anderes? Wählen Sie in den Einstellungen eine andere Standardsuchmaschine (oder fügen Sie Ihre eigene hinzu).";
+
+/* Title for the second  panel 'Search' in the First Run tour. */
+"Intro.Slides.Search.Title" = "Ihre Suche, wie Sie möchten";
+
+/* Description for the 'Sync' panel in the First Run tour. */
+"Intro.Slides.TrailheadSync.Description" = "Melden Sie sich zum Synchronisieren und für weitere Funktionen bei Ihrem Konto an.";
+
+/* Title for the fifth panel 'Sync' in the First Run tour. */
+"Intro.Slides.TrailheadSync.Title" = "Machen Sie das Beste aus Firefox";
+
+/* Description for the 'Welcome' panel in the First Run tour. */
+"Intro.Slides.Welcome.Description" = "Ein moderner Browser für Mobilgeräte von Mozilla, der gemeinnützigen Organisation, die sich für ein freies und offenes Web einsetzt.";
+
+/* Title for the first panel 'Welcome' in the First Run tour. */
+"Intro.Slides.Welcome.Title" = "Danke, dass Sie sich für Firefox entschieden haben!";
+
+/* See http://mzl.la/1T8gxwo */
+"Start Browsing" = "Lossurfen";
+
+/* The button that opens the sign in page for sync. See http://mzl.la/1T8gxwo */
+"Turn on Sync…" = "Sync aktivieren…";
+
