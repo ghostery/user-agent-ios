@@ -3305,6 +3305,7 @@
 				E69DB0761E97DEA9008A67E6 /* SyncTelemetry */,
 				E69DB0831E97DEAA008A67E6 /* SyncTelemetryTests */,
 				28CE83EF1A1D246900576538 /* Third-Party Source */,
+				ACB739882306837000FA5626 /* Translations */,
 				3BFE4B081D342FB900DDF53F /* XCUITests */,
 				16E9FFCB9ABA728F195C929B /* Pods */,
 			);
@@ -3348,7 +3349,6 @@
 				E69DB0B91E97E301008A67E6 /* Telemetry */,
 				E65075551E37F714006961AC /* Utils */,
 				74821FFD1DB6D3AC00EEEA72 /* MailSchemes.plist */,
-				ACB739882306837000FA5626 /* Translations */,
 			);
 			path = Client;
 			sourceTree = "<group>";

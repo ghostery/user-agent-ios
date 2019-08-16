@@ -3,6 +3,8 @@
 ## Localization
 Localization works as described in the [Apple Documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LocalizingYourApp/LocalizingYourApp.html) or [this helpful tutorial](https://medium.com/swift-india/localize-your-apps-to-support-multiple-languages-ios-localization-ac7b612dbc58). Strings files are included in the project and can be exported to and imported from Xliff files if necessary for translation by external translation agencies.
 
+Strings files live in the `Translations` directory,
+
 To test localization, you can edit your currently active scheme, and in "Options", set the "Application Language". Don't commit this change please.
 
 ----
