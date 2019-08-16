@@ -17,13 +17,13 @@ node('gideon') {
                 config.vm.box = "xcode-10.1"
                 config.vm.synced_folder ".", "/vagrant", disabled: true
                 config.vm.define "publishios" do |publishios|
-                    publishios.vm.hostname ="publishios"
+                    publishios.vm.hostname ="cliqz-browser-ios"
                     config.ssh.private_key_path = "/Users/jenkins/reusable-VMs/publishios/.vagrant/machines/publishios/virtualbox/private_key"
                     publishios.vm.network "public_network", :bridge => "en0: Ethernet 1", auto_config: false
                     publishios.vm.boot_timeout = 900
                     publishios.ssh.forward_agent = true
                     publishios.vm.provider "virtualbox" do |v|
-                        v.name = "publishios"
+                        v.name = "cliqz-browser-ios"
                         v.gui = false
                         v.memory = ENV["NODE_MEMORY"]
                         v.cpus = ENV["NODE_CPU_COUNT"]
