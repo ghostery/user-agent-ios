@@ -33,7 +33,7 @@ node('gideon') {
                         set -e
                         set -x
                         curl -LO https://raw.githubusercontent.com/cliqz/cliqz-browser-ios/develop/jenkins.py
-                        python jenkins.py --url #{ENV['JENKINS_URL']} --node #{node_id} --secret #{ENV["NODE_SECRET"]} &
+                        python3 jenkins.py --url #{ENV['JENKINS_URL']} --node #{node_id} --secret #{ENV["NODE_SECRET"]} &
                     SHELL
                 end
             end
