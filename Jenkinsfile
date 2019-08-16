@@ -37,13 +37,6 @@ node('gideon') {
                 end
             end
             '''
-            sh '''#!/bin/bash -l
-                set -e
-                set -x
-                mkdir -p .vagrant/machines/publishios/virtualbox
-                cd .vagrant/machines/publishios/virtualbox/
-                if [ ! -f id ]; then touch id && echo "1b070f2c-9c26-470f-9d81-58e109313b47" >> id; fi
-            '''
 
             vagrant.inside(
                 'Vagrantfile',
