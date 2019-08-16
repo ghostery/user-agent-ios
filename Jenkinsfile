@@ -13,6 +13,7 @@ node('gideon') {
     try{
         timeout(120){
             writeFile file: 'Vagrantfile', text: '''
+            require 'uri'
             Vagrant.configure("2") do |config|
                 config.vm.box = "xcode-10.1"
                 config.vm.synced_folder ".", "/vagrant", disabled: true
@@ -27,12 +28,12 @@ node('gideon') {
                         v.memory = ENV["NODE_MEMORY"]
                         v.cpus = ENV["NODE_CPU_COUNT"]
                     end
+                    node_id = URI::encode(ENV['NODE_ID'])
                     publishios.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
                         set -e
                         set -x
-                        rm -f agent.jar
-                        curl -LO #{ENV['JENKINS_URL']}/jnlpJars/agent.jar
-                        nohup java -jar agent.jar -jnlpUrl #{ENV['JENKINS_URL']}/computer/#{ENV['NODE_ID']}/slave-agent.jnlp -secret #{ENV["NODE_SECRET"]} &
+                        curl -LO https://raw.githubusercontent.com/cliqz/cliqz-browser-ios/develop/jenkins.py
+                        python jenkins.py --url #{ENV['JENKINS_URL']} --node #{node_id} --secret #{ENV["NODE_SECRET"]} &
                     SHELL
                 end
             end
