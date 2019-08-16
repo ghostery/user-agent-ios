@@ -46,5 +46,8 @@ steps:
     /usr/local/bin/npm ci
   displayName: 'Install Node modules'
 
+- bash: bundle exec fastlane lint
+  displayName: 'Lint'
+
 - script: xcodebuild -workspace Client.xcworkspace -scheme $(scheme) -sdk iphonesimulator -destination "platform=iOS Simulator,OS=12.4,name=iPhone 6s" ONLY_ACTIVE_ARCH=NO -derivedDataPath $(actions)
   displayName: 'Xcode Build for Simulator'

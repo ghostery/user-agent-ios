@@ -66,7 +66,7 @@ class QuickActions: NSObject {
                 localizedTitle: lastBookmarkTitle,
                 localizedSubtitle: userData[QuickActions.TabTitleKey],
                 icon: UIApplicationShortcutIcon(templateImageName: "quick_action_last_bookmark"),
-                userInfo: userData as [String : NSSecureCoding]
+                userInfo: userData as [String: NSSecureCoding]
             )
             if let index = (dynamicShortcutItems.firstIndex { $0.type == ShortcutType.openLastBookmark.type }) {
                 dynamicShortcutItems[index] = openLastBookmarkShortcut

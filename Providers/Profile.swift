@@ -128,7 +128,6 @@ open class BrowserProfile: Profile {
         return secret
     }
 
-
     @available(*, deprecated, message: "SyncDelegate is deprecated, initialize without the syncdelegate property instead")
     convenience init(localName: String, syncDelegate: Any? = nil, clear: Bool = false) {
         self.init(localName: localName, clear: clear)

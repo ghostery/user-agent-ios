@@ -12,13 +12,13 @@ class UserScriptManager {
     // Singleton instance.
     public static let shared = UserScriptManager()
 
-    private let compiledUserScripts: [String : WKUserScript]
+    private let compiledUserScripts: [String: WKUserScript]
 
     private let noImageModeUserScript = WKUserScript(source: "window.__firefox__.NoImageMode.setEnabled(true)", injectionTime: .atDocumentStart, forMainFrameOnly: true)
     private let nightModeUserScript = WKUserScript(source: "window.__firefox__.NightMode.setEnabled(true)", injectionTime: .atDocumentStart, forMainFrameOnly: true)
 
     private init() {
-        var compiledUserScripts: [String : WKUserScript] = [:]
+        var compiledUserScripts: [String: WKUserScript] = [:]
 
         // Cache all of the pre-compiled user scripts so they don't
         // need re-fetched from disk for each webview.
