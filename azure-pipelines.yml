@@ -5,6 +5,7 @@ variables:
 
 trigger:
 - master
+- develop
 
 strategy:
   matrix:
