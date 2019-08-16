@@ -33,8 +33,8 @@ open class UserAgent {
      * code runs, or you don't mind failure.
      */
     public static func cachedUserAgent(checkiOSVersion: Bool = true,
-                                     checkFirefoxVersion: Bool = true,
-                                     checkFirefoxBuildNumber: Bool = true) -> String? {
+                                       checkFirefoxVersion: Bool = true,
+                                       checkFirefoxBuildNumber: Bool = true) -> String? {
         let currentiOSVersion = UIDevice.current.systemVersion
         let lastiOSVersion = defaults.string(forKey: "LastDeviceSystemVersionNumber")
 
