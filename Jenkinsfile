@@ -18,7 +18,6 @@ node('gideon') {
                 config.vm.synced_folder ".", "/vagrant", disabled: true
                 config.vm.define "publishios" do |publishios|
                     publishios.vm.hostname ="cliqz-browser-ios"
-                    config.ssh.private_key_path = "/Users/jenkins/reusable-VMs/publishios/.vagrant/machines/publishios/virtualbox/private_key"
                     publishios.vm.network "public_network", :bridge => "en0: Ethernet 1", auto_config: false
                     publishios.vm.boot_timeout = 900
                     publishios.ssh.forward_agent = true
@@ -49,7 +48,7 @@ node('gideon') {
             vagrant.inside(
                 'Vagrantfile',
                 '/jenkins',
-                6, // CPU
+                4, // CPU
                 12000, // MEMORY
                 12000, // VNC port
                 false, // rebuild image
