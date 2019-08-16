@@ -7,4 +7,3 @@ github "DaveWoodCom/XCGLogger"              ~> 7.0
 github "cezheng/Fuzi"                       ~> 3.0
 github "SwiftyJSON/SwiftyJSON"              ~> 5.0
 github "google/EarlGrey"                    ~> 1.15
-github "mozilla-mobile/telemetry-ios"      ~> 1.1

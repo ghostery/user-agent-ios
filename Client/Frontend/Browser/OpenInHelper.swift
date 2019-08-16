@@ -99,7 +99,6 @@ class DownloadHelper: NSObject, OpenInHelper {
 
         let downloadFileItem = PhotonActionSheetItem(title: Strings.OpenInDownloadHelperAlertDownloadNow, iconString: "download") { _ in
             self.browserViewController.downloadQueue.enqueue(download)
-            UnifiedTelemetry.recordEvent(category: .action, method: .tap, object: .downloadNowButton)
         }
 
         let actions = [[filenameItem], [downloadFileItem]]
