@@ -1731,6 +1731,9 @@
 		ACB7397F23042C4400FA5626 /* Lumen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lumen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB7398123042D9300FA5626 /* Ghostery-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ghostery-Info.plist"; sourceTree = "<group>"; };
 		ACB7398223042D9400FA5626 /* Lumen-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Lumen-Info.plist"; sourceTree = "<group>"; };
+		ACB739892306846F00FA5626 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		ACB7398A2306847800FA5626 /* Jenkinsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jenkinsfile; sourceTree = "<group>"; };
+		ACB7398B230684AE00FA5626 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AD3E62B041C5E18AA73CB7CC /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1644865A4A670454DE7067B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Storage.strings; sourceTree = "<group>"; };
 		B3C74BE7AC897975E9E9D22F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
@@ -3280,6 +3283,9 @@
 		F84B21B51A090F8100AAB793 = {
 			isa = PBXGroup;
 			children = (
+				ACB7398B230684AE00FA5626 /* README.md */,
+				ACB7398A2306847800FA5626 /* Jenkinsfile */,
+				ACB739892306846F00FA5626 /* Podfile */,
 				E6C191D41E38F7B7000A213B /* Cartfile */,
 				E6C191D51E38F7B7000A213B /* Cartfile.resolved */,
 				2FA435FC1ABB83B4008031D1 /* Account */,
