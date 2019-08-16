@@ -1,26 +1,90 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+default_platform(:ios)
 
-fastlane_version "1.39.0"
+platform :ios do
+  desc "Description of what the lane does"
 
-default_platform :ios
+  lane :clearCache do
+    # Remove the Cache
+    sh("cd .. && npm cache clean --force && rm -rf Cartfile.resolved Carthage node_modules Pods && rm -rf ~/Library/Caches/org.carthage.CarthageKit")
+  end
 
+  lane :prepare do
+    # Run Bootstrap for Carthage
+    sh("cd .. && carthage bootstrap --verbose --platform ios --color auto --cache-builds")
 
-import_build_tools(
-  url: 'git@github.com:mozilla/firefox-ios-build-tools.git',
-  clone_folder: "../build-tools",
-)
+    # Install NPM and POD Dependencies and Run the Build Script for NPM Dependencies.
+    begin
+      sh("cd .. && npm install")
+    rescue
+      sh("cd .. && npm install")
+    end
+    sh("cd .. && pod install")
+    sh("cd .. && npm run build")
+  end
 
-#move all the build tools to the right places
-clone_folder = "../../build-tools"
-sh("rsync -a #{clone_folder}/scripts ../")
-sh("rsync -a #{clone_folder}/fastlane/Appfile Appfile")
-sh("rsync -a #{clone_folder}/fastlane/Snapfile Snapfile")
-sh("rsync -a #{clone_folder}/fastlane/SnapshotHelper.swift SnapshotHelper.swift")
-sh("rsync -a #{clone_folder}/fastlane/scripts .")
-sh("rsync -a #{clone_folder}/fastlane/frames .")
-sh("rsync -a #{clone_folder}/fastlane/templates .")
+  lane :CliqzNightly do
+    # Configure CommitHash
+    sh("cd .. && plutil -replace CommitHash -string $CommitHash Client/Info.plist")
 
-#import the fastfile
-import "#{clone_folder}/fastlane/BaseFastfile"
+    # Building ReactNative Extension
+    sh("cd .. && npm run bundle-cliqz")
+
+    create_keychain(
+      path: "/Users/vagrant/Library/Keychains/"+ENV["MATCH_KEYCHAIN_NAME"],
+      password: ENV["MATCH_PASSWORD"],
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
+
+    match(
+      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
+      keychain_password: ENV["MATCH_PASSWORD"],
+      git_branch: "cliqz-browser-nightly",
+      app_identifier: ["com.cliqz.browser.nightly", "com.cliqz.browser.nightly.ShareTo"],
+      readonly: true,
+      verbose: true
+    )
+
+    increment_version_number(
+      version_number:"3.0.0",
+      xcodeproj:"Client.xcodeproj"
+    )
+
+    version = get_version_number(
+      xcodeproj: "Client.xcodeproj",
+      target: "Cliqz"
+    )
+
+    increment_build_number(
+      build_number: latest_testflight_build_number(version: version) + 1,
+      xcodeproj: "Client.xcodeproj"
+    )
+
+    build_app(
+      workspace: "Client.xcworkspace",
+      clean: "true",
+      scheme: "Cliqz Nightly",
+      skip_profile_detection: "true",
+      export_options: {
+        provisioningProfiles: {
+          "com.cliqz.browser.nightly" => "match AppStore com.cliqz.browser.nightly",
+          "com.cliqz.browser.nightly.ShareTo" => "match AppStore com.cliqz.browser.nightly.ShareTo",
+        }
+      }
+    )
+
+    upload_to_testflight(
+      changelog: "Cliqz Browser Nightly update",
+      demo_account_required: "false",
+      skip_waiting_for_build_processing: "true"
+    )
+
+    # sentry_upload_dsym(
+    #   auth_token: ENV["SENTRY_AUTH_TOKEN"],
+    #   org_slug: 'cliqz',
+    #   project_slug: 'cliqz-ios',
+    # )
+  end
+end
