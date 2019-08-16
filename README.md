@@ -1,25 +1,18 @@
-Firefox for iOS [![codebeat badge](https://codebeat.co/badges/67e58b6d-bc89-4f22-ba8f-7668a9c15c5a)](https://codebeat.co/projects/github-com-mozilla-firefox-ios) [![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=57bf25c0f096bc01001e21e0&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/57bf25c0f096bc01001e21e0/build/latest) [![codecov](https://codecov.io/gh/mozilla-mobile/firefox-ios/branch/master/graph/badge.svg)](https://codecov.io/gh/mozilla-mobile/firefox-ios/branch/master)
-===============
+# Cliqz for iOS
 
-Download on the [App Store](https://itunes.apple.com/app/firefox-web-browser/id989804926).
+## Localization
+Localization works as described in the [Apple Documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LocalizingYourApp/LocalizingYourApp.html) or [this helpful tutorial](https://medium.com/swift-india/localize-your-apps-to-support-multiple-languages-ios-localization-ac7b612dbc58). Strings files are included in the project and can be exported to and imported from Xliff files if necessary for translation by external translation agencies.
 
-This branch (master)
------------
+Strings files live in the `Translations` directory,
 
-This branch is for mainline development that will ship in *v17.0*.
+To test localization, you can edit your currently active scheme, and in "Options", set the "Application Language". Don't commit this change please.
 
-This branch only works with Xcode 10.2.x and supports iOS 11.0 and above
+----
 
-This branch is written in Swift 4.2
+Everything below this line is taken from the FIrefox Readme and should be checked if it still applies, and if yes, moved to above this line
 
-Please make sure you aim your pull requests in the right direction.
+----
 
-For bug fixes and features for a specific release use the version branch.
-
-Getting involved
-----------------
-
-Want to contribute but don't know where to start? Here is a list of [issues that are contributor friendly](https://github.com/mozilla-mobile/firefox-ios/issues?q=is%3Aissue+is%3Aopen+label%3A%22Contributor+OK+%F0%9F%A4%9D%22)
 
 Building the code
 -----------------

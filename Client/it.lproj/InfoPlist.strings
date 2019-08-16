@@ -1,0 +1,16 @@
+"NSCameraUsageDescription" = "Garantisci il permesso di scattare e caricare foto.";
+
+"NSLocationWhenInUseUsageDescription" = "I siti web visitati potrebbero richiedere la posizione corrente.";
+
+"NSMicrophoneUsageDescription" = "Garantisci il permesso di registrare e caricare video.";
+
+"NSPhotoLibraryAddUsageDescription" = "Garantisci il permesso di salvare foto.";
+
+"NSPhotoLibraryUsageDescription" = "Garantisci il permesso di salvare e caricare foto.";
+
+"ShortcutItemTitleNewPrivateTab" = "Nuova scheda anonima";
+
+"ShortcutItemTitleNewTab" = "Nuova scheda";
+
+"ShortcutItemTitleQRCode" = "Scansiona codice QR";
+
