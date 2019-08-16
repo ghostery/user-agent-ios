@@ -4,52 +4,6 @@
    <FileRef
       location = "group:Client.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:Pods"
-      name = "Pods">
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Client/Pods-Client.fennec.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Client/Pods-Client.fennec_enterprise.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Client/Pods-Client.firefox.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Client/Pods-Client.firefoxbeta.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Shared/Pods-Shared.fennec.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Shared/Pods-Shared.fennec_enterprise.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Shared/Pods-Shared.firefox.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Shared/Pods-Shared.firefoxbeta.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Client/Pods-Client.debug.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Client/Pods-Client.adhoc.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Client/Pods-Client.release.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Shared/Pods-Shared.adhoc.xcconfig">
-      </FileRef>
-      <FileRef
-         location = "group:Pods/Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
