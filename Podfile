@@ -5,19 +5,26 @@ project './Client.xcodeproj'
 inhibit_all_warnings!
 use_frameworks!
 
-target 'Cliqz' do
+def user_agent_pods
   pod 'SnapKit', '~> 5.0.0', :modular_headers => true
   pod 'SDWebImage', '~> 5.0', :modular_headers => true
+  pod 'GCDWebServer', '~> 3.5', :modular_headers => true
+end
+
+target 'Cliqz' do
+  user_agent_pods
 end
 
 target 'Lumen' do
-  pod 'SnapKit', '~> 5.0.0', :modular_headers => true
-  pod 'SDWebImage', '~> 5.0', :modular_headers => true
+  user_agent_pods
 end
 
 target 'Ghostery' do
-  pod 'SnapKit', '~> 5.0.0', :modular_headers => true
-  pod 'SDWebImage', '~> 5.0', :modular_headers => true
+  user_agent_pods
+end
+
+target 'ClientTests' do
+  pod 'GCDWebServer', '~> 3.5', :modular_headers => true
 end
 
 target 'Storage' do
