@@ -8,7 +8,7 @@ use_frameworks!
 def user_agent_pods
   pod 'SnapKit', '~> 5.0.0', :modular_headers => true
   pod 'SDWebImage', '~> 5.0', :modular_headers => true
-  pod 'GCDWebServer', '~> 3.5', :modular_headers => true
+  pod 'GCDWebServer', '~> 3.0', :modular_headers => true
 end
 
 target 'Cliqz' do
@@ -24,7 +24,8 @@ target 'Ghostery' do
 end
 
 target 'ClientTests' do
-  pod 'GCDWebServer', '~> 3.5', :modular_headers => true
+  pod 'SDWebImage', '~> 5.0', :modular_headers => true
+  pod 'GCDWebServer', '~> 3.0', :modular_headers => true
 end
 
 target 'Storage' do

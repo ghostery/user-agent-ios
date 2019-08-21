@@ -12,7 +12,7 @@ PODS:
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
-  - GCDWebServer (~> 3.5)
+  - GCDWebServer (~> 3.0)
   - SDWebImage (~> 5.0)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
   - SnapKit (~> 5.0.0)
@@ -42,6 +42,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: d39d7782addf61bb70129e8e3b07ba2d1be675fe
+PODFILE CHECKSUM: 9aed97e9dc3c61d46cdaa6a2baeb0cd8e07bd1f3
 
 COCOAPODS: 1.7.5
