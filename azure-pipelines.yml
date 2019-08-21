@@ -54,7 +54,7 @@ steps:
   inputs:
     actions: '$(actions)'
     sdk: 'iphonesimulator'
-    xcWorkspacePath: 'Client.xcworkspace'
+    xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
     packageApp: true
     exportPath: 'output/$(SDK)/$(scheme)'
