@@ -19,6 +19,8 @@ end
 target 'Shared' do
   use_frameworks!
 
+  pod 'SnapKit', '~> 5.0.0'
+
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
   pod 'SwiftLint'
 end
