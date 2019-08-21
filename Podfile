@@ -1,6 +1,7 @@
 platform :ios, '11.4'
 
 project './Client.xcodeproj'
+workspace 'UserAgent'
 
 inhibit_all_warnings!
 use_frameworks!
