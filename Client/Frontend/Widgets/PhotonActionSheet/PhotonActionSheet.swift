@@ -176,6 +176,12 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.tableFooterView = footer.clone()
 
         applyTheme()
+
+        DispatchQueue.main.async {
+            // Pick up the correct/final tableview.contentsize in order to set the height.
+            // Without async dispatch, the contentsize is wrong.
+            self.view.setNeedsLayout()
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -289,6 +295,19 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.tintColor = self.tintColor
         cell.customView = action.customView
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            if site != nil {
+                return PhotonActionSheetUX.TitleHeaderSectionHeightWithSite
+            } else if title != nil {
+                return PhotonActionSheetUX.TitleHeaderSectionHeight
+            }
+            return 6
+        }
+
+        return PhotonActionSheetUX.SeparatorRowHeight
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
