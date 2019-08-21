@@ -70,7 +70,7 @@ platform :ios do
     )
 
     build_app(
-      workspace: "Client.xcworkspace",
+      workspace: "UserAgent.xcworkspace",
       clean: "true",
       scheme: "Cliqz Nightly",
       skip_profile_detection: "true",

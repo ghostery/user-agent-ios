@@ -11,7 +11,7 @@ strategy:
   matrix:
     Cliqz:
       scheme: 'Cliqz'
-      actions: 'clean build'
+      actions: 'clean test build'
 pool:
   vmImage: 'macOS 10.14'
 
@@ -54,10 +54,10 @@ steps:
   inputs:
     actions: '$(actions)'
     sdk: 'iphonesimulator'
-    xcWorkspacePath: 'Client.xcworkspace'
+    xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
     packageApp: true
     exportPath: 'output/$(SDK)/$(scheme)'
     destinationPlatformOption: 'iOS'
-    destinationSimulators: 'iPhone 6s'
+    destinationSimulators: 'iPhone 8'
     publishJUnitResults: true
