@@ -41,6 +41,12 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "ProfileTest">
+               </Test>
+               <Test
+                  Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
+               </Test>
+               <Test
                   Identifier = "SearchTests/testURIFixupPunyCode()">
                </Test>
                <Test
@@ -61,6 +67,15 @@
                ReferencedContainer = "container:Client.xcodeproj">
             </BuildableReference>
             <SkippedTests>
+               <Test
+                  Identifier = "AuthenticationKeychainInfoTests">
+               </Test>
+               <Test
+                  Identifier = "AuthenticationKeychainInfoTests/testEncodingAndDecoding()">
+               </Test>
+               <Test
+                  Identifier = "AuthenticationKeychainInfoTests/testNilIntervalsArentZero()">
+               </Test>
                <Test
                   Identifier = "FeatureSwitchTests">
                </Test>

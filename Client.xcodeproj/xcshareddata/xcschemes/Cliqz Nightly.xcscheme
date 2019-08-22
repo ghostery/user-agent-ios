@@ -167,6 +167,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "ProfileTest">
+               </Test>
+               <Test
                   Identifier = "TestFavicons/testFaviconFetcherParse()">
                </Test>
                <Test
@@ -183,6 +186,11 @@
                BlueprintName = "SharedTests"
                ReferencedContainer = "container:Client.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AuthenticationKeychainInfoTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
