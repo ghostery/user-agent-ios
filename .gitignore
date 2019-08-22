@@ -56,9 +56,12 @@ __pycache__
 *.db-wal
 
 # Node.js
-node_modules
+**/node_modules
 /Pods
 
 # fastlane
 fastlane/README.md
 fastlane/report.xml
+
+# ReactNative
+/ReactNative/*.bundle.js
