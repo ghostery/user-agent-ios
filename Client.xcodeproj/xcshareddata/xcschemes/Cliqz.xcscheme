@@ -41,6 +41,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "ProfileTest">
+               </Test>
+               <Test
                   Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
                </Test>
                <Test
