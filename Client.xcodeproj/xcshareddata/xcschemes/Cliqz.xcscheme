@@ -41,22 +41,19 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "ProfileTest">
+               </Test>
+               <Test
                   Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
                </Test>
                <Test
                   Identifier = "SearchTests/testURIFixupPunyCode()">
                </Test>
                <Test
-                  Identifier = "TestBookmarks/testNewProfileClearsExistingAuthenticationInfo()">
-               </Test>
-               <Test
                   Identifier = "TestFavicons/testFaviconFetcherParse()">
                </Test>
                <Test
-                  Identifier = "TestFavicons/testNewProfileClearsExistingAuthenticationInfo()">
-               </Test>
-               <Test
-                  Identifier = "TestHistory/testNewProfileClearsExistingAuthenticationInfo()">
+                  Identifier = "UIImageViewExtensionsTests/testAsyncSetIcon()">
                </Test>
             </SkippedTests>
          </TestableReference>
@@ -70,6 +67,9 @@
                ReferencedContainer = "container:Client.xcodeproj">
             </BuildableReference>
             <SkippedTests>
+               <Test
+                  Identifier = "AuthenticationKeychainInfoTests">
+               </Test>
                <Test
                   Identifier = "AuthenticationKeychainInfoTests/testEncodingAndDecoding()">
                </Test>
