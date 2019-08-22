@@ -47,13 +47,19 @@
                   Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
                </Test>
                <Test
-                  Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
-               </Test>
-               <Test
                   Identifier = "SearchTests/testURIFixupPunyCode()">
                </Test>
                <Test
+                  Identifier = "TestBookmarks/testBookmarks()">
+               </Test>
+               <Test
+                  Identifier = "TestFavicons">
+               </Test>
+               <Test
                   Identifier = "TestFavicons/testFaviconFetcherParse()">
+               </Test>
+               <Test
+                  Identifier = "TestHistory">
                </Test>
                <Test
                   Identifier = "UIImageViewExtensionsTests/testAsyncSetIcon()">
