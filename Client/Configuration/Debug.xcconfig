@@ -6,6 +6,3 @@ MOZ_BUNDLE_DISPLAY_NAME = Cliqz α
 
 // Bundle Identifier
 MOZ_BUNDLE_ID = com.cliqz.debug
-
-// Flag to indicate if we want to include the debug settings bundle or not
-INCLUDE_SETTINGS_BUNDLE = YES
