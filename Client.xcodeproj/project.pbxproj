@@ -158,6 +158,9 @@
 		3D9CAA1C1EFCD655002434DD /* ClipBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9CAA1B1EFCD655002434DD /* ClipBoardTests.swift */; };
 		3DEFED081F55EBE300F8620C /* TrackingProtectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEFED071F55EBE300F8620C /* TrackingProtectionTests.swift */; };
 		44A0408681061BEFF847128B /* AuthenticationManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B450E95C275F8CCB3062C /* AuthenticationManager.strings */; };
+		46C41EDE230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */; };
+		46C41EDF230EE6E200CE54D2 /* ReactNativeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */; };
+		46C41EE0230EE6E300CE54D2 /* ReactNativeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		554867231DC3935A00183DAA /* HomePageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554867221DC3935A00183DAA /* HomePageTests.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
@@ -1496,6 +1499,7 @@
 		3DEFED071F55EBE300F8620C /* TrackingProtectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingProtectionTests.swift; sourceTree = "<group>"; };
 		4063430C93211557F15DA9AA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Shared.strings; sourceTree = "<group>"; };
 		40D34F729C271C0DBE5CD1C3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Storage.strings; sourceTree = "<group>"; };
+		46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeHomeViewController.swift; sourceTree = "<group>"; };
 		48F9447383281E0FC82CCAF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4A887EAADE9541664F6BBEF1 /* libPods-Storage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2433,6 +2437,7 @@
 		46C41ED6230EC4ED00CE54D2 /* ReactNative */ = {
 			isa = PBXGroup;
 			children = (
+				46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -4493,6 +4498,7 @@
 				ACB7374123042BAB00FA5626 /* TabEventHandlers.swift in Sources */,
 				ACB7374223042BAB00FA5626 /* SearchInputView.swift in Sources */,
 				ACB7374323042BAB00FA5626 /* Punycode.swift in Sources */,
+				46C41EDF230EE6E200CE54D2 /* ReactNativeHomeViewController.swift in Sources */,
 				ACB7374423042BAB00FA5626 /* TabTrayController.swift in Sources */,
 				ACB7374523042BAB00FA5626 /* ThemeManager.swift in Sources */,
 				ACB7374623042BAB00FA5626 /* BrowserViewController+FindInPage.swift in Sources */,
@@ -4709,6 +4715,7 @@
 				ACB7387923042C4400FA5626 /* TabEventHandlers.swift in Sources */,
 				ACB7387A23042C4400FA5626 /* SearchInputView.swift in Sources */,
 				ACB7387B23042C4400FA5626 /* Punycode.swift in Sources */,
+				46C41EE0230EE6E300CE54D2 /* ReactNativeHomeViewController.swift in Sources */,
 				ACB7387C23042C4400FA5626 /* TabTrayController.swift in Sources */,
 				ACB7387D23042C4400FA5626 /* ThemeManager.swift in Sources */,
 				ACB7387E23042C4400FA5626 /* BrowserViewController+FindInPage.swift in Sources */,
@@ -4944,6 +4951,7 @@
 				39F819C61FD70F5D009E31E4 /* TabEventHandlers.swift in Sources */,
 				E65607611C08B4E200534B02 /* SearchInputView.swift in Sources */,
 				FA6B2AC21D41F02D00429414 /* Punycode.swift in Sources */,
+				46C41EDE230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift in Sources */,
 				D301AAEE1A3A55B70078DD1D /* TabTrayController.swift in Sources */,
 				EB9A179B20E69A7F00B12184 /* ThemeManager.swift in Sources */,
 				EBFDB790211C83A5005CCA2F /* BrowserViewController+FindInPage.swift in Sources */,

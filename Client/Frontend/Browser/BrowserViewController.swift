@@ -33,7 +33,7 @@ private struct BrowserViewControllerUX {
 }
 
 class BrowserViewController: UIViewController {
-    var firefoxHomeViewController: FirefoxHomeViewController?
+    var homeViewController: ReactNativeHomeViewController?
     var libraryViewController: LibraryViewController?
     var libraryDrawerViewController: DrawerViewController?
     var webViewContainer: UIView!
@@ -255,7 +255,7 @@ class BrowserViewController: UIViewController {
         }
 
         view.setNeedsUpdateConstraints()
-        firefoxHomeViewController?.view.setNeedsUpdateConstraints()
+        homeViewController?.view.setNeedsUpdateConstraints()
 
         if let tab = tabManager.selectedTab,
                let webView = tab.webView {
@@ -659,7 +659,7 @@ class BrowserViewController: UIViewController {
 
         // Remake constraints even if we're already showing the home controller.
         // The home controller may change sizes if we tap the URL bar while on about:home.
-        firefoxHomeViewController?.view.snp.remakeConstraints { make in
+        homeViewController?.view.snp.remakeConstraints { make in
             make.top.equalTo(self.urlBar.snp.bottom)
             make.left.right.equalTo(self.view)
             if self.homePanelIsInline {
@@ -685,22 +685,22 @@ class BrowserViewController: UIViewController {
 
     fileprivate func showFirefoxHome(inline: Bool) {
         homePanelIsInline = inline
-        if self.firefoxHomeViewController == nil {
-            let firefoxHomeViewController = FirefoxHomeViewController(profile: profile)
-            firefoxHomeViewController.homePanelDelegate = self
-            self.firefoxHomeViewController = firefoxHomeViewController
-            addChild(firefoxHomeViewController)
-            view.addSubview(firefoxHomeViewController.view)
-            firefoxHomeViewController.didMove(toParent: self)
+        if self.homeViewController == nil {
+            let homeViewController = ReactNativeHomeViewController(profile: profile)
+            homeViewController.homePanelDelegate = self
+            self.homeViewController = homeViewController
+            addChild(homeViewController)
+            view.addSubview(homeViewController.view)
+            homeViewController.didMove(toParent: self)
         }
 
-        firefoxHomeViewController?.applyTheme()
+        homeViewController?.applyTheme()
 
         // We have to run this animation, even if the view is already showing
         // because there may be a hide animation running and we want to be sure
         // to override its results.
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            self.firefoxHomeViewController?.view.alpha = 1
+            self.homeViewController?.view.alpha = 1
         }, completion: { finished in
             if finished {
                 self.webViewContainer.accessibilityElementsHidden = true
@@ -711,11 +711,11 @@ class BrowserViewController: UIViewController {
     }
 
     fileprivate func hideFirefoxHome() {
-        guard let firefoxHomeViewController = self.firefoxHomeViewController else {
+        guard let firefoxHomeViewController = self.homeViewController else {
             return
         }
 
-        self.firefoxHomeViewController = nil
+        self.homeViewController = nil
         UIView.animate(withDuration: 0.2, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
             firefoxHomeViewController.view.alpha = 0
         }, completion: { _ in
@@ -801,7 +801,7 @@ class BrowserViewController: UIViewController {
             make.left.right.bottom.equalTo(self.view)
         }
 
-        firefoxHomeViewController?.view?.isHidden = true
+        homeViewController?.view?.isHidden = true
 
         searchController.didMove(toParent: self)
     }
@@ -811,7 +811,7 @@ class BrowserViewController: UIViewController {
             searchController.willMove(toParent: nil)
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
-            firefoxHomeViewController?.view?.isHidden = false
+            homeViewController?.view?.isHidden = false
         }
     }
 
@@ -1331,7 +1331,7 @@ extension BrowserViewController: URLBarDelegate {
     }
 
     func urlBarDidPressScrollToTop(_ urlBar: URLBarView) {
-        if let selectedTab = tabManager.selectedTab, firefoxHomeViewController == nil {
+        if let selectedTab = tabManager.selectedTab, homeViewController == nil {
             // Only scroll to top if we are not showing the home view controller
             selectedTab.webView?.scrollView.setContentOffset(CGPoint.zero, animated: true)
         }
@@ -1677,7 +1677,7 @@ extension BrowserViewController: TabManagerDelegate {
         // Reset the scroll position for the ActivityStreamPanel so that it
         // is always presented scrolled to the top when switching tabs.
         if !isRestoring, selected != previous,
-            let activityStreamPanel = firefoxHomeViewController {
+            let activityStreamPanel = homeViewController {
             activityStreamPanel.scrollToTop()
         }
 
@@ -2321,7 +2321,7 @@ extension BrowserViewController: TabTrayDelegate {
 extension BrowserViewController: Themeable {
     func applyTheme() {
         guard self.isViewLoaded else { return }
-        let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, firefoxHomeViewController, searchController, libraryViewController, libraryDrawerViewController]
+        let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, homeViewController, searchController, libraryViewController, libraryDrawerViewController]
         ui.forEach { $0?.applyTheme() }
         statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Photon.Grey80 : urlBar.backgroundColor
         setNeedsStatusBarAppearanceUpdate()

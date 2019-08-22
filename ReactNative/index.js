@@ -3,7 +3,7 @@ import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
-    var contents = this.props['scores'].map((score) => (
+    var contents = [{ name: 'hello', value: 'world' }].map((score) => (
       <Text key={score.name}>
         {score.name}:{score.value}
         {'\n'}
@@ -11,7 +11,7 @@ class RNHighScores extends React.Component {
     ));
     return (
       <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>2048 High Scores!</Text>
+        <Text style={styles.highScoresTitle}>Welcome to User Agent</Text>
         <Text style={styles.scores}>{contents}</Text>
       </View>
     );

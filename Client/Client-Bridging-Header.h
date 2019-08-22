@@ -12,4 +12,9 @@
 #import "Shared-Bridging-Header.h"
 #import "Storage-Bridging-Header.h"
 
+// TODO: "import React" is the right way to load React in Swift files
+#import <React/RCTBridge.h>
+#import <React/RCTBundleURLProvider.h>
+#import <React/RCTRootView.h>
+
 #endif
