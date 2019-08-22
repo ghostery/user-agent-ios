@@ -22,6 +22,7 @@ class ProfileTest: XCTestCase {
     }
 
     func testNewProfileClearsExistingAuthenticationInfo() {
+        // TODO: Disable this test in CI
         let authInfo = AuthenticationKeychainInfo(passcode: "1234")
         KeychainWrapper.sharedAppContainerKeychain.setAuthenticationInfo(authInfo)
         XCTAssertNotNil(KeychainWrapper.sharedAppContainerKeychain.authenticationInfo())

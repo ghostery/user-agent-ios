@@ -35,6 +35,7 @@ steps:
 - bash: carthage bootstrap --platform iOS
   env:
     GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
+  displayName: 'Install Carthage'
 
 - task: NodeTool@0
   displayName: 'Define Node to v9.11.2'

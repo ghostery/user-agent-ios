@@ -47,6 +47,9 @@
                   Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
                </Test>
                <Test
+                  Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
+               </Test>
+               <Test
                   Identifier = "SearchTests/testURIFixupPunyCode()">
                </Test>
                <Test
