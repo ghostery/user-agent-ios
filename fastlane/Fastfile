@@ -3,7 +3,7 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
 
-  lane :lint do 
+  lane :lint do
     swiftlint(
       executable: "Pods/SwiftLint/swiftlint",
       ignore_exit_status: false
@@ -12,7 +12,7 @@ platform :ios do
 
   lane :clearCache do
     # Remove the Cache
-    sh("cd .. && npm cache clean --force && rm -rf Cartfile.resolved Carthage node_modules Pods && rm -rf ~/Library/Caches/org.carthage.CarthageKit")
+    # sh("cd .. && npm cache clean --force && rm -rf Cartfile.resolved Carthage node_modules Pods && rm -rf ~/Library/Caches/org.carthage.CarthageKit")
   end
 
   lane :prepare do
@@ -31,10 +31,10 @@ platform :ios do
 
   lane :CliqzNightly do
     # Configure CommitHash
-    sh("cd .. && plutil -replace CommitHash -string $CommitHash Client/Info.plist")
+    # sh("cd .. && plutil -replace CommitHash -string $CommitHash Client/Info.plist")
 
     # Building ReactNative Extension
-    sh("cd .. && npm run bundle-cliqz")
+    # sh("cd .. && npm run bundle-cliqz")
 
     create_keychain(
       path: "/Users/vagrant/Library/Keychains/"+ENV["MATCH_KEYCHAIN_NAME"],
@@ -54,27 +54,71 @@ platform :ios do
       verbose: true
     )
 
-    increment_version_number(
-      version_number:"3.0.0",
-      xcodeproj:"Client.xcodeproj"
-    )
-
     version = get_version_number(
       xcodeproj: "Client.xcodeproj",
       target: "Cliqz"
     )
 
+    # This step update app_identifier based on AppFile
+    # Not sure how it updates ShareTo extension identifier
     increment_build_number(
       build_number: latest_testflight_build_number(version: version) + 1,
       xcodeproj: "Client.xcodeproj"
     )
 
+    # get_version_number fails if there is not build in TestFligh yet
+    update_app_identifier(
+      xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
+      plist_path: "./Client/Cliqz-Info.plist",
+      app_identifier: "com.cliqz.browser.nightly" # The App Identifier
+    )
+
+    update_app_identifier(
+      xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
+      plist_path: "./Extensions/ShareTo/Info.plist",
+      app_identifier: "com.cliqz.browser.nightly.ShareTo" # The App Identifier
+    )
+
+    update_app_group_identifiers(
+      entitlements_file: "Client/Entitlements/FennecApplication.entitlements",
+      app_group_identifiers: ["group.com.cliqz.browser.nightly"]
+    )
+
+    update_app_group_identifiers(
+      entitlements_file: "Extensions/Entitlements/Fennec.entitlements",
+      app_group_identifiers: ["group.com.cliqz.browser.nightly"]
+    )
+
+
+    disable_automatic_code_signing(
+      path: "Client.xcodeproj",
+      code_sign_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
+    )
+
+    update_project_provisioning(
+      xcodeproj: "Client.xcodeproj",
+      profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/0d0c370e-d393-40af-a704-42def1331441.mobileprovision",
+      target_filter: "Cliqz",
+      build_configuration: "Adhoc",
+    )
+
+    update_project_provisioning(
+      xcodeproj: "Client.xcodeproj",
+      profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/93a334ed-4bb7-4121-b7d1-326fe0546dec.mobileprovision",
+      target_filter: "ShareTo",
+      build_configuration: "Adhoc",
+    )
+
     build_app(
       workspace: "UserAgent.xcworkspace",
-      clean: "true",
+      clean: true,
       scheme: "Cliqz Nightly",
-      skip_profile_detection: "true",
+      skip_profile_detection: true,
+      codesigning_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
+      export_method: "app-store",
+      export_team_id: "2UYYSSHVUH",
       export_options: {
+        # method: "app-store",
         provisioningProfiles: {
           "com.cliqz.browser.nightly" => "match AppStore com.cliqz.browser.nightly",
           "com.cliqz.browser.nightly.ShareTo" => "match AppStore com.cliqz.browser.nightly.ShareTo",
@@ -93,5 +137,5 @@ platform :ios do
     #   org_slug: 'cliqz',
     #   project_slug: 'cliqz-ios',
     # )
-  end  
+  end
 end

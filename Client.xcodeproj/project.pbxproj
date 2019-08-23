@@ -3539,43 +3539,37 @@
 				TargetAttributes = {
 					288A2D851AB8B3260023ABC3 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 43AQ936H96;
 						LastSwiftMigration = 1000;
 					};
 					2FCAE2191ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 43AQ936H96;
 						LastSwiftMigration = 1000;
 					};
 					2FCAE2231ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 43AQ936H96;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					3B43E3CF1D95C48D00BBA9DB = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 43AQ936H96;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					3BFE4B061D342FB800DDF53F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 43AQ936H96;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					ACB7371123042BAB00FA5626 = {
-						DevelopmentTeam = 43AQ936H96;
+						DevelopmentTeam = HPY23A294X;
 					};
 					ACB7384923042C4400FA5626 = {
-						DevelopmentTeam = 43AQ936H96;
+						DevelopmentTeam = 2UYYSSHVUH;
 					};
 					E6F9650B1B2F1CF20034B023 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 43AQ936H96;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
@@ -3583,7 +3577,6 @@
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -3604,7 +3597,6 @@
 					};
 					F84B21D21A090F8100AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 43AQ936H96;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
@@ -5669,7 +5661,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -5725,7 +5716,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -5770,11 +5760,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -5798,7 +5785,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozilla.FirefoxXCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = FirefoxXCUITests;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/XCUITests/XCUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5825,11 +5811,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -5846,7 +5829,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozilla.FirefoxXCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = FirefoxXCUITests;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Client;
@@ -5891,7 +5873,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
-				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -5946,8 +5927,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FennecApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5991,7 +5970,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -6005,9 +5983,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Fennec.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6019,7 +5994,6 @@
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_SHARETO $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ShareTo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6146,11 +6120,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -6174,7 +6145,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mozilla.FirefoxXCUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = FirefoxXCUITests;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/XCUITests/XCUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -6205,7 +6175,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -6245,8 +6214,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FennecApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6286,9 +6254,9 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_CLIENT $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Fennec Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -6301,8 +6269,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FennecApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6342,9 +6309,9 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_CLIENT $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Fennec Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -6357,8 +6324,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FirefoxApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6383,9 +6349,9 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_RELEASE -DMOZ_TARGET_CLIENT $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Firefox Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
@@ -6397,8 +6363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FennecApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6438,9 +6403,9 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_CLIENT $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ios.newCliqz;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Fennec Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -6453,8 +6418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FennecApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6494,9 +6458,9 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_CLIENT $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ios.newCliqz;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Fennec Development";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -6509,8 +6473,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FirefoxApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6535,9 +6498,9 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_RELEASE -DMOZ_TARGET_CLIENT $(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ios.newCliqz;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Firefox Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
@@ -6580,7 +6543,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
-				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -6631,8 +6593,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FirefoxApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
@@ -6661,7 +6621,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
@@ -6698,9 +6657,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Firefox.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6712,7 +6668,6 @@
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_RELEASE -DMOZ_TARGET_SHARETO $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ShareTo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6862,7 +6817,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_ACTIVITY_MODE = "";
 				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
-				DEVELOPMENT_TEAM = 43AQ936H96;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -6917,8 +6871,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/FennecApplication.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6962,7 +6914,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -6996,9 +6947,6 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Fennec.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7010,7 +6958,6 @@
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_SHARETO $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ShareTo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
