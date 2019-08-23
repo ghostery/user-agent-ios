@@ -1,3 +1,16 @@
-Hey there! Thanks for using Firefox!
+## Expected Behavior
 
-If you are having issues with using Firefox make sure to check https://support.mozilla.org/en-US/products/ios first
+
+## Actual Behavior
+
+
+## Steps to Reproduce the Problem
+
+  1.
+  1.
+  1.
+
+## Specifications
+
+  - Version:
+  - iOS Device:
