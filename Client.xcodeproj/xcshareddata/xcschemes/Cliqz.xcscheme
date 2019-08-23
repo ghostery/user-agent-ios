@@ -53,6 +53,9 @@
                   Identifier = "TestBookmarks/testBookmarks()">
                </Test>
                <Test
+                  Identifier = "TestBookmarks/testNewProfileClearsExistingAuthenticationInfo()">
+               </Test>
+               <Test
                   Identifier = "TestFavicons">
                </Test>
                <Test
