@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ReactNativeHomeViewController: UIViewController, HomePanel {
+class HomeViewController: UIViewController, HomeViewControllerProtocol {
     weak var homePanelDelegate: HomePanelDelegate?
     fileprivate let profile: Profile
 
@@ -38,5 +38,9 @@ class ReactNativeHomeViewController: UIViewController, HomePanel {
 
     func scrollToTop() {
     
+    }
+
+    func scrollToTop(animated: Bool) {
+
     }
 }

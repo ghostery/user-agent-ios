@@ -32,8 +32,17 @@ private struct BrowserViewControllerUX {
     fileprivate static let BookmarkStarAnimationOffset: CGFloat = 80
 }
 
+protocol HomeViewControllerProtocol: Themeable {
+    var view: UIView! { get set }
+    func applyTheme()
+    func scrollToTop()
+    func scrollToTop(animated: Bool)
+    func willMove(toParent parent: UIViewController?)
+    func removeFromParent()
+}
+
 class BrowserViewController: UIViewController {
-    var homeViewController: ReactNativeHomeViewController?
+    var homeViewController: HomeViewControllerProtocol?
     var libraryViewController: LibraryViewController?
     var libraryDrawerViewController: DrawerViewController?
     var webViewContainer: UIView!
@@ -686,7 +695,7 @@ class BrowserViewController: UIViewController {
     fileprivate func showFirefoxHome(inline: Bool) {
         homePanelIsInline = inline
         if self.homeViewController == nil {
-            let homeViewController = ReactNativeHomeViewController(profile: profile)
+            let homeViewController = HomeViewController(profile: profile)
             homeViewController.homePanelDelegate = self
             self.homeViewController = homeViewController
             addChild(homeViewController)

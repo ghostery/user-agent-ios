@@ -143,7 +143,6 @@
 		3BA9A0231D2C208C00BD418C /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
 		3BA9A0321D2C2C0500BD418C /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
 		3BB50E111D6274CD004B33DF /* FirefoxHomeTopSitesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E101D6274CD004B33DF /* FirefoxHomeTopSitesCell.swift */; };
-		3BB50E201D627539004B33DF /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
 		3BB54B311E68EB2B0021DAC4 /* AuthenticationKeychainInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB54B301E68EB2B0021DAC4 /* AuthenticationKeychainInfoTests.swift */; };
 		3BC659491E5BA4AE006D560F /* TopSites in Resources */ = {isa = PBXBuildFile; fileRef = 3BC659481E5BA4AE006D560F /* TopSites */; };
 		3BC659591E5BA505006D560F /* top_sites.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BC659581E5BA505006D560F /* top_sites.json */; };
@@ -158,9 +157,12 @@
 		3D9CAA1C1EFCD655002434DD /* ClipBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9CAA1B1EFCD655002434DD /* ClipBoardTests.swift */; };
 		3DEFED081F55EBE300F8620C /* TrackingProtectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEFED071F55EBE300F8620C /* TrackingProtectionTests.swift */; };
 		44A0408681061BEFF847128B /* AuthenticationManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B450E95C275F8CCB3062C /* AuthenticationManager.strings */; };
-		46C41EDE230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */; };
-		46C41EDF230EE6E200CE54D2 /* ReactNativeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */; };
-		46C41EE0230EE6E300CE54D2 /* ReactNativeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */; };
+		46B68D282314201F0091156C /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
+		46B68D29231420200091156C /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
+		46B68D2A231420200091156C /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
+		46B68D2F231420DD0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
+		46B68D30231420DD0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
+		46B68D31231420DE0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		554867231DC3935A00183DAA /* HomePageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554867221DC3935A00183DAA /* HomePageTests.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
@@ -355,7 +357,6 @@
 		ACB7379F23042BAB00FA5626 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
 		ACB737A023042BAB00FA5626 /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65075601E37F77D006961AC /* MenuHelper.swift */; };
 		ACB737A223042BAB00FA5626 /* WebsiteDataManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CE54A720FCF6CF00CC310B /* WebsiteDataManagementViewController.swift */; };
-		ACB737A323042BAB00FA5626 /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
 		ACB737A423042BAB00FA5626 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84B22221A09122500AAB793 /* LibraryViewController.swift */; };
 		ACB737A523042BAB00FA5626 /* TabEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39455F761FC83F430088A22C /* TabEventHandler.swift */; };
 		ACB737A623042BAB00FA5626 /* ReaderModeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47616C61AB74CA600E7DD25 /* ReaderModeBarView.swift */; };
@@ -626,7 +627,6 @@
 		ACB738D723042C4400FA5626 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
 		ACB738D823042C4400FA5626 /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65075601E37F77D006961AC /* MenuHelper.swift */; };
 		ACB738DA23042C4400FA5626 /* WebsiteDataManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CE54A720FCF6CF00CC310B /* WebsiteDataManagementViewController.swift */; };
-		ACB738DB23042C4400FA5626 /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
 		ACB738DC23042C4400FA5626 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84B22221A09122500AAB793 /* LibraryViewController.swift */; };
 		ACB738DD23042C4400FA5626 /* TabEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39455F761FC83F430088A22C /* TabEventHandler.swift */; };
 		ACB738DE23042C4400FA5626 /* ReaderModeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47616C61AB74CA600E7DD25 /* ReaderModeBarView.swift */; };
@@ -1499,7 +1499,8 @@
 		3DEFED071F55EBE300F8620C /* TrackingProtectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingProtectionTests.swift; sourceTree = "<group>"; };
 		4063430C93211557F15DA9AA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Shared.strings; sourceTree = "<group>"; };
 		40D34F729C271C0DBE5CD1C3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Storage.strings; sourceTree = "<group>"; };
-		46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeHomeViewController.swift; sourceTree = "<group>"; };
+		46B68D2B231420930091156C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		48F9447383281E0FC82CCAF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4A887EAADE9541664F6BBEF1 /* libPods-Storage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Storage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2437,7 +2438,7 @@
 		46C41ED6230EC4ED00CE54D2 /* ReactNative */ = {
 			isa = PBXGroup;
 			children = (
-				46C41EDD230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift */,
+				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -3254,6 +3255,7 @@
 				74821F8D1DAD8F1300EEEA72 /* FirefoxHomeHighlightCell.swift */,
 				3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */,
 				3BB50E101D6274CD004B33DF /* FirefoxHomeTopSitesCell.swift */,
+				46B68D2B231420930091156C /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -4498,7 +4500,7 @@
 				ACB7374123042BAB00FA5626 /* TabEventHandlers.swift in Sources */,
 				ACB7374223042BAB00FA5626 /* SearchInputView.swift in Sources */,
 				ACB7374323042BAB00FA5626 /* Punycode.swift in Sources */,
-				46C41EDF230EE6E200CE54D2 /* ReactNativeHomeViewController.swift in Sources */,
+				46B68D30231420DD0091156C /* HomeViewController.swift in Sources */,
 				ACB7374423042BAB00FA5626 /* TabTrayController.swift in Sources */,
 				ACB7374523042BAB00FA5626 /* ThemeManager.swift in Sources */,
 				ACB7374623042BAB00FA5626 /* BrowserViewController+FindInPage.swift in Sources */,
@@ -4535,6 +4537,7 @@
 				ACB7376523042BAB00FA5626 /* OpenWithSettingsViewController.swift in Sources */,
 				ACB7376623042BAB00FA5626 /* FindInPageBar.swift in Sources */,
 				ACB7376723042BAB00FA5626 /* SettingsNavigationController.swift in Sources */,
+				46B68D29231420200091156C /* FirefoxHomeViewController.swift in Sources */,
 				ACB7376823042BAB00FA5626 /* FirefoxHomeHighlightCell.swift in Sources */,
 				ACB7376923042BAB00FA5626 /* RequirePasscodeIntervalViewController.swift in Sources */,
 				ACB7376A23042BAB00FA5626 /* DownloadsPanel.swift in Sources */,
@@ -4591,7 +4594,6 @@
 				ACB7379F23042BAB00FA5626 /* DefaultSearchPrefs.swift in Sources */,
 				ACB737A023042BAB00FA5626 /* MenuHelper.swift in Sources */,
 				ACB737A223042BAB00FA5626 /* WebsiteDataManagementViewController.swift in Sources */,
-				ACB737A323042BAB00FA5626 /* FirefoxHomeViewController.swift in Sources */,
 				ACB737A423042BAB00FA5626 /* LibraryViewController.swift in Sources */,
 				ACB737A523042BAB00FA5626 /* TabEventHandler.swift in Sources */,
 				ACB737A623042BAB00FA5626 /* ReaderModeBarView.swift in Sources */,
@@ -4715,7 +4717,7 @@
 				ACB7387923042C4400FA5626 /* TabEventHandlers.swift in Sources */,
 				ACB7387A23042C4400FA5626 /* SearchInputView.swift in Sources */,
 				ACB7387B23042C4400FA5626 /* Punycode.swift in Sources */,
-				46C41EE0230EE6E300CE54D2 /* ReactNativeHomeViewController.swift in Sources */,
+				46B68D2F231420DD0091156C /* HomeViewController.swift in Sources */,
 				ACB7387C23042C4400FA5626 /* TabTrayController.swift in Sources */,
 				ACB7387D23042C4400FA5626 /* ThemeManager.swift in Sources */,
 				ACB7387E23042C4400FA5626 /* BrowserViewController+FindInPage.swift in Sources */,
@@ -4752,6 +4754,7 @@
 				ACB7389D23042C4400FA5626 /* OpenWithSettingsViewController.swift in Sources */,
 				ACB7389E23042C4400FA5626 /* FindInPageBar.swift in Sources */,
 				ACB7389F23042C4400FA5626 /* SettingsNavigationController.swift in Sources */,
+				46B68D2A231420200091156C /* FirefoxHomeViewController.swift in Sources */,
 				ACB738A023042C4400FA5626 /* FirefoxHomeHighlightCell.swift in Sources */,
 				ACB738A123042C4400FA5626 /* RequirePasscodeIntervalViewController.swift in Sources */,
 				ACB738A223042C4400FA5626 /* DownloadsPanel.swift in Sources */,
@@ -4808,7 +4811,6 @@
 				ACB738D723042C4400FA5626 /* DefaultSearchPrefs.swift in Sources */,
 				ACB738D823042C4400FA5626 /* MenuHelper.swift in Sources */,
 				ACB738DA23042C4400FA5626 /* WebsiteDataManagementViewController.swift in Sources */,
-				ACB738DB23042C4400FA5626 /* FirefoxHomeViewController.swift in Sources */,
 				ACB738DC23042C4400FA5626 /* LibraryViewController.swift in Sources */,
 				ACB738DD23042C4400FA5626 /* TabEventHandler.swift in Sources */,
 				ACB738DE23042C4400FA5626 /* ReaderModeBarView.swift in Sources */,
@@ -4951,7 +4953,7 @@
 				39F819C61FD70F5D009E31E4 /* TabEventHandlers.swift in Sources */,
 				E65607611C08B4E200534B02 /* SearchInputView.swift in Sources */,
 				FA6B2AC21D41F02D00429414 /* Punycode.swift in Sources */,
-				46C41EDE230EE4DF00CE54D2 /* ReactNativeHomeViewController.swift in Sources */,
+				46B68D31231420DE0091156C /* HomeViewController.swift in Sources */,
 				D301AAEE1A3A55B70078DD1D /* TabTrayController.swift in Sources */,
 				EB9A179B20E69A7F00B12184 /* ThemeManager.swift in Sources */,
 				EBFDB790211C83A5005CCA2F /* BrowserViewController+FindInPage.swift in Sources */,
@@ -4988,6 +4990,7 @@
 				74821FC51DB56A2500EEEA72 /* OpenWithSettingsViewController.swift in Sources */,
 				D3B6923D1B9F9444004B87A4 /* FindInPageBar.swift in Sources */,
 				2F44FC721A9E840300FD20CC /* SettingsNavigationController.swift in Sources */,
+				46B68D282314201F0091156C /* FirefoxHomeViewController.swift in Sources */,
 				74821F8E1DAD8F1400EEEA72 /* FirefoxHomeHighlightCell.swift in Sources */,
 				E69E06BA1C76173D00D0F926 /* RequirePasscodeIntervalViewController.swift in Sources */,
 				D0E89A2920910917001CE5C7 /* DownloadsPanel.swift in Sources */,
@@ -5044,7 +5047,6 @@
 				DDA24A431FD84D630098F159 /* DefaultSearchPrefs.swift in Sources */,
 				E65075611E37F77D006961AC /* MenuHelper.swift in Sources */,
 				66CE54A820FCF6CF00CC310B /* WebsiteDataManagementViewController.swift in Sources */,
-				3BB50E201D627539004B33DF /* FirefoxHomeViewController.swift in Sources */,
 				F84B22241A09122500AAB793 /* LibraryViewController.swift in Sources */,
 				39455F771FC83F430088A22C /* TabEventHandler.swift in Sources */,
 				E47616C71AB74CA600E7DD25 /* ReaderModeBarView.swift in Sources */,
