@@ -58,3 +58,7 @@ __pycache__
 # Node.js
 node_modules
 /Pods
+
+# fastlane
+fastlane/README.md
+fastlane/report.xml

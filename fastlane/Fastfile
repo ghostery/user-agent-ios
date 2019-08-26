@@ -59,14 +59,21 @@ platform :ios do
       target: "Cliqz"
     )
 
+    previous_version = 0
+
+    begin
+      previous_version = latest_testflight_build_number(version: version)
+    rescue
+      # latest_testflight_build_number fails if there is not build in TestFligh yet
+    end
+
     # This step update app_identifier based on AppFile
     # Not sure how it updates ShareTo extension identifier
     increment_build_number(
-      build_number: latest_testflight_build_number(version: version) + 1,
+      build_number: previous_version + 1,
       xcodeproj: "Client.xcodeproj"
     )
 
-    # get_version_number fails if there is not build in TestFligh yet
     update_app_identifier(
       xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
       plist_path: "./Client/Cliqz-Info.plist",
@@ -129,7 +136,8 @@ platform :ios do
     upload_to_testflight(
       changelog: "Cliqz Browser Nightly update",
       demo_account_required: "false",
-      skip_waiting_for_build_processing: "true"
+      skip_waiting_for_build_processing: "true",
+      app_identifier: "com.cliqz.browser.nightly",
     )
 
     # sentry_upload_dsym(
