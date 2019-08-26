@@ -7,43 +7,46 @@ properties([
     [$class: 'JobRestrictionProperty']
 ])
 
-def jobStatus = 'FAIL'
+def vagrantfile = '''
+require 'uri'
+Vagrant.configure("2") do |config|
+	config.vm.box = "mojave"
+
+	config.vm.define "publishios" do |publishios|
+	    publishios.vm.hostname ="mojave"
+	    publishios.ssh.forward_agent = true
+
+	    config.vm.provider "parallels" do |prl|
+            prl.memory = ENV["NODE_MEMORY"]
+            prl.cpus = ENV["NODE_CPU_COUNT"]
+        end
+
+	    node_id = URI::encode(ENV['NODE_ID'])
+	    publishios.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
+            set -e
+            set -x
+            sudo mkdir -p /jenkins
+            sudo chown vagrant /jenkins
+            brew install python3
+            brew tap adoptopenjdk/openjdk
+            brew cask install adoptopenjdk8
+            curl -LO https://raw.githubusercontent.com/cliqz/cliqz-browser-ios/develop/jenkins.py
+            python3 jenkins.py --url #{ENV['JENKINS_URL']} --node #{node_id} --secret #{ENV["NODE_SECRET"]} &
+	    SHELL
+	end
+end
+'''
 
 node('gideon') {
     try{
         timeout(120){
-            writeFile file: 'Vagrantfile', text: '''
-            require 'uri'
-            Vagrant.configure("2") do |config|
-                config.vm.box = "xcode-10.1"
-                config.vm.synced_folder ".", "/vagrant", disabled: true
-                config.vm.define "publishios" do |publishios|
-                    publishios.vm.hostname ="cliqz-browser-ios"
-                    publishios.vm.network "public_network", :bridge => "en0: Ethernet 1", auto_config: false
-                    publishios.vm.boot_timeout = 900
-                    publishios.ssh.forward_agent = true
-                    publishios.vm.provider "virtualbox" do |v|
-                        v.name = "cliqz-browser-ios"
-                        v.gui = false
-                        v.memory = ENV["NODE_MEMORY"]
-                        v.cpus = ENV["NODE_CPU_COUNT"]
-                    end
-                    node_id = URI::encode(ENV['NODE_ID'])
-                    publishios.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
-                        set -e
-                        set -x
-                        curl -LO https://raw.githubusercontent.com/cliqz/cliqz-browser-ios/develop/jenkins.py
-                        python3 jenkins.py --url #{ENV['JENKINS_URL']} --node #{node_id} --secret #{ENV["NODE_SECRET"]} &
-                    SHELL
-                end
-            end
-            '''
+            writeFile file: 'Vagrantfile', text: vagrantfile
 
             vagrant.inside(
                 'Vagrantfile',
                 '/jenkins',
                 4, // CPU
-                12000, // MEMORY
+                8192, // MEMORY
                 12000, // VNC port
                 false, // rebuild image
             ) { nodeId ->
@@ -56,13 +59,16 @@ node('gideon') {
                             sh '''#!/bin/bash -l
                                 set -e
                                 set -x
+                                brew install node carthage
                                 java -version
                                 node -v
                                 npm -v
                                 brew -v
+                                sudo xcode-select --switch /Applications/Xcode.app/
                                 xcodebuild -version
                                 pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
                                 sudo xcodebuild -license accept
+                                sudo gem install fastlane cocoapods
                                 fastlane clearCache
                                 fastlane prepare
                             '''
@@ -96,19 +102,11 @@ node('gideon') {
                                 '''
                             }
                         }
-                        jobStatus = 'PASS'
-                    }
-                    catch(all) {
-                        jobStatus = 'FAIL'
+                    } catch(all) {
                         print "Something Failed. Check the above logs."
-                        emailext(
-                                to: 'krzysztof@cliqz.com',
-                                subject: '$PROJECT_NAME - Build # $BUILD_NUMBER Failed!!!',
-                                body: '\n\nCheck console output at ' + env.BUILD_URL + ' to view the cause.'
-                        )
+                        print all
                         currentBuild.result = 'FAILURE'
-                    }
-                    finally {
+                    } finally {
                         stage("Clean Up"){
                             sh '''#!/bin/bash -l
                                 set -x
@@ -125,6 +123,3 @@ node('gideon') {
         currentBuild.result = 'FAILURE'
     }
 }
-
-
-
