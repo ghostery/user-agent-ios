@@ -3999,8 +3999,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/./node_modules/react-native/scripts/.packager.env\"\n\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n    if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n        if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n            echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n            exit 2\n        fi\n    else\n        open \"$SRCROOT/./node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n    fi\nfi\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if [ \"$CONFIGURATION\" = \"Release\" ] ; then\n    exit 0\nfi\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/./node_modules/react-native/scripts/.packager.env\"\n\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n    if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n        if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n            echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n            exit 2\n        fi\n    else\n        open \"$SRCROOT/./node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n    fi\nfi\n";
 		};
 		46C41EDC230EC9A300CE54D2 /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4018,7 +4017,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\nexport ENTRY_FILE=./ReactNative/index.js\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "env\nexport NODE_BINARY=node\nexport ENTRY_FILE=./ReactNative/index.js\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		49B9EA8147132B7D671C4F39 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -5848,7 +5847,6 @@
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID)";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -5906,7 +5904,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
@@ -6513,7 +6510,6 @@
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID)";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
@@ -6792,7 +6788,7 @@
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID)";
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -6850,7 +6846,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = Client;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BUDDYBUILD;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};

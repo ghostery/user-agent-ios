@@ -22,7 +22,11 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
     }
 
     override func loadView() {
-        let jsCodeLocation = URL(string: "http://localhost:8081/ReactNative/index.bundle?platform=ios")
+        #if DEBUG
+            let jsCodeLocation = URL(string: "http://localhost:8081/ReactNative/index.bundle?platform=ios")
+        #else
+            let jsCodeLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")
+        #endif
 
         self.view = RCTRootView(
             bundleURL: jsCodeLocation!,
