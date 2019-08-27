@@ -1,5 +1,3 @@
-# Prepare, Build and Archive Cliqz-Browser-ios
-
 variables:
 - group: AccessTokens
 
@@ -20,6 +18,17 @@ steps:
     sudo xcode-select --switch /Applications/Xcode_10.3.app
   displayName: 'Change XCode to 10.3'
 
+- task: NodeTool@0
+  displayName: 'Define Node to v9.11.2'
+  inputs:
+    versionSpec: '9.11.2'
+
+- bash: |
+    set -x
+    npm i -g npm@6.5
+    /usr/local/bin/npm ci
+  displayName: 'Install Node modules'
+
 - task: UseRubyVersion@0
   inputs:
     versionSpec: '2.6'
@@ -32,21 +41,12 @@ steps:
     bundle exec pod install
   displayName: 'Install CocoaPods'
 
-- bash: carthage bootstrap --platform iOS
+- bash: |
+    carthage version
+    carthage bootstrap --platform iOS --no-use-ssh
   env:
     GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
   displayName: 'Install Carthage'
-
-- task: NodeTool@0
-  displayName: 'Define Node to v9.11.2'
-  inputs:
-    versionSpec: '9.11.2'
-
-- bash: |
-    set -x
-    npm i -g npm@6.5
-    /usr/local/bin/npm ci
-  displayName: 'Install Node modules'
 
 - bash: bundle exec fastlane lint
   displayName: 'Lint'

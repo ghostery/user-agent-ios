@@ -1,4 +1,54 @@
 PODS:
+  - boost-for-react-native (1.63.0)
+  - DoubleConversion (1.1.5)
+  - Folly (2018.10.22.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
+  - glog (0.3.4)
+  - React/Core (0.59.10):
+    - yoga (= 0.59.10.React)
+  - React/CxxBridge (0.59.10):
+    - Folly (= 2018.10.22.00)
+    - React/Core
+    - React/cxxreact
+    - React/jsiexecutor
+  - React/cxxreact (0.59.10):
+    - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React/jsinspector
+  - React/DevSupport (0.59.10):
+    - React/Core
+    - React/RCTWebSocket
+  - React/fishhook (0.59.10)
+  - React/jsi (0.59.10):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+  - React/jsiexecutor (0.59.10):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React/cxxreact
+    - React/jsi
+  - React/jsinspector (0.59.10)
+  - React/RCTAnimation (0.59.10):
+    - React/Core
+  - React/RCTBlob (0.59.10):
+    - React/Core
+  - React/RCTImage (0.59.10):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.59.10):
+    - React/Core
+  - React/RCTText (0.59.10):
+    - React/Core
+  - React/RCTWebSocket (0.59.10):
+    - React/Core
+    - React/fishhook
+    - React/RCTBlob
   - SDWebImage (5.1.0):
     - SDWebImage/Core (= 5.1.0)
   - SDWebImage/Core (5.1.0)
@@ -8,25 +58,45 @@ PODS:
   - SnapKit (5.0.1)
   - SwiftLint (0.34.0)
   - SwiftyJSON (5.0.0)
+  - yoga (0.59.10.React)
 
 DEPENDENCIES:
+  - Folly (from `./node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - React/Core (from `./node_modules/react-native`)
+  - React/CxxBridge (from `./node_modules/react-native`)
+  - React/DevSupport (from `./node_modules/react-native`)
+  - React/RCTAnimation (from `./node_modules/react-native`)
+  - React/RCTImage (from `./node_modules/react-native`)
+  - React/RCTNetwork (from `./node_modules/react-native`)
+  - React/RCTText (from `./node_modules/react-native`)
+  - React/RCTWebSocket (from `./node_modules/react-native`)
   - SDWebImage (~> 5.0)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
   - SnapKit (~> 5.0.0)
   - SwiftLint
   - SwiftyJSON (~> 5.0)
+  - yoga (from `./node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
     - SDWebImage
     - SnapKit
     - SwiftLint
     - SwiftyJSON
 
 EXTERNAL SOURCES:
+  Folly:
+    :podspec: "./node_modules/react-native/third-party-podspecs/Folly.podspec"
+  React:
+    :path: "./node_modules/react-native"
   Sentry:
     :git: https://github.com/getsentry/sentry-cocoa.git
     :tag: 4.3.1
+  yoga:
+    :path: "./node_modules/react-native/ReactCommon/yoga"
 
 CHECKOUT OPTIONS:
   Sentry:
@@ -34,12 +104,18 @@ CHECKOUT OPTIONS:
     :tag: 4.3.1
 
 SPEC CHECKSUMS:
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
+  Folly: de497beb10f102453a1afa9edbf8cf8a251890de
+  glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
+  React: 36d0768f9e93be2473b37e7fa64f92c1d5341eef
   SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
 
-PODFILE CHECKSUM: 5c47d9a67a113c78c86d1e693df7ef76c4c4265c
+PODFILE CHECKSUM: b68c19b1e49fbedbfcb00178803ebfeea3823b88
 
 COCOAPODS: 1.7.5

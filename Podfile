@@ -4,28 +4,51 @@ project './Client.xcodeproj'
 workspace 'UserAgent'
 
 inhibit_all_warnings!
+
 use_frameworks!
 
-def user_agent_requirements
+def react_native
+  react_path = './node_modules/react-native'
+  yoga_path = File.join(react_path, 'ReactCommon/yoga')
+  folly_path = File.join(react_path, 'third-party-podspecs/Folly.podspec')
+
+  pod 'Folly', :podspec => folly_path
+  pod 'React', :path => './node_modules/react-native', :subspecs => [
+    'Core',
+    'DevSupport',
+    'CxxBridge',
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket',
+    'RCTImage',
+    'RCTAnimation',
+  ]
+  pod 'yoga', :path => yoga_path
+end
+
+def shared
   pod 'SnapKit', '~> 5.0.0', :modular_headers => true
   pod 'SDWebImage', '~> 5.0', :modular_headers => true
   pod 'SwiftyJSON', '~> 5.0'
 end
 
 target 'Cliqz' do
-  user_agent_requirements
+  shared
+  react_native
 end
 
 target 'Lumen' do
-  user_agent_requirements
+  shared
+  react_native
 end
 
 target 'Ghostery' do
-  user_agent_requirements
+  shared
+  react_native
 end
 
 target 'Storage' do
-  user_agent_requirements
+  shared
 end
 
 target 'StorageTests' do
