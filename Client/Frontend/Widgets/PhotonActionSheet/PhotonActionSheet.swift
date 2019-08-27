@@ -103,7 +103,6 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         }
 
         if style == .popover {
-            self.actions = actions.map({ $0.reversed() }).reversed()
             tableView.snp.makeConstraints { make in
                 make.edges.equalTo(self.view)
             }
