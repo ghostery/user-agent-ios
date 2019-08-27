@@ -1,8 +1,3 @@
-# Prepare, Build and Archive Cliqz-Browser-ios
-
-variables:
-- group: AccessTokens
-
 trigger:
 - master
 - develop
@@ -43,9 +38,11 @@ steps:
     bundle exec pod install
   displayName: 'Install CocoaPods'
 
-- bash: carthage bootstrap --platform iOS
+- bash: |
+    carthage version
+    carthage bootstrap --platform iOS --no-use-ssh
   env:
-    GITHUB_ACCESS_TOKEN: $(CLIQZ_CI_GITHUB_ACCESS_TOKEN)
+    GITHUB_ACCESS_TOKEN: $(CARTHAGE_GITHUB_ACCESS_TOKEN)
   displayName: 'Install Carthage'
 
 - bash: bundle exec fastlane lint
