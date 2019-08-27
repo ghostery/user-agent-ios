@@ -10,11 +10,6 @@ platform :ios do
     )
   end
 
-  lane :clearCache do
-    # Remove the Cache
-    # sh("cd .. && npm cache clean --force && rm -rf Cartfile.resolved Carthage node_modules Pods && rm -rf ~/Library/Caches/org.carthage.CarthageKit")
-  end
-
   lane :prepare do
     # Run Bootstrap for Carthage
     sh("cd .. && carthage bootstrap --verbose --platform ios --color auto --cache-builds")
@@ -30,12 +25,6 @@ platform :ios do
   end
 
   lane :CliqzNightly do
-    # Configure CommitHash
-    # sh("cd .. && plutil -replace CommitHash -string $CommitHash Client/Info.plist")
-
-    # Building ReactNative Extension
-    # sh("cd .. && npm run bundle-cliqz")
-
     create_keychain(
       path: "/Users/vagrant/Library/Keychains/"+ENV["MATCH_KEYCHAIN_NAME"],
       password: ENV["MATCH_PASSWORD"],
@@ -132,7 +121,9 @@ platform :ios do
         }
       }
     )
+  end
 
+  lane :testpilot do
     upload_to_testflight(
       changelog: "Cliqz Browser Nightly update",
       demo_account_required: "false",

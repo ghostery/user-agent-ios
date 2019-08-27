@@ -55,7 +55,6 @@ class BrowserViewController: UIViewController {
     var searchController: SearchViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
-    fileprivate var searchLoader: SearchLoader?
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
     var findInPageBar: FindInPageBar?
 
@@ -786,14 +785,8 @@ class BrowserViewController: UIViewController {
 
         let isPrivate = tabManager.selectedTab?.isPrivate ?? false
         let searchController = SearchViewController(profile: profile, isPrivate: isPrivate)
-        searchController.searchEngines = profile.searchEngines
-        searchController.searchDelegate = self
-
-        let searchLoader = SearchLoader(profile: profile, urlBar: urlBar)
-        searchLoader.addListener(searchController)
 
         self.searchController = searchController
-        self.searchLoader = searchLoader
     }
 
     fileprivate func showSearchController() {
@@ -826,9 +819,7 @@ class BrowserViewController: UIViewController {
 
     fileprivate func destroySearchController() {
         hideSearchController()
-
         searchController = nil
-        searchLoader = nil
     }
 
     func finishEditingAndSubmit(_ url: URL, visitType: VisitType, forTab tab: Tab) {
@@ -1358,7 +1349,6 @@ extension BrowserViewController: URLBarDelegate {
         }
 
         searchController?.searchQuery = text
-        searchLoader?.setQueryWithoutAutocomplete(text)
     }
 
     func urlBar(_ urlBar: URLBarView, didEnterText text: String) {
@@ -1369,7 +1359,6 @@ extension BrowserViewController: URLBarDelegate {
         }
 
         searchController?.searchQuery = text
-        searchLoader?.query = text
     }
 
     func urlBar(_ urlBar: URLBarView, didSubmitText text: String) {
@@ -1652,30 +1641,6 @@ extension BrowserViewController: HomePanelDelegate {
             }
         })
         self.show(toast: toast)
-    }
-}
-
-extension BrowserViewController: SearchViewControllerDelegate {
-    func searchViewController(_ searchViewController: SearchViewController, didSelectURL url: URL) {
-        guard let tab = tabManager.selectedTab else { return }
-        finishEditingAndSubmit(url, visitType: VisitType.typed, forTab: tab)
-    }
-
-    func searchViewController(_ searchViewController: SearchViewController, didLongPressSuggestion suggestion: String) {
-        self.urlBar.setLocation(suggestion, search: true)
-    }
-
-    func presentSearchSettingsController() {
-        let ThemedNavigationController = SearchSettingsTableViewController()
-        ThemedNavigationController.model = self.profile.searchEngines
-        ThemedNavigationController.profile = self.profile
-        let navController = ModalSettingsNavigationController(rootViewController: ThemedNavigationController)
-
-        self.present(navController, animated: true, completion: nil)
-    }
-
-    func searchViewController(_ searchViewController: SearchViewController, didHighlightText text: String, search: Bool) {
-        self.urlBar.setLocation(text, search: search)
     }
 }
 

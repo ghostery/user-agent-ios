@@ -1,41 +1,6 @@
-import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import { AppRegistry } from 'react-native';
+import Home from './ReactNative/js/screens/Home';
+import SearchResults from './ReactNative/js/screens/SearchResults';
 
-class RNHighScores extends React.Component {
-  render() {
-    var contents = [{ name: 'hello', value: 'world' }].map((score) => (
-      <Text key={score.name}>
-        {score.name}:{score.value}
-        {'\n'}
-      </Text>
-    ));
-    return (
-      <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>Welcome to User Agent</Text>
-        <Text style={styles.scores}>{contents}</Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  highScoresTitle: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  scores: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-// Module name
-AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
+AppRegistry.registerComponent('Home', () => Home);
+AppRegistry.registerComponent('SearchResults', () => SearchResults);
