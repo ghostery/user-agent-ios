@@ -12,32 +12,40 @@ require 'uri'
 Vagrant.configure("2") do |config|
 	config.vm.box = "mojave"
 
-	config.vm.define "publishios" do |publishios|
-	    publishios.vm.hostname ="mojave"
-	    publishios.ssh.forward_agent = true
+	config.vm.define "mojave" do |mojave|
+	    mojave.vm.hostname ="mojave"
+	    mojave.ssh.forward_agent = true
 
 	    config.vm.provider "parallels" do |prl|
-            prl.memory = ENV["NODE_MEMORY"]
-            prl.cpus = ENV["NODE_CPU_COUNT"]
+            prl.memory = ENV["NODE_MEMORY"] || 8000
+            prl.cpus = ENV["NODE_CPU_COUNT"] || 2
         end
 
-	    node_id = URI::encode(ENV['NODE_ID'])
-	    publishios.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
+	    node_id = URI::encode(ENV['NODE_ID'] || '')
+        mojave.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
             set -e
             set -x
+
             sudo mkdir -p /jenkins
             sudo chown vagrant /jenkins
-            brew install python3
+
+            brew -v
+
             brew tap adoptopenjdk/openjdk
-            brew cask install adoptopenjdk8
-            curl -LO https://raw.githubusercontent.com/cliqz/cliqz-browser-ios/develop/jenkins.py
-            python3 jenkins.py --url #{ENV['JENKINS_URL']} --node #{node_id} --secret #{ENV["NODE_SECRET"]} &
-	    SHELL
+            # `which java` does not work as MacOS try to be smart and request jave installation
+            java -version &>/dev/null || brew cask install adoptopenjdk8
+            java -version
+
+            curl -LO #{ENV['JENKINS_URL']}/jnlpJars/agent.jar
+            nohup java -jar agent.jar -jnlpUrl #{ENV['JENKINS_URL']}/computer/#{node_id}/slave-agent.jnlp -secret #{ENV["NODE_SECRET"]} > agent.log 2> agent.log &
+        SHELL
 	end
 end
 '''
 
 node('gideon') {
+    stage('Start VM')
+
     timeout(30){
         writeFile file: 'Vagrantfile', text: vagrantfile
         vagrant.inside(
@@ -53,26 +61,34 @@ node('gideon') {
                     checkout scm
                 }
 
-                stage('Prepare') {
-                    sh '''#!/bin/bash -l
-                        set -e
-                        set -x
+                stage('Bootstrap') {
+                    ansiColor('xterm') {
+                        sh '''#!/bin/bash -l
+                            set -e
+                            set -x
 
-                        brew -v
-                        brew install node carthage
+                            which node &>/dev/null || brew install node
+                            node -v
+                            npm -v
 
-                        java -version
-                        node -v
-                        npm -v
+                            which carthage &>/dev/null || brew install carthage
+                            carthage version
 
-                        sudo xcode-select --switch /Applications/Xcode.app/
-                        xcodebuild -version
-                        pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
-                        sudo xcodebuild -license accept
-                        sudo gem install fastlane cocoapods
+                            # for some reason we cannot install watchman in CI, it works when installed manually
+                            which watchman &>/dev/null || brew install watchman
+                            watchman --version
 
-                        fastlane prepare
-                    '''
+                            sudo xcode-select --switch /Applications/Xcode.app/
+                            xcodebuild -version
+
+                            pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
+                            sudo xcodebuild -license accept
+
+                            sudo gem install which bundler || gem install bundler
+
+                            ./bootstrap.sh
+                        '''
+                    }
                 }
 
                 withCredentials([
@@ -90,24 +106,28 @@ node('gideon') {
                     string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
                 ]) {
                     stage('Build') {
-                        sh '''#!/bin/bash -l
-                            set -x
-                            set -e
-                            rm -rf /Users/vagrant/Library/Keychains/ios-build.keychain*
+                        ansiColor('xterm') {
+                            sh '''#!/bin/bash -l
+                                set -x
+                                set -e
+                                rm -rf /Users/vagrant/Library/Keychains/ios-build.keychain*
 
-                            export MATCH_KEYCHAIN_NAME=ios-build.keychain
+                                export MATCH_KEYCHAIN_NAME=ios-build.keychain
 
-                            fastlane CliqzNightly
-                        '''
+                                bundle exec fastlane CliqzNightly
+                            '''
+                        }
                     }
 
                     stage('Upload') {
-                        sh '''#!/bin/bash -l
-                            set -x
-                            set -e
+                        ansiColor('xterm') {
+                            sh '''#!/bin/bash -l
+                                set -x
+                                set -e
 
-                            fastlane testpilot
-                        '''
+                                bundle exec fastlane testpilot
+                            '''
+                        }
                     }
                 }
             }

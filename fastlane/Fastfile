@@ -1,27 +1,11 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-
   lane :lint do
     swiftlint(
       executable: "Pods/SwiftLint/swiftlint",
       ignore_exit_status: false
     )
-  end
-
-  lane :prepare do
-    # Run Bootstrap for Carthage
-    sh("cd .. && carthage bootstrap --verbose --platform ios --color auto --cache-builds")
-
-    # Install NPM and POD Dependencies and Run the Build Script for NPM Dependencies.
-    begin
-      sh("cd .. && npm install")
-    rescue
-      sh("cd .. && npm install")
-    end
-    sh("cd .. && pod install")
-    sh("cd .. && npm run build")
   end
 
   lane :CliqzNightly do
@@ -108,6 +92,7 @@ platform :ios do
     build_app(
       workspace: "UserAgent.xcworkspace",
       clean: true,
+      disable_xcpretty: true,
       scheme: "Cliqz Nightly",
       skip_profile_detection: true,
       codesigning_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
