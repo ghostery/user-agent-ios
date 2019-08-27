@@ -7,9 +7,10 @@
 //
 
 import Foundation
-import React
 
-class HomeViewController: UIViewController, HomeViewControllerProtocol {
+class HomeViewController: UIViewController, ReactBaseView, HomeViewControllerProtocol {
+    static var componentName: String = "Home"
+
     weak var homePanelDelegate: HomePanelDelegate?
     fileprivate let profile: Profile
 
@@ -18,23 +19,12 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
         super.init(nibName: nil, bundle: nil)
     }
 
+    override func loadView() {
+        setupReactView()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func loadView() {
-        #if DEBUG
-            let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
-        #else
-            let jsCodeLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")
-        #endif
-
-        self.view = RCTRootView(
-            bundleURL: jsCodeLocation!,
-            moduleName: "RNHighScores",
-            initialProperties: nil,
-            launchOptions: nil
-        )
     }
 
     func applyTheme() {

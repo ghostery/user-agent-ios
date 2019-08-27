@@ -161,10 +161,11 @@
 		46B68D2F231420DD0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
 		46B68D30231420DD0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
 		46B68D31231420DE0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
+		46CA60D1231554980010CE6B /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D0231554980010CE6B /* SearchResultsViewController.swift */; };
+		46CA60D3231555220010CE6B /* ReactBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D2231555220010CE6B /* ReactBaseView.swift */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		554867231DC3935A00183DAA /* HomePageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554867221DC3935A00183DAA /* HomePageTests.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
-		59A681BDFC95A19F05E07223 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68CCB63E2A565CB03F832 /* SearchViewController.swift */; };
 		59A68B280D62462B85CF57A4 /* HistoryPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A6825233896FC846499289 /* HistoryPanel.swift */; };
 		59A68D66379CFA85C4EAF00B /* TwoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68B1F857A8638598A63A0 /* TwoLineCell.swift */; };
 		59A68E0B4ABBF55E14819668 /* BookmarksPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A6839879D615FC1C0D71CE /* BookmarksPanel.swift */; };
@@ -326,7 +327,6 @@
 		ACB7378423042BAB00FA5626 /* UserActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A359E31BFCCE94006B9E87 /* UserActivityHandler.swift */; };
 		ACB7378523042BAB00FA5626 /* PhotonActionSheetAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FDAAE1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift */; };
 		ACB7378623042BAB00FA5626 /* TabScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698FFD91B4AADF40001F623 /* TabScrollController.swift */; };
-		ACB7378723042BAB00FA5626 /* SearchLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34510871ACF415700EC27F0 /* SearchLoader.swift */; };
 		ACB7378823042BAB00FA5626 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE74FA21A8513B007AE4F2 /* TranslationService.swift */; };
 		ACB7378923042BAB00FA5626 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65075501E37F6D1006961AC /* UIViewExtensions.swift */; };
 		ACB7378A23042BAB00FA5626 /* BrowserViewController+WebViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F457A71F1FD75A000CB895 /* BrowserViewController+WebViewDelegates.swift */; };
@@ -404,7 +404,6 @@
 		ACB737D423042BAB00FA5626 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE7B251B054D4400641031 /* main.swift */; };
 		ACB737D523042BAB00FA5626 /* WebPagesForTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A651020699BD200B52A5F /* WebPagesForTesting.swift */; };
 		ACB737D623042BAB00FA5626 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A994951A3686BD008AD1AC /* BrowserViewController.swift */; };
-		ACB737D723042BAB00FA5626 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68CCB63E2A565CB03F832 /* SearchViewController.swift */; };
 		ACB737D823042BAB00FA5626 /* SensitiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF28E61CB43B7900151AB3 /* SensitiveViewController.swift */; };
 		ACB737D923042BAB00FA5626 /* ChangePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68E7AD91CAC207400FDCA76 /* ChangePasscodeViewController.swift */; };
 		ACB737DA23042BAB00FA5626 /* PasscodeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640E85D1C73A45A00C5F072 /* PasscodeEntryViewController.swift */; };
@@ -596,7 +595,6 @@
 		ACB738BC23042C4400FA5626 /* UserActivityHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A359E31BFCCE94006B9E87 /* UserActivityHandler.swift */; };
 		ACB738BD23042C4400FA5626 /* PhotonActionSheetAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88FDAAE1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift */; };
 		ACB738BE23042C4400FA5626 /* TabScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698FFD91B4AADF40001F623 /* TabScrollController.swift */; };
-		ACB738BF23042C4400FA5626 /* SearchLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34510871ACF415700EC27F0 /* SearchLoader.swift */; };
 		ACB738C023042C4400FA5626 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE74FA21A8513B007AE4F2 /* TranslationService.swift */; };
 		ACB738C123042C4400FA5626 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65075501E37F6D1006961AC /* UIViewExtensions.swift */; };
 		ACB738C223042C4400FA5626 /* BrowserViewController+WebViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F457A71F1FD75A000CB895 /* BrowserViewController+WebViewDelegates.swift */; };
@@ -674,7 +672,6 @@
 		ACB7390C23042C4400FA5626 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE7B251B054D4400641031 /* main.swift */; };
 		ACB7390D23042C4400FA5626 /* WebPagesForTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A651020699BD200B52A5F /* WebPagesForTesting.swift */; };
 		ACB7390E23042C4400FA5626 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A994951A3686BD008AD1AC /* BrowserViewController.swift */; };
-		ACB7390F23042C4400FA5626 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68CCB63E2A565CB03F832 /* SearchViewController.swift */; };
 		ACB7391023042C4400FA5626 /* SensitiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CF28E61CB43B7900151AB3 /* SensitiveViewController.swift */; };
 		ACB7391123042C4400FA5626 /* ChangePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68E7AD91CAC207400FDCA76 /* ChangePasscodeViewController.swift */; };
 		ACB7391223042C4400FA5626 /* PasscodeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640E85D1C73A45A00C5F072 /* PasscodeEntryViewController.swift */; };
@@ -845,7 +842,6 @@
 		D31CF65C1CC1959A001D0BD0 /* PrivilegedRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31CF65B1CC1959A001D0BD0 /* PrivilegedRequest.swift */; };
 		D31F95E91AC226CB005C9F3B /* ScreenshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31F95E81AC226CB005C9F3B /* ScreenshotHelper.swift */; };
 		D32CACED1AE04DA1000658EB /* TestSwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32CACEC1AE04DA1000658EB /* TestSwiftData.swift */; };
-		D34510881ACF415700EC27F0 /* SearchLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34510871ACF415700EC27F0 /* SearchLoader.swift */; };
 		D34DC8531A16C40C00D49B7B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
 		D37524871C6E8B5A00A5F6C2 /* topdomains.txt in Resources */ = {isa = PBXBuildFile; fileRef = D37524861C6E8B5A00A5F6C2 /* topdomains.txt */; };
 		D37DE2831CA2047500A5EC69 /* CertStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37DE2821CA2047500A5EC69 /* CertStore.swift */; };
@@ -1500,6 +1496,8 @@
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B68D2B231420930091156C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		46CA60D0231554980010CE6B /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		46CA60D2231555220010CE6B /* ReactBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactBaseView.swift; sourceTree = "<group>"; };
 		48F9447383281E0FC82CCAF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
@@ -1511,7 +1509,6 @@
 		59A6839879D615FC1C0D71CE /* BookmarksPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksPanel.swift; sourceTree = "<group>"; };
 		59A685F4EAD19EDEC854BCA4 /* ReaderPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderPanel.swift; sourceTree = "<group>"; };
 		59A68B1F857A8638598A63A0 /* TwoLineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoLineCell.swift; sourceTree = "<group>"; };
-		59A68CCB63E2A565CB03F832 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		61394A4F93D47F0B97624BD9 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/FindInPage.strings; sourceTree = "<group>"; };
 		62D346AA899263FDCB22FB8A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Search.strings; sourceTree = "<group>"; };
 		63306D3821103EAE00F25400 /* SavedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedTab.swift; sourceTree = "<group>"; };
@@ -1699,7 +1696,6 @@
 		D31CF65B1CC1959A001D0BD0 /* PrivilegedRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivilegedRequest.swift; sourceTree = "<group>"; };
 		D31F95E81AC226CB005C9F3B /* ScreenshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotHelper.swift; sourceTree = "<group>"; };
 		D32CACEC1AE04DA1000658EB /* TestSwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftData.swift; sourceTree = "<group>"; };
-		D34510871ACF415700EC27F0 /* SearchLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLoader.swift; sourceTree = "<group>"; };
 		D34DC84D1A16C40C00D49B7B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Profile.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D35210E01CB2F16600FC5DCB /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strings.swift; path = ../Client/Frontend/Strings.swift; sourceTree = "<group>"; };
 		D36998881AD70A0A00650C6C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -2440,6 +2436,8 @@
 			isa = PBXGroup;
 			children = (
 				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
+				46CA60D0231554980010CE6B /* SearchResultsViewController.swift */,
+				46CA60D2231555220010CE6B /* ReactBaseView.swift */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -2732,9 +2730,7 @@
 				D31F95E81AC226CB005C9F3B /* ScreenshotHelper.swift */,
 				D308E4E31A5306F500842685 /* SearchEngines.swift */,
 				DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */,
-				D34510871ACF415700EC27F0 /* SearchLoader.swift */,
 				D31A0FC61A65D6D000DC8C7E /* SearchSuggestClient.swift */,
-				59A68CCB63E2A565CB03F832 /* SearchViewController.swift */,
 				74C027441B2A348C001B1E88 /* SessionData.swift */,
 				F35B8D2C1D6383E9008E3D61 /* SessionRestoreHelper.swift */,
 				3BF56D261CDBBE1F00AC4D75 /* SimpleToast.swift */,
@@ -4028,7 +4024,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$CONFIGURATION\" = \"Release\" ] ; then\n    exit 0\nfi\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/./node_modules/react-native/scripts/.packager.env\"\n\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n    if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n        if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n            echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n            exit 2\n        fi\n    else\n        open \"$SRCROOT/./node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n    fi\nfi\n";
+			shellScript = "if [ \"$CONFIGURATION\" != \"Debug\" ] ; then\n    exit 0\nfi\n\nexport RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/./node_modules/react-native/scripts/.packager.env\"\n\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n    if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n        if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n            echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n            exit 2\n        fi\n    else\n        open \"$SRCROOT/./node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n    fi\nfi\n";
 		};
 		46C41EDC230EC9A300CE54D2 /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4046,7 +4042,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\nexport ENTRY_FILE=./ReactNative/index.js\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "export NODE_BINARY=node\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		49B9EA8147132B7D671C4F39 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4719,7 +4715,6 @@
 				ACB7378423042BAB00FA5626 /* UserActivityHandler.swift in Sources */,
 				ACB7378523042BAB00FA5626 /* PhotonActionSheetAnimator.swift in Sources */,
 				ACB7378623042BAB00FA5626 /* TabScrollController.swift in Sources */,
-				ACB7378723042BAB00FA5626 /* SearchLoader.swift in Sources */,
 				ACB7378823042BAB00FA5626 /* TranslationService.swift in Sources */,
 				ACB7378923042BAB00FA5626 /* UIViewExtensions.swift in Sources */,
 				ACB7378A23042BAB00FA5626 /* BrowserViewController+WebViewDelegates.swift in Sources */,
@@ -4797,7 +4792,6 @@
 				ACB737D423042BAB00FA5626 /* main.swift in Sources */,
 				ACB737D523042BAB00FA5626 /* WebPagesForTesting.swift in Sources */,
 				ACB737D623042BAB00FA5626 /* BrowserViewController.swift in Sources */,
-				ACB737D723042BAB00FA5626 /* SearchViewController.swift in Sources */,
 				ACB737D823042BAB00FA5626 /* SensitiveViewController.swift in Sources */,
 				ACB737D923042BAB00FA5626 /* ChangePasscodeViewController.swift in Sources */,
 				ACB737DA23042BAB00FA5626 /* PasscodeEntryViewController.swift in Sources */,
@@ -4936,7 +4930,6 @@
 				ACB738BC23042C4400FA5626 /* UserActivityHandler.swift in Sources */,
 				ACB738BD23042C4400FA5626 /* PhotonActionSheetAnimator.swift in Sources */,
 				ACB738BE23042C4400FA5626 /* TabScrollController.swift in Sources */,
-				ACB738BF23042C4400FA5626 /* SearchLoader.swift in Sources */,
 				ACB738C023042C4400FA5626 /* TranslationService.swift in Sources */,
 				ACB738C123042C4400FA5626 /* UIViewExtensions.swift in Sources */,
 				ACB738C223042C4400FA5626 /* BrowserViewController+WebViewDelegates.swift in Sources */,
@@ -5014,7 +5007,6 @@
 				ACB7390C23042C4400FA5626 /* main.swift in Sources */,
 				ACB7390D23042C4400FA5626 /* WebPagesForTesting.swift in Sources */,
 				ACB7390E23042C4400FA5626 /* BrowserViewController.swift in Sources */,
-				ACB7390F23042C4400FA5626 /* SearchViewController.swift in Sources */,
 				ACB7391023042C4400FA5626 /* SensitiveViewController.swift in Sources */,
 				ACB7391123042C4400FA5626 /* ChangePasscodeViewController.swift in Sources */,
 				ACB7391223042C4400FA5626 /* PasscodeEntryViewController.swift in Sources */,
@@ -5172,8 +5164,8 @@
 				39A359E41BFCCE94006B9E87 /* UserActivityHandler.swift in Sources */,
 				D88FDAAF1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift in Sources */,
 				E698FFDA1B4AADF40001F623 /* TabScrollController.swift in Sources */,
-				D34510881ACF415700EC27F0 /* SearchLoader.swift in Sources */,
 				39CE74FB21A8513B007AE4F2 /* TranslationService.swift in Sources */,
+				46CA60D3231555220010CE6B /* ReactBaseView.swift in Sources */,
 				E65075521E37F6D1006961AC /* UIViewExtensions.swift in Sources */,
 				C8F457A81F1FD75A000CB895 /* BrowserViewController+WebViewDelegates.swift in Sources */,
 				E6927EC01C7B6FB800D03F75 /* ErrorToast.swift in Sources */,
@@ -5236,6 +5228,7 @@
 				C4E398601D22C409004E89BA /* TopTabsLayout.swift in Sources */,
 				2816F0001B33E05400522243 /* UIConstants.swift in Sources */,
 				EBB89508219398E500EB91A0 /* ContentBlocker+Whitelist.swift in Sources */,
+				46CA60D1231554980010CE6B /* SearchResultsViewController.swift in Sources */,
 				D0B9483422A03468002F4AA1 /* BookmarkDetailPanel.swift in Sources */,
 				3B6889C51D66950E002AC85E /* UIImageColors.swift in Sources */,
 				392ED7E41D0AEF56009D9B62 /* NewTabAccessors.swift in Sources */,
@@ -5250,7 +5243,6 @@
 				D3BE7B261B054D4400641031 /* main.swift in Sources */,
 				EB8A0A77206ABCE000A9859A /* WebPagesForTesting.swift in Sources */,
 				D3A9949C1A3686BD008AD1AC /* BrowserViewController.swift in Sources */,
-				59A681BDFC95A19F05E07223 /* SearchViewController.swift in Sources */,
 				E6CF28E71CB43B7900151AB3 /* SensitiveViewController.swift in Sources */,
 				E68E7ADA1CAC207400FDCA76 /* ChangePasscodeViewController.swift in Sources */,
 				E640E85E1C73A45A00C5F072 /* PasscodeEntryViewController.swift in Sources */,
