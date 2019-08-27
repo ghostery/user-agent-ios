@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import React
 
 class HomeViewController: UIViewController, HomeViewControllerProtocol {
     weak var homePanelDelegate: HomePanelDelegate?
@@ -23,7 +24,7 @@ class HomeViewController: UIViewController, HomeViewControllerProtocol {
 
     override func loadView() {
         #if DEBUG
-            let jsCodeLocation = URL(string: "http://localhost:8081/ReactNative/index.bundle?platform=ios")
+            let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
         #else
             let jsCodeLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")
         #endif

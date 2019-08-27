@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Firefox for iOS",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "build-react-native": "react-native bundle --reset-cache --platform ios --entry-file ReactNative/cliqz.js --bundle-output ./ReactNative/index.bundle.js"
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +12,8 @@
   "license": "MPL-2.0",
   "dependencies": {
     "page-metadata-parser": "1.1.4",
-    "react": "^16.9.0",
-    "react-native": "^0.60.5",
+    "react": "^16.8.3",
+    "react-native": "^0.59.10",
     "readability": "mozilla/readability#b9f47bcc8d3c223cabe2dec6a42eeb3bd778d85c"
   },
   "devDependencies": {
