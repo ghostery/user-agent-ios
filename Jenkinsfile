@@ -32,8 +32,6 @@ Vagrant.configure("2") do |config|
 
             sudo mkdir -p /jenkins
             sudo chown vagrant /jenkins
-            # without LaunchAgents watchman installation fails
-            mkdir -p ~/Library/LaunchAgents/
 
             brew -v
 
