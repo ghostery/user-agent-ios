@@ -11,10 +11,14 @@
   },
   "license": "MPL-2.0",
   "dependencies": {
+    "@cliqz/component-ui-logo": "^0.4.0",
+    "cliqz-logo-database": "^0.4.0",
     "page-metadata-parser": "1.1.4",
     "react": "^16.8.3",
     "react-native": "^0.59.10",
-    "readability": "mozilla/readability#b9f47bcc8d3c223cabe2dec6a42eeb3bd778d85c"
+    "react-native-super-grid": "^3.0.9",
+    "readability": "mozilla/readability#b9f47bcc8d3c223cabe2dec6a42eeb3bd778d85c",
+    "tldts": "^5.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

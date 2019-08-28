@@ -1,42 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View,
+  NativeModules,
 } from 'react-native';
+import { FlatGrid } from 'react-native-super-grid';
+import SpeedDial from '../components/SpeedDial';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-  },
-  highScoresTitle: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  scores: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-export default class Home extends React.Component {
-  render() {
-    var contents = [{ name: 'hello', value: 'world' }].map((score) => (
-      <Text key={score.name}>
-        {score.name}:{score.value}
-        {'\n'}
-      </Text>
-    ));
-    return (
-      <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>Welcome to User Agent</Text>
-        <Text style={styles.scores}>{contents}</Text>
-      </View>
-    );
+export const useSpeedDials = () => {
+  const [data, setData] = useState([]);
+  async function fetchLocations() {
+    const speedDials = await NativeModules.History.getTopSites();
+    setData(speedDials);
   }
+
+  useEffect(() => {
+    fetchLocations();
+  }, []);
+
+  return data;
+}
+
+const openSpeedDialLink = speedDial => NativeModules.Tabs.open(speedDial.url);
+
+export default function Home() {
+  const speedDials = useSpeedDials();
+  return (
+    <FlatGrid
+      itemDimension={80}
+      items={speedDials}
+      renderItem={({ item: speedDial }) =>
+        SpeedDial({
+          speedDial,
+          onPress: openSpeedDialLink,
+        })
+      }
+    />
+  )
 }
