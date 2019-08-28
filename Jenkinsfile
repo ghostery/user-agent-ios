@@ -9,25 +9,31 @@ properties([
 
 def vagrantfile = '''
 require 'uri'
+
+node_id = URI::encode(ENV['NODE_ID'] || '')
+name = "mojave-#{ENV['BRANCH_NAME'] || ''}"
+
 Vagrant.configure("2") do |config|
-	config.vm.box = "mojave"
+    config.vm.box = "mojave"
 
-	config.vm.define "mojave" do |mojave|
-	    mojave.vm.hostname ="mojave"
-	    mojave.ssh.forward_agent = true
+    config.vm.define "mojave" do |mojave|
+        mojave.vm.hostname ="mojave"
+        mojave.ssh.forward_agent = true
 
-	    config.vm.provider "parallels" do |prl|
+        config.vm.provider "parallels" do |prl|
+            prl.name = name
             prl.memory = ENV["NODE_MEMORY"] || 8000
             prl.cpus = ENV["NODE_CPU_COUNT"] || 2
         end
 
-	    node_id = URI::encode(ENV['NODE_ID'] || '')
         mojave.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
             set -e
             set -x
 
             sudo mkdir -p /jenkins
             sudo chown vagrant /jenkins
+            # without LaunchAgents watchman installation fails
+            mkdir -p ~/Library/LaunchAgents/
 
             brew -v
 
@@ -39,7 +45,7 @@ Vagrant.configure("2") do |config|
             curl -LO #{ENV['JENKINS_URL']}/jnlpJars/agent.jar
             nohup java -jar agent.jar -jnlpUrl #{ENV['JENKINS_URL']}/computer/#{node_id}/slave-agent.jnlp -secret #{ENV["NODE_SECRET"]} > agent.log 2> agent.log &
         SHELL
-	end
+    end
 end
 '''
 
