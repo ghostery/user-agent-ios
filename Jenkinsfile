@@ -70,6 +70,9 @@ node('gideon') {
                         sh '''#!/bin/bash -l
                             set -e
                             set -x
+                            
+                            # For Cocoapods
+                            export LANG=en_US.UTF-8
 
                             which node &>/dev/null || brew install node
                             node -v
