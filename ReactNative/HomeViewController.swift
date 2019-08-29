@@ -22,6 +22,12 @@ class HomeViewController: UIViewController, ReactBaseView, HomeViewControllerPro
     override func loadView() {
         setupReactView()
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // TODO: user proper caching
+        self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
