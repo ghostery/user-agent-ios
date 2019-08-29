@@ -50,7 +50,7 @@ end
 node('gideon') {
     stage('Start VM')
 
-    timeout(30){
+    timeout(60){
         writeFile file: 'Vagrantfile', text: vagrantfile
         vagrant.inside(
             'Vagrantfile',

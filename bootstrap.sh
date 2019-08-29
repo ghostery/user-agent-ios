@@ -14,4 +14,4 @@ npm ci
 npm run build
 
 bundle install
-bundle exec pod install
+bundle exec pod install --repo-update
