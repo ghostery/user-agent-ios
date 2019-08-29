@@ -71,7 +71,8 @@ node('gideon') {
                             set -e
                             set -x
                             
-                            # For Cocoapods
+                            # For Cocoapods and Fastlane
+                            export LC_ALL=en_US.UTF-8
                             export LANG=en_US.UTF-8
 
                             which node &>/dev/null || brew install node
@@ -117,6 +118,11 @@ node('gideon') {
                             sh '''#!/bin/bash -l
                                 set -x
                                 set -e
+                                
+                                # For Cocoapods and Fastlane
+                                export LC_ALL=en_US.UTF-8
+                                export LANG=en_US.UTF-8
+                            
                                 rm -rf /Users/vagrant/Library/Keychains/ios-build.keychain*
 
                                 export MATCH_KEYCHAIN_NAME=ios-build.keychain
@@ -131,6 +137,10 @@ node('gideon') {
                             sh '''#!/bin/bash -l
                                 set -x
                                 set -e
+                                
+                                # For Cocoapods and Fastlane
+                                export LC_ALL=en_US.UTF-8
+                                export LANG=en_US.UTF-8
 
                                 bundle exec fastlane testpilot
                             '''
