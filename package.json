@@ -15,6 +15,7 @@
     "@cliqz/indexeddbshim": "^4.1.2",
     "browser-core-user-agent-ios": "https://s3.amazonaws.com/cdncliqz/update/edge/user-agent-ios/master/3.40.0.104350c.tgz",
     "cliqz-logo-database": "^0.4.0",
+    "html-entities": "^1.2.1",
     "page-metadata-parser": "1.1.4",
     "react": "^16.8.3",
     "react-native": "^0.59.10",

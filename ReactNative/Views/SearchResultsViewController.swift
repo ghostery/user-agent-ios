@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import React
 
 class SearchViewController: UIViewController, ReactBaseView {
+    var bridge: RCTBridge?
+    var lastQuery: String = ""
+
     static var componentName: String = "SearchResults"
 
     fileprivate let profile: Profile
@@ -19,12 +23,29 @@ class SearchViewController: UIViewController, ReactBaseView {
     }
 
     override func loadView() {
-        setupReactView()
+        let view = createReactView()
+        self.view = view
+        bridge = view.bridge 
     }
 
     var searchQuery: String = "" {
         didSet {
+            var keyCode = ""
+            let lastStringLength = lastQuery.count
 
+            if lastStringLength - searchQuery.count == 1 {
+                keyCode = "Backspace"
+            } else if searchQuery.count > lastStringLength {
+                keyCode = "Key" + String(searchQuery.last!).uppercased()
+            }
+
+            lastQuery = searchQuery
+
+            (bridge?.module(for: JSBridge.self) as! JSBridge).callAction(module: "search", action: "startSearch", args: [
+                searchQuery,
+                ["key": keyCode],
+                ["contextId": "mobile-cards"],
+            ])
         }
     }
 

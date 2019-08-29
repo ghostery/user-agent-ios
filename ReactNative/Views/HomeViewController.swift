@@ -20,7 +20,8 @@ class HomeViewController: UIViewController, ReactBaseView, HomeViewControllerPro
     }
 
     override func loadView() {
-        setupReactView()
+        let view = createReactView()
+        self.view = view
     }
 
     override func viewDidLoad() {
