@@ -19,7 +19,7 @@ export const useSpeedDials = () => {
   return data;
 }
 
-const openSpeedDialLink = speedDial => NativeModules.Tabs.open(speedDial.url);
+const openSpeedDialLink = speedDial => NativeModules.BrowserActions.openLink(speedDial.url, "", false);
 
 export default function Home() {
   const speedDials = useSpeedDials();

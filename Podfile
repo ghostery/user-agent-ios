@@ -24,6 +24,9 @@ def react_native
     'RCTAnimation',
   ]
   pod 'yoga', :path => yoga_path
+
+  pod 'RNSqlite2', :path => './node_modules/react-native-sqlite-2/ios/'
+  pod 'RNFS', :path => './node_modules/react-native-fs'
 end
 
 def shared

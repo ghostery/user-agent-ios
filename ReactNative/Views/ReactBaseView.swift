@@ -13,16 +13,16 @@ protocol ReactBaseView {
     static var componentName: String { get }
 }
 
-extension ReactBaseView where Self: UIViewController {
+extension ReactBaseView {
     // TODO: Ideally this function is replaced with `override loadView`
-    func setupReactView() {
+    func createReactView() -> RCTRootView {
         #if DEBUG
             let jsCodeLocation = URL(string: "http://localhost:8081/index.bundle?platform=ios")
         #else
             let jsCodeLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")
         #endif
 
-        self.view = RCTRootView(
+        return RCTRootView(
             bundleURL: jsCodeLocation!,
             moduleName: type(of: self).componentName,
             initialProperties: nil,
