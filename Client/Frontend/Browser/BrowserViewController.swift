@@ -52,7 +52,7 @@ class BrowserViewController: UIViewController {
     var readerModeCache: ReaderModeCache
     var statusBarOverlay: UIView = UIView()
     fileprivate(set) var toolbar: TabToolbar?
-    var searchController: SearchViewController?
+    var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
@@ -784,7 +784,7 @@ class BrowserViewController: UIViewController {
         }
 
         let isPrivate = tabManager.selectedTab?.isPrivate ?? false
-        let searchController = SearchViewController(profile: profile, isPrivate: isPrivate)
+        let searchController = SearchResultsViewController(profile: profile, isPrivate: isPrivate)
 
         self.searchController = searchController
     }

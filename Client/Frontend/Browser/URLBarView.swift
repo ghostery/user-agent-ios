@@ -209,6 +209,12 @@ class URLBarView: UIView {
 
         // Make sure we hide any views that shouldn't be showing in non-overlay mode.
         updateViewsForOverlayModeAndToolbarChanges()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: HideKeyboardSearchNotification, object: nil)
+    }
+
+    @objc fileprivate func hideKeyboard() {
+        locationTextField?.resignFirstResponder()
     }
 
     fileprivate func setupConstraints() {
