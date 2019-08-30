@@ -1225,7 +1225,7 @@
 "ShareExtension.LoadInBackgroundActionDone.Title" = "Caricamento in Firefox";
 
 /* Action label on share extension to immediately open page in Firefox. */
-"ShareExtension.OpenInFirefoxAction.Title" = "Apri in Firefox";
+"ShareExtension.OpenInFirefoxAction.Title" = "Apri in %@";
 
 /* Action label on share extension to immediately open page in Firefox in private mode. */
 "ShareExtension.OpenInPrivateModeAction.Title" = "Apri in modalità anonima";

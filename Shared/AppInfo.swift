@@ -5,6 +5,18 @@
 import Foundation
 
 open class AppInfo {
+    public static var protocolName: String {
+        var bundle = Bundle.main
+        if bundle.bundleURL.pathExtension == "appex" {
+            let url = bundle.bundleURL.deletingLastPathComponent().deletingLastPathComponent()
+            if let otherBundle = Bundle(url: url) {
+                bundle = otherBundle
+            }
+        }
+        let urlTypes = (bundle.infoDictionary!["CFBundleURLTypes"] as! [[String: Any]]).first!
+        return (urlTypes["CFBundleURLSchemes"] as! [String]).first!
+    }
+
     /// Return the main application bundle. If this is called from an extension, the containing app bundle is returned.
     public static var applicationBundle: Bundle {
         let bundle = Bundle.main

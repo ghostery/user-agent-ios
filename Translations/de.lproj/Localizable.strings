@@ -1297,7 +1297,7 @@
 "ShareExtension.LoadInBackgroundActionDone.Title" = "Wird in Firefox geladen";
 
 /* Action label on share extension to immediately open page in Firefox. */
-"ShareExtension.OpenInFirefoxAction.Title" = "In Firefox öffnen";
+"ShareExtension.OpenInFirefoxAction.Title" = "In %@ öffnen";
 
 /* Action label on share extension to immediately open page in Firefox in private mode. */
 "ShareExtension.OpenInPrivateModeAction.Title" = "Im privaten Modus öffnen";
