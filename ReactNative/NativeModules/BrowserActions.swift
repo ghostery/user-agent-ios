@@ -8,6 +8,8 @@
 import React
 import Storage
 
+let HideKeyboardSearchNotification = NSNotification.Name(rawValue: "Search:hideKeyboard")
+
 @objc(BrowserActions)
 class BrowserActions: NSObject {
     @objc(openLink:query:isSearchEngine:)
@@ -28,6 +30,13 @@ class BrowserActions: NSObject {
             if let url = url {
                 appDel.browserViewController.homePanel(didSelectURL: url, visitType: VisitType.link)
             }
+        }
+    }
+
+    @objc(hideKeyboard)
+    func hideKeyboard() {
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: HideKeyboardSearchNotification, object: nil, userInfo: nil)
         }
     }
 

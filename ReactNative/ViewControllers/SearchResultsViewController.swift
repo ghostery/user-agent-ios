@@ -9,7 +9,7 @@
 import Foundation
 import React
 
-class SearchViewController: ReactViewController {
+class SearchResultsViewController: ReactViewController {
     var lastQuery: String = ""
 
     fileprivate let profile: Profile
@@ -49,7 +49,7 @@ class SearchViewController: ReactViewController {
     }
 }
 
-extension SearchViewController: Themeable {
+extension SearchResultsViewController: Themeable {
     func applyTheme() {
 
     }
