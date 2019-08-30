@@ -9,23 +9,18 @@
 import Foundation
 import React
 
-class SearchViewController: UIViewController, ReactBaseView {
-    var bridge: RCTBridge?
+class SearchViewController: ReactViewController {
     var lastQuery: String = ""
-
-    static var componentName: String = "SearchResults"
 
     fileprivate let profile: Profile
 
     init(profile: Profile, isPrivate: Bool) {
         self.profile = profile
-        super.init(nibName: nil, bundle: nil)
+        super.init(componentName: "SearchResults")
     }
 
-    override func loadView() {
-        let view = createReactView()
-        self.view = view
-        bridge = view.bridge 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     var searchQuery: String = "" {
@@ -41,16 +36,12 @@ class SearchViewController: UIViewController, ReactBaseView {
 
             lastQuery = searchQuery
 
-            (bridge?.module(for: JSBridge.self) as! JSBridge).callAction(module: "search", action: "startSearch", args: [
+            browserCore.callAction(module: "search", action: "startSearch", args: [
                 searchQuery,
                 ["key": keyCode],
                 ["contextId": "mobile-cards"],
             ])
         }
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     func handleKeyCommands(sender: UIKeyCommand) {
