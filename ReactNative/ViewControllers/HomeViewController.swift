@@ -8,20 +8,18 @@
 
 import Foundation
 
-class HomeViewController: UIViewController, ReactBaseView, HomeViewControllerProtocol {
-    static var componentName: String = "Home"
-
+class HomeViewController: ReactViewController {
     weak var homePanelDelegate: HomePanelDelegate?
+
     fileprivate let profile: Profile
 
     init(profile: Profile) {
         self.profile = profile
-        super.init(nibName: nil, bundle: nil)
+        super.init(componentName: "Home")
     }
 
-    override func loadView() {
-        let view = createReactView()
-        self.view = view
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -29,17 +27,15 @@ class HomeViewController: UIViewController, ReactBaseView, HomeViewControllerPro
         // TODO: user proper caching
         self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+}
 
+extension HomeViewController: HomeViewControllerProtocol {
     func applyTheme() {
-        
+
     }
 
     func scrollToTop() {
-    
+
     }
 
     func scrollToTop(animated: Bool) {

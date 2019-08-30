@@ -162,7 +162,7 @@
 		46B68D30231420DD0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
 		46B68D31231420DE0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
 		46CA60D1231554980010CE6B /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D0231554980010CE6B /* SearchResultsViewController.swift */; };
-		46CA60D3231555220010CE6B /* ReactBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D2231555220010CE6B /* ReactBaseView.swift */; };
+		46CA60D3231555220010CE6B /* ReactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D2231555220010CE6B /* ReactViewController.swift */; };
 		46CA60D62316B9EE0010CE6B /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D52316B9EE0010CE6B /* History.swift */; };
 		46CA60D82316BB3A0010CE6B /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D72316BB3A0010CE6B /* History.m */; };
 		46CA60D92316BB3A0010CE6B /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D72316BB3A0010CE6B /* History.m */; };
@@ -195,6 +195,11 @@
 		46CA610223180E1A0010CE6B /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46CA610123180E1A0010CE6B /* Icons.xcassets */; };
 		46CA610323180E1A0010CE6B /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46CA610123180E1A0010CE6B /* Icons.xcassets */; };
 		46CA610423180E1A0010CE6B /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46CA610123180E1A0010CE6B /* Icons.xcassets */; };
+		46CA610A231909EF0010CE6B /* ReactNativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */; };
+		46CA610B231909EF0010CE6B /* ReactNativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */; };
+		46CA610C231909EF0010CE6B /* ReactNativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */; };
+		46CA610E23190FFD0010CE6B /* ReactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D2231555220010CE6B /* ReactViewController.swift */; };
+		46CA610F23190FFD0010CE6B /* ReactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D2231555220010CE6B /* ReactViewController.swift */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		554867231DC3935A00183DAA /* HomePageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554867221DC3935A00183DAA /* HomePageTests.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
@@ -1529,7 +1534,7 @@
 		46B68D2B231420930091156C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46CA60D0231554980010CE6B /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
-		46CA60D2231555220010CE6B /* ReactBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactBaseView.swift; sourceTree = "<group>"; };
+		46CA60D2231555220010CE6B /* ReactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactViewController.swift; sourceTree = "<group>"; };
 		46CA60D52316B9EE0010CE6B /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		46CA60D72316BB3A0010CE6B /* History.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		46CA60DB2316CED70010CE6B /* BrowserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserActions.swift; sourceTree = "<group>"; };
@@ -1540,6 +1545,7 @@
 		46CA60F12317E4780010CE6B /* JSBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSBridge.swift; sourceTree = "<group>"; };
 		46CA60F52317E5D10010CE6B /* JSBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSBridge.m; sourceTree = "<group>"; };
 		46CA610123180E1A0010CE6B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeBridge.swift; sourceTree = "<group>"; };
 		48F9447383281E0FC82CCAF4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
@@ -2477,9 +2483,12 @@
 		46C41ED6230EC4ED00CE54D2 /* ReactNative */ = {
 			isa = PBXGroup;
 			children = (
-				46CA60FE2317F8EF0010CE6B /* Views */,
-				46CA60D42316B9D00010CE6B /* NativeModules */,
+				46CA60D2231555220010CE6B /* ReactViewController.swift */,
+				46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */,
 				46CA610123180E1A0010CE6B /* Icons.xcassets */,
+				46CA60D42316B9D00010CE6B /* NativeModules */,
+				46CA610D23190ABD0010CE6B /* NativeUIComponents */,
+				46CA60FE2317F8EF0010CE6B /* ViewControllers */,
 			);
 			path = ReactNative;
 			sourceTree = "<group>";
@@ -2487,27 +2496,33 @@
 		46CA60D42316B9D00010CE6B /* NativeModules */ = {
 			isa = PBXGroup;
 			children = (
-				46CA60D52316B9EE0010CE6B /* History.swift */,
-				46CA60D72316BB3A0010CE6B /* History.m */,
-				46CA60DB2316CED70010CE6B /* BrowserActions.swift */,
 				46CA60DF2316CF300010CE6B /* BrowserActions.m */,
-				46CA60E52317E0C60010CE6B /* LocaleConstants.swift */,
-				46CA60E72317E0DC0010CE6B /* LocaleConstants.m */,
-				46CA60ED2317E1390010CE6B /* NativeDrawable.m */,
-				46CA60F12317E4780010CE6B /* JSBridge.swift */,
+				46CA60DB2316CED70010CE6B /* BrowserActions.swift */,
+				46CA60D72316BB3A0010CE6B /* History.m */,
+				46CA60D52316B9EE0010CE6B /* History.swift */,
 				46CA60F52317E5D10010CE6B /* JSBridge.m */,
+				46CA60F12317E4780010CE6B /* JSBridge.swift */,
+				46CA60E72317E0DC0010CE6B /* LocaleConstants.m */,
+				46CA60E52317E0C60010CE6B /* LocaleConstants.swift */,
 			);
 			path = NativeModules;
 			sourceTree = "<group>";
 		};
-		46CA60FE2317F8EF0010CE6B /* Views */ = {
+		46CA60FE2317F8EF0010CE6B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
 				46CA60D0231554980010CE6B /* SearchResultsViewController.swift */,
-				46CA60D2231555220010CE6B /* ReactBaseView.swift */,
 			);
-			path = Views;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		46CA610D23190ABD0010CE6B /* NativeUIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				46CA60ED2317E1390010CE6B /* NativeDrawable.m */,
+			);
+			path = NativeUIComponents;
 			sourceTree = "<group>";
 		};
 		7B0B1B9C1C1B69F500DF4AB5 /* Extensions */ = {
@@ -4716,6 +4731,7 @@
 				ACB7373123042BAB00FA5626 /* Theme.swift in Sources */,
 				ACB7373223042BAB00FA5626 /* OneLineCell.swift in Sources */,
 				ACB7373323042BAB00FA5626 /* FindInPageHelper.swift in Sources */,
+				46CA610B231909EF0010CE6B /* ReactNativeBridge.swift in Sources */,
 				46CA60F32317E4780010CE6B /* JSBridge.swift in Sources */,
 				ACB7373423042BAB00FA5626 /* DarkTheme.swift in Sources */,
 				ACB7373523042BAB00FA5626 /* BrowserViewController+ReaderMode.swift in Sources */,
@@ -4794,6 +4810,7 @@
 				ACB7377A23042BAB00FA5626 /* NSAttributedStringExtensions.swift in Sources */,
 				ACB7377B23042BAB00FA5626 /* PrintHelper.swift in Sources */,
 				ACB7377C23042BAB00FA5626 /* UIAlertControllerExtensions.swift in Sources */,
+				46CA610E23190FFD0010CE6B /* ReactViewController.swift in Sources */,
 				ACB7377D23042BAB00FA5626 /* TranslationSettingsController.swift in Sources */,
 				ACB7377E23042BAB00FA5626 /* OpenSearch.swift in Sources */,
 				ACB7377F23042BAB00FA5626 /* TranslationToastHandler.swift in Sources */,
@@ -4941,6 +4958,7 @@
 				ACB7386923042C4400FA5626 /* Theme.swift in Sources */,
 				ACB7386A23042C4400FA5626 /* OneLineCell.swift in Sources */,
 				ACB7386B23042C4400FA5626 /* FindInPageHelper.swift in Sources */,
+				46CA610C231909EF0010CE6B /* ReactNativeBridge.swift in Sources */,
 				46CA60F42317E4780010CE6B /* JSBridge.swift in Sources */,
 				ACB7386C23042C4400FA5626 /* DarkTheme.swift in Sources */,
 				ACB7386D23042C4400FA5626 /* BrowserViewController+ReaderMode.swift in Sources */,
@@ -5019,6 +5037,7 @@
 				ACB738B223042C4400FA5626 /* NSAttributedStringExtensions.swift in Sources */,
 				ACB738B323042C4400FA5626 /* PrintHelper.swift in Sources */,
 				ACB738B423042C4400FA5626 /* UIAlertControllerExtensions.swift in Sources */,
+				46CA610F23190FFD0010CE6B /* ReactViewController.swift in Sources */,
 				ACB738B523042C4400FA5626 /* TranslationSettingsController.swift in Sources */,
 				ACB738B623042C4400FA5626 /* OpenSearch.swift in Sources */,
 				ACB738B723042C4400FA5626 /* TranslationToastHandler.swift in Sources */,
@@ -5275,7 +5294,7 @@
 				D88FDAAF1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift in Sources */,
 				E698FFDA1B4AADF40001F623 /* TabScrollController.swift in Sources */,
 				39CE74FB21A8513B007AE4F2 /* TranslationService.swift in Sources */,
-				46CA60D3231555220010CE6B /* ReactBaseView.swift in Sources */,
+				46CA60D3231555220010CE6B /* ReactViewController.swift in Sources */,
 				E65075521E37F6D1006961AC /* UIViewExtensions.swift in Sources */,
 				C8F457A81F1FD75A000CB895 /* BrowserViewController+WebViewDelegates.swift in Sources */,
 				E6927EC01C7B6FB800D03F75 /* ErrorToast.swift in Sources */,
@@ -5311,6 +5330,7 @@
 				63306D432110B3CD00F25400 /* TabManagerStore.swift in Sources */,
 				D83822001FC7961D00303C12 /* DispatchQueueExtensions.swift in Sources */,
 				D03F8EB22004014E003C2224 /* FaviconHandler.swift in Sources */,
+				46CA610A231909EF0010CE6B /* ReactNativeBridge.swift in Sources */,
 				EBC486992195F46B00CDA48D /* InternalSchemeHandler.swift in Sources */,
 				2F44FCC51A9E85E900FD20CC /* SettingsTableViewController.swift in Sources */,
 				A9072B801D07B34100459960 /* NoImageModeHelper.swift in Sources */,
