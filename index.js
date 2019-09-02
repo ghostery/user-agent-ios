@@ -24,9 +24,10 @@ global.CLIQZ = {
 addConnectionChangeListener();
 
 const eventEmitter = new NativeEventEmitter(NativeModules.JSBridge);
-
+global.eventEmitter = eventEmitter
 let updateQuery;
 let lastQuery;
+let reset;
 eventEmitter.addListener('callAction', async ({ module, action, args, id }) => {
   if (module === 'search' && action === 'startSearch') {
     const query = args[0];
@@ -34,6 +35,12 @@ eventEmitter.addListener('callAction', async ({ module, action, args, id }) => {
       updateQuery(query);
     } else {
       lastQuery = query;
+    }
+  }
+
+  if (module === 'search' && action === 'stopSearch') {
+    if (reset) {
+      reset();
     }
   }
 
@@ -70,7 +77,7 @@ events.sub('search:results', (results) => {
     lastResults = results;
   }
 });
-
+console.log("xxxxxxx start")
 class SearchWrapper extends React.Component {
   constructor(props) {
     super(props);
@@ -78,11 +85,13 @@ class SearchWrapper extends React.Component {
       results: lastResults,
       query: lastQuery,
     };
+    this.searchRef = React.createRef();
   }
 
   componentWillMount() {
     updateResults = (results) => this.setState({ results });
     updateQuery = (query) => this.setState({ query });
+    reset = () => this.searchRef.current.reset();
   }
 
   componentWillUnmount() {
@@ -90,11 +99,16 @@ class SearchWrapper extends React.Component {
     lastResults = null;
     updateQuery = null;
     lastQuery = null;
+    reset = null;
   }
 
   render() {
     return (
-      <SearchResults results={this.state.results} query={this.state.query} />
+      <SearchResults
+        results={this.state.results}
+        query={this.state.query}
+        ref={this.searchRef}
+      />
     );
   }
 };

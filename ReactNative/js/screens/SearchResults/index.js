@@ -3,8 +3,6 @@ import {
   StyleSheet, View,
   Text,
   ScrollView,
-  NativeModules,
-  NativeEventEmitter,
   TouchableWithoutFeedback,
 } from 'react-native';
 import SearchUIVertical from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/SearchUI';
@@ -91,21 +89,7 @@ export default class SearchResults extends React.Component {
     };
 
     this.cliqz = new Cliqz(inject);
-    this.init();
     this.scrollRef = React.createRef();
-  }
-
-  async init() {
-    this.eventEmitter = new NativeEventEmitter(NativeModules.JSBridge);
-    this.eventEmitter.addListener('callAction', this.onAction);
-  }
-
-  componentWillUnmount() {
-    if (this.eventEmitter) {
-      this.eventEmitter.removeAllListeners('callAction');
-      this.eventEmitter = null;
-      return;
-    }
   }
 
   componentWillReceiveProps({ results, query }) {
@@ -120,16 +104,13 @@ export default class SearchResults extends React.Component {
     }
   }
 
-  onAction = async ({ module, action, args, id }) => {
-    // Clear the screen on search session end
-    if (module === 'search' && action === 'stopSearch') {
-      this.setState({
-        results: {
-          results: [],
-          meta: {},
-        },
-      });
-    }
+  reset() {
+    this.setState({
+      results: {
+        results: [],
+        meta: {},
+      },
+    });
   }
 
   openSearchEngineLink = async (url, index) => {
