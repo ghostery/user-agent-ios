@@ -9,6 +9,7 @@ import { setDefaultSearchEngine } from 'browser-core-user-agent-ios/build/module
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
 import SearchResults from './ReactNative/js/screens/SearchResults';
+import ControlCenter from './ReactNative/js/screens/ControlCenter';
 
 YellowBox.ignoreWarnings([
   'Warning: NetInfo', // TODO: use netinfo from community package
@@ -102,3 +103,4 @@ class SearchWrapper extends React.Component {
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component {});
 AppRegistry.registerComponent('Home', () => Home);
 AppRegistry.registerComponent('SearchResults', () => SearchWrapper);
+AppRegistry.registerComponent('ControlCenter', () => ControlCenter);
