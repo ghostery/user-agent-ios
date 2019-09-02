@@ -1,10 +1,18 @@
 #!/bin/env groovy
 
+
+def triggers = []
+
+if("$BRANCH_NAME" == 'develop') {
+    triggers << croncron('H H(0-2) * * *')
+}
+
 @Library('cliqz-shared-library@vagrant') _
 
 properties([
     disableConcurrentBuilds(),
-    [$class: 'JobRestrictionProperty']
+    [$class: 'JobRestrictionProperty'],
+    pipelineTriggers(triggers),
 ])
 
 def vagrantfile = '''
