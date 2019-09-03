@@ -108,9 +108,12 @@ platform :ios do
     )
   end
 
-  lane :testpilot do
+  lane :testpilot do |options|
+    changelog = options[:changelog]
+    changelog = "No changes" if changelog.nil? || changelog.empty?
+
     upload_to_testflight(
-      changelog: "Cliqz Browser Nightly update",
+      changelog: changelog,
       demo_account_required: "false",
       skip_waiting_for_build_processing: "true",
       app_identifier: "com.cliqz.browser.nightly",
