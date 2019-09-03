@@ -70,7 +70,7 @@ node('gideon') {
                         sh '''#!/bin/bash -l
                             set -e
                             set -x
-                            
+
                             # For Cocoapods and Fastlane
                             export LC_ALL=en_US.UTF-8
                             export LANG=en_US.UTF-8
@@ -118,11 +118,11 @@ node('gideon') {
                             sh '''#!/bin/bash -l
                                 set -x
                                 set -e
-                                
+
                                 # For Cocoapods and Fastlane
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
-                            
+
                                 rm -rf /Users/vagrant/Library/Keychains/ios-build.keychain*
 
                                 export MATCH_KEYCHAIN_NAME=ios-build.keychain
@@ -133,21 +133,52 @@ node('gideon') {
                     }
 
                     stage('Upload') {
+                        def allBuilds = getAllBuilds(currentBuild)
+                        def changelog = getChangeString(allBuilds)
+
                         ansiColor('xterm') {
-                            sh '''#!/bin/bash -l
+                            sh """#!/bin/bash -l
                                 set -x
                                 set -e
-                                
+
                                 # For Cocoapods and Fastlane
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
 
-                                bundle exec fastlane testpilot
-                            '''
+                                bundle exec fastlane testpilot changelog:"${changelog}"
+                            """
                         }
                     }
                 }
             }
         }
     }
+}
+
+
+def getAllBuilds(build) {
+    def results = [build]
+    build = build.getPreviousBuild()
+    while (build != null && build.result != 'SUCCESS') {
+        results.add(build)
+        build = build.getPreviousBuild()
+    }
+    return results
+}
+
+def getChangeString(builds) {
+    def changeString = ""
+    for (int x = builds.size() - 1; x >= 0; x--) {
+        def currentBuild = builds[x];
+        def buildNumber = currentBuild.number
+        def changeLogSets = currentBuild.rawBuild.changeSets
+        for (int i = 0; i < changeLogSets.size(); i++) {
+            def entries = changeLogSets[i].items
+            for (int j = 0; j < entries.length; j++) {
+                def entry = entries[j]
+                changeString += "* ${entry.msg} by ${entry.author} \n"
+            }
+        }
+    }
+    return changeString;
 }
