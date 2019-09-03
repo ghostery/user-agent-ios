@@ -44,7 +44,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ACB7371123042BAB00FA5626"
-               BuildableName = "Ghostery.app"
+               BuildableName = "UserAgent.app"
                BlueprintName = "Ghostery"
                ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>

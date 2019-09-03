@@ -65,3 +65,5 @@ fastlane/report.xml
 /Client/Assets/AllFramesAtDocumentEnd.js
 /Client/Assets/MainFrameAtDocumentEnd.js
 /Client/Assets/MainFrameAtDocumentStart.js
+
+artifacts

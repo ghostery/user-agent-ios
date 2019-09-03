@@ -1187,6 +1187,8 @@
 		464F67852326AFB70090D0B5 /* GhosteryShareTo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GhosteryShareTo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		464F67862326AFB70090D0B5 /* Ghostery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Ghostery-Info.plist"; path = "/Users/chrmod/Documents/GitHub/user-agent-ios/Ghostery-Info.plist"; sourceTree = "<absolute>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		46947784232A982100129B51 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
+		46947785232A983500129B51 /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
 		46B68D2B231420930091156C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46CA60D0231554980010CE6B /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
@@ -1283,7 +1285,7 @@
 		ACB6D4362306B29A002D64E6 /* azure-pipelines.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "azure-pipelines.yml"; sourceTree = "<group>"; };
 		ACB6D4382306B2B1002D64E6 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		ACB6D4402306BB38002D64E6 /* DeferredTestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeferredTestUtils.swift; sourceTree = "<group>"; };
-		ACB7384723042BAB00FA5626 /* Ghostery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghostery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACB7384723042BAB00FA5626 /* UserAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACB7398123042D9300FA5626 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACB7398A2306847800FA5626 /* Jenkinsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jenkinsfile; sourceTree = "<group>"; };
 		ACB7398B230684AE00FA5626 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -1310,8 +1312,8 @@
 		C50ED2B52326AB1100EE71B8 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		C50ED2BC2326B17C00EE71B8 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		C50ED2C22327C47D00EE71B8 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
-		C53E464C232299C4005B2DA6 /* UserAgent.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UserAgent.entitlements; sourceTree = "<group>"; };
-		C53E464D232299CD005B2DA6 /* UserAgent.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UserAgent.entitlements; sourceTree = "<group>"; };
+		C53E464C232299C4005B2DA6 /* Cliqz.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Cliqz.entitlements; sourceTree = "<group>"; };
+		C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
 		C62CE646A71600AB2E55CF4C /* Pods-StoragePerfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoragePerfTests.debug.xcconfig"; path = "Target Support Files/Pods-StoragePerfTests/Pods-StoragePerfTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewSwizzled.swift; sourceTree = "<group>"; };
 		C8DFFE482294AAB600296DB1 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
@@ -2509,7 +2511,8 @@
 		E40A18F61EDC73D5006B7F28 /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				C53E464D232299CD005B2DA6 /* UserAgent.entitlements */,
+				C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */,
+				46947784232A982100129B51 /* GhosteryShareTo.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -2637,7 +2640,8 @@
 		E689C6FF1E0C716F008BAADB /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				C53E464C232299C4005B2DA6 /* UserAgent.entitlements */,
+				C53E464C232299C4005B2DA6 /* Cliqz.entitlements */,
+				46947785232A983500129B51 /* Ghostery.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -2818,7 +2822,7 @@
 				E6F9650C1B2F1CF20034B023 /* SharedTests.xctest */,
 				3BFE4B071D342FB800DDF53F /* XCUITests.xctest */,
 				3B43E3D01D95C48D00BBA9DB /* StoragePerfTests.xctest */,
-				ACB7384723042BAB00FA5626 /* Ghostery.app */,
+				ACB7384723042BAB00FA5626 /* UserAgent.app */,
 				464F67852326AFB70090D0B5 /* GhosteryShareTo.appex */,
 			);
 			name = Products;
@@ -2850,8 +2854,8 @@
 				D3D488581ABB54CD00A93597 /* FileAccessorTests.swift */,
 				281B2BE91ADF4D90002917DC /* MockProfile.swift */,
 				E683F0A51E92E0820035D990 /* MockableHistory.swift */,
-				3B61CD581F2A750800D38DE1 /* PocketFeedTests.swift */,
 				2FDB10921A9FBEC5006CF312 /* PrefsTests.swift */,
+				3B61CD581F2A750800D38DE1 /* PocketFeedTests.swift */,
 				0BA896491A250E6500C1010C /* ProfileTest.swift */,
 				03CCC9171AF05E7300DBF30D /* RelativeDatesTests.swift */,
 				28D52E081BCDF44100187A1D /* ResetTests.swift */,
@@ -3151,7 +3155,7 @@
 			);
 			name = Ghostery;
 			productName = Client;
-			productReference = ACB7384723042BAB00FA5626 /* Ghostery.app */;
+			productReference = ACB7384723042BAB00FA5626 /* UserAgent.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E6F9650B1B2F1CF20034B023 /* SharedTests */ = {
@@ -3287,12 +3291,28 @@
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					464F675F2326AFB70090D0B5 = {
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					ACB7371123042BAB00FA5626 = {
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					E6F9650B1B2F1CF20034B023 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -5452,10 +5472,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5479,10 +5499,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5506,10 +5526,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5602,6 +5622,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -5617,7 +5638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				CLIQZ_URL_SCHEME = cliqz;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -5674,7 +5695,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -5919,10 +5940,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CLIQZ_URL_SCHEME = ghostery;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5964,7 +5985,7 @@
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
 				PRODUCT_MODULE_NAME = Client;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 			};
@@ -5976,10 +5997,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				CLIQZ_URL_SCHEME = ghostery;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6021,7 +6042,7 @@
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
 				PRODUCT_MODULE_NAME = Client;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 			};
@@ -6033,10 +6054,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLIQZ_URL_SCHEME = ghostery;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				DEVELOPMENT_TEAM = HPY23A294X;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6063,7 +6084,7 @@
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
 				PRODUCT_MODULE_NAME = Client;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 			};
@@ -6139,6 +6160,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -6155,7 +6177,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLIQZ_URL_SCHEME = cliqz;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -6221,7 +6243,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -6433,6 +6455,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
@@ -6449,7 +6472,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CLIQZ_URL_SCHEME = cliqz;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -6526,7 +6549,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/UserAgent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
