@@ -68,7 +68,6 @@ class ShareViewController: UIViewController {
     private var viewsShownDuringDoneAnimation = [UIView]()
     private var stackView: UIStackView!
     private var actionDoneRow: (row: UIStackView, label: UILabel)!
-    private var sendToDevice: SendToDevice?
     private var pageInfoHeight: Constraint?
     private var actionRowHeights = [Constraint]()
     private var pageInfoRowTitleLabel: UILabel?
@@ -113,9 +112,7 @@ class ShareViewController: UIViewController {
             makeActionRow(addTo: stackView, label: Strings.ShareOpenInFirefox, imageName: "open-in-firefox", action: #selector(actionOpenInFirefoxNow), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareLoadInBackground, imageName: "menu-Show-Tabs", action: #selector(actionLoadInBackground), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareBookmarkThisPage, imageName: "AddToBookmarks", action: #selector(actionBookmarkThisPage), hasNavigation: false)
-            makeActionRow(addTo: stackView, label: Strings.ShareAddToReadingList, imageName: "AddToReadingList", action: #selector(actionAddToReadingList), hasNavigation: false)
             makeSeparator(addTo: stackView)
-            makeActionRow(addTo: stackView, label: Strings.ShareSendToDevice, imageName: "menu-Send-to-Device", action: #selector(actionSendToDevice), hasNavigation: true)
         } else {
             pageInfoRowUrlLabel?.removeFromSuperview()
             makeActionRow(addTo: stackView, label: Strings.ShareSearchInFirefox, imageName: "quickSearch", action: #selector(actionSearchInFirefox), hasNavigation: false)
@@ -337,47 +334,18 @@ extension ShareViewController {
         finish()
     }
 
-    @objc func actionAddToReadingList(gesture: UIGestureRecognizer) {
-        gesture.isEnabled = false
-        animateToActionDoneView(withTitle: Strings.ShareAddToReadingListDone)
-
-        if let shareItem = shareItem, case .shareItem(let item) = shareItem {
-            let profile = BrowserProfile(localName: "profile")
-            profile._reopen()
-            profile.readingList.createRecordWithURL(item.url, title: item.title ?? "", addedBy: UIDevice.current.name)
-            profile._shutdown()
-
-            addAppExtensionTelemetryEvent(forMethod: "add-to-reading-list")
-        }
-
-        finish()
-    }
-
-    @objc func actionSendToDevice(gesture: UIGestureRecognizer) {
-        guard let shareItem = shareItem, case .shareItem(let item) = shareItem else {
-            return
-        }
-
-        gesture.isEnabled = false
-        sendToDevice = SendToDevice()
-        guard let sendToDevice = sendToDevice else { return }
-        sendToDevice.sharedItem = item
-        sendToDevice.delegate = delegate
-        let vc = sendToDevice.initialViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
     func openFirefox(withUrl url: String, isSearch: Bool) {
         // Telemetry is handled in the app delegate that receives this event.
         let profile = BrowserProfile(localName: "profile")
         profile.prefs.setBool(true, forKey: PrefsKeys.AppExtensionTelemetryOpenUrl)
 
-       func firefoxUrl(_ url: String) -> String {
+        func firefoxUrl(_ url: String) -> String {
+            let protocolName = AppInfo.protocolName
             let encoded = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.alphanumerics) ?? ""
             if isSearch {
-                return "firefox://open-text?text=\(encoded)"
+                return "\(protocolName)://open-text?text=\(encoded)"
             }
-            return "firefox://open-url?url=\(encoded)"
+            return "\(protocolName)://open-url?url=\(encoded)"
         }
 
         guard let url = URL(string: firefoxUrl(url)) else { return }
