@@ -687,7 +687,10 @@ extension Strings {
     public static let ShareBookmarkThisPage = NSLocalizedString("ShareExtension.BookmarkThisPageAction.Title", value: "Bookmark This Page", comment: "Action label on share extension to bookmark the page in Firefox.")
     public static let ShareBookmarkThisPageDone = NSLocalizedString("ShareExtension.BookmarkThisPageActionDone.Title", value: "Bookmarked", comment: "Share extension label shown after user has performed 'Bookmark this Page' action.")
 
-    public static let ShareOpenInFirefox = NSLocalizedString("ShareExtension.OpenInFirefoxAction.Title", value: "Open in \(AppInfo.displayName)", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName).")
+    public static var ShareOpenInFirefox = String(
+        format: NSLocalizedString("ShareExtension.OpenInFirefoxAction.Title", value: "Open in \(AppInfo.displayName)", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName)."),
+        AppInfo.displayName
+    )
     public static let ShareSearchInFirefox = NSLocalizedString("ShareExtension.SeachInFirefoxAction.Title", value: "Search in Firefox", comment: "Action label on share extension to search for the selected text in Firefox.")
     public static let ShareOpenInPrivateModeNow = NSLocalizedString("ShareExtension.OpenInPrivateModeAction.Title", value: "Open in Private Mode", comment: "Action label on share extension to immediately open page in Firefox in private mode.")
 

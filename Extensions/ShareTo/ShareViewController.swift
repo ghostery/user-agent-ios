@@ -109,7 +109,7 @@ class ShareViewController: UIViewController {
         makeSeparator(addTo: stackView)
 
         if shareItem?.isUrlType() ?? true {
-            makeActionRow(addTo: stackView, label: String(format: Strings.ShareOpenInFirefox, AppInfo.displayName), imageName: "open-in-firefox", action: #selector(actionOpenInFirefoxNow), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareOpenInFirefox, imageName: "open-in-firefox", action: #selector(actionOpenInFirefoxNow), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareLoadInBackground, imageName: "menu-Show-Tabs", action: #selector(actionLoadInBackground), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareBookmarkThisPage, imageName: "AddToBookmarks", action: #selector(actionBookmarkThisPage), hasNavigation: false)
             makeSeparator(addTo: stackView)
