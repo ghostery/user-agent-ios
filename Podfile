@@ -34,6 +34,7 @@ def shared
   pod 'SDWebImage', '~> 5.0', :modular_headers => true
   pod 'SwiftyJSON', '~> 5.0'
   pod 'Fuzi', '~> 3.0', :modular_headers => true
+  pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
 end
 
 target 'Cliqz' do
@@ -76,4 +77,5 @@ target 'Shared' do
   pod 'SwiftyJSON', '~> 5.0'
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
   pod 'SwiftLint'
+  pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
 end

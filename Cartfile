@@ -1,6 +1,5 @@
 github "swisspol/GCDWebServer"              ~> 3.3
 github "kif-framework/KIF"                  "v3.7.7"
 github "jrendel/SwiftKeychainWrapper"       ~> 3.2.0
-github "DaveWoodCom/XCGLogger"              ~> 7.0
 github "google/EarlGrey"                    ~> 1.15
 github "mozilla/application-services"       "v0.32.3"
