@@ -69,7 +69,6 @@ platform :ios do
       app_group_identifiers: ["group.com.cliqz.browser.nightly"]
     )
 
-
     disable_automatic_code_signing(
       path: "Client.xcodeproj",
       code_sign_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
@@ -108,9 +107,8 @@ platform :ios do
     )
   end
 
-  lane :testpilot do |options|
-    changelog = options[:changelog]
-    changelog = "No changes" if changelog.nil? || changelog.empty?
+  lane :TestFlight do
+    changelog = read_changelog
 
     upload_to_testflight(
       changelog: changelog,
