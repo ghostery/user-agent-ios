@@ -33,6 +33,7 @@ def shared
   pod 'SnapKit', '~> 5.0.0', :modular_headers => true
   pod 'SDWebImage', '~> 5.0', :modular_headers => true
   pod 'SwiftyJSON', '~> 5.0'
+  pod 'Fuzi', '~> 3.0', :modular_headers => true
 end
 
 target 'Cliqz' do
@@ -61,6 +62,7 @@ end
 target 'ShareTo' do
   pod 'SnapKit', '~> 5.0.0', :modular_headers => true
   pod 'SwiftyJSON', '~> 5.0'
+  pod 'Fuzi', '~> 3.0', :modular_headers => true
 end
 
 target 'ClientTests' do

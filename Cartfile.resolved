@@ -1,6 +1,5 @@
 github "DaveWoodCom/XCGLogger" "7.0.0"
 github "apple/swift-protobuf" "1.5.0"
-github "cezheng/Fuzi" "3.0.0"
 github "mozilla/application-services" "v0.32.3"
 github "kif-framework/KIF" "v3.7.7"
 github "jrendel/SwiftKeychainWrapper" "3.3.0"

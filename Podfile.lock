@@ -5,6 +5,7 @@ PODS:
     - boost-for-react-native
     - DoubleConversion
     - glog
+  - Fuzi (3.1.1)
   - glog (0.3.4)
   - React (0.59.10):
     - React/Core (= 0.59.10)
@@ -68,6 +69,7 @@ PODS:
 
 DEPENDENCIES:
   - Folly (from `./node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - Fuzi (~> 3.0)
   - React/Core (from `./node_modules/react-native`)
   - React/CxxBridge (from `./node_modules/react-native`)
   - React/DevSupport (from `./node_modules/react-native`)
@@ -89,6 +91,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
     - DoubleConversion
+    - Fuzi
     - glog
     - SDWebImage
     - SnapKit
@@ -119,6 +122,7 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
+  Fuzi: bcc5694488dd6e672e126cbf3c5471d7a79506d1
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
   React: 36d0768f9e93be2473b37e7fa64f92c1d5341eef
   RNFS: a8fbe7060fa49157d819466404794ad9c58e58cf
@@ -130,6 +134,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
 
-PODFILE CHECKSUM: 4191f890ab2e85c99998e61a5d1d6a142c9ca87b
+PODFILE CHECKSUM: 2e9cf6218aa5aeccdc7cc09ee791fd0402f304cc
 
 COCOAPODS: 1.7.5

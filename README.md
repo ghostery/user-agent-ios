@@ -9,7 +9,7 @@ To test localization, you can edit your currently active scheme, and in "Options
 
 ----
 
-Everything below this line is taken from the FIrefox Readme and should be checked if it still applies, and if yes, moved to above this line
+Everything below this line is taken from the Firefox Readme and should be checked if it still applies, and if yes, moved to above this line
 
 ----
 
@@ -17,12 +17,16 @@ Everything below this line is taken from the FIrefox Readme and should be checke
 Building the code
 -----------------
 
-1. Install the latest [Xcode developer tools](https://developer.apple.com/xcode/downloads/) from Apple.
+1. Install the latest Xcode developer tools from the App Store
 1. Install Carthage
     ```shell
     brew update
     brew install carthage
     ```
+1. Install NPM
+```shell
+brew install npm
+```
 1. Clone the repository:
     ```shell
     git clone https://github.com/mozilla-mobile/firefox-ios
@@ -32,8 +36,8 @@ Building the code
     cd firefox-ios
     sh ./bootstrap.sh
     ```
-1. Open `Client.xcodeproj` in Xcode.
-1. Build the `Fennec` scheme in Xcode.
+1. Open `UserAgent.xcworkspace` in Xcode.
+1. Build the `Cliqz` scheme in Xcode.
 
 ## Building User Scripts
 
