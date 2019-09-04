@@ -115,7 +115,7 @@ platform :ios do
     upload_to_testflight(
       changelog: changelog,
       demo_account_required: "false",
-      skip_waiting_for_build_processing: "true",
+      skip_waiting_for_build_processing: "false",
       app_identifier: "com.cliqz.browser.nightly",
     )
 
