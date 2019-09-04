@@ -36,6 +36,7 @@ brew install npm
     cd firefox-ios
     sh ./bootstrap.sh
     ```
+1. Run `pod install`
 1. Open `UserAgent.xcworkspace` in Xcode.
 1. Build the `Cliqz` scheme in Xcode.
 
