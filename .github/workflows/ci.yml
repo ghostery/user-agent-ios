@@ -1,7 +1,7 @@
 name: CI
 
 on: 
-  push:
+  pull_request:
 
 jobs:
   build:
@@ -10,38 +10,35 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    
-    - name: Run a one-line script
-      run: echo Hello, world!
-      
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
         
     - name: Select Xcode Version
-      run: sudo xcode-select --switch /Application/Xcode_10.3.app
+      run: sudo xcode-select --switch /Applications/Xcode_10.3.app
       
     - name: Set Node version
-    - uses: actions/setup-node@v1
+      uses: actions/setup-node@v1
       with:
-        node-version:'9.11.2'
+        node-version: '9.11.2'
         
-#     - name: Install node modules   
-    - run: |
-      set -x
-      npm i -g npm@6.5
-      /usr/local/bin/npm ci
-      
+    - name: Install node modules   
+      run: |
+        set -x
+        npm i -g npm@6.5
+        /usr/local/bin/npm ci
+
+    - name: Generate User Scripts
+      run: |
+        set -x
+        npm run build
+
     - name: Set Ruby version
-    - uses: actions/setup-ruby@v1
+      uses: actions/setup-ruby@v1
       with:
-        ruby-version:'2.6'
+        ruby-version: '2.6'
         
     - name: Install CocoaPods
       run: |
         set -x
-        gem install bundler:2.0.2
+        gem install bundler:2.0.2 --force
         bundle install --retry=3
         bundle exec pod install
         
@@ -49,6 +46,19 @@ jobs:
       run: |
         carthage version
         carthage bootstrap --platform iOS
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Lint
       run: bundle exec fastlane lint
+      
+    - name: Xcode Build
+      run: |
+        set -x -o pipefail
+        /usr/bin/xcodebuild -version
+        /usr/bin/xcodebuild -sdk iphonesimulator -workspace UserAgent.xcworkspace -scheme Cliqz -destination platform=iOS\ Simulator,name=iPhone\ 8 clean build CODE_SIGNING_ALLOWED=NO | xcpretty -r junit --no-color
+
+    - name: Xcode Test
+      run: |
+        set -x -o pipefail
+        /usr/bin/xcodebuild -sdk iphonesimulator -workspace UserAgent.xcworkspace -scheme Cliqz -destination platform=iOS\ Simulator,name=iPhone\ 8 clean test CODE_SIGNING_ALLOWED=NO | tee .ci/results/xcodebuild-test.log
