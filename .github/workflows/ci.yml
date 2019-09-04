@@ -1,0 +1,54 @@
+name: CI
+
+on: 
+  push:
+
+jobs:
+  build:
+
+    runs-on: macOS-10.14
+    
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name: Run a one-line script
+      run: echo Hello, world!
+      
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        
+    - name: Select Xcode Version
+      run: sudo xcode-select --switch /Application/Xcode_10.3.app
+      
+    - name: Set Node version
+    - uses: actions/setup-node@v1
+      with:
+        node-version:'9.11.2'
+        
+#     - name: Install node modules   
+    - run: |
+      set -x
+      npm i -g npm@6.5
+      /usr/local/bin/npm ci
+      
+    - name: Set Ruby version
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version:'2.6'
+        
+    - name: Install CocoaPods
+      run: |
+        set -x
+        gem install bundler:2.0.2
+        bundle install --retry=3
+        bundle exec pod install
+        
+    - name: Install Carthage
+      run: |
+        carthage version
+        carthage bootstrap --platform iOS
+    
+    - name: Lint
+      run: bundle exec fastlane lint
