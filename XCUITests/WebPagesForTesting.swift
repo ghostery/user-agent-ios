@@ -1,6 +1,6 @@
 import Foundation
 import Shared
-import GCDWebServers
+import GCDWebServer
 
 // XCUITests that require custom localhost pages can add handlers here.
 // This file is compiled as part of Client target, but it is in the XCUITest directory
