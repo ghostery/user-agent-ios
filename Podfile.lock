@@ -6,6 +6,9 @@ PODS:
     - DoubleConversion
     - glog
   - Fuzi (3.1.1)
+  - GCDWebServer (3.5.3):
+    - GCDWebServer/Core (= 3.5.3)
+  - GCDWebServer/Core (3.5.3)
   - glog (0.3.4)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
@@ -77,6 +80,7 @@ PODS:
 DEPENDENCIES:
   - Folly (from `./node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - Fuzi (~> 3.0)
+  - GCDWebServer (~> 3.3)
   - React/Core (from `./node_modules/react-native`)
   - React/CxxBridge (from `./node_modules/react-native`)
   - React/DevSupport (from `./node_modules/react-native`)
@@ -100,6 +104,7 @@ SPEC REPOS:
     - boost-for-react-native
     - DoubleConversion
     - Fuzi
+    - GCDWebServer
     - glog
     - ObjcExceptionBridging
     - SDWebImage
@@ -133,6 +138,7 @@ SPEC CHECKSUMS:
   DoubleConversion: e22e0762848812a87afd67ffda3998d9ef29170c
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   Fuzi: bcc5694488dd6e672e126cbf3c5471d7a79506d1
+  GCDWebServer: c0ab22c73e1b84f358d1e2f74bf6afd1c60829f2
   glog: 1de0bb937dccdc981596d3b5825ebfb765017ded
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   React: 36d0768f9e93be2473b37e7fa64f92c1d5341eef
@@ -146,6 +152,6 @@ SPEC CHECKSUMS:
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
   yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
 
-PODFILE CHECKSUM: f3eec77ecab7fdfb5cd38e18334a4f7e0c8408b8
+PODFILE CHECKSUM: 55f037dd6b8b9f36be25cf6ffaf83cdb9bb3cab3
 
 COCOAPODS: 1.7.5
