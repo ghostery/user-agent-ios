@@ -322,12 +322,6 @@
 /* Accessibility Label for the tab toolbar Forward button */
 "Forward" = "Forward";
 
-/* Button label to sign into Sync */
-"FxA.SignIntoSync" = "Sign in to Sync";
-
-/* A re-worded offer about Sync, displayed when the Sync home panel is empty, that emphasizes one-way data transfer, not syncing. */
-"Get your open tabs, bookmarks, and passwords from your other devices." = "Get your open tabs, bookmarks, and passwords from your other devices.";
-
 /* Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ */
 "Help" = "Help";
 
@@ -352,35 +346,11 @@
 /* Title for the History Panel empty state. */
 "HistoryPanel.EmptyState.Title" = "Websites you’ve visited recently will show up here.";
 
-/* Description for the empty synced tabs null state in the History Panel */
-"HistoryPanel.EmptySyncedTabsNullState.Description" = "Your tabs from other devices show up here.";
-
-/* Description for the empty synced tabs 'not signed in' state in the History Panel */
-"HistoryPanel.EmptySyncedTabsPanelNotSignedInState.Description" = "Sign in to view a list of tabs from your other devices.";
-
-/* Description for the empty synced tabs 'not yet verified' state in the History Panel */
-"HistoryPanel.EmptySyncedTabsPanelNotYetVerifiedState.Description" = "Your account needs to be verified.";
-
-/* Description for the empty synced tabs 'single device Sync' state in the History Panel */
-"HistoryPanel.EmptySyncedTabsPanelSingleDeviceSyncState.Description" = "Want to see your tabs from other devices here?";
-
-/* Description for the empty synced tabs 'tab sync disabled' state in the History Panel */
-"HistoryPanel.EmptySyncedTabsPanelTabSyncDisabledState.Description" = "Turn on tab syncing to view a list of tabs from your other devices.";
-
-/* Title for the empty synced tabs state in the History Panel */
-"HistoryPanel.EmptySyncedTabsState.Title" = "Firefox Sync";
-
 /* Title for the Back to History button in the History Panel */
 "HistoryPanel.HistoryBackButton.Title" = "History";
 
 /* Title for the Recently Closed button in the History Panel */
 "HistoryPanel.RecentlyClosedTabsButton.Title" = "Recently Closed";
-
-/* Description that corresponds with a number of devices connected for the Synced Tabs Cell in the History Panel */
-"HistoryPanel.SyncedTabsCell.Description.Pluralized" = "%d device(s) connected";
-
-/* Title for the Synced Tabs Cell in the History Panel */
-"HistoryPanel.SyncedTabsCell.Title" = "Synced Devices";
 
 /* Button cancelling changes setting the home page for the first time. */
 "HomePage.Set.Dialog.Cancel" = "Cancel";
@@ -460,9 +430,6 @@
 /* History tableview section header */
 "Last month" = "Last month";
 
-/* Remote tabs last synced time. Argument is the relative date string. */
-"Last synced: %@" = "Last synced: %@";
-
 /* History tableview section header */
 "Last week" = "Last week";
 
@@ -480,9 +447,6 @@
 
 /* Authentication prompt log in button */
 "Log in" = "Log in";
-
-/* Toggle logins syncing setting */
-"Logins" = "Logins";
 
 /* Login detail view field name for the last modified date */
 "LoginsDetailView.LoginModified" = "Modified";
@@ -875,32 +839,8 @@
 /* Navigation bar button to Send the current page to a device */
 "SendTo.SendAction.Text" = "Send";
 
-/* Label for an action used to add one or more tabs recieved from a notification to the reading list. */
-"SentTab.AddToReadingListAction.Title" = "Add to Reading List";
-
-/* Label for an action used to bookmark one or more tabs from a notification. */
-"SentTab.BookmarkAction.title" = "Bookmark";
-
-/* Body of notification received after a spurious message from FxA has been received. */
-"SentTab.NoTabArrivingNotification.body" = "Tap to begin";
-
-/* Title of notification received after a spurious message from FxA has been received. */
-"SentTab.NoTabArrivingNotification.title" = "Firefox Sync";
-
 /* Label for an action used to view one or more tabs from a notification. */
 "SentTab.ViewAction.title" = "View";
-
-/* Body of notification shown when the device is sent one or more tabs from an unnamed device. */
-"SentTab_TabArrivingNotification_NoDevice_body" = "New tab arrived from another device.";
-
-/* Title of notification shown when the device is sent one or more tabs from an unnamed device. */
-"SentTab_TabArrivingNotification_NoDevice_title" = "Tab received";
-
-/* Body of notification shown when the device is sent one or more tabs from the named device. %@ is the placeholder for the app name. */
-"SentTab_TabArrivingNotification_WithDevice_body" = "New tab arrived in %@";
-
-/* Title of notification shown when the device is sent one or more tabs from the named device. %@ is the placeholder for the device name. This device name will be localized by that device. */
-"SentTab_TabArrivingNotification_WithDevice_title" = "Tab received from %@";
 
 /* Sepia theme setting in Reading View settings */
 "Sepia" = "Sepia";
@@ -976,9 +916,6 @@
 
 /* Destructive action button in alert when user is prompted for disconnect */
 "Settings.Disconnect.DestructiveButton" = "Disconnect";
-
-/* Title of the alert when prompting the user asking to disconnect. */
-"Settings.Disconnect.Title" = "Disconnect Sync?";
 
 /* Option choice in display theme settings for dark theme */
 "Settings.DisplayTheme.OptionDark" = "Dark";
@@ -1188,9 +1125,6 @@
 /* Title in main app settings for Translation toast settings */
 "Settings.TranslateSnackBar.Title" = "Translation";
 
-/* Title of link to help page to find out how to solve Sync issues */
-"Settings.TroubleShootSync.Title" = "Troubleshoot";
-
 /* Button to delete website in search results */
 "Settings.WebsiteData.ButtonDelete" = "Delete";
 
@@ -1260,48 +1194,6 @@
 
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "SwitchToPBM.KeyCodeTitle" = "Private Browsing Mode";
-
-/* Text displayed when the Sync home panel is empty, describing the features provided by Sync to invite the user to log in. */
-"Sync your tabs, bookmarks, passwords and more." = "Sync your tabs, bookmarks, passwords and more.";
-
-/* Text displayed when the Sync home panel is empty, describing the features provided by Sync to invite the user to log in. */
-"Sync your tabs, passwords and more." = "Sync your tabs, passwords and more.";
-
-/* Message displayed when the user syncs for the first time */
-"Sync.FirstTimeMessage.Label" = "Your first sync may take a while";
-
-/* Message displayed when the user's account is syncing with no ellipsis */
-"Sync.Syncing.Label" = "Syncing";
-
-/* Message displayed when the user's account is syncing with ellipsis at the end */
-"Sync.SyncingEllipsis.Label" = "Syncing…";
-
-/* The Bookmark sync component, used in SyncState.Partial.Title */
-"SyncState.Bookmark.Title" = "Bookmarks";
-
-/* The Remote Clients sync component, used in SyncState.Partial.Title */
-"SyncState.Clients.Title" = "Remote Clients";
-
-/* Title for Sync status message when synchronization failed to complete */
-"SyncState.Failed.Title" = "Syncing has failed";
-
-/* The History sync component, used in SyncState.Partial.Title */
-"SyncState.History.Title" = "History";
-
-/* The Logins sync component, used in SyncState.Partial.Title */
-"SyncState.Logins.Title" = "Logins";
-
-/* Title for Sync status message when Sync failed to start. */
-"SyncState.NotStarted.Title" = "Sync is unavailable";
-
-/* Title for Sync status message when Sync failed due to being offline */
-"SyncState.Offline.Title" = "Sync is offline";
-
-/* Title for Sync status message when a component of Sync failed to complete, where %@ represents the name of the component, i.e. Sync is experiencing issues syncing Bookmarks */
-"SyncState.Partial.Title" = "Sync is experiencing issues syncing %@";
-
-/* The Tabs sync component, used in SyncState.Partial.Title */
-"SyncState.Tabs.Title" = "Tabs";
 
 /* Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total. */
 "Tab %@ of %@" = "Tab %1$@ of %2$@";
