@@ -286,9 +286,6 @@
 /* Title for the Downloads Panel empty state. */
 "DownloadsPanel.EmptyState.Title" = "Downloaded files will show up here.";
 
-/* Text message in the settings table view */
-"Enter your password to connect" = "Enter your password to connect";
-
 /* Label for button to perform advanced actions on the error page */
 "ErrorPages.Advanced.Button" = "Advanced";
 
@@ -325,65 +322,8 @@
 /* Accessibility Label for the tab toolbar Forward button */
 "Forward" = "Forward";
 
-/* Label stating how to disconnect account */
-"FxA.AccountVerificationDetails" = "Wrong email? Disconnect below to start over.";
-
-/* Label stating your account is not verified */
-"FxA.AccountVerificationRequired" = "Account Verification Required";
-
-/* Message explaining that user needs to check email for Firefox Account verfication link. */
-"FxA.AccountVerificationRequiredSurface" = "You need to verify %@. Check your email for the verification link from Firefox.";
-
-/* Button label to connect another device to Sync */
-"FxA.ConnectAnotherDevice" = "Connect Another Device";
-
-/* Settings section title for Firefox Account */
-"FxA.FirefoxAccount" = "Firefox Account";
-
-/* Button label to go to Firefox Account settings */
-"FxA.ManageAccount" = "Manage Account & Devices";
-
-/* Label when no internet is present */
-"FxA.NoInternetConnection" = "No Internet Connection";
-
-/* Button label to open Sync preferences */
-"FxA.OpenSyncPreferences" = "Open Sync Preferences";
-
-/* Button label to resend email */
-"FxA.ResendEmail" = "Resend Email";
-
 /* Button label to sign into Sync */
 "FxA.SignIntoSync" = "Sign in to Sync";
-
-/* Label explaining what sync does */
-"FxA.SyncExplain" = "Get your tabs, bookmarks, and passwords from your other devices.";
-
-/* Button label to Sync your Firefox Account */
-"FxA.SyncNow" = "Sync Now";
-
-/* Call to action for sign into sync button */
-"FxA.TakeYourWebWithYou" = "Take Your Web With You";
-
-/* Title of a notification displayed when another device has connected to FxA. %@ refers to the name of the newly connected device. */
-"FxAPush_DeviceConnected_body" = "Firefox Sync has connected to %@";
-
-/* Title of a notification displayed when another device has connected to FxA. */
-"FxAPush_DeviceConnected_title" = "Sync Connected";
-
-/* Body of a notification displayed when this device has been disconnected from FxA by another device. */
-"FxAPush_DeviceDisconnected_ThisDevice_body" = "This device has been successfully disconnected from Firefox Sync.";
-
-/* Title of a notification displayed when this device has been disconnected by another device. */
-"FxAPush_DeviceDisconnected_ThisDevice_title" = "Sync Disconnected";
-
-/* Body of a notification displayed when unnamed device has been disconnected from FxA. */
-"FxAPush_DeviceDisconnected_UnknownDevice_body" = "A device has disconnected from Firefox Sync";
-
-/* Body of a notification displayed when named device has been disconnected from FxA. %@ refers to the name of the disconnected device. */
-"FxAPush_DeviceDisconnected_body" = "%@ has been successfully disconnected.";
-
-/* Title of a notification displayed when named device has been disconnected from FxA. */
-"FxAPush_DeviceDisconnected_title" = "Sync Disconnected";
 
 /* A re-worded offer about Sync, displayed when the Sync home panel is empty, that emphasizes one-way data transfer, not syncing. */
 "Get your open tabs, bookmarks, and passwords from your other devices." = "Get your open tabs, bookmarks, and passwords from your other devices.";
@@ -1062,15 +1002,6 @@
 /* Title in main app settings for Display (theme) settings */
 "Settings.DisplayTheme.Title" = "Display";
 
-/* Label used for the device name settings section. */
-"Settings.FxA.DeviceName" = "Device Name";
-
-/* Label used as a section title in the Firefox Accounts Settings screen. */
-"Settings.FxA.Sync.SectionName" = "Sync Settings";
-
-/* Title displayed in header of the FxA settings panel. */
-"Settings.FxA.Title" = "Firefox Account";
-
 /* General settings section title */
 "Settings.General.SectionName" = "General";
 
@@ -1456,14 +1387,8 @@
 /* Search in New Tab Text selection menu item */
 "UIMenuItem.SearchWithFirefox" = "Search with Firefox";
 
-/* Text message in the settings table view */
-"Upgrade Firefox to connect" = "Upgrade Firefox to connect";
-
 /* Username textbox in Authentication prompt */
 "Username" = "Username";
-
-/* Text message in the settings table view */
-"Verify your email address" = "Verify your email address";
 
 /* Version number of Firefox shown in settings */
 "Version %@ (%@)" = "Version %1$@ (%2$@)";
