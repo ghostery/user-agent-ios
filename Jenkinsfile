@@ -58,22 +58,23 @@ end
 node('gideon') {
     stage('Start VM')
 
-    timeout(60){
-        writeFile file: 'Vagrantfile', text: vagrantfile
-        vagrant.inside(
-            'Vagrantfile',
-            '/jenkins',
-            4, // CPU
-            8192, // MEMORY
-            12000, // VNC port
-            false, // rebuild image
-        ) { nodeId ->
-            node(nodeId) {
-                stage('Checkout') {
-                    checkout scm
-                }
+    writeFile file: 'Vagrantfile', text: vagrantfile
 
-                stage('Bootstrap') {
+    vagrant.inside(
+        'Vagrantfile',
+        '/jenkins',
+        4, // CPU
+        8192, // MEMORY
+        12000, // VNC port
+        false, // rebuild image
+    ) { nodeId ->
+        node(nodeId) {
+            stage('Checkout') {
+                checkout scm
+            }
+
+            stage('Bootstrap') {
+                timeout(40) {
                     ansiColor('xterm') {
                         sh '''#!/bin/bash -l
                             set -e
@@ -106,7 +107,9 @@ node('gideon') {
                         '''
                     }
                 }
+            }
 
+            stage('Build') {
                 withCredentials([
                     [
                         $class          : 'UsernamePasswordMultiBinding',
@@ -118,10 +121,9 @@ node('gideon') {
                     string(credentialsId: 'c21d2e60-e4b9-4f75-bad7-6736398a1a05', variable: 'SentryDSN'),
                     string(credentialsId: '05be12cd-5177-4adf-9812-809f01451fa0', variable: 'FASTLANE_PASSWORD'),
                     string(credentialsId: 'ea8c47ad-1de8-4300-ae93-ec9ff4b68f39', variable: 'MATCH_PASSWORD'),
-                    string(credentialsId: 'f206e880-e09a-4369-a3f6-f86ee94481f2', variable: 'SENTRY_AUTH_TOKEN'),
                     string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
                 ]) {
-                    stage('Build') {
+                    timeout(20) {
                         ansiColor('xterm') {
                             sh '''#!/bin/bash -l
                                 set -x
@@ -139,11 +141,26 @@ node('gideon') {
                             '''
                         }
                     }
+                }
+            }
 
-                    stage('Upload') {
-                        def allBuilds = getAllBuilds(currentBuild)
-                        def changelog = getChangeString(allBuilds)
+            stage('Upload') {
+                def allBuilds = getAllBuilds(currentBuild)
+                def newChangelog = getChangeString(allBuilds)
 
+                def changelog = readFile 'CHANGELOG.md'
+                writeFile file: 'CHANGELOG.md', text: """${changelog}
+
+## [Unreleased]
+${newChangelog}"""
+
+                withCredentials([
+                    string(credentialsId: '8b4f7459-c446-4058-be61-3c3d98fe72e2', variable: 'ITUNES_USER'),
+                    string(credentialsId: '05be12cd-5177-4adf-9812-809f01451fa0', variable: 'FASTLANE_PASSWORD'),
+                    string(credentialsId: 'f206e880-e09a-4369-a3f6-f86ee94481f2', variable: 'SENTRY_AUTH_TOKEN'),
+                    string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
+                ]) {
+                    timeout(60) {
                         ansiColor('xterm') {
                             sh """#!/bin/bash -l
                                 set -x
@@ -153,7 +170,7 @@ node('gideon') {
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
 
-                                bundle exec fastlane testpilot changelog:"${changelog}"
+                                bundle exec fastlane TestFlight
                             """
                         }
                     }
@@ -162,7 +179,6 @@ node('gideon') {
         }
     }
 }
-
 
 def getAllBuilds(build) {
     def results = [build]
@@ -184,7 +200,7 @@ def getChangeString(builds) {
             def entries = changeLogSets[i].items
             for (int j = 0; j < entries.length; j++) {
                 def entry = entries[j]
-                changeString += "* ${entry.msg} by ${entry.author} \n"
+                changeString += "- ${entry.msg} by ${entry.author} \n"
             }
         }
     }
