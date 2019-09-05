@@ -138,8 +138,6 @@
 		3B61CD631F2A769D00D38DE1 /* pocketglobalfeed.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B61CD621F2A769D00D38DE1 /* pocketglobalfeed.json */; };
 		3B6889C51D66950E002AC85E /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6889C41D66950E002AC85E /* UIImageColors.swift */; };
 		3B6F40181DC7849C00656CC6 /* FirefoxHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6F40171DC7849C00656CC6 /* FirefoxHomeTests.swift */; };
-		3BA9A0231D2C208C00BD418C /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
-		3BA9A0321D2C2C0500BD418C /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
 		3BB50E111D6274CD004B33DF /* FirefoxHomeTopSitesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E101D6274CD004B33DF /* FirefoxHomeTopSitesCell.swift */; };
 		3BB54B311E68EB2B0021DAC4 /* AuthenticationKeychainInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB54B301E68EB2B0021DAC4 /* AuthenticationKeychainInfoTests.swift */; };
 		3BC659491E5BA4AE006D560F /* TopSites in Resources */ = {isa = PBXBuildFile; fileRef = 3BC659481E5BA4AE006D560F /* TopSites */; };
@@ -234,9 +232,6 @@
 		7B3D9E651E4CBFDB007A50DA /* NSCoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D9E641E4CBFDB007A50DA /* NSCoderExtensions.swift */; };
 		7B42406E1CA04CAC009B5C28 /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B42406D1CA04CAC009B5C28 /* Menu.xcassets */; };
 		7B4980A81CE363ED0017547C /* Settings.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B4980A71CE363ED0017547C /* Settings.xcassets */; };
-		7B604FBB1C495D8A006EEEC3 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */; };
-		7B604FBC1C495E1E006EEEC3 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		7B604FBD1C495E31006EEEC3 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */; };
 		7B844E3D1BBDDB9D00E733A2 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
 		7B9BF91C1E43472E00CB24F4 /* JSONExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9BF91B1E43472E00CB24F4 /* JSONExtensions.swift */; };
 		7BA0601B1C0F4DE200DFADB6 /* TabPeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0601A1C0F4DE200DFADB6 /* TabPeekViewController.swift */; };
@@ -528,11 +523,9 @@
 		ACB7382C23042BAB00FA5626 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
 		ACB7382D23042BAB00FA5626 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		ACB7382E23042BAB00FA5626 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
-		ACB7383023042BAB00FA5626 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
 		ACB7383123042BAB00FA5626 /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA4A9451C4CED780091D032 /* GCDWebServers.framework */; };
 		ACB7383223042BAB00FA5626 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
 		ACB7383323042BAB00FA5626 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABDA4AC20DA0FB800FBB0BD /* ObjcExceptionBridging.framework */; };
-		ACB7383823042BAB00FA5626 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */; };
 		ACB7383C23042BAB00FA5626 /* ShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* ShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ACB7384023042BAB00FA5626 /* Storage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7384123042BAB00FA5626 /* Shared.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -796,11 +789,9 @@
 		ACB7396423042C4400FA5626 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
 		ACB7396523042C4400FA5626 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		ACB7396623042C4400FA5626 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
-		ACB7396823042C4400FA5626 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
 		ACB7396923042C4400FA5626 /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA4A9451C4CED780091D032 /* GCDWebServers.framework */; };
 		ACB7396A23042C4400FA5626 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
 		ACB7396B23042C4400FA5626 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABDA4AC20DA0FB800FBB0BD /* ObjcExceptionBridging.framework */; };
-		ACB7397023042C4400FA5626 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */; };
 		ACB7397423042C4400FA5626 /* ShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* ShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		ACB7397823042C4400FA5626 /* Storage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7397923042C4400FA5626 /* Shared.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -855,7 +846,6 @@
 		D09A0CD81FAA23F6009A0273 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		D0A627642270C682006AFA2E /* SQLiteHistoryFavicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A627632270C682006AFA2E /* SQLiteHistoryFavicons.swift */; };
 		D0A627662270C982006AFA2E /* photon-colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49854D206173C800893DAE /* photon-colors.swift */; };
-		D0A6276C2270F111006AFA2E /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA9A0221D2C208C00BD418C /* Fuzi.framework */; };
 		D0B693D5206C5BB9008A8B11 /* TestSQLiteReadingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B693D4206C5BB9008A8B11 /* TestSQLiteReadingList.swift */; };
 		D0B9483422A03468002F4AA1 /* BookmarkDetailPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9483322A03468002F4AA1 /* BookmarkDetailPanel.swift */; };
 		D0B9483D22A18B78002F4AA1 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9483C22A18B78002F4AA1 /* TextFieldTableViewCell.swift */; };
@@ -1510,7 +1500,6 @@
 		3B61CD621F2A769D00D38DE1 /* pocketglobalfeed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = pocketglobalfeed.json; sourceTree = "<group>"; };
 		3B6889C41D66950E002AC85E /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageColors.swift; path = ThirdParty/UIImageColors.swift; sourceTree = "<group>"; };
 		3B6F40171DC7849C00656CC6 /* FirefoxHomeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirefoxHomeTests.swift; sourceTree = "<group>"; };
-		3BA9A0221D2C208C00BD418C /* Fuzi.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fuzi.framework; path = Carthage/Build/iOS/Fuzi.framework; sourceTree = "<group>"; };
 		3BB50E101D6274CD004B33DF /* FirefoxHomeTopSitesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirefoxHomeTopSitesCell.swift; sourceTree = "<group>"; };
 		3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirefoxHomeViewController.swift; sourceTree = "<group>"; };
 		3BB54B301E68EB2B0021DAC4 /* AuthenticationKeychainInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationKeychainInfoTests.swift; sourceTree = "<group>"; };
@@ -1597,7 +1586,6 @@
 		7B42406D1CA04CAC009B5C28 /* Menu.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Menu.xcassets; sourceTree = "<group>"; };
 		7B4980A71CE363ED0017547C /* Settings.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Settings.xcassets; sourceTree = "<group>"; };
 		7B604F981C494F74006EEEC3 /* KIF.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KIF.framework; path = Carthage/Build/iOS/KIF.framework; sourceTree = "<group>"; };
-		7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		7B664A0D95F4065E583D9E53 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChevronView.swift; sourceTree = "<group>"; };
 		7B9BF91B1E43472E00CB24F4 /* JSONExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtensions.swift; sourceTree = "<group>"; };
@@ -2037,7 +2025,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA4A94C1C4CF03B0091D032 /* SwiftKeychainWrapper.framework in Frameworks */,
-				7B604FBC1C495E1E006EEEC3 /* XCGLogger.framework in Frameworks */,
 				DABDA4AE20DA0FDB00FBB0BD /* ObjcExceptionBridging.framework in Frameworks */,
 				D252FE199D6C9CEB44A083A8 /* Pods_Shared.framework in Frameworks */,
 			);
@@ -2054,11 +2041,9 @@
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
 				288A2D9D1AB8B3260023ABC3 /* Shared.framework in Frameworks */,
 				2FCAE2311ABB51F800877008 /* Storage.framework in Frameworks */,
-				3BA9A0231D2C208C00BD418C /* Fuzi.framework in Frameworks */,
 				7BA4A9471C4CED900091D032 /* GCDWebServers.framework in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				DABDA4AD20DA0FB900FBB0BD /* ObjcExceptionBridging.framework in Frameworks */,
-				7B604FBB1C495D8A006EEEC3 /* XCGLogger.framework in Frameworks */,
 				EEEE63974D053E6648E85547 /* Pods_Cliqz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2068,10 +2053,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09A0CD81FAA23F6009A0273 /* Shared.framework in Frameworks */,
-				7B604FBD1C495E31006EEEC3 /* XCGLogger.framework in Frameworks */,
 				DABDA4AF20DA0FE400FBB0BD /* ObjcExceptionBridging.framework in Frameworks */,
 				C8E18F22222EE11B00E30E52 /* MozillaAppServices.framework in Frameworks */,
-				D0A6276C2270F111006AFA2E /* Fuzi.framework in Frameworks */,
 				34A65DDDCFC924E293DA6218 /* Pods_Storage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2110,11 +2093,9 @@
 				ACB7382C23042BAB00FA5626 /* libz.tbd in Frameworks */,
 				ACB7382D23042BAB00FA5626 /* Shared.framework in Frameworks */,
 				ACB7382E23042BAB00FA5626 /* Storage.framework in Frameworks */,
-				ACB7383023042BAB00FA5626 /* Fuzi.framework in Frameworks */,
 				ACB7383123042BAB00FA5626 /* GCDWebServers.framework in Frameworks */,
 				ACB7383223042BAB00FA5626 /* ImageIO.framework in Frameworks */,
 				ACB7383323042BAB00FA5626 /* ObjcExceptionBridging.framework in Frameworks */,
-				ACB7383823042BAB00FA5626 /* XCGLogger.framework in Frameworks */,
 				C401BCA43BB1B9DBEDBBF9A9 /* Pods_Ghostery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2130,11 +2111,9 @@
 				ACB7396423042C4400FA5626 /* libz.tbd in Frameworks */,
 				ACB7396523042C4400FA5626 /* Shared.framework in Frameworks */,
 				ACB7396623042C4400FA5626 /* Storage.framework in Frameworks */,
-				ACB7396823042C4400FA5626 /* Fuzi.framework in Frameworks */,
 				ACB7396923042C4400FA5626 /* GCDWebServers.framework in Frameworks */,
 				ACB7396A23042C4400FA5626 /* ImageIO.framework in Frameworks */,
 				ACB7396B23042C4400FA5626 /* ObjcExceptionBridging.framework in Frameworks */,
-				ACB7397023042C4400FA5626 /* XCGLogger.framework in Frameworks */,
 				9BA4683BF1A66597C599D202 /* Pods_Lumen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2163,7 +2142,6 @@
 			files = (
 				28C8D1391AD4CE9100F62011 /* Shared.framework in Frameworks */,
 				28C8D11D1AD4CE8900F62011 /* Storage.framework in Frameworks */,
-				3BA9A0321D2C2C0500BD418C /* Fuzi.framework in Frameworks */,
 				0B75AEA91AC20FB20015E5DC /* ImageIO.framework in Frameworks */,
 				C1201309CB706BFAB60737D3 /* Pods_ShareTo.framework in Frameworks */,
 			);
@@ -2552,10 +2530,8 @@
 				D39FA16B1A83E17800EE869C /* CoreGraphics.framework */,
 				0B8E0FF31A932BD500161DC3 /* ImageIO.framework */,
 				D36998881AD70A0A00650C6C /* IOKit.framework */,
-				3BA9A0221D2C208C00BD418C /* Fuzi.framework */,
 				7BA4A94B1C4CF03B0091D032 /* SwiftKeychainWrapper.framework */,
 				7BA4A9451C4CED780091D032 /* GCDWebServers.framework */,
-				7B604FBA1C495D8A006EEEC3 /* XCGLogger.framework */,
 				DABDA4AC20DA0FB800FBB0BD /* ObjcExceptionBridging.framework */,
 				7B604F981C494F74006EEEC3 /* KIF.framework */,
 				3905274B1C874D35007E0BB7 /* NotificationCenter.framework */,
@@ -4060,14 +4036,20 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StorageTests/Pods-StorageTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4163,12 +4145,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Lumen/Pods-Lumen-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
 				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
+				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/RNFS/RNFS.framework",
 				"${BUILT_PRODUCTS_DIR}/RNSqlite2/RNSqlite2.framework",
 				"${BUILT_PRODUCTS_DIR}/React/React.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
 				"${BUILT_PRODUCTS_DIR}/yoga/yoga.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
@@ -4177,12 +4162,15 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNFS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNSqlite2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
@@ -4198,13 +4186,9 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GCDWebServers.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
 			);
 			name = "Copy Carthage Dependencies";
 			outputPaths = (
@@ -4281,14 +4265,10 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GCDWebServers.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Telemetry.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
 			);
 			name = "Copy Carthage Dependencies";
 			outputPaths = (
@@ -4317,14 +4297,10 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/XCGLogger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/GCDWebServers.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftKeychainWrapper.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Telemetry.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjcExceptionBridging.framework",
 			);
 			name = "Copy Carthage Dependencies";
 			outputPaths = (
@@ -4400,12 +4376,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Cliqz/Pods-Cliqz-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
 				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
+				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/RNFS/RNFS.framework",
 				"${BUILT_PRODUCTS_DIR}/RNSqlite2/RNSqlite2.framework",
 				"${BUILT_PRODUCTS_DIR}/React/React.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
 				"${BUILT_PRODUCTS_DIR}/yoga/yoga.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
@@ -4414,12 +4393,15 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNFS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNSqlite2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
@@ -4489,12 +4471,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Ghostery/Pods-Ghostery-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
 				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
+				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/RNFS/RNFS.framework",
 				"${BUILT_PRODUCTS_DIR}/RNSqlite2/RNSqlite2.framework",
 				"${BUILT_PRODUCTS_DIR}/React/React.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
 				"${BUILT_PRODUCTS_DIR}/yoga/yoga.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
@@ -4503,12 +4488,15 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNFS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNSqlite2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
