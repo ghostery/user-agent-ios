@@ -107,7 +107,6 @@ extension Strings {
     public static let SettingsEditWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonEdit", comment: "Button to edit website search results")
     public static let SettingsDeleteWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDelete", comment: "Button to delete website in search results")
     public static let SettingsDoneWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDone", comment: "Button to exit edit website search results")
-    public static let SettingsDisconnectSyncAlertBody = NSLocalizedString("Settings.Disconnect.Body", comment: "Body of the alert when prompting the user asking to disconnect.")
     public static let SettingsDisconnectSyncButton = NSLocalizedString("Settings.Disconnect.Button", comment: "Button displayed at the bottom of settings page allowing users to Disconnect from FxA")
     public static let SettingsDisconnectCancelAction = NSLocalizedString("Settings.Disconnect.CancelButton", comment: "Cancel action button in alert when user is prompted for disconnect")
     public static let SettingsDisconnectDestructiveAction = NSLocalizedString("Settings.Disconnect.DestructiveButton", comment: "Destructive action button in alert when user is prompted for disconnect")
@@ -214,7 +213,7 @@ extension Strings {
     public static let SettingsNewTabTitle = NSLocalizedString("Settings.NewTab.Title", comment: "Title displayed in header of the setting panel.")
     public static let NewTabSectionNameFooter =
         NSLocalizedString("Settings.NewTab.TopSectionNameFooter", comment: "Footer at the bottom of the New Tab screen after entering New Tab in settings")
-    public static let SettingsNewTabTopSites = NSLocalizedString("Settings.NewTab.Option.FirefoxHome", comment: "Option in settings to show Firefox Home when you open a new tab")
+    public static let SettingsNewTabTopSites = String(format: NSLocalizedString("Settings.NewTab.Option.Home", comment: "Option in settings to show Firefox Home when you open a new tab"), AppInfo.displayName)
     public static let SettingsNewTabBookmarks = NSLocalizedString("Settings.NewTab.Option.Bookmarks", comment: "Option in settings to show bookmarks when you open a new tab")
     public static let SettingsNewTabHistory = NSLocalizedString("Settings.NewTab.Option.History", comment: "Option in settings to show history when you open a new tab")
     public static let SettingsNewTabReadingList = NSLocalizedString("Settings.NewTab.Option.ReadingList", comment: "Option in settings to show reading list when you open a new tab")
@@ -227,7 +226,7 @@ extension Strings {
     public static let SettingsNewTabPocketFooter = NSLocalizedString("Settings.NewTab.Option.PocketFooter", comment: "Footer caption for pocket settings")
     public static let SettingsNewTabHiglightsHistory = NSLocalizedString("Settings.NewTab.Option.HighlightsHistory", comment: "Option in settings to turn off history in the highlights section")
     public static let SettingsNewTabHighlightsBookmarks = NSLocalizedString("Settings.NewTab.Option.HighlightsBookmarks", comment: "Option in the settings to turn off recent bookmarks in the Highlights section")
-    public static let SettingsTopSitesCustomizeTitle = NSLocalizedString("Settings.NewTab.Option.CustomizeTitle", comment: "The title for the section to customize top sites in the new tab settings page.")
+    public static let SettingsTopSitesCustomizeTitle = String(format: NSLocalizedString("Settings.NewTab.Option.CustomizeTitle", comment: "The title for the section to customize top sites in the new tab settings page."), AppInfo.displayName)
     public static let SettingsTopSitesCustomizeFooter = NSLocalizedString("Settings.NewTab.Option.CustomizeFooter", comment: "The footer for the section to customize top sites in the new tab settings page.")
 
 }
@@ -350,7 +349,7 @@ extension Strings {
     public static let GoButtonTittle = NSLocalizedString("ClipboardToast.GoToCopiedLink.Button", comment: "The button to open a new tab with the copied link")
 
     public static let SettingsOfferClipboardBarTitle = NSLocalizedString("Settings.OfferClipboardBar.Title", comment: "Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
-    public static let SettingsOfferClipboardBarStatus = NSLocalizedString("Settings.OfferClipboardBar.Status", comment: "Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
+    public static let SettingsOfferClipboardBarStatus = String(format: NSLocalizedString("Settings.OfferClipboardBar.Status", comment: "Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349"), AppInfo.displayName)
 }
 
 // errors
@@ -359,8 +358,10 @@ extension Strings {
     public static let UnableToAddPassErrorTitle = NSLocalizedString("AddPass.Error.Title", comment: "Title of the 'Add Pass Failed' alert. See https://support.apple.com/HT204003 for context on Wallet.")
     public static let UnableToAddPassErrorMessage = NSLocalizedString("AddPass.Error.Message", comment: "Text of the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
     public static let UnableToAddPassErrorDismiss = NSLocalizedString("AddPass.Error.Dismiss", comment: "Button to dismiss the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
-    public static let UnableToOpenURLError = NSLocalizedString("OpenURL.Error.Message", comment: "The message displayed to a user when they try to open a URL that cannot be handled by Firefox, or any external app.")
+    public static let UnableToOpenURLError = String(format: NSLocalizedString("OpenURL.Error.Message", comment: "The message displayed to a user when they try to open a URL that cannot be handled by Firefox, or any external app."), AppInfo.displayName)
     public static let UnableToOpenURLErrorTitle = NSLocalizedString("OpenURL.Error.Title", comment: "Title of the message shown when the user attempts to navigate to an invalid link.")
+    public static let RestoreTabsAfterCrashMessage = String(format: NSLocalizedString("Restore.Tabs.After.Crash", comment: "Restore Tabs Prompt Description"), AppInfo.displayName)
+    public static let AppCrashedMessage = String(format: NSLocalizedString("App.Crashed", comment: "App crashed"), AppInfo.displayName)
 }
 
 // Download Helper
@@ -413,7 +414,7 @@ extension Strings {
 
 // Photo Library access.
 extension Strings {
-    public static let PhotoLibraryFirefoxWouldLikeAccessTitle = NSLocalizedString("PhotoLibrary.FirefoxWouldLikeAccessTitle", comment: "See http://mzl.la/1G7uHo7")
+    public static let PhotoLibraryFirefoxWouldLikeAccessTitle = String(format: NSLocalizedString("PhotoLibrary.FirefoxWouldLikeAccessTitle", comment: "See http://mzl.la/1G7uHo7"), AppInfo.displayName)
     public static let PhotoLibraryFirefoxWouldLikeAccessMessage = NSLocalizedString("PhotoLibrary.FirefoxWouldLikeAccessMessage", comment: "See http://mzl.la/1G7uHo7")
 }
 
@@ -434,7 +435,7 @@ extension Strings {
     public static let ScanQRCodeViewTitle = NSLocalizedString("ScanQRCode.View.Title", comment: "Title for the QR code scanner view.")
     public static let ScanQRCodeInstructionsLabel = NSLocalizedString("ScanQRCode.Instructions.Label", comment: "Text for the instructions label, displayed in the QR scanner view")
     public static let ScanQRCodeInvalidDataErrorMessage = NSLocalizedString("ScanQRCode.InvalidDataError.Message", comment: "Text of the prompt that is shown to the user when the data is invalid")
-    public static let ScanQRCodePermissionErrorMessage = NSLocalizedString("ScanQRCode.PermissionError.Message", comment: "Text of the prompt user to setup the camera authorization.")
+    public static let ScanQRCodePermissionErrorMessage = String(format: NSLocalizedString("ScanQRCode.PermissionError.Message", comment: "Text of the prompt user to setup the camera authorization."), AppInfo.displayName)
     public static let ScanQRCodeErrorOKButton = NSLocalizedString("ScanQRCode.Error.OK.Button", comment: "OK button to dismiss the error prompt.")
 }
 
@@ -489,7 +490,7 @@ extension Strings {
     public static let TrackingProtectionOptionOnOffHeader = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateHeaderLabel", comment: "Description label shown at the top of tracking protection options screen.")
     public static let TrackingProtectionOptionOnOffFooter = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateFooterLabel", comment: "Description label shown on tracking protection options screen.")
     public static let TrackingProtectionOptionBlockListsTitle = NSLocalizedString("Settings.TrackingProtection.BlockListsTitle", comment: "Title for tracking protection options section where Basic/Strict block list can be selected")
-    public static let TrackingProtectionOptionBlockListsHeader = NSLocalizedString("Settings.TrackingProtection.BlockListsHeader", comment: "Header description for tracking protection options section where Basic/Strict block list can be selected")
+    public static let TrackingProtectionOptionBlockListsHeader = String(format: NSLocalizedString("Settings.TrackingProtection.BlockListsHeader", comment: "Header description for tracking protection options section where Basic/Strict block list can be selected"), AppInfo.displayName)
     public static let TrackingProtectionOptionBlockListTypeBasic = NSLocalizedString("Settings.TrackingProtectionOption.BlockListBasic", comment: "Tracking protection settings option for using the basic blocklist.")
     public static let TrackingProtectionOptionBlockListTypeBasicDescription = NSLocalizedString("Settings.TrackingProtectionOption.BlockListBasicDescription", comment: "Tracking protection settings option description for using the basic blocklist.")
     public static let TrackingProtectionOptionBlockListTypeStrict = NSLocalizedString("Settings.TrackingProtectionOption.BlockListStrict", comment: "Tracking protection settings option for using the strict blocklist.")
@@ -501,7 +502,7 @@ extension Strings {
 // Tracking Protection menu
 extension Strings {
     public static let TPMenuTitle = NSLocalizedString("Menu.TrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to get more info about Tracking Protection")
-    public static let TPBlockingDescription = NSLocalizedString("Menu.TrackingProtectionBlocking.Description", comment: "Description of the Tracking protection menu when TP is blocking parts of the page")
+    public static let TPBlockingDescription =  String(format: NSLocalizedString("Menu.TrackingProtectionBlocking.Description", comment: "Description of the Tracking protection menu when TP is blocking parts of the page"), AppInfo.displayName)
     public static let TPNoBlockingDescription = NSLocalizedString("Menu.TrackingProtectionNoBlocking.Description", comment: "The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled.")
     public static let TPBlockingDisabledDescription = NSLocalizedString("Menu.TrackingProtectionBlockingDisabled.Description", comment: "The description of the Tracking Protection menu item when tracking is enabled")
     public static let TPBlockingMoreInfo = NSLocalizedString("Menu.TrackingProtectionMoreInfo.Description", comment: "more info about what tracking protection is about")
@@ -529,9 +530,9 @@ extension Strings {
 extension Strings {
     public static let SendUsageSettingTitle = NSLocalizedString("Settings.SendUsage.Title", comment: "The title for the setting to send usage data.")
     public static let SendUsageSettingLink = NSLocalizedString("Settings.SendUsage.Link", comment: "title for a link that explains how mozilla collects telemetry")
-    public static let SendUsageSettingMessage = NSLocalizedString("Settings.SendUsage.Message", comment: "A short description that explains why mozilla collects usage data.")
+    public static let SendUsageSettingMessage = String(format: NSLocalizedString("Settings.SendUsage.Message", comment: "A short description that explains why mozilla collects usage data."), AppInfo.displayName, AppInfo.displayName)
     public static let SettingsSiriSectionName = NSLocalizedString("Settings.Siri.SectionName", comment: "The option that takes you to the siri shortcuts settings page")
-    public static let SettingsSiriSectionDescription = NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are")
+    public static let SettingsSiriSectionDescription = String(format: NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are"), AppInfo.displayName)
     public static let SettingsSiriOpenURL = NSLocalizedString("Settings.Siri.OpenTabShortcut", comment: "The description of the open new tab siri shortcut")
 }
 
@@ -544,17 +545,7 @@ extension Strings {
 
 // Intro Onboarding slides
 extension Strings {
-    public static let CardTitleWelcome = NSLocalizedString("Intro.Slides.Welcome.Title", tableName: "Intro", comment: "Title for the first panel 'Welcome' in the First Run tour.")
-    public static let CardTitleSearch = NSLocalizedString("Intro.Slides.Search.Title", tableName: "Intro", comment: "Title for the second  panel 'Search' in the First Run tour.")
-    public static let CardTitlePrivate = NSLocalizedString("Intro.Slides.Private.Title", tableName: "Intro", comment: "Title for the third panel 'Private Browsing' in the First Run tour.")
-    public static let CardTitleMail = NSLocalizedString("Intro.Slides.Mail.Title", tableName: "Intro", comment: "Title for the fourth panel 'Mail' in the First Run tour.")
-    public static let CardTitleSync = NSLocalizedString("Intro.Slides.TrailheadSync.Title", tableName: "Intro", comment: "Title for the fifth panel 'Sync' in the First Run tour.")
-
     public static let CardTextWelcome = NSLocalizedString("Intro.Slides.Welcome.Description", tableName: "Intro", comment: "Description for the 'Welcome' panel in the First Run tour.")
-    public static let CardTextSearch = NSLocalizedString("Intro.Slides.Search.Description", tableName: "Intro", comment: "Description for the 'Favorite Search Engine' panel in the First Run tour.")
-    public static let CardTextPrivate = NSLocalizedString("Intro.Slides.Private.Description", tableName: "Intro", comment: "Description for the 'Private Browsing' panel in the First Run tour.")
-    public static let CardTextMail = NSLocalizedString("Intro.Slides.Mail.Description", tableName: "Intro", comment: "Description for the 'Mail' panel in the First Run tour.")
-    public static let CardTextSync = NSLocalizedString("Intro.Slides.TrailheadSync.Description", tableName: "Intro", comment: "Description for the 'Sync' panel in the First Run tour.")
     public static let SignInButtonTitle = NSLocalizedString("Turn on Sync…", tableName: "Intro", comment: "The button that opens the sign in page for sync. See http://mzl.la/1T8gxwo")
     public static let StartBrowsingButtonTitle = NSLocalizedString("Start Browsing", tableName: "Intro", comment: "See http://mzl.la/1T8gxwo")
 }
@@ -597,18 +588,18 @@ extension Strings {
         format: NSLocalizedString("ShareExtension.OpenInFirefoxAction.Title", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName)."),
         AppInfo.displayName
     )
-    public static let ShareSearchInFirefox = NSLocalizedString("ShareExtension.SeachInFirefoxAction.Title", comment: "Action label on share extension to search for the selected text in Firefox.")
+    public static let ShareSearchInFirefox = String(format: NSLocalizedString("ShareExtension.SeachInFirefoxAction.Title", comment: "Action label on share extension to search for the selected text in Firefox."), AppInfo.displayName)
     public static let ShareOpenInPrivateModeNow = NSLocalizedString("ShareExtension.OpenInPrivateModeAction.Title", comment: "Action label on share extension to immediately open page in Firefox in private mode.")
 
     public static let ShareLoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", comment: "Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground.")
-    public static let ShareLoadInBackgroundDone = NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", comment: "Share extension label shown after user has performed 'Load in Background' action.")
+    public static let ShareLoadInBackgroundDone = String(format: NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", comment: "Share extension label shown after user has performed 'Load in Background' action."), AppInfo.displayName)
 
 }
 
 //passwordAutofill extension
 extension Strings {
-    public static let PasswordAutofillTitle = NSLocalizedString("PasswordAutoFill.SectionTitle", comment: "Title of the extension that shows firefox passwords")
-    public static let CredentialProviderNoCredentialError = NSLocalizedString("PasswordAutoFill.NoPasswordsFoundTitle", comment: "Error message shown in the remote tabs panel")
+    public static let PasswordAutofillTitle = String(format: NSLocalizedString("PasswordAutoFill.SectionTitle", comment: "Title of the extension that shows firefox passwords"), AppInfo.displayName)
+    public static let CredentialProviderNoCredentialError = String(format: NSLocalizedString("PasswordAutoFill.NoPasswordsFoundTitle", comment: "Error message shown in the remote tabs panel"), AppInfo.displayName)
     public static let AvailableCredentialsHeader = NSLocalizedString("PasswordAutoFill.PasswordsListTitle", comment: "Header for the list of credentials table")
 }
 
