@@ -259,8 +259,8 @@
 /* Alert dialog title when the user taps the cancel download icon. */
 "Downloads.CancelDialog.Title" = "Download abbrechen";
 
-/* The message displayed to a user when they try and perform the download of an asset that Firefox cannot currently handle. */
-"Downloads.Error.Message" = "Downloads werden von Firefox noch nicht unterstützt.";
+/* The message displayed to a user when they try and perform the download of an asset that app cannot currently handle. */
+"Downloads.Error.Message" = "Downloads werden von %@ noch nicht unterstützt.";
 
 /* The label text in the Download Cancelled toast for showing confirmation that the download was cancelled. */
 "Downloads.Toast.Cancelled.LabelText" = "Download abgebrochen";
@@ -317,7 +317,7 @@
 "Facebook" = "Facebook";
 
 /* Title for firefox about:home page in tab history list */
-"Firefox.HomePage.Title" = "Firefox-Startseite";
+"UserAgent.HomePage.Title" = "%@-Startseite";
 
 /* Accessibility Label for the tab toolbar Forward button */
 "Forward" = "Vorwärts";
