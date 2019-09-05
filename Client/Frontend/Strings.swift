@@ -50,14 +50,14 @@ extension Strings {
     public static let TopSitesRowSettingFooter = NSLocalizedString("ActivityStream.TopSites.RowSettingFooter", comment: "The title for the setting page which lets you select the number of top site rows")
     public static let TopSitesRowCount = NSLocalizedString("ActivityStream.TopSites.RowCount", comment: "label showing how many rows of topsites are shown. %d represents a number")
     public static let RecentlyBookmarkedTitle = NSLocalizedString("ActivityStream.NewRecentBookmarks.Title", comment: "Section title label for recently bookmarked websites")
-    public static let RecentlyVisitedTitle = NSLocalizedString("ActivityStream.RecentHistory.Title",  comment: "Section title label for recently visited websites")
+    public static let RecentlyVisitedTitle = NSLocalizedString("ActivityStream.RecentHistory.Title", comment: "Section title label for recently visited websites")
 }
 
 // Home Panel Context Menu.
 extension Strings {
     public static let OpenInNewTabContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.OpenInNewTab", comment: "The title for the Open in New Tab context menu action for sites in Home Panels")
     public static let OpenInNewPrivateTabContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.OpenInNewPrivateTab", comment: "The title for the Open in New Private Tab context menu action for sites in Home Panels")
-    public static let BookmarkContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.Bookmark",  comment: "The title for the Bookmark context menu action for sites in Home Panels")
+    public static let BookmarkContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.Bookmark", comment: "The title for the Bookmark context menu action for sites in Home Panels")
     public static let RemoveBookmarkContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.RemoveBookmark", comment: "The title for the Remove Bookmark context menu action for sites in Home Panels")
     public static let DeleteFromHistoryContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.DeleteFromHistory", comment: "The title for the Delete from History context menu action for sites in Home Panels")
     public static let ShareContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.Share", comment: "The title for the Share context menu action for sites in Home Panels")
@@ -101,7 +101,7 @@ extension Strings {
     public static let SettingsFilterSitesSearchLabel = NSLocalizedString("Settings.DataManagement.SearchLabel", comment: "Default text in search bar for Data Management")
     public static let SettingsClearPrivateDataTitle = NSLocalizedString("Settings.ClearPrivateData.Title", comment: "Title displayed in header of the setting panel.")
     public static let SettingsDataManagementTitle = NSLocalizedString("Settings.DataManagement.Title", comment: "Title displayed in header of the setting panel.")
-    public static let SettingsWebsiteDataTitle = NSLocalizedString("Settings.WebsiteData.Title",  comment: "Title displayed in header of the Data Management panel.")
+    public static let SettingsWebsiteDataTitle = NSLocalizedString("Settings.WebsiteData.Title", comment: "Title displayed in header of the Data Management panel.")
     public static let SettingsWebsiteDataShowMoreButton = NSLocalizedString("Settings.WebsiteData.ButtonShowMore", comment: "Button shows all websites on website data tableview")
     public static let SettingsClearWebsiteDataMessage = NSLocalizedString("Settings.WebsiteData.ConfirmPrompt", comment: "Description of the confirmation dialog shown when a user tries to clear their private data.")
     public static let SettingsEditWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonEdit", comment: "Button to edit website search results")
@@ -320,11 +320,11 @@ extension Strings {
     public static let BookmarksFolder = NSLocalizedString("Bookmarks.Folder.Label", comment: "The label to show the location of the folder where the bookmark is located")
     public static let BookmarksNewBookmark = NSLocalizedString("Bookmarks.NewBookmark.Label", comment: "The button to create a new bookmark")
     public static let BookmarksNewFolder = NSLocalizedString("Bookmarks.NewFolder.Label", comment: "The button to create a new folder")
-    public static let BookmarksNewSeparator = NSLocalizedString("Bookmarks.NewSeparator.Label",  comment: "The button to create a new separator")
-    public static let BookmarksEditBookmark = NSLocalizedString("Bookmarks.EditBookmark.Label",  comment: "The button to edit a bookmark")
+    public static let BookmarksNewSeparator = NSLocalizedString("Bookmarks.NewSeparator.Label", comment: "The button to create a new separator")
+    public static let BookmarksEditBookmark = NSLocalizedString("Bookmarks.EditBookmark.Label", comment: "The button to edit a bookmark")
     public static let BookmarksEditFolder = NSLocalizedString("Bookmarks.EditFolder.Label", comment: "The button to edit a folder")
     public static let BookmarksFolderName = NSLocalizedString("Bookmarks.FolderName.Label", comment: "The label for the title of the new folder")
-    public static let BookmarksFolderLocation = NSLocalizedString("Bookmarks.FolderLocation.Label",  comment: "The label for the location of the new folder")
+    public static let BookmarksFolderLocation = NSLocalizedString("Bookmarks.FolderLocation.Label", comment: "The label for the location of the new folder")
     public static let BookmarksDeleteFolderWarningTitle = NSLocalizedString("Bookmarks.DeleteFolderWarning.Title", tableName: "BookmarkPanelDeleteConfirm", comment: "Title of the confirmation alert when the user tries to delete a folder that still contains bookmarks and/or folders.")
     public static let BookmarksDeleteFolderWarningDescription = NSLocalizedString("Bookmarks.DeleteFolderWarning.Description", tableName: "BookmarkPanelDeleteConfirm", comment: "Main body of the confirmation alert when the user tries to delete a folder that still contains bookmarks and/or folders.")
     public static let BookmarksDeleteFolderCancelButtonLabel = NSLocalizedString("Bookmarks.DeleteFolderWarning.CancelButton.Label", tableName: "BookmarkPanelDeleteConfirm", comment: "Button label to cancel deletion when the user tried to delete a non-empty folder.")
@@ -332,7 +332,7 @@ extension Strings {
     public static let BookmarksPanelEmptyStateTitle = NSLocalizedString("BookmarksPanel.EmptyState.Title", comment: "Status label for the empty Bookmarks state.")
     public static let BookmarksPanelDeleteTableAction = NSLocalizedString("Delete", tableName: "BookmarkPanel", comment: "Action button for deleting bookmarks in the bookmarks panel.")
     public static let BookmarkDetailFieldTitle = NSLocalizedString("Bookmark.DetailFieldTitle.Label", comment: "The label for the Title field when editing a bookmark")
-    public static let BookmarkDetailFieldURL = NSLocalizedString("Bookmark.DetailFieldURL.Label",  comment: "The label for the URL field when editing a bookmark")
+    public static let BookmarkDetailFieldURL = NSLocalizedString("Bookmark.DetailFieldURL.Label", comment: "The label for the URL field when editing a bookmark")
     public static let BookmarkDetailFieldsHeaderBookmarkTitle = NSLocalizedString("Bookmark.BookmarkDetail.FieldsHeader.Bookmark.Title", comment: "The header title for the fields when editing a Bookmark")
     public static let BookmarkDetailFieldsHeaderFolderTitle = NSLocalizedString("Bookmark.BookmarkDetail.FieldsHeader.Folder.Title", comment: "The header title for the fields when editing a Folder")
 }
@@ -341,13 +341,13 @@ extension Strings {
 extension Strings {
     public static let TabsDeleteAllUndoTitle = NSLocalizedString("Tabs.DeleteAllUndo.Title", comment: "The label indicating that all the tabs were closed")
     public static let TabsDeleteAllUndoAction = NSLocalizedString("Tabs.DeleteAllUndo.Button", comment: "The button to undo the delete all tabs")
-    public static let TabSearchPlaceholderText = NSLocalizedString("Tabs.Search.PlaceholderText",  comment: "The placeholder text for the tab search bar")
+    public static let TabSearchPlaceholderText = NSLocalizedString("Tabs.Search.PlaceholderText", comment: "The placeholder text for the tab search bar")
 }
 
 //Clipboard Toast
 extension Strings {
-    public static let GoToCopiedLink = NSLocalizedString("ClipboardToast.GoToCopiedLink.Title",  comment: "Message displayed when the user has a copied link on the clipboard")
-    public static let GoButtonTittle = NSLocalizedString("ClipboardToast.GoToCopiedLink.Button",  comment: "The button to open a new tab with the copied link")
+    public static let GoToCopiedLink = NSLocalizedString("ClipboardToast.GoToCopiedLink.Title", comment: "Message displayed when the user has a copied link on the clipboard")
+    public static let GoButtonTittle = NSLocalizedString("ClipboardToast.GoToCopiedLink.Button", comment: "The button to open a new tab with the copied link")
 
     public static let SettingsOfferClipboardBarTitle = NSLocalizedString("Settings.OfferClipboardBar.Title", comment: "Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
     public static let SettingsOfferClipboardBarStatus = NSLocalizedString("Settings.OfferClipboardBar.Status", comment: "Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
@@ -367,7 +367,7 @@ extension Strings {
 extension Strings {
     public static let OpenInDownloadHelperAlertDownloadNow = NSLocalizedString("Downloads.Alert.DownloadNow", comment: "The label of the button the user will press to start downloading a file")
     public static let DownloadsButtonTitle = NSLocalizedString("Downloads.Toast.GoToDownloads.Button", comment: "The button to open a new tab with the Downloads home panel")
-    public static let CancelDownloadDialogTitle = NSLocalizedString("Downloads.CancelDialog.Title",  comment: "Alert dialog title when the user taps the cancel download icon.")
+    public static let CancelDownloadDialogTitle = NSLocalizedString("Downloads.CancelDialog.Title", comment: "Alert dialog title when the user taps the cancel download icon.")
     public static let CancelDownloadDialogMessage = NSLocalizedString("Downloads.CancelDialog.Message", comment: "Alert dialog body when the user taps the cancel download icon.")
     public static let CancelDownloadDialogResume = NSLocalizedString("Downloads.CancelDialog.Resume", comment: "Button declining the cancellation of the download.")
     public static let CancelDownloadDialogCancel = NSLocalizedString("Downloads.CancelDialog.Cancel", comment: "Button confirming the cancellation of the download.")
@@ -404,10 +404,10 @@ extension Strings {
     public static let ContextMenuOpenInNewPrivateTab = NSLocalizedString("ContextMenu.OpenInNewPrivateTabButtonTitle", tableName: "PrivateBrowsing", comment: "Context menu option for opening a link in a new private tab")
     public static let ContextMenuBookmarkLink = NSLocalizedString("ContextMenu.BookmarkLinkButtonTitle", comment: "Context menu item for bookmarking a link URL")
     public static let ContextMenuDownloadLink = NSLocalizedString("ContextMenu.DownloadLinkButtonTitle", comment: "Context menu item for downloading a link URL")
-    public static let ContextMenuCopyLink = NSLocalizedString("ContextMenu.CopyLinkButtonTitle",  comment: "Context menu item for copying a link URL to the clipboard")
-    public static let ContextMenuShareLink = NSLocalizedString("ContextMenu.ShareLinkButtonTitle",  comment: "Context menu item for sharing a link URL")
-    public static let ContextMenuSaveImage = NSLocalizedString("ContextMenu.SaveImageButtonTitle",  comment: "Context menu item for saving an image")
-    public static let ContextMenuCopyImage = NSLocalizedString("ContextMenu.CopyImageButtonTitle",  comment: "Context menu item for copying an image to the clipboard")
+    public static let ContextMenuCopyLink = NSLocalizedString("ContextMenu.CopyLinkButtonTitle", comment: "Context menu item for copying a link URL to the clipboard")
+    public static let ContextMenuShareLink = NSLocalizedString("ContextMenu.ShareLinkButtonTitle", comment: "Context menu item for sharing a link URL")
+    public static let ContextMenuSaveImage = NSLocalizedString("ContextMenu.SaveImageButtonTitle", comment: "Context menu item for saving an image")
+    public static let ContextMenuCopyImage = NSLocalizedString("ContextMenu.CopyImageButtonTitle", comment: "Context menu item for copying an image to the clipboard")
     public static let ContextMenuCopyImageLink = NSLocalizedString("ContextMenu.CopyImageLinkButtonTitle", comment: "Context menu item for copying an image URL to the clipboard")
 }
 
@@ -435,7 +435,7 @@ extension Strings {
     public static let ScanQRCodeInstructionsLabel = NSLocalizedString("ScanQRCode.Instructions.Label", comment: "Text for the instructions label, displayed in the QR scanner view")
     public static let ScanQRCodeInvalidDataErrorMessage = NSLocalizedString("ScanQRCode.InvalidDataError.Message", comment: "Text of the prompt that is shown to the user when the data is invalid")
     public static let ScanQRCodePermissionErrorMessage = NSLocalizedString("ScanQRCode.PermissionError.Message", comment: "Text of the prompt user to setup the camera authorization.")
-    public static let ScanQRCodeErrorOKButton = NSLocalizedString("ScanQRCode.Error.OK.Button",  comment: "OK button to dismiss the error prompt.")
+    public static let ScanQRCodeErrorOKButton = NSLocalizedString("ScanQRCode.Error.OK.Button", comment: "OK button to dismiss the error prompt.")
 }
 
 // App menu.
@@ -464,7 +464,7 @@ extension Strings {
     public static let AppMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.AccessibilityLabel", comment: "Accessibility label for the Menu button.")
     public static let TabTrayDeleteMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.CloseAllTabs", comment: "Accessibility label for the Close All Tabs menu button.")
     public static let AppMenuNightMode = NSLocalizedString("Menu.NightModeTurnOn.Label", comment: "Label for the button, displayed in the menu, turns on night mode.")
-    public static let AppMenuNoImageMode = NSLocalizedString("Menu.NoImageModeHideImages.Label",  comment: "Label for the button, displayed in the menu, hides images on the webpage when pressed.")
+    public static let AppMenuNoImageMode = NSLocalizedString("Menu.NoImageModeHideImages.Label", comment: "Label for the button, displayed in the menu, hides images on the webpage when pressed.")
     public static let AppMenuCopyURLConfirmMessage = NSLocalizedString("Menu.CopyURL.Confirm", comment: "Toast displayed to user after copy url pressed.")
     public static let AppMenuAddBookmarkConfirmMessage = NSLocalizedString("Menu.AddBookmark.Confirm", comment: "Toast displayed to the user after a bookmark has been added.")
     public static let AppMenuRemoveBookmarkConfirmMessage = NSLocalizedString("Menu.RemoveBookmark.Confirm", comment: "Toast displayed to the user after a bookmark has been removed.")
