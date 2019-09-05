@@ -40,16 +40,19 @@ end
 target 'Cliqz' do
   shared
   react_native
+  pod 'GCDWebServer', '~> 3.3'
 end
 
 target 'Lumen' do
   shared
   react_native
+  pod 'GCDWebServer', '~> 3.3'
 end
 
 target 'Ghostery' do
   shared
   react_native
+  pod 'GCDWebServer', '~> 3.3'
 end
 
 target 'Storage' do
@@ -70,6 +73,7 @@ target 'ClientTests' do
   pod 'SnapKit', '~> 5.0.0', :modular_headers => true
   pod 'SDWebImage', '~> 5.0', :modular_headers => true
   pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
+  pod 'GCDWebServer', '~> 3.3'
 end
 
 target 'Shared' do
