@@ -194,7 +194,7 @@ class ErrorPageHandler: InternalSchemeResponse {
             actions = "<button onclick='history.back()'>\(Strings.ErrorPagesGoBackButton)</button>"
             variables["error_title"] = Strings.ErrorPagesCertWarningTitle
             variables["cert_error"] = certError
-            variables["long_description"] = String(format: Strings.ErrorPagesCertWarningDescription, "<b>\(errURLDomain)</b>")
+            variables["long_description"] = String(format: Strings.ErrorPagesCertWarningDescription, "<b>\(errURLDomain)</b>", AppInfo.displayName)
             variables["advanced_button"] = Strings.ErrorPagesAdvancedButton
             variables["warning_description"] = Strings.ErrorPagesCertWarningDescription
             variables["warning_advanced1"] = Strings.ErrorPagesAdvancedWarning1

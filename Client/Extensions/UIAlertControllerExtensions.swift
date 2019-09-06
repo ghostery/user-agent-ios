@@ -26,8 +26,8 @@ extension UIAlertController {
         dontSendCallback: @escaping UIAlertActionCallback) -> UIAlertController {
 
         let alert = UIAlertController(
-            title: NSLocalizedString("Oops! Firefox crashed", comment: "Title for prompt displayed to user after the app crashes"),
-            message: NSLocalizedString("Send a crash report so Mozilla can fix the problem?", comment: "Message displayed in the crash dialog above the buttons used to select when sending reports"),
+            title: Strings.AppCrashedMessage,
+            message: NSLocalizedString("Send a crash report so we can fix the problem?", comment: "Message displayed in the crash dialog above the buttons used to select when sending reports"),
             preferredStyle: .alert
         )
 
@@ -67,7 +67,7 @@ extension UIAlertController {
     class func restoreTabsAlert(okayCallback: @escaping UIAlertActionCallback, noCallback: @escaping UIAlertActionCallback) -> UIAlertController {
         let alert = UIAlertController(
             title: NSLocalizedString("Well, this is embarrassing.", comment: "Restore Tabs Prompt Title"),
-            message: NSLocalizedString("Looks like Firefox crashed previously. Would you like to restore your tabs?", comment: "Restore Tabs Prompt Description"),
+            message: Strings.RestoreTabsAfterCrashMessage,
             preferredStyle: .alert
         )
 

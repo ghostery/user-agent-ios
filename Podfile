@@ -43,12 +43,6 @@ target 'Cliqz' do
   pod 'GCDWebServer', '~> 3.3'
 end
 
-target 'Lumen' do
-  shared
-  react_native
-  pod 'GCDWebServer', '~> 3.3'
-end
-
 target 'Ghostery' do
   shared
   react_native

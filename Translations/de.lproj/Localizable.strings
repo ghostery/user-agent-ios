@@ -259,8 +259,8 @@
 /* Alert dialog title when the user taps the cancel download icon. */
 "Downloads.CancelDialog.Title" = "Download abbrechen";
 
-/* The message displayed to a user when they try and perform the download of an asset that Firefox cannot currently handle. */
-"Downloads.Error.Message" = "Downloads werden von Firefox noch nicht unterstützt.";
+/* The message displayed to a user when they try and perform the download of an asset that app cannot currently handle. */
+"Downloads.Error.Message" = "Downloads werden von %@ noch nicht unterstützt.";
 
 /* The label text in the Download Cancelled toast for showing confirmation that the download was cancelled. */
 "Downloads.Toast.Cancelled.LabelText" = "Download abgebrochen";
@@ -286,9 +286,6 @@
 /* Title for the Downloads Panel empty state. */
 "DownloadsPanel.EmptyState.Title" = "Heruntergeladene Dateien werden hier angezeigt.";
 
-/* Text message in the settings table view */
-"Enter your password to connect" = "Geben Sie Ihr Passwort ein, um eine Verbindung herzustellen";
-
 /* Label for button to perform advanced actions on the error page */
 "ErrorPages.Advanced.Button" = "Erweitert";
 
@@ -299,7 +296,7 @@
 "ErrorPages.AdvancedWarning2.Text" = "Dies kann eine Fehlkonfiguration oder eine Manipulation eines Angreifers sein. Fahren Sie fort, wenn Sie das potenzielle Risiko akzeptieren.";
 
 /* Warning text on the certificate error page */
-"ErrorPages.CertWarning.Description" = "Der Besitzer von %@ hat seine Website falsch konfiguriert. Um Diebstahl Ihrer Daten zu verhindern, verweigert Firefox die Verbindung zu dieser Website.";
+"ErrorPages.CertWarning.Description" = "Der Besitzer von %@ hat seine Website falsch konfiguriert. Um Diebstahl Ihrer Daten zu verhindern, verweigert %@ die Verbindung zu dieser Website.";
 
 /* Title on the certificate error page */
 "ErrorPages.CertWarning.Title" = "Dieser Verbindung wird nicht vertraut";
@@ -319,74 +316,11 @@
 /* Tile title for Facebook */
 "Facebook" = "Facebook";
 
-/* Title for firefox about:home page in tab history list */
-"Firefox.HomePage.Title" = "Firefox-Startseite";
+/* Title for UserAgent about:home page in tab history list */
+"UserAgent.HomePage.Title" = "%@-Startseite";
 
 /* Accessibility Label for the tab toolbar Forward button */
 "Forward" = "Vorwärts";
-
-/* Label stating how to disconnect account */
-"FxA.AccountVerificationDetails" = "Falsche E-Mail-Adresse? Trennen Sie die Verbindung hier und fangen Sie von vorn an.";
-
-/* Label stating your account is not verified */
-"FxA.AccountVerificationRequired" = "Kontoverifizierung erforderlich";
-
-/* Message explaining that user needs to check email for Firefox Account verfication link. */
-"FxA.AccountVerificationRequiredSurface" = "Sie müssen %@ verifizieren. Sehen Sie in Ihrem Posteingang nach dem Verifizierungslink von Firefox.";
-
-/* Button label to connect another device to Sync */
-"FxA.ConnectAnotherDevice" = "Weiteres Gerät verbinden";
-
-/* Settings section title for Firefox Account */
-"FxA.FirefoxAccount" = "Firefox-Konto";
-
-/* Button label to go to Firefox Account settings */
-"FxA.ManageAccount" = "Konto & Geräte verwalten";
-
-/* Label when no internet is present */
-"FxA.NoInternetConnection" = "Keine Internetverbindung";
-
-/* Button label to open Sync preferences */
-"FxA.OpenSyncPreferences" = "Sync-Einstellungen öffnen";
-
-/* Button label to resend email */
-"FxA.ResendEmail" = "E-Mail erneut senden";
-
-/* Button label to sign into Sync */
-"FxA.SignIntoSync" = "Bei Sync anmelden";
-
-/* Label explaining what sync does */
-"FxA.SyncExplain" = "Holen Sie sich Ihre Tabs, Lesezeichen und Passwörter von Ihren anderen Geräten.";
-
-/* Button label to Sync your Firefox Account */
-"FxA.SyncNow" = "Jetzt synchronisieren";
-
-/* Call to action for sign into sync button */
-"FxA.TakeYourWebWithYou" = "So haben Sie das Web überall dabei";
-
-/* Title of a notification displayed when another device has connected to FxA. %@ refers to the name of the newly connected device. */
-"FxAPush_DeviceConnected_body" = "Firefox Sync ist mit %@ verbunden";
-
-/* Title of a notification displayed when another device has connected to FxA. */
-"FxAPush_DeviceConnected_title" = "Sync verbunden";
-
-/* Body of a notification displayed when this device has been disconnected from FxA by another device. */
-"FxAPush_DeviceDisconnected_ThisDevice_body" = "Dieses Gerät wurde erfolgreich von Firefox Sync getrennt.";
-
-/* Title of a notification displayed when this device has been disconnected by another device. */
-"FxAPush_DeviceDisconnected_ThisDevice_title" = "Sync getrennt";
-
-/* Body of a notification displayed when unnamed device has been disconnected from FxA. */
-"FxAPush_DeviceDisconnected_UnknownDevice_body" = "Ein Gerät wurde von Firefox Sync getrennt";
-
-/* Body of a notification displayed when named device has been disconnected from FxA. %@ refers to the name of the disconnected device. */
-"FxAPush_DeviceDisconnected_body" = "%@ wurde erfolgreich getrennt.";
-
-/* Title of a notification displayed when named device has been disconnected from FxA. */
-"FxAPush_DeviceDisconnected_title" = "Sync getrennt";
-
-/* A re-worded offer about Sync, displayed when the Sync home panel is empty, that emphasizes one-way data transfer, not syncing. */
-"Get your open tabs, bookmarks, and passwords from your other devices." = "Holen Sie sich Ihre offenen Tabs, Lesezeichen und Passwörter von Ihren anderen Geräten.";
 
 /* Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ */
 "Help" = "Hilfe";
@@ -412,35 +346,11 @@
 /* Title for the History Panel empty state. */
 "HistoryPanel.EmptyState.Title" = "Kürzlich besuchte Websites erscheinen hier.";
 
-/* Description for the empty synced tabs null state in the History Panel */
-"HistoryPanel.EmptySyncedTabsNullState.Description" = "Ihre Tabs von anderen Geräten erscheinen hier.";
-
-/* Description for the empty synced tabs 'not signed in' state in the History Panel */
-"HistoryPanel.EmptySyncedTabsPanelNotSignedInState.Description" = "Melden Sie sich an, um eine Liste der Tabs auf Ihren anderen Geräten zu sehen.";
-
-/* Description for the empty synced tabs 'not yet verified' state in the History Panel */
-"HistoryPanel.EmptySyncedTabsPanelNotYetVerifiedState.Description" = "Ihr Konto muss verifiziert werden.";
-
-/* Description for the empty synced tabs 'single device Sync' state in the History Panel */
-"HistoryPanel.EmptySyncedTabsPanelSingleDeviceSyncState.Description" = "Sollen hier Ihre Tabs von Ihren anderen Geräten angezeigt werden?";
-
-/* Description for the empty synced tabs 'tab sync disabled' state in the History Panel */
-"HistoryPanel.EmptySyncedTabsPanelTabSyncDisabledState.Description" = "Aktivieren Sie das Synchronisieren von Tabs, um eine Liste der Tabs auf Ihren anderen Geräten zu sehen.";
-
-/* Title for the empty synced tabs state in the History Panel */
-"HistoryPanel.EmptySyncedTabsState.Title" = "Firefox Sync";
-
 /* Title for the Back to History button in the History Panel */
 "HistoryPanel.HistoryBackButton.Title" = "Chronik";
 
 /* Title for the Recently Closed button in the History Panel */
 "HistoryPanel.RecentlyClosedTabsButton.Title" = "Kürzlich geschlossen";
-
-/* Description that corresponds with a number of devices connected for the Synced Tabs Cell in the History Panel */
-"HistoryPanel.SyncedTabsCell.Description.Pluralized" = "%d Gerät(e) verbunden";
-
-/* Title for the Synced Tabs Cell in the History Panel */
-"HistoryPanel.SyncedTabsCell.Title" = "Synchronisierte Geräte";
 
 /* Button cancelling changes setting the home page for the first time. */
 "HomePage.Set.Dialog.Cancel" = "Abbrechen";
@@ -520,9 +430,6 @@
 /* History tableview section header */
 "Last month" = "Letzter Monat";
 
-/* Remote tabs last synced time. Argument is the relative date string. */
-"Last synced: %@" = "Letzte Synchronisation: %@";
-
 /* History tableview section header */
 "Last week" = "Letzte Woche";
 
@@ -532,17 +439,14 @@
 /* Light theme setting in Reading View settings */
 "Light" = "Hell";
 
-/* Link for going to the non-reader page when the reader view could not be loaded. This message will appear only when sharing to Firefox reader mode from another app. */
+/* Link for going to the non-reader page when the reader view could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
 "Load original page" = "Ursprungsseite laden";
 
-/* Message displayed when the reader mode page is loading. This message will appear only when sharing to Firefox reader mode from another app. */
+/* Message displayed when the reader mode page is loading. This message will appear only when sharing to UserAgent reader mode from another app. */
 "Loading content…" = "Inhalt wird geladen…";
 
 /* Authentication prompt log in button */
 "Log in" = "Anmelden";
-
-/* Toggle logins syncing setting */
-"Logins" = "Zugangsdaten";
 
 /* Login detail view field name for the last modified date */
 "LoginsDetailView.LoginModified" = "Verändert";
@@ -587,7 +491,7 @@
 "LoginsList.Title" = "GESPEICHERTE ZUGANGSDATEN";
 
 /* Restore Tabs Prompt Description */
-"Looks like Firefox crashed previously. Would you like to restore your tabs?" = "Firefox scheint zuvor abgestürzt zu sein. Sollen Ihre Tabs wiederhergestellt werden?";
+"Restore.Tabs.After.Crash" = "%@ scheint zuvor abgestürzt zu sein. Sollen Ihre Tabs wiederhergestellt werden?";
 
 /* Name for Mark as read button in reader mode
    Title for the button that marks a reading list item as read */
@@ -652,7 +556,7 @@
 "Menu.TrackingProtectionBlockedSocial.Title" = "Soziale Tracker";
 
 /* Description of the Tracking protection menu when TP is blocking parts of the page */
-"Menu.TrackingProtectionBlocking.Description" = "Firefox blockiert Teile der Seite, die Ihre Surfaktivitäten verfolgen könnten.";
+"Menu.TrackingProtectionBlocking.Description" = "%@ blockiert Teile der Seite, die Ihre Surfaktivitäten verfolgen könnten.";
 
 /* The description of the Tracking Protection menu item when tracking is enabled */
 "Menu.TrackingProtectionBlockingDisabled.Description" = "Online-Verfolgung blockieren";
@@ -739,7 +643,7 @@
 "Okay" = "OK";
 
 /* Title for prompt displayed to user after the app crashes */
-"Oops! Firefox crashed" = "Hoppla! Firefox ist abgestürzt";
+"App.Crashed" = "Hoppla! %@ ist abgestürzt";
 
 /* See http://mzl.la/1G7uHo7 */
 "Open Settings" = "Einstellungen öffnen";
@@ -750,8 +654,8 @@
 /* See http://mzl.la/1LXbDOL */
 "Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Öffnen Sie Artikel in der Leseansicht, indem Sie auf das Buch-Symbol tippen, wenn es in der Titelleiste angezeigt wird.";
 
-/* The message displayed to a user when they try to open a URL that cannot be handled by Firefox, or any external app. */
-"OpenURL.Error.Message" = "Firefox kann die Seite nicht öffnen, weil ihre Adresse ungültig ist.";
+/* The message displayed to a user when they try to open a URL that cannot be handled by UserAgent, or any external app. */
+"OpenURL.Error.Message" = "%@ kann die Seite nicht öffnen, weil ihre Adresse ungültig ist.";
 
 /* Title of the message shown when the user attempts to navigate to an invalid link. */
 "OpenURL.Error.Title" = "Seite kann nicht geöffnet werden";
@@ -766,19 +670,19 @@
 "Password" = "Passwort";
 
 /* Error message shown in the remote tabs panel */
-"PasswordAutoFill.NoPasswordsFoundTitle" = "Sie haben keine Zugangsdaten, die von Ihrem Firefox-Konto synchronisiert werden";
+"PasswordAutoFill.NoPasswordsFoundTitle" = "Sie haben keine Zugangsdaten, die von Ihrem %@-Konto synchronisiert werden";
 
 /* Header for the list of credentials table */
 "PasswordAutoFill.PasswordsListTitle" = "Verfügbare Zugangsdaten:";
 
-/* Title of the extension that shows firefox passwords */
-"PasswordAutoFill.SectionTitle" = "Firefox-Zugangsdaten";
+/* Title of the extension that shows UserAgent passwords */
+"PasswordAutoFill.SectionTitle" = "%@-Zugangsdaten";
 
 /* See http://mzl.la/1G7uHo7 */
-"PhotoLibrary.FirefoxWouldLikeAccessMessage" = "Hiermit können Sie die Grafik in Ihren Aufnahmen speichern.";
+"PhotoLibrary.AppWouldLikeAccessMessage" = "Hiermit können Sie die Grafik in Ihren Aufnahmen speichern.";
 
 /* See http://mzl.la/1G7uHo7 */
-"PhotoLibrary.FirefoxWouldLikeAccessTitle" = "Firefox möchte auf Ihre Fotos zugreifen";
+"PhotoLibrary.AppWouldLikeAccessTitle" = "%@ möchte auf Ihre Fotos zugreifen";
 
 /* Button for closing the menu action sheet */
 "PhotonMenu.close" = "Schließen";
@@ -786,7 +690,7 @@
 /* Privacy section title */
 "Privacy" = "Datenschutz";
 
-/* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
+/* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
 "Privacy Policy" = "Datenschutzerklärung";
 
 /* Title for quick-search engines settings section. */
@@ -844,7 +748,7 @@
 "ScanQRCode.InvalidDataError.Message" = "Die Daten sind ungültig";
 
 /* Text of the prompt user to setup the camera authorization. */
-"ScanQRCode.PermissionError.Message" = "Bitte gestatten Sie Firefox den Zugriff auf die Kamera Ihres Geräts über „Einstellungen → Datenschutz → Kamera“.";
+"ScanQRCode.PermissionError.Message" = "Bitte gestatten Sie %@ den Zugriff auf die Kamera Ihres Geräts über „Einstellungen → Datenschutz → Kamera“.";
 
 /* Title for the QR code scanner view. */
 "ScanQRCode.View.Title" = "QR-Code scannen";
@@ -902,7 +806,7 @@
 "Send Report" = "Bericht senden";
 
 /* Message displayed in the crash dialog above the buttons used to select when sending reports */
-"Send a crash report so Mozilla can fix the problem?" = "Einen Absturzbericht senden, damit Mozilla das Problem beheben kann?";
+"Send a crash report so we can fix the problem?" = "Einen Absturzbericht senden, damit wir das Problem beheben kann?";
 
 /* Button title for cancelling share screen
    Close button in top navigation bar */
@@ -935,32 +839,8 @@
 /* Navigation bar button to Send the current page to a device */
 "SendTo.SendAction.Text" = "Senden";
 
-/* Label for an action used to add one or more tabs recieved from a notification to the reading list. */
-"SentTab.AddToReadingListAction.Title" = "Zur Leseliste hinzufügen";
-
-/* Label for an action used to bookmark one or more tabs from a notification. */
-"SentTab.BookmarkAction.title" = "Als Lesezeichen hinzufügen";
-
-/* Body of notification received after a spurious message from FxA has been received. */
-"SentTab.NoTabArrivingNotification.body" = "Zum Beginnen berühren";
-
-/* Title of notification received after a spurious message from FxA has been received. */
-"SentTab.NoTabArrivingNotification.title" = "Firefox Sync";
-
 /* Label for an action used to view one or more tabs from a notification. */
 "SentTab.ViewAction.title" = "Ansehen";
-
-/* Body of notification shown when the device is sent one or more tabs from an unnamed device. */
-"SentTab_TabArrivingNotification_NoDevice_body" = "Neuen Tab von andere Gerät erhalten.";
-
-/* Title of notification shown when the device is sent one or more tabs from an unnamed device. */
-"SentTab_TabArrivingNotification_NoDevice_title" = "Tab erhalten";
-
-/* Body of notification shown when the device is sent one or more tabs from the named device. %@ is the placeholder for the app name. */
-"SentTab_TabArrivingNotification_WithDevice_body" = "Neuer Tab in %@ angekommen";
-
-/* Title of notification shown when the device is sent one or more tabs from the named device. %@ is the placeholder for the device name. This device name will be localized by that device. */
-"SentTab_TabArrivingNotification_WithDevice_title" = "Neuer Tab von %@ erhalten";
 
 /* Sepia theme setting in Reading View settings */
 "Sepia" = "Sepia";
@@ -1025,9 +905,6 @@
 /* Title displayed in header of the setting panel. */
 "Settings.DataManagement.Title" = "Datenverwaltung";
 
-/* Body of the alert when prompting the user asking to disconnect. */
-"Settings.Disconnect.Body" = "Firefox beendet die Synchronisation mit Ihrem Konto, löscht aber keine Surf-Daten auf diesem Gerät.";
-
 /* Button displayed at the bottom of settings page allowing users to Disconnect from FxA */
 "Settings.Disconnect.Button" = "Sync trennen";
 
@@ -1036,9 +913,6 @@
 
 /* Destructive action button in alert when user is prompted for disconnect */
 "Settings.Disconnect.DestructiveButton" = "Verbindung trennen";
-
-/* Title of the alert when prompting the user asking to disconnect. */
-"Settings.Disconnect.Title" = "Sync trennen?";
 
 /* Option choice in display theme settings for dark theme */
 "Settings.DisplayTheme.OptionDark" = "Dunkel";
@@ -1061,15 +935,6 @@
 
 /* Title in main app settings for Display (theme) settings */
 "Settings.DisplayTheme.Title" = "Anzeige";
-
-/* Label used for the device name settings section. */
-"Settings.FxA.DeviceName" = "Gerätename";
-
-/* Label used as a section title in the Firefox Accounts Settings screen. */
-"Settings.FxA.Sync.SectionName" = "Sync-Einstellungen";
-
-/* Title displayed in header of the FxA settings panel. */
-"Settings.FxA.Title" = "Firefox-Konto";
 
 /* General settings section title */
 "Settings.General.SectionName" = "Allgemein";
@@ -1120,10 +985,10 @@
 "Settings.NewTab.Option.CustomizeFooter" = "Die von die Ihnen am meisten besuchten Websites";
 
 /* The title for the section to customize top sites in the new tab settings page. */
-"Settings.NewTab.Option.CustomizeTitle" = "Firefox Home anpassen";
+"Settings.NewTab.Option.CustomizeTitle" = "%@ Home anpassen";
 
-/* Option in settings to show Firefox Home when you open a new tab */
-"Settings.NewTab.Option.FirefoxHome" = "Firefox Home";
+/* Option in settings to show UserAgent Home when you open a new tab */
+"Settings.NewTab.Option.Home" = "%@ Home";
 
 /* Option in the settings to turn off recent bookmarks in the Highlights section */
 "Settings.NewTab.Option.HighlightsBookmarks" = "Neue Lesezeichen";
@@ -1159,7 +1024,7 @@
 "Settings.NewTab.TopSectionNameFooter" = "Entscheiden Sie, was in einem neuen Tab angezeigt wird";
 
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Status" = "Wenn Firefox geöffnet wird";
+"Settings.OfferClipboardBar.Status" = "Wenn %@ geöffnet wird";
 
 /* Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
 "Settings.OfferClipboardBar.Title" = "Anbieten, kopierte Links zu öffnen";
@@ -1183,7 +1048,7 @@
 "Settings.SendUsage.Link" = "Weitere Informationen.";
 
 /* A short description that explains why mozilla collects usage data. */
-"Settings.SendUsage.Message" = "Mozilla ist bestrebt, nur die Informationen zu sammeln, mit denen wir Firefox anbieten und für alle Nutzer verbessern können.";
+"Settings.SendUsage.Message" = "%@ ist bestrebt, nur die Informationen zu sammeln, mit denen wir %@ anbieten und für alle Nutzer verbessern können.";
 
 /* The title for the setting to send usage data. */
 "Settings.SendUsage.Title" = "Nutzungsdaten senden";
@@ -1195,13 +1060,13 @@
 "Settings.Siri.OpenTabShortcut" = "Neuen Tab öffnen";
 
 /* The description that describes what siri shortcuts are */
-"Settings.Siri.SectionDescription" = "Siri-Kürzel verwenden, um Firefox schnell per Siri zu öffnen";
+"Settings.Siri.SectionDescription" = "Siri-Kürzel verwenden, um %@ schnell per Siri zu öffnen";
 
 /* The option that takes you to the siri shortcuts settings page */
 "Settings.Siri.SectionName" = "Siri-Kürzel";
 
 /* Header description for tracking protection options section where Basic/Strict block list can be selected */
-"Settings.TrackingProtection.BlockListsHeader" = "Sie können die Liste auswählen, welche Firefox zum Blockieren von Ihre Internetaktivitäten verfolgenden Web-Elementen verwenden soll.";
+"Settings.TrackingProtection.BlockListsHeader" = "Sie können die Liste auswählen, welche %@ zum Blockieren von Ihre Internetaktivitäten verfolgenden Web-Elementen verwenden soll.";
 
 /* Explanation of basic mode. */
 "Settings.TrackingProtection.Info.BasicTitle" = "Ausgewogen für Schutz und Leistung.";
@@ -1257,9 +1122,6 @@
 /* Title in main app settings for Translation toast settings */
 "Settings.TranslateSnackBar.Title" = "Übersetzung";
 
-/* Title of link to help page to find out how to solve Sync issues */
-"Settings.TroubleShootSync.Title" = "Fehlerbehebung";
-
 /* Button to delete website in search results */
 "Settings.WebsiteData.ButtonDelete" = "Löschen";
 
@@ -1278,32 +1140,32 @@
 /* Title displayed in header of the Data Management panel. */
 "Settings.WebsiteData.Title" = "Website-Daten";
 
-/* Action label on share extension to add page to the Firefox reading list. */
+/* Action label on share extension to add page to the UserAgent reading list. */
 "ShareExtension.AddToReadingListAction.Title" = "Zur Leseliste hinzufügen";
 
 /* Share extension label shown after user has performed 'Add to Reading List' action. */
 "ShareExtension.AddToReadingListActionDone.Title" = "Zur Leseliste hinzugefügt";
 
-/* Action label on share extension to bookmark the page in Firefox. */
+/* Action label on share extension to bookmark the page in UserAgent. */
 "ShareExtension.BookmarkThisPageAction.Title" = "Lesezeichen für diese Seite hinzufügen";
 
 /* Share extension label shown after user has performed 'Bookmark this Page' action. */
 "ShareExtension.BookmarkThisPageActionDone.Title" = "Als Lesezeichen gesetzt";
 
-/* Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground. */
+/* Action label on share extension to load the page in UserAgent when user switches apps to bring it to foreground. */
 "ShareExtension.LoadInBackgroundAction.Title" = "Im Hintergrund laden";
 
 /* Share extension label shown after user has performed 'Load in Background' action. */
-"ShareExtension.LoadInBackgroundActionDone.Title" = "Wird in Firefox geladen";
+"ShareExtension.LoadInBackgroundActionDone.Title" = "Wird in %@ geladen";
 
-/* Action label on share extension to immediately open page in Firefox. */
-"ShareExtension.OpenInFirefoxAction.Title" = "In %@ öffnen";
+/* Action label on share extension to immediately open page in UserAgent. */
+"ShareExtension.OpenInAction.Title" = "In %@ öffnen";
 
-/* Action label on share extension to immediately open page in Firefox in private mode. */
+/* Action label on share extension to immediately open page in UserAgent in private mode. */
 "ShareExtension.OpenInPrivateModeAction.Title" = "Im privaten Modus öffnen";
 
-/* Action label on share extension to search for the selected text in Firefox. */
-"ShareExtension.SeachInFirefoxAction.Title" = "In Firefox suchen";
+/* Action label on share extension to search for the selected text in UserAgent. */
+"ShareExtension.SeachInUserAgentAction.Title" = "In %@ suchen";
 
 /* Label for show search suggestions setting. */
 "Show Search Suggestions" = "Suchvorschläge anzeigen";
@@ -1330,47 +1192,6 @@
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "SwitchToPBM.KeyCodeTitle" = "Privater Modus";
 
-/* Text displayed when the Sync home panel is empty, describing the features provided by Sync to invite the user to log in. */
-"Sync your tabs, bookmarks, passwords and more." = "Synchronisieren Sie Ihre Tabs, Lesezeichen, Passwörter und mehr.";
-
-/* Text displayed when the Sync home panel is empty, describing the features provided by Sync to invite the user to log in. */
-"Sync your tabs, passwords and more." = "Synchronisieren Sie Ihre Tabs, Passwörter und mehr.";
-
-/* Message displayed when the user syncs for the first time */
-"Sync.FirstTimeMessage.Label" = "Ihre erste Synchronisation kann einige Zeit dauern.";
-
-/* Message displayed when the user's account is syncing with no ellipsis */
-"Sync.Syncing.Label" = "Synchronisation läuft";
-
-/* Message displayed when the user's account is syncing with ellipsis at the end */
-"Sync.SyncingEllipsis.Label" = "Synchronisation läuft…";
-
-/* The Bookmark sync component, used in SyncState.Partial.Title */
-"SyncState.Bookmark.Title" = "Lesezeichen";
-
-/* The Remote Clients sync component, used in SyncState.Partial.Title */
-"SyncState.Clients.Title" = "Externe Clients";
-
-/* Title for Sync status message when synchronization failed to complete */
-"SyncState.Failed.Title" = "Synchronisation fehlgeschlagen";
-
-/* The History sync component, used in SyncState.Partial.Title */
-"SyncState.History.Title" = "Chronik";
-
-/* The Logins sync component, used in SyncState.Partial.Title */
-"SyncState.Logins.Title" = "Zugangsdaten";
-
-/* Title for Sync status message when Sync failed to start. */
-"SyncState.NotStarted.Title" = "Sync ist nicht verfügbar.";
-
-/* Title for Sync status message when Sync failed due to being offline */
-"SyncState.Offline.Title" = "Sync ist offline.";
-
-/* Title for Sync status message when a component of Sync failed to complete, where %@ represents the name of the component, i.e. Sync is experiencing issues syncing Bookmarks */
-"SyncState.Partial.Title" = "Probleme bei Synchronisation von %@";
-
-/* The Tabs sync component, used in SyncState.Partial.Title */
-"SyncState.Tabs.Title" = "Tabs";
 
 /* Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total. */
 "Tab %@ of %@" = "Tab %1$@ von %2$@";
@@ -1405,7 +1226,7 @@
 /* The placeholder text for the tab search bar */
 "Tabs.Search.PlaceholderText" = "Tabs durchsuchen";
 
-/* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to Firefox reader mode from another app. */
+/* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
 "The page could not be displayed in Reader View." = "Die Seite konnte nicht in der Leseansicht dargestellt werden.";
 
 /* Error message in the remote tabs panel */
@@ -1454,18 +1275,12 @@
 "UIMenuItem.PasteGo" = "Einfügen & Los";
 
 /* Search in New Tab Text selection menu item */
-"UIMenuItem.SearchWithFirefox" = "Mit Firefox suchen";
-
-/* Text message in the settings table view */
-"Upgrade Firefox to connect" = "Aktualisieren Sie Firefox, um eine Verbindung herzustellen";
+"UIMenuItem.SearchWithUserAgent" = "Mit %@ suchen";
 
 /* Username textbox in Authentication prompt */
 "Username" = "Benutzername";
 
-/* Text message in the settings table view */
-"Verify your email address" = "Verifizieren Sie Ihre E-Mail-Adresse";
-
-/* Version number of Firefox shown in settings */
+/* Version number of UserAgent shown in settings */
 "Version %@ (%@)" = "Version %1$@ (%2$@)";
 
 /* Accessibility label for the main web content view */
@@ -1482,9 +1297,6 @@
 
 /* History tableview section header */
 "Yesterday" = "Gestern";
-
-/* Error message in the remote tabs panel */
-"You don’t have any tabs open in Firefox on your other devices." = "Sie haben keine offenen Tabs in Firefox auf Ihren anderen Geräten.";
 
 /* Tile title for YouTube */
 "YouTube" = "YouTube";
