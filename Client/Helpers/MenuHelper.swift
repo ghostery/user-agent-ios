@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import Foundation
+import Shared
 
 @objc public protocol MenuHelperInterface {
     @objc optional func menuHelperCopy()
@@ -49,7 +50,7 @@ open class MenuHelper: NSObject {
         let findInPageTitle = NSLocalizedString("Find in Page", tableName: "FindInPage", comment: "Text selection menu item")
         let findInPageItem = UIMenuItem(title: findInPageTitle, action: MenuHelper.SelectorFindInPage)
 
-        let searchTitle = NSLocalizedString("UIMenuItem.SearchWithFirefox", value: "Search with Firefox", comment: "Search in New Tab Text selection menu item")
+        let searchTitle = String(format: NSLocalizedString("UIMenuItem.SearchWithUserAgent", value: "Search with Firefox", comment: "Search in New Tab Text selection menu item"), AppInfo.displayName)
         let searchItem = UIMenuItem(title: searchTitle, action: MenuHelper.SelectorSearchWithFirefox)
       
         UIMenuController.shared.menuItems = [pasteAndGoItem, copyItem, revealPasswordItem, hidePasswordItem, openAndFillItem, findInPageItem, searchItem]
