@@ -296,7 +296,7 @@
 "ErrorPages.AdvancedWarning2.Text" = "Dies kann eine Fehlkonfiguration oder eine Manipulation eines Angreifers sein. Fahren Sie fort, wenn Sie das potenzielle Risiko akzeptieren.";
 
 /* Warning text on the certificate error page */
-"ErrorPages.CertWarning.Description" = "Der Besitzer von %@ hat seine Website falsch konfiguriert. Um Diebstahl Ihrer Daten zu verhindern, verweigert Firefox die Verbindung zu dieser Website.";
+"ErrorPages.CertWarning.Description" = "Der Besitzer von %@ hat seine Website falsch konfiguriert. Um Diebstahl Ihrer Daten zu verhindern, verweigert %@ die Verbindung zu dieser Website.";
 
 /* Title on the certificate error page */
 "ErrorPages.CertWarning.Title" = "Dieser Verbindung wird nicht vertraut";
@@ -316,7 +316,7 @@
 /* Tile title for Facebook */
 "Facebook" = "Facebook";
 
-/* Title for firefox about:home page in tab history list */
+/* Title for UserAgent about:home page in tab history list */
 "UserAgent.HomePage.Title" = "%@-Startseite";
 
 /* Accessibility Label for the tab toolbar Forward button */
@@ -439,10 +439,10 @@
 /* Light theme setting in Reading View settings */
 "Light" = "Hell";
 
-/* Link for going to the non-reader page when the reader view could not be loaded. This message will appear only when sharing to Firefox reader mode from another app. */
+/* Link for going to the non-reader page when the reader view could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
 "Load original page" = "Ursprungsseite laden";
 
-/* Message displayed when the reader mode page is loading. This message will appear only when sharing to Firefox reader mode from another app. */
+/* Message displayed when the reader mode page is loading. This message will appear only when sharing to UserAgent reader mode from another app. */
 "Loading content…" = "Inhalt wird geladen…";
 
 /* Authentication prompt log in button */
@@ -654,7 +654,7 @@
 /* See http://mzl.la/1LXbDOL */
 "Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Öffnen Sie Artikel in der Leseansicht, indem Sie auf das Buch-Symbol tippen, wenn es in der Titelleiste angezeigt wird.";
 
-/* The message displayed to a user when they try to open a URL that cannot be handled by Firefox, or any external app. */
+/* The message displayed to a user when they try to open a URL that cannot be handled by UserAgent, or any external app. */
 "OpenURL.Error.Message" = "%@ kann die Seite nicht öffnen, weil ihre Adresse ungültig ist.";
 
 /* Title of the message shown when the user attempts to navigate to an invalid link. */
@@ -675,14 +675,14 @@
 /* Header for the list of credentials table */
 "PasswordAutoFill.PasswordsListTitle" = "Verfügbare Zugangsdaten:";
 
-/* Title of the extension that shows firefox passwords */
+/* Title of the extension that shows UserAgent passwords */
 "PasswordAutoFill.SectionTitle" = "%@-Zugangsdaten";
 
 /* See http://mzl.la/1G7uHo7 */
-"PhotoLibrary.FirefoxWouldLikeAccessMessage" = "Hiermit können Sie die Grafik in Ihren Aufnahmen speichern.";
+"PhotoLibrary.AppWouldLikeAccessMessage" = "Hiermit können Sie die Grafik in Ihren Aufnahmen speichern.";
 
 /* See http://mzl.la/1G7uHo7 */
-"PhotoLibrary.FirefoxWouldLikeAccessTitle" = "%@ möchte auf Ihre Fotos zugreifen";
+"PhotoLibrary.AppWouldLikeAccessTitle" = "%@ möchte auf Ihre Fotos zugreifen";
 
 /* Button for closing the menu action sheet */
 "PhotonMenu.close" = "Schließen";
@@ -690,7 +690,7 @@
 /* Privacy section title */
 "Privacy" = "Datenschutz";
 
-/* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
+/* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
 "Privacy Policy" = "Datenschutzerklärung";
 
 /* Title for quick-search engines settings section. */
@@ -806,7 +806,7 @@
 "Send Report" = "Bericht senden";
 
 /* Message displayed in the crash dialog above the buttons used to select when sending reports */
-"Send a crash report so Mozilla can fix the problem?" = "Einen Absturzbericht senden, damit Mozilla das Problem beheben kann?";
+"Send a crash report so we can fix the problem?" = "Einen Absturzbericht senden, damit wir das Problem beheben kann?";
 
 /* Button title for cancelling share screen
    Close button in top navigation bar */
@@ -987,7 +987,7 @@
 /* The title for the section to customize top sites in the new tab settings page. */
 "Settings.NewTab.Option.CustomizeTitle" = "%@ Home anpassen";
 
-/* Option in settings to show Firefox Home when you open a new tab */
+/* Option in settings to show UserAgent Home when you open a new tab */
 "Settings.NewTab.Option.Home" = "%@ Home";
 
 /* Option in the settings to turn off recent bookmarks in the Highlights section */
@@ -1140,32 +1140,32 @@
 /* Title displayed in header of the Data Management panel. */
 "Settings.WebsiteData.Title" = "Website-Daten";
 
-/* Action label on share extension to add page to the Firefox reading list. */
+/* Action label on share extension to add page to the UserAgent reading list. */
 "ShareExtension.AddToReadingListAction.Title" = "Zur Leseliste hinzufügen";
 
 /* Share extension label shown after user has performed 'Add to Reading List' action. */
 "ShareExtension.AddToReadingListActionDone.Title" = "Zur Leseliste hinzugefügt";
 
-/* Action label on share extension to bookmark the page in Firefox. */
+/* Action label on share extension to bookmark the page in UserAgent. */
 "ShareExtension.BookmarkThisPageAction.Title" = "Lesezeichen für diese Seite hinzufügen";
 
 /* Share extension label shown after user has performed 'Bookmark this Page' action. */
 "ShareExtension.BookmarkThisPageActionDone.Title" = "Als Lesezeichen gesetzt";
 
-/* Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground. */
+/* Action label on share extension to load the page in UserAgent when user switches apps to bring it to foreground. */
 "ShareExtension.LoadInBackgroundAction.Title" = "Im Hintergrund laden";
 
 /* Share extension label shown after user has performed 'Load in Background' action. */
 "ShareExtension.LoadInBackgroundActionDone.Title" = "Wird in %@ geladen";
 
-/* Action label on share extension to immediately open page in Firefox. */
-"ShareExtension.OpenInFirefoxAction.Title" = "In %@ öffnen";
+/* Action label on share extension to immediately open page in UserAgent. */
+"ShareExtension.OpenInAction.Title" = "In %@ öffnen";
 
-/* Action label on share extension to immediately open page in Firefox in private mode. */
+/* Action label on share extension to immediately open page in UserAgent in private mode. */
 "ShareExtension.OpenInPrivateModeAction.Title" = "Im privaten Modus öffnen";
 
-/* Action label on share extension to search for the selected text in Firefox. */
-"ShareExtension.SeachInFirefoxAction.Title" = "In %@ suchen";
+/* Action label on share extension to search for the selected text in UserAgent. */
+"ShareExtension.SeachInUserAgentAction.Title" = "In %@ suchen";
 
 /* Label for show search suggestions setting. */
 "Show Search Suggestions" = "Suchvorschläge anzeigen";
@@ -1226,7 +1226,7 @@
 /* The placeholder text for the tab search bar */
 "Tabs.Search.PlaceholderText" = "Tabs durchsuchen";
 
-/* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to Firefox reader mode from another app. */
+/* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
 "The page could not be displayed in Reader View." = "Die Seite konnte nicht in der Leseansicht dargestellt werden.";
 
 /* Error message in the remote tabs panel */
@@ -1275,12 +1275,12 @@
 "UIMenuItem.PasteGo" = "Einfügen & Los";
 
 /* Search in New Tab Text selection menu item */
-"UIMenuItem.SearchWithFirefox" = "Mit %@ suchen";
+"UIMenuItem.SearchWithUserAgent" = "Mit %@ suchen";
 
 /* Username textbox in Authentication prompt */
 "Username" = "Benutzername";
 
-/* Version number of Firefox shown in settings */
+/* Version number of UserAgent shown in settings */
 "Version %@ (%@)" = "Version %1$@ (%2$@)";
 
 /* Accessibility label for the main web content view */

@@ -122,7 +122,7 @@ extension Strings {
     public static let ErrorPagesAdvancedButton = NSLocalizedString("ErrorPages.Advanced.Button", comment: "Label for button to perform advanced actions on the error page")
     public static let ErrorPagesAdvancedWarning1 = NSLocalizedString("ErrorPages.AdvancedWarning1.Text", comment: "Warning text when clicking the Advanced button on error pages")
     public static let ErrorPagesAdvancedWarning2 = NSLocalizedString("ErrorPages.AdvancedWarning2.Text", comment: "Additional warning text when clicking the Advanced button on error pages")
-    public static let ErrorPagesCertWarningDescription = NSLocalizedString("ErrorPages.CertWarning.Description", comment: "Warning text on the certificate error page")
+    public static let ErrorPagesCertWarningDescription = NSLocalizedString("ErrorPages.CertWarning.Description", comment: "Warning text on the certificate error page. First argument 'Error Domain', Second - 'App name'")
     public static let ErrorPagesCertWarningTitle = NSLocalizedString("ErrorPages.CertWarning.Title", comment: "Title on the certificate error page")
     public static let ErrorPagesGoBackButton = NSLocalizedString("ErrorPages.GoBack.Button", comment: "Label for button to go back from the error page")
     public static let ErrorPagesVisitOnceButton = NSLocalizedString("ErrorPages.VisitOnce.Button", comment: "Button label to temporarily continue to the site from the certificate error page")
@@ -414,8 +414,8 @@ extension Strings {
 
 // Photo Library access.
 extension Strings {
-    public static let PhotoLibraryFirefoxWouldLikeAccessTitle = String(format: NSLocalizedString("PhotoLibrary.FirefoxWouldLikeAccessTitle", comment: "See http://mzl.la/1G7uHo7"), AppInfo.displayName)
-    public static let PhotoLibraryFirefoxWouldLikeAccessMessage = NSLocalizedString("PhotoLibrary.FirefoxWouldLikeAccessMessage", comment: "See http://mzl.la/1G7uHo7")
+    public static let PhotoLibraryFirefoxWouldLikeAccessTitle = String(format: NSLocalizedString("PhotoLibrary.AppWouldLikeAccessTitle", comment: "See http://mzl.la/1G7uHo7"), AppInfo.displayName)
+    public static let PhotoLibraryFirefoxWouldLikeAccessMessage = NSLocalizedString("PhotoLibrary.AppWouldLikeAccessMessage", comment: "See http://mzl.la/1G7uHo7")
 }
 
 // Sent tabs notifications. These are displayed when the app is backgrounded or the device is locked.
@@ -584,11 +584,11 @@ extension Strings {
     public static let ShareBookmarkThisPage = NSLocalizedString("ShareExtension.BookmarkThisPageAction.Title", comment: "Action label on share extension to bookmark the page in Firefox.")
     public static let ShareBookmarkThisPageDone = NSLocalizedString("ShareExtension.BookmarkThisPageActionDone.Title", comment: "Share extension label shown after user has performed 'Bookmark this Page' action.")
 
-    public static var ShareOpenInFirefox = String(
-        format: NSLocalizedString("ShareExtension.OpenInFirefoxAction.Title", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName)."),
+    public static var ShareOpenIn = String(
+        format: NSLocalizedString("ShareExtension.OpenInAction.Title", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName)."),
         AppInfo.displayName
     )
-    public static let ShareSearchInFirefox = String(format: NSLocalizedString("ShareExtension.SeachInFirefoxAction.Title", comment: "Action label on share extension to search for the selected text in Firefox."), AppInfo.displayName)
+    public static let ShareSearchIn = String(format: NSLocalizedString("ShareExtension.SeachInUserAgentAction.Title", comment: "Action label on share extension to search for the selected text in Firefox."), AppInfo.displayName)
     public static let ShareOpenInPrivateModeNow = NSLocalizedString("ShareExtension.OpenInPrivateModeAction.Title", comment: "Action label on share extension to immediately open page in Firefox in private mode.")
 
     public static let ShareLoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", comment: "Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground.")

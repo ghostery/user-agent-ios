@@ -27,7 +27,7 @@ extension UIAlertController {
 
         let alert = UIAlertController(
             title: Strings.AppCrashedMessage,
-            message: NSLocalizedString("Send a crash report so Mozilla can fix the problem?", comment: "Message displayed in the crash dialog above the buttons used to select when sending reports"),
+            message: NSLocalizedString("Send a crash report so we can fix the problem?", comment: "Message displayed in the crash dialog above the buttons used to select when sending reports"),
             preferredStyle: .alert
         )
 
