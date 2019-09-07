@@ -60,12 +60,12 @@ platform :ios do
     )
 
     update_app_group_identifiers(
-      entitlements_file: "Client/Entitlements/FennecApplication.entitlements",
+      entitlements_file: "Client/Entitlements/UserAgent.entitlements",
       app_group_identifiers: ["group.com.cliqz.browser.nightly"]
     )
 
     update_app_group_identifiers(
-      entitlements_file: "Extensions/Entitlements/Fennec.entitlements",
+      entitlements_file: "Extensions/Entitlements/UserAgent.entitlements",
       app_group_identifiers: ["group.com.cliqz.browser.nightly"]
     )
 
