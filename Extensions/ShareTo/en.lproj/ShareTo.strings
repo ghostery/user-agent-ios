@@ -1,0 +1,25 @@
+/* 
+  ShareTo.strings
+  Client
+
+  Created by Pavel Kirakosyan on 09.09.19.
+  Copyright © 2019 Mozilla. All rights reserved.
+*/
+
+/* Action label on share extension to bookmark the page in UserAgent. */
+"ShareExtension.BookmarkThisPageAction.Title" = "Bookmark This Page";
+
+/* Share extension label shown after user has performed 'Bookmark this Page' action. */
+"ShareExtension.BookmarkThisPageActionDone.Title" = "Bookmarked";
+
+/* Action label on share extension to load the page in UserAgent when user switches apps to bring it to foreground. */
+"ShareExtension.LoadInBackgroundAction.Title" = "Load in Background";
+
+/* Share extension label shown after user has performed 'Load in Background' action. */
+"ShareExtension.LoadInBackgroundActionDone.Title" = "Loading in %@";
+
+/* Action label on share extension to immediately open page in UserAgent. */
+"ShareExtension.OpenInAction.Title" = "Open in %@";
+
+/* Action label on share extension to search for the selected text in UserAgent. */
+"ShareExtension.SeachInUserAgentAction.Title" = "Search in %@";

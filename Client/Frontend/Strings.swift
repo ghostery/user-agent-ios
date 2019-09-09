@@ -579,20 +579,18 @@ extension Strings {
 
     // The above items are re-used strings from the old extension. New strings below.
 
-    public static let ShareAddToReadingList = NSLocalizedString("ShareExtension.AddToReadingListAction.Title", comment: "Action label on share extension to add page to the Firefox reading list.")
-    public static let ShareAddToReadingListDone = NSLocalizedString("ShareExtension.AddToReadingListActionDone.Title", comment: "Share extension label shown after user has performed 'Add to Reading List' action.")
-    public static let ShareBookmarkThisPage = NSLocalizedString("ShareExtension.BookmarkThisPageAction.Title", comment: "Action label on share extension to bookmark the page in Firefox.")
+    public static let ShareBookmarkThisPage = NSLocalizedString("ShareExtension.BookmarkThisPageAction.Title", tableName: "ShareTo", comment: "Action label on share extension to bookmark the page in Firefox.")
     public static let ShareBookmarkThisPageDone = NSLocalizedString("ShareExtension.BookmarkThisPageActionDone.Title", comment: "Share extension label shown after user has performed 'Bookmark this Page' action.")
 
     public static var ShareOpenIn = String(
-        format: NSLocalizedString("ShareExtension.OpenInAction.Title", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName)."),
+        format: NSLocalizedString("ShareExtension.OpenInAction.Title", tableName: "ShareTo", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName)."),
         AppInfo.displayName
     )
-    public static let ShareSearchIn = String(format: NSLocalizedString("ShareExtension.SeachInUserAgentAction.Title", comment: "Action label on share extension to search for the selected text in Firefox."), AppInfo.displayName)
-    public static let ShareOpenInPrivateModeNow = NSLocalizedString("ShareExtension.OpenInPrivateModeAction.Title", comment: "Action label on share extension to immediately open page in Firefox in private mode.")
+    public static let ShareSearchIn = String(format: NSLocalizedString("ShareExtension.SeachInUserAgentAction.Title", tableName: "ShareTo", comment: "Action label on share extension to search for the selected text in Firefox."), AppInfo.displayName)
 
-    public static let ShareLoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", comment: "Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground.")
-    public static let ShareLoadInBackgroundDone = String(format: NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", comment: "Share extension label shown after user has performed 'Load in Background' action."), AppInfo.displayName)
+    public static let ShareLoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", tableName: "ShareTo", comment: "Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground.")
+    
+    public static let ShareLoadInBackgroundDone = String(format: NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", tableName: "ShareTo", comment: "Share extension label shown after user has performed 'Load in Background' action."), AppInfo.displayName)
 
 }
 
