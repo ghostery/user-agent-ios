@@ -91,22 +91,6 @@
 	<string>$(POCKET_API_KEY)</string>
 	<key>SentryDSN</key>
 	<string>$(SENTRY_DSN)</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>CharisSILB.ttf</string>
-		<string>CharisSILBI.ttf</string>
-		<string>CharisSILI.ttf</string>
-		<string>CharisSILR.ttf</string>
-		<string>FiraSans-Bold.ttf</string>
-		<string>FiraSans-BoldItalic.ttf</string>
-		<string>FiraSans-Book.ttf</string>
-		<string>FiraSans-Italic.ttf</string>
-		<string>FiraSans-Light.ttf</string>
-		<string>FiraSans-Medium.ttf</string>
-		<string>FiraSans-Regular.ttf</string>
-		<string>FiraSans-SemiBold.ttf</string>
-		<string>FiraSans-UltraLight.ttf</string>
-	</array>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>

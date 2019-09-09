@@ -33,28 +33,7 @@ open class FaviconFetcher: NSObject, XMLParserDelegate {
 
     static var colors: [String: UIColor] = [:] //An in-Memory data store that stores background colors domains. Stored using url.baseDomain.
 
-    // Sites can be accessed via their baseDomain.
-    static var defaultIcons: [String: (color: UIColor, url: String)] = {
-        return FaviconFetcher.getDefaultIcons()
-    }()
-
     static let multiRegionDomains = ["craigslist", "google", "amazon"]
-
-    class func getDefaultIconForURL(url: URL) -> (color: UIColor, url: String)? {
-
-        // Problem: Sites like amazon exist with .ca/.de and many other tlds.
-        // Solution: They are stored in the default icons list as "amazon" instead of "amazon.com" this allows us to have favicons for every tld."
-        // Here, If the site is in the multiRegionDomain array look it up via its second level domain (amazon) instead of its baseDomain (amazon.com)
-        let hostName = url.shortDisplayString
-        if multiRegionDomains.contains(hostName), let icon = defaultIcons[hostName] {
-            return icon
-        }
-        let fullURL = url.absoluteDisplayString.remove("\(url.scheme ?? "")://")
-        if let name = url.baseDomain, let icon = defaultIcons[name] ?? defaultIcons[fullURL] {
-            return icon
-        }
-        return nil
-    }
 
     class func getForURL(_ url: URL, profile: Profile) -> Deferred<Maybe<[Favicon]>> {
         let f = FaviconFetcher()
@@ -245,38 +224,5 @@ open class FaviconFetcher: NSObject, XMLParserDelegate {
 
         characterToFaviconCache[faviconLetter] = faviconImage
         return faviconImage
-    }
-
-    // Returns a color based on the url's hash
-    class func getDefaultColor(_ url: URL) -> UIColor {
-        guard let hash = url.baseDomain?.hashValue else {
-            return UIColor.Photon.Grey50
-        }
-        let index = abs(hash) % (DefaultFaviconBackgroundColors.count - 1)
-        let colorHex = DefaultFaviconBackgroundColors[index]
-        return UIColor(colorString: colorHex)
-    }
-
-    // Default favicons and background colors provided via mozilla/tippy-top-sites
-    class func getDefaultIcons() -> [String: (color: UIColor, url: String)] {
-        let filePath = Bundle.main.path(forResource: "top_sites", ofType: "json")
-        let file = try! Data(contentsOf: URL(fileURLWithPath: filePath!))
-        let json = JSON(file)
-        var icons: [String: (color: UIColor, url: String)] = [:]
-        json.forEach({
-            guard let url = $0.1["domain"].string, let color = $0.1["background_color"].string, var path = $0.1["image_url"].string else {
-                return
-            }
-            path = path.replacingOccurrences(of: ".png", with: "")
-            let filePath = Bundle.main.path(forResource: "TopSites/" + path, ofType: "png")
-            if let filePath = filePath {
-                if color == "#fff" || color == "#FFF" {
-                    icons[url] = (UIColor.clear, filePath)
-                } else {
-                    icons[url] = (UIColor(colorString: color.replacingOccurrences(of: "#", with: "")), filePath)
-                }
-            }
-        })
-        return icons
     }
 }
