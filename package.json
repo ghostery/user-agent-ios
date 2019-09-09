@@ -1,7 +1,7 @@
 {
-  "name": "firefox-ios",
-  "version": "1.0.0",
-  "description": "Firefox for iOS",
+  "name": "@cliqz/user-agent-ios",
+  "version": "3.0.0",
+  "description": "Cliqz User Agent for iOS",
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },
