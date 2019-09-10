@@ -51,12 +51,6 @@ platform :ios do
       xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
       plist_path: "./Client/Cliqz-Info.plist",
       app_identifier: "com.cliqz.browser.nightly" # The App Identifier
-    )
-    
-    update_app_identifier(
-      xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Client/Cliqz-Info.plist",
-      app_identifier: "com.cliqz.browser.nightly", # The App Identifier
       block: proc do |plist|
         plist["SentryDSN"] = ENV["SENTRY_DSN"]
       end
