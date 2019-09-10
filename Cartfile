@@ -1,2 +1,1 @@
-github "jrendel/SwiftKeychainWrapper"       ~> 3.2.0
 github "mozilla/application-services"       "v0.32.3"
