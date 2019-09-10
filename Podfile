@@ -118,11 +118,20 @@ target 'GhosteryShareTo' do
   share_to
 end
 
+target 'StoragePerfTests' do
+  swiftkeychainwrapper
+end
+
+target 'SharedTests' do
+  swiftkeychainwrapper
+end
+
 target 'ClientTests' do
   snapkit
   sdwebimage
   sentry
   gcdwebserver
+  swiftkeychainwrapper
 end
 
 target 'Shared' do
