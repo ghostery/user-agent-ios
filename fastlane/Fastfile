@@ -55,7 +55,7 @@ platform :ios do
         plist["SentryDSN"] = ENV["SENTRY_DSN"]
       end
     )
-    
+
     update_app_identifier(
       xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
       plist_path: "./Extensions/ShareTo/Info.plist",
