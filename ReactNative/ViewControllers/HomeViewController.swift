@@ -16,16 +16,12 @@ class HomeViewController: ReactViewController {
     init(profile: Profile) {
         self.profile = profile
         super.init(componentName: "Home")
+        // TODO: user proper caching
+        self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // TODO: user proper caching
-        self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
     }
 }
 
