@@ -154,6 +154,7 @@ class IntroViewController: UIViewController {
             return nil
         }
         let imageView = UIImageView(image: image)
+        imageView.contentMode = .center
         imageViewContainer.addArrangedSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.height.equalTo(imageViewContainer.snp.height)
@@ -389,8 +390,8 @@ struct IntroCard: Codable {
     }
 
     static func defaultCards() -> [IntroCard] {
-        let welcome = IntroCard(title: "Welcome to BigFork", text: Strings.CardTextWelcome, imageName: "tour-Welcome")
-        let cliqzCard = IntroCard(title: "This card is a placeholder", text: "This welcome thing needs at least two cards, and the last one needs to have a large Call to Action button. Hence this card. 🤷‍♀️", imageName: "tour-Sync", buttonText: "Start Browsing", buttonSelector: #selector(IntroViewController.startBrowsing).description)
+        let welcome = IntroCard(title: "Welcome to User Agent", text: Strings.CardTextWelcome, imageName: "splash")
+        let cliqzCard = IntroCard(title: "This card is a placeholder", text: "This welcome thing needs at least two cards, and a large Call to Action button. Hence this card. 🤷‍♀️", imageName: "tour-Sync", buttonText: "Start Browsing", buttonSelector: #selector(IntroViewController.startBrowsing).description)
         return [welcome, cliqzCard]
     }
 
