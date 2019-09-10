@@ -84,17 +84,6 @@ node('gideon') {
                             export LC_ALL=en_US.UTF-8
                             export LANG=en_US.UTF-8
 
-                            which node &>/dev/null || brew install node
-                            node -v
-                            npm -v
-
-                            which carthage &>/dev/null || brew install carthage
-                            carthage version
-
-                            # for some reason we cannot install watchman in CI, it works when installed manually
-                            which watchman &>/dev/null || brew install watchman
-                            watchman --version
-
                             sudo xcode-select --switch /Applications/Xcode.app/
                             xcodebuild -version
 

@@ -8,6 +8,8 @@
 set -x
 set -e
 
+brew bundle
+
 carthage bootstrap --platform ios --color auto --cache-builds
 
 npm ci
