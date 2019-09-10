@@ -10,6 +10,10 @@ strategy:
     Cliqz:
       scheme: 'Cliqz'
       actions: 'clean test build'
+    Ghostery:
+      scheme: 'Ghostery'
+      actions: 'build'
+
 pool:
   vmImage: 'macOS 10.14'
 
