@@ -15,12 +15,12 @@ private struct ReaderModeStyleViewControllerUX {
     static let FontTypeRowBackground = UIColor.Photon.Grey10
 
     static let FontTypeTitleSelectedColor = UIColor.Photon.Grey70
-    static let FontTypeTitleNormalColor = UIColor.Photon.Grey40
+    static let FontTypeTitleNormalColor = UIColor.Grey40
 
     static let FontSizeRowBackground = UIColor.Photon.Grey20
     static let FontSizeLabelColor = UIColor.Photon.Grey70
     static let FontSizeButtonTextColorEnabled = UIColor.Photon.Grey70
-    static let FontSizeButtonTextColorDisabled = UIColor.Photon.Grey40
+    static let FontSizeButtonTextColorDisabled = UIColor.Grey40
 
     static let ThemeRowBackgroundColor = UIColor.Photon.White100
     static let ThemeTitleColorLight = UIColor.Photon.Grey70

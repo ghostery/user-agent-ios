@@ -532,6 +532,11 @@
 		ACB7383323042BAB00FA5626 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABDA4AC20DA0FB800FBB0BD /* ObjcExceptionBridging.framework */; };
 		ACB7384023042BAB00FA5626 /* Storage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7384123042BAB00FA5626 /* Shared.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ACC6EC4A2327F4B6000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
+		ACC6EC4B2327F570000F5499 /* photon-colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49854D206173C800893DAE /* photon-colors.swift */; };
+		ACC6EC4D2327F584000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
+		ACC6EC502327F9FC000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
+		ACC6EC512327FA0B000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
 		C2EDC31C6828A137B57F370B /* Pods_SharedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
@@ -586,7 +591,6 @@
 		D0769743206C19E900FACFD8 /* SQLiteReadingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0769742206C19E800FACFD8 /* SQLiteReadingList.swift */; };
 		D09A0CD81FAA23F6009A0273 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		D0A627642270C682006AFA2E /* SQLiteHistoryFavicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A627632270C682006AFA2E /* SQLiteHistoryFavicons.swift */; };
-		D0A627662270C982006AFA2E /* photon-colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49854D206173C800893DAE /* photon-colors.swift */; };
 		D0B693D5206C5BB9008A8B11 /* TestSQLiteReadingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B693D4206C5BB9008A8B11 /* TestSQLiteReadingList.swift */; };
 		D0B9483422A03468002F4AA1 /* BookmarkDetailPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9483322A03468002F4AA1 /* BookmarkDetailPanel.swift */; };
 		D0B9483D22A18B78002F4AA1 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9483C22A18B78002F4AA1 /* TextFieldTableViewCell.swift */; };
@@ -1331,6 +1335,8 @@
 		ACB7398123042D9300FA5626 /* Ghostery-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ghostery-Info.plist"; sourceTree = "<group>"; };
 		ACB7398A2306847800FA5626 /* Jenkinsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jenkinsfile; sourceTree = "<group>"; };
 		ACB7398B230684AE00FA5626 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		ACC6EC492327F4B6000F5499 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		ACC6EC4F2327F9FC000F5499 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B7467EC9C781BBCEB81EC866 /* Pods_Cliqz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cliqz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78340F0A41C2ACA24F3D0B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		B91C4EA79AB83A663B9767D3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearPrivateData.strings; sourceTree = "<group>"; };
@@ -2285,6 +2291,7 @@
 			children = (
 				F84B22431A09165600AAB793 /* Cliqz-Info.plist */,
 				C50ED2B52326AB1100EE71B8 /* cliqz.xcassets */,
+				ACC6EC492327F4B6000F5499 /* Colors.swift */,
 			);
 			path = Cliqz;
 			sourceTree = "<group>";
@@ -2294,6 +2301,7 @@
 			children = (
 				ACB7398123042D9300FA5626 /* Ghostery-Info.plist */,
 				C50ED2BC2326B17C00EE71B8 /* ghostery.xcassets */,
+				ACC6EC4F2327F9FC000F5499 /* Colors.swift */,
 			);
 			path = Ghostery;
 			sourceTree = "<group>";
@@ -4337,6 +4345,7 @@
 				28C4AB721AD42D4300D9ACE3 /* Clients.swift in Sources */,
 				D0A627642270C682006AFA2E /* SQLiteHistoryFavicons.swift in Sources */,
 				D0131B4D1F3CF7D8000CDE86 /* SQLiteFavicons.swift in Sources */,
+				ACC6EC4B2327F570000F5499 /* photon-colors.swift in Sources */,
 				28B62ACE1BC745E7004A585A /* Syncable.swift in Sources */,
 				74B195441CF503FC007F36EF /* RecentlyClosedTabs.swift in Sources */,
 				D07696F820697F9C00FACFD8 /* ReadingListSchema.swift in Sources */,
@@ -4365,7 +4374,6 @@
 				2FCAE2601ABB531100877008 /* Favicons.swift in Sources */,
 				2FCAE2771ABB531100877008 /* SwiftData.swift in Sources */,
 				D05434D9225BAA6200FDE4EF /* RustPlaces.swift in Sources */,
-				D0A627662270C982006AFA2E /* photon-colors.swift in Sources */,
 				2FCAE25F1ABB531100877008 /* Cursor.swift in Sources */,
 				28302E401AF0747800521E2E /* DatabaseError.swift in Sources */,
 			);
@@ -4461,6 +4469,7 @@
 				464F676C2326AFB70090D0B5 /* Profile.swift in Sources */,
 				464F676D2326AFB70090D0B5 /* DefaultSearchPrefs.swift in Sources */,
 				464F676E2326AFB70090D0B5 /* ShareViewController.swift in Sources */,
+				ACC6EC512327FA0B000F5499 /* Colors.swift in Sources */,
 				464F676F2326AFB70090D0B5 /* UXConstants.swift in Sources */,
 				464F67702326AFB70090D0B5 /* PanelDataObservers.swift in Sources */,
 				464F67712326AFB70090D0B5 /* NSUserDefaultsPrefs.swift in Sources */,
@@ -4649,6 +4658,7 @@
 				ACB737C923042BAB00FA5626 /* BookmarkDetailPanel.swift in Sources */,
 				ACB737CA23042BAB00FA5626 /* UIImageColors.swift in Sources */,
 				46CA60EF2317E1390010CE6B /* NativeDrawable.m in Sources */,
+				ACC6EC502327F9FC000F5499 /* Colors.swift in Sources */,
 				ACB737CB23042BAB00FA5626 /* NewTabAccessors.swift in Sources */,
 				ACB737CC23042BAB00FA5626 /* Tab.swift in Sources */,
 				ACB737CD23042BAB00FA5626 /* NightModeHelper.swift in Sources */,
@@ -4910,6 +4920,7 @@
 				D3A9949C1A3686BD008AD1AC /* BrowserViewController.swift in Sources */,
 				E6CF28E71CB43B7900151AB3 /* SensitiveViewController.swift in Sources */,
 				E68E7ADA1CAC207400FDCA76 /* ChangePasscodeViewController.swift in Sources */,
+				ACC6EC4A2327F4B6000F5499 /* Colors.swift in Sources */,
 				E640E85E1C73A45A00C5F072 /* PasscodeEntryViewController.swift in Sources */,
 				46CA60DC2316CED70010CE6B /* BrowserActions.swift in Sources */,
 				D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */,
@@ -4994,6 +5005,7 @@
 				E418D0D91A251B3200CAE47A /* Profile.swift in Sources */,
 				DDA24A451FD84D630098F159 /* DefaultSearchPrefs.swift in Sources */,
 				F8708D321A0970B70051AB07 /* ShareViewController.swift in Sources */,
+				ACC6EC4D2327F584000F5499 /* Colors.swift in Sources */,
 				EB9407492081353100702E05 /* UXConstants.swift in Sources */,
 				E68F36AD1EA698650048CF44 /* PanelDataObservers.swift in Sources */,
 				28CDA55C1A43C37C005C318C /* NSUserDefaultsPrefs.swift in Sources */,

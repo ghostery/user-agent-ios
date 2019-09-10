@@ -20,7 +20,7 @@ struct UX {
     static let rowInset: CGFloat = 16
     static let pageInfoRowLeftInset = UX.rowInset + 6
     static let pageInfoLineSpacing: CGFloat = 2
-    static let doneLabelBackgroundColor = UIColor.Photon.Blue40
+    static let doneLabelBackgroundColor = UIColor.Blue40
     static let doneLabelFont = UIFont.boldSystemFont(ofSize: 17)
     static let separatorColor = UIColor.Photon.Grey30
     static let baseFont = UIFont.systemFont(ofSize: 15)

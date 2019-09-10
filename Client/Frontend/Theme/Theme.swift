@@ -31,14 +31,14 @@ class TableViewColor {
     var rowBackground: UIColor { return UIColor.Photon.White100 }
     var rowText: UIColor { return UIColor.Photon.Grey90 }
     var rowDetailText: UIColor { return UIColor.Photon.Grey60 }
-    var disabledRowText: UIColor { return UIColor.Photon.Grey40 }
+    var disabledRowText: UIColor { return UIColor.Grey40 }
     var separator: UIColor { return defaultSeparator }
     var headerBackground: UIColor { return defaultBackground }
     // Used for table headers in Settings and Photon menus
     var headerTextLight: UIColor { return UIColor.Photon.Grey50 }
     // Used for table headers in home panel tables
     var headerTextDark: UIColor { return UIColor.Photon.Grey90 }
-    var rowActionAccessory: UIColor { return UIColor.Photon.Blue40 }
+    var rowActionAccessory: UIColor { return UIColor.Blue40 }
     var controlTint: UIColor { return rowActionAccessory }
     var syncText: UIColor { return defaultTextAndTint }
     var errorText: UIColor { return UIColor.Photon.Red50 }
@@ -74,7 +74,7 @@ class URLBarColor {
         }
     }
 
-    var readerModeButtonSelected: UIColor { return UIColor.Photon.Blue40 }
+    var readerModeButtonSelected: UIColor { return UIColor.Blue40 }
     var readerModeButtonUnselected: UIColor { return UIColor.Photon.Grey50 }
     var pageOptionsSelected: UIColor { return readerModeButtonSelected }
     var pageOptionsUnselected: UIColor { return UIColor.theme.browser.tint }
@@ -88,7 +88,7 @@ class BrowserColor {
 
 // The back/forward/refresh/menu button (bottom toolbar)
 class ToolbarButtonColor {
-    var selectedTint: UIColor { return UIColor.Photon.Blue40 }
+    var selectedTint: UIColor { return UIColor.Blue40 }
     var disabledTint: UIColor { return UIColor.Photon.Grey30 }
 }
 
@@ -124,11 +124,11 @@ class TopTabsColor {
     var tabBackgroundSelected: UIColor { return UIColor.Photon.Grey10 }
     var tabBackgroundUnselected: UIColor { return UIColor.Photon.Grey80 }
     var tabForegroundSelected: UIColor { return UIColor.Photon.Grey90 }
-    var tabForegroundUnselected: UIColor { return UIColor.Photon.Grey40 }
+    var tabForegroundUnselected: UIColor { return UIColor.Grey40 }
     func tabSelectedIndicatorBar(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.Photon.Blue40 : UIColor.Photon.Purple60
+        return !isPrivate ? UIColor.Blue40 : UIColor.Photon.Purple60
     }
-    var buttonTint: UIColor { return UIColor.Photon.Grey40 }
+    var buttonTint: UIColor { return UIColor.Grey40 }
     var privateModeButtonOffTint: UIColor { return buttonTint }
     var privateModeButtonOnTint: UIColor { return UIColor.Photon.Grey10 }
     var closeButtonSelectedTab: UIColor { return tabBackgroundUnselected }
@@ -145,7 +145,7 @@ class TextFieldColor {
 
 class HomePanelColor {
     var toolbarBackground: UIColor { return defaultBackground }
-    var toolbarHighlight: UIColor { return UIColor.Photon.Blue40 }
+    var toolbarHighlight: UIColor { return UIColor.Blue40 }
     var toolbarTint: UIColor { return UIColor.Photon.Grey50 }
 
     var panelBackground: UIColor { return UIColor.Photon.White100 }
@@ -158,7 +158,7 @@ class HomePanelColor {
     var bookmarkIconBorder: UIColor { return UIColor.Photon.Grey30 }
     var bookmarkFolderBackground: UIColor { return UIColor.Photon.Grey10.withAlphaComponent(0.3) } 
     var bookmarkFolderText: UIColor { return UIColor.Photon.Grey80 } 
-    var bookmarkCurrentFolderText: UIColor { return UIColor.Photon.Blue40 }
+    var bookmarkCurrentFolderText: UIColor { return UIColor.Blue40 }
     var bookmarkBackNavCellBackground: UIColor { return UIColor.clear }
     
     var siteTableHeaderBorder: UIColor { return UIColor.Photon.Grey30.withAlphaComponent(0.8) }
@@ -173,31 +173,31 @@ class HomePanelColor {
     var activityStreamCellDescription: UIColor { return UIColor.Photon.Grey60 }
 
     var readingListActive: UIColor { return defaultTextAndTint }
-    var readingListDimmed: UIColor { return UIColor.Photon.Grey40 }
+    var readingListDimmed: UIColor { return UIColor.Grey40 }
     
     var downloadedFileIcon: UIColor { return UIColor.Photon.Grey60 }
     
     var historyHeaderIconsBackground: UIColor { return UIColor.Photon.White100 }
 
     var searchSuggestionPillBackground: UIColor { return UIColor.Photon.White100 }
-    var searchSuggestionPillForeground: UIColor { return UIColor.Photon.Blue40 }
+    var searchSuggestionPillForeground: UIColor { return UIColor.Blue40 }
 }
 
 class SnackBarColor {
     var highlight: UIColor { return UIColor.Defaults.iOSTextHighlightBlue.withAlphaComponent(0.9) }
-    var highlightText: UIColor { return UIColor.Photon.Blue40 }
+    var highlightText: UIColor { return UIColor.Blue40 }
     var border: UIColor { return UIColor.Photon.Grey30 }
-    var title: UIColor { return UIColor.Photon.Blue40 }
+    var title: UIColor { return UIColor.Blue40 }
 }
 
 class GeneralColor {
     var faviconBackground: UIColor { return UIColor.clear }
     var passcodeDot: UIColor { return UIColor.Photon.Grey60 }
-    var highlightBlue: UIColor { return UIColor.Photon.Blue40 }
+    var highlightBlue: UIColor { return UIColor.Blue40 }
     var destructiveRed: UIColor { return UIColor.Photon.Red50 }
     var separator: UIColor { return defaultSeparator }
     var settingsTextPlaceholder: UIColor? { return nil }
-    var controlTint: UIColor { return UIColor.Photon.Blue40 }
+    var controlTint: UIColor { return UIColor.Blue40 }
 }
 
 protocol Theme {

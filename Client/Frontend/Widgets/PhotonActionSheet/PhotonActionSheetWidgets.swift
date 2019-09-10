@@ -98,7 +98,7 @@ class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView {
 
     lazy var separatorView: UIView = {
         let separatorLine = UIView()
-        separatorLine.backgroundColor = UIColor.Photon.Grey40
+        separatorLine.backgroundColor = UIColor.Grey40
         return separatorLine
     }()
 
@@ -236,7 +236,7 @@ class PhotonActionSheetSeparator: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         self.backgroundView = UIView()
         self.backgroundView?.backgroundColor = .clear
-        separatorLineView.backgroundColor = UIColor.Photon.Grey40
+        separatorLineView.backgroundColor = UIColor.Grey40
         self.contentView.addSubview(separatorLineView)
         separatorLineView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self)

@@ -13,7 +13,7 @@ fileprivate class DarkTableViewColor: TableViewColor {
     override var rowBackground: UIColor { return UIColor.Photon.Grey70 }
     override var rowText: UIColor { return defaultTextAndTint }
     override var rowDetailText: UIColor { return UIColor.Photon.Grey30 }
-    override var disabledRowText: UIColor { return UIColor.Photon.Grey40 }
+    override var disabledRowText: UIColor { return UIColor.Grey40 }
     override var separator: UIColor { return UIColor.Photon.Grey60 }
     override var headerBackground: UIColor { return UIColor.Photon.Grey80 }
     override var headerTextLight: UIColor { return UIColor.Photon.Grey30 }
@@ -63,7 +63,7 @@ fileprivate class DarkTopTabsColor: TopTabsColor {
     override var tabBackgroundSelected: UIColor { return UIColor.Photon.Grey80 }
     override var tabBackgroundUnselected: UIColor { return UIColor.Photon.Grey80 }
     override var tabForegroundSelected: UIColor { return UIColor.Photon.Grey10 }
-    override var tabForegroundUnselected: UIColor { return UIColor.Photon.Grey40 }
+    override var tabForegroundUnselected: UIColor { return UIColor.Grey40 }
     override var closeButtonSelectedTab: UIColor { return tabForegroundSelected }
     override var closeButtonUnselectedTab: UIColor { return tabForegroundUnselected }
     override var separator: UIColor { return UIColor.Photon.Grey50 }
@@ -79,7 +79,7 @@ fileprivate class DarkTextFieldColor: TextFieldColor {
 
 fileprivate class DarkHomePanelColor: HomePanelColor {
     override var toolbarBackground: UIColor { return defaultBackground }
-    override var toolbarHighlight: UIColor { return UIColor.Photon.Blue40 }
+    override var toolbarHighlight: UIColor { return UIColor.Blue40 }
     override var toolbarTint: UIColor { return UIColor.Photon.Grey30 }
     override var panelBackground: UIColor { return UIColor.Photon.Grey90 }
     override var separator: UIColor { return defaultSeparator }
@@ -107,7 +107,7 @@ fileprivate class DarkHomePanelColor: HomePanelColor {
     override var historyHeaderIconsBackground: UIColor { return UIColor.clear }
 
     override var readingListActive: UIColor { return UIColor.Photon.Grey10 }
-    override var readingListDimmed: UIColor { return UIColor.Photon.Grey40 }
+    override var readingListDimmed: UIColor { return UIColor.Grey40 }
 
     override var searchSuggestionPillBackground: UIColor { return UIColor.Photon.Grey70 }
     override var searchSuggestionPillForeground: UIColor { return defaultTextAndTint }
@@ -120,7 +120,7 @@ fileprivate class DarkSnackBarColor: SnackBarColor {
 fileprivate class DarkGeneralColor: GeneralColor {
     override var settingsTextPlaceholder: UIColor? { return UIColor.black }
     override var faviconBackground: UIColor { return UIColor.Photon.White100 }
-    override var passcodeDot: UIColor { return UIColor.Photon.Grey40 }
+    override var passcodeDot: UIColor { return UIColor.Grey40 }
 }
 
 class DarkTheme: NormalTheme {

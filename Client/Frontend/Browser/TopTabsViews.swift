@@ -103,7 +103,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
     let closeButton: UIButton = {
         let closeButton = UIButton()
         closeButton.setImage(UIImage.templateImageNamed("menu-CloseTabs"), for: [])
-        closeButton.tintColor = UIColor.Photon.Grey40
+        closeButton.tintColor = UIColor.Grey40
         closeButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: TopTabsUX.TabTitlePadding, bottom: 15, right: TopTabsUX.TabTitlePadding)
         closeButton.layer.shadowOpacity = 0.8
         closeButton.layer.masksToBounds = false
