@@ -71,7 +71,7 @@ end
 
 ## Definitions for targets
 
-target 'Cliqz' do
+def main_app
   snapkit
   sdwebimage
   swiftyjson
@@ -82,15 +82,19 @@ target 'Cliqz' do
   gcdwebserver
 end
 
-target 'Ghostery' do
+def share_to
   snapkit
-  sdwebimage
   swiftyjson
   fuzi
-  xclogger
   swiftkeychainwrapper
-  react_native
-  gcdwebserver
+end
+
+target 'Cliqz' do
+  main_app
+end
+
+target 'Ghostery' do
+  main_app
 end
 
 target 'Storage' do
@@ -107,17 +111,11 @@ target 'StorageTests' do
 end
 
 target 'CliqzShareTo' do
-  snapkit
-  swiftyjson
-  fuzi
-  swiftkeychainwrapper
+  share_to
 end
 
 target 'GhosteryShareTo' do
-  snapkit
-  swiftyjson
-  fuzi
-  swiftkeychainwrapper
+  share_to
 end
 
 target 'ClientTests' do
