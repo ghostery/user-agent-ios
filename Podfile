@@ -37,6 +37,12 @@ def shared
   pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
 end
 
+def share_to
+  pod 'SnapKit', '~> 5.0.0', :modular_headers => true
+  pod 'SwiftyJSON', '~> 5.0'
+  pod 'Fuzi', '~> 3.0', :modular_headers => true
+end
+
 target 'Cliqz' do
   shared
   react_native
@@ -57,10 +63,12 @@ target 'StorageTests' do
   pod 'SwiftyJSON', '~> 5.0'
 end
 
-target 'ShareTo' do
-  pod 'SnapKit', '~> 5.0.0', :modular_headers => true
-  pod 'SwiftyJSON', '~> 5.0'
-  pod 'Fuzi', '~> 3.0', :modular_headers => true
+target 'CliqzShareTo' do
+  share_to
+end
+
+target 'GhosteryShareTo' do
+  share_to
 end
 
 target 'ClientTests' do
