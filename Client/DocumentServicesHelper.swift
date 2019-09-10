@@ -43,30 +43,3 @@ struct DerivedMetadata: Codable {
         return DerivedMetadata(language: dict["language"] as? String)
     }
 }
-
-class DocumentServicesHelper: TabEventHandler {
-    private lazy var singleThreadedQueue: OperationQueue = {
-        var queue = OperationQueue()
-        queue.name = "Document Services queue"
-        queue.maxConcurrentOperationCount = 1
-        queue.qualityOfService = .userInitiated
-        return queue
-    }()
-
-    init() {
-        register(self, forTabEvents: .didLoadPageMetadata)
-    }
-
-    func tab(_ tab: Tab, didLoadPageMetadata metadata: PageMetadata) {
-        singleThreadedQueue.addOperation {
-            // New analyzers go here. We map through each one and reduce into one dictionary
-            let analyzers = [LanguageDetector()]
-            let dict = analyzers.map({ [$0.name: $0.analyse(metadata: metadata)] }).compactMap({$0}).reduce([:]) { $0.merging($1) { (current, _) in current } }
-
-            guard let derivedMetadata = DerivedMetadata.from(dict: dict) else { return }
-            DispatchQueue.main.async {
-                TabEvent.post(.didDeriveMetadata(derivedMetadata), for: tab)
-            }
-        }
-    }
-}

@@ -603,10 +603,6 @@ extension Strings {
 
 // translation bar
 extension Strings {
-    public static let TranslateSnackBarPrompt = NSLocalizedString("TranslationToastHandler.PromptTranslate.Title", comment: "Prompt for translation. The first parameter is the language the page is in. The second parameter is the name of our local language. The third is the name of the service.")
-    public static let TranslateSnackBarYes = NSLocalizedString("TranslationToastHandler.PromptTranslate.OK", comment: "Button to allow the page to be translated to the user locale language")
-    public static let TranslateSnackBarNo = NSLocalizedString("TranslationToastHandler.PromptTranslate.Cancel", comment: "Button to disallow the page to be translated to the user locale language")
-
     public static let SettingTranslateSnackBarSectionHeader = NSLocalizedString("Settings.TranslateSnackBar.SectionHeader", comment: "Translation settings section title")
     public static let SettingTranslateSnackBarSectionFooter = NSLocalizedString("Settings.TranslateSnackBar.SectionFooter", comment: "Translation settings footer describing how language detection and translation happens.")
     public static let SettingTranslateSnackBarTitle = NSLocalizedString("Settings.TranslateSnackBar.Title", comment: "Title in main app settings for Translation toast settings")
