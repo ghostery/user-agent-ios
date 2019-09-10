@@ -69,6 +69,7 @@ PODS:
     - Sentry/Core (= 4.3.1)
   - Sentry/Core (4.3.1)
   - SnapKit (5.0.1)
+  - SwiftKeychainWrapper (3.4.0)
   - SwiftLint (0.34.0)
   - SwiftyJSON (5.0.0)
   - XCGLogger (7.0.0):
@@ -94,6 +95,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
   - SnapKit (~> 5.0.0)
+  - SwiftKeychainWrapper (~> 3.2)
   - SwiftLint
   - SwiftyJSON (~> 5.0)
   - XCGLogger (~> 7.0.0)
@@ -109,6 +111,7 @@ SPEC REPOS:
     - ObjcExceptionBridging
     - SDWebImage
     - SnapKit
+    - SwiftKeychainWrapper
     - SwiftLint
     - SwiftyJSON
     - XCGLogger
@@ -147,11 +150,12 @@ SPEC CHECKSUMS:
   SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
   yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
 
-PODFILE CHECKSUM: 9e18fb6c8572d1e63f8d1c8eb17bf10060b7eec4
+PODFILE CHECKSUM: a6590eae38de78d0ab7c69693fa69ab0f528927c
 
 COCOAPODS: 1.7.5
