@@ -47,10 +47,13 @@ platform :ios do
       xcodeproj: "Client.xcodeproj"
     )
 
-    update_app_identifier(
+    update_info_plist(
       xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
       plist_path: "./Client/Cliqz-Info.plist",
-      app_identifier: "com.cliqz.browser.nightly" # The App Identifier
+      app_identifier: "com.cliqz.browser.nightly", # The App Identifier
+      block: proc do |plist|
+        plist["SentryDSN"] = ENV["SENTRY_DSN"]
+      end
     )
 
     update_app_identifier(
@@ -117,10 +120,10 @@ platform :ios do
       app_identifier: "com.cliqz.browser.nightly",
     )
 
-    # sentry_upload_dsym(
-    #   auth_token: ENV["SENTRY_AUTH_TOKEN"],
-    #   org_slug: 'cliqz',
-    #   project_slug: 'cliqz-ios',
-    # )
+    sentry_upload_dsym(
+      auth_token: ENV["SENTRY_AUTH_TOKEN"],
+      org_slug: 'cliqz',
+      project_slug: 'cliqznighly-ios',
+    )
   end
 end
