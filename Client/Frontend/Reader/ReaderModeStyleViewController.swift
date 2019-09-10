@@ -262,11 +262,11 @@ class FontTypeButton: UIButton {
         switch fontType {
         case .sansSerif:
             setTitle(NSLocalizedString("Sans-serif", comment: "Font type setting in the reading view settings"), for: [])
-            let f = UIFont(name: "FiraSans-Book", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
+            let f = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
             titleLabel?.font = f
         case .serif:
             setTitle(NSLocalizedString("Serif", comment: "Font type setting in the reading view settings"), for: [])
-            let f = UIFont(name: "Charis SIL", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
+            let f = UIFont(name: "Georgia", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
             titleLabel?.font = f
         }
     }
@@ -306,7 +306,7 @@ class FontSizeButton: UIButton {
         }
 
         // TODO Does this need to change with the selected font type? Not sure if makes sense for just +/-
-        titleLabel?.font = UIFont(name: "FiraSans-Light", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
+        titleLabel?.font = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
     }
 }
 
@@ -329,9 +329,9 @@ class FontSizeLabel: UILabel {
         didSet {
             switch fontType {
             case .sansSerif:
-                font = UIFont(name: "FiraSans-Book", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
+                font = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
             case .serif:
-                font = UIFont(name: "Charis SIL", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
+                font = UIFont(name: "Georgia", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
             }
         }
     }
@@ -370,9 +370,9 @@ class ThemeButton: UIButton {
         didSet {
             switch fontType {
             case .sansSerif:
-                titleLabel?.font = UIFont(name: "FiraSans-Book", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
+                titleLabel?.font = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
             case .serif:
-                titleLabel?.font = UIFont(name: "Charis SIL", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
+                titleLabel?.font = UIFont(name: "Georgia", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
             }
         }
     }
