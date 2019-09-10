@@ -106,7 +106,14 @@ target 'StorageTests' do
   swiftyjson
 end
 
-target 'ShareTo' do
+target 'CliqzShareTo' do
+  snapkit
+  swiftyjson
+  fuzi
+  swiftkeychainwrapper
+end
+
+target 'GhosteryShareTo' do
   snapkit
   swiftyjson
   fuzi
