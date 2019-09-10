@@ -1,5 +1,13 @@
 <!--- Provide a general summary of your changes in the Title above -->
 
+## Ticket
+<!--- 
+Add a reference to the ticket this PR relates to, if any. 
+You can write 'Fixes #100' to auto close ticket #100 on merge.
+Or write 'Re #100' to reference ticket #100 without changing its status.
+-->
+
+
 ## Description
 <!--- Describe your changes in detail -->
 
