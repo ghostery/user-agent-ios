@@ -4,8 +4,48 @@ project './Client.xcodeproj'
 workspace 'UserAgent'
 
 inhibit_all_warnings!
-
 use_frameworks!
+
+## How to use this file
+# We first create methods for each pod, so we can use the exact same configuration for each installation of a pod.
+# Then the individual targets are just lists of method calls (see bottom of the file).
+
+## Definition for individual pods, or groups of pods
+def swiftkeychainwrapper
+  pod 'SwiftKeychainWrapper', '~> 3.2', :modular_headers => true
+end
+
+def xclogger
+  pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
+end
+
+def fuzi
+  pod 'Fuzi', '~> 3.0', :modular_headers => true
+end
+
+def swiftyjson
+  pod 'SwiftyJSON', '~> 5.0'
+end
+
+def snapkit
+  pod 'SnapKit', '~> 5.0.0', :modular_headers => true
+end
+
+def sdwebimage
+  pod 'SDWebImage', '~> 5.0', :modular_headers => true
+end
+
+def gcdwebserver
+  pod 'GCDWebServer', '~> 3.3'
+end
+
+def sentry
+  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
+end
+
+def swiftlint
+  pod 'SwiftLint'
+end
 
 def react_native
   react_path = './node_modules/react-native'
@@ -29,54 +69,62 @@ def react_native
   pod 'RNFS', :path => './node_modules/react-native-fs'
 end
 
-def shared
-  pod 'SnapKit', '~> 5.0.0', :modular_headers => true
-  pod 'SDWebImage', '~> 5.0', :modular_headers => true
-  pod 'SwiftyJSON', '~> 5.0'
-  pod 'Fuzi', '~> 3.0', :modular_headers => true
-  pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
-  pod 'SwiftKeychainWrapper', '~> 3.2', :modular_headers => true
-end
+## Definitions for targets
 
 target 'Cliqz' do
-  shared
+  snapkit
+  sdwebimage
+  swiftyjson
+  fuzi
+  xclogger
+  swiftkeychainwrapper
   react_native
-  pod 'GCDWebServer', '~> 3.3'
+  gcdwebserver
 end
 
 target 'Ghostery' do
-  shared
+  snapkit
+  sdwebimage
+  swiftyjson
+  fuzi
+  xclogger
+  swiftkeychainwrapper
   react_native
-  pod 'GCDWebServer', '~> 3.3'
+  gcdwebserver
 end
 
 target 'Storage' do
-  shared
+  snapkit
+  sdwebimage
+  swiftyjson
+  fuzi
+  xclogger
+  swiftkeychainwrapper
 end
 
 target 'StorageTests' do
-  pod 'SwiftyJSON', '~> 5.0'
+  swiftyjson
 end
 
 target 'ShareTo' do
-  pod 'SnapKit', '~> 5.0.0', :modular_headers => true
-  pod 'SwiftyJSON', '~> 5.0'
-  pod 'Fuzi', '~> 3.0', :modular_headers => true
-  pod 'SwiftKeychainWrapper', '~> 3.2', :modular_headers => true
+  snapkit
+  swiftyjson
+  fuzi
+  swiftkeychainwrapper
 end
 
 target 'ClientTests' do
-  pod 'SnapKit', '~> 5.0.0', :modular_headers => true
-  pod 'SDWebImage', '~> 5.0', :modular_headers => true
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
-  pod 'GCDWebServer', '~> 3.3'
+  snapkit
+  sdwebimage
+  sentry
+  gcdwebserver
 end
 
 target 'Shared' do
-  pod 'SDWebImage', '~> 5.0', :modular_headers => true
-  pod 'SwiftyJSON', '~> 5.0'
-  pod 'Sentry', :git => 'https://github.com/getsentry/sentry-cocoa.git', :tag => '4.3.1'
-  pod 'SwiftLint'
-  pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
-  pod 'SwiftKeychainWrapper', '~> 3.2', :modular_headers => true
+  sdwebimage
+  swiftyjson
+  sentry
+  swiftlint
+  xclogger
+  swiftkeychainwrapper
 end
