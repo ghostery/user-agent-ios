@@ -8,7 +8,7 @@ import SnapKit
 
 struct DownloadToastUX {
     static let ToastBackgroundColor = UIColor.Blue40
-    static let ToastProgressColor = UIColor.Photon.Blue50
+    static let ToastProgressColor = UIColor.Blue50
 }
 
 class DownloadToast: Toast {
@@ -115,7 +115,7 @@ class DownloadToast: Toast {
         horizontalStackView.spacing = ButtonToastUX.ToastPadding
 
         let icon = UIImageView(image: UIImage.templateImageNamed("download"))
-        icon.tintColor = UIColor.Photon.White100
+        icon.tintColor = UIColor.White
         horizontalStackView.addArrangedSubview(icon)
 
         let labelStackView = UIStackView()
@@ -123,7 +123,7 @@ class DownloadToast: Toast {
         labelStackView.alignment = .leading
 
         let label = UILabel()
-        label.textColor = UIColor.Photon.White100
+        label.textColor = UIColor.White
         label.font = ButtonToastUX.ToastLabelFont
         label.text = labelText
         label.lineBreakMode = .byWordWrapping
@@ -131,7 +131,7 @@ class DownloadToast: Toast {
         label.adjustsFontSizeToFitWidth = true
         labelStackView.addArrangedSubview(label)
 
-        descriptionLabel.textColor = UIColor.Photon.White100
+        descriptionLabel.textColor = UIColor.White
         descriptionLabel.font = ButtonToastUX.ToastDescriptionFont
         descriptionLabel.text = descriptionText
         descriptionLabel.lineBreakMode = .byTruncatingTail
@@ -140,7 +140,7 @@ class DownloadToast: Toast {
         horizontalStackView.addArrangedSubview(labelStackView)
 
         let cancel = UIImageView(image: UIImage.templateImageNamed("close-medium"))
-        cancel.tintColor = UIColor.Photon.White100
+        cancel.tintColor = UIColor.White
         cancel.isUserInteractionEnabled = true
         cancel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(buttonPressed)))
         horizontalStackView.addArrangedSubview(cancel)

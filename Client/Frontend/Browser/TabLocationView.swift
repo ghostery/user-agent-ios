@@ -24,7 +24,7 @@ protocol TabLocationViewDelegate {
 
 private struct TabLocationViewUX {
     static let HostFontColor = UIColor.black
-    static let BaseURLFontColor = UIColor.Photon.Grey50
+    static let BaseURLFontColor = UIColor.Grey50
     static let Spacing: CGFloat = 8
     static let StatusIconSize: CGFloat = 18
     static let TPIconSize: CGFloat = 24
@@ -86,7 +86,7 @@ class TabLocationView: UIView {
 
     lazy var placeholder: NSAttributedString = {
         let placeholderText = NSLocalizedString("Search or enter address", comment: "The text shown in the URL bar on about:home")
-        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Photon.Grey50])
+        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Grey50])
     }()
 
     lazy var urlTextField: UITextField = {

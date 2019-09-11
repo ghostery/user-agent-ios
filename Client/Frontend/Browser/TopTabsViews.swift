@@ -114,7 +114,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
 
     let highlightLine: UIView = {
         let line = UIView()
-        line.backgroundColor = UIColor.Photon.Blue60
+        line.backgroundColor = UIColor.Blue60
         line.isHidden = true
         line.semanticContentAttribute = .forceLeftToRight
         return line
@@ -230,7 +230,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
 
 class TopTabFader: UIView {
     lazy var hMaskLayer: CAGradientLayer = {
-        let innerColor: CGColor = UIColor.Photon.White100.cgColor
+        let innerColor: CGColor = UIColor.White.cgColor
         let outerColor: CGColor = UIColor(white: 1, alpha: 0.0).cgColor
         let hMaskLayer = CAGradientLayer()
         hMaskLayer.colors = [outerColor, innerColor, innerColor, outerColor]

@@ -290,7 +290,7 @@ class BrowserViewController: UIViewController {
         coordinator.animate(alongsideTransition: { context in
             self.scrollController.showToolbars(animated: false)
             if self.isViewLoaded {
-                self.statusBarOverlay.backgroundColor = self.shouldShowTopTabsForTraitCollection(self.traitCollection) ? UIColor.Photon.Grey80 : self.urlBar.backgroundColor
+                self.statusBarOverlay.backgroundColor = self.shouldShowTopTabsForTraitCollection(self.traitCollection) ? UIColor.Grey80 : self.urlBar.backgroundColor
                 self.setNeedsStatusBarAppearanceUpdate()
             }
             }, completion: nil)
@@ -361,7 +361,7 @@ class BrowserViewController: UIViewController {
         KeyboardHelper.defaultHelper.addDelegate(self)
 
         webViewContainerBackdrop = UIView()
-        webViewContainerBackdrop.backgroundColor = UIColor.Photon.Grey50
+        webViewContainerBackdrop.backgroundColor = UIColor.Grey50
         webViewContainerBackdrop.alpha = 0
         view.addSubview(webViewContainerBackdrop)
 
@@ -2165,7 +2165,7 @@ extension BrowserViewController {
         let domain = webView.url?.domainURL.host
         let matches = self.profile.searchEngines.orderedEngines.filter {$0.shortName == domain}
         if !matches.isEmpty {
-            self.customSearchEngineButton.tintColor = UIColor.Photon.Grey50
+            self.customSearchEngineButton.tintColor = UIColor.Grey50
             self.customSearchEngineButton.isUserInteractionEnabled = false
         } else {
             self.customSearchEngineButton.tintColor = UIConstants.SystemBlueColor
@@ -2230,7 +2230,7 @@ extension BrowserViewController {
                 return
             }
             self.addSearchEngine(searchQuery, favicon: favicon)
-            self.customSearchEngineButton.tintColor = UIColor.Photon.Grey50
+            self.customSearchEngineButton.tintColor = UIColor.Grey50
             self.customSearchEngineButton.isUserInteractionEnabled = false
         }
     }
@@ -2246,7 +2246,7 @@ extension BrowserViewController {
         }
 
         let alert = ThirdPartySearchAlerts.addThirdPartySearchEngine { alert in
-            self.customSearchEngineButton.tintColor = UIColor.Photon.Grey50
+            self.customSearchEngineButton.tintColor = UIColor.Grey50
             self.customSearchEngineButton.isUserInteractionEnabled = false
             SDWebImageManager.shared.loadImage(with: iconURL, options: .continueInBackground, progress: nil) { (image, _, _, _, _, _) in
                 guard let image = image else {
@@ -2353,7 +2353,7 @@ extension BrowserViewController: Themeable {
         guard self.isViewLoaded else { return }
         let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, homeViewController, searchController, libraryViewController, libraryDrawerViewController]
         ui.forEach { $0?.applyTheme() }
-        statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Photon.Grey80 : urlBar.backgroundColor
+        statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Grey80 : urlBar.backgroundColor
         setNeedsStatusBarAppearanceUpdate()
 
         (presentedViewController as? Themeable)?.applyTheme()

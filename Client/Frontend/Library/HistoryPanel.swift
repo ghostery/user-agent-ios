@@ -11,7 +11,7 @@ import WebKit
 private struct HistoryPanelUX {
     static let WelcomeScreenItemWidth = 170
     static let IconSize = 23
-    static let IconBorderColor = UIColor.Photon.Grey30
+    static let IconBorderColor = UIColor.Grey30
     static let IconBorderWidth: CGFloat = 0.5
     static let actionIconColor = UIColor.Grey40 // Works for light and dark theme.
 }

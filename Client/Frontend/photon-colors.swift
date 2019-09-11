@@ -23,12 +23,6 @@ extension UIColor {
         static let Purple80 = UIColor(rgb: 0x440071)
         static let Purple90 = UIColor(rgb: 0x25003e)
 
-        static let Blue50 = UIColor(rgb: 0x0a84ff)
-        static let Blue60 = UIColor(rgb: 0x0060df)
-        static let Blue70 = UIColor(rgb: 0x003eaa)
-        static let Blue80 = UIColor(rgb: 0x002275)
-        static let Blue90 = UIColor(rgb: 0x000f40)
-
         static let Teal50 = UIColor(rgb: 0x00feff)
         static let Teal60 = UIColor(rgb: 0x00c8d7)
         static let Teal70 = UIColor(rgb: 0x008ea4)
@@ -59,26 +53,12 @@ extension UIColor {
         static let Orange80 = UIColor(rgb: 0x712b00)
         static let Orange90 = UIColor(rgb: 0x3e1300)
 
-        static let Grey10 = UIColor(rgb: 0xf9f9fa)
-        static let Grey20 = UIColor(rgb: 0xededf0)
-        static let Grey25 = UIColor(rgb: 0xe3e3e6)
-        static let Grey30 = UIColor(rgb: 0xd7d7db)
-
-        static let Grey50 = UIColor(rgb: 0x737373)
-        static let Grey60 = UIColor(rgb: 0x4a4a4f)
-        static let Grey70 = UIColor(rgb: 0x38383d)
-        static let Grey80 = UIColor(rgb: 0x2a2a2e)
-        static let Grey90 = UIColor(rgb: 0x0c0c0d)
-
         static let Ink40 = UIColor(rgb: 0x7175A8)
         static let Ink50 = UIColor(rgb: 0x595E91)
         static let Ink60 = UIColor(rgb: 0x464B76)
         static let Ink70 = UIColor(rgb: 0x363959)
         static let Ink80 = UIColor(rgb: 0x202340)
         static let Ink90 = UIColor(rgb: 0x0f1126)
-
-        static let White100 = UIColor(rgb: 0xffffff)
-
     }
 
     struct Pocket {

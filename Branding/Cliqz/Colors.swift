@@ -31,5 +31,17 @@ extension UIColor {
 
 extension UIColor {
     static let Blue40 = CliqzBlue * 0.4 + White * 0.6
+    static let Blue50 = CliqzBlue * 0.5 + White * 0.5
+    static let Blue60 = CliqzBlue * 0.6 + White * 0.4
+
+    static let Grey10 = DarkRain * 0.1 + White * 0.9
+    static let Grey20 = DarkRain * 0.2 + White * 0.2
+    static let Grey25 = DarkRain * 0.25 + White * 0.75
+    static let Grey30 = DarkRain * 0.3 + White * 0.7
     static let Grey40 = DarkRain * 0.4 + White * 0.6
+    static let Grey50 = DarkRain * 0.5 + White * 0.5
+    static let Grey60 = DarkRain * 0.6 + White * 0.4
+    static let Grey70 = DarkRain * 0.7 + White * 0.3
+    static let Grey80 = DarkRain * 0.8 + White * 0.2
+    static let Grey90 = DarkRain * 0.9 + White * 0.1
 }

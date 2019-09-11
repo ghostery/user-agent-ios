@@ -160,7 +160,7 @@ open class TabToolbarHelper: NSObject {
 class ToolbarButton: UIButton {
     var selectedTintColor: UIColor!
     var unselectedTintColor: UIColor!
-    var disabledTintColor = UIColor.Photon.Grey50
+    var disabledTintColor = UIColor.Grey50
 
     override init(frame: CGRect) {
         super.init(frame: frame)

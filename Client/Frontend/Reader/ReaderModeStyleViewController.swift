@@ -12,25 +12,25 @@ private struct ReaderModeStyleViewControllerUX {
     static let Width = 270
     static let Height = 4 * RowHeight
 
-    static let FontTypeRowBackground = UIColor.Photon.Grey10
+    static let FontTypeRowBackground = UIColor.Grey10
 
-    static let FontTypeTitleSelectedColor = UIColor.Photon.Grey70
+    static let FontTypeTitleSelectedColor = UIColor.Grey70
     static let FontTypeTitleNormalColor = UIColor.Grey40
 
-    static let FontSizeRowBackground = UIColor.Photon.Grey20
-    static let FontSizeLabelColor = UIColor.Photon.Grey70
-    static let FontSizeButtonTextColorEnabled = UIColor.Photon.Grey70
+    static let FontSizeRowBackground = UIColor.Grey20
+    static let FontSizeLabelColor = UIColor.Grey70
+    static let FontSizeButtonTextColorEnabled = UIColor.Grey70
     static let FontSizeButtonTextColorDisabled = UIColor.Grey40
 
-    static let ThemeRowBackgroundColor = UIColor.Photon.White100
-    static let ThemeTitleColorLight = UIColor.Photon.Grey70
-    static let ThemeTitleColorDark = UIColor.Photon.White100
-    static let ThemeTitleColorSepia = UIColor.Photon.Grey70
-    static let ThemeBackgroundColorLight = UIColor.Photon.White100
-    static let ThemeBackgroundColorDark = UIColor.Photon.Grey70
+    static let ThemeRowBackgroundColor = UIColor.White
+    static let ThemeTitleColorLight = UIColor.Grey70
+    static let ThemeTitleColorDark = UIColor.White
+    static let ThemeTitleColorSepia = UIColor.Grey70
+    static let ThemeBackgroundColorLight = UIColor.White
+    static let ThemeBackgroundColorDark = UIColor.Grey70
     static let ThemeBackgroundColorSepia = UIColor.Defaults.LightBeige
 
-    static let BrightnessRowBackground = UIColor.Photon.Grey20
+    static let BrightnessRowBackground = UIColor.Grey20
     static let BrightnessSliderTintColor = UIColor.Photon.Orange60
     static let BrightnessSliderWidth = 140
     static let BrightnessIconOffset = 10

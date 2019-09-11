@@ -24,11 +24,11 @@ private struct ReadingListTableViewCellUX {
 
     static let HostnameLabelBottomOffset: CGFloat = 11
 
-    static let DeleteButtonTitleColor = UIColor.Photon.White100
+    static let DeleteButtonTitleColor = UIColor.White
     static let DeleteButtonTitleEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
 
-    static let MarkAsReadButtonBackgroundColor = UIColor.Photon.Blue50
-    static let MarkAsReadButtonTitleColor = UIColor.Photon.White100
+    static let MarkAsReadButtonBackgroundColor = UIColor.Blue50
+    static let MarkAsReadButtonTitleColor = UIColor.White
     static let MarkAsReadButtonTitleEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
 
     // Localizable strings

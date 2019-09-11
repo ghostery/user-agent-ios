@@ -90,7 +90,7 @@ class PhotonActionSheetCell: UITableViewCell {
         func setOn(_ on: Bool) {
             foreground.image = on ? UIImage(named: "menu-customswitch-on") : UIImage(named: "menu-customswitch-off")
             mainView.accessibilityIdentifier = on ? "enabled" : "disabled"
-            mainView.tintColor = on ? UIColor.theme.general.controlTint : UIColor.Photon.Grey90.with(alpha: .fortyPercent)
+            mainView.tintColor = on ? UIColor.theme.general.controlTint : UIColor.Grey90.with(alpha: .fortyPercent)
         }
     }
 
