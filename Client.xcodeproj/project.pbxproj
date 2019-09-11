@@ -537,6 +537,10 @@
 		ACC6EC4D2327F584000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
 		ACC6EC502327F9FC000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
 		ACC6EC512327FA0B000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
+		ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
+		ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
+		ACC6EC5623290C1A000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
+		ACC6EC5723290C1A000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		C2EDC31C6828A137B57F370B /* Pods_SharedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
@@ -1337,6 +1341,7 @@
 		ACB7398B230684AE00FA5626 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		ACC6EC492327F4B6000F5499 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		ACC6EC4F2327F9FC000F5499 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		ACC6EC5223290974000F5499 /* UIColor+Blending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Blending.swift"; sourceTree = "<group>"; };
 		B7467EC9C781BBCEB81EC866 /* Pods_Cliqz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cliqz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78340F0A41C2ACA24F3D0B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		B91C4EA79AB83A663B9767D3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearPrivateData.strings; sourceTree = "<group>"; };
@@ -2666,6 +2671,7 @@
 				7B3D9E641E4CBFDB007A50DA /* NSCoderExtensions.swift */,
 				E693F0D81E9D64BD0086DC17 /* OptionalExtensions.swift */,
 				D0543529226687A400FDE4EF /* UIBarButtonItemExtensions.swift */,
+				ACC6EC5223290974000F5499 /* UIColor+Blending.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -4461,6 +4467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				464F67662326AFB70090D0B5 /* Punycode.swift in Sources */,
+				ACC6EC5723290C1A000F5499 /* UIColor+Blending.swift in Sources */,
 				464F67672326AFB70090D0B5 /* SearchEngines.swift in Sources */,
 				464F67682326AFB70090D0B5 /* URIFixup.swift in Sources */,
 				464F67692326AFB70090D0B5 /* photon-colors.swift in Sources */,
@@ -4689,6 +4696,7 @@
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
 				ACB737E723042BAB00FA5626 /* FSReadingList.m in Sources */,
 				ACB737E823042BAB00FA5626 /* CustomSearchHandler.swift in Sources */,
+				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				ACB737E923042BAB00FA5626 /* AuthenticationSettingsViewController.swift in Sources */,
 				ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */,
 				ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */,
@@ -4936,6 +4944,7 @@
 				D04D1B862097859B0074B35F /* DownloadToast.swift in Sources */,
 				7B844E3D1BBDDB9D00E733A2 /* ChevronView.swift in Sources */,
 				E4C358551AF144BA00299F7E /* FSReadingList.m in Sources */,
+				ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				3BE7275D1CCFE8B60099189F /* CustomSearchHandler.swift in Sources */,
 				E692E3291C46E62D009D1240 /* AuthenticationSettingsViewController.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
@@ -4997,6 +5006,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6B2AC41D41F02D00429414 /* Punycode.swift in Sources */,
+				ACC6EC5623290C1A000F5499 /* UIColor+Blending.swift in Sources */,
 				D38B2D8A1A8D98D00040E6B5 /* SearchEngines.swift in Sources */,
 				D3C744CF1A687D6C004CE85D /* URIFixup.swift in Sources */,
 				EB94075320850C9F00702E05 /* photon-colors.swift in Sources */,
