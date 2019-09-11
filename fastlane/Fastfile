@@ -58,7 +58,7 @@ platform :ios do
 
     update_app_identifier(
       xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Extensions/ShareTo/Cliqz-IInfo.plist",
+      plist_path: "./Extensions/ShareTo/Cliqz-Info.plist",
       app_identifier: "com.cliqz.browser.nightly.ShareTo" # The App Identifier
     )
 
