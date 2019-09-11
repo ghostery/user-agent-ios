@@ -13,7 +13,7 @@ import XCGLogger
 import SwiftKeychainWrapper
 
 // Import these dependencies ONLY for the main `Client` application target.
-#if MOZ_TARGET_CLIENT
+#if APP_TARGET_CLIENT
     import SwiftyJSON
 #endif
 
@@ -59,10 +59,7 @@ protocol Profile: AnyObject {
     var certStore: CertStore { get }
     var recentlyClosedTabs: ClosedTabsStore { get }
     var panelDataObservers: PanelDataObservers { get }
-
-    #if !MOZ_TARGET_NOTIFICATIONSERVICE
-        var readingList: ReadingList { get }
-    #endif
+    var readingList: ReadingList { get }
 
     var isShutdown: Bool { get }
 

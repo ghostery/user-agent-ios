@@ -20,19 +20,15 @@ public extension UIImageView {
             completion?(color, url)
         }
 
-        if let url = url, let defaultIcon = FaviconFetcher.getDefaultIconForURL(url: url) {
-            finish(filePath: defaultIcon.url, bgColor: defaultIcon.color)
-        } else {
-            let imageURL = URL(string: icon?.url ?? "")
-            let defaults = defaultFavicon(url)
-            self.sd_setImage(with: imageURL, placeholderImage: defaults.image, options: []) {(img, err, _, _) in
-                guard let image = img, let dUrl = url, err == nil else {
-                    finish(filePath: nil, bgColor: defaults.color)
-                    return
-                }
-                self.color(forImage: image, andURL: dUrl) { color in
-                    finish(filePath: nil, bgColor: color)
-                }
+        let imageURL = URL(string: icon?.url ?? "")
+        let defaults = defaultFavicon(url)
+        self.sd_setImage(with: imageURL, placeholderImage: defaults.image, options: []) {(img, err, _, _) in
+            guard let image = img, let dUrl = url, err == nil else {
+                finish(filePath: nil, bgColor: defaults.color)
+                return
+            }
+            self.color(forImage: image, andURL: dUrl) { color in
+                finish(filePath: nil, bgColor: color)
             }
         }
     }
@@ -64,11 +60,7 @@ public extension UIImageView {
     }
 
     private func defaultFavicon(_ url: URL?) -> (image: UIImage, color: UIColor) {
-        if let url = url {
-            return (FaviconFetcher.getDefaultFavicon(url), FaviconFetcher.getDefaultColor(url))
-        } else {
-            return (FaviconFetcher.defaultFavicon, .white)
-        }
+        return (FaviconFetcher.defaultFavicon, .white)
     }
 }
 

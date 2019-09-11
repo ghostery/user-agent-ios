@@ -47,14 +47,4 @@ class TestFavicons: ProfileTest {
         }
         self.waitForExpectations(timeout: 3000, handler: nil)
     }
-
-    func testDefaultFavicons() {
-        let icon = FaviconFetcher.getDefaultIconForURL(url: URL(string: "http://www.google.de")!)
-        XCTAssertNotNil(icon)
-        let gmailIcon = FaviconFetcher.getDefaultIconForURL(url: URL(string: "http://mail.google.com")!)
-        XCTAssertNotNil(gmailIcon)
-        let siteIcon = FaviconFetcher.getDefaultIconForURL(url: URL(string: "http://airbnb.com")!)
-        XCTAssertNotNil(siteIcon)
-
-    }
 }

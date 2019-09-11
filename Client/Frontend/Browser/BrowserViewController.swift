@@ -564,16 +564,6 @@ class BrowserViewController: UIViewController {
 
         super.viewDidAppear(animated)
 
-        if shouldShowWhatsNewTab() {
-            // Only display if the SUMO topic has been configured in the Info.plist (present and not empty)
-            if let whatsNewTopic = AppInfo.whatsNewTopic, !whatsNewTopic.isEmpty {
-                if let whatsNewURL = SupportUtils.URLForTopic(whatsNewTopic) {
-                    self.openURLInNewTab(whatsNewURL, isPrivileged: false)
-                    profile.prefs.setString(AppInfo.appVersion, forKey: LatestAppVersionProfileKey)
-                }
-            }
-        }
-
         if let toast = self.pendingToast {
             self.pendingToast = nil
             show(toast: toast, afterWaiting: ButtonToastUX.ToastDelay)
@@ -2420,13 +2410,6 @@ extension BrowserViewController: DevicePickerViewControllerDelegate, Instruction
 // MARK: - reopen last closed tab
 
 extension BrowserViewController {
-
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if AppConstants.MOZ_SHAKE_TO_RESTORE {
-                homePanelDidRequestToRestoreClosedTab(motion)
-        }
-    }
-
     func homePanelDidRequestToRestoreClosedTab(_ motion: UIEvent.EventSubtype) {
         guard motion == .motionShake, !topTabsVisible, !urlBar.inOverlayMode,
             let lastClosedURL = profile.recentlyClosedTabs.tabs.first?.url,

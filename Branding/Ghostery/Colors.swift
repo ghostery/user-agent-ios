@@ -10,23 +10,23 @@ import UIKit
 
 extension UIColor {
     // Primary Colors
-    static let CliqzBlue = UIColor(rgb: 0x00AEF0)
-    static let CliqzBlack = UIColor(rgb: 0x1A1A25)
-    static let White = UIColor(rgb: 0xFFFFFF)
+    static let CliqzBlue = UIColor(named: "CliqzBlue")!
+    static let CliqzBlack = UIColor(named: "CliqzBlack")!
+    static let White = UIColor(named: "White")!
 
     // Secondary Colors
-    static let DarkRain = UIColor(rgb: 0x607c85)
-    static let CloudySky = UIColor(rgb: 0xBFCBD6)
-    static let LightSky = UIColor(rgb: 0xE7ECEE)
-    static let BrightBlue = UIColor(rgb: 0x0078CA)
-    static let DarkBlue = UIColor(rgb: 0x2B5993)
+    static let DarkRain = UIColor(named: "DarkRain")!
+    static let CloudySky = UIColor(named: "CloudySky")!
+    static let LightSky = UIColor(named: "LightSky")!
+    static let BrightBlue = UIColor(named: "BrightBlue")!
+    static let DarkBlue = UIColor(named: "DarkBlue")!
 
     // Functional Colors
-    static let Purple = UIColor(rgb: 0x930194)
-    static let LightGreen = UIColor(rgb: 0x9ECC42)
-    static let DarkGreen = UIColor(rgb: 0x67A73A)
-    static let BrightRed = UIColor(rgb: 0xFF7E74)
-    static let NeutralGrey = UIColor(rgb: 0x97A4AE)
+    static let Purple = UIColor(named: "Purple")!
+    static let LightGreen = UIColor(named: "LightGreen")!
+    static let DarkGreen = UIColor(named: "DarkGreen")!
+    static let BrightRed = UIColor(named: "BrightRed")!
+    static let NeutralGrey = UIColor(named: "NeutralGrey")!
 }
 
 extension UIColor {

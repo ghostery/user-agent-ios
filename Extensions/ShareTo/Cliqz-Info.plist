@@ -22,7 +22,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>MozDevelopmentTeam</key>
+	<key>DevelopmentTeam</key>
 	<string>$(DEVELOPMENT_TEAM)</string>
 	<key>NSExtension</key>
 	<dict>
@@ -43,13 +43,5 @@
 		<key>NSExtensionPrincipalClass</key>
 		<string>InitialViewController</string>
 	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>FiraSans-Regular.ttf</string>
-		<string>FiraSans-SemiBold.ttf</string>
-		<string>FiraSans-Light.ttf</string>
-		<string>FiraSans-UltraLight.ttf</string>
-		<string>FiraSans-Medium.ttf</string>
-	</array>
 </dict>
 </plist>

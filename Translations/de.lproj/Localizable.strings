@@ -1232,15 +1232,6 @@
 /* Button shown in editing mode to remove this site from the top sites panel. */
 "TopSites.RemovePage.Button" = "Seite entfernen – %@";
 
-/* Button to disallow the page to be translated to the user locale language */
-"TranslationToastHandler.PromptTranslate.Cancel" = "Nein";
-
-/* Button to allow the page to be translated to the user locale language */
-"TranslationToastHandler.PromptTranslate.OK" = "Ja";
-
-/* Prompt for translation. The first parameter is the language the page is in. The second parameter is the name of our local language. The third is the name of the service. */
-"TranslationToastHandler.PromptTranslate.Title" = "Diese Seite scheint auf %1$@ zu sein. Mit %3$@ auf %2$@ übersetzen?";
-
 /* Tile title for Twitter */
 "Twitter" = "Twitter";
 

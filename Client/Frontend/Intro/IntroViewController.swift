@@ -240,10 +240,10 @@ extension IntroViewController {
     }
 
     fileprivate func setupDynamicFonts() {
-        startBrowsingButton.titleLabel?.font = UIFont(name: "FiraSans-Regular", size: DynamicFontHelper.defaultHelper.IntroStandardFontSize)
+        startBrowsingButton.titleLabel?.font = UIFont(name: "GillSans-Regular", size: DynamicFontHelper.defaultHelper.IntroStandardFontSize)
         cardViews.forEach { cardView in
-            cardView.titleLabel.font = UIFont(name: "FiraSans-Medium", size: DynamicFontHelper.defaultHelper.IntroBigFontSize)
-            cardView.textLabel.font = UIFont(name: "FiraSans-UltraLight", size: DynamicFontHelper.defaultHelper.IntroStandardFontSize)
+            cardView.titleLabel.font = UIFont(name: "GillSans-Semibold", size: DynamicFontHelper.defaultHelper.IntroBigFontSize)
+            cardView.textLabel.font = UIFont(name: "GillSans-Light", size: DynamicFontHelper.defaultHelper.IntroStandardFontSize)
         }
     }
 }

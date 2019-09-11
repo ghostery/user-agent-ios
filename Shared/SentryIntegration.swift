@@ -98,7 +98,7 @@ public class Sentry {
          Relase     n      n       y
      */
     private func shouldNotSendEventFor(_ severity: SentrySeverity) -> Bool {
-        return !enabled || (AppConstants.BuildChannel == .release && severity != .fatal)
+        return !enabled || (severity != .fatal)
     }
 
     private func makeEvent(message: String, tag: String, severity: SentrySeverity, extra: [String: Any]?) -> Event {
