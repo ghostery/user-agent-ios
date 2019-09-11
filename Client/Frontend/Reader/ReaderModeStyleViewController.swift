@@ -31,7 +31,7 @@ private struct ReaderModeStyleViewControllerUX {
     static let ThemeBackgroundColorSepia = UIColor.Defaults.LightBeige
 
     static let BrightnessRowBackground = UIColor.Grey20
-    static let BrightnessSliderTintColor = UIColor.Photon.Orange60
+    static let BrightnessSliderTintColor = UIColor.Orange60
     static let BrightnessSliderWidth = 140
     static let BrightnessIconOffset = 10
 }

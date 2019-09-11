@@ -19,7 +19,7 @@ private struct DevicePickerViewControllerUX {
     static let TableHeaderTextColor = UIColor.Grey50
     static let TableHeaderTextPaddingLeft = CGFloat(20)
 
-    static let DeviceRowTintColor = UIColor.Photon.Green60
+    static let DeviceRowTintColor = UIColor.LightGreen
     static let DeviceRowHeight = CGFloat(50)
     static let DeviceRowTextFont = UIFont.systemFont(ofSize: 16)
     static let DeviceRowTextPaddingLeft = CGFloat(72)

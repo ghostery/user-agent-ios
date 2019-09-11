@@ -44,4 +44,11 @@ extension UIColor {
     static let Grey70 = CloudySky
     static let Grey80 = CliqzBlack * 0.8 + White * 0.2
     static let Grey90 = CliqzBlack * 0.9 + White * 0.1
+
+    static let Red50 = BrightRed
+    static let Red70 = BrightRed * 0.6 + CliqzBlack * 0.4
+
+    static let Orange50 = BrightRed * 0.4 + UIColor.yellow * 0.4 + CliqzBlack * 0.2
+    static let Orange60 = BrightRed * 0.3 + UIColor.yellow * 0.3 + CliqzBlack * 0.4
+
 }
