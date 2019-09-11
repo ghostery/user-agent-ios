@@ -4,7 +4,7 @@
 def triggers = []
 
 if("$BRANCH_NAME" == 'develop') {
-    triggers << cron('H H(0-2) * * *')
+    triggers << cron('H H(19-22) * * *')
 }
 
 @Library('cliqz-shared-library@vagrant') _
