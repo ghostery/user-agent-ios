@@ -39,6 +39,128 @@
                BlueprintName = "XCUITests"
                ReferencedContainer = "container:Client.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "BrowsingPDFTests/testBookmarkPDF()">
+               </Test>
+               <Test
+                  Identifier = "BrowsingPDFTests/testLongPressOnPDFLink()">
+               </Test>
+               <Test
+                  Identifier = "BrowsingPDFTests/testLongPressOnPDFLinkToAddToReadingList()">
+               </Test>
+               <Test
+                  Identifier = "BrowsingPDFTests/testOpenLinkFromPDF()">
+               </Test>
+               <Test
+                  Identifier = "BrowsingPDFTests/testOpenPDFViewer()">
+               </Test>
+               <Test
+                  Identifier = "BrowsingPDFTests/testPinPDFtoTopSites()">
+               </Test>
+               <Test
+                  Identifier = "CopiedLinksTests/testCopiedLinks()">
+               </Test>
+               <Test
+                  Identifier = "DatabaseFixtureTest/testBookmarksDatabaseFixture()">
+               </Test>
+               <Test
+                  Identifier = "DatabaseFixtureTest/testHistoryDatabaseFixture()">
+               </Test>
+               <Test
+                  Identifier = "DatabaseFixtureTest/testOneBookmark()">
+               </Test>
+               <Test
+                  Identifier = "DownloadFilesTests/testDeleteDownloadedFile()">
+               </Test>
+               <Test
+                  Identifier = "FindInPageTests/testFindFromSelection()">
+               </Test>
+               <Test
+                  Identifier = "FirstRunTourTests/testFirstRunTour()">
+               </Test>
+               <Test
+                  Identifier = "FirstRunTourTests/testShowTourFromSettings()">
+               </Test>
+               <Test
+                  Identifier = "FirstRunTourTests/testStartBrowsingFromSecondScreen()">
+               </Test>
+               <Test
+                  Identifier = "LibraryTestsIphone/testLibraryShortcutHomePage()">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest/testCopyLink()">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest/testCopyLinkPrivateMode()">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest/testDownloadLink()">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest/testNavigationPreservesDesktopSiteOnSameHost()">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest/testReloadPreservesMobileOrDesktopSite()">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest/testScrollsToTopWithMultipleTabs()">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest/testToggleBetweenMobileAndDesktopSiteFromMenu()">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest/testToggleBetweenMobileAndDesktopSiteFromSite()">
+               </Test>
+               <Test
+                  Identifier = "NewTabSettingsTest/testChangeNewTabSettingsLabel()">
+               </Test>
+               <Test
+                  Identifier = "NewTabSettingsTest/testChangeNewTabSettingsShowFirefoxHome()">
+               </Test>
+               <Test
+                  Identifier = "NewTabSettingsTest/testCheckNewTabSettingsByDefault()">
+               </Test>
+               <Test
+                  Identifier = "PhotonActionSheetTest/testPinToTop()">
+               </Test>
+               <Test
+                  Identifier = "PhotonActionSheetTest/testSendToDeviceFromShareOption()">
+               </Test>
+               <Test
+                  Identifier = "PhotonActionSheetTest/testSharePageWithShareSheetOptions()">
+               </Test>
+               <Test
+                  Identifier = "PhotonActionSheetTest/testShareSheetOpenAndCancel()">
+               </Test>
+               <Test
+                  Identifier = "PhotonActionSheetTest/testShareSheetSendToDevice()">
+               </Test>
+               <Test
+                  Identifier = "PocketTest/testPocketEnabledByDefault()">
+               </Test>
+               <Test
+                  Identifier = "PocketTest/testTapOnMore()">
+               </Test>
+               <Test
+                  Identifier = "PrivateBrowsingTest/testPrivateTabDoesNotTrackHistory()">
+               </Test>
+               <Test
+                  Identifier = "ReaderViewTest/testOpenSavedForReadingLongPressInNewTab()">
+               </Test>
+               <Test
+                  Identifier = "ReaderViewTest/testRemoveSavedForReadingLongPress()">
+               </Test>
+               <Test
+                  Identifier = "SiteLoadTest/testLoadSite()">
+               </Test>
+               <Test
+                  Identifier = "TopTabsTest/testCloseOneTab()">
+               </Test>
+               <Test
+                  Identifier = "TopTabsTestIphone/testSwitchBetweenTabsToastButton()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
