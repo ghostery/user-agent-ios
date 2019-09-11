@@ -7,10 +7,6 @@
 import UIKit
 
 extension UIColor {
-    struct Cliqz {
-
-    }
-
     struct Photon {
         static let Magenta50 = UIColor(rgb: 0xff1ad9)
         static let Magenta60 = UIColor(rgb: 0xed00b5)
@@ -27,7 +23,6 @@ extension UIColor {
         static let Purple80 = UIColor(rgb: 0x440071)
         static let Purple90 = UIColor(rgb: 0x25003e)
 
-        static let Blue40A30 = UIColor(rgba: 0x45a1ff4c)
         static let Blue50 = UIColor(rgb: 0x0a84ff)
         static let Blue60 = UIColor(rgb: 0x0060df)
         static let Blue70 = UIColor(rgb: 0x003eaa)

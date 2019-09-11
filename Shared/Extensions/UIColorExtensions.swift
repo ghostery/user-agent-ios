@@ -10,6 +10,20 @@ private struct Color {
     var blue: CGFloat
 }
 
+public extension UIColor {
+    enum AlphaLevel: CGFloat {
+        case opaque = 0.0
+        case third = 0.3
+        case half = 0.5
+        case transparent = 1.0
+    }
+
+    /// Return the same color, but with a modified alpha level.
+    func with(alpha: AlphaLevel) -> UIColor {
+        return self.withAlphaComponent(alpha.rawValue)
+    }
+}
+
 extension UIColor {
     /**
      * Initializes and returns a color object for the given RGB hex integer.
