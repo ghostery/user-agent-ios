@@ -50,9 +50,9 @@ platform :ios do
     update_info_plist(
       xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
       plist_path: "./Client/Cliqz-Info.plist",
-      app_identifier: "com.cliqz.browser.nightly", # The App Identifier
       block: proc do |plist|
         plist["SentryDSN"] = ENV["SENTRY_DSN"]
+        plist["CFBundleIdentifier"] = "com.cliqz.browser.nightly"
       end
     )
 
