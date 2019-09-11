@@ -95,11 +95,11 @@ class ToolbarButtonColor {
 
 class LoadingBarColor {
     func start(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.Blue40.with(alpha: .thirtyPercent) : UIColor.Photon.Magenta60A30
+        return !isPrivate ? UIColor.CliqzBlue.with(alpha: .thirtyPercent) : UIColor.Grey20
     }
 
     func end(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.Photon.Teal60 : UIColor.Photon.Purple60
+        return !isPrivate ? UIColor.CliqzBlue : UIColor.Grey70
     }
 }
 
@@ -110,8 +110,8 @@ class TabTrayColor {
     var cellBackground: UIColor { return defaultBackground }
     var toolbar: UIColor { return defaultBackground }
     var toolbarButtonTint: UIColor { return defaultTextAndTint }
-    var privateModeLearnMore: UIColor { return UIColor.Photon.Purple60 }
-    var privateModePurple: UIColor { return UIColor.Photon.Purple60 }
+    var privateModeLearnMore: UIColor { return UIColor.Grey70 }
+    var privateModePurple: UIColor { return UIColor.Grey70 }
     var privateModeButtonOffTint: UIColor { return toolbarButtonTint }
     var privateModeButtonOnTint: UIColor { return UIColor.Grey10 }
     var cellCloseButton: UIColor { return UIColor.Grey50 }
@@ -127,7 +127,7 @@ class TopTabsColor {
     var tabForegroundSelected: UIColor { return UIColor.Grey90 }
     var tabForegroundUnselected: UIColor { return UIColor.Grey40 }
     func tabSelectedIndicatorBar(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.Blue40 : UIColor.Photon.Purple60
+        return !isPrivate ? UIColor.Blue40 : UIColor.Grey70
     }
     var buttonTint: UIColor { return UIColor.Grey40 }
     var privateModeButtonOffTint: UIColor { return buttonTint }
