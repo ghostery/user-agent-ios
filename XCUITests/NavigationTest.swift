@@ -14,6 +14,13 @@ let popUpTestUrl = "http://www.popuptest.com/popuptest1.html"
 let requestMobileSiteLabel = "Request Mobile Site"
 let requestDesktopSiteLabel = "Request Desktop Site"
 
+private var isTablet: Bool {
+    // There is more value in a variable having the same name,
+    // so it can be used in both predicates and in code
+    // than avoiding the duplication of one line of code.
+    return UIDevice.current.userInterfaceIdiom == .pad
+}
+
 class NavigationTest: BaseTestCase {
     func testNavigation() {
         navigator.goto(URLBarOpen)
@@ -71,59 +78,6 @@ class NavigationTest: BaseTestCase {
         }
         waitUntilPageLoad()
         waitForValueContains(app.textFields["url"], value: website_2["value"]!)
-    }
-
-    func testTapSignInShowsFxAFromTour() {
-        // Open FxAccount from tour option in settings menu and go throughout all the screens there
-        navigator.goto(Intro_FxASignin)
-        checkFirefoxSyncScreenShown()
-
-        // Go back to NewTabScreen
-        navigator.goto(HomePanelsScreen)
-        waitForExistence(app.cells["TopSitesCell"])
-    }
-
-    func testTapSigninShowsFxAFromSettings() {
-        navigator.goto(SettingsScreen)
-        // Open FxAccount from settings menu and check the Sign in to Firefox scren
-        let signInToFirefoxStaticText = app.tables["AppSettingsTableViewController.tableView"].staticTexts["Sign in to Sync"]
-        signInToFirefoxStaticText.tap()
-        checkFirefoxSyncScreenShown()
-
-        // After that it is possible to go back to Settings
-        let settingsButton = app.navigationBars["Client.FxAContentView"].buttons["Settings"]
-        settingsButton.tap()
-    }
-
-    func testTapSignInShowsFxAFromRemoteTabPanel() {
-        // Open FxAccount from remote tab panel and check the Sign in to Firefox scren
-        navigator.goto(LibraryPanel_History)
-        XCTAssertTrue(app.tables["History List"].staticTexts["Synced Devices"].isEnabled)
-        app.tables["History List"].staticTexts["Synced Devices"].tap()
-        app.tables.buttons["Sign in to Sync"].tap()
-        checkFirefoxSyncScreenShown()
-        app.navigationBars["Client.FxAContentView"].buttons["Done"].tap()
-        navigator.nowAt(LibraryPanel_History)
-    }
-
-    private func checkFirefoxSyncScreenShown() {
-        waitForExistence(app.navigationBars["Client.FxAContentView"])
-        if isTablet {
-            waitForExistence(app.textFields.element(boundBy: 1), timeout: 3)
-            let email = app.textFields.element(boundBy: 1)
-            // Verify the placeholdervalues here for the textFields
-            let mailPlaceholder = "Email"
-            let defaultMailPlaceholder = email.placeholderValue!
-            XCTAssertEqual(mailPlaceholder, defaultMailPlaceholder, "The mail placeholder does not show the correct value")
-        } else {
-            waitForExistence(app.textFields.element(boundBy: 0), timeout: 3)
-            let email = app.textFields.element(boundBy: 0)
-            XCTAssertTrue(email.exists) // the email field
-            // Verify the placeholdervalues here for the textFields
-            let mailPlaceholder = "Email"
-            let defaultMailPlaceholder = email.placeholderValue!
-            XCTAssertEqual(mailPlaceholder, defaultMailPlaceholder, "The mail placeholder does not show the correct value")
-        }
     }
 
     func testScrollsToTopWithMultipleTabs() {
