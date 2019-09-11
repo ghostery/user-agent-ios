@@ -15,7 +15,7 @@ struct PhotonActionSheetUX {
     static let HeaderFooterHeight: CGFloat = 20
     static let RowHeight: CGFloat = 50
     static let BorderWidth: CGFloat = 0.5
-    static let BorderColor = UIColor.Photon.Grey30
+    static let BorderColor = UIColor.Grey30
     static let CornerRadius: CGFloat = 10
     static let SiteImageViewSize = 52
     static let IconSize = CGSize(width: 24, height: 24)
@@ -98,7 +98,7 @@ class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView {
 
     lazy var separatorView: UIView = {
         let separatorLine = UIView()
-        separatorLine.backgroundColor = UIColor.Photon.Grey40
+        separatorLine.backgroundColor = UIColor.Grey40
         return separatorLine
     }()
 
@@ -236,7 +236,7 @@ class PhotonActionSheetSeparator: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         self.backgroundView = UIView()
         self.backgroundView?.backgroundColor = .clear
-        separatorLineView.backgroundColor = UIColor.Photon.Grey40
+        separatorLineView.backgroundColor = UIColor.Grey40
         self.contentView.addSubview(separatorLineView)
         separatorLineView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self)

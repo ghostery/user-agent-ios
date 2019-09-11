@@ -11,9 +11,9 @@ struct IntroUX {
     static let Height = 667
     static let MinimumFontScale: CGFloat = 0.5
     static let PagerCenterOffsetFromScrollViewBottom = UIScreen.main.bounds.width <= 320 ? 20 : 30
-    static let StartBrowsingButtonColor = UIColor.Photon.Blue40
+    static let StartBrowsingButtonColor = UIColor.Blue40
     static let StartBrowsingButtonHeight = 56
-    static let SignInButtonColor = UIColor.Photon.Blue40
+    static let SignInButtonColor = UIColor.Blue40
     static let SignInButtonHeight = 60
     static let PageControlHeight = 40
     static let SignInButtonWidth = 290
@@ -86,7 +86,7 @@ class IntroViewController: UIViewController {
         super.viewDidLoad()
 
         assert(cards.count > 1, "Intro is empty. At least 2 cards are required")
-        view.backgroundColor = UIColor.Photon.White100
+        view.backgroundColor = UIColor.White
 
         // Add Views
         view.addSubview(pageControl)
@@ -154,6 +154,7 @@ class IntroViewController: UIViewController {
             return nil
         }
         let imageView = UIImageView(image: image)
+        imageView.contentMode = .center
         imageViewContainer.addArrangedSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.height.equalTo(imageViewContainer.snp.height)
@@ -278,8 +279,8 @@ extension IntroViewController: UIScrollViewDelegate {
 
         var percentageOfScroll = currentHorizontalOffset / maximumHorizontalOffset
         percentageOfScroll = percentageOfScroll > 1.0 ? 1.0 : percentageOfScroll
-        let whiteComponent = UIColor.Photon.White100.components
-        let grayComponent = UIColor.Photon.Grey20.components
+        let whiteComponent = UIColor.White.components
+        let grayComponent = UIColor.Grey20.components
         let newRed   = (1.0 - percentageOfScroll) * whiteComponent.red   + percentageOfScroll * grayComponent.red
         let newGreen = (1.0 - percentageOfScroll) * whiteComponent.green + percentageOfScroll * grayComponent.green
         let newBlue  = (1.0 - percentageOfScroll) * whiteComponent.blue  + percentageOfScroll * grayComponent.blue
@@ -389,8 +390,8 @@ struct IntroCard: Codable {
     }
 
     static func defaultCards() -> [IntroCard] {
-        let welcome = IntroCard(title: "Welcome to BigFork", text: Strings.CardTextWelcome, imageName: "tour-Welcome")
-        let cliqzCard = IntroCard(title: "This card is a placeholder", text: "This welcome thing needs at least two cards, and the last one needs to have a large Call to Action button. Hence this card. 🤷‍♀️", imageName: "tour-Sync", buttonText: "Start Browsing", buttonSelector: #selector(IntroViewController.startBrowsing).description)
+        let welcome = IntroCard(title: "Welcome to User Agent", text: Strings.CardTextWelcome, imageName: "splash")
+        let cliqzCard = IntroCard(title: "This card is a placeholder", text: "This welcome thing needs at least two cards, and a large Call to Action button. Hence this card. 🤷‍♀️", imageName: "tour-Sync", buttonText: "Start Browsing", buttonSelector: #selector(IntroViewController.startBrowsing).description)
         return [welcome, cliqzCard]
     }
 

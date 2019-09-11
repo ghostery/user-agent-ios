@@ -45,8 +45,8 @@ public extension UIImageView {
             image.getColors(scaleDownSize: CGSize(width: 25, height: 25)) {colors in
                 let isSame = [colors.primary, colors.secondary, colors.detail].every { $0 == colors.primary }
                 if isSame {
-                    completionBlock?(UIColor.Photon.White100)
-                    FaviconFetcher.colors[domain] = UIColor.Photon.White100
+                    completionBlock?(UIColor.White)
+                    FaviconFetcher.colors[domain] = UIColor.White
                 } else {
                     completionBlock?(colors.background)
                     FaviconFetcher.colors[domain] = colors.background

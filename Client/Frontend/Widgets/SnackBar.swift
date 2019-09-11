@@ -86,7 +86,7 @@ class SnackBar: UIView {
         label.lineBreakMode = .byWordWrapping
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.numberOfLines = 0
-        label.textColor = UIColor.Photon.Grey90 // If making themeable, change to UIColor.theme.tableView.rowText
+        label.textColor = UIColor.Grey90 // If making themeable, change to UIColor.theme.tableView.rowText
         label.backgroundColor = UIColor.clear
         return label
     }()

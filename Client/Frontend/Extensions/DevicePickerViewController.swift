@@ -16,10 +16,10 @@ protocol DevicePickerViewControllerDelegate {
 private struct DevicePickerViewControllerUX {
     static let TableHeaderRowHeight = CGFloat(50)
     static let TableHeaderTextFont = UIFont.systemFont(ofSize: 16)
-    static let TableHeaderTextColor = UIColor.Photon.Grey50
+    static let TableHeaderTextColor = UIColor.Grey50
     static let TableHeaderTextPaddingLeft = CGFloat(20)
 
-    static let DeviceRowTintColor = UIColor.Photon.Green60
+    static let DeviceRowTintColor = UIColor.LightGreen
     static let DeviceRowHeight = CGFloat(50)
     static let DeviceRowTextFont = UIFont.systemFont(ofSize: 16)
     static let DeviceRowTextPaddingLeft = CGFloat(72)
@@ -279,7 +279,7 @@ class DevicePickerViewController: UITableViewController {
         // Replace the Send button with a loading indicator since it takes a while to sync
         // up our changes to the server.
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(width: 25, height: 25))
-        loadingIndicator.color = UIColor.Photon.Grey60
+        loadingIndicator.color = UIColor.Grey60
         loadingIndicator.startAnimating()
         let customBarButton = UIBarButtonItem(customView: loadingIndicator)
         self.navigationItem.rightBarButtonItem = customBarButton

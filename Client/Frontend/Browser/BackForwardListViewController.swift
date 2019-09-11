@@ -10,7 +10,7 @@ import SnapKit
 
 private struct BackForwardViewUX {
     static let RowHeight: CGFloat = 50
-    static let BackgroundColor = UIColor.Photon.Grey10A40
+    static let BackgroundColor = UIColor.Grey10.with(alpha: .fortyPercent)
 }
 
 class BackForwardListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {

@@ -14,11 +14,11 @@ protocol FindInPageBarDelegate: AnyObject {
 
 private struct FindInPageUX {
     static let ButtonColor = UIColor.black
-    static let MatchCountColor = UIColor.Photon.Grey40
+    static let MatchCountColor = UIColor.Grey40
     static let MatchCountFont = UIConstants.DefaultChromeFont
-    static let SearchTextColor = UIColor.Photon.Orange60
+    static let SearchTextColor = UIColor.Orange60
     static let SearchTextFont = UIConstants.DefaultChromeFont
-    static let TopBorderColor = UIColor.Photon.Grey20
+    static let TopBorderColor = UIColor.Grey20
 }
 
 class FindInPageBar: UIView {
