@@ -13,9 +13,15 @@ private struct Color {
 public extension UIColor {
     enum AlphaLevel: CGFloat {
         case opaque = 0.0
-        case third = 0.3
-        case half = 0.5
         case transparent = 1.0
+
+        case tenPercent = 0.1
+        case twentyPercent = 0.2
+        case thirtyPercent = 0.3
+        case fortyPercent = 0.4
+        case fiftyPercent = 0.5
+        case sixtyPercent = 0.6
+        case eightyPercent = 0.8
     }
 
     /// Return the same color, but with a modified alpha level.

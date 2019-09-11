@@ -54,11 +54,11 @@ class ActionMenuColor {
 
 // TODO: oooh
 class URLBarColor {
-    var border: UIColor { return UIColor.Photon.Grey90A10 }
+    var border: UIColor { return UIColor.Photon.Grey90.with(alpha: .tenPercent) }
     func activeBorder(_ isPrivate: Bool) -> UIColor { 
-        return !isPrivate ? UIColor.Blue40.with(alpha: .third) : UIColor.Defaults.MobilePrivatePurple
+        return !isPrivate ? UIColor.Blue40.with(alpha: .thirtyPercent) : UIColor.Defaults.MobilePrivatePurple
     }
-    var tint: UIColor { return UIColor.Blue40.with(alpha: .third) }
+    var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
 
     // This text selection color is used in two ways:
     // 1) <UILabel>.background = textSelectionHighlight.withAlphaComponent(textSelectionHighlightAlpha)
@@ -83,7 +83,7 @@ class URLBarColor {
 
 class BrowserColor {
     var background: UIColor { return defaultBackground }
-    var urlBarDivider: UIColor { return UIColor.Photon.Grey90A10 }
+    var urlBarDivider: UIColor { return UIColor.Photon.Grey90.with(alpha: .tenPercent) }
     var tint: UIColor { return defaultTextAndTint }
 }
 
@@ -95,7 +95,7 @@ class ToolbarButtonColor {
 
 class LoadingBarColor {
     func start(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.Blue40.with(alpha: .third) : UIColor.Photon.Magenta60A30
+        return !isPrivate ? UIColor.Blue40.with(alpha: .thirtyPercent) : UIColor.Photon.Magenta60A30
     }
 
     func end(_ isPrivate: Bool) -> UIColor {
