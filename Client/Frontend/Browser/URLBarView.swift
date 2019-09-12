@@ -6,8 +6,8 @@ import Shared
 import SnapKit
 
 private struct URLBarViewUX {
-    static let TextFieldBorderColor = UIColor.Photon.Grey40
-    static let TextFieldActiveBorderColor = UIColor.Photon.Blue40
+    static let TextFieldBorderColor = UIColor.Grey40
+    static let TextFieldActiveBorderColor = UIColor.Blue40
 
     static let LocationLeftPadding: CGFloat = 8
     static let Padding: CGFloat = 10
@@ -652,13 +652,7 @@ extension URLBarView: TabLocationViewDelegate {
 
     func tabLocationViewDidTapLocation(_ tabLocationView: TabLocationView) {
         guard let (locationText, isSearchQuery) = delegate?.urlBarDisplayTextForURL(locationView.url as URL?) else { return }
-
-        var overlayText = locationText
-        // Make sure to use the result from urlBarDisplayTextForURL as it is responsible for extracting out search terms when on a search page
-        if let text = locationText, let url = URL(string: text), let host = url.host, AppConstants.MOZ_PUNYCODE {
-            overlayText = url.absoluteString.replacingOccurrences(of: host, with: host.asciiHostToUTF8())
-        }
-        enterOverlayMode(overlayText, pasted: false, search: isSearchQuery)
+        enterOverlayMode(locationText, pasted: false, search: isSearchQuery)
     }
 
     func tabLocationViewDidLongPressLocation(_ tabLocationView: TabLocationView) {

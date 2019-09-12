@@ -216,7 +216,7 @@ open class FaviconFetcher: NSObject, XMLParserDelegate {
         faviconLabel.text = faviconLetter
         faviconLabel.textAlignment = .center
         faviconLabel.font = UIFont.systemFont(ofSize: 40, weight: UIFont.Weight.medium)
-        faviconLabel.textColor = UIColor.Photon.White100
+        faviconLabel.textColor = UIColor.White
         UIGraphicsBeginImageContextWithOptions(faviconLabel.bounds.size, false, 0.0)
         faviconLabel.layer.render(in: UIGraphicsGetCurrentContext()!)
         faviconImage = UIGraphicsGetImageFromCurrentImageContext()!

@@ -22,7 +22,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>MozDevelopmentTeam</key>
+	<key>DevelopmentTeam</key>
 	<string>$(DEVELOPMENT_TEAM)</string>
 	<key>NSExtension</key>
 	<dict>

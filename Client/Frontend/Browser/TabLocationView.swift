@@ -24,7 +24,7 @@ protocol TabLocationViewDelegate {
 
 private struct TabLocationViewUX {
     static let HostFontColor = UIColor.black
-    static let BaseURLFontColor = UIColor.Photon.Grey50
+    static let BaseURLFontColor = UIColor.Grey50
     static let Spacing: CGFloat = 8
     static let StatusIconSize: CGFloat = 18
     static let TPIconSize: CGFloat = 24
@@ -86,7 +86,7 @@ class TabLocationView: UIView {
 
     lazy var placeholder: NSAttributedString = {
         let placeholderText = NSLocalizedString("Search or enter address", comment: "The text shown in the URL bar on about:home")
-        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Photon.Grey50])
+        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Grey50])
     }()
 
     lazy var urlTextField: UITextField = {
@@ -111,7 +111,7 @@ class TabLocationView: UIView {
 
     fileprivate lazy var lockImageView: UIImageView = {
         let lockImageView = UIImageView(image: UIImage.templateImageNamed("lock_verified"))
-        lockImageView.tintColor = UIColor.Photon.Green60
+        lockImageView.tintColor = UIColor.LightGreen
         lockImageView.isAccessibilityElement = true
         lockImageView.contentMode = .center
         lockImageView.accessibilityLabel = NSLocalizedString("Secure connection", comment: "Accessibility label for the lock icon, which is only present if the connection is secure")
@@ -266,11 +266,7 @@ class TabLocationView: UIView {
     }
 
     fileprivate func updateTextWithURL() {
-        if let host = url?.host, AppConstants.MOZ_PUNYCODE {
-            urlTextField.text = url?.absoluteString.replacingOccurrences(of: host, with: host.asciiHostToUTF8())
-        } else {
-            urlTextField.text = url?.absoluteString
-        }
+        urlTextField.text = url?.absoluteString
         // remove https:// (the scheme) from the url when displaying
         if let scheme = url?.scheme, let range = url?.absoluteString.range(of: "\(scheme)://") {
             urlTextField.text = url?.absoluteString.replacingCharacters(in: range, with: "")

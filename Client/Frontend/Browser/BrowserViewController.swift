@@ -290,7 +290,7 @@ class BrowserViewController: UIViewController {
         coordinator.animate(alongsideTransition: { context in
             self.scrollController.showToolbars(animated: false)
             if self.isViewLoaded {
-                self.statusBarOverlay.backgroundColor = self.shouldShowTopTabsForTraitCollection(self.traitCollection) ? UIColor.Photon.Grey80 : self.urlBar.backgroundColor
+                self.statusBarOverlay.backgroundColor = self.shouldShowTopTabsForTraitCollection(self.traitCollection) ? UIColor.Grey80 : self.urlBar.backgroundColor
                 self.setNeedsStatusBarAppearanceUpdate()
             }
             }, completion: nil)
@@ -361,7 +361,7 @@ class BrowserViewController: UIViewController {
         KeyboardHelper.defaultHelper.addDelegate(self)
 
         webViewContainerBackdrop = UIView()
-        webViewContainerBackdrop.backgroundColor = UIColor.Photon.Grey50
+        webViewContainerBackdrop.backgroundColor = UIColor.Grey50
         webViewContainerBackdrop.alpha = 0
         view.addSubview(webViewContainerBackdrop)
 
@@ -563,16 +563,6 @@ class BrowserViewController: UIViewController {
         screenshotHelper.takePendingScreenshots(tabManager.tabs)
 
         super.viewDidAppear(animated)
-
-        if shouldShowWhatsNewTab() {
-            // Only display if the SUMO topic has been configured in the Info.plist (present and not empty)
-            if let whatsNewTopic = AppInfo.whatsNewTopic, !whatsNewTopic.isEmpty {
-                if let whatsNewURL = SupportUtils.URLForTopic(whatsNewTopic) {
-                    self.openURLInNewTab(whatsNewURL, isPrivileged: false)
-                    profile.prefs.setString(AppInfo.appVersion, forKey: LatestAppVersionProfileKey)
-                }
-            }
-        }
 
         if let toast = self.pendingToast {
             self.pendingToast = nil
@@ -2165,7 +2155,7 @@ extension BrowserViewController {
         let domain = webView.url?.domainURL.host
         let matches = self.profile.searchEngines.orderedEngines.filter {$0.shortName == domain}
         if !matches.isEmpty {
-            self.customSearchEngineButton.tintColor = UIColor.Photon.Grey50
+            self.customSearchEngineButton.tintColor = UIColor.Grey50
             self.customSearchEngineButton.isUserInteractionEnabled = false
         } else {
             self.customSearchEngineButton.tintColor = UIConstants.SystemBlueColor
@@ -2230,7 +2220,7 @@ extension BrowserViewController {
                 return
             }
             self.addSearchEngine(searchQuery, favicon: favicon)
-            self.customSearchEngineButton.tintColor = UIColor.Photon.Grey50
+            self.customSearchEngineButton.tintColor = UIColor.Grey50
             self.customSearchEngineButton.isUserInteractionEnabled = false
         }
     }
@@ -2246,7 +2236,7 @@ extension BrowserViewController {
         }
 
         let alert = ThirdPartySearchAlerts.addThirdPartySearchEngine { alert in
-            self.customSearchEngineButton.tintColor = UIColor.Photon.Grey50
+            self.customSearchEngineButton.tintColor = UIColor.Grey50
             self.customSearchEngineButton.isUserInteractionEnabled = false
             SDWebImageManager.shared.loadImage(with: iconURL, options: .continueInBackground, progress: nil) { (image, _, _, _, _, _) in
                 guard let image = image else {
@@ -2353,7 +2343,7 @@ extension BrowserViewController: Themeable {
         guard self.isViewLoaded else { return }
         let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, homeViewController, searchController, libraryViewController, libraryDrawerViewController]
         ui.forEach { $0?.applyTheme() }
-        statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Photon.Grey80 : urlBar.backgroundColor
+        statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Grey80 : urlBar.backgroundColor
         setNeedsStatusBarAppearanceUpdate()
 
         (presentedViewController as? Themeable)?.applyTheme()
@@ -2420,13 +2410,6 @@ extension BrowserViewController: DevicePickerViewControllerDelegate, Instruction
 // MARK: - reopen last closed tab
 
 extension BrowserViewController {
-
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if AppConstants.MOZ_SHAKE_TO_RESTORE {
-                homePanelDidRequestToRestoreClosedTab(motion)
-        }
-    }
-
     func homePanelDidRequestToRestoreClosedTab(_ motion: UIEvent.EventSubtype) {
         guard motion == .motionShake, !topTabsVisible, !urlBar.inOverlayMode,
             let lastClosedURL = profile.recentlyClosedTabs.tabs.first?.url,

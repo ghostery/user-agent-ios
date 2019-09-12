@@ -103,7 +103,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
     let closeButton: UIButton = {
         let closeButton = UIButton()
         closeButton.setImage(UIImage.templateImageNamed("menu-CloseTabs"), for: [])
-        closeButton.tintColor = UIColor.Photon.Grey40
+        closeButton.tintColor = UIColor.Grey40
         closeButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: TopTabsUX.TabTitlePadding, bottom: 15, right: TopTabsUX.TabTitlePadding)
         closeButton.layer.shadowOpacity = 0.8
         closeButton.layer.masksToBounds = false
@@ -114,7 +114,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
 
     let highlightLine: UIView = {
         let line = UIView()
-        line.backgroundColor = UIColor.Photon.Blue60
+        line.backgroundColor = UIColor.Blue60
         line.isHidden = true
         line.semanticContentAttribute = .forceLeftToRight
         return line
@@ -230,7 +230,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
 
 class TopTabFader: UIView {
     lazy var hMaskLayer: CAGradientLayer = {
-        let innerColor: CGColor = UIColor.Photon.White100.cgColor
+        let innerColor: CGColor = UIColor.White.cgColor
         let outerColor: CGColor = UIColor(white: 1, alpha: 0.0).cgColor
         let hMaskLayer = CAGradientLayer()
         hMaskLayer.colors = [outerColor, innerColor, innerColor, outerColor]

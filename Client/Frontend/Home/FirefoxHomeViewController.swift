@@ -364,10 +364,10 @@ extension FirefoxHomeViewController: UICollectionViewDelegateFlowLayout {
                     view.title = title
                     view.moreButton.isHidden = false
                     view.moreButton.addTarget(self, action: #selector(showMorePocketStories), for: .touchUpInside)
-                    view.titleLabel.textColor = UIColor.Pocket.red
+                    view.titleLabel.textColor = UIColor.BrightRed
                     view.titleLabel.accessibilityIdentifier = "pocketTitle"
-                    view.moreButton.setTitleColor(UIColor.Pocket.red, for: .normal)
-                    view.iconView.tintColor = UIColor.Pocket.red
+                    view.moreButton.setTitleColor(UIColor.BrightRed, for: .normal)
+                    view.iconView.tintColor = UIColor.BrightRed
                     return view
                 case .topSites:
                     view.title = title
@@ -933,13 +933,13 @@ class ASHeaderView: UICollectionReusableView {
         button.titleLabel?.font = FirefoxHomeHeaderViewUX.ButtonFont
         button.contentHorizontalAlignment = .right
         button.setTitleColor(UIConstants.SystemBlueColor, for: .normal)
-        button.setTitleColor(UIColor.Photon.Grey50, for: .highlighted)
+        button.setTitleColor(UIColor.Grey50, for: .highlighted)
         return button
     }()
 
     lazy fileprivate var iconView: UIImageView = {
         let imageView = UIImageView()
-        imageView.tintColor = UIColor.Photon.Grey50
+        imageView.tintColor = UIColor.Grey50
         imageView.isHidden = true
         return imageView
     }()

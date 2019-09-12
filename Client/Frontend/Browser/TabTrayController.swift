@@ -833,7 +833,7 @@ private struct EmptyPrivateTabsViewUX {
 fileprivate class EmptyPrivateTabsView: UIView {
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.Photon.White100
+        label.textColor = UIColor.White
         label.font = EmptyPrivateTabsViewUX.TitleFont
         label.textAlignment = .center
         return label
@@ -841,7 +841,7 @@ fileprivate class EmptyPrivateTabsView: UIView {
 
     fileprivate var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor.Photon.White100
+        label.textColor = UIColor.White
         label.font = EmptyPrivateTabsViewUX.DescriptionFont
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -861,7 +861,7 @@ fileprivate class EmptyPrivateTabsView: UIView {
 
     fileprivate var iconImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage.templateImageNamed("largePrivateMask"))
-        imageView.tintColor = UIColor.Photon.Grey60
+        imageView.tintColor = UIColor.Grey60
         return imageView
     }()
 

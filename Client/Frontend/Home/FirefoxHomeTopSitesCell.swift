@@ -18,7 +18,7 @@ private struct TopSiteCellUX {
     static let BorderColor = UIColor(white: 0, alpha: 0.1)
     static let BorderWidth: CGFloat = 0.5
     static let PinIconSize: CGFloat = 12
-    static let PinColor = UIColor.Photon.Grey60
+    static let PinColor = UIColor.Grey60
 }
 
 /*
@@ -191,7 +191,7 @@ private struct ASHorizontalScrollCellUX {
     static let TopSiteEmptyCellIdentifier = "TopSiteItemEmptyCell"
 
     static let TopSiteItemSize = CGSize(width: 75, height: 75)
-    static let BackgroundColor = UIColor.Photon.White100
+    static let BackgroundColor = UIColor.White
     static let MinimumInsets: CGFloat = 14
 }
 

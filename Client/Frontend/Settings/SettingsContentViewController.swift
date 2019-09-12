@@ -70,7 +70,7 @@ class SettingsContentViewController: UIViewController, WKNavigationDelegate {
         self.interstitialSpinnerView.startAnimating()
     }
 
-    init(backgroundColor: UIColor = UIColor.Photon.White100, title: NSAttributedString? = nil) {
+    init(backgroundColor: UIColor = UIColor.White, title: NSAttributedString? = nil) {
         interstitialBackgroundColor = backgroundColor
         settingsTitle = title
         super.init(nibName: nil, bundle: nil)

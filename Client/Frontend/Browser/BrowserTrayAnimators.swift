@@ -319,7 +319,7 @@ private func createTransitionCellFromTab(_ tab: Tab?, withFrame frame: CGRect) -
         let defaultFavicon = UIImage(named: "defaultFavicon")
         if tab?.isPrivate ?? false {
             cell.favicon.image = defaultFavicon
-            cell.favicon.tintColor = (tab?.isPrivate ?? false) ? UIColor.Photon.White100 : UIColor.Photon.Grey60
+            cell.favicon.tintColor = (tab?.isPrivate ?? false) ? UIColor.White : UIColor.Grey60
         } else {
             cell.favicon.image = defaultFavicon
         }
