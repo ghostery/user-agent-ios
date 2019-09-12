@@ -18,7 +18,7 @@
                BlueprintIdentifier = "464F675F2326AFB70090D0B5"
                BuildableName = "GhosteryShareTo.appex"
                BlueprintName = "GhosteryShareTo"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -32,7 +32,7 @@
                BlueprintIdentifier = "ACB7371123042BAB00FA5626"
                BuildableName = "Ghostery.app"
                BlueprintName = "Ghostery"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,7 +50,7 @@
             BlueprintIdentifier = "464F675F2326AFB70090D0B5"
             BuildableName = "GhosteryShareTo.appex"
             BlueprintName = "GhosteryShareTo"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -74,7 +74,7 @@
             BlueprintIdentifier = "ACB7371123042BAB00FA5626"
             BuildableName = "Ghostery.app"
             BlueprintName = "Ghostery"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,7 +94,7 @@
             BlueprintIdentifier = "ACB7371123042BAB00FA5626"
             BuildableName = "Ghostery.app"
             BlueprintName = "Ghostery"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

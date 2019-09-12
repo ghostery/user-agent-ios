@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-               BuildableName = "Client.app"
-               BlueprintName = "Cliqz"
-               ReferencedContainer = "container:Client.xcodeproj">
+               BlueprintIdentifier = "ACB7371123042BAB00FA5626"
+               BuildableName = "Ghostery.app"
+               BlueprintName = "Ghostery"
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,8 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "en"
-      region = "US"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -35,39 +33,10 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F84B21D21A090F8100AAB793"
-               BuildableName = "ClientTests.xctest"
+               BuildableName = "UserAgentTests.xctest"
                BlueprintName = "ClientTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "ProfileTest">
-               </Test>
-               <Test
-                  Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
-               </Test>
-               <Test
-                  Identifier = "SearchTests/testURIFixupPunyCode()">
-               </Test>
-               <Test
-                  Identifier = "TestBookmarks/testBookmarks()">
-               </Test>
-               <Test
-                  Identifier = "TestBookmarks/testNewProfileClearsExistingAuthenticationInfo()">
-               </Test>
-               <Test
-                  Identifier = "TestFavicons">
-               </Test>
-               <Test
-                  Identifier = "TestFavicons/testFaviconFetcherParse()">
-               </Test>
-               <Test
-                  Identifier = "TestHistory">
-               </Test>
-               <Test
-                  Identifier = "UIImageViewExtensionsTests/testAsyncSetIcon()">
-               </Test>
-            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -76,22 +45,8 @@
                BlueprintIdentifier = "E6F9650B1B2F1CF20034B023"
                BuildableName = "SharedTests.xctest"
                BlueprintName = "SharedTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "AuthenticationKeychainInfoTests">
-               </Test>
-               <Test
-                  Identifier = "AuthenticationKeychainInfoTests/testEncodingAndDecoding()">
-               </Test>
-               <Test
-                  Identifier = "AuthenticationKeychainInfoTests/testNilIntervalsArentZero()">
-               </Test>
-               <Test
-                  Identifier = "FeatureSwitchTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -100,7 +55,7 @@
                BlueprintIdentifier = "3B43E3CF1D95C48D00BBA9DB"
                BuildableName = "StoragePerfTests.xctest"
                BlueprintName = "StoragePerfTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -110,26 +65,26 @@
                BlueprintIdentifier = "2FCAE2231ABB51F800877008"
                BuildableName = "StorageTests.xctest"
                BlueprintName = "StorageTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-            BuildableName = "Client.app"
-            BlueprintName = "Cliqz"
-            ReferencedContainer = "container:Client.xcodeproj">
+            BlueprintIdentifier = "ACB7371123042BAB00FA5626"
+            BuildableName = "Ghostery.app"
+            BlueprintName = "Ghostery"
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
-      selectedDebuggerIdentifier = ""
-      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -140,24 +95,17 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-            BuildableName = "Client.app"
-            BlueprintName = "Cliqz"
-            ReferencedContainer = "container:Client.xcodeproj">
+            BlueprintIdentifier = "ACB7371123042BAB00FA5626"
+            BuildableName = "Ghostery.app"
+            BlueprintName = "Ghostery"
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "${DEBUG_ACTIVITY_MODE}"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -166,10 +114,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-            BuildableName = "Client.app"
-            BlueprintName = "Cliqz"
-            ReferencedContainer = "container:Client.xcodeproj">
+            BlueprintIdentifier = "ACB7371123042BAB00FA5626"
+            BuildableName = "Ghostery.app"
+            BlueprintName = "Ghostery"
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
