@@ -30,8 +30,8 @@ fileprivate let defaultTextAndTint = UIColor.Grey80
 class TableViewColor {
     var rowBackground: UIColor { return UIColor.White }
     var rowText: UIColor { return UIColor.Grey90 }
-    var rowDetailText: UIColor { return UIColor.Grey60 }
-    var disabledRowText: UIColor { return UIColor.Grey50 }
+    var rowDetailText: UIColor { return UIColor.Grey80 }
+    var disabledRowText: UIColor { return UIColor.Grey60 }
     var separator: UIColor { return defaultSeparator }
     var headerBackground: UIColor { return defaultBackground }
     // Used for table headers in Settings and Photon menus
@@ -88,7 +88,7 @@ class BrowserColor {
 
 // The back/forward/refresh/menu button (bottom toolbar)
 class ToolbarButtonColor {
-    var selectedTint: UIColor { return UIColor.Blue40 }
+    var selectedTint: UIColor { return UIColor.CliqzBlue }
     var disabledTint: UIColor { return UIColor.Grey30 }
 }
 
