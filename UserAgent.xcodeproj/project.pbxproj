@@ -1183,9 +1183,7 @@
 		3D9CAA1B1EFCD655002434DD /* ClipBoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipBoardTests.swift; sourceTree = "<group>"; };
 		3DEFED071F55EBE300F8620C /* TrackingProtectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingProtectionTests.swift; sourceTree = "<group>"; };
 		4063430C93211557F15DA9AA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Shared.strings; sourceTree = "<group>"; };
-		4627CE2A231D665200901B9A /* ControlCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterViewController.swift; sourceTree = "<group>"; };
-		464F67852326AFB70090D0B5 /* GhosteryShareTo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GhosteryShareTo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		464F67862326AFB70090D0B5 /* Ghostery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Ghostery-Info.plist"; path = "/Users/chrmod/Documents/GitHub/user-agent-ios/Ghostery-Info.plist"; sourceTree = "<absolute>"; };
+		40D34F729C271C0DBE5CD1C3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Storage.strings; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B68D2B231420930091156C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -2121,7 +2119,6 @@
 			children = (
 				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
 				46CA60D0231554980010CE6B /* SearchResultsViewController.swift */,
-				4627CE2A231D665200901B9A /* ControlCenterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -4451,7 +4448,6 @@
 				ACB7376823042BAB00FA5626 /* FirefoxHomeHighlightCell.swift in Sources */,
 				ACB7376923042BAB00FA5626 /* RequirePasscodeIntervalViewController.swift in Sources */,
 				ACB7376A23042BAB00FA5626 /* DownloadsPanel.swift in Sources */,
-				4627CE2C231D665200901B9A /* ControlCenterViewController.swift in Sources */,
 				ACB7376B23042BAB00FA5626 /* ContextMenuHelper.swift in Sources */,
 				ACB7376C23042BAB00FA5626 /* InnerStrokedView.swift in Sources */,
 				ACB7376E23042BAB00FA5626 /* AuthenticationManagerConstants.swift in Sources */,
@@ -4696,7 +4692,6 @@
 				E69E06BA1C76173D00D0F926 /* RequirePasscodeIntervalViewController.swift in Sources */,
 				D0E89A2920910917001CE5C7 /* DownloadsPanel.swift in Sources */,
 				D3BA7E0E1B0E934F00153782 /* ContextMenuHelper.swift in Sources */,
-				4627CE2B231D665200901B9A /* ControlCenterViewController.swift in Sources */,
 				E660BE061BB0666D009AC090 /* InnerStrokedView.swift in Sources */,
 				46CA60E02316CF300010CE6B /* BrowserActions.m in Sources */,
 				E69E06C91C76198000D0F926 /* AuthenticationManagerConstants.swift in Sources */,

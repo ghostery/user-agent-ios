@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "464F675F2326AFB70090D0B5"
-               BuildableName = "GhosteryShareTo.appex"
+               BuildableName = "GhosteryShareTo"
                BlueprintName = "GhosteryShareTo"
                ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "464F675F2326AFB70090D0B5"
-            BuildableName = "GhosteryShareTo.appex"
+            BuildableName = "GhosteryShareTo"
             BlueprintName = "GhosteryShareTo"
             ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>

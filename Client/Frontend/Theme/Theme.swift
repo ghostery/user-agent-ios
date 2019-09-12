@@ -30,15 +30,15 @@ fileprivate let defaultTextAndTint = UIColor.Grey80
 class TableViewColor {
     var rowBackground: UIColor { return UIColor.White }
     var rowText: UIColor { return UIColor.Grey90 }
-    var rowDetailText: UIColor { return UIColor.Grey60 }
-    var disabledRowText: UIColor { return UIColor.Grey40 }
+    var rowDetailText: UIColor { return UIColor.Grey80 }
+    var disabledRowText: UIColor { return UIColor.Grey60 }
     var separator: UIColor { return defaultSeparator }
     var headerBackground: UIColor { return defaultBackground }
     // Used for table headers in Settings and Photon menus
-    var headerTextLight: UIColor { return UIColor.Grey50 }
+    var headerTextLight: UIColor { return UIColor.DarkBlue }
     // Used for table headers in home panel tables
     var headerTextDark: UIColor { return UIColor.Grey90 }
-    var rowActionAccessory: UIColor { return UIColor.Blue40 }
+    var rowActionAccessory: UIColor { return UIColor.CliqzBlue }
     var controlTint: UIColor { return rowActionAccessory }
     var syncText: UIColor { return defaultTextAndTint }
     var errorText: UIColor { return UIColor.Red50 }
@@ -52,11 +52,10 @@ class ActionMenuColor {
     var closeButtonBackground: UIColor { return defaultBackground }
 }
 
-// TODO: oooh
 class URLBarColor {
     var border: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
     func activeBorder(_ isPrivate: Bool) -> UIColor { 
-        return !isPrivate ? UIColor.Blue40.with(alpha: .thirtyPercent) : UIColor.Defaults.MobilePrivatePurple
+        return !isPrivate ? UIColor.CliqzBlue.with(alpha: .eightyPercent) : UIColor.Defaults.MobilePrivatePurple
     }
     var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
 
@@ -89,17 +88,17 @@ class BrowserColor {
 
 // The back/forward/refresh/menu button (bottom toolbar)
 class ToolbarButtonColor {
-    var selectedTint: UIColor { return UIColor.Blue40 }
+    var selectedTint: UIColor { return UIColor.CliqzBlue }
     var disabledTint: UIColor { return UIColor.Grey30 }
 }
 
 class LoadingBarColor {
     func start(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.CliqzBlue.with(alpha: .thirtyPercent) : UIColor.Grey20
+        return !isPrivate ? UIColor.CliqzBlue : UIColor.Grey40
     }
 
     func end(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.CliqzBlue : UIColor.Grey70
+        return start(isPrivate)
     }
 }
 
@@ -198,7 +197,7 @@ class GeneralColor {
     var destructiveRed: UIColor { return UIColor.Red50 }
     var separator: UIColor { return defaultSeparator }
     var settingsTextPlaceholder: UIColor? { return nil }
-    var controlTint: UIColor { return UIColor.Blue40 }
+    var controlTint: UIColor { return UIColor.CliqzBlue }
 }
 
 protocol Theme {

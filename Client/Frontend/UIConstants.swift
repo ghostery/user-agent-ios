@@ -32,7 +32,7 @@ public struct UIConstants {
         }
     }
 
-    static let SystemBlueColor = UIColor.Blue40
+    static let SystemBlueColor = UIColor.CliqzBlue
 
     // Static fonts
     static let DefaultChromeSize: CGFloat = 16
