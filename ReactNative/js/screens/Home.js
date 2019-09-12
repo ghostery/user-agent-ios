@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>
-        Most visited
+        { NativeModules.LocaleConstants['ActivityStream.TopSites.SectionTitle'] }
       </Text>
       <FlatGrid
         itemDimension={80}
