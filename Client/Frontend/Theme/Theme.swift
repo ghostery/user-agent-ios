@@ -31,14 +31,14 @@ class TableViewColor {
     var rowBackground: UIColor { return UIColor.White }
     var rowText: UIColor { return UIColor.Grey90 }
     var rowDetailText: UIColor { return UIColor.Grey60 }
-    var disabledRowText: UIColor { return UIColor.Grey40 }
+    var disabledRowText: UIColor { return UIColor.Grey50 }
     var separator: UIColor { return defaultSeparator }
     var headerBackground: UIColor { return defaultBackground }
     // Used for table headers in Settings and Photon menus
-    var headerTextLight: UIColor { return UIColor.Grey50 }
+    var headerTextLight: UIColor { return UIColor.DarkBlue }
     // Used for table headers in home panel tables
     var headerTextDark: UIColor { return UIColor.Grey90 }
-    var rowActionAccessory: UIColor { return UIColor.Blue40 }
+    var rowActionAccessory: UIColor { return UIColor.CliqzBlue }
     var controlTint: UIColor { return rowActionAccessory }
     var syncText: UIColor { return defaultTextAndTint }
     var errorText: UIColor { return UIColor.Red50 }
@@ -197,7 +197,7 @@ class GeneralColor {
     var destructiveRed: UIColor { return UIColor.Red50 }
     var separator: UIColor { return defaultSeparator }
     var settingsTextPlaceholder: UIColor? { return nil }
-    var controlTint: UIColor { return UIColor.Blue40 }
+    var controlTint: UIColor { return UIColor.CliqzBlue }
 }
 
 protocol Theme {
