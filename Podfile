@@ -1,6 +1,6 @@
 platform :ios, '11.4'
 
-project './Client.xcodeproj'
+project './UserAgent.xcodeproj'
 workspace 'UserAgent'
 
 inhibit_all_warnings!

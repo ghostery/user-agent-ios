@@ -18,7 +18,7 @@
                BlueprintIdentifier = "F84B22481A0920C600AAB793"
                BuildableName = "CliqzShareTo.appex"
                BlueprintName = "CliqzShareTo"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -30,9 +30,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-               BuildableName = "Client.app"
+               BuildableName = "UserAgent.app"
                BlueprintName = "Cliqz"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -46,7 +46,7 @@
                BlueprintIdentifier = "ACB7371123042BAB00FA5626"
                BuildableName = "Ghostery.app"
                BlueprintName = "Ghostery"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "F84B22481A0920C600AAB793"
             BuildableName = "CliqzShareTo.appex"
             BlueprintName = "CliqzShareTo"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -87,7 +87,7 @@
             BlueprintIdentifier = "F84B22481A0920C600AAB793"
             BuildableName = "CliqzShareTo.appex"
             BlueprintName = "CliqzShareTo"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -106,7 +106,7 @@
             BlueprintIdentifier = "F84B22481A0920C600AAB793"
             BuildableName = "CliqzShareTo.appex"
             BlueprintName = "CliqzShareTo"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
