@@ -186,8 +186,13 @@ extension ContentBlocker {
     // If any blocker files are newer than the date saved in prefs,
     // remove all the content blockers and reload them.
     func removeOldListsByDateFromStore(completion: @escaping () -> Void) {
+        guard let fileDate = dateOfMostRecentBlockerFile() else {
+            completion()
+            return
+        }
 
-        guard let fileDate = dateOfMostRecentBlockerFile(), let prefsNewestDate = UserDefaults.standard.object(forKey: "blocker-file-date") as? Date else {
+        guard let prefsNewestDate = UserDefaults.standard.object(forKey: "blocker-file-date") as? Date else {
+            UserDefaults.standard.set(fileDate, forKey: "blocker-file-date")
             completion()
             return
         }
@@ -198,6 +203,7 @@ extension ContentBlocker {
         }
 
         UserDefaults.standard.set(fileDate, forKey: "blocker-file-date")
+
         removeAllRulesInStore() {
             completion()
         }
