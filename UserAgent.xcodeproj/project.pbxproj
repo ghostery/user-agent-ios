@@ -1202,6 +1202,7 @@
 		46CA60F52317E5D10010CE6B /* JSBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSBridge.m; sourceTree = "<group>"; };
 		46CA610123180E1A0010CE6B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeBridge.swift; sourceTree = "<group>"; };
+		46E6117D232A51EB006FCADB /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		52280E16968DC760D8A37957 /* Pods-Lumen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.adhoc.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -2133,6 +2134,18 @@
 			path = NativeUIComponents;
 			sourceTree = "<group>";
 		};
+		46E6117F232A52CA006FCADB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F84B21D61A090F8100AAB793 /* ClientTests */,
+				E6F9650D1B2F1CF20034B023 /* SharedTests */,
+				3B43E3D11D95C48D00BBA9DB /* StoragePerfTests */,
+				2FCAE22A1ABB51F800877008 /* StorageTests */,
+				3BFE4B081D342FB900DDF53F /* XCUITests */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		7B0B1B9C1C1B69F500DF4AB5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -2204,18 +2217,18 @@
 			path = Translations;
 			sourceTree = "<group>";
 		};
-		C50ED2AF2326A7ED00EE71B8 /* ProjectConfig */ = {
+		C50ED2AF2326A7ED00EE71B8 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
-				C50ED2C22327C47D00EE71B8 /* Fastfile */,
-				ACB7398B230684AE00FA5626 /* README.md */,
-				ACB7398A2306847800FA5626 /* Jenkinsfile */,
+				ACB6D4362306B29A002D64E6 /* azure-pipelines.yml */,
 				E6C191D41E38F7B7000A213B /* Cartfile */,
 				E6C191D51E38F7B7000A213B /* Cartfile.resolved */,
+				C50ED2C22327C47D00EE71B8 /* Fastfile */,
 				ACB6D4382306B2B1002D64E6 /* Gemfile */,
-				ACB6D4362306B29A002D64E6 /* azure-pipelines.yml */,
+				ACB7398A2306847800FA5626 /* Jenkinsfile */,
+				46E6117D232A51EB006FCADB /* package.json */,
 			);
-			name = ProjectConfig;
+			name = Meta;
 			sourceTree = "<group>";
 		};
 		C50ED2B02326AA8500EE71B8 /* Branding */ = {
@@ -2773,26 +2786,23 @@
 		F84B21B51A090F8100AAB793 = {
 			isa = PBXGroup;
 			children = (
-				C50ED2AF2326A7ED00EE71B8 /* ProjectConfig */,
+				ACB7398B230684AE00FA5626 /* README.md */,
+				C50ED2AF2326A7ED00EE71B8 /* Meta */,
 				C50ED2B02326AA8500EE71B8 /* Branding */,
 				F84B21C01A090F8100AAB793 /* Client */,
-				46C41ED6230EC4ED00CE54D2 /* ReactNative */,
-				F84B21D61A090F8100AAB793 /* ClientTests */,
-				EBB894E9219398E500EB91A0 /* content-blocker-lib-ios */,
 				F8708D1E1A0970990051AB07 /* Extensions */,
-				7B604FC11C496005006EEEC3 /* Frameworks */,
-				F84B21BF1A090F8100AAB793 /* Products */,
+				46C41ED6230EC4ED00CE54D2 /* ReactNative */,
+				EBB894E9219398E500EB91A0 /* content-blocker-lib-ios */,
 				D34DC84C1A16C40C00D49B7B /* Providers */,
 				39F99FC71E3A6DB700F353B4 /* Push */,
 				E4E0BB141AFBC9E4008D6260 /* Shared */,
-				E6F9650D1B2F1CF20034B023 /* SharedTests */,
 				2FCAE21B1ABB51F800877008 /* Storage */,
-				3B43E3D11D95C48D00BBA9DB /* StoragePerfTests */,
-				2FCAE22A1ABB51F800877008 /* StorageTests */,
-				28CE83EF1A1D246900576538 /* Third-Party Source */,
 				ACB739882306837000FA5626 /* Translations */,
-				3BFE4B081D342FB900DDF53F /* XCUITests */,
+				46E6117F232A52CA006FCADB /* Tests */,
+				28CE83EF1A1D246900576538 /* Third-Party Source */,
+				7B604FC11C496005006EEEC3 /* Frameworks */,
 				16E9FFCB9ABA728F195C929B /* Pods */,
+				F84B21BF1A090F8100AAB793 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3357,10 +3367,10 @@
 				288A2D851AB8B3260023ABC3 /* Shared */,
 				2FCAE2191ABB51F800877008 /* Storage */,
 				F84B21D21A090F8100AAB793 /* ClientTests */,
-				2FCAE2231ABB51F800877008 /* StorageTests */,
 				E6F9650B1B2F1CF20034B023 /* SharedTests */,
-				3BFE4B061D342FB800DDF53F /* XCUITests */,
 				3B43E3CF1D95C48D00BBA9DB /* StoragePerfTests */,
+				2FCAE2231ABB51F800877008 /* StorageTests */,
+				3BFE4B061D342FB800DDF53F /* XCUITests */,
 			);
 		};
 /* End PBXProject section */
