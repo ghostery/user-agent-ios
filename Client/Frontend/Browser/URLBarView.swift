@@ -17,7 +17,7 @@ private struct URLBarViewUX {
     static let TextFieldCornerRadius: CGFloat = 8
     static let TextFieldBorderWidth: CGFloat = 0
     static let TextFieldBorderWidthSelected: CGFloat = 4
-    static let ProgressBarHeight: CGFloat = 3
+    static let ProgressBarHeight: CGFloat = 4
 
     static let TabsButtonRotationOffset: CGFloat = 1.5
     static let TabsButtonHeight: CGFloat = 18.0
@@ -324,8 +324,7 @@ class URLBarView: UIView {
                     // Otherwise, left align the location view
                     make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0, right: URLBarViewUX.LocationLeftPadding-1))
                 }
-
-                make.height.equalTo(URLBarViewUX.LocationHeight+2)
+                
                 make.centerY.equalTo(self)
             }
             self.locationContainer.layer.borderWidth = URLBarViewUX.TextFieldBorderWidth
