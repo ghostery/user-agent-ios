@@ -52,7 +52,6 @@ class ActionMenuColor {
     var closeButtonBackground: UIColor { return defaultBackground }
 }
 
-// TODO: oooh
 class URLBarColor {
     var border: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
     func activeBorder(_ isPrivate: Bool) -> UIColor { 
@@ -95,11 +94,11 @@ class ToolbarButtonColor {
 
 class LoadingBarColor {
     func start(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.CliqzBlue.with(alpha: .thirtyPercent) : UIColor.Grey20
+        return !isPrivate ? UIColor.CliqzBlue : UIColor.Grey40
     }
 
     func end(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.CliqzBlue : UIColor.Grey70
+        return start(isPrivate)
     }
 }
 
