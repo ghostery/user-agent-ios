@@ -46,7 +46,6 @@ protocol URLBarDelegate: AnyObject {
     func urlBarDisplayTextForURL(_ url: URL?) -> (String?, Bool)
     func urlBarDidLongPressPageOptions(_ urlBar: URLBarView, from button: UIButton)
     func urlBarDidBeginDragInteraction(_ urlBar: URLBarView)
-    func urlBarDidPressPrivacyButton(_ urlBar: URLBarView)
 }
 
 class URLBarView: UIView {
@@ -134,7 +133,7 @@ class URLBarView: UIView {
         let button = InsetButton()
         button.setImage(UIImage.templateImageNamed("menu-ScanQRCode"), for: .normal)
         button.accessibilityIdentifier = "urlBar-scanQRCode"
-        button.accessibilityLabel = Strings.ScanQRCodeViewTitle
+        cancelButton.accessibilityLabel = Strings.ScanQRCodeViewTitle
         button.clipsToBounds = false
         button.addTarget(self, action: #selector(showQRScanner), for: .touchUpInside)
         button.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
@@ -148,18 +147,6 @@ class URLBarView: UIView {
         // @TODO: figure out if there is an iOS standard way to do this that works with accessibility.
         button.isAccessibilityElement = false
         button.addTarget(self, action: #selector(tappedScrollToTopArea), for: .touchUpInside)
-        return button
-    }()
-
-    lazy var trackingProtectionButton: UIButton = {
-        let button = InsetButton()
-        button.setImage(UIImage.templateImageNamed("cliqz"), for: .normal)
-        button.clipsToBounds = false
-        button.addTarget(self, action: #selector(showControlCenter), for: .touchUpInside)
-        button.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
-        button.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
-        button.tintColor = UIColor(red: 0.00, green: 0.69, blue: 0.98, alpha: 1.0)
-        button.contentEdgeInsets = UIEdgeInsets(equalInset: 8)
         return button
     }()
 
@@ -210,8 +197,7 @@ class URLBarView: UIView {
         locationContainer.addSubview(locationView)
 
         [scrollToTopButton, line, tabsButton, progressBar, cancelButton, showQRScannerButton,
-         libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer,
-         trackingProtectionButton].forEach {
+         libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer].forEach {
             addSubview($0)
         }
 
@@ -300,13 +286,7 @@ class URLBarView: UIView {
             make.centerY.equalTo(self.locationContainer)
             make.size.equalTo(URLBarViewUX.ButtonHeight)
         }
-
-        trackingProtectionButton.snp.makeConstraints { make in
-            make.trailing.equalTo(self.safeArea.trailing)
-            make.centerY.equalTo(self.locationContainer)
-            make.size.equalTo(URLBarViewUX.ButtonHeight)
-        }
-
+        
         privateModeBadge.layout(onButton: tabsButton)
         hideImagesBadge.layout(onButton: menuButton)
     }
@@ -334,11 +314,16 @@ class URLBarView: UIView {
                 if self.toolbarIsShowing {
                     // If we are showing a toolbar, show the text field next to the forward button
                     make.leading.equalTo(self.stopReloadButton.snp.trailing).offset(URLBarViewUX.Padding)
+                    if self.topTabsIsShowing {
+                        make.trailing.equalTo(self.libraryButton.snp.leading).offset(-URLBarViewUX.Padding)
+                    } else {
+                        make.trailing.equalTo(self.tabsButton.snp.leading).offset(-URLBarViewUX.Padding)
+                    }
+
                 } else {
                     // Otherwise, left align the location view
-                    make.leading.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0, right: URLBarViewUX.LocationLeftPadding-1))
+                    make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0, right: URLBarViewUX.LocationLeftPadding-1))
                 }
-                make.trailing.equalTo(self.trackingProtectionButton.snp.leading)
 
                 make.height.equalTo(URLBarViewUX.LocationHeight+2)
                 make.centerY.equalTo(self)
@@ -353,10 +338,6 @@ class URLBarView: UIView {
 
     @objc func showQRScanner() {
         self.delegate?.urlBarDidPressQRButton(self)
-    }
-
-    @objc func showControlCenter() {
-        self.delegate?.urlBarDidPressPrivacyButton(self)
     }
 
     func createLocationTextField() {
@@ -495,7 +476,6 @@ class URLBarView: UIView {
         bringSubviewToFront(self.locationContainer)
         cancelButton.isHidden = false
         showQRScannerButton.isHidden = false
-        trackingProtectionButton.isHidden = true
         progressBar.isHidden = false
         menuButton.isHidden = !toolbarIsShowing
         libraryButton.isHidden = !toolbarIsShowing || !topTabsIsShowing
@@ -509,7 +489,6 @@ class URLBarView: UIView {
         locationView.contentView.alpha = inOverlayMode ? 0 : 1
         cancelButton.alpha = inOverlayMode ? 1 : 0
         showQRScannerButton.alpha = inOverlayMode ? 1 : 0
-        trackingProtectionButton.alpha = inOverlayMode ? 0 : 1
         progressBar.alpha = inOverlayMode || didCancel ? 0 : 1
         tabsButton.alpha = inOverlayMode ? 0 : 1
         menuButton.alpha = inOverlayMode ? 0 : 1
@@ -541,7 +520,6 @@ class URLBarView: UIView {
 
         cancelButton.isHidden = !inOverlayMode
         showQRScannerButton.isHidden = !inOverlayMode
-        trackingProtectionButton.isHidden = inOverlayMode
         progressBar.isHidden = inOverlayMode
         menuButton.isHidden = !toolbarIsShowing || inOverlayMode
         libraryButton.isHidden = !toolbarIsShowing || inOverlayMode || !topTabsIsShowing
@@ -685,6 +663,10 @@ extension URLBarView: TabLocationViewDelegate {
 
     func tabLocationViewDidBeginDragInteraction(_ tabLocationView: TabLocationView) {
         delegate?.urlBarDidBeginDragInteraction(self)
+    }
+
+    func tabLocationViewDidTapShield(_ tabLocationView: TabLocationView) {
+        delegate?.urlBarDidTapShield(self, from: tabLocationView.trackingProtectionButton)
     }
 }
 
