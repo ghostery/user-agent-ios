@@ -215,6 +215,9 @@
                <Test
                   Identifier = "TopTabsTestIphone">
                </Test>
+               <Test
+                  Identifier = "TranslationSnackBarTest">
+               </Test>
             </SkippedTests>
          </TestableReference>
       </Testables>
