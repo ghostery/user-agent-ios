@@ -47,7 +47,6 @@
 		2891F2CB1F991185001B105E /* v33.db in Resources */ = {isa = PBXBuildFile; fileRef = 2891F2BA1F991185001B105E /* v33.db */; };
 		289A4C131C4EB90600A460E3 /* StorageTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A4C121C4EB90600A460E3 /* StorageTestUtils.swift */; };
 		28B62ACE1BC745E7004A585A /* Syncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B62ACD1BC745E7004A585A /* Syncable.swift */; };
-		28C4AB721AD42D4300D9ACE3 /* Clients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C4AB711AD42D4300D9ACE3 /* Clients.swift */; };
 		28C8D11D1AD4CE8900F62011 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
 		28C8D1391AD4CE9100F62011 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		28CDA55C1A43C37C005C318C /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
@@ -1059,7 +1058,6 @@
 		28A6CE891AC082E200C1A2D4 /* UtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		28B62ACD1BC745E7004A585A /* Syncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncable.swift; sourceTree = "<group>"; };
 		28BC9C43E29D23732F5C1F8B /* Pods-Lumen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.debug.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.debug.xcconfig"; sourceTree = "<group>"; };
-		28C4AB711AD42D4300D9ACE3 /* Clients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clients.swift; sourceTree = "<group>"; };
 		28D52E081BCDF44100187A1D /* ResetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetTests.swift; sourceTree = "<group>"; };
 		28EADE381AFC3898007FB2FB /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtensions.swift; path = Extensions/UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		29FDDD173651239132A7DE8D /* Pods-GhosteryShareTo.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhosteryShareTo.adhoc.xcconfig"; path = "Target Support Files/Pods-GhosteryShareTo/Pods-GhosteryShareTo.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -1885,7 +1883,6 @@
 				74B195431CF503FC007F36EF /* RecentlyClosedTabs.swift */,
 				2FCAE33D1ABB5F1800877008 /* Storage-Bridging-Header.h */,
 				D37DE2821CA2047500A5EC69 /* CertStore.swift */,
-				28C4AB711AD42D4300D9ACE3 /* Clients.swift */,
 				2FCAE2411ABB531100877008 /* Cursor.swift */,
 				28302E3F1AF0747800521E2E /* DatabaseError.swift */,
 				394CF6CE1BAA493C00906917 /* DefaultSuggestedSites.swift */,
@@ -4201,7 +4198,6 @@
 				2FCAE2621ABB531100877008 /* History.swift in Sources */,
 				E6F368291D7F594F008CDD67 /* SQLiteHistoryRecommendations.swift in Sources */,
 				2829D3A01C2F0AD400DCF931 /* Sharing.swift in Sources */,
-				28C4AB721AD42D4300D9ACE3 /* Clients.swift in Sources */,
 				D0A627642270C682006AFA2E /* SQLiteHistoryFavicons.swift in Sources */,
 				D0131B4D1F3CF7D8000CDE86 /* SQLiteFavicons.swift in Sources */,
 				28B62ACE1BC745E7004A585A /* Syncable.swift in Sources */,
