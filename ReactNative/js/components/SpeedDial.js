@@ -38,6 +38,7 @@ export default ({ speedDial, onPress }) => {
           size={60}
           borderRadius={5}
           logoSize={60}
+          fontSize={28}
         />
         <Text numberOfLines={1}>{name}</Text>
       </View>

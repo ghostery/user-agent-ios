@@ -27,7 +27,7 @@ class HomeViewController: ReactViewController {
 
 extension HomeViewController: HomeViewControllerProtocol {
     func applyTheme() {
-
+        view.backgroundColor = UIColor.theme.browser.background
     }
 
     func scrollToTop() {

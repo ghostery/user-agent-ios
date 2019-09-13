@@ -164,6 +164,25 @@ ${newChangelog}"""
                         }
                     }
                 }
+
+                withCredentials([
+                    string(credentialsId: 'f206e880-e09a-4369-a3f6-f86ee94481f2', variable: 'SENTRY_AUTH_TOKEN'),
+                ]) {
+                    sh '''#!/bin/bash -l
+                        set -x
+                        set -e
+
+                        which sentry-cli || curl -sL https://sentry.io/get-cli/ | bash
+
+                        VERSION=$(sentry-cli releases propose-version)
+
+                        # Create a release
+                        sentry-cli releases new -p cliqznighly-ios $VERSION
+
+                        # Associate commits with the release
+                        sentry-cli releases set-commits --auto $VERSION
+                    '''
+                }
             }
         }
     }
@@ -189,7 +208,7 @@ def getChangeString(builds) {
             def entries = changeLogSets[i].items
             for (int j = 0; j < entries.length; j++) {
                 def entry = entries[j]
-                changeString += "- ${entry.msg} by ${entry.author} \n"
+                changeString += "- ${entry.msg}\n"
             }
         }
     }

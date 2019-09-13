@@ -98,14 +98,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = super.tableView(tableView, viewForHeaderInSection: section) as! ThemedTableSectionHeaderFooterView
         // Prevent the top border from showing for the General section.
-        if !profile.hasAccount() {
-            switch section {
-                case 1:
-                    headerView.showTopBorder = false
-            default:
-                break
-            }
+        switch section {
+            case 1:
+                headerView.showTopBorder = false
+        default:
+            break
         }
+
         return headerView
     }
 }

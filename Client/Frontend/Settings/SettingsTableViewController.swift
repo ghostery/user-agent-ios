@@ -475,40 +475,6 @@ class ButtonSetting: Setting {
     }
 }
 
-// A helper class for prefs that deal with sync. Handles reloading the tableView data if changes to
-// the fxAccount happen.
-class AccountSetting: Setting {
-    unowned var settings: SettingsTableViewController
-
-    var profile: Profile {
-        return settings.profile
-    }
-
-    override var title: NSAttributedString? { return nil }
-
-    init(settings: SettingsTableViewController) {
-        self.settings = settings
-        super.init(title: nil)
-    }
-
-    override func onConfigureCell(_ cell: UITableViewCell) {
-        super.onConfigureCell(cell)
-        if settings.profile.getAccount() != nil {
-            cell.selectionStyle = .none
-        }
-    }
-
-    override var accessoryType: UITableViewCell.AccessoryType { return .none }
-}
-
-class WithAccountSetting: AccountSetting {
-    override var hidden: Bool { return !profile.hasAccount() }
-}
-
-class WithoutAccountSetting: AccountSetting {
-    override var hidden: Bool { return profile.hasAccount() }
-}
-
 @objc
 protocol SettingsDelegate: AnyObject {
     func settingsOpenURLInNewTab(_ url: URL)

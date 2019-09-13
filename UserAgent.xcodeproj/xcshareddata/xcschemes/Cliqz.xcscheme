@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-               BuildableName = "Client.app"
+               BuildableName = "UserAgent.app"
                BlueprintName = "Cliqz"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -49,9 +49,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F84B21D21A090F8100AAB793"
-               BuildableName = "ClientTests.xctest"
+               BuildableName = "UserAgentTests.xctest"
                BlueprintName = "ClientTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test
@@ -90,7 +90,7 @@
                BlueprintIdentifier = "E6F9650B1B2F1CF20034B023"
                BuildableName = "SharedTests.xctest"
                BlueprintName = "SharedTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test
@@ -114,7 +114,7 @@
                BlueprintIdentifier = "3B43E3CF1D95C48D00BBA9DB"
                BuildableName = "StoragePerfTests.xctest"
                BlueprintName = "StoragePerfTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -124,7 +124,7 @@
                BlueprintIdentifier = "2FCAE2231ABB51F800877008"
                BuildableName = "StorageTests.xctest"
                BlueprintName = "StorageTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -321,9 +321,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-            BuildableName = "Client.app"
+            BuildableName = "UserAgent.app"
             BlueprintName = "Cliqz"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -344,9 +344,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-            BuildableName = "Client.app"
+            BuildableName = "UserAgent.app"
             BlueprintName = "Cliqz"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -370,9 +370,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F84B21BD1A090F8100AAB793"
-            BuildableName = "Client.app"
+            BuildableName = "UserAgent.app"
             BlueprintName = "Cliqz"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:UserAgent.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

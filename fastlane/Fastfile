@@ -28,7 +28,7 @@ platform :ios do
     )
 
     version = get_version_number(
-      xcodeproj: "Client.xcodeproj",
+      xcodeproj: "UserAgent.xcodeproj",
       target: "Cliqz"
     )
 
@@ -44,11 +44,11 @@ platform :ios do
     # Not sure how it updates ShareTo extension identifier
     increment_build_number(
       build_number: previous_version + 1,
-      xcodeproj: "Client.xcodeproj"
+      xcodeproj: "UserAgent.xcodeproj"
     )
 
     update_info_plist(
-      xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
+      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
       plist_path: "./Branding/Cliqz/Info.plist",
       block: proc do |plist|
         plist["SentryDSN"] = ENV["SENTRY_DSN"]
@@ -56,13 +56,13 @@ platform :ios do
     )
 
     update_app_identifier(
-      xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
+      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
       plist_path: "./Branding/Cliqz/Info.plist",
       app_identifier: "com.cliqz.browser.nightly" # The App Identifier
     )
 
     update_app_identifier(
-      xcodeproj: "Client.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
+      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
       plist_path: "./Extensions/ShareTo/Cliqz-Info.plist",
       app_identifier: "com.cliqz.browser.nightly.ShareTo" # The App Identifier
     )
@@ -78,19 +78,19 @@ platform :ios do
     )
 
     disable_automatic_code_signing(
-      path: "Client.xcodeproj",
+      path: "UserAgent.xcodeproj",
       code_sign_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
     )
 
     update_project_provisioning(
-      xcodeproj: "Client.xcodeproj",
+      xcodeproj: "UserAgent.xcodeproj",
       profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/0d0c370e-d393-40af-a704-42def1331441.mobileprovision",
       target_filter: "Cliqz",
       build_configuration: "Adhoc",
     )
 
     update_project_provisioning(
-      xcodeproj: "Client.xcodeproj",
+      xcodeproj: "UserAgent.xcodeproj",
       profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/93a334ed-4bb7-4121-b7d1-326fe0546dec.mobileprovision",
       target_filter: "ShareTo",
       build_configuration: "Adhoc",

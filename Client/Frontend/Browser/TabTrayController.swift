@@ -637,7 +637,7 @@ extension TabTrayController: UIViewControllerPreviewingDelegate {
         }
         let tabVC = TabPeekViewController(tab: tab, delegate: self)
         if let browserProfile = profile as? BrowserProfile {
-            tabVC.setState(withProfile: browserProfile, clientPickerDelegate: self)
+            tabVC.setState(withProfile: browserProfile)
         }
         previewingContext.sourceRect = self.view.convert(cell.frame, from: collectionView)
 
@@ -902,17 +902,6 @@ fileprivate class EmptyPrivateTabsView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension TabTrayController: DevicePickerViewControllerDelegate {
-    func devicePickerViewController(_ devicePickerViewController: DevicePickerViewController, didPickDevices devices: [RemoteDevice]) {
-        // This method stub is a leftover from when we remoeved the Account and Sync modules
-        devicePickerViewController.dismiss(animated: true, completion: nil)
-    }
-
-    func devicePickerViewControllerDidCancel(_ devicePickerViewController: DevicePickerViewController) {
-        devicePickerViewController.dismiss(animated: true, completion: nil)
     }
 }
 
