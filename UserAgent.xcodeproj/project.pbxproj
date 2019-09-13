@@ -50,6 +50,7 @@
 		28C8D11D1AD4CE8900F62011 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
 		28C8D1391AD4CE9100F62011 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		28CDA55C1A43C37C005C318C /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
+		28D52E2F1BCDF53900187A1D /* ResetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D52E081BCDF44100187A1D /* ResetTests.swift */; };
 		28E08C991AF44EF9009BA2FA /* SQLiteHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE2551ABB531100877008 /* SQLiteHistory.swift */; };
 		28E08C9A1AF44F00009BA2FA /* BrowserSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282915E51AF1A7920006EEB5 /* BrowserSchema.swift */; };
 		28EADE5D1AFC3A78007FB2FB /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EADE381AFC3898007FB2FB /* UIImageViewExtensions.swift */; };
@@ -1055,6 +1056,7 @@
 		28A6CE891AC082E200C1A2D4 /* UtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		28B62ACD1BC745E7004A585A /* Syncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncable.swift; sourceTree = "<group>"; };
 		28BC9C43E29D23732F5C1F8B /* Pods-Lumen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.debug.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.debug.xcconfig"; sourceTree = "<group>"; };
+		28D52E081BCDF44100187A1D /* ResetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetTests.swift; sourceTree = "<group>"; };
 		28EADE381AFC3898007FB2FB /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtensions.swift; path = Extensions/UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		29FDDD173651239132A7DE8D /* Pods-GhosteryShareTo.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhosteryShareTo.adhoc.xcconfig"; path = "Target Support Files/Pods-GhosteryShareTo/Pods-GhosteryShareTo.adhoc.xcconfig"; sourceTree = "<group>"; };
 		2C28F96B201B2D4C00ABA8A5 /* MailAppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAppSettingsTests.swift; sourceTree = "<group>"; };
@@ -2818,6 +2820,7 @@
 				2FDB10921A9FBEC5006CF312 /* PrefsTests.swift */,
 				0BA896491A250E6500C1010C /* ProfileTest.swift */,
 				03CCC9171AF05E7300DBF30D /* RelativeDatesTests.swift */,
+				28D52E081BCDF44100187A1D /* ResetTests.swift */,
 				2F697F7D1A9FD22D009E03AE /* SearchEnginesTests.swift */,
 				D3FA777A1A43B2990010CD32 /* SearchTests.swift */,
 				2F13E79A1AC0C02700D75081 /* StringExtensionsTests.swift */,
@@ -4817,6 +4820,7 @@
 				63306D452110BAF000F25400 /* TabManagerStoreTests.swift in Sources */,
 				4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */,
 				A83E5B1D1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift in Sources */,
+				28D52E2F1BCDF53900187A1D /* ResetTests.swift in Sources */,
 				E1D8BC7A21FF7A0000B100BD /* TPStatsBlocklistsTests.swift in Sources */,
 				D82ED2641FEB3C420059570B /* DefaultSearchPrefsTests.swift in Sources */,
 				3B61CD591F2A750800D38DE1 /* PocketFeedTests.swift in Sources */,
