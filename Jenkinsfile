@@ -92,6 +92,8 @@ node('gideon') {
 
                             sudo gem install which bundler || gem install bundler
 
+                            which sentry-cli || curl -sL https://sentry.io/get-cli/ | bash
+
                             ./bootstrap.sh
                         '''
                     }
@@ -159,7 +161,7 @@ ${newChangelog}"""
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
 
-                                bundle exec fastlane TestFlight
+                                bundle exec fastlane upload
                             """
                         }
                     }
@@ -168,20 +170,20 @@ ${newChangelog}"""
                 withCredentials([
                     string(credentialsId: 'f206e880-e09a-4369-a3f6-f86ee94481f2', variable: 'SENTRY_AUTH_TOKEN'),
                 ]) {
-                    sh '''#!/bin/bash -l
-                        set -x
-                        set -e
+                    withEnv(['SENTRY_ORG=cliqz']) {
+                        sh '''#!/bin/bash -l
+                            set -x
+                            set -e
 
-                        which sentry-cli || curl -sL https://sentry.io/get-cli/ | bash
+                            VERSION=$(sentry-cli releases propose-version)
 
-                        VERSION=$(sentry-cli releases propose-version)
+                            # Create a release
+                            sentry-cli releases new -p cliqznighly-ios $VERSION
 
-                        # Create a release
-                        sentry-cli releases new -p cliqznighly-ios $VERSION
-
-                        # Associate commits with the release
-                        sentry-cli releases set-commits --auto $VERSION
-                    '''
+                            # Associate commits with the release
+                            sentry-cli releases set-commits --auto $VERSION
+                        '''
+                    }
                 }
             }
         }
