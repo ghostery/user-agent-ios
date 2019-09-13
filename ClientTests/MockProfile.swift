@@ -49,14 +49,6 @@ class MockFiles: FileAccessor {
 }
 
 open class MockProfile: Client.Profile {
-    public func hasAccount() -> Bool {
-        return false
-    }
-
-    public func getAccount() -> Any? {
-        return nil
-    }
-
     // Read/Writeable properties for mocking
     public var recommendations: HistoryRecommendations
     public var places: RustPlaces
