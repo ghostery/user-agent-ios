@@ -1,4 +1,28 @@
-# Cliqz for iOS
+# UserAgent
+
+UserAgent is the internal name for the new Cliqz iOS browser. A diferent name was chosen to highlight the new project, differentiate the project from the previous code bases, and to keep the option open to build multiple apps (e.g. Cliqz and Ghostery) out of the same codebase. 
+
+## Requirements
+
+- Xcode 10 or higher (from the App Store)
+- [HomeBrew](https://brew.sh/)
+- carthage: `$ brew install carthage`
+- CocoaPods: `$ brew install cocoapods`
+- NPM: `$ brew install npm`
+
+
+## Building the Code
+
+1. Clone the repository:
+```shell
+git clone git@github.com:cliqz/user-agent-ios.git
+```
+1. Run the bootstrap script to install dependencies
+```shell
+cd user-agent-ios
+sh ./bootstrap.sh
+```
+1. Open `UserAgent.xcworkspace` in Xcode.
 
 ## Localization
 Localization works as described in the [Apple Documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LocalizingYourApp/LocalizingYourApp.html) or [this helpful tutorial](https://medium.com/swift-india/localize-your-apps-to-support-multiple-languages-ios-localization-ac7b612dbc58). Strings files are included in the project and can be exported to and imported from Xliff files if necessary for translation by external translation agencies.
@@ -7,72 +31,18 @@ Strings files live in the `Translations` directory,
 
 To test localization, you can edit your currently active scheme, and in "Options", set the "Application Language". Don't commit this change please.
 
-Building the code
------------------
+## Licensing
 
-1. Install the latest Xcode developer tools from the App Store
-1. Install Carthage
-```shell
-brew update
-brew install carthage
-```
-1. Install NPM
-```shell
-brew install npm
-```
-1. Clone the repository:
-```shell
-git clone https://github.com/mozilla-mobile/firefox-ios
-```
-1. Pull in the project dependencies:
-```shell
-cd firefox-ios
-sh ./bootstrap.sh
-```
-1. Open `UserAgent.xcworkspace` in Xcode.
-
-----
-
-Everything below this line is taken from the Firefox Readme and should be checked if it still applies, and if yes, moved to above this line
-
-----
-
-1. Build the `Cliqz` scheme in Xcode.
-
-## Building User Scripts
-
-User Scripts (JavaScript injected into the `WKWebView`) are compiled, concatenated and minified using [webpack](https://webpack.js.org/). User Scripts to be aggregated are placed in the following directories:
-
-```
-/Client
-|-- /Frontend
-    |-- /UserContent
-        |-- /UserScripts
-            |-- /AllFrames
-            |   |-- /AtDocumentEnd
-            |   |-- /AtDocumentStart
-            |-- /MainFrame
-                |-- /AtDocumentEnd
-                |-- /AtDocumentStart
-```
-
-This reduces the total possible number of User Scripts down to four. The compiled output from concatenating and minifying the User Scripts placed in these folders resides in `/Client/Assets` and are named accordingly:
-
-* `AllFramesAtDocumentEnd.js`
-* `AllFramesAtDocumentStart.js`
-* `MainFrameAtDocumentEnd.js`
-* `MainFrameAtDocumentStart.js`
-
-To simplify the build process, these compiled files are checked-in to this repository. When adding or editing User Scripts, these files can be re-compiled with `webpack` manually. This requires Node.js to be installed and all required `npm` packages can be installed by running `npm install` in the root directory of the project. User Scripts can be compiled by running the following `npm` command in the root directory of the project:
-
-```
-npm run build
-```
+Code is licensed under the [Mozilla Public License 2.0](https://github.com/cliqz/user-agent-ios/blob/develop/LICENSE).
 
 ## Contributor guidelines
 
+### General Guidelines
+* Please note that this project is released with a [Contributor Code of Conduct](https://github.com/cliqz/user-agent-ios/blob/develop/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
 ### Creating a pull request
 * All pull requests must be associated with a specific Issue. If an issue doesn't exist please first create it.
+* Please fill out the pull request template to your best ability.
 
 ### Swift style
 * Swift code should generally follow the conventions listed at https://github.com/raywenderlich/swift-style-guide.
@@ -87,4 +57,3 @@ npm run build
 ### Commits
 * Each commit should have a single clear purpose. If a commit contains multiple unrelated changes, those changes should be split into separate commits.
 * If a commit requires another commit to build properly, those commits should be squashed.
-* Follow-up commits for any review comments should be squashed. Do not include "Fixed PR comments", merge commits, or other "temporary" commits in pull requests.

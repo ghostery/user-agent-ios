@@ -7,9 +7,7 @@ import { addConnectionChangeListener } from 'browser-core-user-agent-ios/build/m
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
 import SearchResults from './ReactNative/js/screens/SearchResults';
-import ControlCenter from './ReactNative/js/screens/ControlCenter';
 import BridgeManager from './ReactNative/js/bridge-manager';
-
 
 YellowBox.ignoreWarnings([
   'Warning: NetInfo', // TODO: use netinfo from community package
@@ -28,5 +26,4 @@ const bridgeManager = new BridgeManager(NativeModules.JSBridge, inject);
 
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component {});
 AppRegistry.registerComponent('Home', () => Home);
-AppRegistry.registerComponent('ControlCenter', () => ControlCenter);
 AppRegistry.registerComponent('SearchResults', () => () => <SearchResults bridgeManager={bridgeManager} events={events} />);

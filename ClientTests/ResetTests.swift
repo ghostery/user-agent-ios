@@ -9,15 +9,6 @@ import UIKit
 
 import XCTest
 
-class MockBrowserProfile: BrowserProfile {
-    var peekTabs: SQLiteRemoteClientsAndTabs {
-        return self.remoteClientsAndTabs as! SQLiteRemoteClientsAndTabs
-    }
-}
-
-
-func assertClientsHaveGUIDsFromStorage(_ storage: RemoteClientsAndTabs, expected: [GUID]) {
-    let recs = storage.getClients().value.successValue
-    XCTAssertNotNil(recs)
-    XCTAssertEqual(expected, recs!.map { $0.guid! })
-}
+// This class used to contain methods for mocking syncing.
+// Now it's just a stand in for BrowserProfile in the Test, because I'd prefer not to change every single test case.
+class MockBrowserProfile: BrowserProfile {}

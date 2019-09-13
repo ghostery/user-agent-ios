@@ -43,7 +43,6 @@ protocol HomeViewControllerProtocol: Themeable {
 
 class BrowserViewController: UIViewController {
     var homeViewController: HomeViewControllerProtocol?
-    var controlCenterController: ControlCenterViewController?
     var libraryViewController: LibraryViewController?
     var libraryDrawerViewController: DrawerViewController?
     var webViewContainer: UIView!
@@ -668,12 +667,6 @@ class BrowserViewController: UIViewController {
             }
         }
 
-        controlCenterController?.view.snp.remakeConstraints { make in
-            make.top.equalTo(self.urlBar.snp.bottom)
-            make.left.right.equalTo(self.view)
-            make.bottom.equalTo(self.view.snp.bottom)
-        }
-
         alertStackView.snp.remakeConstraints { make in
             make.centerX.equalTo(self.view)
             make.width.equalTo(self.view.safeArea.width)
@@ -686,43 +679,6 @@ class BrowserViewController: UIViewController {
                 make.bottom.equalTo(self.view.safeArea.bottom)
             }
         }
-    }
-
-    fileprivate func showControlCenter() {
-        if self.controlCenterController == nil {
-            let controlCenterController = ControlCenterViewController()
-            self.controlCenterController = controlCenterController
-            addChild(controlCenterController)
-            view.addSubview(controlCenterController.view)
-        }
-
-        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            self.controlCenterController?.view.alpha = 1
-        }, completion: { finished in
-            if finished {
-                self.webViewContainer.accessibilityElementsHidden = true
-                UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: nil)
-            }
-        })
-        view.setNeedsUpdateConstraints()
-    }
-
-    fileprivate func hideControlCenter() {
-        guard let controlCenterController = self.controlCenterController else {
-            return
-        }
-
-        self.controlCenterController = nil
-        UIView.animate(withDuration: 0.2, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-            controlCenterController.view.alpha = 0
-        }, completion: { _ in
-            controlCenterController.view.removeFromSuperview()
-            controlCenterController.removeFromParent()
-            self.webViewContainer.accessibilityElementsHidden = false
-            UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: nil)
-
-            self.updateReaderMode()
-        })
     }
 
     fileprivate func showFirefoxHome(inline: Bool) {
@@ -767,15 +723,11 @@ class BrowserViewController: UIViewController {
             self.webViewContainer.accessibilityElementsHidden = false
             UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: nil)
 
-            self.updateReaderMode()
+            // Refresh the reading view toolbar since the article record may have changed
+            if let readerMode = self.tabManager.selectedTab?.getContentScript(name: ReaderMode.name()) as? ReaderMode, readerMode.state == .active {
+                self.showReaderModeBar(animated: false)
+            }
         })
-    }
-
-    // Refresh the reading view toolbar since the article record may have changed
-    fileprivate func updateReaderMode() {
-        if let readerMode = self.tabManager.selectedTab?.getContentScript(name: ReaderMode.name()) as? ReaderMode, readerMode.state == .active {
-            self.showReaderModeBar(animated: false)
-        }
     }
 
     fileprivate func updateInContentHomePanel(_ url: URL?) {
@@ -1216,14 +1168,6 @@ extension BrowserViewController {
 }
 
 extension BrowserViewController: URLBarDelegate {
-    func urlBarDidPressPrivacyButton(_ urlBar: URLBarView) {
-        if self.controlCenterController == nil {
-            showControlCenter()
-        } else {
-            hideControlCenter()
-        }
-    }
-
     func showTabTray() {
         Sentry.shared.clearBreadcrumbs()
 
@@ -2386,24 +2330,9 @@ extension BrowserViewController: TopTabsDelegate {
     }
 }
 
-extension BrowserViewController: DevicePickerViewControllerDelegate, InstructionsViewControllerDelegate {
+extension BrowserViewController: InstructionsViewControllerDelegate {
     func instructionsViewControllerDidClose(_ instructionsViewController: InstructionsViewController) {
         self.popToBVC()
-    }
-
-    func devicePickerViewControllerDidCancel(_ devicePickerViewController: DevicePickerViewController) {
-        self.popToBVC()
-    }
-
-    func devicePickerViewController(_ devicePickerViewController: DevicePickerViewController, didPickDevices devices: [RemoteDevice]) {
-        guard let tab = tabManager.selectedTab, let url = tab.canonicalURL?.displayURL?.absoluteString else { return }
-        let shareItem = ShareItem(url: url, title: tab.title, favicon: tab.displayFavicon)
-        guard shareItem.isShareable else {
-            let alert = UIAlertController(title: Strings.SendToErrorTitle, message: Strings.SendToErrorMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: Strings.SendToErrorOKButton, style: .default) { _ in self.popToBVC()})
-            present(alert, animated: true, completion: nil)
-            return
-        }
     }
 }
 

@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import Shared
 
 @objc(LocaleConstants)
 class LocaleConstants: NSObject {
     @objc
     func constantsToExport() -> [String: Any]! {
-        return ["lang": Locale.current.languageCode ?? "en", "locale": Locale.current.identifier]
+        return [
+            "lang": Locale.current.languageCode ?? "en",
+            "locale": Locale.current.identifier,
+            "ActivityStream.TopSites.SectionTitle": Strings.ASTopSitesTitle,
+        ]
     }
 
     @objc
