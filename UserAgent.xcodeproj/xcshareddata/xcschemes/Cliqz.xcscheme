@@ -134,137 +134,47 @@
                BlueprintIdentifier = "3BFE4B061D342FB800DDF53F"
                BuildableName = "XCUITests.xctest"
                BlueprintName = "XCUITests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "BrowsingPDFTests/testBookmarkPDF()">
+                  Identifier = "BrowsingPDFTests">
                </Test>
                <Test
-                  Identifier = "BrowsingPDFTests/testLongPressOnPDFLink()">
+                  Identifier = "CopiedLinksTests">
                </Test>
                <Test
-                  Identifier = "BrowsingPDFTests/testLongPressOnPDFLinkToAddToReadingList()">
+                  Identifier = "DatabaseFixtureTest">
                </Test>
                <Test
-                  Identifier = "BrowsingPDFTests/testOpenLinkFromPDF()">
+                  Identifier = "DesktopModeTests">
                </Test>
                <Test
-                  Identifier = "BrowsingPDFTests/testOpenPDFViewer()">
+                  Identifier = "DesktopModeTestsIphone">
                </Test>
                <Test
-                  Identifier = "BrowsingPDFTests/testPinPDFtoTopSites()">
+                  Identifier = "DragAndDropTestIpad">
                </Test>
                <Test
-                  Identifier = "CopiedLinksTests/testCopiedLinks()">
+                  Identifier = "DragAndDropTests">
                </Test>
                <Test
-                  Identifier = "DatabaseFixtureTest/testBookmarksDatabaseFixture()">
+                  Identifier = "FindInPageTests">
                </Test>
                <Test
-                  Identifier = "DatabaseFixtureTest/testHistoryDatabaseFixture()">
+                  Identifier = "FirstRunTourTests">
                </Test>
                <Test
-                  Identifier = "DatabaseFixtureTest/testOneBookmark()">
+                  Identifier = "LibraryTestsIpad">
                </Test>
                <Test
-                  Identifier = "DesktopModeTests/testLongPressReload()">
+                  Identifier = "LibraryTestsIphone">
                </Test>
                <Test
-                  Identifier = "DesktopModeTestsIphone/testClearPrivateData()">
+                  Identifier = "NavigationTest">
                </Test>
                <Test
-                  Identifier = "DesktopModeTestsIphone/testPrivateModeOffAlsoRemovesFromNormalMode()">
-               </Test>
-               <Test
-                  Identifier = "DesktopModeTestsIphone/testSameHostInMultipleTabs()">
-               </Test>
-               <Test
-                  Identifier = "DragAndDropTestIpad/testRearrangeTabsTabTrayIsKeptinTopTabs()">
-               </Test>
-               <Test
-                  Identifier = "DragAndDropTests/testDragAndDropHomeTabTabsTray()">
-               </Test>
-               <Test
-                  Identifier = "DragAndDropTests/testRearrangeMoreThan3TabsTabTray()">
-               </Test>
-               <Test
-                  Identifier = "DragAndDropTests/testRearrangeTabsPrivateModeTabTray()">
-               </Test>
-               <Test
-                  Identifier = "DragAndDropTests/testRearrangeTabsTabTray()">
-               </Test>
-               <Test
-                  Identifier = "DragAndDropTests/testRearrangeTabsTabTrayLandscape()">
-               </Test>
-               <Test
-                  Identifier = "FindInPageTests/testBarDissapearsWhenOpeningTabsTray()">
-               </Test>
-               <Test
-                  Identifier = "FindInPageTests/testFindFromMenu()">
-               </Test>
-               <Test
-                  Identifier = "FindInPageTests/testFindFromSelection()">
-               </Test>
-               <Test
-                  Identifier = "FindInPageTests/testFindInPageTwoWordsSearch()">
-               </Test>
-               <Test
-                  Identifier = "FirstRunTourTests/testFirstRunTour()">
-               </Test>
-               <Test
-                  Identifier = "FirstRunTourTests/testShowTourFromSettings()">
-               </Test>
-               <Test
-                  Identifier = "FirstRunTourTests/testStartBrowsingFromSecondScreen()">
-               </Test>
-               <Test
-                  Identifier = "LibraryTestsIphone/testLibraryShortcutHomePage()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testCopyLink()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testCopyLinkPrivateMode()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testDownloadLink()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testLongPressLinkOptions()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testLongPressLinkOptionsPrivateMode()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testNavigationPreservesDesktopSiteOnSameHost()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testReloadPreservesMobileOrDesktopSite()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testScrollsToTopWithMultipleTabs()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testShareLink()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testShareLinkPrivateMode()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testToggleBetweenMobileAndDesktopSiteFromMenu()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testToggleBetweenMobileAndDesktopSiteFromSite()">
-               </Test>
-               <Test
-                  Identifier = "NavigationTest/testWriteToChildPopupTab()">
-               </Test>
-               <Test
-                  Identifier = "NewTabSettingsTest/testChangeNewTabSettingsShowFirefoxHome()">
-               </Test>
-               <Test
-                  Identifier = "NewTabSettingsTest/testCheckNewTabSettingsByDefault()">
+                  Identifier = "NewTabSettingsTest">
                </Test>
                <Test
                   Identifier = "NightModeTests">
@@ -276,25 +186,13 @@
                   Identifier = "PhotonActionSheetTest">
                </Test>
                <Test
-                  Identifier = "PhotonActionSheetTest/testPinToTop()">
-               </Test>
-               <Test
-                  Identifier = "PhotonActionSheetTest/testSendToDeviceFromShareOption()">
-               </Test>
-               <Test
                   Identifier = "PocketTest">
                </Test>
                <Test
-                  Identifier = "PrivateBrowsingTest/testClosePrivateTabsOptionClosesPrivateTabs()">
+                  Identifier = "PrivateBrowsingTest">
                </Test>
                <Test
-                  Identifier = "PrivateBrowsingTest/testClosePrivateTabsOptionClosesPrivateTabsDirectlyFromTabTray()">
-               </Test>
-               <Test
-                  Identifier = "PrivateBrowsingTest/testPrivateTabDoesNotTrackHistory()">
-               </Test>
-               <Test
-                  Identifier = "PrivateBrowsingTest/testTabCountShowsOnlyNormalOrPrivateTabCount()">
+                  Identifier = "PrivateBrowsingTestIpad">
                </Test>
                <Test
                   Identifier = "ReaderViewTest">
