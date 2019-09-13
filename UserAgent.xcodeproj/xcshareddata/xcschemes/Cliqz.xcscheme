@@ -198,6 +198,9 @@
                   Identifier = "ReaderViewTest">
                </Test>
                <Test
+                  Identifier = "SiteLoadTest">
+               </Test>
+               <Test
                   Identifier = "TabTraySearchTabsTests">
                </Test>
                <Test
