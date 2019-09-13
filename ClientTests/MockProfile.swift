@@ -133,37 +133,5 @@ open class MockProfile: Client.Profile {
         return ClosedTabsStore(prefs: self.prefs)
     }()
 
-    internal lazy var remoteClientsAndTabs: RemoteClientsAndTabs = {
-        return SQLiteRemoteClientsAndTabs(db: self.db)
-    }()
-
-    fileprivate lazy var syncCommands: SyncCommands = {
-        return SQLiteRemoteClientsAndTabs(db: self.db)
-    }()
-
-    public func getClients() -> Deferred<Maybe<[RemoteClient]>> {
-        return deferMaybe([])
-    }
-
-    public func getCachedClients() -> Deferred<Maybe<[RemoteClient]>> {
-        return deferMaybe([])
-    }
-
-    public func getClientsAndTabs() -> Deferred<Maybe<[ClientAndTabs]>> {
-        return deferMaybe([])
-    }
-
-    public func getCachedClientsAndTabs() -> Deferred<Maybe<[ClientAndTabs]>> {
-        return deferMaybe([])
-    }
-
     public func cleanupHistoryIfNeeded() {}
-
-    public func storeTabs(_ tabs: [RemoteTab]) -> Deferred<Maybe<Int>> {
-        return deferMaybe(0)
-    }
-
-    public func sendItem(_ item: ShareItem, toDevices devices: [RemoteDevice]) -> Success {
-        return succeed()
-    }
 }
