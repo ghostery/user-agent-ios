@@ -92,6 +92,8 @@ node('gideon') {
 
                             sudo gem install which bundler || gem install bundler
 
+                            which sentry-cli || curl -sL https://sentry.io/get-cli/ | bash
+
                             ./bootstrap.sh
                         '''
                     }
@@ -172,12 +174,10 @@ ${newChangelog}"""
                         set -x
                         set -e
 
-                        which sentry-cli || curl -sL https://sentry.io/get-cli/ | bash
-
                         VERSION=$(sentry-cli releases propose-version)
 
                         # Create a release
-                        sentry-cli releases new -p cliqznighly-ios $VERSION
+                        sentry-cli releases new -p cliqznighly-ios --org cliqz $VERSION
 
                         # Associate commits with the release
                         sentry-cli releases set-commits --auto $VERSION
