@@ -75,15 +75,7 @@ protocol Profile: AnyObject {
     // Similar to <http://stackoverflow.com/questions/26029317/exc-bad-access-when-indirectly-accessing-inherited-member-in-swift>.
     func localName() -> String
 
-    func getCachedClients()-> Deferred<Maybe<[RemoteClient]>>
-    func getCachedClientsAndTabs() -> Deferred<Maybe<[ClientAndTabs]>>
-
     func cleanupHistoryIfNeeded()
-
-    func hasAccount() -> Bool
-    func getAccount() -> Any?
-
-    @discardableResult func storeTabs(_ tabs: [RemoteTab]) -> Deferred<Maybe<Int>>
 }
 
 fileprivate let PrefKeyClientID = "PrefKeyClientID"
@@ -363,10 +355,6 @@ open class BrowserProfile: Profile {
         return SQLiteReadingList(db: self.readingListDB)
     }()
 
-    lazy var remoteClientsAndTabs: RemoteClientsAndTabs & ResettableSyncStorage & AccountRemovalDelegate & RemoteDevices = {
-        return SQLiteRemoteClientsAndTabs(db: self.db)
-    }()
-
     lazy var certStore: CertStore = {
         return CertStore()
     }()
@@ -375,46 +363,11 @@ open class BrowserProfile: Profile {
         return ClosedTabsStore(prefs: self.prefs)
     }()
 
-    public func getCachedClients()-> Deferred<Maybe<[RemoteClient]>> {
-        return self.remoteClientsAndTabs.getClients()
-    }
-
-    public func getCachedClientsAndTabs() -> Deferred<Maybe<[ClientAndTabs]>> {
-        return self.remoteClientsAndTabs.getClientsAndTabs()
-    }
-
     public func cleanupHistoryIfNeeded() {
         recommendations.cleanupHistoryIfNeeded()
-    }
-
-    func storeTabs(_ tabs: [RemoteTab]) -> Deferred<Maybe<Int>> {
-        return self.remoteClientsAndTabs.insertOrUpdateTabs(tabs)
     }
 
     static var isChinaEdition: Bool = {
         return Locale.current.identifier == "zh_CN"
     }()
-
-    func removeAccountMetadata() {
-        self.prefs.removeObjectForKey(PrefsKeys.KeyLastRemoteTabSyncTime)
-        self.keychain.removeObject(forKey: self.name + ".account")
-    }
-
-    func removeExistingAuthenticationInfo() {
-        self.keychain.setAuthenticationInfo(nil)
-    }
-
-    class NoAccountError: MaybeErrorType {
-        var description = "No account."
-    }
-
-    func hasAccount() -> Bool {
-        // This is a stub from when we removed Acount and Sync Modules
-        return false
-    }
-
-    func getAccount() -> Any? {
-        // This is a stub from when we removed Acount and Sync Modules
-        return nil
-    }
 }
