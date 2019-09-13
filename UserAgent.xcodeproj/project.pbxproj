@@ -93,14 +93,11 @@
 		2FCAE2601ABB531100877008 /* Favicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE2421ABB531100877008 /* Favicons.swift */; };
 		2FCAE2611ABB531100877008 /* FileAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE2431ABB531100877008 /* FileAccessor.swift */; };
 		2FCAE2621ABB531100877008 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE2441ABB531100877008 /* History.swift */; };
-		2FCAE2651ABB531100877008 /* RemoteTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE2471ABB531100877008 /* RemoteTabs.swift */; };
 		2FCAE2661ABB531100877008 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE2481ABB531100877008 /* Site.swift */; };
 		2FCAE2681ABB531100877008 /* BrowserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE24B1ABB531100877008 /* BrowserDB.swift */; };
-		2FCAE2751ABB531100877008 /* SQLiteRemoteClientsAndTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE2581ABB531100877008 /* SQLiteRemoteClientsAndTabs.swift */; };
 		2FCAE2771ABB531100877008 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE25B1ABB531100877008 /* SwiftData.swift */; };
 		2FCAE2781ABB531100877008 /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE25C1ABB531100877008 /* Visit.swift */; };
 		2FCAE2841ABB533A00877008 /* MockFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE2791ABB533A00877008 /* MockFiles.swift */; };
-		2FCAE2851ABB533A00877008 /* TestSQLiteRemoteClientsAndTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE27A1ABB533A00877008 /* TestSQLiteRemoteClientsAndTabs.swift */; };
 		2FDB10931A9FBEC5006CF312 /* PrefsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB10921A9FBEC5006CF312 /* PrefsTests.swift */; };
 		318FB6EB1DB5600D0004E40F /* SQLiteHistoryFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318FB6EA1DB5600D0004E40F /* SQLiteHistoryFactories.swift */; };
 		31ADB5DA1E58CEC300E87909 /* ClipboardBarDisplayHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ADB5D91E58CEC300E87909 /* ClipboardBarDisplayHandler.swift */; };
@@ -531,7 +528,6 @@
 		C8F457A81F1FD75A000CB895 /* BrowserViewController+WebViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F457A71F1FD75A000CB895 /* BrowserViewController+WebViewDelegates.swift */; };
 		C8F457AA1F1FDD9B000CB895 /* BrowserViewController+KeyCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F457A91F1FDD9B000CB895 /* BrowserViewController+KeyCommands.swift */; };
 		C9294B8DA57CDDDF4CD7C31D /* ErrorPages.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B144025BB2AFEA7FF2CCC04 /* ErrorPages.strings */; };
-		CE7F11941F3CEEC800ABFC0B /* RemoteDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7F115E1F3CCEF900ABFC0B /* RemoteDevices.swift */; };
 		CEFA977E1FAA6B490016F365 /* SyncContentSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFA977D1FAA6B490016F365 /* SyncContentSettingsViewController.swift */; };
 		D01017F5219CB6BD009CBB5A /* DownloadContentScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01017F4219CB6BD009CBB5A /* DownloadContentScript.swift */; };
 		D0131B4D1F3CF7D8000CDE86 /* SQLiteFavicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0131B4C1F3CF7D8000CDE86 /* SQLiteFavicons.swift */; };
@@ -1106,15 +1102,12 @@
 		2FCAE2421ABB531100877008 /* Favicons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favicons.swift; sourceTree = "<group>"; };
 		2FCAE2431ABB531100877008 /* FileAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileAccessor.swift; sourceTree = "<group>"; };
 		2FCAE2441ABB531100877008 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = History.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		2FCAE2471ABB531100877008 /* RemoteTabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteTabs.swift; sourceTree = "<group>"; };
 		2FCAE2481ABB531100877008 /* Site.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		2FCAE24B1ABB531100877008 /* BrowserDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserDB.swift; sourceTree = "<group>"; };
 		2FCAE2551ABB531100877008 /* SQLiteHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteHistory.swift; sourceTree = "<group>"; };
-		2FCAE2581ABB531100877008 /* SQLiteRemoteClientsAndTabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteRemoteClientsAndTabs.swift; sourceTree = "<group>"; };
 		2FCAE25B1ABB531100877008 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftData.swift; sourceTree = "<group>"; };
 		2FCAE25C1ABB531100877008 /* Visit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
 		2FCAE2791ABB533A00877008 /* MockFiles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFiles.swift; sourceTree = "<group>"; };
-		2FCAE27A1ABB533A00877008 /* TestSQLiteRemoteClientsAndTabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSQLiteRemoteClientsAndTabs.swift; sourceTree = "<group>"; };
 		2FCAE27D1ABB533A00877008 /* TestSQLiteHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSQLiteHistory.swift; sourceTree = "<group>"; };
 		2FCAE33D1ABB5F1800877008 /* Storage-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Storage-Bridging-Header.h"; sourceTree = "<group>"; };
 		2FDB10921A9FBEC5006CF312 /* PrefsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsTests.swift; sourceTree = "<group>"; };
@@ -1310,7 +1303,6 @@
 		C8E18F1F222EDED000E30E52 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		C8F457A71F1FD75A000CB895 /* BrowserViewController+WebViewDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+WebViewDelegates.swift"; sourceTree = "<group>"; };
 		C8F457A91F1FDD9B000CB895 /* BrowserViewController+KeyCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+KeyCommands.swift"; sourceTree = "<group>"; };
-		CE7F115E1F3CCEF900ABFC0B /* RemoteDevices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDevices.swift; sourceTree = "<group>"; };
 		CEFA977D1FAA6B490016F365 /* SyncContentSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncContentSettingsViewController.swift; sourceTree = "<group>"; };
 		D000661320472890009BA6F6 /* __firefox__.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = __firefox__.js; sourceTree = "<group>"; };
 		D01017F4219CB6BD009CBB5A /* DownloadContentScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadContentScript.swift; sourceTree = "<group>"; };
@@ -1906,7 +1898,6 @@
 				285D3B671B4380B70035FD22 /* Queue.swift */,
 				E6FF6AC91D873CFF0070C294 /* PageMetadata.swift */,
 				D076971E206AC60900FACFD8 /* ReadingList.swift */,
-				2FCAE2471ABB531100877008 /* RemoteTabs.swift */,
 				2829D39F1C2F0AD400DCF931 /* Sharing.swift */,
 				2FCAE2481ABB531100877008 /* Site.swift */,
 				0B54BD181B698B7C004C822C /* SuggestedSites.swift */,
@@ -1934,7 +1925,6 @@
 				2FCAE27D1ABB533A00877008 /* TestSQLiteHistory.swift */,
 				E63F71871DB7FBE200A995C9 /* TestSQLiteMetadata.swift */,
 				D0B693D4206C5BB9008A8B11 /* TestSQLiteReadingList.swift */,
-				2FCAE27A1ABB533A00877008 /* TestSQLiteRemoteClientsAndTabs.swift */,
 				D32CACEC1AE04DA1000658EB /* TestSwiftData.swift */,
 				2FCAE22B1ABB51F800877008 /* Supporting Files */,
 			);
@@ -1965,7 +1955,6 @@
 				E677F0441D9423FB00ECF1FB /* SQLiteMetadata.swift */,
 				285D3B8F1B4386520035FD22 /* SQLiteQueue.swift */,
 				D0769742206C19E800FACFD8 /* SQLiteReadingList.swift */,
-				2FCAE2581ABB531100877008 /* SQLiteRemoteClientsAndTabs.swift */,
 			);
 			path = SQL;
 			sourceTree = "<group>";
@@ -2543,7 +2532,6 @@
 				E65075881E37F7AB006961AC /* Logger.swift */,
 				E65075891E37F7AB006961AC /* NotificationConstants.swift */,
 				E650758B1E37F7AB006961AC /* Prefs.swift */,
-				CE7F115E1F3CCEF900ABFC0B /* RemoteDevices.swift */,
 				E650758C1E37F7AB006961AC /* RollingFileLogger.swift */,
 				D02818601EF056C800240CAA /* SentryIntegration.swift */,
 				E650758D1E37F7AB006961AC /* SupportUtils.swift */,
@@ -4164,7 +4152,6 @@
 				E65075A11E37F7AB006961AC /* HashExtensions.swift in Sources */,
 				E65075981E37F7AB006961AC /* Bytes.swift in Sources */,
 				E65075B11E37F7AB006961AC /* FSUtils.m in Sources */,
-				CE7F11941F3CEEC800ABFC0B /* RemoteDevices.swift in Sources */,
 				D3A14C221CB3145E00253BC6 /* Strings.swift in Sources */,
 				7B10AA9F1E3A15020002DD08 /* DataExtensions.swift in Sources */,
 				7B3D9E651E4CBFDB007A50DA /* NSCoderExtensions.swift in Sources */,
@@ -4214,7 +4201,6 @@
 				2FCAE2621ABB531100877008 /* History.swift in Sources */,
 				E6F368291D7F594F008CDD67 /* SQLiteHistoryRecommendations.swift in Sources */,
 				2829D3A01C2F0AD400DCF931 /* Sharing.swift in Sources */,
-				2FCAE2751ABB531100877008 /* SQLiteRemoteClientsAndTabs.swift in Sources */,
 				28C4AB721AD42D4300D9ACE3 /* Clients.swift in Sources */,
 				D0A627642270C682006AFA2E /* SQLiteHistoryFavicons.swift in Sources */,
 				D0131B4D1F3CF7D8000CDE86 /* SQLiteFavicons.swift in Sources */,
@@ -4242,7 +4228,6 @@
 				D076971F206AC60900FACFD8 /* ReadingList.swift in Sources */,
 				28E08C9A1AF44F00009BA2FA /* BrowserSchema.swift in Sources */,
 				2FCAE2681ABB531100877008 /* BrowserDB.swift in Sources */,
-				2FCAE2651ABB531100877008 /* RemoteTabs.swift in Sources */,
 				2FCAE2601ABB531100877008 /* Favicons.swift in Sources */,
 				2FCAE2771ABB531100877008 /* SwiftData.swift in Sources */,
 				D05434D9225BAA6200FDE4EF /* RustPlaces.swift in Sources */,
@@ -4259,7 +4244,6 @@
 				C8611C8E1F71904C00C3DE7D /* DiskImageStoreTests.swift in Sources */,
 				D0B693D5206C5BB9008A8B11 /* TestSQLiteReadingList.swift in Sources */,
 				E63F71881DB7FBE200A995C9 /* TestSQLiteMetadata.swift in Sources */,
-				2FCAE2851ABB533A00877008 /* TestSQLiteRemoteClientsAndTabs.swift in Sources */,
 				289A4C131C4EB90600A460E3 /* StorageTestUtils.swift in Sources */,
 				D37DE2C71CA356D800A5EC69 /* CertTests.swift in Sources */,
 				281B029A1C037C1F005202C3 /* TestBrowserDB.swift in Sources */,
