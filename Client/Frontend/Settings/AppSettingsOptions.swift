@@ -63,26 +63,6 @@ class RequireUpgradeDebugSetting: WithAccountSetting {
 }
 
 // For great debugging!
-class ForgetSyncAuthStateDebugSetting: WithAccountSetting {
-    override var hidden: Bool {
-        if !ShowDebugSettings {
-            return true
-        }
-        if let _ = profile.getAccount() {
-            return false
-        }
-        return true
-    }
-
-    override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Debug: forget Sync auth state", comment: "Debug option"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        settings.tableView.reloadData()
-    }
-}
-
 class DeleteExportedDataSetting: HiddenSetting {
     override var title: NSAttributedString? {
         // Not localized for now.
@@ -491,50 +471,6 @@ class ChinaSyncServiceSetting: WithoutAccountSetting {
     }
 }
 
-class StageSyncServiceDebugSetting: WithoutAccountSetting {
-    override var accessoryType: UITableViewCell.AccessoryType { return .none }
-    var prefs: Prefs { return settings.profile.prefs }
-
-    var prefKey: String = "useStageSyncService"
-
-    override var accessibilityIdentifier: String? { return "DebugStageSync" }
-
-    override var hidden: Bool {
-        if !ShowDebugSettings {
-            return true
-        }
-        if let _ = profile.getAccount() {
-            return true
-        }
-        return false
-    }
-
-    override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Debug: use stage servers", comment: "Debug option"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
-    }
-
-    override var status: NSAttributedString? {
-        // This method stub is a leftover from when we removed the Account and Sync modules
-        let configurationURL = URL(string: "http://example.com")!
-        return NSAttributedString(string: configurationURL.absoluteString, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight])
-    }
-
-    override func onConfigureCell(_ cell: UITableViewCell) {
-        super.onConfigureCell(cell)
-        let control = UISwitchThemed()
-        control.onTintColor = UIColor.theme.tableView.controlTint
-        control.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
-        control.isOn = prefs.boolForKey(prefKey) ?? false
-        cell.accessoryView = control
-        cell.selectionStyle = .none
-    }
-
-    @objc func switchValueChanged(_ toggle: UISwitch) {
-        prefs.setObject(toggle.isOn, forKey: prefKey)
-        settings.tableView.reloadData()
-    }
-}
-
 class NewTabPageSetting: Setting {
     let profile: Profile
 
@@ -638,33 +574,6 @@ class OpenWithSetting: Setting {
     override func onClick(_ navigationController: UINavigationController?) {
         let viewController = OpenWithSettingsViewController(prefs: profile.prefs)
         navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-class AdvancedAccountSetting: HiddenSetting {
-    let profile: Profile
-
-    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
-
-    override var accessibilityIdentifier: String? { return "AdvancedAccount.Setting" }
-
-    override var title: NSAttributedString? {
-        return NSAttributedString(string: Strings.SettingsAdvancedAccountTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
-    }
-
-    override init(settings: SettingsTableViewController) {
-        self.profile = settings.profile
-        super.init(settings: settings)
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        let viewController = AdvancedAccountSettingViewController()
-        viewController.profile = profile
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-
-    override var hidden: Bool {
-        return !ShowDebugSettings || profile.hasAccount()
     }
 }
 
