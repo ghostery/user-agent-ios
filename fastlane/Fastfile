@@ -68,12 +68,12 @@ platform :ios do
     )
 
     update_app_group_identifiers(
-      entitlements_file: "Client/Entitlements/UserAgent.entitlements",
+      entitlements_file: "Client/Entitlements/Cliqz.entitlements",
       app_group_identifiers: ["group.com.cliqz.browser.nightly"]
     )
 
     update_app_group_identifiers(
-      entitlements_file: "Extensions/Entitlements/UserAgent.entitlements",
+      entitlements_file: "Extensions/Entitlements/CliqzShareTo.entitlements",
       app_group_identifiers: ["group.com.cliqz.browser.nightly"]
     )
 
