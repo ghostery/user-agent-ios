@@ -115,7 +115,7 @@ platform :ios do
     )
   end
 
-  lane :TestFlight do
+  lane :upload do
     changelog = read_changelog
 
     upload_to_testflight(
@@ -129,6 +129,7 @@ platform :ios do
       auth_token: ENV["SENTRY_AUTH_TOKEN"],
       org_slug: 'cliqz',
       project_slug: 'cliqznighly-ios',
+      dsym_path: 'UserAgent.app.dSYM.zip',
     )
   end
 end
