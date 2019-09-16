@@ -35,14 +35,14 @@ steps:
 
 - bash: |
     set -x
-    npm run build
+    npm run build-user-scripts
   displayName: Generate User Scripts
 
 - task: UseRubyVersion@0
   inputs:
     versionSpec: '2.6'
     addToPath: true
-    
+
 - bash: |
     set -x
     gem install bundler:2.0.2
@@ -67,7 +67,24 @@ steps:
     xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
     packageApp: true
-    exportPath: 'output/$(SDK)/$(scheme)'
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 8'
     publishJUnitResults: true
+    args: '-derivedDataPath builds'
+
+- bash: |
+    brew tap wix/brew
+    brew install applesimutils
+  displayName: Install dependencies
+
+- bash: |
+    npm run test-detox
+  displayName: e2e test
+
+- task: PublishBuildArtifacts@1
+  condition: or(succeeded(), failed())
+  displayName: Publish e2e tests screenshots
+  inputs:
+    pathtoPublish: './artifacts'
+    artifactName: 'Screenshots'
+    publishLocation: 'Container'

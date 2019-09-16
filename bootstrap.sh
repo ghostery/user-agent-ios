@@ -13,7 +13,7 @@ brew bundle
 carthage bootstrap --platform ios --color auto --cache-builds
 
 npm ci
-npm run build
+npm run build-user-scripts
 
 bundle install
 bundle exec pod install --repo-update
