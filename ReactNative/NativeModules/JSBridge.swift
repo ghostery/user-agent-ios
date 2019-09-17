@@ -11,6 +11,10 @@ import React
 
 @objc(JSBridge)
 class JSBridge: RCTEventEmitter {
+    fileprivate let lockDispatchQueue = DispatchQueue(label: "com.cliqz.jsbridge.lock", attributes: [])
+    fileprivate let lockSemaphore = DispatchSemaphore(value: 0)
+    fileprivate var bridgeReady = false
+
     override static func requiresMainQueueSetup() -> Bool {
         return false
     }
@@ -20,6 +24,19 @@ class JSBridge: RCTEventEmitter {
     }
 
     func callAction(module: String, action: String, args: Array<Any>) {
-        sendEvent(withName: "callAction", body: ["module": module, "action": action, "args": args])
+        lockDispatchQueue.async {
+            if !self.bridgeReady {
+                self.lockSemaphore.wait()
+            }
+            self.sendEvent(withName: "callAction", body: ["module": module, "action": action, "args": args])
+        }
+    }
+
+    @objc(ready)
+    func ready() {
+        if !bridgeReady {
+            bridgeReady = true
+            lockSemaphore.signal()
+        }
     }
 }
