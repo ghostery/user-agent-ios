@@ -352,7 +352,7 @@ class URLBarView: UIView {
         locationTextField.keyboardType = .webSearch
         locationTextField.autocorrectionType = .no
         locationTextField.autocapitalizationType = .none
-        locationTextField.returnKeyType = .go
+        locationTextField.returnKeyType = .search
         locationTextField.clearButtonMode = .whileEditing
         locationTextField.textAlignment = .left
         locationTextField.font = UIConstants.DefaultChromeFont
@@ -564,6 +564,10 @@ class URLBarView: UIView {
 
     @objc func tappedScrollToTopArea() {
         delegate?.urlBarDidPressScrollToTop(self)
+    }
+
+    func blur() {
+        locationTextField?.resignFirstResponder()
     }
 }
 
