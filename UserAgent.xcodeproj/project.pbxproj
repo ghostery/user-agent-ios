@@ -501,6 +501,10 @@
 		C4EFEECF1CEBB6F2009762A4 /* BackForwardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFEECE1CEBB6F2009762A4 /* BackForwardTableViewCell.swift */; };
 		C4F3B29A1CFCF93A00966259 /* ButtonToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F3B2991CFCF93A00966259 /* ButtonToast.swift */; };
 		C50ED2A723269F2A00EE71B8 /* ShareTo.strings in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2A923269F2A00EE71B8 /* ShareTo.strings */; };
+		C50ED2B62326AB1100EE71B8 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2B52326AB1100EE71B8 /* brand.xcassets */; };
+		C50ED2BE2326B18200EE71B8 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2BC2326B17C00EE71B8 /* brand.xcassets */; };
+		C50ED2C42327F1D700EE71B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
+		C50ED2C52327F1D700EE71B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
 		C50ED2CA2328EA3900EE71B8 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2C92328EA3800EE71B8 /* BaseTestCase.swift */; };
 		C50ED2CC2328EAA600EE71B8 /* FxScreenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2CB2328EAA500EE71B8 /* FxScreenGraph.swift */; };
 		C50ED2DC2328F99C00EE71B8 /* ScreenGraphEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2D12328F99C00EE71B8 /* ScreenGraphEdge.swift */; };
@@ -515,10 +519,6 @@
 		C50ED2E723290BBA00EE71B8 /* MMScreenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2D92328F99C00EE71B8 /* MMScreenGraph.swift */; };
 		C50ED2EE232914B100EE71B8 /* GraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2EC232914B100EE71B8 /* GraphNode.swift */; };
 		C50ED2EF232914B100EE71B8 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2ED232914B100EE71B8 /* SortedArray.swift */; };
-		C50ED2B62326AB1100EE71B8 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2B52326AB1100EE71B8 /* brand.xcassets */; };
-		C50ED2BE2326B18200EE71B8 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2BC2326B17C00EE71B8 /* brand.xcassets */; };
-		C50ED2C42327F1D700EE71B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
-		C50ED2C52327F1D700EE71B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
 		C817B34D1FC609500086018E /* UIScrollViewSwizzled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */; };
 		C8611C8E1F71904C00C3DE7D /* DiskImageStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF8CBC1B7472FA0007AFE6 /* DiskImageStoreTests.swift */; };
 		C8DFFE492294AAB600296DB1 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DFFE482294AAB600296DB1 /* NetworkUtils.swift */; };
@@ -1279,6 +1279,9 @@
 		C4F3B2991CFCF93A00966259 /* ButtonToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonToast.swift; sourceTree = "<group>"; };
 		C50ED2A823269F2A00EE71B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ShareTo.strings; sourceTree = "<group>"; };
 		C50ED2AA23269F3100EE71B8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ShareTo.strings; sourceTree = "<group>"; };
+		C50ED2B52326AB1100EE71B8 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
+		C50ED2BC2326B17C00EE71B8 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
+		C50ED2C22327C47D00EE71B8 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		C50ED2C92328EA3800EE71B8 /* BaseTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		C50ED2CB2328EAA500EE71B8 /* FxScreenGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FxScreenGraph.swift; sourceTree = "<group>"; };
 		C50ED2D12328F99C00EE71B8 /* ScreenGraphEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenGraphEdge.swift; sourceTree = "<group>"; };
@@ -1293,9 +1296,6 @@
 		C50ED2DB2328F99C00EE71B8 /* GraphRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphRepresentation.swift; sourceTree = "<group>"; };
 		C50ED2EC232914B100EE71B8 /* GraphNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphNode.swift; sourceTree = "<group>"; };
 		C50ED2ED232914B100EE71B8 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
-		C50ED2B52326AB1100EE71B8 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
-		C50ED2BC2326B17C00EE71B8 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
-		C50ED2C22327C47D00EE71B8 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		C53E464C232299C4005B2DA6 /* Cliqz.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Cliqz.entitlements; sourceTree = "<group>"; };
 		C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
 		C62CE646A71600AB2E55CF4C /* Pods-StoragePerfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoragePerfTests.debug.xcconfig"; path = "Target Support Files/Pods-StoragePerfTests/Pods-StoragePerfTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2815,7 +2815,6 @@
 				3BFE4B071D342FB800DDF53F /* XCUITests.xctest */,
 				3B43E3D01D95C48D00BBA9DB /* StoragePerfTests.xctest */,
 				ACB7384723042BAB00FA5626 /* UserAgent.app */,
-				464F67852326AFB70090D0B5 /* GhosteryShareTo.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3248,7 +3247,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = Cliqz;
 				TargetAttributes = {
 					288A2D851AB8B3260023ABC3 = {
@@ -4337,7 +4336,6 @@
 				2C97EC711E72C80E0092EC18 /* TopTabsTest.swift in Sources */,
 				2C473BD0209778900008C853 /* DownloadFilesTests.swift in Sources */,
 				C50ED2DF2328F99C00EE71B8 /* MMGraphNode.swift in Sources */,
-				3DEFED081F55EBE300F8620C /* TrackingProtectionTests.swift in Sources */,
 				3D9CA9A81EF84D04002434DD /* NoImageTests.swift in Sources */,
 				C50ED2E32328F99C00EE71B8 /* MMNode.swift in Sources */,
 				C50ED2DE2328F99C00EE71B8 /* MMScreenActionNode.swift in Sources */,
