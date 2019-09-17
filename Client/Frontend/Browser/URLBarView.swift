@@ -120,18 +120,21 @@ class URLBarView: UIView {
     }()
 
     fileprivate lazy var cancelButton: UIButton = {
-        let cancelButton = InsetButton()
-        cancelButton.setImage(UIImage.templateImageNamed("goBack"), for: .normal)
+        let cancelButton = UIButton()
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.BackTitle
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        cancelButton.setTitleColor(UIColor.CliqzBlue, for: .normal)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
+        cancelButton.setContentHuggingPriority(.required, for: .horizontal)
         return cancelButton
     }()
 
     fileprivate lazy var scrollToTopButton: UIButton = {
         let button = UIButton()
-        // This button interferes with accessibility of the URL bar as it partially overlays it, and keeps getting the VoiceOver focus instead of the URL bar.
+        // This button interferes with accessibility of the URL bar as it partially overlays it, and keeps getting the VoiceOver focus
+        // instead of the URL bar.
         // @TODO: figure out if there is an iOS standard way to do this that works with accessibility.
         button.isAccessibilityElement = false
         button.addTarget(self, action: #selector(tappedScrollToTopArea), for: .touchUpInside)
@@ -183,8 +186,9 @@ class URLBarView: UIView {
 
     fileprivate func commonInit() {
         locationContainer.addSubview(locationView)
+        locationContainer.addSubview(cancelButton)
 
-        [scrollToTopButton, line, tabsButton, progressBar, cancelButton,
+        [scrollToTopButton, line, tabsButton, progressBar,
          libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer].forEach {
             addSubview($0)
         }
@@ -228,7 +232,7 @@ class URLBarView: UIView {
         }
 
         cancelButton.snp.makeConstraints { make in
-            make.leading.equalTo(self.safeArea.leading)
+            make.trailing.equalTo(self.safeArea.trailing)
             make.centerY.equalTo(self.locationContainer)
             make.size.equalTo(URLBarViewUX.ButtonHeight)
         }
@@ -281,15 +285,23 @@ class URLBarView: UIView {
             self.locationContainer.snp.remakeConstraints { make in
                 let height = URLBarViewUX.LocationHeight + (URLBarViewUX.TextFieldBorderWidthSelected * 2)
                 make.height.equalTo(height)
-                make.trailing.equalTo(self.locationContainer.snp.trailing)
-                make.leading.equalTo(self.cancelButton.snp.trailing)
+                make.leading.equalTo(self.safeArea.leading)
+                make.trailing.equalTo(self.safeArea.trailing)
                 make.centerY.equalTo(self)
+            }
+            self.cancelButton.snp.remakeConstraints { make in
+                make.height.equalTo(locationContainer.snp.height)
+                make.trailing.equalTo(locationContainer.snp.trailing).offset(-URLBarViewUX.LocationLeftPadding)
             }
             self.locationView.snp.remakeConstraints { make in
                 make.edges.equalTo(self.locationContainer).inset(UIEdgeInsets(equalInset: URLBarViewUX.TextFieldBorderWidthSelected))
             }
             self.locationTextField?.snp.remakeConstraints { make in
-                make.edges.equalTo(self.locationView).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0, right: URLBarViewUX.LocationLeftPadding))
+                make.leading.equalTo(self.locationView.snp.leading).offset(URLBarViewUX.LocationLeftPadding)
+                make.trailing.equalTo(self.cancelButton.snp.leading)
+                make.top.equalTo(self.locationView.snp.top)
+                make.bottom.equalTo(self.locationView.snp.bottom)
+//                make.edges.equalTo(self.locationView).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0, right: URLBarViewUX.LocationLeftPadding))
             }
         } else {
             self.locationContainer.snp.remakeConstraints { make in
@@ -339,11 +351,14 @@ class URLBarView: UIView {
         locationTextField.attributedPlaceholder = self.locationView.placeholder
         locationContainer.addSubview(locationTextField)
         locationTextField.snp.remakeConstraints { make in
-            make.edges.equalTo(self.locationView)
+            make.leading.equalTo(self.locationView.snp.leading)
+            make.trailing.equalTo(self.cancelButton.snp.trailing)
+            make.top.equalTo(self.locationView.snp.top)
+            make.bottom.equalTo(self.locationView.snp.bottom)
         }
 
         locationTextField.applyTheme()
-        locationTextField.backgroundColor = UIColor.theme.textField.backgroundInOverlay
+        locationTextField.backgroundColor = UIColor.green
     }
 
     override func becomeFirstResponder() -> Bool {
@@ -479,7 +494,10 @@ class URLBarView: UIView {
             line.isHidden = inOverlayMode
             // Make the editable text field span the entire URL bar, covering the lock and reader icons.
             locationTextField?.snp.remakeConstraints { make in
-                make.edges.equalTo(self.locationView)
+                make.leading.equalTo(self.locationView.snp.leading)
+                make.trailing.equalTo(self.cancelButton.snp.trailing)
+                make.top.equalTo(self.locationView.snp.top)
+                make.bottom.equalTo(self.locationView.snp.bottom)
             }
         } else {
             // Shrink the editable text field back to the size of the location view before hiding it.
