@@ -11,4 +11,5 @@
 #import <React/RCTEventEmitter.h>
 
 @interface RCT_EXTERN_MODULE(JSBridge, RCTEventEmitter)
+RCT_EXTERN_METHOD(ready)
 @end
