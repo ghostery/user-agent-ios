@@ -20,6 +20,20 @@
                ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3BFE4B061D342FB800DDF53F"
+               BuildableName = "XCUITests.xctest"
+               BlueprintName = "XCUITests"
+               ReferencedContainer = "container:Client.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -112,6 +126,99 @@
                BlueprintName = "StorageTests"
                ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3BFE4B061D342FB800DDF53F"
+               BuildableName = "XCUITests.xctest"
+               BlueprintName = "XCUITests"
+               ReferencedContainer = "container:UserAgent.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "BrowsingPDFTests">
+               </Test>
+               <Test
+                  Identifier = "CopiedLinksTests">
+               </Test>
+               <Test
+                  Identifier = "DatabaseFixtureTest">
+               </Test>
+               <Test
+                  Identifier = "DesktopModeTests">
+               </Test>
+               <Test
+                  Identifier = "DesktopModeTestsIphone">
+               </Test>
+               <Test
+                  Identifier = "DragAndDropTestIpad">
+               </Test>
+               <Test
+                  Identifier = "DragAndDropTests">
+               </Test>
+               <Test
+                  Identifier = "FindInPageTests">
+               </Test>
+               <Test
+                  Identifier = "FirstRunTourTests">
+               </Test>
+               <Test
+                  Identifier = "LibraryTestsIpad">
+               </Test>
+               <Test
+                  Identifier = "LibraryTestsIphone">
+               </Test>
+               <Test
+                  Identifier = "NavigationTest">
+               </Test>
+               <Test
+                  Identifier = "NewTabSettingsTest">
+               </Test>
+               <Test
+                  Identifier = "NightModeTests">
+               </Test>
+               <Test
+                  Identifier = "NoImageTests">
+               </Test>
+               <Test
+                  Identifier = "PhotonActionSheetTest">
+               </Test>
+               <Test
+                  Identifier = "PocketTest">
+               </Test>
+               <Test
+                  Identifier = "PrivateBrowsingTest">
+               </Test>
+               <Test
+                  Identifier = "PrivateBrowsingTestIpad">
+               </Test>
+               <Test
+                  Identifier = "ReaderViewTest">
+               </Test>
+               <Test
+                  Identifier = "SiteLoadTest">
+               </Test>
+               <Test
+                  Identifier = "TabTraySearchTabsTests">
+               </Test>
+               <Test
+                  Identifier = "ToolbarTests">
+               </Test>
+               <Test
+                  Identifier = "TopTabsTest">
+               </Test>
+               <Test
+                  Identifier = "TopTabsTestIpad">
+               </Test>
+               <Test
+                  Identifier = "TopTabsTestIphone">
+               </Test>
+               <Test
+                  Identifier = "TranslationSnackBarTest">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
