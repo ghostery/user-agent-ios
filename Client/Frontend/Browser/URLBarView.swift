@@ -16,12 +16,17 @@ private struct URLBarViewUX {
     static let LocationContentOffset: CGFloat = 8
     static let TextFieldCornerRadius: CGFloat = 8
     static let TextFieldBorderWidth: CGFloat = 0
-    static let TextFieldBorderWidthSelected: CGFloat = 2
+    static let TextFieldBorderWidthSelected: CGFloat = 0
     static let ProgressBarHeight: CGFloat = 4
 
     static let TabsButtonRotationOffset: CGFloat = 1.5
     static let TabsButtonHeight: CGFloat = 18.0
     static let ToolbarButtonInsets = UIEdgeInsets(equalInset: Padding)
+
+    static let LocationContainerShadowColor: CGColor = UIColor.black.cgColor
+    static let LocationContainerShadowOpacity: Double  = 0.4
+    static let LocationContainerShadowOffset: CGSize = .zero
+    static let LocationContainerShadowRadius: CGFloat = 3
 }
 
 protocol URLBarDelegate: AnyObject {
@@ -298,8 +303,6 @@ class URLBarView: UIView {
     override func updateConstraints() {
         super.updateConstraints()
         if inOverlayMode {
-            // In overlay mode, we always show the location view full width
-            self.locationContainer.layer.borderWidth = URLBarViewUX.TextFieldBorderWidthSelected
             self.cancelButton.snp.remakeConstraints { make in
                 make.height.equalTo(locationContainer.snp.height)
                 make.trailing.equalTo(locationContainer.snp.trailing)
@@ -332,12 +335,41 @@ class URLBarView: UIView {
 
                 make.centerY.equalTo(self)
             }
-            self.locationContainer.layer.borderWidth = URLBarViewUX.TextFieldBorderWidth
+
             self.locationView.snp.remakeConstraints { make in
                 make.edges.equalTo(self.locationContainer).inset(UIEdgeInsets(equalInset: URLBarViewUX.TextFieldBorderWidth))
             }
         }
 
+        updateShadow()
+    }
+
+    func updateShadow() {
+        let opacity: Double = inOverlayMode ? URLBarViewUX.LocationContainerShadowOpacity : 0.0
+        let offset: CGSize = inOverlayMode ? URLBarViewUX.LocationContainerShadowOffset : .zero
+        let duration: TimeInterval = inOverlayMode ? 0.4 : 0.1
+        animate(locationContainer.layer, to: opacity, and: offset, with: duration)
+    }
+
+    private func animate(_ layer: CALayer, to opacity: Double, and offset: CGSize, with duration: Double) {
+        CATransaction.begin()
+        let opacityAnimation = CABasicAnimation(keyPath: "shadowOpacity")
+        opacityAnimation.toValue = opacity
+        opacityAnimation.duration = duration
+        opacityAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        opacityAnimation.fillMode = .both
+        opacityAnimation.isRemovedOnCompletion = false
+
+        let offsetAnimation = CABasicAnimation(keyPath: "shadowOffset")
+        offsetAnimation.toValue = offset
+        offsetAnimation.duration = duration
+        offsetAnimation.timingFunction = opacityAnimation.timingFunction
+        offsetAnimation.fillMode = opacityAnimation.fillMode
+        offsetAnimation.isRemovedOnCompletion = false
+
+        layer.add(offsetAnimation, forKey: offsetAnimation.keyPath!)
+        layer.add(opacityAnimation, forKey: opacityAnimation.keyPath!)
+        CATransaction.commit()
     }
 
     func createLocationTextField() {
