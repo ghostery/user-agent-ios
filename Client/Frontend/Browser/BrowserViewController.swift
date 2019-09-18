@@ -790,7 +790,9 @@ class BrowserViewController: UIViewController {
         view.addSubview(searchController.view)
         searchController.view.snp.makeConstraints { make in
             make.top.equalTo(self.urlBar.snp.bottom)
-            make.left.right.bottom.equalTo(self.view)
+            make.left.equalTo(self.view).offset(8)
+            make.right.equalTo(self.view).offset(-8)
+            make.bottom.equalTo(self.view)
         }
 
         homeViewController?.view?.isHidden = true
