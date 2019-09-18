@@ -53,6 +53,11 @@ class BrowserViewController: UIViewController {
     var statusBarOverlay: UIView = UIView()
     fileprivate(set) var toolbar: TabToolbar?
     var searchController: SearchResultsViewController?
+    lazy var searchControllerContainerView: UIView = {
+        let searchControllerContainerView = UIView()
+        searchControllerContainerView.backgroundColor = UIColor.theme.browser.background
+        return searchControllerContainerView
+    }()
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
@@ -787,8 +792,14 @@ class BrowserViewController: UIViewController {
         }
 
         addChild(searchController)
-        view.addSubview(searchController.view)
+        view.addSubview(searchControllerContainerView)
+        searchControllerContainerView.addSubview(searchController.view)
+        searchControllerContainerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
         view.bringSubviewToFront(urlBarTopTabsContainer)
+
         searchController.view.snp.makeConstraints { make in
             make.top.equalTo(self.urlBar.locationContainer.snp.bottom).offset(-10)
             make.left.equalTo(self.view).offset(8)
@@ -804,6 +815,7 @@ class BrowserViewController: UIViewController {
 
     fileprivate func hideSearchController() {
         if let searchController = self.searchController {
+            searchControllerContainerView.removeFromSuperview()
             searchController.willMove(toParent: nil)
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
