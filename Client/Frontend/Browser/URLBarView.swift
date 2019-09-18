@@ -154,7 +154,8 @@ class URLBarView: UIView {
         return backButton
     }()
 
-    lazy var actionButtons: [Themeable & UIButton] = [self.tabsButton, self.libraryButton, self.menuButton, self.forwardButton, self.backButton, self.stopReloadButton]
+    lazy var actionButtons: [Themeable & UIButton] = [self.tabsButton, self.libraryButton, self.menuButton, self.forwardButton,
+                                                      self.backButton, self.stopReloadButton]
 
     var currentURL: URL? {
         get {
@@ -171,7 +172,8 @@ class URLBarView: UIView {
         }
     }
 
-    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.Defaults.MobilePrivatePurple)
+    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge",
+                                                         backdropCircleColor: UIColor.Defaults.MobilePrivatePurple)
     fileprivate let hideImagesBadge = BadgeWithBackdrop(imageName: "menuBadge")
 
     override init(frame: CGRect) {
@@ -294,7 +296,6 @@ class URLBarView: UIView {
                 make.trailing.equalTo(self.cancelButton.snp.leading)
                 make.top.equalTo(self.locationView.snp.top)
                 make.bottom.equalTo(self.locationView.snp.bottom)
-//                make.edges.equalTo(self.locationView).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0, right: URLBarViewUX.LocationLeftPadding))
             }
         } else {
             self.locationContainer.snp.remakeConstraints { make in
@@ -309,7 +310,8 @@ class URLBarView: UIView {
 
                 } else {
                     // Otherwise, left align the location view
-                    make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0, right: URLBarViewUX.LocationLeftPadding-1))
+                    make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0,
+                                                                           right: URLBarViewUX.LocationLeftPadding-1))
                 }
 
                 make.centerY.equalTo(self)
@@ -336,11 +338,12 @@ class URLBarView: UIView {
         locationTextField.autocorrectionType = .no
         locationTextField.autocapitalizationType = .none
         locationTextField.returnKeyType = .go
-        locationTextField.clearButtonMode = .whileEditing
+        locationTextField.clearButtonMode = .never
         locationTextField.textAlignment = .left
         locationTextField.font = UIConstants.DefaultChromeFont
         locationTextField.accessibilityIdentifier = "address"
-        locationTextField.accessibilityLabel = NSLocalizedString("Address and Search", comment: "Accessibility label for address and search field, both words (Address, Search) are therefore nouns.")
+        locationTextField.accessibilityLabel = NSLocalizedString("Address and Search",
+            comment: "Accessibility label for address and search field, both words (Address, Search) are therefore nouns.")
         locationTextField.attributedPlaceholder = self.locationView.placeholder
         locationContainer.addSubview(locationTextField)
         locationTextField.snp.remakeConstraints { make in
@@ -727,7 +730,8 @@ extension URLBarView: PrivateModeUI {
         }
         
         locationActiveBorderColor = UIColor.theme.urlbar.activeBorder(isPrivate)
-        progressBar.setGradientColors(startColor: UIColor.theme.loadingBar.start(isPrivate), endColor: UIColor.theme.loadingBar.end(isPrivate))
+        progressBar.setGradientColors(startColor: UIColor.theme.loadingBar.start(isPrivate),
+                                      endColor: UIColor.theme.loadingBar.end(isPrivate))
         ToolbarTextField.applyUIMode(isPrivate: isPrivate)
 
         applyTheme()
