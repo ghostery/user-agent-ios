@@ -830,7 +830,9 @@ class BrowserViewController: UIViewController {
         }
 
         let shareItem = ShareItem(url: url, title: title, favicon: favicon)
-        _ = profile.places.createBookmark(parentGUID: "mobile______", url: shareItem.url, title: shareItem.title)
+        self.profile.bookmarks.shareItem(shareItem).uponQueue(.main) { success in
+            print(success)
+        }
 
         var userData = [QuickActions.TabURLKey: shareItem.url]
         if let title = shareItem.title {

@@ -10,7 +10,6 @@ set -e
 
 brew bundle
 
-carthage bootstrap --platform ios --color auto --cache-builds
 
 npm ci
 npm run build-user-scripts

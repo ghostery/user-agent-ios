@@ -13,8 +13,9 @@ import XCGLogger
 import SwiftKeychainWrapper
 
 // Import these dependencies ONLY for the main `Client` application target.
-#if APP_TARGET_CLIENT
-    import SwiftyJSON
+#if MOZ_TARGET_CLIENT
+import SwiftyJSON
+import SyncTelemetry
 #endif
 
 private let log = Logger.syncLogger
@@ -47,7 +48,8 @@ class ProfileFileAccessor: FileAccessor {
  * A Profile manages access to the user's data.
  */
 protocol Profile: AnyObject {
-    var places: RustPlaces { get }
+    var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & SyncableBookmarks & LocalItemSource & MirrorItemSource { get }
+    // var favicons: Favicons { get }
     var prefs: Prefs { get }
     var queue: TabQueue { get }
     var searchEngines: SearchEngines { get }
@@ -59,7 +61,10 @@ protocol Profile: AnyObject {
     var certStore: CertStore { get }
     var recentlyClosedTabs: ClosedTabsStore { get }
     var panelDataObservers: PanelDataObservers { get }
+
+    #if !MOZ_TARGET_NOTIFICATIONSERVICE
     var readingList: ReadingList { get }
+    #endif
 
     var isShutdown: Bool { get }
 
@@ -74,7 +79,6 @@ protocol Profile: AnyObject {
     // I got really weird EXC_BAD_ACCESS errors on a non-null reference when I made this a getter.
     // Similar to <http://stackoverflow.com/questions/26029317/exc-bad-access-when-indirectly-accessing-inherited-member-in-swift>.
     func localName() -> String
-
     func cleanupHistoryIfNeeded()
 }
 
@@ -116,11 +120,6 @@ open class BrowserProfile: Profile {
         return secret
     }
 
-    @available(*, deprecated, message: "SyncDelegate is deprecated, initialize without the syncdelegate property instead")
-    convenience init(localName: String, syncDelegate: Any? = nil, clear: Bool = false) {
-        self.init(localName: localName, clear: clear)
-    }
-
     /**
      * N.B., BrowserProfile is used from our extensions, often via a pattern like
      *
@@ -158,53 +157,16 @@ open class BrowserProfile: Profile {
         self.db = BrowserDB(filename: "browser.db", schema: BrowserSchema(), files: files)
         self.readingListDB = BrowserDB(filename: "ReadingList.db", schema: ReadingListSchema(), files: files)
 
-        if isNewProfile {
-            log.info("New profile. Removing old Keychain/Prefs data.")
-            KeychainWrapper.wipeKeychain()
-            prefs.clearAll()
-        }
-
-        // Migrate bookmarks from old browser.db to new Rust places.db only
-        // if this user is NOT signed into Sync (only migrates once if needed).
-        self.places.migrateBookmarksIfNeeded(fromBrowserDB: self.db)
-
-        // Log SQLite compile_options.
-        // db.sqliteCompileOptions() >>== { compileOptions in
-        //     log.debug("SQLite compile_options:\n\(compileOptions.joined(separator: "\n"))")
-        // }
-
-        // Set up logging from Rust.
-        if !RustLog.shared.tryEnable({ (level, tag, message) -> Bool in
-            let logString = "[RUST][\(tag ?? "no-tag")] \(message)"
-
-            switch level {
-            case .trace:
-                if Logger.logPII {
-                    log.verbose(logString)
-                }
-            case .debug:
-                log.debug(logString)
-            case .info:
-                log.info(logString)
-            case .warn:
-                log.warning(logString)
-            case .error:
-                Sentry.shared.sendWithStacktrace(message: logString, tag: .rustLog, severity: .error)
-                log.error(logString)
-            }
-
-            return true
-        }) {
-            log.error("ERROR: Unable to enable logging from Rust")
-        }
-
-        // By default, filter logging from Rust below `.info` level.
-        try? RustLog.shared.setLevelFilter(filter: .info)
-
         let notificationCenter = NotificationCenter.default
 
         notificationCenter.addObserver(self, selector: #selector(onLocationChange), name: .OnLocationChange, object: nil)
         notificationCenter.addObserver(self, selector: #selector(onPageMetadataFetched), name: .OnPageMetadataFetched, object: nil)
+
+        if isNewProfile {
+            log.info("New profile. Removing old account metadata.")
+            _ = keychain.removeAllKeys()
+            prefs.clearAll()
+        }
 
         // Always start by needing invalidation.
         // This is the same as self.history.setTopSitesNeedsInvalidation, but without the
@@ -242,7 +204,6 @@ open class BrowserProfile: Profile {
         isShutdown = false
 
         db.reopenIfClosed()
-        _ = places.reopenIfClosed()
     }
 
     func _shutdown() {
@@ -250,15 +211,14 @@ open class BrowserProfile: Profile {
         isShutdown = true
 
         db.forceClose()
-        _ = places.forceClose()
     }
 
     @objc
     func onLocationChange(notification: NSNotification) {
         if let v = notification.userInfo!["visitType"] as? Int,
-           let visitType = VisitType(rawValue: v),
-           let url = notification.userInfo!["url"] as? URL, !isIgnoredURL(url),
-           let title = notification.userInfo!["title"] as? NSString {
+            let visitType = VisitType(rawValue: v),
+            let url = notification.userInfo!["url"] as? URL, !isIgnoredURL(url),
+            let title = notification.userInfo!["title"] as? NSString {
             // Only record local vists if the change notification originated from a non-private tab
             if !(notification.userInfo!["isPrivate"] as? Bool ?? false) {
                 // We don't record a visit if no type was specified -- that means "ignore me".
@@ -281,9 +241,9 @@ open class BrowserProfile: Profile {
             return
         }
         guard let pageURL = notification.userInfo?["tabURL"] as? URL,
-              let pageMetadata = notification.userInfo?["pageMetadata"] as? PageMetadata else {
-            log.debug("Metadata notification doesn't contain any metadata!")
-            return
+            let pageMetadata = notification.userInfo?["pageMetadata"] as? PageMetadata else {
+                log.debug("Metadata notification doesn't contain any metadata!")
+                return
         }
         let defaultMetadataTTL: UInt64 = 3 * 24 * 60 * 60 * 1000 // 3 days for the metadata to live
         self.metadata.storeMetadata(pageMetadata, forPageURL: pageURL, expireAt: defaultMetadataTTL + Date.now())
@@ -291,6 +251,7 @@ open class BrowserProfile: Profile {
 
     deinit {
         log.debug("Deiniting profile \(self.localName()).")
+
     }
 
     func localName() -> String {
@@ -304,22 +265,22 @@ open class BrowserProfile: Profile {
     }()
 
     /**
-     * Favicons, history, and tabs are all stored in one intermeshed
+     * Favicons, history, and bookmarks are all stored in one intermeshed
      * collection of tables.
      *
      * Any other class that needs to access any one of these should ensure
      * that this is initialized first.
      */
-    fileprivate lazy var legacyPlaces: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations  = {
+    fileprivate lazy var places: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations  = {
         return SQLiteHistory(db: self.db, prefs: self.prefs)
     }()
 
     var favicons: Favicons {
-        return self.legacyPlaces
+        return self.places
     }
 
     var history: BrowserHistory & SyncableHistory & ResettableSyncStorage {
-        return self.legacyPlaces
+        return self.places
     }
 
     lazy var panelDataObservers: PanelDataObservers = {
@@ -331,12 +292,20 @@ open class BrowserProfile: Profile {
     }()
 
     var recommendations: HistoryRecommendations {
-        return self.legacyPlaces
+        return self.places
     }
 
-    lazy var places: RustPlaces = {
-        let databasePath = URL(fileURLWithPath: (try! files.getAndEnsureDirectory()), isDirectory: true).appendingPathComponent("places.db").path
-        return RustPlaces(databasePath: databasePath)
+    lazy var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & SyncableBookmarks & LocalItemSource & MirrorItemSource = {
+        // Make sure the rest of our tables are initialized before we try to read them!
+        // This expression is for side-effects only.
+        withExtendedLifetime(self.places) {
+            return MergedSQLiteBookmarks(db: self.db)
+        }
+    }()
+
+    lazy var mirrorBookmarks: BookmarkBufferStorage & BufferItemSource = {
+        // Yeah, this is lazy. Sorry.
+        return self.bookmarks as! MergedSQLiteBookmarks
     }()
 
     lazy var searchEngines: SearchEngines = {

@@ -51,7 +51,7 @@ class MockFiles: FileAccessor {
 open class MockProfile: Client.Profile {
     // Read/Writeable properties for mocking
     public var recommendations: HistoryRecommendations
-    public var places: RustPlaces
+    public var places: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations
     public var files: FileAccessor
     public var history: BrowserHistory & SyncableHistory & ResettableSyncStorage
 
@@ -70,9 +70,8 @@ open class MockProfile: Client.Profile {
         files = MockFiles()
         db = BrowserDB(filename: "\(databasePrefix).db", schema: BrowserSchema(), files: files)
         readingListDB = BrowserDB(filename: "\(databasePrefix)_ReadingList.db", schema: ReadingListSchema(), files: files)
-        let placesDatabasePath = URL(fileURLWithPath: (try! files.getAndEnsureDirectory()), isDirectory: true).appendingPathComponent("\(databasePrefix)_places.db").path
+        places = SQLiteHistory(db: self.db, prefs: MockProfilePrefs())
         places = RustPlaces(databasePath: placesDatabasePath)
-        legacyPlaces = SQLiteHistory(db: self.db, prefs: MockProfilePrefs())
         recommendations = legacyPlaces
         history = legacyPlaces
     }
