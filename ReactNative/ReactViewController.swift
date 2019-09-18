@@ -11,7 +11,7 @@ import React
 
 /// Encapsulates a React Native View
 class ReactViewController: UIViewController {
-
+  
     // MARK: Properties
     var browserCore: JSBridge {
         return ReactNativeBridge.sharedInstance.browserCore
@@ -40,7 +40,6 @@ class ReactViewController: UIViewController {
     private let componentName: String
     private var initialProperties: [String: Any]?
 
-    // MARK: - Initialization
     init(componentName: String, initialProperties: [String: Any]?) {
         self.componentName = componentName
         self.initialProperties = initialProperties
@@ -54,5 +53,10 @@ class ReactViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view = RCTRootView(
+            bridge: ReactNativeBridge.sharedInstance.bridge,
+            moduleName: componentName,
+            initialProperties: initialProperties
+        )
     }
 }
