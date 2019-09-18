@@ -10,31 +10,17 @@ import Foundation
 import React
 
 class ReactViewController: UIViewController {
-    override var view: UIView! {
-        get {
-            if  _view == nil {
-                _view = RCTRootView(
-                    bridge: ReactNativeBridge.sharedInstance.bridge,
-                    moduleName: componentName,
-                    initialProperties: initialProperties
-                )
-                viewDidLoad()
-            }
-
-            return _view
-        }
-
-        set {
-            fatalError("Cannot replace React View")
-        }
-    }
-
     private let componentName: String
     private var _view: UIView?
     private var initialProperties: [String: Any]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view = RCTRootView(
+            bridge: ReactNativeBridge.sharedInstance.bridge,
+            moduleName: componentName,
+            initialProperties: initialProperties
+        )
     }
 
     init(componentName: String, initialProperties: [String: Any]?) {

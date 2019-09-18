@@ -44,12 +44,13 @@ class SearchResultsViewController: ReactViewController {
 
             lastQuery = searchQuery
 
-            browserCore.callAction(module: "search", action: "startSearch", args: [
-                searchQuery,
-                ["key": keyCode],
-                ["contextId": "mobile-cards"],
-            ])
+            startSearch(keyCode)
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopSearch()
     }
 
     func handleKeyCommands(sender: UIKeyCommand) {
@@ -57,9 +58,31 @@ class SearchResultsViewController: ReactViewController {
     }
 }
 
+// Browser Core
+extension SearchResultsViewController {
+    private func startSearch(_ keyCode: String) {
+        browserCore.callAction(module: "search", action: "startSearch", args: [
+            searchQuery,
+            ["key": keyCode],
+            ["contextId": "mobile-cards"],
+        ])
+    }
+
+    private func stopSearch() {
+        browserCore.callAction(module: "search", action: "stopSearch", args: [
+            ["entryPoint": ""],
+            ["contextId": "mobile-cards"]
+        ])
+    }
+
+    private func updateTheme() {
+         browserCore.callAction(module: "Screen:SearchResults", action: "changeTheme", args: [getTheme()])
+    }
+}
+
 extension SearchResultsViewController: Themeable {
     func applyTheme() {
         view.backgroundColor = UIColor.clear
-        browserCore.callAction(module: "Screen:SearchResults", action: "changeTheme", args: [getTheme()])
+        updateTheme()
     }
 }
