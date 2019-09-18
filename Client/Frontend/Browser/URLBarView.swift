@@ -23,9 +23,9 @@ private struct URLBarViewUX {
     static let TabsButtonHeight: CGFloat = 18.0
     static let ToolbarButtonInsets = UIEdgeInsets(equalInset: Padding)
 
-    static let LocationContainerShadowColor: CGColor = UIColor.black.cgColor
+    static let LocationContainerShadowColor: CGColor = UIColor.CloudySky.cgColor
     static let LocationContainerShadowOpacity: Double  = 0.3
-    static let LocationContainerShadowOffset: CGSize = CGSize(width: 0, height: 2)
+    static let LocationContainerShadowOffset: CGSize = CGSize(width: 0, height: 1)
     static let LocationContainerShadowRadius: CGFloat = 1
 }
 
@@ -136,7 +136,7 @@ class URLBarView: UIView {
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.BackTitle
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
-        cancelButton.setTitleColor(UIColor.CliqzBlue, for: .normal)
+        cancelButton.setTitleColor(UIColor.Grey80, for: .normal)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
         cancelButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -147,7 +147,7 @@ class URLBarView: UIView {
 
     fileprivate lazy var separator: UIView = {
         let separator = UIView()
-        separator.backgroundColor = UIColor.CliqzBlue
+        separator.backgroundColor = UIColor.Grey80
         return separator
     }()
 
@@ -319,7 +319,7 @@ class URLBarView: UIView {
             }
             self.locationTextField?.snp.remakeConstraints { make in
                 make.leading.equalTo(self.locationView.snp.leading).offset(URLBarViewUX.LocationLeftPadding)
-                make.trailing.equalTo(self.cancelButton.snp.leading)
+                make.trailing.equalTo(self.cancelButton.snp.leading).offset(-URLBarViewUX.Padding)
                 make.top.equalTo(self.locationView.snp.top)
                 make.bottom.equalTo(self.locationView.snp.bottom)
             }
@@ -393,7 +393,7 @@ class URLBarView: UIView {
         locationTextField.autocorrectionType = .no
         locationTextField.autocapitalizationType = .none
         locationTextField.returnKeyType = .go
-        locationTextField.clearButtonMode = .never
+        locationTextField.clearButtonMode = .whileEditing
         locationTextField.textAlignment = .left
         locationTextField.font = UIConstants.DefaultChromeFont
         locationTextField.accessibilityIdentifier = "address"
