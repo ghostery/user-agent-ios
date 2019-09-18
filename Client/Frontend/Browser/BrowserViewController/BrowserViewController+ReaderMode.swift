@@ -14,6 +14,7 @@ extension BrowserViewController: ReaderModeDelegate {
     }
 
     func readerMode(_ readerMode: ReaderMode, didDisplayReaderizedContentForTab tab: Tab) {
+        Telemetry.reportReaderMode()
         self.showReaderModeBar(animated: true)
         tab.showContent(true)
     }
