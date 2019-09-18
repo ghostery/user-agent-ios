@@ -15,7 +15,7 @@ class HomeViewController: ReactViewController {
 
     init(profile: Profile) {
         self.profile = profile
-        super.init(componentName: "Home")
+        super.init(componentName: "Home", initialProperties: nil)
         // TODO: user proper caching
         self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
     }

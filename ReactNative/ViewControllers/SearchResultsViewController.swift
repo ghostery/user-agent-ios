@@ -9,6 +9,12 @@
 import Foundation
 import React
 
+func getTheme() -> [String: Any] {
+    return [
+        "backgroundColor": UIColor.theme.browser.background.hexString,
+    ]
+}
+
 class SearchResultsViewController: ReactViewController {
     var lastQuery: String = ""
 
@@ -16,7 +22,9 @@ class SearchResultsViewController: ReactViewController {
 
     init(profile: Profile, isPrivate: Bool) {
         self.profile = profile
-        super.init(componentName: "SearchResults")
+        super.init(componentName: "SearchResults", initialProperties: [
+            "theme": getTheme(),
+        ])
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -51,6 +59,7 @@ class SearchResultsViewController: ReactViewController {
 
 extension SearchResultsViewController: Themeable {
     func applyTheme() {
-
+        view.backgroundColor = UIColor.clear
+        browserCore.callAction(module: "Screen:SearchResults", action: "changeTheme", args: [getTheme()])
     }
 }

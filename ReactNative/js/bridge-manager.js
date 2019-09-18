@@ -1,18 +1,27 @@
 import { NativeEventEmitter } from 'react-native';
 
 export default class BridgeManager {
-  constructor(bridge, inject) {
+  constructor(bridge, inject, appReady) {
     this.actionListeners = new Set();
     this.onAction = this.onAction.bind(this);
     this.inject = inject;
+    this.isAppReady = false;
+    this.appReady = appReady;
+    appReady.then(() => {
+      this.isAppReady = true;
+    });
     const eventEmitter = new NativeEventEmitter(bridge);
     eventEmitter.addListener('callAction', this.onAction);
+    bridge.ready();
   }
 
   async onAction({ module, action, args, id }) {
     for(const listener of this.actionListeners) {
       try {
-        listener({ module, action, args, id });
+        const handled = listener({ module, action, args, id });
+        if (handled) {
+          return;
+        }
       } catch (e) {
         //
       }
@@ -21,6 +30,10 @@ export default class BridgeManager {
     if (module === 'core' && action === 'setPref') {
       prefs.set(...args);
       return;
+    }
+
+    if (!this.isAppReady) {
+      await this.appReady
     }
 
     const response = await this.inject.module(module).action(action, ...args);
