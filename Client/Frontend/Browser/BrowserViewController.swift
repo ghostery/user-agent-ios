@@ -53,6 +53,11 @@ class BrowserViewController: UIViewController {
     var statusBarOverlay: UIView = UIView()
     fileprivate(set) var toolbar: TabToolbar?
     var searchController: SearchResultsViewController?
+    lazy var searchControllerContainerView: UIView = {
+        let searchControllerContainerView = UIView()
+        searchControllerContainerView.backgroundColor = UIColor.theme.browser.background
+        return searchControllerContainerView
+    }()
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
@@ -787,23 +792,35 @@ class BrowserViewController: UIViewController {
         }
 
         addChild(searchController)
-        view.addSubview(searchController.view)
+        view.addSubview(searchControllerContainerView)
+        searchControllerContainerView.addSubview(searchController.view)
+        searchControllerContainerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        view.bringSubviewToFront(urlBarTopTabsContainer)
+
         searchController.view.snp.makeConstraints { make in
-            make.top.equalTo(self.urlBar.snp.bottom)
-            make.left.right.bottom.equalTo(self.view)
+            make.top.equalTo(self.urlBar.locationContainer.snp.bottom).offset(-8)
+            make.left.equalTo(self.view).offset(8)
+            make.right.equalTo(self.view).offset(-8)
+            make.bottom.equalTo(self.view)
         }
 
         homeViewController?.view?.isHidden = true
+        urlBar.inCliqzSearchMode = true
 
         searchController.didMove(toParent: self)
     }
 
     fileprivate func hideSearchController() {
         if let searchController = self.searchController {
+            searchControllerContainerView.removeFromSuperview()
             searchController.willMove(toParent: nil)
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
             homeViewController?.view?.isHidden = false
+            urlBar.inCliqzSearchMode = false
         }
     }
 
@@ -1112,18 +1129,6 @@ extension BrowserViewController: ClipboardBarDisplayHandlerDelegate {
     }
 }
 
-extension BrowserViewController: QRCodeViewControllerDelegate {
-    func didScanQRCodeWithURL(_ url: URL) {
-        guard let tab = tabManager.selectedTab else { return }
-        finishEditingAndSubmit(url, visitType: VisitType.typed, forTab: tab)
-    }
-
-    func didScanQRCodeWithText(_ text: String) {
-        guard let tab = tabManager.selectedTab else { return }
-        submitSearchText(text, forTab: tab)
-    }
-}
-
 extension BrowserViewController: SettingsDelegate {
     func settingsOpenURLInNewTab(_ url: URL) {
         let isPrivate = tabManager.selectedTab?.isPrivate ?? false
@@ -1185,13 +1190,6 @@ extension BrowserViewController: URLBarDelegate {
 
     func urlBarDidPressReload(_ urlBar: URLBarView) {
         tabManager.selectedTab?.reload()
-    }
-
-    func urlBarDidPressQRButton(_ urlBar: URLBarView) {
-        let qrCodeViewController = QRCodeViewController()
-        qrCodeViewController.qrCodeDelegate = self
-        let controller = QRCodeNavigationController(rootViewController: qrCodeViewController)
-        self.present(controller, animated: true, completion: nil)
     }
 
     func urlBarDidPressPageOptions(_ urlBar: URLBarView, from button: UIButton) {

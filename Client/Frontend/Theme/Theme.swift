@@ -138,7 +138,7 @@ class TopTabsColor {
 
 class TextFieldColor {
     var background: UIColor { return UIColor.Grey25 }
-    var backgroundInOverlay: UIColor { return UIColor.Grey25 }
+    var backgroundInOverlay: UIColor { return UIColor.white }
     var textAndTint: UIColor { return defaultTextAndTint }
     var separator: UIColor { return .white }
 }

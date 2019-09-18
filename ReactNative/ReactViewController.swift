@@ -9,19 +9,36 @@
 import Foundation
 import React
 
+/// Encapsulates a React Native View
 class ReactViewController: UIViewController {
-    private let componentName: String
-    private var _view: UIView?
-    private var initialProperties: [String: Any]?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view = RCTRootView(
-            bridge: ReactNativeBridge.sharedInstance.bridge,
-            moduleName: componentName,
-            initialProperties: initialProperties
-        )
+  
+    // MARK: Properties
+    var browserCore: JSBridge {
+        return ReactNativeBridge.sharedInstance.browserCore
     }
+
+    override var view: UIView! {
+        get {
+            if  _view == nil {
+                _view = RCTRootView(
+                    bridge: ReactNativeBridge.sharedInstance.bridge,
+                    moduleName: componentName,
+                    initialProperties: initialProperties
+                )
+                viewDidLoad()
+            }
+
+            return _view
+        }
+
+        set {
+            fatalError("Cannot replace React View")
+        }
+    }
+
+    private var _view: UIView?
+    private let componentName: String
+    private var initialProperties: [String: Any]?
 
     init(componentName: String, initialProperties: [String: Any]?) {
         self.componentName = componentName
@@ -33,9 +50,13 @@ class ReactViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var browserCore: JSBridge {
-        get {
-            return ReactNativeBridge.sharedInstance.browserCore
-        }
+    // MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view = RCTRootView(
+            bridge: ReactNativeBridge.sharedInstance.bridge,
+            moduleName: componentName,
+            initialProperties: initialProperties
+        )
     }
 }
