@@ -9,7 +9,14 @@
 import Foundation
 import React
 
+/// Encapsulates a React Native View
 class ReactViewController: UIViewController {
+
+    // MARK: Properties
+    var browserCore: JSBridge {
+        return ReactNativeBridge.sharedInstance.browserCore
+    }
+
     override var view: UIView! {
         get {
             if  _view == nil {
@@ -29,14 +36,11 @@ class ReactViewController: UIViewController {
         }
     }
 
-    private let componentName: String
     private var _view: UIView?
+    private let componentName: String
     private var initialProperties: [String: Any]?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
+    // MARK: - Initialization
     init(componentName: String, initialProperties: [String: Any]?) {
         self.componentName = componentName
         self.initialProperties = initialProperties
@@ -47,9 +51,8 @@ class ReactViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var browserCore: JSBridge {
-        get {
-            return ReactNativeBridge.sharedInstance.browserCore
-        }
+    // MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }

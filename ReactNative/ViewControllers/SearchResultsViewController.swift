@@ -9,12 +9,6 @@
 import Foundation
 import React
 
-func getTheme() -> [String: Any] {
-    return [
-        "backgroundColor": UIColor.theme.browser.background.hexString,
-    ]
-}
-
 class SearchResultsViewController: ReactViewController {
     var lastQuery: String = ""
 
@@ -23,7 +17,7 @@ class SearchResultsViewController: ReactViewController {
     init(profile: Profile, isPrivate: Bool) {
         self.profile = profile
         super.init(componentName: "SearchResults", initialProperties: [
-            "theme": getTheme(),
+            "theme": SearchResultsViewController.getTheme(),
         ])
     }
 
@@ -55,11 +49,21 @@ class SearchResultsViewController: ReactViewController {
     func handleKeyCommands(sender: UIKeyCommand) {
 
     }
+
+    fileprivate static func getTheme() -> [String: Any] {
+        return [
+            "backgroundColor": UIColor.theme.browser.background.hexString,
+        ]
+    }
 }
 
 extension SearchResultsViewController: Themeable {
     func applyTheme() {
         view.backgroundColor = UIColor.clear
-        browserCore.callAction(module: "Screen:SearchResults", action: "changeTheme", args: [getTheme()])
+        browserCore.callAction(
+            module: "Screen:SearchResults",
+            action: "changeTheme",
+            args: [SearchResultsViewController.getTheme()]
+        )
     }
 }
