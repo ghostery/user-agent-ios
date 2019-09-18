@@ -282,13 +282,6 @@ class URLBarView: UIView {
         if inOverlayMode {
             // In overlay mode, we always show the location view full width
             self.locationContainer.layer.borderWidth = URLBarViewUX.TextFieldBorderWidthSelected
-            self.locationContainer.snp.remakeConstraints { make in
-                let height = URLBarViewUX.LocationHeight + (URLBarViewUX.TextFieldBorderWidthSelected * 2)
-                make.height.equalTo(height)
-                make.leading.equalTo(self.safeArea.leading)
-                make.trailing.equalTo(self.safeArea.trailing)
-                make.centerY.equalTo(self)
-            }
             self.cancelButton.snp.remakeConstraints { make in
                 make.height.equalTo(locationContainer.snp.height)
                 make.trailing.equalTo(locationContainer.snp.trailing).offset(-URLBarViewUX.LocationLeftPadding)
@@ -503,6 +496,10 @@ class URLBarView: UIView {
             // Shrink the editable text field back to the size of the location view before hiding it.
             locationTextField?.snp.remakeConstraints { make in
                 make.edges.equalTo(self.locationView.urlTextField)
+            }
+            cancelButton.snp.remakeConstraints { make in
+                make.height.equalTo(locationContainer.snp.height)
+                make.leading.equalTo(locationView.snp.trailing)
             }
         }
     }
