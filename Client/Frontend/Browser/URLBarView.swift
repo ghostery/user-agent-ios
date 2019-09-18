@@ -127,8 +127,16 @@ class URLBarView: UIView {
         cancelButton.setTitleColor(UIColor.CliqzBlue, for: .normal)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
-        cancelButton.setContentHuggingPriority(.required, for: .horizontal)
+        cancelButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        cancelButton.setContentCompressionResistancePriority(.required, for: .horizontal)
+        cancelButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: URLBarViewUX.Padding, bottom: 0, right: URLBarViewUX.Padding)
         return cancelButton
+    }()
+
+    fileprivate lazy var separator: UIView = {
+        let separator = UIView()
+        separator.backgroundColor = UIColor.CliqzBlue
+        return separator
     }()
 
     fileprivate lazy var scrollToTopButton: UIButton = {
@@ -189,6 +197,7 @@ class URLBarView: UIView {
     fileprivate func commonInit() {
         locationContainer.addSubview(locationView)
         locationContainer.addSubview(cancelButton)
+        cancelButton.addSubview(separator)
 
         [scrollToTopButton, line, tabsButton, progressBar,
          libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer].forEach {
@@ -239,6 +248,13 @@ class URLBarView: UIView {
             make.size.equalTo(URLBarViewUX.ButtonHeight)
         }
 
+        separator.snp.makeConstraints { make in
+            make.height.equalTo(cancelButton.snp.height).offset(-URLBarViewUX.Padding * 2)
+            make.centerY.equalTo(cancelButton.snp.centerY)
+            make.width.equalTo(1)
+            make.leading.equalTo(cancelButton.snp.leading)
+        }
+
         backButton.snp.makeConstraints { make in
             make.leading.equalTo(self.safeArea.leading).offset(URLBarViewUX.Padding)
             make.centerY.equalTo(self)
@@ -286,7 +302,7 @@ class URLBarView: UIView {
             self.locationContainer.layer.borderWidth = URLBarViewUX.TextFieldBorderWidthSelected
             self.cancelButton.snp.remakeConstraints { make in
                 make.height.equalTo(locationContainer.snp.height)
-                make.trailing.equalTo(locationContainer.snp.trailing).offset(-URLBarViewUX.LocationLeftPadding)
+                make.trailing.equalTo(locationContainer.snp.trailing)
             }
             self.locationView.snp.remakeConstraints { make in
                 make.edges.equalTo(self.locationContainer).inset(UIEdgeInsets(equalInset: URLBarViewUX.TextFieldBorderWidthSelected))
