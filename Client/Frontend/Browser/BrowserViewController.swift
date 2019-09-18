@@ -801,7 +801,7 @@ class BrowserViewController: UIViewController {
         view.bringSubviewToFront(urlBarTopTabsContainer)
 
         searchController.view.snp.makeConstraints { make in
-            make.top.equalTo(self.urlBar.locationContainer.snp.bottom).offset(-10)
+            make.top.equalTo(self.urlBar.locationContainer.snp.bottom).offset(-8)
             make.left.equalTo(self.view).offset(8)
             make.right.equalTo(self.view).offset(-8)
             make.bottom.equalTo(self.view)

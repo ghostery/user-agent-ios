@@ -24,9 +24,9 @@ private struct URLBarViewUX {
     static let ToolbarButtonInsets = UIEdgeInsets(equalInset: Padding)
 
     static let LocationContainerShadowColor: CGColor = UIColor.black.cgColor
-    static let LocationContainerShadowOpacity: Double  = 0.4
-    static let LocationContainerShadowOffset: CGSize = .zero
-    static let LocationContainerShadowRadius: CGFloat = 3
+    static let LocationContainerShadowOpacity: Double  = 0.3
+    static let LocationContainerShadowOffset: CGSize = CGSize(width: 0, height: 2)
+    static let LocationContainerShadowRadius: CGFloat = 1
 }
 
 protocol URLBarDelegate: AnyObject {
@@ -354,7 +354,7 @@ class URLBarView: UIView {
     func updateShadow() {
         let opacity: Double = inOverlayMode ? URLBarViewUX.LocationContainerShadowOpacity : 0.0
         let offset: CGSize = inOverlayMode ? URLBarViewUX.LocationContainerShadowOffset : .zero
-        let duration: TimeInterval = inOverlayMode ? 0.4 : 0.1
+        let duration: TimeInterval = inOverlayMode ? 0.3 : 0.1
         animate(locationContainer.layer, to: opacity, and: offset, with: duration)
     }
 
