@@ -46,10 +46,6 @@ class SearchResultsViewController: UIViewController {
         )
     }()
 
-    private var browserCore: JSBridge {
-        return ReactNativeBridge.sharedInstance.browserCore
-    }
-
     private let profile: Profile
 
     // MARK: - Initialization
@@ -95,9 +91,8 @@ extension SearchResultsViewController: Themeable {
 }
 
 // MARK: - Private API
-// Browser Core
-private extension SearchResultsViewController {
-    func startSearch(_ keyCode: String) {
+extension SearchResultsViewController: BrowserCoreClient {
+    private func startSearch(_ keyCode: String) {
         browserCore.callAction(module: "search", action: "startSearch", args: [
             searchQuery,
             ["key": keyCode],
@@ -105,14 +100,14 @@ private extension SearchResultsViewController {
         ])
     }
 
-    func stopSearch() {
+    private func stopSearch() {
         browserCore.callAction(module: "search", action: "stopSearch", args: [
             ["entryPoint": ""],
             ["contextId": "mobile-cards"]
         ])
     }
 
-    func updateTheme() {
+    private func updateTheme() {
          browserCore.callAction(
            module: "Screen:SearchResults", 
            action: "changeTheme", 
@@ -120,4 +115,3 @@ private extension SearchResultsViewController {
          )
     }
 }
-

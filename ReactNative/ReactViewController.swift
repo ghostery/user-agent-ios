@@ -10,14 +10,9 @@ import Foundation
 import React
 
 /// Encapsulates a React Native View
-class ReactViewController: UIViewController {
+class ReactViewController: UIViewController, BrowserCoreClient {
   
     // MARK: Properties
-    var browserCore: JSBridge {
-        return ReactNativeBridge.sharedInstance.browserCore
-    }
-
-    private var _view: UIView?
     private let componentName: String
     private var initialProperties: [String: Any]?
 

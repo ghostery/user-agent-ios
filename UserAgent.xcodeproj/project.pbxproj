@@ -131,6 +131,8 @@
 		44A0408681061BEFF847128B /* AuthenticationManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D7B450E95C275F8CCB3062C /* AuthenticationManager.strings */; };
 		463432F82332521F0014A9F0 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463432F72332521F0014A9F0 /* Telemetry.swift */; };
 		463432F92332521F0014A9F0 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463432F72332521F0014A9F0 /* Telemetry.swift */; };
+		463432FB233381C70014A9F0 /* BrowserCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463432FA233381C70014A9F0 /* BrowserCoreClient.swift */; };
+		463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463432FA233381C70014A9F0 /* BrowserCoreClient.swift */; };
 		464F67662326AFB70090D0B5 /* Punycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B2AC11D41F02D00429414 /* Punycode.swift */; };
 		464F67672326AFB70090D0B5 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
 		464F67682326AFB70090D0B5 /* URIFixup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C744CC1A687D6C004CE85D /* URIFixup.swift */; };
@@ -1156,6 +1158,7 @@
 		3D9CAA1B1EFCD655002434DD /* ClipBoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipBoardTests.swift; sourceTree = "<group>"; };
 		4063430C93211557F15DA9AA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Shared.strings; sourceTree = "<group>"; };
 		463432F72332521F0014A9F0 /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
+		463432FA233381C70014A9F0 /* BrowserCoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCoreClient.swift; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46947784232A982100129B51 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
 		46947785232A983500129B51 /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
@@ -2066,6 +2069,7 @@
 		46C41ED6230EC4ED00CE54D2 /* ReactNative */ = {
 			isa = PBXGroup;
 			children = (
+				463432FA233381C70014A9F0 /* BrowserCoreClient.swift */,
 				46CA60D2231555220010CE6B /* ReactViewController.swift */,
 				46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */,
 				46CA610123180E1A0010CE6B /* Icons.xcassets */,
@@ -4421,6 +4425,7 @@
 				ACB7374723042BAB00FA5626 /* TabContentBlocker+ContentScript.swift in Sources */,
 				463432F92332521F0014A9F0 /* Telemetry.swift in Sources */,
 				ACB7374823042BAB00FA5626 /* TestAppDelegate.swift in Sources */,
+				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
 				46CA60FF2317F8F60010CE6B /* SearchResultsViewController.swift in Sources */,
 				ACB7374923042BAB00FA5626 /* FirefoxHomeTopSitesCell.swift in Sources */,
 				ACB7374A23042BAB00FA5626 /* Clearables.swift in Sources */,
@@ -4632,6 +4637,7 @@
 				E4CD9F6D1A77DD2800318571 /* ReaderModeStyleViewController.swift in Sources */,
 				D0FCF7F51FE45842004A7995 /* UserScriptManager.swift in Sources */,
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
+				463432FB233381C70014A9F0 /* BrowserCoreClient.swift in Sources */,
 				E68F36981EA694000048CF44 /* PanelDataObservers.swift in Sources */,
 				31ADB5DA1E58CEC300E87909 /* ClipboardBarDisplayHandler.swift in Sources */,
 				745DAB3F1CDAB09E00D44181 /* HistoryBackButton.swift in Sources */,

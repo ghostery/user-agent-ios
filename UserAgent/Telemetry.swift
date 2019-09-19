@@ -12,9 +12,11 @@ class Telemetry {
     static func reportReaderMode() {
         send(signal: [:], schema: "browser:reader-mode:open")
     }
+}
 
+extension Telemetry: BrowserCoreClient {
     private static func send(signal: [String: Any], schema: String) {
-        ReactNativeBridge.sharedInstance.browserCore.callAction(
+        browserCore.callAction(
             module: "core",
             action: "sendTelemetry",
             args: [signal, false, schema]
