@@ -54,7 +54,7 @@ protocol Profile: AnyObject {
     var queue: TabQueue { get }
     var searchEngines: SearchEngines { get }
     var files: FileAccessor { get }
-    var history: BrowserHistory & SyncableHistory & ResettableSyncStorage { get }
+    var history: BrowserHistory & SyncableHistory { get }
     var metadata: Metadata { get }
     var recommendations: HistoryRecommendations { get }
     var favicons: Favicons { get }
@@ -271,7 +271,7 @@ open class BrowserProfile: Profile {
      * Any other class that needs to access any one of these should ensure
      * that this is initialized first.
      */
-    fileprivate lazy var places: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations  = {
+    fileprivate lazy var places: BrowserHistory & Favicons & SyncableHistory  & HistoryRecommendations  = {
         return SQLiteHistory(db: self.db, prefs: self.prefs)
     }()
 
@@ -279,7 +279,7 @@ open class BrowserProfile: Profile {
         return self.places
     }
 
-    var history: BrowserHistory & SyncableHistory & ResettableSyncStorage {
+    var history: BrowserHistory & SyncableHistory {
         return self.places
     }
 

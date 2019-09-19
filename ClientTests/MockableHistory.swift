@@ -11,7 +11,7 @@ import Shared
  * with all of the methods set to fatalError. Use this class if you're looking to
  * mock out parts of the history API
  */
-class MockableHistory: BrowserHistory, SyncableHistory, ResettableSyncStorage {
+class MockableHistory: BrowserHistory, SyncableHistory {
     func getFrecentHistory() -> FrecentHistory { fatalError() }
     func getTopSitesWithLimit(_ limit: Int) -> Deferred<Maybe<Cursor<Site>>> { fatalError() }
     func addLocalVisit(_ visit: SiteVisit) -> Success { fatalError() }

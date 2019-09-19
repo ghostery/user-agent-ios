@@ -43,7 +43,6 @@
 		288A2DB61AB8B38D0023ABC3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288A2DB41AB8B38D0023ABC3 /* Result.swift */; };
 		2891F2CB1F991185001B105E /* v33.db in Resources */ = {isa = PBXBuildFile; fileRef = 2891F2BA1F991185001B105E /* v33.db */; };
 		289A4C131C4EB90600A460E3 /* StorageTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A4C121C4EB90600A460E3 /* StorageTestUtils.swift */; };
-		28B62ACE1BC745E7004A585A /* Syncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B62ACD1BC745E7004A585A /* Syncable.swift */; };
 		28C8D11D1AD4CE8900F62011 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
 		28C8D1391AD4CE9100F62011 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		28CDA55C1A43C37C005C318C /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
@@ -518,7 +517,6 @@
 		C50ED2EF232914B100EE71B8 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2ED232914B100EE71B8 /* SortedArray.swift */; };
 		C5B4863823328F03001F2E39 /* SQLiteBookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863323328F02001F2E39 /* SQLiteBookmarksModel.swift */; };
 		C5B4863923328F03001F2E39 /* SQLiteBookmarksBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863423328F02001F2E39 /* SQLiteBookmarksBase.swift */; };
-		C5B4863A23328F03001F2E39 /* SQLiteBookmarksResetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863523328F02001F2E39 /* SQLiteBookmarksResetting.swift */; };
 		C5B4863B23328F03001F2E39 /* SQLiteBookmarksSyncing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863623328F02001F2E39 /* SQLiteBookmarksSyncing.swift */; };
 		C5B4863C23328F03001F2E39 /* SQLiteBookmarksHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */; };
 		C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B53233112CD00D3F31F /* Bookmarks.swift */; };
@@ -1056,7 +1054,6 @@
 		2891F2BA1F991185001B105E /* v33.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = v33.db; sourceTree = "<group>"; };
 		289A4C121C4EB90600A460E3 /* StorageTestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageTestUtils.swift; sourceTree = "<group>"; };
 		28A6CE891AC082E200C1A2D4 /* UtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
-		28B62ACD1BC745E7004A585A /* Syncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncable.swift; sourceTree = "<group>"; };
 		28BC9C43E29D23732F5C1F8B /* Pods-Lumen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.debug.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.debug.xcconfig"; sourceTree = "<group>"; };
 		28D52E081BCDF44100187A1D /* ResetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetTests.swift; sourceTree = "<group>"; };
 		28EADE381AFC3898007FB2FB /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageViewExtensions.swift; path = Extensions/UIImageViewExtensions.swift; sourceTree = "<group>"; };
@@ -1302,7 +1299,6 @@
 		C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
 		C5B4863323328F02001F2E39 /* SQLiteBookmarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksModel.swift; sourceTree = "<group>"; };
 		C5B4863423328F02001F2E39 /* SQLiteBookmarksBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksBase.swift; sourceTree = "<group>"; };
-		C5B4863523328F02001F2E39 /* SQLiteBookmarksResetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksResetting.swift; sourceTree = "<group>"; };
 		C5B4863623328F02001F2E39 /* SQLiteBookmarksSyncing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksSyncing.swift; sourceTree = "<group>"; };
 		C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksHelpers.swift; sourceTree = "<group>"; };
 		C5E94B53233112CD00D3F31F /* Bookmarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
@@ -1907,7 +1903,6 @@
 				2829D39F1C2F0AD400DCF931 /* Sharing.swift */,
 				2FCAE2481ABB531100877008 /* Site.swift */,
 				0B54BD181B698B7C004C822C /* SuggestedSites.swift */,
-				28B62ACD1BC745E7004A585A /* Syncable.swift */,
 				7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */,
 				2FCAE25C1ABB531100877008 /* Visit.swift */,
 				C5E94B5B233112ED00D3F31F /* CompletionOps.swift */,
@@ -1952,7 +1947,6 @@
 				C5B4863423328F02001F2E39 /* SQLiteBookmarksBase.swift */,
 				C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */,
 				C5B4863323328F02001F2E39 /* SQLiteBookmarksModel.swift */,
-				C5B4863523328F02001F2E39 /* SQLiteBookmarksResetting.swift */,
 				C5B4863623328F02001F2E39 /* SQLiteBookmarksSyncing.swift */,
 				2FCAE24B1ABB531100877008 /* BrowserDB.swift */,
 				282915E51AF1A7920006EEB5 /* BrowserSchema.swift */,
@@ -4236,7 +4230,6 @@
 				C5E94B58233112CD00D3F31F /* BookmarksModel.swift in Sources */,
 				D0131B4D1F3CF7D8000CDE86 /* SQLiteFavicons.swift in Sources */,
 				C5B4863823328F03001F2E39 /* SQLiteBookmarksModel.swift in Sources */,
-				28B62ACE1BC745E7004A585A /* Syncable.swift in Sources */,
 				74B195441CF503FC007F36EF /* RecentlyClosedTabs.swift in Sources */,
 				C5B4863B23328F03001F2E39 /* SQLiteBookmarksSyncing.swift in Sources */,
 				D07696F820697F9C00FACFD8 /* ReadingListSchema.swift in Sources */,
@@ -4251,7 +4244,6 @@
 				394CF6CF1BAA493C00906917 /* DefaultSuggestedSites.swift in Sources */,
 				2FCAE2781ABB531100877008 /* Visit.swift in Sources */,
 				D3BF8CBB1B7425570007AFE6 /* DiskImageStore.swift in Sources */,
-				C5B4863A23328F03001F2E39 /* SQLiteBookmarksResetting.swift in Sources */,
 				E6FF6ACA1D873CFF0070C294 /* PageMetadata.swift in Sources */,
 				2FCAE2611ABB531100877008 /* FileAccessor.swift in Sources */,
 				E677F0451D9423FB00ECF1FB /* SQLiteMetadata.swift in Sources */,

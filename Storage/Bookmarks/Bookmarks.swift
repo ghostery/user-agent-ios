@@ -12,7 +12,7 @@ public protocol SearchableBookmarks: AnyObject {
     func bookmarksByURL(_ url: URL) -> Deferred<Maybe<Cursor<BookmarkItem>>>
 }
 
-public protocol SyncableBookmarks: AnyObject, ResettableSyncStorage, AccountRemovalDelegate {
+public protocol SyncableBookmarks: AnyObject {
     // TODO
     func isUnchanged() -> Deferred<Maybe<Bool>>
     func getLocalBookmarksModifications(limit: Int) -> Deferred<Maybe<(deletions: [GUID], additions: [BookmarkMirrorItem])>>

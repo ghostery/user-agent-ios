@@ -51,11 +51,11 @@ class MockFiles: FileAccessor {
 open class MockProfile: Client.Profile {
     // Read/Writeable properties for mocking
     public var recommendations: HistoryRecommendations
-    public var places: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations
+    public var places: BrowserHistory & Favicons & SyncableHistory & HistoryRecommendations
     public var files: FileAccessor
-    public var history: BrowserHistory & SyncableHistory & ResettableSyncStorage
+    public var history: BrowserHistory & SyncableHistory
 
-    fileprivate var legacyPlaces: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations
+    fileprivate var legacyPlaces: BrowserHistory & Favicons & SyncableHistory & HistoryRecommendations
 
     public lazy var panelDataObservers: PanelDataObservers = {
         return MockPanelDataObservers(profile: self)

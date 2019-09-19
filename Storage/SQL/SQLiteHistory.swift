@@ -1024,20 +1024,3 @@ extension SQLiteHistory {
         return self.db.queryReturnsResults("SELECT 1 FROM history WHERE server_modified IS NOT NULL LIMIT 1")
     }
 }
-
-extension SQLiteHistory: ResettableSyncStorage {
-    // We don't drop deletions when we reset -- we might need to upload a deleted item
-    // that never made it to the server.
-    public func resetClient() -> Success {
-        let flag = "UPDATE history SET should_upload = 1, server_modified = NULL"
-        return self.db.run(flag)
-    }
-}
-
-extension SQLiteHistory: AccountRemovalDelegate {
-    public func onRemovedAccount() -> Success {
-        log.info("Clearing history metadata and deleted items after account removal.")
-        let discard = "DELETE FROM history WHERE is_deleted = 1"
-        return self.db.run(discard) >>> self.resetClient
-    }
-}
