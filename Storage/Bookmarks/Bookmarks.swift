@@ -12,13 +12,6 @@ public protocol SearchableBookmarks: AnyObject {
     func bookmarksByURL(_ url: URL) -> Deferred<Maybe<Cursor<BookmarkItem>>>
 }
 
-public protocol BufferItemSource: AnyObject {
-    func getBufferItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>>
-    func getBufferItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID
-    func getBufferChildrenGUIDsForParent(_ guid: GUID) -> Deferred<Maybe<[GUID]>>
-    func prefetchBufferItemsWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID
-}
-
 public protocol LocalItemSource: AnyObject {
     func getLocalItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>>
     func getLocalItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID
@@ -27,16 +20,13 @@ public protocol LocalItemSource: AnyObject {
 
 open class ItemSources {
     public let local: LocalItemSource
-    public let buffer: BufferItemSource
 
-    public init(local: LocalItemSource, buffer: BufferItemSource) {
+    public init(local: LocalItemSource) {
         self.local = local
-        self.buffer = buffer
     }
 
     open func prefetchWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID {
         return self.local.prefetchLocalItemsWithGUIDs(guids)
-         >>> { self.buffer.prefetchBufferItemsWithGUIDs(guids) }
     }
 }
 

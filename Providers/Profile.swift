@@ -298,11 +298,6 @@ open class BrowserProfile: Profile {
         }
     }()
 
-    lazy var mirrorBookmarks: BufferItemSource = {
-        // Yeah, this is lazy. Sorry.
-        return self.bookmarks as! MergedSQLiteBookmarks
-    }()
-
     lazy var searchEngines: SearchEngines = {
         return SearchEngines(prefs: self.prefs, files: self.files)
     }()

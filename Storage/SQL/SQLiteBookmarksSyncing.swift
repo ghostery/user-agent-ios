@@ -449,25 +449,6 @@ open class SQLiteBookmarkBufferStorage {
     }
 }
 
-extension SQLiteBookmarkBufferStorage: BufferItemSource {
-    public func getBufferItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>> {
-        return self.db.getMirrorItemFromTable(TableBookmarksBuffer, guid: guid)
-    }
-
-    public func getBufferItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID {
-        return self.db.getMirrorItemsFromTable(TableBookmarksBuffer, guids: guids)
-    }
-
-    public func getBufferChildrenGUIDsForParent(_ guid: GUID) -> Deferred<Maybe<[GUID]>> {
-        return self.getChildrenGUIDsOf(guid)
-    }
-
-    public func prefetchBufferItemsWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID {
-        log.debug("Not implemented.")
-        return succeed()
-    }
-}
-
 extension BrowserDB {
     fileprivate func getMirrorItemFromTable(_ table: String, guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>> {
         let args: Args = [guid]
@@ -538,24 +519,6 @@ extension MergedSQLiteBookmarks {
 
     public func applyBufferCompletionOp(_ op: BufferCompletionOp, itemSources: ItemSources) -> Success {
         return self.buffer.applyBufferCompletionOp(op, itemSources: itemSources)
-    }
-}
-
-extension MergedSQLiteBookmarks: BufferItemSource {
-    public func getBufferItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>> {
-        return self.buffer.getBufferItemWithGUID(guid)
-    }
-
-    public func getBufferItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID {
-        return self.buffer.getBufferItemsWithGUIDs(guids)
-    }
-
-    public func getBufferChildrenGUIDsForParent(_ guid: GUID) -> Deferred<Maybe<[GUID]>> {
-        return self.buffer.getChildrenGUIDsOf(guid)
-    }
-
-    public func prefetchBufferItemsWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID {
-        return self.buffer.prefetchBufferItemsWithGUIDs(guids)
     }
 }
 
