@@ -38,20 +38,12 @@ public struct BookmarkRoots {
     public static let ToolbarFolderGUID =      "toolbar_____"
     public static let UnfiledFolderGUID =      "unfiled_____"
 
-    public static let FakeDesktopFolderGUID =  "desktop_____"   // Pseudo. Never mentioned in a real record.
-
     // This is the order we use.
     public static let RootChildren: [GUID] = [
         BookmarkRoots.MenuFolderGUID,
         BookmarkRoots.ToolbarFolderGUID,
         BookmarkRoots.UnfiledFolderGUID,
         BookmarkRoots.MobileFolderGUID,
-    ]
-
-    public static let DesktopRoots: [GUID] = [
-        BookmarkRoots.MenuFolderGUID,
-        BookmarkRoots.ToolbarFolderGUID,
-        BookmarkRoots.UnfiledFolderGUID,
     ]
 
     public static let Real = Set<GUID>([
@@ -68,7 +60,6 @@ public struct BookmarkRoots {
         BookmarkRoots.MenuFolderGUID,
         BookmarkRoots.ToolbarFolderGUID,
         BookmarkRoots.UnfiledFolderGUID,
-        BookmarkRoots.FakeDesktopFolderGUID,
     ])
 
     /**
