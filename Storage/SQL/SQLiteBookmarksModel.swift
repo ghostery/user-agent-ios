@@ -106,10 +106,6 @@ open class SQLiteBookmarksModelFactory: BookmarksModelFactory {
             return self.modelForRoot()
         }
 
-        if guid == BookmarkRoots.FakeDesktopFolderGUID {
-            return self.modelForDesktopBookmarks()
-        }
-
         let outputTitle = titleForSpecialGUID(guid) ?? title
         return self.folderForGUID(guid, title: outputTitle)
           >>== self.modelWithRoot
@@ -126,14 +122,7 @@ open class SQLiteBookmarksModelFactory: BookmarksModelFactory {
     open func modelForRoot() -> Deferred<Maybe<BookmarksModel>> {
         log.debug("Getting model for root.")
         let getFolder = self.folderForGUID(BookmarkRoots.MobileFolderGUID, title: BookmarksFolderTitleMobile)
-        if self.direction == .buffer {
-            return getFolder >>== self.modelWithRoot
-        }
-
-        // Return a virtual model containing "Desktop bookmarks" prepended to the local mobile bookmarks.
-        return getFolder >>== { folder in
-            self.extendWithDesktopBookmarksFolder(folder, factory: self)
-        }
+        return getFolder >>== self.modelWithRoot
     }
 
     open var nullModel: BookmarksModel {
@@ -164,84 +153,6 @@ open class SQLiteBookmarksModelFactory: BookmarksModelFactory {
 
         log.debug("removeByGUID: \(guid)")
         return self.bookmarks.removeGUIDs([guid])
-    }
-
-    func hasDesktopBookmarks() -> Deferred<Maybe<Bool>> {
-        // This is very lazy, but it has the nice property of keeping Desktop Bookmarks visible
-        // for a while after you mark the last desktop child as deleted.
-        let parents: Args = [
-            // Local.
-            BookmarkRoots.MenuFolderGUID,
-            BookmarkRoots.ToolbarFolderGUID,
-            BookmarkRoots.UnfiledFolderGUID,
-
-            // Mirror.
-            BookmarkRoots.MenuFolderGUID,
-            BookmarkRoots.ToolbarFolderGUID,
-            BookmarkRoots.UnfiledFolderGUID,
-        ]
-
-        let sql = """
-            SELECT 1 FROM \(self.direction.structureTable) WHERE parent IN (?, ?, ?)
-            UNION ALL
-            SELECT 1 FROM bookmarksMirrorStructure WHERE parent IN (?, ?, ?)
-            LIMIT 1
-            """
-
-        return self.bookmarks.db.queryReturnsResults(sql, args: parents)
-    }
-
-    func getDesktopRoots() -> Deferred<Maybe<Cursor<BookmarkNode>>> {
-        if self.direction == .buffer {
-            // DesktopRoots excludes the Mobile folder, local and non-local mobile are aggregated
-            return self.bookmarks.getRecordsWithGUIDs(BookmarkRoots.DesktopRoots, direction: self.direction, includeIcon: false)
-        }
-
-        // We deliberately exclude the mobile folder, because we're inverting the containment
-        // relationship here.
-        let exclude = [BookmarkRoots.MobileFolderGUID, BookmarkRoots.RootGUID]
-        return self.getChildrenWithParent(BookmarkRoots.RootGUID, excludingGUIDs: exclude, includeIcon: false)
-    }
-
-    /**
-     * Prepend the provided mobile bookmarks folder with a single folder.
-     * The prepended folder is "Desktop Bookmarks". It contains mirrored folders.
-     */
-    open func extendWithDesktopBookmarksFolder(_ mobile: BookmarkFolder, factory: BookmarksModelFactory) -> Deferred<Maybe<BookmarksModel>> {
-
-        func onlyMobile() -> Deferred<Maybe<BookmarksModel>> {
-            // No desktop bookmarks.
-            log.debug("No desktop bookmarks. Only showing mobile.")
-            return deferMaybe(BookmarksModel(modelFactory: factory, root: mobile))
-        }
-
-        return self.hasDesktopBookmarks() >>== { yes in
-            if !yes {
-                return onlyMobile()
-            }
-
-            return self.getDesktopRoots() >>== { cursor in
-                if cursor.count == 0 {
-                    // This shouldn't occur.
-                    return onlyMobile()
-                }
-
-                let desktop = self.folderForDesktopBookmarksCursor(cursor)
-                let prepended = PrependedBookmarkFolder(main: mobile, prepend: desktop)
-                return deferMaybe(BookmarksModel(modelFactory: factory, root: prepended))
-            }
-        }
-    }
-
-    fileprivate func modelForDesktopBookmarks() -> Deferred<Maybe<BookmarksModel>> {
-        return self.getDesktopRoots() >>== { cursor in
-            let desktop = self.folderForDesktopBookmarksCursor(cursor)
-            return deferMaybe(BookmarksModel(modelFactory: self, root: desktop))
-        }
-    }
-
-    fileprivate func folderForDesktopBookmarksCursor(_ cursor: Cursor<BookmarkNode>) -> SQLiteBookmarkFolder {
-        return SQLiteBookmarkFolder(guid: BookmarkRoots.FakeDesktopFolderGUID, title: desktopBookmarksLabel, children: cursor)
     }
 }
 
@@ -873,16 +784,7 @@ open class UnsyncedBookmarksFallbackModelFactory: BookmarksModelFactory {
                     bufferMobileFolder in
 
                     let bufferAndLocalMobile = ConcatenatedBookmarkFolder(main: bufferMobileFolder, append: localMobileFolder)
-                    return self.bufferFactory.hasDesktopBookmarks() >>== { yes in
-                        guard yes else {
-                            return deferMaybe(BookmarksModel(modelFactory: self, root: bufferAndLocalMobile))
-                        }
-                        return self.bufferFactory.getDesktopRoots() >>== { cursor in
-                            let desktop = self.bufferFactory.folderForDesktopBookmarksCursor(cursor)
-                            let withDesktopPrepended = PrependedBookmarkFolder(main: bufferAndLocalMobile, prepend: desktop)
-                            return deferMaybe(BookmarksModel(modelFactory: self, root: withDesktopPrepended))
-                        }
-                    }
+                    return deferMaybe(BookmarksModel(modelFactory: self, root: bufferAndLocalMobile))
                 }
         }
     }
