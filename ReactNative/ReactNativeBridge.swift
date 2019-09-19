@@ -19,7 +19,7 @@ class ReactNativeBridge {
     }
 }
 
-class ReactNativeBridgeDelegate: NSObject, RCTBridgeDelegate {
+fileprivate class ReactNativeBridgeDelegate: NSObject, RCTBridgeDelegate {
     func sourceURL(for bridge: RCTBridge!) -> URL! {
         #if DEBUG
             return URL(string: "http://localhost:8081/index.bundle?platform=ios")
