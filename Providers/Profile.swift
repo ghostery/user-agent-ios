@@ -13,9 +13,8 @@ import XCGLogger
 import SwiftKeychainWrapper
 
 // Import these dependencies ONLY for the main `Client` application target.
-#if MOZ_TARGET_CLIENT
+#if APP_TARGET_CLIENT
 import SwiftyJSON
-import SyncTelemetry
 #endif
 
 private let log = Logger.syncLogger
@@ -61,10 +60,6 @@ protocol Profile: AnyObject {
     var certStore: CertStore { get }
     var recentlyClosedTabs: ClosedTabsStore { get }
     var panelDataObservers: PanelDataObservers { get }
-
-    #if !MOZ_TARGET_NOTIFICATIONSERVICE
-    var readingList: ReadingList { get }
-    #endif
 
     var isShutdown: Bool { get }
 
@@ -216,9 +211,9 @@ open class BrowserProfile: Profile {
     @objc
     func onLocationChange(notification: NSNotification) {
         if let v = notification.userInfo!["visitType"] as? Int,
-            let visitType = VisitType(rawValue: v),
-            let url = notification.userInfo!["url"] as? URL, !isIgnoredURL(url),
-            let title = notification.userInfo!["title"] as? NSString {
+           let visitType = VisitType(rawValue: v),
+           let url = notification.userInfo!["url"] as? URL, !isIgnoredURL(url),
+           let title = notification.userInfo!["title"] as? NSString {
             // Only record local vists if the change notification originated from a non-private tab
             if !(notification.userInfo!["isPrivate"] as? Bool ?? false) {
                 // We don't record a visit if no type was specified -- that means "ignore me".
@@ -241,9 +236,9 @@ open class BrowserProfile: Profile {
             return
         }
         guard let pageURL = notification.userInfo?["tabURL"] as? URL,
-            let pageMetadata = notification.userInfo?["pageMetadata"] as? PageMetadata else {
-                log.debug("Metadata notification doesn't contain any metadata!")
-                return
+              let pageMetadata = notification.userInfo?["pageMetadata"] as? PageMetadata else {
+            log.debug("Metadata notification doesn't contain any metadata!")
+            return
         }
         let defaultMetadataTTL: UInt64 = 3 * 24 * 60 * 60 * 1000 // 3 days for the metadata to live
         self.metadata.storeMetadata(pageMetadata, forPageURL: pageURL, expireAt: defaultMetadataTTL + Date.now())
@@ -251,7 +246,6 @@ open class BrowserProfile: Profile {
 
     deinit {
         log.debug("Deiniting profile \(self.localName()).")
-
     }
 
     func localName() -> String {

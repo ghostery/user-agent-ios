@@ -228,11 +228,11 @@ open class BrowserDB {
 
     func queryReturnsResults(_ sql: String, args: Args? = nil) -> Deferred<Maybe<Bool>> {
         return runQuery(sql, args: args, factory: { _ in true })
-            >>== { deferMaybe($0[0] ?? false) }
+        >>== { deferMaybe($0[0] ?? false) }
     }
 
     func queryReturnsNoResults(_ sql: String, args: Args? = nil) -> Deferred<Maybe<Bool>> {
         return runQuery(sql, args: nil, factory: { _ in false })
-            >>== { deferMaybe($0[0] ?? true) }
+        >>== { deferMaybe($0[0] ?? true) }
     }
 }
