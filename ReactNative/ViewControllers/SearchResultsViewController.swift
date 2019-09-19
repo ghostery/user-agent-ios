@@ -9,16 +9,26 @@
 import Foundation
 import React
 
-class SearchResultsViewController: ReactViewController {
+class SearchResultsViewController: UIViewController {
     var lastQuery: String = ""
+
+    var browserCore: JSBridge {
+        return ReactNativeBridge.sharedInstance.browserCore
+    }
+
+    public lazy var searchView = {
+        RCTRootView(
+            bridge: ReactNativeBridge.sharedInstance.bridge,
+            moduleName: "SearchResults",
+            initialProperties: ["theme": SearchResultsViewController.getTheme()]
+        )
+    }()
 
     fileprivate let profile: Profile
 
     init(profile: Profile, isPrivate: Bool) {
         self.profile = profile
-        super.init(componentName: "SearchResults", initialProperties: [
-            "theme": SearchResultsViewController.getTheme(),
-        ])
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -42,6 +52,12 @@ class SearchResultsViewController: ReactViewController {
         }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(searchView!)
+        applyTheme()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopSearch()
@@ -56,6 +72,7 @@ class SearchResultsViewController: ReactViewController {
             "backgroundColor": UIColor.theme.browser.background.hexString,
         ]
     }
+    
 }
 
 // Browser Core
@@ -86,7 +103,7 @@ extension SearchResultsViewController {
 
 extension SearchResultsViewController: Themeable {
     func applyTheme() {
-        view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.theme.browser.background
         updateTheme()
     }
 }
