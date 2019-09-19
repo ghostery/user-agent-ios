@@ -1411,6 +1411,15 @@ open class BrowserSchema: Schema {
             }
         }
 
+        if from < 40 && to >= 40 {
+            // Create indices on the bookmarks tables for the `keyword` column.
+            if !self.run(db, queries: [
+                faviconSiteURLsCreate,
+                ]) {
+                return false
+            }
+        }
+
         return true
     }
 
