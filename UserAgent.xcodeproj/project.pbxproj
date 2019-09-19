@@ -3131,7 +3131,6 @@
 				B1E2D8EB3608EFBB37D6B1CA /* [CP] Check Pods Manifest.lock */,
 				464F675C2326AC620090D0B5 /* Start React Native Server */,
 				464F675D2326AC930090D0B5 /* Lint with SwiftLint */,
-				ACB7371D23042BAB00FA5626 /* Copy Carthage Dependencies */,
 				ACB7371E23042BAB00FA5626 /* Sources */,
 				ACB737F723042BAB00FA5626 /* Resources */,
 				ACB7382723042BAB00FA5626 /* Frameworks */,
@@ -3865,21 +3864,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		ACB7371D23042BAB00FA5626 /* Copy Carthage Dependencies */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
-			);
-			name = "Copy Carthage Dependencies";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		ACB7383D23042BAB00FA5626 /* Conditionally Add Settings Bundle */ = {
 			isa = PBXShellScriptBuildPhase;
