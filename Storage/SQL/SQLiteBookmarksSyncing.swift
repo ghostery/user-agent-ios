@@ -550,32 +550,6 @@ extension SQLiteBookmarks {
     }
 }
 
-extension MergedSQLiteBookmarks {
-    public func isUnchanged() -> Deferred<Maybe<Bool>> {
-        return self.local.isUnchanged()
-    }
-
-    public func getLocalBookmarksModifications(limit: Int) -> Deferred<Maybe<(deletions: [GUID], additions: [BookmarkMirrorItem])>> {
-        return self.local.getLocalBookmarksModifications(limit: limit)
-    }
-
-    public func getLocalDeletions() -> Deferred<Maybe<[(GUID, Timestamp)]>> {
-        return self.local.getLocalDeletions()
-    }
-
-    public func treeForMirror() -> Deferred<Maybe<BookmarkTree>> {
-        return self.local.treeForMirror()
-    }
-
-    public func treesForEdges() -> Deferred<Maybe<(local: BookmarkTree, buffer: BookmarkTree)>> {
-        return self.local.treeForLocal() >>== { local in
-            return self.local.treeForBuffer() >>== { buffer in
-                return deferMaybe((local: local, buffer: buffer))
-            }
-        }
-    }
-}
-
 // MARK: - Validation of buffer contents.
 
 // Note that these queries tend to not have exceptions for deletions.
@@ -619,116 +593,6 @@ private let bufferParentidMatchesStructure = """
         b.is_deleted IS 0 AND
         b.parentid IS NOT s.parent
     """
-
-public enum BufferInconsistency {
-    case missingValues
-    case missingStructure
-    case overlappingStructure
-    case parentIDDisagreement
-
-    public var query: String {
-        switch self {
-        case .missingValues:
-            return allBufferStructuresReferToRecords
-        case .missingStructure:
-            return allNonDeletedBufferRecordsAreInStructure
-        case .overlappingStructure:
-            return allRecordsAreChildrenOnce
-        case .parentIDDisagreement:
-            return bufferParentidMatchesStructure
-        }
-    }
-
-    public var trackingEvent: String {
-        switch self {
-        case .missingValues:
-            return "missingvalues"
-        case .missingStructure:
-            return "missingstructure"
-        case .overlappingStructure:
-            return "overlappingstructure"
-        case .parentIDDisagreement:
-            return "parentiddisagreement"
-        }
-    }
-
-    public var description: String {
-        switch self {
-        case .missingValues:
-            return "Not all buffer structures refer to records."
-        case .missingStructure:
-            return "Not all buffer records are in structure."
-        case .overlappingStructure:
-            return "Some buffer structures refer to the same records."
-        case .parentIDDisagreement:
-            return "Some buffer record parent IDs don't match structure."
-        }
-    }
-
-    var idsFactory: (SDRow) -> [String] {
-        switch self {
-        case .missingValues:
-            return self.getConcernedIDs(colNames: ["pointee", "pointer"])
-        case .missingStructure:
-            return self.getConcernedIDs(colNames: ["missing", "parent"])
-        case .overlappingStructure:
-            return self.getConcernedIDs(colNames: ["child"])
-        case .parentIDDisagreement:
-            return self.getConcernedIDs(colNames: ["guid", "parentid", "parent", "child"])
-        }
-    }
-
-    private func getConcernedIDs(colNames: [String]) -> ((SDRow) -> [String]) {
-        return { (row: SDRow) in
-             colNames.compactMap({ row[$0] as? String})
-        }
-    }
-
-    public static let all: [BufferInconsistency] = [.missingValues, .missingStructure, .overlappingStructure, .parentIDDisagreement]
-}
-
-public struct BufferInvalidError: MaybeErrorType {
-    public let description = "Bookmarks buffer contains invalid data"
-    public let inconsistencies: [BufferInconsistency: [GUID]]
-    public let validationDuration: Int64
-
-    public init(inconsistencies: [BufferInconsistency: [GUID]], validationDuration: Int64) {
-        self.inconsistencies = inconsistencies
-        self.validationDuration = validationDuration
-    }
-}
-
-extension SQLiteBookmarkBufferStorage {
-    public func validate() -> Success {
-        func idsFor(inconsistency inc: BufferInconsistency) -> () -> Deferred<Maybe<(type: BufferInconsistency, ids: [String])>> {
-            return {
-                self.db.runQuery(inc.query, args: nil, factory: inc.idsFactory)
-                    >>== { deferMaybe((type: inc, ids: $0.asArray().reduce([], +))) }
-            }
-        }
-
-        let start = Date.now()
-        let ops = BufferInconsistency.all.map { idsFor(inconsistency: $0) }
-        return accumulate(ops) >>== { results in
-            var inconsistencies = [BufferInconsistency: [GUID]]()
-            results.forEach { type, ids in
-                guard !ids.isEmpty else { return }
-                inconsistencies[type] = ids
-            }
-
-            return inconsistencies.isEmpty ? succeed() :
-                deferMaybe(BufferInvalidError(inconsistencies: inconsistencies, validationDuration: Int64(Date.now() - start)))
-        }
-    }
-
-    public func getBufferedDeletions() -> Deferred<Maybe<[(GUID, Timestamp)]>> {
-        let sql =
-            "SELECT guid, server_modified FROM bookmarksBuffer WHERE is_deleted = 1"
-
-        return self.db.runQuery(sql, args: nil, factory: { ($0["guid"] as! GUID, $0.getTimestamp("server_modified")!) })
-          >>== { deferMaybe($0.asArray()) }
-    }
-}
 
 extension SQLiteBookmarks {
     fileprivate func structureQueryForTable(_ table: String, structure: String) -> String {
@@ -829,14 +693,6 @@ extension SQLiteBookmarks {
                         }
                 }
         }
-    }
-
-    public func treeForMirror() -> Deferred<Maybe<BookmarkTree>> {
-        return self.treeForTable(TableBookmarksMirror, structure: TableBookmarksMirrorStructure, alwaysIncludeRoots: true)
-    }
-
-    public func treeForBuffer() -> Deferred<Maybe<BookmarkTree>> {
-        return self.treeForTable(TableBookmarksBuffer, structure: TableBookmarksBufferStructure, alwaysIncludeRoots: false)
     }
 
     public func treeForLocal() -> Deferred<Maybe<BookmarkTree>> {
