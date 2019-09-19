@@ -792,7 +792,7 @@ class BrowserViewController: UIViewController {
             make.edges.equalToSuperview()
         }
 
-        searchController.searchView?.snp.makeConstraints { make in
+        searchController.searchView.snp.makeConstraints { make in
             make.top.equalTo(urlBar.snp.bottom).offset(-8)
             make.left.equalTo(searchController.view.snp.left).offset(8)
             make.right.equalTo(searchController.view.snp.right).offset(-8)
