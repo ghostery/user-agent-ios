@@ -523,7 +523,6 @@
 		C5B4863C23328F03001F2E39 /* SQLiteBookmarksHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */; };
 		C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B53233112CD00D3F31F /* Bookmarks.swift */; };
 		C5E94B58233112CD00D3F31F /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B54233112CD00D3F31F /* BookmarksModel.swift */; };
-		C5E94B59233112CD00D3F31F /* CachingItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B55233112CD00D3F31F /* CachingItemSource.swift */; };
 		C5E94B5A233112CD00D3F31F /* Trees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B56233112CD00D3F31F /* Trees.swift */; };
 		C5E94B5C233112ED00D3F31F /* CompletionOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B5B233112ED00D3F31F /* CompletionOps.swift */; };
 		C817B34D1FC609500086018E /* UIScrollViewSwizzled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */; };
@@ -1305,7 +1304,6 @@
 		C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksHelpers.swift; sourceTree = "<group>"; };
 		C5E94B53233112CD00D3F31F /* Bookmarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		C5E94B54233112CD00D3F31F /* BookmarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
-		C5E94B55233112CD00D3F31F /* CachingItemSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachingItemSource.swift; sourceTree = "<group>"; };
 		C5E94B56233112CD00D3F31F /* Trees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trees.swift; sourceTree = "<group>"; };
 		C5E94B5B233112ED00D3F31F /* CompletionOps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionOps.swift; sourceTree = "<group>"; };
 		C62CE646A71600AB2E55CF4C /* Pods-StoragePerfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoragePerfTests.debug.xcconfig"; path = "Target Support Files/Pods-StoragePerfTests/Pods-StoragePerfTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2274,7 +2272,6 @@
 			children = (
 				C5E94B53233112CD00D3F31F /* Bookmarks.swift */,
 				C5E94B54233112CD00D3F31F /* BookmarksModel.swift */,
-				C5E94B55233112CD00D3F31F /* CachingItemSource.swift */,
 				C5E94B56233112CD00D3F31F /* Trees.swift */,
 			);
 			path = Bookmarks;
@@ -4262,7 +4259,6 @@
 				D076971F206AC60900FACFD8 /* ReadingList.swift in Sources */,
 				28E08C9A1AF44F00009BA2FA /* BrowserSchema.swift in Sources */,
 				2FCAE2681ABB531100877008 /* BrowserDB.swift in Sources */,
-				C5E94B59233112CD00D3F31F /* CachingItemSource.swift in Sources */,
 				C5B4863923328F03001F2E39 /* SQLiteBookmarksBase.swift in Sources */,
 				2FCAE2601ABB531100877008 /* Favicons.swift in Sources */,
 				2FCAE2771ABB531100877008 /* SwiftData.swift in Sources */,
