@@ -32,8 +32,8 @@ private struct BookmarksPanelUX {
     static let IconBorderWidth: CGFloat = 0.5
 }
 
-class BookmarksPanel: SiteTableViewController, HomePanel {
-    weak var homePanelDelegate: HomePanelDelegate?
+class BookmarksPanel: SiteTableViewController, LibraryPanel {
+    weak var libraryPanelDelegate: LibraryPanelDelegate?
     var source: BookmarksModel?
     var parentFolders = [BookmarkFolder]()
     var bookmarkFolder: BookmarkFolder?
@@ -335,18 +335,15 @@ class BookmarksPanel: SiteTableViewController, HomePanel {
         let bookmark = source.current[indexPath.row]
 
         switch bookmark {
-        case let item as BookmarkItem: break
-//            homePanelDelegate?.homePanel(didSelectURLString: item.url, visitType: VisitType.bookmark)
-//            LeanPlumClient.shared.track(event: .openedBookmark)
-//            UnifiedTelemetry.recordEvent(category: .action, method: .open, object: .bookmark, value: .bookmarksPanel)
-//            break
-
+        case let item as BookmarkItem:
+            libraryPanelDelegate?.libraryPanel(didSelectURLString: item.url, visitType: .bookmark)
+            break
         case let folder as BookmarkFolder:
             log.debug("Selected \(folder.guid)")
             let nextController = BookmarksPanel(profile: profile)
             nextController.parentFolders = parentFolders + [source.current]
             nextController.bookmarkFolder = folder
-            nextController.homePanelDelegate = self.homePanelDelegate
+            nextController.libraryPanelDelegate = self.libraryPanelDelegate
             source.modelFactory.uponQueue(.main) { maybe in
                 guard let factory = maybe.successValue else {
                     // Nothing we can do.
@@ -460,7 +457,7 @@ class BookmarksPanel: SiteTableViewController, HomePanel {
     }
 }
 
-extension BookmarksPanel: HomePanelContextMenu {
+extension BookmarksPanel: LibraryPanelContextMenu {
     func presentContextMenu(for site: Site, with indexPath: IndexPath, completionHandler: @escaping () -> PhotonActionSheet?) {
         guard let contextMenu = completionHandler() else { return }
         self.present(contextMenu, animated: true, completion: nil)
@@ -474,7 +471,7 @@ extension BookmarksPanel: HomePanelContextMenu {
     }
 
     func getContextMenuActions(for site: Site, with indexPath: IndexPath) -> [PhotonActionSheetItem]? {
-        guard var actions = getDefaultContextMenuActions(for: site, homePanelDelegate: homePanelDelegate) else { return nil }
+        guard var actions = getDefaultContextMenuActions(for: site, libraryPanelDelegate: libraryPanelDelegate) else { return nil }
 
         let pinTopSite = PhotonActionSheetItem(title: Strings.PinTopsiteActionTitle, iconString: "action_pin", handler: { action in
             self.pinTopSite(site)
@@ -487,7 +484,6 @@ extension BookmarksPanel: HomePanelContextMenu {
         if source.current.itemIsEditableAtIndex(indexPath.row) {
             let removeAction = PhotonActionSheetItem(title: Strings.RemoveBookmarkContextMenuTitle, iconString: "action_bookmark_remove", handler: { action in
                 self.deleteBookmark(indexPath: indexPath, source: source)
-//                UnifiedTelemetry.recordEvent(category: .action, method: .delete, object: .bookmark, value: .bookmarksPanel, extras: ["gesture": "long-press"])
             })
             actions.append(removeAction)
         }
