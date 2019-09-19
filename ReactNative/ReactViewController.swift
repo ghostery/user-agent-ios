@@ -17,25 +17,6 @@ class ReactViewController: UIViewController {
         return ReactNativeBridge.sharedInstance.browserCore
     }
 
-    override var view: UIView! {
-        get {
-            if  _view == nil {
-                _view = RCTRootView(
-                    bridge: ReactNativeBridge.sharedInstance.bridge,
-                    moduleName: componentName,
-                    initialProperties: initialProperties
-                )
-                viewDidLoad()
-            }
-
-            return _view
-        }
-
-        set {
-            fatalError("Cannot replace React View")
-        }
-    }
-
     private var _view: UIView?
     private let componentName: String
     private var initialProperties: [String: Any]?
