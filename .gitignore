@@ -36,8 +36,6 @@ python-env/
 # IDEA
 .idea
 
-Carthage/
-
 ThirdParty/google-breakpad
 
 # Saved Sync credentials for tests.
