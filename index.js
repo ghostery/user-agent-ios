@@ -13,8 +13,14 @@ YellowBox.ignoreWarnings([
   'Warning: NetInfo', // TODO: use netinfo from community package
 ]);
 
-const app = new App();
-app.start();
+export class BrowserCore extends App {
+  constructor(browser) {
+    super({ browser });
+  }
+}
+
+const app = new BrowserCore(global.browser);
+const appReady = app.start();
 
 global.CLIQZ = {
   app,
@@ -22,8 +28,8 @@ global.CLIQZ = {
 
 addConnectionChangeListener();
 
-const bridgeManager = new BridgeManager(NativeModules.JSBridge, inject);
+const bridgeManager = new BridgeManager(NativeModules.JSBridge, inject, appReady);
 
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component {});
 AppRegistry.registerComponent('Home', () => Home);
-AppRegistry.registerComponent('SearchResults', () => () => <SearchResults bridgeManager={bridgeManager} events={events} />);
+AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults bridgeManager={bridgeManager} events={events} {...props} />);

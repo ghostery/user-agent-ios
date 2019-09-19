@@ -789,11 +789,20 @@ class BrowserViewController: UIViewController {
         addChild(searchController)
         view.addSubview(searchController.view)
         searchController.view.snp.makeConstraints { make in
-            make.top.equalTo(self.urlBar.snp.bottom)
-            make.left.right.bottom.equalTo(self.view)
+            make.edges.equalToSuperview()
         }
 
+        searchController.searchView.snp.makeConstraints { make in
+            make.top.equalTo(urlBar.snp.bottom).offset(-8)
+            make.left.equalTo(searchController.view.snp.left).offset(8)
+            make.right.equalTo(searchController.view.snp.right).offset(-8)
+            make.bottom.equalToSuperview()
+        }
+
+        view.bringSubviewToFront(urlBarTopTabsContainer)
+
         homeViewController?.view?.isHidden = true
+        urlBar.inCliqzSearchMode = true
 
         searchController.didMove(toParent: self)
     }
@@ -804,6 +813,7 @@ class BrowserViewController: UIViewController {
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
             homeViewController?.view?.isHidden = false
+            urlBar.inCliqzSearchMode = false
         }
     }
 
@@ -1114,18 +1124,6 @@ extension BrowserViewController: ClipboardBarDisplayHandlerDelegate {
     }
 }
 
-extension BrowserViewController: QRCodeViewControllerDelegate {
-    func didScanQRCodeWithURL(_ url: URL) {
-        guard let tab = tabManager.selectedTab else { return }
-        finishEditingAndSubmit(url, visitType: VisitType.typed, forTab: tab)
-    }
-
-    func didScanQRCodeWithText(_ text: String) {
-        guard let tab = tabManager.selectedTab else { return }
-        submitSearchText(text, forTab: tab)
-    }
-}
-
 extension BrowserViewController: SettingsDelegate {
     func settingsOpenURLInNewTab(_ url: URL) {
         let isPrivate = tabManager.selectedTab?.isPrivate ?? false
@@ -1187,13 +1185,6 @@ extension BrowserViewController: URLBarDelegate {
 
     func urlBarDidPressReload(_ urlBar: URLBarView) {
         tabManager.selectedTab?.reload()
-    }
-
-    func urlBarDidPressQRButton(_ urlBar: URLBarView) {
-        let qrCodeViewController = QRCodeViewController()
-        qrCodeViewController.qrCodeDelegate = self
-        let controller = QRCodeNavigationController(rootViewController: qrCodeViewController)
-        self.present(controller, animated: true, completion: nil)
     }
 
     func urlBarDidPressPageOptions(_ urlBar: URLBarView, from button: UIButton) {

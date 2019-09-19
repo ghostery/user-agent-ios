@@ -9,24 +9,30 @@
 import Foundation
 import React
 
-class ReactViewController: UIViewController {
-    init(componentName: String) {
-        super.init(nibName: nil, bundle: nil)
+/// Encapsulates a React Native View
+class ReactViewController: UIViewController, BrowserCoreClient {
+  
+    // MARK: Properties
+    private let componentName: String
+    private var initialProperties: [String: Any]?
 
-        view = RCTRootView(
-            bridge: ReactNativeBridge.sharedInstance.bridge,
-            moduleName: componentName,
-            initialProperties: nil
-        )
+    init(componentName: String, initialProperties: [String: Any]?) {
+        self.componentName = componentName
+        self.initialProperties = initialProperties
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var browserCore: JSBridge {
-        get {
-            return ReactNativeBridge.sharedInstance.browserCore
-        }
+    // MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view = RCTRootView(
+            bridge: ReactNativeBridge.sharedInstance.bridge,
+            moduleName: componentName,
+            initialProperties: initialProperties
+        )
     }
 }

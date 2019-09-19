@@ -16,25 +16,30 @@ private struct URLBarViewUX {
     static let LocationContentOffset: CGFloat = 8
     static let TextFieldCornerRadius: CGFloat = 8
     static let TextFieldBorderWidth: CGFloat = 0
-    static let TextFieldBorderWidthSelected: CGFloat = 2
+    static let TextFieldBorderWidthSelected: CGFloat = 0
     static let ProgressBarHeight: CGFloat = 4
 
     static let TabsButtonRotationOffset: CGFloat = 1.5
     static let TabsButtonHeight: CGFloat = 18.0
     static let ToolbarButtonInsets = UIEdgeInsets(equalInset: Padding)
+
+    static let LocationContainerShadowColor: CGColor = UIColor.CloudySky.cgColor
+    static let LocationContainerShadowOpacity: Double  = 0.3
+    static let LocationContainerShadowOffset: CGSize = CGSize(width: 0, height: 1)
+    static let LocationContainerShadowRadius: CGFloat = 1
 }
 
 protocol URLBarDelegate: AnyObject {
     func urlBarDidPressTabs(_ urlBar: URLBarView)
     func urlBarDidPressReaderMode(_ urlBar: URLBarView)
-    /// - returns: whether the long-press was handled by the delegate; i.e. return `false` when the conditions for even starting handling long-press were not satisfied
+    /// - returns: whether the long-press was handled by the delegate; i.e. return `false` when the conditions for even starting handling
+    ///   long-press were not satisfied
     func urlBarDidLongPressReaderMode(_ urlBar: URLBarView) -> Bool
     func urlBarDidPressStop(_ urlBar: URLBarView)
     func urlBarDidPressReload(_ urlBar: URLBarView)
     func urlBarDidEnterOverlayMode(_ urlBar: URLBarView)
     func urlBarDidLeaveOverlayMode(_ urlBar: URLBarView)
     func urlBarDidLongPressLocation(_ urlBar: URLBarView)
-    func urlBarDidPressQRButton(_ urlBar: URLBarView)
     func urlBarDidPressPageOptions(_ urlBar: URLBarView, from button: UIButton)
     func urlBarDidTapShield(_ urlBar: URLBarView, from button: UIButton)
     func urlBarLocationAccessibilityActions(_ urlBar: URLBarView) -> [UIAccessibilityCustomAction]?
@@ -89,6 +94,13 @@ class URLBarView: UIView {
     /// a panel, the first responder will be resigned, yet the overlay mode UI is still active.
     var inOverlayMode = false
 
+    /// Search Mode turns the container view transparent, so that we can insert the SearchResultsViewController from outside
+    var inCliqzSearchMode = false {
+        didSet {
+            backgroundColor = inCliqzSearchMode ? UIColor.clear : UIColor.theme.browser.background
+        }
+    }
+
     lazy var locationView: TabLocationView = {
         let locationView = TabLocationView()
         locationView.layer.cornerRadius = URLBarViewUX.TextFieldCornerRadius
@@ -120,30 +132,29 @@ class URLBarView: UIView {
     }()
 
     fileprivate lazy var cancelButton: UIButton = {
-        let cancelButton = InsetButton()
-        cancelButton.setImage(UIImage.templateImageNamed("goBack"), for: .normal)
+        let cancelButton = UIButton()
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.BackTitle
+        cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        cancelButton.setTitleColor(UIColor.Grey80, for: .normal)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
+        cancelButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        cancelButton.setContentCompressionResistancePriority(.required, for: .horizontal)
+        cancelButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: URLBarViewUX.Padding, bottom: 0, right: URLBarViewUX.Padding)
         return cancelButton
     }()
 
-    fileprivate lazy var showQRScannerButton: InsetButton = {
-        let button = InsetButton()
-        button.setImage(UIImage.templateImageNamed("menu-ScanQRCode"), for: .normal)
-        button.accessibilityIdentifier = "urlBar-scanQRCode"
-        cancelButton.accessibilityLabel = Strings.ScanQRCodeViewTitle
-        button.clipsToBounds = false
-        button.addTarget(self, action: #selector(showQRScanner), for: .touchUpInside)
-        button.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
-        button.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 1000), for: .horizontal)
-        return button
+    fileprivate lazy var separator: UIView = {
+        let separator = UIView()
+        separator.backgroundColor = UIColor.Grey80
+        return separator
     }()
 
     fileprivate lazy var scrollToTopButton: UIButton = {
         let button = UIButton()
-        // This button interferes with accessibility of the URL bar as it partially overlays it, and keeps getting the VoiceOver focus instead of the URL bar.
+        // This button interferes with accessibility of the URL bar as it partially overlays it, and keeps getting the VoiceOver focus
+        // instead of the URL bar.
         // @TODO: figure out if there is an iOS standard way to do this that works with accessibility.
         button.isAccessibilityElement = false
         button.addTarget(self, action: #selector(tappedScrollToTopArea), for: .touchUpInside)
@@ -163,7 +174,8 @@ class URLBarView: UIView {
         return backButton
     }()
 
-    lazy var actionButtons: [Themeable & UIButton] = [self.tabsButton, self.libraryButton, self.menuButton, self.forwardButton, self.backButton, self.stopReloadButton]
+    lazy var actionButtons: [Themeable & UIButton] = [self.tabsButton, self.libraryButton, self.menuButton, self.forwardButton,
+                                                      self.backButton, self.stopReloadButton]
 
     var currentURL: URL? {
         get {
@@ -180,7 +192,8 @@ class URLBarView: UIView {
         }
     }
 
-    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.Defaults.MobilePrivatePurple)
+    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge",
+                                                         backdropCircleColor: UIColor.Defaults.MobilePrivatePurple)
     fileprivate let hideImagesBadge = BadgeWithBackdrop(imageName: "menuBadge")
 
     override init(frame: CGRect) {
@@ -195,8 +208,10 @@ class URLBarView: UIView {
 
     fileprivate func commonInit() {
         locationContainer.addSubview(locationView)
+        locationContainer.addSubview(cancelButton)
+        cancelButton.addSubview(separator)
 
-        [scrollToTopButton, line, tabsButton, progressBar, cancelButton, showQRScannerButton,
+        [scrollToTopButton, line, tabsButton, progressBar,
          libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer].forEach {
             addSubview($0)
         }
@@ -240,9 +255,16 @@ class URLBarView: UIView {
         }
 
         cancelButton.snp.makeConstraints { make in
-            make.leading.equalTo(self.safeArea.leading)
+            make.trailing.equalTo(self.safeArea.trailing)
             make.centerY.equalTo(self.locationContainer)
             make.size.equalTo(URLBarViewUX.ButtonHeight)
+        }
+
+        separator.snp.makeConstraints { make in
+            make.height.equalTo(cancelButton.snp.height).offset(-URLBarViewUX.Padding * 2)
+            make.centerY.equalTo(cancelButton.snp.centerY)
+            make.width.equalTo(1)
+            make.leading.equalTo(cancelButton.snp.leading)
         }
 
         backButton.snp.makeConstraints { make in
@@ -281,12 +303,6 @@ class URLBarView: UIView {
             make.size.equalTo(URLBarViewUX.ButtonHeight)
         }
 
-        showQRScannerButton.snp.makeConstraints { make in
-            make.trailing.equalTo(self.safeArea.trailing)
-            make.centerY.equalTo(self.locationContainer)
-            make.size.equalTo(URLBarViewUX.ButtonHeight)
-        }
-        
         privateModeBadge.layout(onButton: tabsButton)
         hideImagesBadge.layout(onButton: menuButton)
     }
@@ -294,20 +310,18 @@ class URLBarView: UIView {
     override func updateConstraints() {
         super.updateConstraints()
         if inOverlayMode {
-            // In overlay mode, we always show the location view full width
-            self.locationContainer.layer.borderWidth = URLBarViewUX.TextFieldBorderWidthSelected
-            self.locationContainer.snp.remakeConstraints { make in
-                let height = URLBarViewUX.LocationHeight + (URLBarViewUX.TextFieldBorderWidthSelected * 2)
-                make.height.equalTo(height)
-                make.trailing.equalTo(self.showQRScannerButton.snp.leading)
-                make.leading.equalTo(self.cancelButton.snp.trailing)
-                make.centerY.equalTo(self)
+            self.cancelButton.snp.remakeConstraints { make in
+                make.height.equalTo(locationContainer.snp.height)
+                make.trailing.equalTo(locationContainer.snp.trailing)
             }
             self.locationView.snp.remakeConstraints { make in
                 make.edges.equalTo(self.locationContainer).inset(UIEdgeInsets(equalInset: URLBarViewUX.TextFieldBorderWidthSelected))
             }
             self.locationTextField?.snp.remakeConstraints { make in
-                make.edges.equalTo(self.locationView).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0, right: URLBarViewUX.LocationLeftPadding))
+                make.leading.equalTo(self.locationView.snp.leading).offset(URLBarViewUX.LocationLeftPadding)
+                make.trailing.equalTo(self.cancelButton.snp.leading).offset(-URLBarViewUX.Padding)
+                make.top.equalTo(self.locationView.snp.top)
+                make.bottom.equalTo(self.locationView.snp.bottom)
             }
         } else {
             self.locationContainer.snp.remakeConstraints { make in
@@ -322,21 +336,47 @@ class URLBarView: UIView {
 
                 } else {
                     // Otherwise, left align the location view
-                    make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0, right: URLBarViewUX.LocationLeftPadding-1))
+                    make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0,
+                                                                           right: URLBarViewUX.LocationLeftPadding-1))
                 }
 
                 make.centerY.equalTo(self)
             }
-            self.locationContainer.layer.borderWidth = URLBarViewUX.TextFieldBorderWidth
+
             self.locationView.snp.remakeConstraints { make in
                 make.edges.equalTo(self.locationContainer).inset(UIEdgeInsets(equalInset: URLBarViewUX.TextFieldBorderWidth))
             }
         }
 
+        updateShadow()
     }
 
-    @objc func showQRScanner() {
-        self.delegate?.urlBarDidPressQRButton(self)
+    func updateShadow() {
+        let opacity: Double = inOverlayMode ? URLBarViewUX.LocationContainerShadowOpacity : 0.0
+        let offset: CGSize = inOverlayMode ? URLBarViewUX.LocationContainerShadowOffset : .zero
+        let duration: TimeInterval = inOverlayMode ? 0.3 : 0.1
+        animate(locationContainer.layer, to: opacity, and: offset, with: duration)
+    }
+
+    private func animate(_ layer: CALayer, to opacity: Double, and offset: CGSize, with duration: Double) {
+        CATransaction.begin()
+        let opacityAnimation = CABasicAnimation(keyPath: "shadowOpacity")
+        opacityAnimation.toValue = opacity
+        opacityAnimation.duration = duration
+        opacityAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        opacityAnimation.fillMode = .both
+        opacityAnimation.isRemovedOnCompletion = false
+
+        let offsetAnimation = CABasicAnimation(keyPath: "shadowOffset")
+        offsetAnimation.toValue = offset
+        offsetAnimation.duration = duration
+        offsetAnimation.timingFunction = opacityAnimation.timingFunction
+        offsetAnimation.fillMode = opacityAnimation.fillMode
+        offsetAnimation.isRemovedOnCompletion = false
+
+        layer.add(offsetAnimation, forKey: offsetAnimation.keyPath!)
+        layer.add(opacityAnimation, forKey: opacityAnimation.keyPath!)
+        CATransaction.commit()
     }
 
     func createLocationTextField() {
@@ -357,15 +397,19 @@ class URLBarView: UIView {
         locationTextField.textAlignment = .left
         locationTextField.font = UIConstants.DefaultChromeFont
         locationTextField.accessibilityIdentifier = "address"
-        locationTextField.accessibilityLabel = NSLocalizedString("Address and Search", comment: "Accessibility label for address and search field, both words (Address, Search) are therefore nouns.")
+        locationTextField.accessibilityLabel = NSLocalizedString("Address and Search",
+            comment: "Accessibility label for address and search field, both words (Address, Search) are therefore nouns.")
         locationTextField.attributedPlaceholder = self.locationView.placeholder
         locationContainer.addSubview(locationTextField)
         locationTextField.snp.remakeConstraints { make in
-            make.edges.equalTo(self.locationView)
+            make.leading.equalTo(self.locationView.snp.leading)
+            make.trailing.equalTo(self.cancelButton.snp.trailing)
+            make.top.equalTo(self.locationView.snp.top)
+            make.bottom.equalTo(self.locationView.snp.bottom)
         }
 
         locationTextField.applyTheme()
-        locationTextField.backgroundColor = UIColor.theme.textField.backgroundInOverlay
+        locationTextField.backgroundColor = UIColor.green
     }
 
     override func becomeFirstResponder() -> Bool {
@@ -474,7 +518,6 @@ class URLBarView: UIView {
         // Make sure everything is showing during the transition (we'll hide it afterwards).
         bringSubviewToFront(self.locationContainer)
         cancelButton.isHidden = false
-        showQRScannerButton.isHidden = false
         progressBar.isHidden = false
         menuButton.isHidden = !toolbarIsShowing
         libraryButton.isHidden = !toolbarIsShowing || !topTabsIsShowing
@@ -487,7 +530,6 @@ class URLBarView: UIView {
     func transitionToOverlay(_ didCancel: Bool = false) {
         locationView.contentView.alpha = inOverlayMode ? 0 : 1
         cancelButton.alpha = inOverlayMode ? 1 : 0
-        showQRScannerButton.alpha = inOverlayMode ? 1 : 0
         progressBar.alpha = inOverlayMode || didCancel ? 0 : 1
         tabsButton.alpha = inOverlayMode ? 0 : 1
         menuButton.alpha = inOverlayMode ? 0 : 1
@@ -503,12 +545,19 @@ class URLBarView: UIView {
             line.isHidden = inOverlayMode
             // Make the editable text field span the entire URL bar, covering the lock and reader icons.
             locationTextField?.snp.remakeConstraints { make in
-                make.edges.equalTo(self.locationView)
+                make.leading.equalTo(self.locationView.snp.leading)
+                make.trailing.equalTo(self.cancelButton.snp.trailing)
+                make.top.equalTo(self.locationView.snp.top)
+                make.bottom.equalTo(self.locationView.snp.bottom)
             }
         } else {
             // Shrink the editable text field back to the size of the location view before hiding it.
             locationTextField?.snp.remakeConstraints { make in
                 make.edges.equalTo(self.locationView.urlTextField)
+            }
+            cancelButton.snp.remakeConstraints { make in
+                make.height.equalTo(locationContainer.snp.height)
+                make.leading.equalTo(locationView.snp.trailing)
             }
         }
     }
@@ -518,7 +567,6 @@ class URLBarView: UIView {
         locationView.overrideAccessibility(enabled: !inOverlayMode)
 
         cancelButton.isHidden = !inOverlayMode
-        showQRScannerButton.isHidden = !inOverlayMode
         progressBar.isHidden = inOverlayMode
         menuButton.isHidden = !toolbarIsShowing || inOverlayMode
         libraryButton.isHidden = !toolbarIsShowing || inOverlayMode || !topTabsIsShowing
@@ -707,12 +755,6 @@ extension URLBarView {
         get { return cancelButton.tintColor }
         set { return cancelButton.tintColor = newValue }
     }
-
-    @objc dynamic var showQRButtonTintColor: UIColor? {
-        get { return showQRScannerButton.tintColor }
-        set { return showQRScannerButton.tintColor = newValue }
-    }
-
 }
 
 extension URLBarView: Themeable {
@@ -724,8 +766,7 @@ extension URLBarView: Themeable {
         tabsButton.applyTheme()
 
         cancelTintColor = UIColor.theme.browser.tint
-        showQRButtonTintColor = UIColor.theme.browser.tint
-        backgroundColor = UIColor.theme.browser.background
+        backgroundColor = inCliqzSearchMode ? UIColor.clear : UIColor.theme.browser.background
         line.backgroundColor = UIColor.theme.browser.urlBarDivider
 
         locationBorderColor = UIColor.theme.urlbar.border
@@ -744,7 +785,8 @@ extension URLBarView: PrivateModeUI {
         }
         
         locationActiveBorderColor = UIColor.theme.urlbar.activeBorder(isPrivate)
-        progressBar.setGradientColors(startColor: UIColor.theme.loadingBar.start(isPrivate), endColor: UIColor.theme.loadingBar.end(isPrivate))
+        progressBar.setGradientColors(startColor: UIColor.theme.loadingBar.start(isPrivate),
+                                      endColor: UIColor.theme.loadingBar.end(isPrivate))
         ToolbarTextField.applyUIMode(isPrivate: isPrivate)
 
         applyTheme()

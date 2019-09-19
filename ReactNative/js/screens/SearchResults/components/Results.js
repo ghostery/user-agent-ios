@@ -8,26 +8,31 @@ import {
 import SearchUIVertical from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/SearchUI';
 import { Provider as CliqzProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards/cliqz';
 import { Provider as ThemeProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
+import themes, { baseTheme, mergeStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/themes';
 import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 
 import t from '../../../services/i18n';
 
-const styles = StyleSheet.create({
+const getTheme = (theme) => mergeStyles(baseTheme, {
+
+});
+
+const getStyles = (theme) => StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'gray',
+    backgroundColor: theme.backgroundColor,
   },
   footer: {
-    height: 40,
-    backgroundColor: '#464961',
+    height: 30,
+    backgroundColor: '#a2a6ae',
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
   footerText: {
-    color: '#A3A4B0',
+    color: 'white',
     fontSize: 11.5,
   },
   noResults: {
@@ -47,7 +52,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   searchEnginesHeaderText: {
-    color: 'white',
+    color: 'black',
     fontSize: 12,
   },
   searchEnginesContainer: {
@@ -64,7 +69,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   searchEngineText: {
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     fontSize: 12,
   },
@@ -109,23 +114,22 @@ export default class Results extends React.Component {
   render() {
     const { results: allResults, suggestions, meta } = this.props.results;
     const query = this.props.query;
-    const appearance = 'lumen-light';
-    const SearchComponent = SearchUIVertical;
     const results = (allResults || []).filter(r => r.provider !== 'instant')
+    const styles = getStyles(this.props.theme);
+    const theme = getTheme(this.props.theme);
 
     // NativeModules.QuerySuggestion.showQuerySuggestions(query, suggestions);
     return (
       <View style={styles.container}>
         <CliqzProvider value={this.props.cliqz}>
-          <ThemeProvider value={appearance}>
+          <ThemeProvider value={theme}>
             <ScrollView
               bounces={false}
               ref={this.scrollRef}
             >
-              <SearchComponent
+              <SearchUIVertical
                 results={results}
                 meta={meta}
-                theme={appearance}
                 style={{ backgroundColor: 'white', paddingTop: 9 }}
                 cardListStyle={{ paddingLeft: 0, paddingRight: 0 }}
                 header={<View />}
@@ -153,6 +157,7 @@ export default class Results extends React.Component {
                     <View>
                       <NativeDrawable
                         style={styles.searchEngineIcon}
+                        color={'#a2a6ae'}
                         source={normalizeUrl('google.svg')}
                       />
                       <Text style={styles.searchEngineText}>Google</Text>
@@ -164,6 +169,7 @@ export default class Results extends React.Component {
                     <View>
                       <NativeDrawable
                         style={styles.searchEngineIcon}
+                        color={'#a2a6ae'}
                         source={normalizeUrl('ddg.svg')}
                       />
                       <Text style={styles.searchEngineText}>DuckDuckGo</Text>
@@ -175,6 +181,7 @@ export default class Results extends React.Component {
                     <View>
                       <NativeDrawable
                         style={styles.searchEngineIcon}
+                        color={'#a2a6ae'}
                         source={normalizeUrl('bing.svg')}
                       />
                       <Text style={styles.searchEngineText}>Bing</Text>
