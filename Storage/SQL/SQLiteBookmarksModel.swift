@@ -707,131 +707,18 @@ extension SQLiteBookmarks {
     }
 }
 
-// It's a factory where the root contains Desktop Bookmarks from the buffer, and
-// mobile bookmarks from local.
-open class UnsyncedBookmarksFallbackModelFactory: BookmarksModelFactory {
-    let localFactory: SQLiteBookmarksModelFactory
-    let bufferFactory: SQLiteBookmarksModelFactory
-
-    init(bookmarks: SQLiteBookmarks) {
-        // This relies on SQLiteBookmarks being the storage for both directions.
-        self.localFactory = SQLiteBookmarksModelFactory(bookmarks: bookmarks, direction: .local)
-        self.bufferFactory = EditableBufferBookmarksSQLiteBookmarksModelFactory(bookmarks: bookmarks, direction: .buffer)
-    }
-
-    // This is a special-case class, so here's the special-case behavior to
-    // know how to handle a folder that contains items drawn from different
-    // parts of the database. We look for the special kinds of folders we
-    // nest at the top level, and then we pick a folder to match.
-    public func factoryForIndex(_ index: Int, inFolder folder: BookmarkFolder) -> BookmarksModelFactory {
-        let concatenated: ConcatenatedBookmarkFolder
-        let i: Int
-
-        // We have either just remote and local mobile bookmarks, or we have Desktop Bookmarks
-        // followed by remote and local mobile bookmarks. Handle either.
-        if let prepended = folder as? PrependedBookmarkFolder {
-            if index == 0 {
-                return self
-            }
-
-            guard let c = prepended.main as? ConcatenatedBookmarkFolder else {
-                return self
-            }
-            i = index - 1        // Drop the prepend.
-            concatenated = c
-        } else {
-            guard let c = folder as? ConcatenatedBookmarkFolder else {
-                return self
-            }
-            i = index
-            concatenated = c
-        }
-
-        if i < concatenated.pivot {
-            return self.bufferFactory   // This comes first in our concatenation.
-        }
-        return self.localFactory
-    }
-
-    open func modelForFolder(_ folder: BookmarkFolder) -> Deferred<Maybe<BookmarksModel>> {
-        return self.modelForFolder(folder.guid, title: folder.title)
-    }
-
-    open func modelForFolder(_ guid: GUID) -> Deferred<Maybe<BookmarksModel>> {
-        return self.modelForFolder(guid, title: "")
-    }
-
-    open func modelForFolder(_ guid: GUID, title: String) -> Deferred<Maybe<BookmarksModel>> {
-        if guid == BookmarkRoots.MobileFolderGUID {
-            return self.modelForRoot()
-        }
-
-        if guid == BookmarkRoots.FakeDesktopFolderGUID {
-            return self.bufferFactory.modelForFolder(guid, title: title)
-        }
-
-        return self.localFactory.modelForFolder(guid, title: title)
-    }
-
-    open func modelForRoot() -> Deferred<Maybe<BookmarksModel>> {
-        log.debug("Getting model for fallback root.")
-        // Return a virtual model containing "Desktop bookmarks" prepended to the local mobile bookmarks.
-        return self.localFactory.folderForGUID(BookmarkRoots.MobileFolderGUID, title: BookmarksFolderTitleMobile)
-            >>== {
-                localMobileFolder in
-
-                self.bufferFactory.folderForGUID(BookmarkRoots.MobileFolderGUID, title: BookmarksFolderTitleMobile) >>== {
-                    bufferMobileFolder in
-
-                    let bufferAndLocalMobile = ConcatenatedBookmarkFolder(main: bufferMobileFolder, append: localMobileFolder)
-                    return deferMaybe(BookmarksModel(modelFactory: self, root: bufferAndLocalMobile))
-                }
-        }
-    }
-
-    // Whenever async construction is necessary, we fall into a pattern of needing
-    // a placeholder that behaves correctly for the period between kickoff and set.
-    open var nullModel: BookmarksModel {
-        let children = Cursor<BookmarkNode>(status: .failure, msg: "Null model")
-        let folder = SQLiteBookmarkFolder(guid: "Null", title: "Null", children: children)
-        return BookmarksModel(modelFactory: self, root: folder)
-    }
-
-    open func isBookmarked(_ url: String) -> Deferred<Maybe<Bool>> {
-        // We don't include buffer items in this check, because we can't un-star them!
-        return self.localFactory.isBookmarked(url)
-    }
-
-    open func removeByGUID(_ guid: GUID) -> Success {
-        return self.localFactory.removeByGUID(guid)
-    }
-
-    open func removeByURL(_ url: String) -> Success {
-        return self.localFactory.removeByURL(url)
-    }
-}
-
 open class MergedSQLiteBookmarks: BookmarksModelFactorySource, KeywordSearchSource {
     let local: SQLiteBookmarks
-    let buffer: SQLiteBookmarkBufferStorage
 
     // Figuring out our factory can require hitting the DB, so this is async.
     // Note that we check *every time* -- we don't want to get stuck in a dead
     // end when you might sync soon.
     open var modelFactory: Deferred<Maybe<BookmarksModelFactory>> {
-        return self.local.hasOnlyUnmergedRemoteBookmarks() >>== { yes in
-            if yes {
-                log.debug("Only unmerged remote bookmarks; using fallback factory.")
-                return deferMaybe(UnsyncedBookmarksFallbackModelFactory(bookmarks: self.local))
-            }
-            log.debug("Using local+mirror bookmark factory.")
-            return self.local.modelFactory
-        }
+        return self.local.modelFactory
     }
 
     public init(db: BrowserDB) {
         self.local = SQLiteBookmarks(db: db)
-        self.buffer = SQLiteBookmarkBufferStorage(db: db)
     }
 
     open func getURLForKeywordSearch(_ keyword: String) -> Deferred<Maybe<String>> {
