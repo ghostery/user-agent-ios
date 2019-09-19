@@ -60,6 +60,7 @@ protocol Profile: AnyObject {
     var certStore: CertStore { get }
     var recentlyClosedTabs: ClosedTabsStore { get }
     var panelDataObservers: PanelDataObservers { get }
+    var readingList: ReadingList { get }
 
     var isShutdown: Bool { get }
 
