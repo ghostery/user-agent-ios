@@ -112,43 +112,6 @@ open class CachingLocalItemSource: LocalItemSource {
     }
 }
 
-open class CachingMirrorItemSource: MirrorItemSource {
-    fileprivate let cache: CachedSource
-    fileprivate let source: MirrorItemSource
-
-    public init(source: MirrorItemSource) {
-        self.cache = CachedSource()
-        self.source = source
-    }
-
-    open func getMirrorItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>> {
-        if let found = self.cache.lookup(guid) {
-            return found
-        }
-
-        return self.source.getMirrorItemWithGUID(guid) >>== effect {
-            self.cache.markSeen(guid)
-            self.cache[guid] = $0
-        }
-    }
-
-    open func getMirrorItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID {
-        return self.prefetchMirrorItemsWithGUIDs(guids) >>> { self.cache.takingGUIDs(guids) }
-    }
-
-    open func prefetchMirrorItemsWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID {
-        log.debug("Prefetching \(guids.count) mirror items: \(guids.prefix(10))….")
-        if guids.isEmpty {
-            return succeed()
-        }
-
-        return self.source.getMirrorItemsWithGUIDs(guids) >>== {
-            self.cache.markSeen(guids)
-            return self.cache.fill($0)
-        }
-    }
-}
-
 open class CachingBufferItemSource: BufferItemSource {
     fileprivate let cache: CachedSource
     fileprivate let source: BufferItemSource

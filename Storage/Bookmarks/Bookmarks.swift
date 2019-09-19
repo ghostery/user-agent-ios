@@ -12,37 +12,6 @@ public protocol SearchableBookmarks: AnyObject {
     func bookmarksByURL(_ url: URL) -> Deferred<Maybe<Cursor<BookmarkItem>>>
 }
 
-public protocol SyncableBookmarks: AnyObject {
-    // TODO
-    func isUnchanged() -> Deferred<Maybe<Bool>>
-    func getLocalBookmarksModifications(limit: Int) -> Deferred<Maybe<(deletions: [GUID], additions: [BookmarkMirrorItem])>>
-    func getLocalDeletions() -> Deferred<Maybe<[(GUID, Timestamp)]>>
-    func treesForEdges() -> Deferred<Maybe<(local: BookmarkTree, buffer: BookmarkTree)>>
-    func treeForMirror() -> Deferred<Maybe<BookmarkTree>>
-    func applyLocalOverrideCompletionOp(_ op: LocalOverrideCompletionOp, itemSources: ItemSources) -> Success
-    func applyBufferUpdatedCompletionOp(_ op: BufferUpdatedCompletionOp) -> Success
-}
-
-public protocol BookmarkBufferStorage: AnyObject {
-    func isEmpty() -> Deferred<Maybe<Bool>>
-    func applyRecords(_ records: [BookmarkMirrorItem]) -> Success
-    func doneApplyingRecordsAfterDownload() -> Success
-
-    func validate() -> Success
-    func getBufferedDeletions() -> Deferred<Maybe<[(GUID, Timestamp)]>>
-    func applyBufferCompletionOp(_ op: BufferCompletionOp, itemSources: ItemSources) -> Success
-
-    // Only use for diagnostics.
-    func synchronousBufferCount() -> Int?
-    func getUpstreamRecordCount() -> Deferred<Int?>
-}
-
-public protocol MirrorItemSource: AnyObject {
-    func getMirrorItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>>
-    func getMirrorItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID
-    func prefetchMirrorItemsWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID
-}
-
 public protocol BufferItemSource: AnyObject {
     func getBufferItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>>
     func getBufferItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID
@@ -58,18 +27,15 @@ public protocol LocalItemSource: AnyObject {
 
 open class ItemSources {
     public let local: LocalItemSource
-    public let mirror: MirrorItemSource
     public let buffer: BufferItemSource
 
-    public init(local: LocalItemSource, mirror: MirrorItemSource, buffer: BufferItemSource) {
+    public init(local: LocalItemSource, buffer: BufferItemSource) {
         self.local = local
-        self.mirror = mirror
         self.buffer = buffer
     }
 
     open func prefetchWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID {
         return self.local.prefetchLocalItemsWithGUIDs(guids)
-         >>> { self.mirror.prefetchMirrorItemsWithGUIDs(guids) }
          >>> { self.buffer.prefetchBufferItemsWithGUIDs(guids) }
     }
 }

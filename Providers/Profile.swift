@@ -48,7 +48,7 @@ class ProfileFileAccessor: FileAccessor {
  * A Profile manages access to the user's data.
  */
 protocol Profile: AnyObject {
-    var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & SyncableBookmarks & LocalItemSource & MirrorItemSource { get }
+    var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & LocalItemSource { get }
     // var favicons: Favicons { get }
     var prefs: Prefs { get }
     var queue: TabQueue { get }
@@ -295,7 +295,7 @@ open class BrowserProfile: Profile {
         return self.places
     }
 
-    lazy var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & SyncableBookmarks & LocalItemSource & MirrorItemSource = {
+    lazy var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & LocalItemSource = {
         // Make sure the rest of our tables are initialized before we try to read them!
         // This expression is for side-effects only.
         withExtendedLifetime(self.places) {
@@ -303,7 +303,7 @@ open class BrowserProfile: Profile {
         }
     }()
 
-    lazy var mirrorBookmarks: BookmarkBufferStorage & BufferItemSource = {
+    lazy var mirrorBookmarks: BufferItemSource = {
         // Yeah, this is lazy. Sorry.
         return self.bookmarks as! MergedSQLiteBookmarks
     }()

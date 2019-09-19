@@ -23,21 +23,6 @@ extension SQLiteBookmarks: LocalItemSource {
     }
 }
 
-extension SQLiteBookmarks: MirrorItemSource {
-    public func getMirrorItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>> {
-        return self.db.getMirrorItemFromTable(TableBookmarksMirror, guid: guid)
-    }
-
-    public func getMirrorItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID {
-        return self.db.getMirrorItemsFromTable(TableBookmarksMirror, guids: guids)
-    }
-
-    public func prefetchMirrorItemsWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID {
-        log.debug("Not implemented for SQLiteBookmarks.")
-        return succeed()
-    }
-}
-
 extension SQLiteBookmarks {
     func getSQLToOverrideFolder(_ folder: GUID, atModifiedTime modified: Timestamp) -> (sql: [String], args: Args) {
         return self.getSQLToOverrideFolders([folder], atModifiedTime: modified)
@@ -345,7 +330,7 @@ private func insertStructureIntoTable(_ table: String, connection: SQLiteDBConne
  * When appropriate, the buffer is merged with the mirror and local storage
  * in the DB.
  */
-open class SQLiteBookmarkBufferStorage: BookmarkBufferStorage {
+open class SQLiteBookmarkBufferStorage {
     let db: BrowserDB
 
     public init(db: BrowserDB) {
@@ -521,7 +506,7 @@ extension BrowserDB {
     }
 }
 
-extension MergedSQLiteBookmarks: BookmarkBufferStorage {
+extension MergedSQLiteBookmarks {
     public func synchronousBufferCount() -> Int? {
         return self.buffer.synchronousBufferCount()
     }
@@ -571,20 +556,6 @@ extension MergedSQLiteBookmarks: BufferItemSource {
 
     public func prefetchBufferItemsWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID {
         return self.buffer.prefetchBufferItemsWithGUIDs(guids)
-    }
-}
-
-extension MergedSQLiteBookmarks: MirrorItemSource {
-    public func getMirrorItemWithGUID(_ guid: GUID) -> Deferred<Maybe<BookmarkMirrorItem>> {
-        return self.local.getMirrorItemWithGUID(guid)
-    }
-
-    public func getMirrorItemsWithGUIDs<T: Collection>(_ guids: T) -> Deferred<Maybe<[GUID: BookmarkMirrorItem]>> where T.Iterator.Element == GUID {
-        return self.local.getMirrorItemsWithGUIDs(guids)
-    }
-
-    public func prefetchMirrorItemsWithGUIDs<T: Collection>(_ guids: T) -> Success where T.Iterator.Element == GUID {
-        return self.local.prefetchMirrorItemsWithGUIDs(guids)
     }
 }
 
@@ -651,7 +622,7 @@ extension SQLiteBookmarks {
     }
 }
 
-extension MergedSQLiteBookmarks: SyncableBookmarks {
+extension MergedSQLiteBookmarks {
     public func isUnchanged() -> Deferred<Maybe<Bool>> {
         return self.local.isUnchanged()
     }
