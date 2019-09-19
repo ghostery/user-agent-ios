@@ -40,6 +40,7 @@ let TablePageMetadata = "page_metadata"
 let TableHighlights = "highlights"
 
 let TableRemoteDevices = "remote_devices" // Added in v29.
+let TableFaviconSiteURLs = "favicon_site_urls"
 
 let MatViewAwesomebarBookmarksWithFavicons = "matview_awesomebar_bookmarks_with_favicons"
 
@@ -100,6 +101,7 @@ private let AllTables: [String] = [
     TableSyncCommands,
     TableClients,
     TableTabs,
+    TableFaviconSiteURLs,
 
     MatViewAwesomebarBookmarksWithFavicons,
 ]
@@ -375,6 +377,15 @@ open class BrowserSchema: Schema {
             iconDate REAL,
             iconType INTEGER,
             iconWidth INTEGER
+        )
+        """
+
+    let faviconSiteURLsCreate = """
+        CREATE TABLE favicon_site_urls (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            site_url TEXT NOT NULL,
+            faviconID INTEGER NOT NULL REFERENCES favicons(id) ON DELETE CASCADE,
+            UNIQUE (site_url, faviconID)
         )
         """
 
@@ -877,6 +888,7 @@ open class BrowserSchema: Schema {
             clientsTableCreate,
             tabsTableCreate,
             historyFTSCreate,
+            faviconSiteURLsCreate,
 
             // "Materialized Views" (Tables)
             awesomebarBookmarksWithFaviconsCreate,
