@@ -48,7 +48,6 @@ class ProfileFileAccessor: FileAccessor {
  */
 protocol Profile: AnyObject {
     var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & LocalItemSource { get }
-    // var favicons: Favicons { get }
     var prefs: Prefs { get }
     var queue: TabQueue { get }
     var searchEngines: SearchEngines { get }
@@ -75,6 +74,7 @@ protocol Profile: AnyObject {
     // I got really weird EXC_BAD_ACCESS errors on a non-null reference when I made this a getter.
     // Similar to <http://stackoverflow.com/questions/26029317/exc-bad-access-when-indirectly-accessing-inherited-member-in-swift>.
     func localName() -> String
+
     func cleanupHistoryIfNeeded()
 }
 

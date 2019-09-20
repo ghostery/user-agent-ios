@@ -29,7 +29,6 @@ class MockableHistory: BrowserHistory, SyncableHistory {
     func setTopSitesNeedsInvalidation() { fatalError() }
     func updateTopSitesCacheIfInvalidated() -> Deferred<Maybe<Bool>> { fatalError() }
     func setTopSitesCacheSize(_ size: Int32) { fatalError() }
-    func onRemovedAccount() -> Success { fatalError() }
     func ensurePlaceWithURL(_ url: String, hasGUID guid: GUID) -> Success { fatalError() }
     func deleteByGUID(_ guid: GUID, deletedAt: Timestamp) -> Success { fatalError() }
     func storeRemoteVisits(_ visits: [Visit], forGUID guid: GUID) -> Success { fatalError() }
@@ -41,6 +40,5 @@ class MockableHistory: BrowserHistory, SyncableHistory {
     func doneApplyingRecordsAfterDownload() -> Success { fatalError() }
     func doneUpdatingMetadataAfterUpload() -> Success { fatalError() }
     func hasSyncedHistory() -> Deferred<Maybe<Bool>> { fatalError() }
-    func resetClient() -> Success { fatalError() }
 }
 

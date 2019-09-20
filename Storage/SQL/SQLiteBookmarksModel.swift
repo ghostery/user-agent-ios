@@ -121,7 +121,7 @@ open class SQLiteBookmarksModelFactory: BookmarksModelFactory {
 
     open func modelForRoot() -> Deferred<Maybe<BookmarksModel>> {
         log.debug("Getting model for root.")
-        let getFolder = self.folderForGUID(BookmarkRoots.MobileFolderGUID, title: BookmarksFolderTitleMobile)
+        let getFolder = self.folderForGUID(BookmarkRoots.MobileFolderGUID, title: Strings.BookmarksFolderTitleMobile)
         return getFolder >>== self.modelWithRoot
     }
 

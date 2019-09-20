@@ -8,8 +8,6 @@ import Sentry
 public enum SentryTag: String {
     case swiftData = "SwiftData"
     case browserDB = "BrowserDB"
-    case rustLogins = "RustLogins"
-    case rustLog = "RustLog"
     case notificationService = "NotificationService"
     case unifiedTelemetry = "UnifiedTelemetry"
     case general = "General"
