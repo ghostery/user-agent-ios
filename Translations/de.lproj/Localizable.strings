@@ -516,9 +516,6 @@
 /* Label for the button, displayed in the menu, turns on night mode. */
 "Menu.NightModeTurnOn.Label" = "Nachtmodus aktivieren";
 
-/* Label for the button, displayed in the menu, hides images on the webpage when pressed. */
-"Menu.NoImageModeHideImages.Label" = "Grafiken ausblenden";
-
 /* Label for title in page action menu. */
 "Menu.PageActions.Title" = "Aktionen für Seite";
 

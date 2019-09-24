@@ -465,7 +465,6 @@ extension Strings {
     public static let AppMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.AccessibilityLabel", comment: "Accessibility label for the Menu button.")
     public static let TabTrayDeleteMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.CloseAllTabs", comment: "Accessibility label for the Close All Tabs menu button.")
     public static let AppMenuNightMode = NSLocalizedString("Menu.NightModeTurnOn.Label", comment: "Label for the button, displayed in the menu, turns on night mode.")
-    public static let AppMenuNoImageMode = NSLocalizedString("Menu.NoImageModeHideImages.Label", comment: "Label for the button, displayed in the menu, hides images on the webpage when pressed.")
     public static let AppMenuCopyURLConfirmMessage = NSLocalizedString("Menu.CopyURL.Confirm", comment: "Toast displayed to user after copy url pressed.")
     public static let AppMenuAddBookmarkConfirmMessage = NSLocalizedString("Menu.AddBookmark.Confirm", comment: "Toast displayed to the user after a bookmark has been added.")
     public static let AppMenuRemoveBookmarkConfirmMessage = NSLocalizedString("Menu.RemoveBookmark.Confirm", comment: "Toast displayed to the user after a bookmark has been removed.")

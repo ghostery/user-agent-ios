@@ -133,7 +133,6 @@ class Action {
     static let ToggleRequestDesktopSite = "ToggleRequestDesktopSite"
     static let ToggleNightMode = "ToggleNightMode"
     static let ToggleTrackingProtection = "ToggleTrackingProtection"
-    static let ToggleNoImageMode = "ToggleNoImageMode"
 
     static let Bookmark = "Bookmark"
     static let BookmarkThreeDots = "BookmarkThreeDots"
@@ -240,7 +239,6 @@ class FxUserState: MMUserState {
     var newPasscode: String = "111111"
     var wrongPasscode: String = "111112"
 
-    var noImageMode = false
     var nightMode = false
 
     var pocketInNewTab = false
@@ -1074,10 +1072,6 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
         screenState.tap(app.tables.cells["menu-library"], to: HomePanel_Library)
         screenState.tap(app.tables.cells["placeholder-avatar"], to: FxAccountManagementPage)
 
-        screenState.tap(app.tables.cells["menu-NoImageMode"], forAction: Action.ToggleNoImageMode, transitionTo: BrowserTabMenu) { userState in
-            userState.noImageMode = !userState.noImageMode
-        }
-
         screenState.tap(app.tables.cells["menu-NightMode"], forAction: Action.ToggleNightMode, transitionTo: BrowserTabMenu) { userState in
             userState.nightMode = !userState.nightMode
         }
@@ -1147,7 +1141,7 @@ extension MMNavigator where T == FxUserState {
 
     func browserPerformAction(_ view: BrowserPerformAction) {
         let PageMenuOptions = [.shareOption, .toggleBookmarkOption, .addReadingListOption, .findInPageOption, .sendToDeviceOption, .toggleDesktopOption, BrowserPerformAction.copyURLOption]
-        let BrowserMenuOptions = [.openTopSitesOption, .toggleHideImages, .toggleNightMode, BrowserPerformAction.openSettingsOption]
+        let BrowserMenuOptions = [.openTopSitesOption, .toggleNightMode, BrowserPerformAction.openSettingsOption]
 
         let app = XCUIApplication()
 
@@ -1177,7 +1171,6 @@ enum BrowserPerformAction: String {
     case openBookMarksOption = "menu-panel-Bookmarks"
     case openHistoryOption = "menu-panel-History"
     case openReadingListOption = "menu-panel-ReadingList"
-    case toggleHideImages = "menu-NoImageMode"
     case toggleNightMode = "menu-NightMode"
     case openSettingsOption = "menu-Settings"
 }

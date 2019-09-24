@@ -58,7 +58,7 @@ class MediaImageLoader: TabEventHandler {
     }
 
     func tab(_ tab: Tab, didLoadPageMetadata metadata: PageMetadata) {
-        let cacheImages = !NoImageModeHelper.isActivated(prefs)
+        let cacheImages = true
         if let urlString = metadata.mediaURL,
             let mediaURL = URL(string: urlString), cacheImages {
             prepareCache(mediaURL)
