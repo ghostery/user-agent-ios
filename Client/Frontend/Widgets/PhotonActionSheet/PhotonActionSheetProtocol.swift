@@ -173,9 +173,12 @@ extension PhotonActionSheetProtocol {
         let removeBookmark = PhotonActionSheetItem(title: Strings.AppMenuRemoveBookmarkTitleString, iconString: "menu-Bookmark-Remove") { action in
             guard let url = tab.url?.displayURL else { return }
 
-            self.profile.places.deleteBookmarksWithURL(url: url.absoluteString).uponQueue(.main) { result in
-                if result.isSuccess {
-                    success(Strings.AppMenuRemoveBookmarkConfirmMessage)
+            let absoluteString = url.absoluteString
+            self.profile.bookmarks.modelFactory >>== {
+                $0.removeByURL(absoluteString).uponQueue(.main) { res in
+                    if res.isSuccess {
+                        success(Strings.AppMenuRemoveBookmarkConfirmMessage)
+                    }
                 }
             }
         }
@@ -257,7 +260,12 @@ extension PhotonActionSheetProtocol {
     }
 
     func fetchBookmarkStatus(for url: String) -> Deferred<Maybe<Bool>> {
-        return profile.places.isBookmarked(url: url)
+        return self.profile.bookmarks.modelFactory.bind {
+            guard let factory = $0.successValue else {
+                return deferMaybe(false)
+            }
+            return factory.isBookmarked(url)
+        }
     }
 
     func fetchPinnedTopSiteStatus(for url: String) -> Deferred<Maybe<Bool>> {

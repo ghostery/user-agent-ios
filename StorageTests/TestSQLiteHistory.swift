@@ -992,20 +992,18 @@ class TestSQLiteHistory: XCTestCase {
                     return succeed()
             }
 
-            // This marks everything as modified so we can fetch it.
-            >>> history.onRemovedAccount
-
-            // Now check that we have no duplicate visits.
-            >>> { history.getModifiedHistoryToUpload()
-                >>== { (places) -> Success in
-                    if let (_, visits) = places.find({$0.0.guid == siteR.guid!}) {
-                        XCTAssertEqual(3, visits.count)
-                    } else {
-                        XCTFail("Couldn't find site R.")
-                    }
-                    return succeed()
-                }
-            }
+            // Cliqz: remove tests for remote visits as there is no sync
+//          //   Now check that we have no duplicate visits.
+//            >>> { history.getModifiedHistoryToUpload()
+//                >>== { (places) -> Success in
+//                    if let (_, visits) = places.find({$0.0.guid == siteR.guid!}) {
+//                        XCTAssertEqual(3, visits.count)
+//                    } else {
+//                        XCTFail("Couldn't find site R.")
+//                    }
+//                    return succeed()
+//                }
+//            }
         }
 
         XCTAssertTrue(deferred.value.isSuccess)

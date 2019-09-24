@@ -47,12 +47,12 @@ class ProfileFileAccessor: FileAccessor {
  * A Profile manages access to the user's data.
  */
 protocol Profile: AnyObject {
-    var places: RustPlaces { get }
+    var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & LocalItemSource { get }
     var prefs: Prefs { get }
     var queue: TabQueue { get }
     var searchEngines: SearchEngines { get }
     var files: FileAccessor { get }
-    var history: BrowserHistory & SyncableHistory & ResettableSyncStorage { get }
+    var history: BrowserHistory & SyncableHistory { get }
     var metadata: Metadata { get }
     var recommendations: HistoryRecommendations { get }
     var favicons: Favicons { get }
@@ -116,11 +116,6 @@ open class BrowserProfile: Profile {
         return secret
     }
 
-    @available(*, deprecated, message: "SyncDelegate is deprecated, initialize without the syncdelegate property instead")
-    convenience init(localName: String, syncDelegate: Any? = nil, clear: Bool = false) {
-        self.init(localName: localName, clear: clear)
-    }
-
     /**
      * N.B., BrowserProfile is used from our extensions, often via a pattern like
      *
@@ -158,53 +153,16 @@ open class BrowserProfile: Profile {
         self.db = BrowserDB(filename: "browser.db", schema: BrowserSchema(), files: files)
         self.readingListDB = BrowserDB(filename: "ReadingList.db", schema: ReadingListSchema(), files: files)
 
-        if isNewProfile {
-            log.info("New profile. Removing old Keychain/Prefs data.")
-            KeychainWrapper.wipeKeychain()
-            prefs.clearAll()
-        }
-
-        // Migrate bookmarks from old browser.db to new Rust places.db only
-        // if this user is NOT signed into Sync (only migrates once if needed).
-        self.places.migrateBookmarksIfNeeded(fromBrowserDB: self.db)
-
-        // Log SQLite compile_options.
-        // db.sqliteCompileOptions() >>== { compileOptions in
-        //     log.debug("SQLite compile_options:\n\(compileOptions.joined(separator: "\n"))")
-        // }
-
-        // Set up logging from Rust.
-        if !RustLog.shared.tryEnable({ (level, tag, message) -> Bool in
-            let logString = "[RUST][\(tag ?? "no-tag")] \(message)"
-
-            switch level {
-            case .trace:
-                if Logger.logPII {
-                    log.verbose(logString)
-                }
-            case .debug:
-                log.debug(logString)
-            case .info:
-                log.info(logString)
-            case .warn:
-                log.warning(logString)
-            case .error:
-                Sentry.shared.sendWithStacktrace(message: logString, tag: .rustLog, severity: .error)
-                log.error(logString)
-            }
-
-            return true
-        }) {
-            log.error("ERROR: Unable to enable logging from Rust")
-        }
-
-        // By default, filter logging from Rust below `.info` level.
-        try? RustLog.shared.setLevelFilter(filter: .info)
-
         let notificationCenter = NotificationCenter.default
 
         notificationCenter.addObserver(self, selector: #selector(onLocationChange), name: .OnLocationChange, object: nil)
         notificationCenter.addObserver(self, selector: #selector(onPageMetadataFetched), name: .OnPageMetadataFetched, object: nil)
+
+        if isNewProfile {
+            log.info("New profile. Removing old account metadata.")
+            _ = keychain.removeAllKeys()
+            prefs.clearAll()
+        }
 
         // Always start by needing invalidation.
         // This is the same as self.history.setTopSitesNeedsInvalidation, but without the
@@ -242,7 +200,6 @@ open class BrowserProfile: Profile {
         isShutdown = false
 
         db.reopenIfClosed()
-        _ = places.reopenIfClosed()
     }
 
     func _shutdown() {
@@ -250,7 +207,6 @@ open class BrowserProfile: Profile {
         isShutdown = true
 
         db.forceClose()
-        _ = places.forceClose()
     }
 
     @objc
@@ -304,22 +260,22 @@ open class BrowserProfile: Profile {
     }()
 
     /**
-     * Favicons, history, and tabs are all stored in one intermeshed
+     * Favicons, history, and bookmarks are all stored in one intermeshed
      * collection of tables.
      *
      * Any other class that needs to access any one of these should ensure
      * that this is initialized first.
      */
-    fileprivate lazy var legacyPlaces: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations  = {
+    fileprivate lazy var places: BrowserHistory & Favicons & SyncableHistory  & HistoryRecommendations  = {
         return SQLiteHistory(db: self.db, prefs: self.prefs)
     }()
 
     var favicons: Favicons {
-        return self.legacyPlaces
+        return self.places
     }
 
-    var history: BrowserHistory & SyncableHistory & ResettableSyncStorage {
-        return self.legacyPlaces
+    var history: BrowserHistory & SyncableHistory {
+        return self.places
     }
 
     lazy var panelDataObservers: PanelDataObservers = {
@@ -331,12 +287,15 @@ open class BrowserProfile: Profile {
     }()
 
     var recommendations: HistoryRecommendations {
-        return self.legacyPlaces
+        return self.places
     }
 
-    lazy var places: RustPlaces = {
-        let databasePath = URL(fileURLWithPath: (try! files.getAndEnsureDirectory()), isDirectory: true).appendingPathComponent("places.db").path
-        return RustPlaces(databasePath: databasePath)
+    lazy var bookmarks: BookmarksModelFactorySource & KeywordSearchSource & ShareToDestination & LocalItemSource = {
+        // Make sure the rest of our tables are initialized before we try to read them!
+        // This expression is for side-effects only.
+        withExtendedLifetime(self.places) {
+            return MergedSQLiteBookmarks(db: self.db)
+        }
     }()
 
     lazy var searchEngines: SearchEngines = {

@@ -58,7 +58,7 @@ public protocol HistoryRecommendations {
  * The interface that history storage needs to provide in order to be
  * synced by a `HistorySynchronizer`.
  */
-public protocol SyncableHistory: AccountRemovalDelegate {
+public protocol SyncableHistory {
     /**
      * Make sure that the local place with the provided URL has the provided GUID.
      * Succeeds if no place exists with that URL.

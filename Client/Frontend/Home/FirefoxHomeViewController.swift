@@ -693,10 +693,15 @@ extension FirefoxHomeViewController: DataObserverDelegate {
     }
 
     fileprivate func fetchBookmarkStatus(for site: Site, with indexPath: IndexPath, forSection section: Section, completionHandler: @escaping () -> Void) {
-        profile.places.isBookmarked(url: site.url).uponQueue(.main) { result in
-            let isBookmarked = result.successValue ?? false
-            site.setBookmarked(isBookmarked)
-            completionHandler()
+        profile.bookmarks.modelFactory >>== {
+            $0.isBookmarked(site.url).uponQueue(.main) { result in
+                guard let isBookmarked = result.successValue else {
+                    log.error("Error getting bookmark status: \(result.failureValue ??? "nil").")
+                    return
+                }
+                site.setBookmarked(isBookmarked)
+                completionHandler()
+            }
         }
     }
 
@@ -779,15 +784,17 @@ extension FirefoxHomeViewController: HomePanelContextMenu {
         let bookmarkAction: PhotonActionSheetItem
         if site.bookmarked ?? false {
             bookmarkAction = PhotonActionSheetItem(title: Strings.RemoveBookmarkContextMenuTitle, iconString: "action_bookmark_remove", handler: { action in
-                self.profile.places.deleteBookmarksWithURL(url: site.url) >>== {
-                    self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: false)
+                self.profile.bookmarks.modelFactory >>== {
+                    $0.removeByURL(siteURL.absoluteString).uponQueue(.main) {_ in
+                        self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: false)
+                    }
                     site.setBookmarked(false)
                 }
             })
         } else {
             bookmarkAction = PhotonActionSheetItem(title: Strings.BookmarkContextMenuTitle, iconString: "action_bookmark", handler: { action in
                 let shareItem = ShareItem(url: site.url, title: site.title, favicon: site.icon)
-                _ = self.profile.places.createBookmark(parentGUID: BookmarkRoots.MobileFolderGUID, url: shareItem.url, title: shareItem.title)
+                 _ = self.profile.bookmarks.shareItem(shareItem)
 
                 var userData = [QuickActions.TabURLKey: shareItem.url]
                 if let title = shareItem.title {

@@ -23,6 +23,11 @@ def fuzi
   pod 'Fuzi', '~> 3.0', :modular_headers => true
 end
 
+def sqlite
+  pod 'sqlite3', '~> 3.27.2'
+  pod 'SQLCipher', '~> 4.2'
+end
+
 def swiftyjson
   pod 'SwiftyJSON', '~> 5.0'
 end
@@ -104,10 +109,11 @@ target 'Storage' do
   fuzi
   xclogger
   swiftkeychainwrapper
-end
+  sqlite
 
-target 'StorageTests' do
-  swiftyjson
+  target 'StorageTests' do
+    inherit! :search_paths
+  end
 end
 
 target 'CliqzShareTo' do

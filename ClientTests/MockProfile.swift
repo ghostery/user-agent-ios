@@ -51,11 +51,9 @@ class MockFiles: FileAccessor {
 open class MockProfile: Client.Profile {
     // Read/Writeable properties for mocking
     public var recommendations: HistoryRecommendations
-    public var places: RustPlaces
+    public var places: BrowserHistory & Favicons & SyncableHistory & HistoryRecommendations
     public var files: FileAccessor
-    public var history: BrowserHistory & SyncableHistory & ResettableSyncStorage
-
-    fileprivate var legacyPlaces: BrowserHistory & Favicons & SyncableHistory & ResettableSyncStorage & HistoryRecommendations
+    public var history: BrowserHistory & SyncableHistory
 
     public lazy var panelDataObservers: PanelDataObservers = {
         return MockPanelDataObservers(profile: self)
@@ -70,11 +68,9 @@ open class MockProfile: Client.Profile {
         files = MockFiles()
         db = BrowserDB(filename: "\(databasePrefix).db", schema: BrowserSchema(), files: files)
         readingListDB = BrowserDB(filename: "\(databasePrefix)_ReadingList.db", schema: ReadingListSchema(), files: files)
-        let placesDatabasePath = URL(fileURLWithPath: (try! files.getAndEnsureDirectory()), isDirectory: true).appendingPathComponent("\(databasePrefix)_places.db").path
-        places = RustPlaces(databasePath: placesDatabasePath)
-        legacyPlaces = SQLiteHistory(db: self.db, prefs: MockProfilePrefs())
-        recommendations = legacyPlaces
-        history = legacyPlaces
+        places = SQLiteHistory(db: self.db, prefs: MockProfilePrefs())
+        recommendations = places
+        history = places
     }
 
     public func localName() -> String {
@@ -85,20 +81,18 @@ open class MockProfile: Client.Profile {
         isShutdown = false
 
         db.reopenIfClosed()
-        _ = places.reopenIfClosed()
     }
 
     public func _shutdown() {
         isShutdown = true
 
         db.forceClose()
-        _ = places.forceClose()
     }
 
     public var isShutdown: Bool = false
 
     public var favicons: Favicons {
-        return self.legacyPlaces
+        return self.places
     }
 
     lazy public var queue: TabQueue = {
@@ -115,6 +109,14 @@ open class MockProfile: Client.Profile {
 
     lazy public var certStore: CertStore = {
         return CertStore()
+    }()
+
+    lazy public var bookmarks: BookmarksModelFactorySource & KeywordSearchSource  & LocalItemSource & ShareToDestination = {
+        // Make sure the rest of our tables are initialized before we try to read them!
+        // This expression is for side-effects only.
+        let p = self.places
+
+        return MergedSQLiteBookmarks(db: self.db)
     }()
 
     lazy public var searchEngines: SearchEngines = {

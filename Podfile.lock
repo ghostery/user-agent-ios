@@ -69,6 +69,14 @@ PODS:
     - Sentry/Core (= 4.3.1)
   - Sentry/Core (4.3.1)
   - SnapKit (5.0.1)
+  - SQLCipher (4.2.0):
+    - SQLCipher/standard (= 4.2.0)
+  - SQLCipher/common (4.2.0)
+  - SQLCipher/standard (4.2.0):
+    - SQLCipher/common
+  - sqlite3 (3.27.2):
+    - sqlite3/common (= 3.27.2)
+  - sqlite3/common (3.27.2)
   - SwiftKeychainWrapper (3.4.0)
   - SwiftLint (0.34.0)
   - SwiftyJSON (5.0.0)
@@ -95,6 +103,8 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
   - SnapKit (~> 5.0.0)
+  - SQLCipher (~> 4.2)
+  - sqlite3 (~> 3.27.2)
   - SwiftKeychainWrapper (~> 3.2)
   - SwiftLint
   - SwiftyJSON (~> 5.0)
@@ -111,6 +121,8 @@ SPEC REPOS:
     - ObjcExceptionBridging
     - SDWebImage
     - SnapKit
+    - SQLCipher
+    - sqlite3
     - SwiftKeychainWrapper
     - SwiftLint
     - SwiftyJSON
@@ -150,12 +162,14 @@ SPEC CHECKSUMS:
   SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SQLCipher: 0187a2180ac288ea686b670b7141da62cd013b16
+  sqlite3: 80ee60823f7cf9ea4cd36ef7d68ea4a54b20906a
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
   yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
 
-PODFILE CHECKSUM: 4bbc4d1d910e53572bf782ecfd7ba9fa22324706
+PODFILE CHECKSUM: d9c2b032c744f6897d64f924ad0d2a1da76f4272
 
 COCOAPODS: 1.7.5
