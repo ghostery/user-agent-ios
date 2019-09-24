@@ -5,7 +5,8 @@
   "scripts": {
     "build-detox": "detox build",
     "build-user-scripts": "webpack --config webpack.config.js",
-    "test-detox": "detox test --take-screenshots all"
+    "test-detox": "detox test --take-screenshots all",
+    "postinstall": "sed -i -e 's/import \"sqlite3\\.h\"/import <sqlite3\\.h>/g' node_modules/react-native-sqlite-2/ios/RNSqlite2.m"
   },
   "repository": {
     "type": "git",

@@ -148,13 +148,3 @@ target 'Shared' do
   xclogger
   swiftkeychainwrapper
 end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    if target.name == "RNSqlite2"
-      target.build_configurations.each do |config|
-        config.build_settings['FRAMEWORK_SEARCH_PATHS'] = '${inherited} ${PODS_CONFIGURATION_BUILD_DIR}/sqlite3'
-      end
-    end
-  end
-end
