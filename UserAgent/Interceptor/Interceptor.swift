@@ -21,7 +21,7 @@ protocol InterceptorPolicy: AnyObject {
 }
 
 protocol InterceptorDelegate: AnyObject {
-    func stopLoading(url: URL, policy: InterceptorPolicy)
+    func riskDetected(url: URL, policy: InterceptorPolicy)
 }
 
 class Interceptor: NSObject {
@@ -42,7 +42,7 @@ extension Interceptor: WKNavigationDelegate {
         }
 
         let riskDetected: (URL, InterceptorPolicy) -> Void = { url, policy in
-            self.delegate?.stopLoading(url: url, policy: policy)
+            self.delegate?.riskDetected(url: url, policy: policy)
         }
 
         for policy in self.interceptorPolicies {

@@ -22,13 +22,14 @@ class InterceptorFeature {
         self.interceptor.delegate = self
     }
 
-    func registerInterceptors() {
+    // MARK: Private methods
+    private func registerInterceptors() {
         let antiPhishing = AntiPhishingPolicy()
 
         self.interceptor.register(policy: antiPhishing)
     }
 
-    func showAntiPhishingAlert(_ url: URL, policy: InterceptorPolicy) {
+    private func showAntiPhishingAlert(_ url: URL, policy: InterceptorPolicy) {
         let domainName = url.normalizedHost ?? ""
         let title = NSLocalizedString("Warning: deceptive website!", tableName: "Cliqz", comment: "Antiphishing alert title")
         let message = NSLocalizedString("CLIQZ has blocked access to %1$ because it has been reported as a phishing website.Phishing websites disguise as other sites you may trust in order to trick you into disclosing your login, password or other sensitive information", tableName: "Cliqz", comment: "Antiphishing alert message")
@@ -45,14 +46,14 @@ class InterceptorFeature {
         alert.addAction(UIAlertAction(title: continueDespiteWarningButtonTitle, style: .destructive, handler: { (action) in
             policy.whiteListUrl(url: url)
             // TODO: reload works only after second try. Same bug we have in old Cliqz. We need to investigate.
-            self.tabManager.selectedTab?.reload()
+            self.tabManager.selectedTab?.loadRequest(PrivilegedRequest(url: url) as URLRequest)
         }))
         self.viewController.present(alert, animated: true, completion: nil)
     }
 }
 
 extension InterceptorFeature: InterceptorDelegate {
-    func stopLoading(url: URL, policy: InterceptorPolicy) {
+    func riskDetected(url: URL, policy: InterceptorPolicy) {
         self.tabManager.selectedTab?.stop()
         switch policy.type {
         case .phishing:
