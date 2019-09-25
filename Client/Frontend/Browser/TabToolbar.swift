@@ -22,7 +22,6 @@ protocol TabToolbarProtocol: AnyObject {
     func updatePageStatus(_ isWebPage: Bool)
     func updateTabCount(_ count: Int, animated: Bool)
     func privateModeBadge(visible: Bool)
-    func hideImagesBadge(visible: Bool)
 }
 
 protocol TabToolbarDelegate: AnyObject {

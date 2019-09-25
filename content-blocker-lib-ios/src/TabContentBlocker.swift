@@ -12,7 +12,6 @@ extension Notification.Name {
 protocol ContentBlockerTab: class {
     func currentURL() -> URL?
     func currentWebView() -> WKWebView?
-    func imageContentBlockingEnabled() -> Bool
 }
 
 class TabContentBlocker {

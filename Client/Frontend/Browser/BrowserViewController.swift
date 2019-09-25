@@ -221,7 +221,6 @@ class BrowserViewController: UIViewController {
 
         urlBar.topTabsIsShowing = showTopTabs
         urlBar.setShowToolbar(!showToolbar)
-        urlBar.hideImagesBadge(visible: NoImageModeHelper.isActivated(profile.prefs))
         toolbar?.removeFromSuperview()
         toolbar?.tabToolbarDelegate = nil
         toolbar = nil
@@ -232,7 +231,6 @@ class BrowserViewController: UIViewController {
             toolbar?.tabToolbarDelegate = self
             toolbar?.applyUIMode(isPrivate: tabManager.selectedTab?.isPrivate ?? false)
             toolbar?.applyTheme()
-            toolbar?.hideImagesBadge(visible: NoImageModeHelper.isActivated(profile.prefs))
             updateTabCountUsingTabManager(self.tabManager)
         }
 
@@ -1467,9 +1465,6 @@ extension BrowserViewController: TabDelegate {
         let findInPageHelper = FindInPageHelper(tab: tab)
         findInPageHelper.delegate = self
         tab.addContentScript(findInPageHelper, name: FindInPageHelper.name())
-
-        let noImageModeHelper = NoImageModeHelper(tab: tab)
-        tab.addContentScript(noImageModeHelper, name: NoImageModeHelper.name())
 
         let downloadContentScript = DownloadContentScript(tab: tab)
         tab.addContentScript(downloadContentScript, name: DownloadContentScript.name())
