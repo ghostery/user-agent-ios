@@ -11,7 +11,7 @@ import Foundation
 class AntiPhishingPolicy: NSObject, InterceptorPolicy {
     let detector = AntiPhishingDetector()
     func canProcessWith(url: URL, completion: (() -> Void)?) -> Bool {
-        return detector.isPhishingURL(url, completion: { (isPhishing) in
+        return !detector.isPhishingURL(url, completion: { (isPhishing) in
             
         })
     }
