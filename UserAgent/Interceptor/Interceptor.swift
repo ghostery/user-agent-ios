@@ -9,24 +9,28 @@
 import Foundation
 import WebKit
 
-protocol InterceptorPolicy {
-    func canProcessWith(url: URL, completion:(() -> Void)?) -> Bool
+enum InterceptorType {
+    case phishing
+    case tracking
+}
+
+protocol InterceptorPolicy: AnyObject {
+    var type: InterceptorType { get }
+    func whiteListUrl(url: URL)
+    func canProcessWith(url: URL, riskDetected: ((URL, InterceptorPolicy) -> Void)?) -> Bool
+}
+
+protocol InterceptorDelegate: AnyObject {
+    func stopLoading(url: URL, policy: InterceptorPolicy)
 }
 
 class Interceptor: NSObject {
+    weak var delegate: InterceptorDelegate?
+
     private var interceptorPolicies: [InterceptorPolicy] = []
 
     func register(policy: InterceptorPolicy) {
         interceptorPolicies.append(policy)
-    }
-
-    private func canProcessWith(url: URL, completion:(() -> Void)?) -> Bool {
-        for policy in self.interceptorPolicies {
-            if !policy.canProcessWith(url: url, completion: nil) {
-                return false
-            }
-        }
-        return true
     }
 }
 
@@ -37,8 +41,12 @@ extension Interceptor: WKNavigationDelegate {
             return
         }
 
+        let riskDetected: (URL, InterceptorPolicy) -> Void = { url, policy in
+            self.delegate?.stopLoading(url: url, policy: policy)
+        }
+
         for policy in self.interceptorPolicies {
-            if !policy.canProcessWith(url: url, completion: nil) {
+            if !policy.canProcessWith(url: url, riskDetected: riskDetected) {
                 decisionHandler(.cancel)
                 return
             }
