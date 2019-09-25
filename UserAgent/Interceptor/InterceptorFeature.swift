@@ -1,0 +1,29 @@
+//
+// Copyright (c) 2017-2019 Cliqz GmbH. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at https://mozilla.org/MPL/2.0/.
+//
+
+import Foundation
+
+class InterceptorFeature {
+    weak var viewController: UIViewController!
+    weak var tabManager: TabManager!
+
+    let interceptor = Interceptor()
+
+    init(tabManager: TabManager, viewController: UIViewController) {
+        self.tabManager = tabManager
+        self.tabManager.addNavigationDelegate(self.interceptor)
+        self.viewController = viewController
+        self.registerInterceptors()
+    }
+
+    func registerInterceptors() {
+        let antiPhishing = AntiPhishingPolicy()
+
+        self.interceptor.register(policy: antiPhishing)
+    }
+}
