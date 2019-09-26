@@ -11,8 +11,13 @@ import Foundation
 class AntiPhishingPolicy: NSObject, InterceptorPolicy {
     let type: InterceptorType = .phishing
 
-    private let detector = AntiPhishingDetector()
+    private var queue = DispatchQueue.global(qos: .background)
+    private let detector: AntiPhishingDetector
     private var whitelistedURL: URL?
+
+    override init() {
+        detector = AntiPhishingDetector(queue: queue)
+    }
 
     func canLoad(url: URL, onPostFactumCheck: PostFactumCallback?) -> Bool {
         if whitelistedURL == url {

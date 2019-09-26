@@ -98,22 +98,4 @@ public extension String {
 
         return self.replacingCharacters(in: range, with: replacement)
     }
-
-    func md5() -> String {
-        var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
-        if let data = self.data(using: String.Encoding.utf8) {
-            CC_MD5((data as NSData).bytes, CC_LONG(data.count), &digest)
-        }
-
-        var digestHex = ""
-        for index in 0..<Int(CC_MD5_DIGEST_LENGTH) {
-            digestHex += String(format: "%02x", digest[index])
-        }
-
-        return digestHex
-    }
-
-    func replace(_ string: String, replacement: String) -> String {
-        return self.replacingOccurrences(of: string, with: replacement, options: NSString.CompareOptions.literal, range: nil)
-    }
 }

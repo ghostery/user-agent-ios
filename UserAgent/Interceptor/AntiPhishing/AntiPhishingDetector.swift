@@ -16,6 +16,11 @@ typealias AntiPhishingCheck = (Bool) -> Void
 class AntiPhishingDetector: NSObject {
     private let antiPhishingAPIURL = "https://antiphishing.cliqz.com/api/bwlist?md5="
     private var detectedPhishingURLs = [URL]()
+    private let queue: DispatchQueue
+
+    init(queue: DispatchQueue) {
+        self.queue = queue
+    }
 
     //MARK: - public APIs
     func isPhishingURL(_ url: URL, completion:@escaping AntiPhishingCheck) -> Bool {
@@ -27,9 +32,8 @@ class AntiPhishingDetector: NSObject {
             return true
         }
 
-        let queue = DispatchQueue.global(qos: .background)
         queue.async {
-            self.scanURL(url, queue: queue, completion: completion)
+            self.scanURL(url, completion: completion)
         }
 
         return false
@@ -41,21 +45,17 @@ class AntiPhishingDetector: NSObject {
         return detectedPhishingURLs.contains(url)
     }
 
-    private func scanURL(_ url: URL, queue: DispatchQueue, completion:@escaping (Bool) -> Void) {
+    private func scanURL(_ url: URL, completion:@escaping (Bool) -> Void) {
         guard let host = url.host else {
-            DispatchQueue.main.async(execute: {
-                completion(false)
-            })
+            completion(false)
             return
         }
 
-        let md5Prefix = self.prefix(url: host)
-        let md5Suffix = self.suffix(url: host)
+        let md5 = MD5(host)
+        let (md5Prefix, md5Suffix) = splitBy(md5, offset: 16)
 
         guard let antiPhishhingURL = URL(string: (antiPhishingAPIURL + md5Prefix)) else {
-            DispatchQueue.main.async(execute: {
-                completion(false)
-            })
+            completion(false)
             return
         }
 
@@ -64,49 +64,40 @@ class AntiPhishingDetector: NSObject {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil, let data = data else {
-                DispatchQueue.main.async(execute: {
-                    log.error(error!)
-                    completion(false)
-                })
+                log.error(error!)
+                completion(false)
                 return
             }
+
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let result = json as? [String: Any] {
-                    if let blacklist = result["blacklist"] as? [Any] {
-                        for suffixTuples in blacklist {
-                            let suffixTuplesArray = suffixTuples as! [AnyObject]
-                            if let suffix = suffixTuplesArray.first as? String, md5Suffix == suffix {
-                                DispatchQueue.main.async(execute: {
-                                    self.detectedPhishingURLs.append(url)
-                                    completion(true)
-                                })
-                            }
-                        }
-                        DispatchQueue.main.async(execute: {
-                            completion(false)
-                        })
+
+                guard let result = json as? [String: Any] else { return }
+                guard let blacklist = result["blacklist"] as? [Any] else { return }
+
+                for suffixTuples in blacklist {
+                    let suffixTuplesArray = suffixTuples as! [AnyObject]
+                    if
+                        let suffix = suffixTuplesArray.first as? String,
+                        md5Suffix == suffix
+                    {
+                        self.detectedPhishingURLs.append(url)
+                        completion(true)
+                        return
                     }
                 }
+                completion(false)
             } catch {
-                DispatchQueue.main.async(execute: {
-                    log.error(error)
-                    completion(false)
-                })
+                log.error(error)
+                completion(false)
             }
         }
+
         dataTask.resume()
     }
+}
 
-    private func prefix(url: String) -> Substring {
-        let md5Hash = url.md5()
-        let middelIndex = md5Hash.index(md5Hash.startIndex, offsetBy: 16)
-        return md5Hash[..<middelIndex]
-    }
-
-    private func suffix(url: String) -> Substring {
-        let md5Hash = url.md5()
-        let middelIndex = md5Hash.index(md5Hash.startIndex, offsetBy: 16)
-        return md5Hash[middelIndex...]
-    }
+private func splitBy(_ string: String, offset: Int) -> (Substring, Substring) {
+    let middelIndex = string.index(string.startIndex, offsetBy: offset)
+    return (string[..<middelIndex], string[middelIndex...])
 }

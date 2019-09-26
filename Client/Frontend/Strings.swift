@@ -620,3 +620,11 @@ extension Strings {
     public static let DisplayThemeOptionLight = NSLocalizedString("Settings.DisplayTheme.OptionLight", comment: "Option choice in display theme settings for light theme")
     public static let DisplayThemeOptionDark = NSLocalizedString("Settings.DisplayTheme.OptionDark", comment: "Option choice in display theme settings for dark theme")
 }
+
+// InterceptorUI
+extension Strings {
+    public static let InterceptorUIAntiPhishingTitle = NSLocalizedString("Interceptor.AntiPhishing.UI.Title", tableName: "UserAgent", comment: "Antiphishing alert title")
+    public static let InterceptorUIAntiPhishingMessage = String(format: NSLocalizedString("Interceptor.AntiPhishing.UI.Message", tableName: "UserAgent", comment: "Antiphishing alert message"), AppInfo.displayName, "%@")
+    public static let InterceptorUIAntiPhishingBack = NSLocalizedString("Interceptor.AntiPhishing.UI.BackButtonLabel", tableName: "UserAgent", comment: "Back to safe site buttun title in antiphishing alert title")
+    public static let InterceptorUIAntiPhishingContinue = NSLocalizedString("Interceptor.AntiPhishing.UI.ContinueButtonLabel", tableName: "UserAgent", comment: "Continue despite warning buttun title in antiphishing alert title")
+}
