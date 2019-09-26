@@ -11,12 +11,14 @@ import Shared
 
 private let log = Logger.browserLogger
 
+typealias AntiPhishingCheck = (Bool) -> Void
+
 class AntiPhishingDetector: NSObject {
     private let antiPhishingAPIURL = "https://antiphishing.cliqz.com/api/bwlist?md5="
     private var detectedPhishingURLs = [URL]()
 
     //MARK: - public APIs
-    func isPhishingURL(_ url: URL, completion:@escaping (Bool) -> Void) -> Bool {
+    func isPhishingURL(_ url: URL, completion:@escaping AntiPhishingCheck) -> Bool {
         guard url.host != "localhost" else {
             completion(false)
             return false

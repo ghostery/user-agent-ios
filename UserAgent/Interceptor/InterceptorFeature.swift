@@ -7,57 +7,40 @@
 //
 
 import Foundation
+import WebKit
+
+protocol InterceptorUI: class {
+    func showAntiPhishingAlert(tab: Tab, url: URL, policy: InterceptorPolicy)
+}
 
 class InterceptorFeature {
-    weak var viewController: UIViewController!
-    weak var tabManager: TabManager!
+    private let interceptor = Interceptor()
+    private weak var tabManager: TabManager!
+    private weak var ui: InterceptorUI!
 
-    let interceptor = Interceptor()
-
-    init(tabManager: TabManager, viewController: UIViewController) {
+    init(tabManager: TabManager, ui: InterceptorUI) {
+        self.interceptor.delegate = self
         self.tabManager = tabManager
         self.tabManager.addNavigationDelegate(self.interceptor)
-        self.viewController = viewController
+        self.ui = ui
         self.registerInterceptors()
-        self.interceptor.delegate = self
     }
 
     // MARK: Private methods
     private func registerInterceptors() {
-        let antiPhishing = AntiPhishingPolicy()
-
-        self.interceptor.register(policy: antiPhishing)
-    }
-
-    private func showAntiPhishingAlert(_ url: URL, policy: InterceptorPolicy) {
-        let domainName = url.normalizedHost ?? ""
-        let title = NSLocalizedString("Warning: deceptive website!", tableName: "Cliqz", comment: "Antiphishing alert title")
-        let message = NSLocalizedString("CLIQZ has blocked access to %1$ because it has been reported as a phishing website.Phishing websites disguise as other sites you may trust in order to trick you into disclosing your login, password or other sensitive information", tableName: "Cliqz", comment: "Antiphishing alert message")
-        let personnalizedMessage = message.replace("%1$", replacement: domainName)
-
-        let alert = UIAlertController(title: title, message: personnalizedMessage, preferredStyle: .alert)
-
-        let backToSafeSiteButtonTitle = NSLocalizedString("Back to safe site", tableName: "Cliqz", comment: "Back to safe site buttun title in antiphishing alert title")
-        alert.addAction(UIAlertAction(title: backToSafeSiteButtonTitle, style: .default, handler: { (action) in
-            self.tabManager.selectedTab?.goBack()
-        }))
-
-        let continueDespiteWarningButtonTitle = NSLocalizedString("Continue despite warning", tableName: "Cliqz", comment: "Continue despite warning buttun title in antiphishing alert title")
-        alert.addAction(UIAlertAction(title: continueDespiteWarningButtonTitle, style: .destructive, handler: { (action) in
-            policy.whiteListUrl(url: url)
-            // TODO: reload works only after second try. Same bug we have in old Cliqz. We need to investigate.
-            self.tabManager.selectedTab?.loadRequest(PrivilegedRequest(url: url) as URLRequest)
-        }))
-        self.viewController.present(alert, animated: true, completion: nil)
+        self.interceptor.register(policy: AntiPhishingPolicy())
     }
 }
 
 extension InterceptorFeature: InterceptorDelegate {
-    func riskDetected(url: URL, policy: InterceptorPolicy) {
-        self.tabManager.selectedTab?.stop()
+    func intercept(webView: WKWebView, url: URL, policy: InterceptorPolicy) {
+        guard let tab = tabManager[webView] else {
+            return
+        }
+        tab.stop()
         switch policy.type {
         case .phishing:
-            self.showAntiPhishingAlert(url, policy: policy)
+            ui.showAntiPhishingAlert(tab: tab, url: url, policy: policy)
         default:
             break
         }

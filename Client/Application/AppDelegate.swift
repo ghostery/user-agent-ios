@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         browserViewController.restorationIdentifier = NSStringFromClass(BrowserViewController.self)
         browserViewController.restorationClass = AppDelegate.self
 
-        self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, viewController: self.browserViewController)
+        self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, ui: self.browserViewController)
 
         let navigationController = UINavigationController(rootViewController: browserViewController)
         navigationController.delegate = self

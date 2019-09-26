@@ -14,14 +14,16 @@ enum InterceptorType {
     case tracking
 }
 
+typealias PostFactumCallback = (URL, InterceptorPolicy) -> Void
+
 protocol InterceptorPolicy: AnyObject {
     var type: InterceptorType { get }
-    func whiteListUrl(url: URL)
-    func canProcessWith(url: URL, riskDetected: ((URL, InterceptorPolicy) -> Void)?) -> Bool
+    func whitelistUrl(_ url: URL)
+    func canLoad(url: URL, onPostFactumCheck: PostFactumCallback?) -> Bool
 }
 
 protocol InterceptorDelegate: AnyObject {
-    func riskDetected(url: URL, policy: InterceptorPolicy)
+    func intercept(webView: WKWebView, url: URL, policy: InterceptorPolicy)
 }
 
 class Interceptor: NSObject {
@@ -41,12 +43,17 @@ extension Interceptor: WKNavigationDelegate {
             return
         }
 
-        let riskDetected: (URL, InterceptorPolicy) -> Void = { url, policy in
-            self.delegate?.riskDetected(url: url, policy: policy)
+        var blocked = false
+        let onPostFactumCheck: PostFactumCallback = { url, policy in
+            if blocked {
+                return
+            }
+            self.delegate?.intercept(webView: webView, url: url, policy: policy)
         }
 
         for policy in self.interceptorPolicies {
-            if !policy.canProcessWith(url: url, riskDetected: riskDetected) {
+            if !policy.canLoad(url: url, onPostFactumCheck: onPostFactumCheck) {
+                blocked = true
                 decisionHandler(.cancel)
                 return
             }

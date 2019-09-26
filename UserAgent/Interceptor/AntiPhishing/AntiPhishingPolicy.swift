@@ -9,32 +9,34 @@
 import Foundation
 
 class AntiPhishingPolicy: NSObject, InterceptorPolicy {
-    let detector = AntiPhishingDetector()
-    var whiteListedURL: URL?
+    let type: InterceptorType = .phishing
 
-    var type: InterceptorType {
-        return .phishing
-    }
+    private let detector = AntiPhishingDetector()
+    private var whitelistedURL: URL?
 
-    func canProcessWith(url: URL, riskDetected: ((URL, InterceptorPolicy) -> Void)?) -> Bool {
-        if whiteListedURL == url {
-            whiteListedURL = nil
+    func canLoad(url: URL, onPostFactumCheck: PostFactumCallback?) -> Bool {
+        if whitelistedURL == url {
+            whitelistedURL = nil
             return true
         }
 
-        if detector.isPhishingURL(url, completion: { (isPhishing) in
+        let postFactumCheck: AntiPhishingCheck = { (isPhishing) in
             if isPhishing {
-                riskDetected?(url, self)
+                DispatchQueue.main.async(execute: {
+                    onPostFactumCheck?(url, self)
+                })
             }
-        }) {
-            riskDetected?(url, self)
+        }
+
+        if detector.isPhishingURL(url, completion: postFactumCheck) {
+            onPostFactumCheck?(url, self)
             return false
         }
 
         return true
     }
 
-    func whiteListUrl(url: URL) {
-        self.whiteListedURL = url
+    func whitelistUrl(_ url: URL) {
+        self.whitelistedURL = url
     }
 }
