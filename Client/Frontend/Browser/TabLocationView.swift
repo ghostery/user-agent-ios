@@ -56,7 +56,7 @@ class TabLocationView: UIView {
             updateTextWithURL()
             pageOptionsButton.isHidden = (url == nil)
             if url == nil {
-                trackingProtectionButton.isHidden = true
+                privacyIndicator.isHidden = true
             }
             setNeedsUpdateConstraints()
         }
@@ -122,14 +122,10 @@ class TabLocationView: UIView {
         return lockImageView
     }()
 
-    lazy var trackingProtectionButton: UIButton = {
-        let trackingProtectionButton = UIButton()
-        trackingProtectionButton.setImage(UIImage.templateImageNamed("tracking-protection"), for: .normal)
-        trackingProtectionButton.addTarget(self, action: #selector(didPressTPShieldButton(_:)), for: .touchUpInside)
-        trackingProtectionButton.tintColor = UIColor.Grey50
-        trackingProtectionButton.imageView?.contentMode = .scaleAspectFill
-        trackingProtectionButton.isHidden = true
-        return trackingProtectionButton
+    lazy var privacyIndicator: PrivacyIndicatorView = {
+        let indicator = PrivacyIndicatorView()
+        indicator.onButtonTap = { () -> Void in self.delegate?.tabLocationViewDidTapShield(self) }
+        return indicator
     }()
 
     fileprivate lazy var readerModeButton: ReaderModeButton = {
@@ -187,7 +183,7 @@ class TabLocationView: UIView {
         }
         // The lock and TP icons have custom spacing.
         // TODO: Once we cut ios10 support we can use UIstackview.setCustomSpacing
-        let iconStack = UIStackView(arrangedSubviews: [spaceView, lockImageView, trackingProtectionButton])
+        let iconStack = UIStackView(arrangedSubviews: [spaceView, lockImageView, privacyIndicator])
         iconStack.spacing = TabLocationViewUX.Spacing / 2
 
         let subviews = [iconStack, urlTextField, readerModeButton, separatorLine, pageOptionsButton]
@@ -204,8 +200,8 @@ class TabLocationView: UIView {
             make.width.equalTo(TabLocationViewUX.StatusIconSize)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
-        trackingProtectionButton.snp.makeConstraints { make in
-            make.width.equalTo(TabLocationViewUX.TPIconSize)
+        privacyIndicator.snp.makeConstraints { make in
+            make.width.equalTo(TabLocationViewUX.TPIconSize + 6)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
 
@@ -277,10 +273,6 @@ class TabLocationView: UIView {
 
     @objc func tapLocation(_ recognizer: UITapGestureRecognizer) {
         delegate?.tabLocationViewDidTapLocation(self)
-    }
-
-    @objc func didPressTPShieldButton(_ button: UIButton) {
-        delegate?.tabLocationViewDidTapShield(self)
     }
 
     @objc func readerModeCustomAction() -> Bool {
@@ -359,15 +351,17 @@ extension TabLocationView: TabEventHandler {
     private func updateBlockerStatus(forTab tab: Tab) {
         assertIsMainThread("UI changes must be on the main thread")
         guard let blocker = tab.contentBlocker else { return }
+        privacyIndicator.updateBadge(blocker.stats.total)
+
         switch blocker.status {
         case .Blocking:
-            self.trackingProtectionButton.setImage(UIImage.templateImageNamed("tracking-protection"), for: .normal)
-            self.trackingProtectionButton.isHidden = false
+            privacyIndicator.showStatusEnabled()
+            privacyIndicator.isHidden = false
         case .Disabled, .NoBlockedURLs:
-            self.trackingProtectionButton.isHidden = true
+            privacyIndicator.isHidden = true
         case .Whitelisted:
-            self.trackingProtectionButton.setImage(UIImage.templateImageNamed("tracking-protection-off"), for: .normal)
-            self.trackingProtectionButton.isHidden = false
+            privacyIndicator.showStatusDisabled()
+            privacyIndicator.isHidden = false
         }
     }
 
