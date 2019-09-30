@@ -1,0 +1,11 @@
+/* 
+  UserAgent.strings
+  UserAgent
+
+  Created by Krzysztof Modras on 30.09.19.
+  Copyright © 2019 Cliqz. All rights reserved.
+*/
+"Interceptor.AntiPhishing.UI.Title" = "Warnung: betrügerische Website!";
+"Interceptor.AntiPhishing.UI.Message" = "%1$@ hat den Zugang zu %2$@ blockiert, weil sie als Phishing-Seite gemeldet wurde. Phishing-Seiten tarnen sich als vertrauenswürdige Websites, um dich dazu zu bringen, deinen Benutzernamen, dein Passwort oder andere vertrauliche Informationen preiszugeben.";
+"Interceptor.AntiPhishing.UI.BackButtonLabel" = "Zurück zu sicherer Webseite";
+"Interceptor.AntiPhishing.UI.ContinueButtonLabel" = "Trotz der Warnung fortfahren";
