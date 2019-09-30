@@ -64,3 +64,8 @@
 /* Label for the button, displayed in the menu, used to request the mobile version of the current website. */
 "Menu.ViewMobileSiteAction.Title" = "Request Mobile Site";
 
+"Menu.TrackingProtectionTotalBlocked.Title" = "Total trackers blocked";
+"Menu.TrackingProtectionAdsBlocked.Title" = "Ad trackers";
+"Menu.TrackingProtectionAnalyticsBlocked.Title" = "Analytic trackers";
+"Menu.TrackingProtectionSocialBlocked.Title" = "Social trackers";
+"Menu.TrackingProtectionContentBlocked.Title" = "Content trackers";

@@ -1225,7 +1225,7 @@ extension BrowserViewController: URLBarDelegate {
         presentActivityViewController(url, tab: tab, sourceView: button, sourceRect: button.bounds, arrowDirection: .up)
     }
 
-    func urlBarDidTapShield(_ urlBar: URLBarView, from button: UIButton) {
+    func urlBarDidTapShield(_ urlBar: URLBarView) {
         if let tab = self.tabManager.selectedTab {
             let trackingProtectionMenu = self.getTrackingSubMenu(for: tab)
             guard !trackingProtectionMenu.isEmpty else { return }
