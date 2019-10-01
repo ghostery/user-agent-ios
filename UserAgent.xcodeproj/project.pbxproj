@@ -522,6 +522,10 @@
 		C5E94B58233112CD00D3F31F /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B54233112CD00D3F31F /* BookmarksModel.swift */; };
 		C5E94B5A233112CD00D3F31F /* Trees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B56233112CD00D3F31F /* Trees.swift */; };
 		C817B34D1FC609500086018E /* UIScrollViewSwizzled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */; };
+		C82CDD47233E8996002E2743 /* Tab+ChangeUserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */; };
+		C8399D9122DE5E5200EFA5CA /* disconnect-block-advertising.json in Resources */ = {isa = PBXBuildFile; fileRef = C8399D8F22DE5E5200EFA5CA /* disconnect-block-advertising.json */; };
+		C8399D9322DE5E5B00EFA5CA /* disconnect-block-analytics.json in Resources */ = {isa = PBXBuildFile; fileRef = C8399D9222DE5E5B00EFA5CA /* disconnect-block-analytics.json */; };
+		C8399D9522DE5E6200EFA5CA /* disconnect-block-social.json in Resources */ = {isa = PBXBuildFile; fileRef = C8399D9422DE5E6200EFA5CA /* disconnect-block-social.json */; };
 		C8611C8E1F71904C00C3DE7D /* DiskImageStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF8CBC1B7472FA0007AFE6 /* DiskImageStoreTests.swift */; };
 		C8DFFE492294AAB600296DB1 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DFFE482294AAB600296DB1 /* NetworkUtils.swift */; };
 		C8E18F1E222EDE4500E30E52 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E18F1D222EDE4400E30E52 /* Accelerate.framework */; };
@@ -1275,6 +1279,13 @@
 		C5E94B56233112CD00D3F31F /* Trees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trees.swift; sourceTree = "<group>"; };
 		C62CE646A71600AB2E55CF4C /* Pods-StoragePerfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoragePerfTests.debug.xcconfig"; path = "Target Support Files/Pods-StoragePerfTests/Pods-StoragePerfTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewSwizzled.swift; sourceTree = "<group>"; };
+		C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tab+ChangeUserAgent.swift"; sourceTree = "<group>"; };
+		C8399D8F22DE5E5200EFA5CA /* disconnect-block-advertising.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-block-advertising.json"; sourceTree = "<group>"; };
+		C8399D9222DE5E5B00EFA5CA /* disconnect-block-analytics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-block-analytics.json"; sourceTree = "<group>"; };
+		C8399D9422DE5E6200EFA5CA /* disconnect-block-social.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-block-social.json"; sourceTree = "<group>"; };
+		C8611CA11F71AEB900C3DE7D /* NoImageModeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoImageModeTests.swift; sourceTree = "<group>"; };
+		C892DA0C22D39A980080F1F7 /* TrackingProtectionMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingProtectionMenu.swift; sourceTree = "<group>"; };
+		C8CFF4E322F9FDB5002CC6BD /* effective_tld_names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = effective_tld_names.swift; sourceTree = "<group>"; };
 		C8DFFE482294AAB600296DB1 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
 		C8E18F1D222EDE4400E30E52 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		C8E18F1F222EDED000E30E52 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -2410,6 +2421,7 @@
 				C8F457A61F1FD75A000CB895 /* BrowserViewController */,
 				D3A994951A3686BD008AD1AC /* BrowserViewController.swift */,
 				C4F3B2991CFCF93A00966259 /* ButtonToast.swift */,
+				C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */,
 				31ADB5D91E58CEC300E87909 /* ClipboardBarDisplayHandler.swift */,
 				D3BA7E0D1B0E934F00153782 /* ContextMenuHelper.swift */,
 				3BE7275C1CCFE8B60099189F /* CustomSearchHandler.swift */,
@@ -4558,6 +4570,7 @@
 				D04D1B92209790B60074B35F /* Toast.swift in Sources */,
 				D34DC8531A16C40C00D49B7B /* Profile.swift in Sources */,
 				E65075541E37F6FC006961AC /* DynamicFontHelper.swift in Sources */,
+				C82CDD47233E8996002E2743 /* Tab+ChangeUserAgent.swift in Sources */,
 				C4E3984C1D21F2FD004E89BA /* TabTrayButtonExtensions.swift in Sources */,
 				C56ED49E233B712F006A63B1 /* InterceptorFeature.swift in Sources */,
 				D3FEC38D1AC4B42F00494F45 /* AutocompleteTextField.swift in Sources */,
