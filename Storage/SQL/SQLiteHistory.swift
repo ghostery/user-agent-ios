@@ -214,12 +214,6 @@ fileprivate struct SQLiteFrecentHistory: FrecentHistory {
         return (insertQuery, args)
     }
 
-    private func topSiteClauses() -> (String, String) {
-        let whereData = "(domains.showOnTopSites IS 1) AND (domains.domain NOT LIKE 'r.%') AND (domains.domain NOT LIKE 'google.%') "
-        let groupBy = "GROUP BY domain_id "
-        return (whereData, groupBy)
-    }
-
     enum FrecencyQueryParams {
         case urlCompletion(whereURLContains: String, groupClause: String)
         case topSites(groupClause: String, whereData: String)
@@ -361,7 +355,7 @@ fileprivate struct SQLiteFrecentHistory: FrecentHistory {
                     domains.id = history.domain_id
                 INNER JOIN visits ON
                     visits.siteID = history.id
-            WHERE (history.is_deleted = 0) AND ((domains.showOnTopSites IS 1) AND (domains.domain NOT LIKE 'r.%') AND (domains.domain NOT LIKE 'google.%')) AND (history.url LIKE 'http%')
+            WHERE (history.is_deleted = 0) AND ((domains.domain NOT LIKE 'r.%') AND (domains.domain NOT LIKE 'google.%')) AND (history.url LIKE 'http%')
             GROUP BY historyID
             """
 
