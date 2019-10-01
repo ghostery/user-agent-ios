@@ -97,6 +97,7 @@ class PrivacyIndicatorView: UIView {
 
     private func setupView() {
         isHidden = true
+        badge.isUserInteractionEnabled = false
         addSubview(button)
         addSubview(badge)
         setupLayout()
