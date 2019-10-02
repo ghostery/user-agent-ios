@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   NativeModules,
   View,
@@ -7,20 +7,6 @@ import {
 } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import SpeedDial from '../components/SpeedDial';
-
-export const useSpeedDials = () => {
-  const [data, setData] = useState([]);
-  async function fetchLocations() {
-    const speedDials = await NativeModules.History.getTopSites();
-    setData(speedDials);
-  }
-
-  useEffect(() => {
-    fetchLocations();
-  }, []);
-
-  return data;
-}
 
 const openSpeedDialLink = speedDial => NativeModules.BrowserActions.openLink(speedDial.url, "", false);
 
@@ -35,16 +21,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Home() {
-  const speedDials = useSpeedDials();
+const Section = ({ title, sites }) => {
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={styles.header}>
-        { NativeModules.LocaleConstants['ActivityStream.TopSites.SectionTitle'] }
+        { title }
       </Text>
       <FlatGrid
         itemDimension={80}
-        items={speedDials}
+        items={sites}
+        scrollEnabled={false}
         renderItem={({ item: speedDial }) =>
           SpeedDial({
             speedDial,
@@ -52,6 +38,25 @@ export default function Home() {
           })
         }
       />
+    </View>
+  );
+}
+
+export default function Home({ speedDials, pinnedSites }) {
+  return (
+    <View style={styles.container}>
+      {pinnedSites.length > 0 && (
+        <Section
+          title={NativeModules.LocaleConstants['ActivityStream.PinnedSites.SectionTitle']}
+          sites={pinnedSites}
+        />
+      )}
+      {speedDials.length > 0 && (
+        <Section
+          title={NativeModules.LocaleConstants['ActivityStream.TopSites.SectionTitle']}
+          sites={speedDials}
+        />
+      )}
     </View>
   )
 }

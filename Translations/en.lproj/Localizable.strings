@@ -52,6 +52,8 @@
 /* Section title label for Top Sites */
 "ActivityStream.TopSites.SectionTitle" = "Top Sites";
 
+"ActivityStream.PinnedSites.SectionTitle" = "Pinned Sites";
+
 /* Accessibility label for the Add Tab button in the Tab Tray. */
 "Add Tab" = "Add Tab";
 
