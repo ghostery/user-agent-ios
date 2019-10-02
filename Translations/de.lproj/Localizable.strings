@@ -52,6 +52,8 @@
 /* Section title label for Top Sites */
 "ActivityStream.TopSites.SectionTitle" = "Meistbesuchte Seiten";
 
+"ActivityStream.PinnedSites.SectionTitle" = "Angeheftete Seiten";
+
 /* Accessibility label for the Add Tab button in the Tab Tray. */
 "Add Tab" = "Tab hinzufügen";
 
