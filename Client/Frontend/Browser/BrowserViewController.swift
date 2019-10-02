@@ -1820,7 +1820,8 @@ extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
 }
 
 extension BrowserViewController: IntroViewControllerDelegate {
-    @discardableResult func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
+    @discardableResult
+    func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
         if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
             let introViewController = IntroViewController()
             introViewController.delegate = self
@@ -1829,6 +1830,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
                 introViewController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
                 introViewController.modalPresentationStyle = .formSheet
             }
+            introViewController.modalPresentationStyle = .fullScreen
             present(introViewController, animated: animated) {
                 // On first run (and forced) open up the homepage in the background.
                 if let homePageURL = NewTabHomePageAccessors.getHomePage(self.profile.prefs), let tab = self.tabManager.selectedTab, DeviceInfo.hasConnectivity() {
