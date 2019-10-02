@@ -614,7 +614,7 @@ class URLBarView: UIView {
 
 extension URLBarView: TabToolbarProtocol {
     func privateModeBadge(visible: Bool) {
-        if UIDevice.current.userInterfaceIdiom != .pad {
+        if !UIDevice.current.isPad {
             privateModeBadge.show(visible)
         }
     }
@@ -772,7 +772,7 @@ extension URLBarView: Themeable {
 
 extension URLBarView: PrivateModeUI {
     func applyUIMode(isPrivate: Bool) {
-        if UIDevice.current.userInterfaceIdiom != .pad {
+        if !UIDevice.current.isPad {
             privateModeBadge.show(isPrivate)
         }
         
