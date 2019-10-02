@@ -1828,9 +1828,10 @@ extension BrowserViewController: IntroViewControllerDelegate {
             // On iPad we present it modally in a controller
             if topTabsVisible {
                 introViewController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
-                introViewController.modalPresentationStyle = .formSheet
+                introViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+            } else {
+                introViewController.modalPresentationStyle = .fullScreen
             }
-            introViewController.modalPresentationStyle = .fullScreen
             present(introViewController, animated: animated) {
                 // On first run (and forced) open up the homepage in the background.
                 if let homePageURL = NewTabHomePageAccessors.getHomePage(self.profile.prefs), let tab = self.tabManager.selectedTab, DeviceInfo.hasConnectivity() {
