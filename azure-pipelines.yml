@@ -9,10 +9,13 @@ strategy:
   matrix:
     Cliqz:
       scheme: 'Cliqz'
-      actions: 'clean test build'
+      actions: 'build'
     Ghostery:
       scheme: 'Ghostery'
       actions: 'build'
+    CliqzTests:
+      scheme: 'Cliqz'
+      actions: 'test'
 
 pool:
   vmImage: 'macOS 10.14'
