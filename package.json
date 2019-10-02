@@ -48,7 +48,7 @@
         "binaryPath": "builds/Build/Products/Release-iphonesimulator/UserAgent.app",
         "build": "xcodebuild -workspace UserAgent.xcworkspace -scheme 'Cliqz' -configuration Release -sdk iphonesimulator -derivedDataPath builds",
         "type": "ios.simulator",
-        "name": "iPhone Xs"
+        "name": "iPhone 11"
       }
     },
     "test-runner": "mocha"
