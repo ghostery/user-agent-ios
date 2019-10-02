@@ -27,13 +27,29 @@ class HomeViewController: UIViewController {
     private let segments: [Segment] = [.topSites, .bookmarks, .history]
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: self.segments.map({ $0.rawValue }))
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segmentedControl
     }()
+
+    private lazy var allViews: [UIView] = { return [topSitesView, bookmarksView, historyView] }()
 
     private lazy var topSitesView: UIView = {
         let topSitesView = TopSitesView(profile: self.profile)
         return topSitesView
     }()
+
+    private let bookmarksView: UIView = {
+        let bookmarksView = UIView()
+        bookmarksView.backgroundColor = UIColor.blue
+        return bookmarksView
+    }()
+
+    private let historyView: UIView = {
+        let historyView = UIView()
+        historyView.backgroundColor = UIColor.red
+        return historyView
+    }()
+
 
     // MARK: - Initialization
     init(profile: Profile) {
@@ -50,33 +66,30 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
-
-    // MARK: - API
 }
 
 // MARK: - Private Implementation
-extension HomeViewController {
-    private func setup() {
+private extension HomeViewController {
+    func setup() {
         setupSegmentedControl()
         setupConstraints()
     }
 
-    private func setupSegmentedControl() {
-
+    func setupSegmentedControl() {
+        showView(segment: .topSites)
+        guard let segmentIndex = segments.firstIndex(of: .topSites) else { return }
+        segmentedControl.selectedSegmentIndex = segmentIndex
     }
 
-    private func setupTopSitesView() {
-
-    }
-
-    private func setupConstraints() {
+    func setupConstraints() {
         view.addSubview(segmentedControl)
         view.addSubview(topSitesView)
+        view.addSubview(bookmarksView)
+        view.addSubview(historyView)
 
         let margins = 8
 
         segmentedControl.snp.makeConstraints { make in
-
             make.top.equalToSuperview().offset(margins)
             make.left.lessThanOrEqualToSuperview().offset(margins)
             make.right.lessThanOrEqualToSuperview().offset(-margins)
@@ -87,6 +100,31 @@ extension HomeViewController {
             make.top.equalTo(segmentedControl.snp.bottom).offset(8)
             make.bottom.leading.trailing.equalToSuperview()
         }
+
+        bookmarksView.snp.makeConstraints { make in
+            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+
+        historyView.snp.makeConstraints { make in
+            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+    }
+
+    @objc
+    func segmentedControlValueChanged() {
+        let value = segments[segmentedControl.selectedSegmentIndex]
+
+        UIView.animate(withDuration: 0.2) {
+            self.showView(segment: value)
+        }
+    }
+
+    private func showView(segment: Segment) {
+        allViews.forEach { $0.alpha = 0 }
+        guard let segmentIndex = segments.firstIndex(of: segment) else { return }
+        allViews[segmentIndex].alpha = 1
     }
 }
 
