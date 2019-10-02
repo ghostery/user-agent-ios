@@ -18,7 +18,18 @@ class HomeViewController: UIViewController {
 
     fileprivate let profile: Profile
 
-    private let segmentedControl = UISegmentedControl(items: ["tpo sits", "bokmrks", "histroy"])
+    private enum Segment: String {
+        case topSites = "top siiites"
+        case bookmarks = "boookmarkz"
+        case history = "hirrostyyy"
+    }
+
+    private let segments: [Segment] = [.topSites, .bookmarks, .history]
+    private lazy var segmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: self.segments.map({ $0.rawValue }))
+        return segmentedControl
+    }()
+
     private lazy var topSitesView: UIView = {
         let topSitesView = TopSitesView(profile: self.profile)
         return topSitesView
@@ -59,10 +70,22 @@ extension HomeViewController {
     }
 
     private func setupConstraints() {
+        view.addSubview(segmentedControl)
         view.addSubview(topSitesView)
 
+        let margins = 8
+
+        segmentedControl.snp.makeConstraints { make in
+
+            make.top.equalToSuperview().offset(margins)
+            make.left.lessThanOrEqualToSuperview().offset(margins)
+            make.right.lessThanOrEqualToSuperview().offset(-margins)
+            make.centerX.equalToSuperview()
+        }
+
         topSitesView.snp.makeConstraints { make in
-            make.bottom.top.leading.trailing.equalTo(self.view)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
+            make.bottom.leading.trailing.equalToSuperview()
         }
     }
 }
