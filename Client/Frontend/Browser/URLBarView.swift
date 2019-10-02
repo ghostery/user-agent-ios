@@ -125,6 +125,12 @@ class URLBarView: UIView {
         return tabsButton
     }()
 
+    private lazy var querySuggestionsInputAccessoryView: QuerySuggestionsInputAccessoryView = {
+        let inputAccessoryView = QuerySuggestionsInputAccessoryView()
+        inputAccessoryView.delegate = self
+        return inputAccessoryView
+    }()
+
     fileprivate lazy var progressBar: GradientProgressBar = {
         let progressBar = GradientProgressBar()
         progressBar.clipsToBounds = false
@@ -407,6 +413,7 @@ class URLBarView: UIView {
 
         locationTextField.applyTheme()
         locationTextField.backgroundColor = UIColor.green
+        locationTextField.inputAccessoryView = querySuggestionsInputAccessoryView
     }
 
     override func becomeFirstResponder() -> Bool {
@@ -782,6 +789,12 @@ extension URLBarView: PrivateModeUI {
         ToolbarTextField.applyUIMode(isPrivate: isPrivate)
 
         applyTheme()
+    }
+}
+
+extension URLBarView: QuerySuggestionDelegate {
+    func querySuggestionTapped(_ suggestion: String) {
+        locationTextField?.text = suggestion
     }
 }
 

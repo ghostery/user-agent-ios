@@ -14,5 +14,6 @@
 RCT_EXTERN_METHOD(openLink:(nonnull NSString *)url query:(nonnull NSString *)query isSearchEngine:(BOOL)isSearchEngine)
 RCT_EXTERN_METHOD(searchHistory:(nonnull NSString *)query callback:(RCTResponseSenderBlock))
 RCT_EXTERN_METHOD(hideKeyboard)
+RCT_EXTERN_METHOD(showQuerySuggestions:(nullable NSString *)query suggestions:(nullable NSArray*)suggestions)
 
 @end
