@@ -18,6 +18,12 @@ class HomeViewController: UIViewController {
 
     fileprivate let profile: Profile
 
+    private let segmentedControl = UISegmentedControl(items: ["tpo sits", "bokmrks", "histroy"])
+    private lazy var topSitesView: UIView = {
+        let topSitesView = TopSitesView(profile: self.profile)
+        return topSitesView
+    }()
+
     // MARK: - Initialization
     init(profile: Profile) {
         self.profile = profile
@@ -31,45 +37,31 @@ class HomeViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
-
-        _ = self.profile.history.getTopSitesWithLimit(8).both(
-            self.profile.history.getPinnedTopSites()
-        ).bindQueue(.main) { (topSites, pinned) -> Success in
-            self.addHomeView(
-                speedDials: topSites.successValue?.asArray() ?? [],
-                pinnedSites: pinned.successValue?.asArray() ?? []
-            )
-            return succeed()
-        }
+        setup()
     }
 
     // MARK: - API
+}
 
-    // MARK: - Private Implementation
-    private func addHomeView(speedDials: [Site], pinnedSites: [Site]) {
-        func toDial(site: Site) -> [String: String] {
-            return [
-                "url": site.url,
-                "title": site.title,
-            ]
-        }
+// MARK: - Private Implementation
+extension HomeViewController {
+    private func setup() {
+        setupSegmentedControl()
+        setupConstraints()
+    }
 
-        let reactView = RCTRootView(
-            bridge: ReactNativeBridge.sharedInstance.bridge,
-            moduleName: "Home",
-            initialProperties: [
-                "speedDials": speedDials.map(toDial),
-                "pinnedSites": pinnedSites.map(toDial),
-            ]
-        )
+    private func setupSegmentedControl() {
 
-        guard let homeView = reactView else { return }
+    }
 
-        self.view.addSubview(homeView)
+    private func setupTopSitesView() {
 
-        homeView.snp.makeConstraints { make in
+    }
+
+    private func setupConstraints() {
+        view.addSubview(topSitesView)
+
+        topSitesView.snp.makeConstraints { make in
             make.bottom.top.leading.trailing.equalTo(self.view)
         }
     }
