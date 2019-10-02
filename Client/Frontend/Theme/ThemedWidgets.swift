@@ -16,9 +16,14 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
     }
 
     func applyTheme() {
-        textLabel?.textColor = UIColor.theme.tableView.rowText
-        detailTextLabel?.textColor = detailTextColor
-
+        let attributedTextColor = textLabel?.attributedText?.attributes(at: 0, effectiveRange: nil)[NSAttributedString.Key.foregroundColor]
+        if attributedTextColor == nil {
+            textLabel?.textColor = UIColor.theme.tableView.rowText
+        }
+        let attributedDetailTextColor = detailTextLabel?.attributedText?.attributes(at: 0, effectiveRange: nil)[NSAttributedString.Key.foregroundColor]
+        if attributedDetailTextColor == nil {
+            detailTextLabel?.textColor = detailTextColor
+        }
         backgroundColor = UIColor.theme.tableView.rowBackground
         tintColor = UIColor.theme.general.controlTint
     }
