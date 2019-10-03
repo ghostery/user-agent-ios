@@ -21,41 +21,11 @@ class ThemeManager {
         return BuiltinThemeName(rawValue: ThemeManager.instance.current.name) ?? .normal
     }
 
-    private init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-    }
-
     // UIViewControllers / UINavigationControllers need to have `preferredStatusBarStyle` and call this.
     var statusBarStyle: UIStatusBarStyle {
         // On iPad the dark and normal theme both have a dark tab bar
         guard UIDevice.current.isPhone else { return .lightContent }
         return currentName == .dark ? .lightContent : .default
-    }
-    
-    @available(iOS 13.0, *)
-    private func matchInterfaceStyleWithSystemStyle() {
-        switch UITraitCollection.current.userInterfaceStyle {
-        case .dark:
-            if self.currentName != .dark {
-                self.current = DarkTheme()
-            }
-        case .light:
-            if self.currentName != .normal {
-                self.current = NormalTheme()
-            }
-        case .unspecified: break
-        @unknown default: break
-        }
-    }
-    
-    @objc private func didBecomeActive() {
-        if #available(iOS 13.0, *) {
-            // Matching interface style in dispatch block because of iOS 13 bug.
-            // UITraitCollection.current.userInterfaceStyle value is beeing updated with delay.
-            DispatchQueue.main.async {
-                self.matchInterfaceStyleWithSystemStyle()
-            }
-        }
     }
     
 }

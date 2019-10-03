@@ -34,6 +34,14 @@ class NightModeHelper: TabContentScript {
     static func toggle(_ prefs: Prefs, tabManager: TabManager) {
         let isActive = prefs.boolForKey(NightModePrefsKey.NightModeStatus) ?? false
         setNightMode(prefs, tabManager: tabManager, enabled: !isActive)
+        // If we've enabled night mode and the theme is normal, enable dark theme
+        if NightModeHelper.isActivated(prefs), ThemeManager.instance.currentName == .normal {
+            NightModeHelper.setEnabledDarkTheme(prefs, darkTheme: true)
+        }
+        // If we've disabled night mode and dark theme was activated by it then disable dark theme
+        if !NightModeHelper.isActivated(prefs), NightModeHelper.hasEnabledDarkTheme(prefs), ThemeManager.instance.currentName == .dark {
+            NightModeHelper.setEnabledDarkTheme(prefs, darkTheme: false)
+        }
     }
 
     static func setNightMode(_ prefs: Prefs, tabManager: TabManager, enabled: Bool) {
@@ -44,6 +52,7 @@ class NightModeHelper: TabContentScript {
     }
 
     static func setEnabledDarkTheme(_ prefs: Prefs, darkTheme enabled: Bool) {
+        ThemeManager.instance.current = enabled ? DarkTheme() : NormalTheme()
         prefs.setBool(enabled, forKey: NightModePrefsKey.NightModeEnabledDarkTheme)
     }
 
@@ -52,12 +61,6 @@ class NightModeHelper: TabContentScript {
     }
 
     static func isActivated(_ prefs: Prefs) -> Bool {
-        return prefs.boolForKey(NightModePrefsKey.NightModeStatus) ?? false
-    }
-}
-
-class NightModeAccessors {
-    static func isNightMode(_ prefs: Prefs) -> Bool {
         return prefs.boolForKey(NightModePrefsKey.NightModeStatus) ?? false
     }
 }
