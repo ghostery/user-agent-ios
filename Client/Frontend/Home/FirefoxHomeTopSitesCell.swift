@@ -413,7 +413,7 @@ class ASHorizontalScrollCellManager: NSObject, UICollectionViewDelegate, UIColle
             return 0
         }
         let isLandscape = UIApplication.shared.statusBarOrientation.isLandscape
-        if UIDevice.current.userInterfaceIdiom == .phone {
+        if UIDevice.current.isPhone {
             if isLandscape {
                 return 8
             } else {

@@ -22,8 +22,8 @@ pool:
 
 steps:
 - bash: |
-    sudo xcode-select --switch /Applications/Xcode_10.3.app
-  displayName: 'Change XCode to 10.3'
+    sudo xcode-select --switch /Applications/Xcode_11.app
+  displayName: 'Change XCode to 11.0'
 
 - task: NodeTool@0
   displayName: 'Define Node to v9.11.2'
@@ -64,7 +64,7 @@ steps:
     scheme: '$(scheme)'
     packageApp: true
     destinationPlatformOption: 'iOS'
-    destinationSimulators: 'iPhone 8'
+    destinationSimulators: 'iPhone 11'
     publishJUnitResults: true
     args: '-derivedDataPath builds'
 

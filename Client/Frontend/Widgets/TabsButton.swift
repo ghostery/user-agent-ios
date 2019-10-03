@@ -226,7 +226,7 @@ class TabsButton: UIButton {
 
 extension TabsButton: Themeable {
     func applyTheme() {
-        if UIDevice.current.userInterfaceIdiom == .pad {
+        if UIDevice.current.isPad {
             textColor = UIColor.theme.topTabs.buttonTint
         } else {
             textColor = UIColor.theme.browser.tint

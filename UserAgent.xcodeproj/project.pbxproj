@@ -496,6 +496,8 @@
 		ACC6EC5F2329460B000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
 		ACC6EC602329460F000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5D232945F0000F5499 /* colors.xcassets */; };
 		ACC6EC612329485E000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
+		B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
+		B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
 		C2EDC31C6828A137B57F370B /* Pods_SharedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
@@ -1283,6 +1285,7 @@
 		ACC6EC5223290974000F5499 /* UIColor+Blending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Blending.swift"; sourceTree = "<group>"; };
 		ACC6EC5D232945F0000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
 		ACC6EC5E232945FF000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
+		B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		B7467EC9C781BBCEB81EC866 /* Pods_Cliqz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cliqz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78340F0A41C2ACA24F3D0B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		B91C4EA79AB83A663B9767D3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearPrivateData.strings; sourceTree = "<group>"; };
@@ -1866,6 +1869,7 @@
 				E650754F1E37F6D1006961AC /* NSURLExtensionsMailTo.swift */,
 				E65075501E37F6D1006961AC /* UIViewExtensions.swift */,
 				C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */,
+				B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -3311,7 +3315,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Cliqz;
 				TargetAttributes = {
 					288A2D851AB8B3260023ABC3 = {
@@ -4600,6 +4604,7 @@
 				ACB737E823042BAB00FA5626 /* CustomSearchHandler.swift in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				ACB737E923042BAB00FA5626 /* AuthenticationSettingsViewController.swift in Sources */,
+				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
 				ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */,
 				ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */,
 				ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */,
@@ -4850,6 +4855,7 @@
 				E4C358551AF144BA00299F7E /* FSReadingList.m in Sources */,
 				ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				3BE7275D1CCFE8B60099189F /* CustomSearchHandler.swift in Sources */,
+				B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */,
 				E692E3291C46E62D009D1240 /* AuthenticationSettingsViewController.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
 				EBA3B2D22268F57E00728BDB /* BadgeIcon.swift in Sources */,

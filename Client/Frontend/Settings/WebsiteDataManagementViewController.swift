@@ -65,7 +65,7 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
         let searchController = UISearchController(searchResultsController: searchResultsViewController)
 
         // No need to hide the navigation bar on iPad, on iPhone the additional height is useful.
-        searchController.hidesNavigationBarDuringPresentation = UIDevice.current.userInterfaceIdiom != .pad
+        searchController.hidesNavigationBarDuringPresentation = !UIDevice.current.isPad
 
         searchController.searchResultsUpdater = searchResultsViewController
         searchController.obscuresBackgroundDuringPresentation = false

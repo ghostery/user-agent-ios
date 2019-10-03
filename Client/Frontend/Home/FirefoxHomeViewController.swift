@@ -14,8 +14,8 @@ private let DefaultSuggestedSitesKey = "topSites.deletedSuggestedSites"
 
 // MARK: -  Lifecycle
 struct FirefoxHomeUX {
-    static let rowSpacing: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 30 : 20
-    static let highlightCellHeight: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 250 : 200
+    static let rowSpacing: CGFloat = UIDevice.current.isPad ? 30 : 20
+    static let highlightCellHeight: CGFloat = UIDevice.current.isPad ? 250 : 200
     static let sectionInsetsForSizeClass = UXSizeClasses(compact: 0, regular: 101, other: 20)
     static let numberOfItemsPerRowForSizeClassIpad = UXSizeClasses(compact: 3, regular: 4, other: 2)
     static let SectionInsetsForIpad: CGFloat = 101
@@ -271,7 +271,7 @@ extension FirefoxHomeViewController {
          */
         func sectionInsets(_ traits: UITraitCollection, frameWidth: CGFloat) -> CGFloat {
             var currentTraits = traits
-            if (traits.horizontalSizeClass == .regular && UIScreen.main.bounds.size.width != frameWidth) || UIDevice.current.userInterfaceIdiom == .phone {
+            if (traits.horizontalSizeClass == .regular && UIScreen.main.bounds.size.width != frameWidth) || UIDevice.current.isPhone {
                 currentTraits = UITraitCollection(horizontalSizeClass: .compact)
             }
             var insets = FirefoxHomeUX.sectionInsetsForSizeClass[currentTraits.horizontalSizeClass]
@@ -425,7 +425,7 @@ extension FirefoxHomeViewController: UICollectionViewDelegateFlowLayout {
         case .topSites:
             return Section(section).headerHeight
         case .libraryShortcuts:
-            return UIDevice.current.userInterfaceIdiom == .pad ? CGSize.zero : Section(section).headerHeight
+            return UIDevice.current.isPad ? CGSize.zero : Section(section).headerHeight
         }
     }
 
@@ -436,7 +436,7 @@ extension FirefoxHomeViewController: UICollectionViewDelegateFlowLayout {
         case .topSites:
             return Section(section).footerHeight
         case .libraryShortcuts:
-            return UIDevice.current.userInterfaceIdiom == .pad ? CGSize.zero : Section(section).footerHeight
+            return UIDevice.current.isPad ? CGSize.zero : Section(section).footerHeight
         }
     }
 
@@ -482,7 +482,7 @@ extension FirefoxHomeViewController {
             return pocketStories.count
         case .libraryShortcuts:
             // disable the libary shortcuts on the ipad
-            return UIDevice.current.userInterfaceIdiom == .pad ? 0 : 1
+            return UIDevice.current.isPad ? 0 : 1
         }
     }
 
@@ -571,7 +571,7 @@ extension FirefoxHomeViewController: DataObserverDelegate {
 
     func getTopSites() -> Success {
         let numRows = max(self.profile.prefs.intForKey(PrefsKeys.NumberOfTopSiteRows) ?? TopSitesRowCountSettingsController.defaultNumberOfRows, 1)
-        let maxItems = UIDevice.current.userInterfaceIdiom == .pad ? 32 : 16
+        let maxItems = UIDevice.current.isPad ? 32 : 16
         return self.profile.history.getTopSitesWithLimit(maxItems).both(self.profile.history.getPinnedTopSites()).bindQueue(.main) { (topsites, pinnedSites) in
             guard let mySites = topsites.successValue?.asArray(), let pinned = pinnedSites.successValue?.asArray() else {
                 return succeed()
@@ -868,7 +868,7 @@ private struct FirefoxHomeHeaderViewUX {
     static let TextFont = DynamicFontHelper.defaultHelper.SmallSizeHeavyWeightAS
     static let ButtonFont = DynamicFontHelper.defaultHelper.MediumSizeBoldFontAS
     static let SeparatorHeight = 0.5
-    static let Insets: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? FirefoxHomeUX.SectionInsetsForIpad + FirefoxHomeUX.MinimumInsets : FirefoxHomeUX.MinimumInsets
+    static let Insets: CGFloat = UIDevice.current.isPad ? FirefoxHomeUX.SectionInsetsForIpad + FirefoxHomeUX.MinimumInsets : FirefoxHomeUX.MinimumInsets
     static let TitleTopInset: CGFloat = 5
 }
 
@@ -894,7 +894,7 @@ class ASFooterView: UICollectionReusableView {
     }
 
     var insets: CGFloat {
-        return UIScreen.main.bounds.size.width == self.frame.size.width && UIDevice.current.userInterfaceIdiom == .pad ? FirefoxHomeHeaderViewUX.Insets : FirefoxHomeUX.MinimumInsets
+        return UIScreen.main.bounds.size.width == self.frame.size.width && UIDevice.current.isPad ? FirefoxHomeHeaderViewUX.Insets : FirefoxHomeUX.MinimumInsets
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -962,7 +962,7 @@ class ASHeaderView: UICollectionReusableView {
 
     var titleInsets: CGFloat {
         get {
-            return UIScreen.main.bounds.size.width == self.frame.size.width && UIDevice.current.userInterfaceIdiom == .pad ? FirefoxHomeHeaderViewUX.Insets : FirefoxHomeUX.MinimumInsets
+            return UIScreen.main.bounds.size.width == self.frame.size.width && UIDevice.current.isPad ? FirefoxHomeHeaderViewUX.Insets : FirefoxHomeUX.MinimumInsets
         }
     }
 

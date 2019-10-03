@@ -10,7 +10,7 @@ import LocalAuthentication
 private let logger = Logger.browserLogger
 
 private func presentNavAsFormSheet(_ presented: UINavigationController, presenter: UINavigationController?, settings: AuthenticationSettingsViewController?) {
-    presented.modalPresentationStyle = .formSheet
+    presented.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
     presenter?.present(presented, animated: true) {
         if let selectedRow = settings?.tableView.indexPathForSelectedRow {
             settings?.tableView.deselectRow(at: selectedRow, animated: false)
