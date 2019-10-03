@@ -54,7 +54,7 @@ class AppAuthenticator {
         })
 
         let navController = UINavigationController(rootViewController: passcodeVC)
-        navController.modalPresentationStyle = .formSheet
+        navController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         presentingNavController?.present(navController, animated: true, completion: nil)
         return deferred
     }

@@ -166,7 +166,7 @@ private extension BrowserToTrayAnimator {
 
         // On iPhone, fading these in produces a darkening at the top of the screen, and then
         // it brightens back to full white as they fade in. Setting these to not fade in produces a better effect.
-        if UIDevice.current.userInterfaceIdiom == .phone {
+        if UIDevice.current.isPhone {
             tabTray.statusBarBG.alpha = 1
             tabTray.searchBarHolder.alpha = 1
         }

@@ -143,7 +143,7 @@ class BrowserViewController: UIViewController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
+        if UIDevice.current.isPhone {
             return .allButUpsideDown
         } else {
             return .all
@@ -511,7 +511,7 @@ class BrowserViewController: UIViewController {
         // On iPhone, if we are about to show the On-Boarding, blank out the tab so that it does
         // not flash before we present. This change of alpha also participates in the animation when
         // the intro view is dismissed.
-        if UIDevice.current.userInterfaceIdiom == .phone {
+        if UIDevice.current.isPhone {
             self.view.alpha = (profile.prefs.intForKey(PrefsKeys.IntroSeen) != nil) ? 1.0 : 0.0
         }
 
@@ -1820,14 +1820,17 @@ extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
 }
 
 extension BrowserViewController: IntroViewControllerDelegate {
-    @discardableResult func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
+    @discardableResult
+    func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
         if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
             let introViewController = IntroViewController()
             introViewController.delegate = self
             // On iPad we present it modally in a controller
             if topTabsVisible {
                 introViewController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
-                introViewController.modalPresentationStyle = .formSheet
+                introViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+            } else {
+                introViewController.modalPresentationStyle = .fullScreen
             }
             present(introViewController, animated: animated) {
                 // On first run (and forced) open up the homepage in the background.
