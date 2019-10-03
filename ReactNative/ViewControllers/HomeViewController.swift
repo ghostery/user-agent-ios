@@ -60,13 +60,7 @@ class HomeViewController: UIViewController {
 
         guard let homeView = reactView else { return }
 
-        homeView.backgroundColor = .clear
-        
-        self.view.addSubview(homeView)
-
-        homeView.snp.makeConstraints { make in
-            make.bottom.top.leading.trailing.equalTo(self.view)
-        }
+        self.view = homeView
     }
 }
 
