@@ -33,7 +33,7 @@ class ThemeManager {
     }
     
     @available(iOS 13.0, *)
-    private func matchInterfaceStyleWithSystem() {
+    private func matchInterfaceStyleWithSystemStyle() {
         switch UITraitCollection.current.userInterfaceStyle {
         case .dark:
             if self.currentName != .dark {
@@ -50,7 +50,11 @@ class ThemeManager {
     
     @objc private func didBecomeActive() {
         if #available(iOS 13.0, *) {
-            self.matchInterfaceStyleWithSystem()
+            // Matching interface style in dispatch block because of iOS 13 bug.
+            // UITraitCollection.current.userInterfaceStyle value is beeing updated with delay.
+            DispatchQueue.main.async {
+                self.matchInterfaceStyleWithSystemStyle()
+            }
         }
     }
     
