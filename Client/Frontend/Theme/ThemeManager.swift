@@ -4,8 +4,6 @@
 import Foundation
 
 enum ThemeManagerPrefs: String {
-    case automaticSwitchIsOn = "prefKeyAutomaticSwitchOnOff"
-    case automaticSliderValue = "prefKeyAutomaticSliderValue"
     case themeName = "prefKeyThemeName"
 }
 
@@ -23,20 +21,8 @@ class ThemeManager {
         return BuiltinThemeName(rawValue: ThemeManager.instance.current.name) ?? .normal
     }
 
-    var automaticBrightnessValue: Float = UserDefaults.standard.float(forKey: ThemeManagerPrefs.automaticSliderValue.rawValue) {
-        didSet {
-            UserDefaults.standard.set(automaticBrightnessValue, forKey: ThemeManagerPrefs.automaticSliderValue.rawValue)
-        }
-    }
-
-    var automaticBrightnessIsOn: Bool = UserDefaults.standard.bool(forKey: ThemeManagerPrefs.automaticSwitchIsOn.rawValue) {
-        didSet {
-            UserDefaults.standard.set(automaticBrightnessIsOn, forKey: ThemeManagerPrefs.automaticSwitchIsOn.rawValue)
-        }
-    }
-
     private init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(brightnessChanged), name: UIScreen.brightnessDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     // UIViewControllers / UINavigationControllers need to have `preferredStatusBarStyle` and call this.
@@ -45,23 +31,29 @@ class ThemeManager {
         guard UIDevice.current.userInterfaceIdiom == .phone else { return .lightContent }
         return currentName == .dark ? .lightContent : .default
     }
-
-    func updateCurrentThemeBasedOnScreenBrightness() {
-        let prefValue = UserDefaults.standard.float(forKey: ThemeManagerPrefs.automaticSliderValue.rawValue)
-
-        let screenLessThanPref = Float(UIScreen.main.brightness) < prefValue
-
-        if screenLessThanPref, self.currentName == .normal {
-            self.current = DarkTheme()
-        } else if !screenLessThanPref, self.currentName == .dark {
-            self.current = NormalTheme()
+    
+    @available(iOS 13.0, *)
+    private func matchInterfaceStyleWithSystem() {
+        switch UITraitCollection.current.userInterfaceStyle {
+        case .dark:
+            if self.currentName != .dark {
+                self.current = DarkTheme()
+            }
+        case .light:
+            if self.currentName != .normal {
+                self.current = NormalTheme()
+            }
+        case .unspecified: break
+        @unknown default: break
         }
     }
-
-    @objc private func brightnessChanged() {
-        guard automaticBrightnessIsOn else { return }
-        updateCurrentThemeBasedOnScreenBrightness()
+    
+    @objc private func didBecomeActive() {
+        if #available(iOS 13.0, *) {
+            self.matchInterfaceStyleWithSystem()
+        }
     }
+    
 }
 
 fileprivate func themeFrom(name: String?) -> Theme {

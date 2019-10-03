@@ -69,13 +69,10 @@ extension PhotonActionSheetProtocol {
 
         let trackingProtectionItem = self.trackingProtectionItem()
         items.append(trackingProtectionItem)
-        
-        if #available(iOS 13.0, *) {
-        } else {
+        if #available(iOS 13.0, *) {} else {
             let nighModeItem = self.nightModeItem()
             items.append(nighModeItem)
         }
-
         let openSettingsItem = self.openSettingsItem(vcDelegate: vcDelegate)
         items.append(openSettingsItem)
 
