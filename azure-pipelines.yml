@@ -64,7 +64,7 @@ steps:
     scheme: '$(scheme)'
     packageApp: true
     destinationPlatformOption: 'iOS'
-    destinationSimulators: 'iPhone 8'
+    destinationSimulators: 'iPhone 11'
     publishJUnitResults: true
     args: '-derivedDataPath builds'
 

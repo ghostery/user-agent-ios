@@ -162,6 +162,18 @@
                   Identifier = "DesktopModeTestsIphone">
                </Test>
                <Test
+                  Identifier = "DownloadFilesTests/testLongPressOnDownloadedFile()">
+               </Test>
+               <Test
+                  Identifier = "DownloadFilesTests/testRemoveUserDataRemovesDownloadedFiles()">
+               </Test>
+               <Test
+                  Identifier = "DownloadFilesTests/testShareDownloadedFile()">
+               </Test>
+               <Test
+                  Identifier = "DownloadFilesTests/testToastButtonToGoToDownloads()">
+               </Test>
+               <Test
                   Identifier = "DragAndDropTestIpad">
                </Test>
                <Test
@@ -205,6 +217,9 @@
                </Test>
                <Test
                   Identifier = "ReaderViewTest">
+               </Test>
+               <Test
+                  Identifier = "SettingsTest/testOpenSiriOption()">
                </Test>
                <Test
                   Identifier = "SiteLoadTest">
