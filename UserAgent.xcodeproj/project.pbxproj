@@ -408,7 +408,6 @@
 		ACB737CE23042BAB00FA5626 /* CustomSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B39EDCA1E16E1AA00EF029F /* CustomSearchViewController.swift */; };
 		ACB737CF23042BAB00FA5626 /* FaviconFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65075561E37F714006961AC /* FaviconFetcher.swift */; };
 		ACB737D023042BAB00FA5626 /* GradientProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D863C8E31F68BFC20058D95F /* GradientProgressBar.swift */; };
-		ACB737D123042BAB00FA5626 /* ThemeSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A178D20E525DF00B12184 /* ThemeSettingsController.swift */; };
 		ACB737D223042BAB00FA5626 /* URIFixup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C744CC1A687D6C004CE85D /* URIFixup.swift */; };
 		ACB737D323042BAB00FA5626 /* ReadabilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A961171AC041C40069AD6F /* ReadabilityService.swift */; };
 		ACB737D423042BAB00FA5626 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE7B251B054D4400641031 /* main.swift */; };
@@ -781,7 +780,6 @@
 		EB912B9B22722B6300DF585A /* ReadWriteLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB912B9022722A7800DF585A /* ReadWriteLock.swift */; };
 		EB912B9C22722B6800DF585A /* LockProtected.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB912B9122722A7800DF585A /* LockProtected.swift */; };
 		EB9407492081353100702E05 /* UXConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB940747208134AF00702E05 /* UXConstants.swift */; };
-		EB9A178E20E525DF00B12184 /* ThemeSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A178D20E525DF00B12184 /* ThemeSettingsController.swift */; };
 		EB9A179B20E69A7F00B12184 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A179820E69A7E00B12184 /* ThemeManager.swift */; };
 		EB9A179C20E69A7F00B12184 /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A179920E69A7E00B12184 /* DarkTheme.swift */; };
 		EB9A179D20E69A7F00B12184 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A179A20E69A7E00B12184 /* Theme.swift */; };
@@ -1600,7 +1598,6 @@
 		EB912B9022722A7800DF585A /* ReadWriteLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadWriteLock.swift; sourceTree = "<group>"; };
 		EB912B9122722A7800DF585A /* LockProtected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockProtected.swift; sourceTree = "<group>"; };
 		EB940747208134AF00702E05 /* UXConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UXConstants.swift; sourceTree = "<group>"; };
-		EB9A178D20E525DF00B12184 /* ThemeSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsController.swift; sourceTree = "<group>"; };
 		EB9A179820E69A7E00B12184 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		EB9A179920E69A7E00B12184 /* DarkTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		EB9A179A20E69A7E00B12184 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -1896,7 +1893,6 @@
 				2F44FCC41A9E85E900FD20CC /* SettingsTableViewController.swift */,
 				D821E9052141B71C00452C55 /* SiriSettingsViewController.swift */,
 				CEFA977D1FAA6B490016F365 /* SyncContentSettingsViewController.swift */,
-				EB9A178D20E525DF00B12184 /* ThemeSettingsController.swift */,
 				39CE74F721A83105007AE4F2 /* TranslationSettingsController.swift */,
 				66CE54A720FCF6CF00CC310B /* WebsiteDataManagementViewController.swift */,
 				6669B5E1211418A200CA117B /* WebsiteDataSearchResultsViewController.swift */,
@@ -4577,7 +4573,6 @@
 				ACB737CE23042BAB00FA5626 /* CustomSearchViewController.swift in Sources */,
 				ACB737CF23042BAB00FA5626 /* FaviconFetcher.swift in Sources */,
 				ACB737D023042BAB00FA5626 /* GradientProgressBar.swift in Sources */,
-				ACB737D123042BAB00FA5626 /* ThemeSettingsController.swift in Sources */,
 				ACB737D223042BAB00FA5626 /* URIFixup.swift in Sources */,
 				ACB737D323042BAB00FA5626 /* ReadabilityService.swift in Sources */,
 				ACB737D423042BAB00FA5626 /* main.swift in Sources */,
@@ -4828,7 +4823,6 @@
 				3B39EDCB1E16E1AA00EF029F /* CustomSearchViewController.swift in Sources */,
 				E65075571E37F714006961AC /* FaviconFetcher.swift in Sources */,
 				D863C8F21F68BFC20058D95F /* GradientProgressBar.swift in Sources */,
-				EB9A178E20E525DF00B12184 /* ThemeSettingsController.swift in Sources */,
 				D3C744CD1A687D6C004CE85D /* URIFixup.swift in Sources */,
 				E4A961181AC041C40069AD6F /* ReadabilityService.swift in Sources */,
 				D3BE7B261B054D4400641031 /* main.swift in Sources */,
