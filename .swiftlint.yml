@@ -51,6 +51,7 @@ opt_in_rules: # some rules are only opt-in
   - toggle_bool
   - explicit_self
   - file_header
+  - unused_private_declaration
 
   # The following rules are disabled for now because firefox code breaks them. Try to reintroduce them gradually
   # - discouraged_optional_collection
