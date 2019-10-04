@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: self.segments.map({ $0.rawValue }))
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+        segmentedControl.setContentCompressionResistancePriority(.required, for: .vertical)
         return segmentedControl
     }()
 
@@ -49,7 +50,6 @@ class HomeViewController: UIViewController {
         historyView.backgroundColor = UIColor.red
         return historyView
     }()
-
 
     // MARK: - Initialization
     init(profile: Profile) {
