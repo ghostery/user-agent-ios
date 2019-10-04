@@ -99,7 +99,6 @@ open class BrowserProfile: Profile {
     internal let files: FileAccessor
 
     let db: BrowserDB
-    let readingListDB: BrowserDB
 
     private static var loginsKey: String {
         let key = "sqlcipher.key.logins.db"
@@ -150,7 +149,6 @@ open class BrowserProfile: Profile {
 
         // Set up our database handles.
         self.db = BrowserDB(filename: "browser.db", schema: BrowserSchema(), files: files)
-        self.readingListDB = BrowserDB(filename: "ReadingList.db", schema: ReadingListSchema(), files: files)
 
         let notificationCenter = NotificationCenter.default
 

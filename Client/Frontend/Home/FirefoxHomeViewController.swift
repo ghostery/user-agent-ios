@@ -502,7 +502,7 @@ extension FirefoxHomeViewController {
 
     func configureLibraryShortcutsCell(_ cell: UICollectionViewCell, forIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         let libraryCell = cell as! ASLibraryCell
-        let targets = [#selector(openBookmarks), #selector(openHistory), #selector(openReadingList), #selector(openDownloads)]
+        let targets = [#selector(openBookmarks), #selector(openHistory), #selector(openDownloads)]
         libraryCell.libraryButtons.map({ $0.button }).zip(targets).forEach { (button, selector) in
             button.removeTarget(nil, action: nil, for: .allEvents)
             button.addTarget(self, action: selector, for: .touchUpInside)
@@ -728,10 +728,6 @@ extension FirefoxHomeViewController {
 
     @objc func openHistory() {
         homePanelDelegate?.homePanelDidRequestToOpenLibrary(panel: .history)
-    }
-
-    @objc func openReadingList() {
-        homePanelDelegate?.homePanelDidRequestToOpenLibrary(panel: .readingList)
     }
 
     @objc func openDownloads() {
@@ -1068,7 +1064,6 @@ class ASLibraryCell: UICollectionViewCell, Themeable {
 
     let bookmarks = LibraryPanel(title: Strings.AppMenuBookmarksTitleString, image: UIImage.templateImageNamed("menu-Bookmark"), color: UIColor(rgb: 0x0A84FF))
     let history = LibraryPanel(title: Strings.AppMenuHistoryTitleString, image: UIImage.templateImageNamed("menu-panel-History"), color: UIColor(rgb: 0xFF9402))
-    let readingList = LibraryPanel(title: Strings.AppMenuReadingListTitleString, image: UIImage.templateImageNamed("menu-panel-ReadingList"), color: UIColor(rgb: 0x00C8D7))
     let downloads = LibraryPanel(title: Strings.AppMenuDownloadsTitleString, image: UIImage.templateImageNamed("menu-panel-Downloads"), color: UIColor(rgb: 0xEC00B5))
 
     override init(frame: CGRect) {
@@ -1080,7 +1075,7 @@ class ASLibraryCell: UICollectionViewCell, Themeable {
             make.edges.equalTo(self)
         }
 
-        [bookmarks, history, readingList, downloads].forEach { item in
+        [bookmarks, history, downloads].forEach { item in
             let view = LibraryShortcutView()
             view.button.setImage(item.image, for: .normal)
             view.title.text = item.title

@@ -426,7 +426,6 @@
 		ACB737E423042BAB00FA5626 /* BookmarksPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A6839879D615FC1C0D71CE /* BookmarksPanel.swift */; };
 		ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		ACB737E723042BAB00FA5626 /* FSReadingList.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C358541AF144BA00299F7E /* FSReadingList.m */; };
 		ACB737E823042BAB00FA5626 /* CustomSearchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7275C1CCFE8B60099189F /* CustomSearchHandler.swift */; };
 		ACB737E923042BAB00FA5626 /* AuthenticationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E692E3281C46E62D009D1240 /* AuthenticationSettingsViewController.swift */; };
 		ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
@@ -569,10 +568,8 @@
 		D054352A226687A400FDE4EF /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0543529226687A400FDE4EF /* UIBarButtonItemExtensions.swift */; };
 		D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0625C97208E87F10081F3B2 /* DownloadQueue.swift */; };
 		D0625CA8208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0625CA7208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift */; };
-		D07696F820697F9C00FACFD8 /* ReadingListSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07696F720697F9C00FACFD8 /* ReadingListSchema.swift */; };
 		D09A0CD81FAA23F6009A0273 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		D0A627642270C682006AFA2E /* SQLiteHistoryFavicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A627632270C682006AFA2E /* SQLiteHistoryFavicons.swift */; };
-		D0B693D5206C5BB9008A8B11 /* TestSQLiteReadingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B693D4206C5BB9008A8B11 /* TestSQLiteReadingList.swift */; };
 		D0B9483D22A18B78002F4AA1 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B9483C22A18B78002F4AA1 /* TextFieldTableViewCell.swift */; };
 		D0C95E0E200FD3B200E4E51C /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C95E0D200FD3B200E4E51C /* PrintHelper.swift */; };
 		D0C95E36200FDC5500E4E51C /* MetadataParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C95E35200FDC5400E4E51C /* MetadataParserHelper.swift */; };
@@ -663,7 +660,6 @@
 		E4A961381AC06FA50069AD6F /* ReaderViewLoading.html in Resources */ = {isa = PBXBuildFile; fileRef = E4A961371AC06FA50069AD6F /* ReaderViewLoading.html */; };
 		E4B423BE1AB9FE6A007E66C8 /* ReaderModeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B423BD1AB9FE6A007E66C8 /* ReaderModeCache.swift */; };
 		E4B423DD1ABA0318007E66C8 /* ReaderModeHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B423DC1ABA0318007E66C8 /* ReaderModeHandlers.swift */; };
-		E4C358551AF144BA00299F7E /* FSReadingList.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C358541AF144BA00299F7E /* FSReadingList.m */; };
 		E4CD9E911A6897FB00318571 /* ReaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CD9E901A6897FB00318571 /* ReaderMode.swift */; };
 		E4CD9F1D1A6D9C2800318571 /* WebServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CD9F1C1A6D9C2800318571 /* WebServerTests.swift */; };
 		E4CD9F2D1A6DC91200318571 /* TabLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CD9F2C1A6DC91200318571 /* TabLocationView.swift */; };
@@ -1356,9 +1352,7 @@
 		D0543529226687A400FDE4EF /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
 		D0625C97208E87F10081F3B2 /* DownloadQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadQueue.swift; sourceTree = "<group>"; };
 		D0625CA7208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+DownloadQueueDelegate.swift"; sourceTree = "<group>"; };
-		D07696F720697F9C00FACFD8 /* ReadingListSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListSchema.swift; sourceTree = "<group>"; };
 		D0A627632270C682006AFA2E /* SQLiteHistoryFavicons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteHistoryFavicons.swift; sourceTree = "<group>"; };
-		D0B693D4206C5BB9008A8B11 /* TestSQLiteReadingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSQLiteReadingList.swift; sourceTree = "<group>"; };
 		D0B9483C22A18B78002F4AA1 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		D0C95DF1200EAD3000E4E51C /* FindInPage.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FindInPage.js; sourceTree = "<group>"; };
 		D0C95DF5200EADD500E4E51C /* LoginsHelper.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = LoginsHelper.js; sourceTree = "<group>"; };
@@ -1465,8 +1459,6 @@
 		E4A961371AC06FA50069AD6F /* ReaderViewLoading.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ReaderViewLoading.html; sourceTree = "<group>"; };
 		E4B423BD1AB9FE6A007E66C8 /* ReaderModeCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderModeCache.swift; sourceTree = "<group>"; };
 		E4B423DC1ABA0318007E66C8 /* ReaderModeHandlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderModeHandlers.swift; sourceTree = "<group>"; };
-		E4C358541AF144BA00299F7E /* FSReadingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSReadingList.m; sourceTree = "<group>"; };
-		E4C358561AF1467A00299F7E /* FSReadingList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSReadingList.h; sourceTree = "<group>"; };
 		E4CD9E901A6897FB00318571 /* ReaderMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderMode.swift; sourceTree = "<group>"; };
 		E4CD9F1C1A6D9C2800318571 /* WebServerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServerTests.swift; sourceTree = "<group>"; };
 		E4CD9F2C1A6DC91200318571 /* TabLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabLocationView.swift; sourceTree = "<group>"; };
@@ -1934,7 +1926,6 @@
 				281B02991C037C1F005202C3 /* TestBrowserDB.swift */,
 				2FCAE27D1ABB533A00877008 /* TestSQLiteHistory.swift */,
 				E63F71871DB7FBE200A995C9 /* TestSQLiteMetadata.swift */,
-				D0B693D4206C5BB9008A8B11 /* TestSQLiteReadingList.swift */,
 				D32CACEC1AE04DA1000658EB /* TestSwiftData.swift */,
 				2FCAE22B1ABB51F800877008 /* Supporting Files */,
 			);
@@ -1959,7 +1950,6 @@
 				C5B4863623328F02001F2E39 /* SQLiteBookmarksSyncing.swift */,
 				2FCAE24B1ABB531100877008 /* BrowserDB.swift */,
 				282915E51AF1A7920006EEB5 /* BrowserSchema.swift */,
-				D07696F720697F9C00FACFD8 /* ReadingListSchema.swift */,
 				D018F93D1F44A7190098F8CA /* Schema.swift */,
 				D0131B4C1F3CF7D8000CDE86 /* SQLiteFavicons.swift */,
 				2FCAE2551ABB531100877008 /* SQLiteHistory.swift */,
@@ -3015,8 +3005,6 @@
 				E4CD9F6C1A77DD2800318571 /* ReaderModeStyleViewController.swift */,
 				E4A961171AC041C40069AD6F /* ReadabilityService.swift */,
 				E4A961371AC06FA50069AD6F /* ReaderViewLoading.html */,
-				E4C358541AF144BA00299F7E /* FSReadingList.m */,
-				E4C358561AF1467A00299F7E /* FSReadingList.h */,
 			);
 			path = Reader;
 			sourceTree = "<group>";
@@ -4245,7 +4233,6 @@
 				C5B4863823328F03001F2E39 /* SQLiteBookmarksModel.swift in Sources */,
 				74B195441CF503FC007F36EF /* RecentlyClosedTabs.swift in Sources */,
 				C5B4863B23328F03001F2E39 /* SQLiteBookmarksSyncing.swift in Sources */,
-				D07696F820697F9C00FACFD8 /* ReadingListSchema.swift in Sources */,
 				C5E94B5A233112CD00D3F31F /* Trees.swift in Sources */,
 				E65075C21E37F956006961AC /* ExtensionUtils.swift in Sources */,
 				C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */,
@@ -4282,7 +4269,6 @@
 			files = (
 				ACB6D4412306BB38002D64E6 /* DeferredTestUtils.swift in Sources */,
 				C8611C8E1F71904C00C3DE7D /* DiskImageStoreTests.swift in Sources */,
-				D0B693D5206C5BB9008A8B11 /* TestSQLiteReadingList.swift in Sources */,
 				E63F71881DB7FBE200A995C9 /* TestSQLiteMetadata.swift in Sources */,
 				289A4C131C4EB90600A460E3 /* StorageTestUtils.swift in Sources */,
 				D37DE2C71CA356D800A5EC69 /* CertTests.swift in Sources */,
@@ -4583,7 +4569,6 @@
 				ACB737E423042BAB00FA5626 /* BookmarksPanel.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
-				ACB737E723042BAB00FA5626 /* FSReadingList.m in Sources */,
 				ACB737E823042BAB00FA5626 /* CustomSearchHandler.swift in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				ACB737E923042BAB00FA5626 /* AuthenticationSettingsViewController.swift in Sources */,
@@ -4833,7 +4818,6 @@
 				59A68E0B4ABBF55E14819668 /* BookmarksPanel.swift in Sources */,
 				D04D1B862097859B0074B35F /* DownloadToast.swift in Sources */,
 				7B844E3D1BBDDB9D00E733A2 /* ChevronView.swift in Sources */,
-				E4C358551AF144BA00299F7E /* FSReadingList.m in Sources */,
 				ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				3BE7275D1CCFE8B60099189F /* CustomSearchHandler.swift in Sources */,
 				B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */,

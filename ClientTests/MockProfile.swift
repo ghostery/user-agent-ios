@@ -60,14 +60,12 @@ open class MockProfile: Client.Profile {
     }()
 
     var db: BrowserDB
-    var readingListDB: BrowserDB
 
     fileprivate let name: String = "mockaccount"
 
     init(databasePrefix: String = "mock") {
         files = MockFiles()
         db = BrowserDB(filename: "\(databasePrefix).db", schema: BrowserSchema(), files: files)
-        readingListDB = BrowserDB(filename: "\(databasePrefix)_ReadingList.db", schema: ReadingListSchema(), files: files)
         places = SQLiteHistory(db: self.db, prefs: MockProfilePrefs())
         recommendations = places
         history = places
@@ -125,10 +123,6 @@ open class MockProfile: Client.Profile {
 
     lazy public var prefs: Prefs = {
         return MockProfilePrefs()
-    }()
-
-    lazy public var readingList: ReadingList = {
-        return SQLiteReadingList(db: self.readingListDB)
     }()
 
     lazy public var recentlyClosedTabs: ClosedTabsStore = {

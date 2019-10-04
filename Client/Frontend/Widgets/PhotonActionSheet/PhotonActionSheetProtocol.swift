@@ -192,7 +192,7 @@ extension PhotonActionSheetProtocol {
 
         var mainActions = [sharePage]
 
-        // Disable bookmarking and reading list if the URL is too long.
+        // Disable bookmarking if the URL is too long.
         if !tab.urlIsTooLong {
             mainActions.append(isBookmarked ? removeBookmark : bookmarkPage)
         }

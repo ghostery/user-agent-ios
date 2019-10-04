@@ -217,7 +217,6 @@ extension Strings {
     public static let SettingsNewTabTopSites = String(format: NSLocalizedString("Settings.NewTab.Option.Home", comment: "Option in settings to show Firefox Home when you open a new tab"), AppInfo.displayName)
     public static let SettingsNewTabBookmarks = NSLocalizedString("Settings.NewTab.Option.Bookmarks", comment: "Option in settings to show bookmarks when you open a new tab")
     public static let SettingsNewTabHistory = NSLocalizedString("Settings.NewTab.Option.History", comment: "Option in settings to show history when you open a new tab")
-    public static let SettingsNewTabReadingList = NSLocalizedString("Settings.NewTab.Option.ReadingList", comment: "Option in settings to show reading list when you open a new tab")
     public static let SettingsNewTabBlankPage = NSLocalizedString("Settings.NewTab.Option.BlankPage", comment: "Option in settings to show a blank page when you open a new tab")
     public static let SettingsNewTabHomePage = NSLocalizedString("Settings.NewTab.Option.HomePage", comment: "Option in settings to show your homepage when you open a new tab")
     public static let SettingsNewTabDescription = NSLocalizedString("Settings.NewTab.Description", comment: "A description in settings of what the new tab choice means")
@@ -443,7 +442,6 @@ extension Strings {
 // App menu.
 extension Strings {
     public static let AppMenuLibraryTitleString = NSLocalizedString("Menu.Library.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the Library")
-    public static let AppMenuAddToReadingListTitleString = NSLocalizedString("Menu.AddToReadingList.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to add a page to the reading list.")
     public static let AppMenuShowTabsTitleString = NSLocalizedString("Menu.ShowTabs.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the tabs tray")
     public static let AppMenuSharePageTitleString = NSLocalizedString("Menu.SharePageAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the share dialog.")
     public static let AppMenuCopyURLTitleString = NSLocalizedString("Menu.CopyAddress.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to copy the page url to the clipboard.")
@@ -460,7 +458,6 @@ extension Strings {
     public static let AppMenuOpenHomePageTitleString = NSLocalizedString("Menu.OpenHomePageAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to navigate to the home page.")
     public static let AppMenuTopSitesTitleString = NSLocalizedString("Menu.OpenTopSitesAction.AccessibilityLabel", tableName: "Menu", comment: "Accessibility label for the button, displayed in the menu, used to open the Top Sites home panel.")
     public static let AppMenuBookmarksTitleString = NSLocalizedString("Menu.OpenBookmarksAction.AccessibilityLabel", tableName: "Menu", comment: "Accessibility label for the button, displayed in the menu, used to open the Bbookmarks home panel.")
-    public static let AppMenuReadingListTitleString = NSLocalizedString("Menu.OpenReadingListAction.AccessibilityLabel", tableName: "Menu", comment: "Accessibility label for the button, displayed in the menu, used to open the Reading list home panel.")
     public static let AppMenuHistoryTitleString = NSLocalizedString("Menu.OpenHistoryAction.AccessibilityLabel", tableName: "Menu", comment: "Accessibility label for the button, displayed in the menu, used to open the History home panel.")
     public static let AppMenuDownloadsTitleString = NSLocalizedString("Menu.OpenDownloadsAction.AccessibilityLabel", tableName: "Menu", comment: "Accessibility label for the button, displayed in the menu, used to open the Downloads home panel.")
     public static let AppMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.AccessibilityLabel", comment: "Accessibility label for the Menu button.")
