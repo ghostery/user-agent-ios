@@ -2078,6 +2078,7 @@
 		463432F6233251F70014A9F0 /* UserAgent */ = {
 			isa = PBXGroup;
 			children = (
+				AC65328C2347674D00FC7ADB /* Home View */,
 				C56ED494233B68C7006A63B1 /* Interceptor */,
 				46828D87233E213A00E7D8A3 /* Views */,
 				463432F72332521F0014A9F0 /* Telemetry.swift */,
@@ -2125,7 +2126,6 @@
 		46CA60FE2317F8EF0010CE6B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
 				46CA60D0231554980010CE6B /* SearchResultsViewController.swift */,
 				AC65328A2344E3D000FC7ADB /* TopSitesView.swift */,
 			);
@@ -2195,6 +2195,14 @@
 				7B42406D1CA04CAC009B5C28 /* Menu.xcassets */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		AC65328C2347674D00FC7ADB /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
+			);
+			path = "Home View";
 			sourceTree = "<group>";
 		};
 		ACB739882306837000FA5626 /* Translations */ = {
