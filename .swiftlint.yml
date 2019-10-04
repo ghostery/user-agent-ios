@@ -36,7 +36,6 @@ disabled_rules: # rule identifiers to exclude from running
 # The following rules are disabled for now because firefox code breaks them. Try to reintroduce them gradually
   - force_try
   - force_cast
-  - unused_setter_value
   - notification_center_detachment
 
 
