@@ -158,7 +158,7 @@ class BackForwardListViewController: UIViewController, UITableViewDataSource, UI
                 }
                 make.height.equalTo(0)
             }
-            snappedToBottom = !snappedToBottom
+            snappedToBottom.toggle()
         }
     }
 

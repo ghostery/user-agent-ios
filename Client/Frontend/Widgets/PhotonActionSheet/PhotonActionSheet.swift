@@ -244,7 +244,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         if action.accessory == .Switch {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
-            action.isEnabled = !action.isEnabled
+            action.isEnabled.toggle()
             actions[indexPath.section][indexPath.row] = action
             self.tableView.deselectRow(at: indexPath, animated: true)
             self.tableView.reloadData()

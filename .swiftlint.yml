@@ -65,6 +65,7 @@ opt_in_rules: # some rules are only opt-in
   - protocol_property_accessors_order
   - redundant_objc_attribute
   - unused_import
+  - toggle_bool
 
   # The following rules are disabled for now because firefox code breaks them. Try to reintroduce them gradually
   # - discouraged_optional_collection

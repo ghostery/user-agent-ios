@@ -491,7 +491,7 @@ class Tab: NSObject {
     }
 
     func toggleDesktopSite() {
-        desktopSite = !desktopSite
+        desktopSite.toggle()
         reload()
         TabEvent.post(.didToggleDesktopMode, for: self)
     }
