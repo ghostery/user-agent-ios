@@ -91,6 +91,6 @@ class InstructionsViewController: UIViewController {
     }
 
     func showMeHow() {
-        print("Show me how") // TODO Not sure what to do or if to keep this. Waiting for UX feedback.
+        print("Show me how")
     }
 }

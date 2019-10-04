@@ -105,7 +105,7 @@ class BrowserViewController: UIViewController {
     var downloadToast: DownloadToast? // A toast that is showing the combined download progress
 
     // Tracking navigation items to record history types.
-    // TODO: weak references?
+    // TO DO : weak references?
     var ignoredNavigation = Set<WKNavigation>()
     var typedNavigation = [WKNavigation: VisitType]()
     var navigationToolbar: TabToolbarProtocol {
@@ -1138,7 +1138,7 @@ extension BrowserViewController: PresentingModalViewControllerDelegate {
 
 /**
  * History visit management.
- * TODO: this should be expanded to track various visit types; see Bug 1166084.
+ * TO DO: this should be expanded to track various visit types; see Bug 1166084.
  */
 extension BrowserViewController {
     func ignoreNavigationInTab(_ tab: Tab, navigation: WKNavigation) {
@@ -1271,7 +1271,7 @@ extension BrowserViewController: URLBarDelegate {
         switch result.value {
         case .success:
             UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: NSLocalizedString("Added page to Reading List", comment: "Accessibility message e.g. spoken by VoiceOver after the current page gets added to the Reading List using the Reader View button, e.g. by long-pressing it or by its accessibility custom action."))
-            // TODO: https://bugzilla.mozilla.org/show_bug.cgi?id=1158503 provide some form of 'this has been added' visual feedback?
+            // TO DO : https://bugzilla.mozilla.org/show_bug.cgi?id=1158503 provide some form of 'this has been added' visual feedback?
         case .failure(let error):
             UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: NSLocalizedString("Could not add page to Reading List. Maybe it’s already there?", comment: "Accessibility message e.g. spoken by VoiceOver after the user wanted to add current page to the Reading List and this was not done, likely because it already was in the Reading List, but perhaps also because of real failures."))
             print("readingList.createRecordWithURL(url: \"\(url.absoluteString)\", ...) failed with error: \(error)")
@@ -1354,7 +1354,7 @@ extension BrowserViewController: URLBarDelegate {
             return
         }
 
-        // TODO: We need a `getURLForKeywordSearch` API in RustPlaces to
+        // TO DO : We need a `getURLForKeywordSearch` API in RustPlaces to
         // handle the keyword search.
         submitSearchText(text, forTab: currentTab)
         /*

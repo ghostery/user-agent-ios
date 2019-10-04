@@ -387,7 +387,7 @@ public struct InternalURL {
             return false
         }
 
-        // TODO: (reader-mode-custom-scheme) remove isWebServerUrl when updating code.
+        // (reader-mode-custom-scheme) remove isWebServerUrl when updating code.
         return isWebServerUrl || InternalURL.scheme == url.scheme
     }
 

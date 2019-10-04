@@ -119,7 +119,7 @@ public func ==(lhs: SiteVisit, rhs: SiteVisit) -> Bool {
         }
     }
 
-    // TODO: compare Site.
+    // TO DO : compare Site.
     return lhs.date == rhs.date &&
            lhs.type == rhs.type
 }

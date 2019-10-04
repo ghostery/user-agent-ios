@@ -26,7 +26,7 @@ extension BrowserViewController: InterceptorUI {
 
         alert.addAction(UIAlertAction(title: Strings.InterceptorUIAntiPhishingContinue, style: .destructive, handler: { (action) in
             policy.whitelistUrl(url)
-            // TODO: reload works only after second try. Same bug we have in old Cliqz. We need to investigate.
+            // TO DO : reload works only after second try. Same bug we have in old Cliqz. We need to investigate.
             tab.loadRequest(PrivilegedRequest(url: url) as URLRequest)
         }))
 

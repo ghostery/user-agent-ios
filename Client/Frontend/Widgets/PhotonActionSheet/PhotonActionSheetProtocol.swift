@@ -59,7 +59,7 @@ extension PhotonActionSheetProtocol {
     /*
      Returns a list of actions which is used to build the general browser menu
      These items repersent global options that are presented in the menu
-     TODO: These icons should all have the icons and use Strings.swift
+     TO DO: These icons should all have the icons and use Strings.swift
      */
 
     typealias PageOptionsVC = SettingsDelegate & PresentingModalViewControllerDelegate & UIViewController

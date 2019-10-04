@@ -6,7 +6,6 @@ import UIKit
 import Shared
 
 private struct ReaderModeStyleViewControllerUX {
-    // TODO Erica can't find this to visually test
     static let RowHeight = 50
 
     static let Width = 270
@@ -305,7 +304,7 @@ class FontSizeButton: UIButton {
             accessibilityLabel = Strings.ReaderModeResetFontSizeAccessibilityLabel
         }
 
-        // TODO Does this need to change with the selected font type? Not sure if makes sense for just +/-
+        // Does this need to change with the selected font type? Not sure if makes sense for just +/-
         titleLabel?.font = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
     }
 }
@@ -321,7 +320,6 @@ class FontSizeLabel: UILabel {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        // TODO
         fatalError("init(coder:) has not been implemented")
     }
 

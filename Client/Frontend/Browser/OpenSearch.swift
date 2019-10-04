@@ -246,7 +246,7 @@ class OpenSearchParser {
         var largestImage = 0
         var largestImageElement: XMLElement?
 
-        // TODO: For now, just use the largest icon.
+        // TO DO : For now, just use the largest icon.
         for imageIndexer in imageIndexers {
             let imageWidth = Int(imageIndexer.attributes["width"] ?? "")
             let imageHeight = Int(imageIndexer.attributes["height"] ?? "")

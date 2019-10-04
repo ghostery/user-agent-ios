@@ -8,7 +8,7 @@ import Shared
 
 import XCTest
 
-// TODO: rewrite this test to not use BrowserSchema. It used to use HistoryTable…
+// TO DO : rewrite this test to not use BrowserSchema. It used to use HistoryTable…
 class TestSwiftData: XCTestCase {
     var swiftData: SwiftData?
     var urlCounter = 1

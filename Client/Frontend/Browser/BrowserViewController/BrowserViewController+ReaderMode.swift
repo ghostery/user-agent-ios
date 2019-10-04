@@ -196,13 +196,13 @@ extension BrowserViewController: ReaderModeBarViewDelegate {
 
         case .markAsRead:
             if let url = self.tabManager.selectedTab?.url?.displayURL?.absoluteString, let record = profile.readingList.getRecordWithURL(url).value.successValue {
-                profile.readingList.updateRecord(record, unread: false) // TODO Check result, can this fail?
+                profile.readingList.updateRecord(record, unread: false) // TO DO Check result, can this fail?
                 readerModeBar.unread = false
             }
 
         case .markAsUnread:
             if let url = self.tabManager.selectedTab?.url?.displayURL?.absoluteString, let record = profile.readingList.getRecordWithURL(url).value.successValue {
-                profile.readingList.updateRecord(record, unread: true) // TODO Check result, can this fail?
+                profile.readingList.updateRecord(record, unread: true) // TO DO Check result, can this fail?
                 readerModeBar.unread = true
             }
 
@@ -210,7 +210,7 @@ extension BrowserViewController: ReaderModeBarViewDelegate {
             if let tab = tabManager.selectedTab,
                 let rawURL = tab.url, rawURL.isReaderModeURL,
                 let url = rawURL.decodeReaderModeURL {
-                profile.readingList.createRecordWithURL(url.absoluteString, title: tab.title ?? "", addedBy: UIDevice.current.name) // TODO Check result, can this fail?
+                profile.readingList.createRecordWithURL(url.absoluteString, title: tab.title ?? "", addedBy: UIDevice.current.name) // TO DO Check result, can this fail?
                 readerModeBar.added = true
                 readerModeBar.unread = true
             }
@@ -218,7 +218,7 @@ extension BrowserViewController: ReaderModeBarViewDelegate {
         case .removeFromReadingList:
             if let url = self.tabManager.selectedTab?.url?.displayURL?.absoluteString,
                 let record = profile.readingList.getRecordWithURL(url).value.successValue {
-                profile.readingList.deleteRecord(record) // TODO Check result, can this fail?
+                profile.readingList.deleteRecord(record) // TO DO Check result, can this fail?
                 readerModeBar.added = false
                 readerModeBar.unread = false
             }

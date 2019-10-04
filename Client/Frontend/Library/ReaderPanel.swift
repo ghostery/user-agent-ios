@@ -107,7 +107,7 @@ class ReadingListTableViewCell: UITableViewCell, Themeable {
         titleLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.contentView).offset(ReadingListTableViewCellUX.TitleLabelTopOffset)
             make.leading.equalTo(self.contentView).offset(ReadingListTableViewCellUX.TitleLabelLeftOffset)
-            make.trailing.equalTo(self.contentView).offset(ReadingListTableViewCellUX.TitleLabelRightOffset) // TODO Not clear from ux spec
+            make.trailing.equalTo(self.contentView).offset(ReadingListTableViewCellUX.TitleLabelRightOffset)
             make.bottom.lessThanOrEqualTo(hostnameLabel.snp.top).priority(1000)
         }
 

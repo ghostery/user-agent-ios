@@ -194,7 +194,7 @@ extension SQLiteBookmarks {
             row.getBoolean("is_overridden")
         }
 
-        // TODO: these can be merged into a single query.
+        // TO DO : these can be merged into a single query.
         let mirrorStatusSQL = "SELECT is_overridden FROM bookmarksMirror WHERE guid = ?"
         let localStatusSQL = "SELECT sync_status, is_deleted FROM bookmarksLocal WHERE guid = ?"
         let mirrorStatus = conn.executeQuery(mirrorStatusSQL, factory: overriddenFactory, withArgs: parentArgs)[0]
@@ -367,7 +367,7 @@ open class SQLiteBookmarkBufferStorage {
     /**
      * This is a little gnarly because our DB access layer is rough.
      * Within a single transaction, we walk the list of items, attempting to update
-     * and inserting if the update failed. (TODO: batch the inserts!)
+     * and inserting if the update failed. (TO DO: batch the inserts!)
      * Once we've added all of the records, we flatten all of their children
      * into big arg lists and hard-update the structure table.
      */

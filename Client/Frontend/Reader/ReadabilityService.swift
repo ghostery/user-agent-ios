@@ -69,10 +69,10 @@ class ReadabilityOperation: Operation {
                     try readerModeCache.put(url, readabilityResult)
                 } catch let error as NSError {
                     print("Failed to store readability results in the cache: \(error.localizedDescription)")
-                    // TODO Fail
+                    // TO DO Fail
                 }
             case .error(_):
-                // TODO Not entitely sure what to do on error. Needs UX discussion and followup bug.
+                // Not entitely sure what to do on error. Needs UX discussion and followup bug.
                 break
             }
         }

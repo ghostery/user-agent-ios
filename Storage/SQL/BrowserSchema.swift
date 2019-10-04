@@ -171,7 +171,7 @@ open class BrowserSchema: Schema {
         return true
     }
 
-    // TODO: transaction.
+    // TO DO : transaction.
     func run(_ db: SQLiteDBConnection, queries: [(String, Args?)]) -> Bool {
         for (sql, args) in queries {
             if !run(db, sql: sql, args: args) {
@@ -575,7 +575,7 @@ open class BrowserSchema: Schema {
             NOT EXISTS (SELECT 1 FROM pending_deletions deletions WHERE deletions.id = guid)
         """
 
-    // TODO: phrase this without the subselect…
+    // TO DO : phrase this without the subselect…
     fileprivate let bufferBookmarksStructureView = """
         CREATE VIEW view_bookmarksBufferStructure_on_mirror AS
         -- We don't need to exclude deleted parents, because we drop those from the structure
@@ -598,7 +598,7 @@ open class BrowserSchema: Schema {
         FROM bookmarksLocal WHERE is_deleted IS NOT 1
         """
 
-    // TODO: phrase this without the subselect…
+    // TO DO : phrase this without the subselect…
     fileprivate let localBookmarksStructureView = """
         CREATE VIEW view_bookmarksLocalStructure_on_mirror AS
         SELECT parent, child, idx, 1 AS is_overridden
@@ -1110,7 +1110,7 @@ open class BrowserSchema: Schema {
                !self.run(db, queries: migrate) {
                 return false
             }
-            // TODO: trigger a sync?
+            // TO DO : trigger a sync?
         }
 
         // Add views for the overlays.

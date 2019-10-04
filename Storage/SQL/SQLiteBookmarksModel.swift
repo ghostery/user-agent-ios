@@ -324,7 +324,7 @@ extension SQLiteBookmarks {
     fileprivate func overrideParentsOfGUIDs(_ guids: [GUID]) -> Success {
         log.debug("Overriding parents of \(guids).")
 
-        // TODO: Yes, this can be done in one go.
+        // TO DO : Yes, this can be done in one go.
         let getParentsSQL =
             "SELECT DISTINCT parent FROM view_bookmarksLocalStructure_on_mirror WHERE child IN \(BrowserDB.varlist(guids.count)) AND is_overridden = 0"
         let getParentsArgs: Args = guids
@@ -450,7 +450,7 @@ extension SQLiteBookmarks {
         let markChanged = self.getMarkDeletedSQLWithWhereFragment("guid = ?")
 
         // Its parent must be either New or Changed, so we don't need to re-mirror it.
-        // TODO: bump the parent's modified time, because the child list changed?
+        // TO DO : bump the parent's modified time, because the child list changed?
 
         // Now delete from structure.
         let deleteStructure = "DELETE FROM bookmarksLocalStructure WHERE child = ?"
@@ -495,7 +495,7 @@ class SQLiteBookmarkFolder: BookmarkFolder {
 
 class BookmarkFactory {
     fileprivate class func addIcon(_ bookmark: BookmarkNode, row: SDRow) {
-        // TODO: share this logic with SQLiteHistory.
+        // TO DO : share this logic with SQLiteHistory.
         if let faviconURL = row["iconURL"] as? String,
            let date = row["iconDate"] as? Double {
                 bookmark.favicon = Favicon(url: faviconURL,
@@ -507,7 +507,7 @@ class BookmarkFactory {
         let id = row["id"] as? Int
         let guid = row["guid"] as! String
         let url = row["siteUri"] as! String
-        let title = row["title"] as? String ?? "Livemark"       // TODO
+        let title = row["title"] as? String ?? "Livemark"
         let isEditable = row.getBoolean("isEditable")           // Defaults to false.
         let bookmark = BookmarkItem(guid: guid, title: title, url: url, isEditable: isEditable)
         bookmark.id = id
@@ -597,7 +597,7 @@ class BookmarkFactory {
 
     // N.B., doesn't include children!
     class func mirrorItemFactory(_ row: SDRow) -> BookmarkMirrorItem {
-        // TODO
+        // TO DO
         // let id = row["id"] as! Int
 
         let guid = row["guid"] as! GUID
@@ -627,7 +627,7 @@ class BookmarkFactory {
         let server_modified = row.getTimestamp("server_modified")
         let hasDupe = row.getBoolean("hasDupe")
 
-        // Mirror only. TODO
+        // Mirror only. TO DO
         //let is_overridden = row.getBoolean("is_overridden")
 
         // Use the struct initializer directly. Yes, this doesn't validate as strongly as

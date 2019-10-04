@@ -512,7 +512,7 @@ extension AppDelegate {
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // TODO: Check if this whole method can be removed, seeing that we don't Accound and Sync modules any more
+        // TO DO : Check if this whole method can be removed, seeing that we don't Accound and Sync modules any more
 
         if Logger.logPII && log.isEnabledFor(level: .info) {
             NSLog("APNS NOTIFICATION \(userInfo)")

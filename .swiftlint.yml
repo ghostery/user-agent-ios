@@ -1,6 +1,5 @@
 disabled_rules: # rule identifiers to exclude from running
   - variable_name
-  - todo
   - trailing_newline
   - type_name
   - function_body_length

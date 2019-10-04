@@ -95,7 +95,7 @@ class Tab: NSObject {
 
     var webView: WKWebView?
     var tabDelegate: TabDelegate?
-    weak var urlDidChangeDelegate: URLChangeDelegate?     // TODO: generalize this.
+    weak var urlDidChangeDelegate: URLChangeDelegate?     // TO DO : generalize this.
     var bars = [SnackBar]()
     var favicons = [Favicon]()
     var lastExecutedTime: Timestamp?

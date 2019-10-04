@@ -27,7 +27,7 @@ open class Favicon: Identifiable {
     }
 }
 
-// TODO: Site shouldn't have all of these optional decorators. Include those in the
+// TO DO: Site shouldn't have all of these optional decorators. Include those in the
 // cursor results, perhaps as a tuple.
 open class Site: Identifiable {
     open var id: Int?

@@ -837,7 +837,7 @@ fi
 // This domain is being phased out in favor of .ax. As there are still many
 // domains under aland.fi, we still keep it on the list until aland.fi is
 // completely removed.
-// TODO: Check for updates (expected to be phased out around Q1/2009)
+// TO DO : Check for updates (expected to be phased out around Q1/2009)
 aland.fi
 
 // fj : http://en.wikipedia.org/wiki/.fj

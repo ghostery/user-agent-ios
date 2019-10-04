@@ -421,7 +421,7 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
 
         assert(!(bookmark is BookmarkFolder))
         if bookmark is BookmarkFolder {
-            // TODO: check whether the folder is empty (excluding separators). If it isn't
+            // TO DO : check whether the folder is empty (excluding separators). If it isn't
             // then we must ask the user to confirm. Bug 1232810.
             log.debug("Not deleting folder.")
             return

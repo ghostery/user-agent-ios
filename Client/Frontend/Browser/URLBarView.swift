@@ -161,7 +161,7 @@ class URLBarView: UIView {
         let button = UIButton()
         // This button interferes with accessibility of the URL bar as it partially overlays it, and keeps getting the VoiceOver focus
         // instead of the URL bar.
-        // @TODO: figure out if there is an iOS standard way to do this that works with accessibility.
+        // TO DO: figure out if there is an iOS standard way to do this that works with accessibility.
         button.isAccessibilityElement = false
         button.addTarget(self, action: #selector(tappedScrollToTopArea), for: .touchUpInside)
         return button
