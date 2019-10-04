@@ -20,7 +20,6 @@ disabled_rules: # rule identifiers to exclude from running
   - unused_optional_binding
   - private_over_fileprivate
   - empty_enum_arguments
-  - discarded_notification_center_observer
   - block_based_kvo
   - nesting
   - is_disjoint
