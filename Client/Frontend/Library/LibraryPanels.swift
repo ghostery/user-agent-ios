@@ -25,8 +25,7 @@ protocol LibraryPanelDelegate: AnyObject {
 enum LibraryPanelType: Int {
     case bookmarks = 0
     case history = 1
-    case readingList = 2
-    case downloads = 3
+    case downloads = 2
 }
 
 /**
@@ -86,15 +85,6 @@ class LibraryPanels {
             imageName: "History",
             accessibilityLabel: NSLocalizedString("History", comment: "Panel accessibility label"),
             accessibilityIdentifier: "LibraryPanels.History"),
-
-        LibraryPanelDescriptor(
-            makeViewController: { profile in
-                return ReadingListPanel(profile: profile)
-            },
-            profile: profile,
-            imageName: "ReadingList",
-            accessibilityLabel: NSLocalizedString("Reading list", comment: "Panel accessibility label"),
-            accessibilityIdentifier: "LibraryPanels.ReadingList"),
 
         LibraryPanelDescriptor(
             makeViewController: { profile in

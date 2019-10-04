@@ -45,14 +45,6 @@ extension BrowserViewController {
     func updateReaderModeBar() {
         if let readerModeBar = readerModeBar {
             readerModeBar.applyTheme()
-
-            if let url = self.tabManager.selectedTab?.url?.displayURL?.absoluteString, let record = profile.readingList.getRecordWithURL(url).value.successValue {
-                readerModeBar.unread = record.unread
-                readerModeBar.added = true
-            } else {
-                readerModeBar.unread = true
-                readerModeBar.added = false
-            }
         }
     }
 
@@ -94,7 +86,7 @@ extension BrowserViewController {
 
         if backList.count > 1 && backList.last?.url == readerModeURL {
             webView.go(to: backList.last!)
-        } else if !forwardList.isEmpty && forwardList.first?.url == readerModeURL {
+        } else if forwardList.count > 0 && forwardList.first?.url == readerModeURL {
             webView.go(to: forwardList.first!)
         } else {
             // Store the readability result in the cache and load it. This will later move to the ReadabilityHelper.
@@ -104,7 +96,7 @@ extension BrowserViewController {
                         try self.readerModeCache.put(currentURL, readabilityResult)
                     } catch _ {
                     }
-
+                    
                     if let nav = webView.load(PrivilegedRequest(url: readerModeURL) as URLRequest) {
                         self.ignoreNavigationInTab(tab, navigation: nav)
                     }
@@ -128,7 +120,6 @@ extension BrowserViewController {
                 if let originalURL = currentURL.decodeReaderModeURL {
                     if backList.count > 1 && backList.last?.url == originalURL {
                         webView.go(to: backList.last!)
-                    // swiftlint:disable:next empty_count
                     } else if forwardList.count > 0 && forwardList.first?.url == originalURL {
                         webView.go(to: forwardList.first!)
                     } else {
@@ -192,35 +183,6 @@ extension BrowserViewController: ReaderModeBarViewDelegate {
                 }
 
                 self.present(readerModeStyleViewController, animated: true, completion: nil)
-            }
-
-        case .markAsRead:
-            if let url = self.tabManager.selectedTab?.url?.displayURL?.absoluteString, let record = profile.readingList.getRecordWithURL(url).value.successValue {
-                profile.readingList.updateRecord(record, unread: false) // TO DO Check result, can this fail?
-                readerModeBar.unread = false
-            }
-
-        case .markAsUnread:
-            if let url = self.tabManager.selectedTab?.url?.displayURL?.absoluteString, let record = profile.readingList.getRecordWithURL(url).value.successValue {
-                profile.readingList.updateRecord(record, unread: true) // TO DO Check result, can this fail?
-                readerModeBar.unread = true
-            }
-
-        case .addToReadingList:
-            if let tab = tabManager.selectedTab,
-                let rawURL = tab.url, rawURL.isReaderModeURL,
-                let url = rawURL.decodeReaderModeURL {
-                profile.readingList.createRecordWithURL(url.absoluteString, title: tab.title ?? "", addedBy: UIDevice.current.name) // TO DO Check result, can this fail?
-                readerModeBar.added = true
-                readerModeBar.unread = true
-            }
-
-        case .removeFromReadingList:
-            if let url = self.tabManager.selectedTab?.url?.displayURL?.absoluteString,
-                let record = profile.readingList.getRecordWithURL(url).value.successValue {
-                profile.readingList.deleteRecord(record) // TO DO Check result, can this fail?
-                readerModeBar.added = false
-                readerModeBar.unread = false
             }
         }
     }

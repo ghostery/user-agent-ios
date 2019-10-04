@@ -1,9 +1,6 @@
 /* Label for the button, displayed in the menu, used to create a bookmark for the current website. */
 "Menu.AddBookmarkAction.Title" = "Lesezeichen für diese Seite hinzufügen";
 
-/* Label for the button, displayed in the menu, used to add a page to the reading list. */
-"Menu.AddToReadingList.Title" = "Zur Leseliste hinzufügen";
-
 /* Label for the button, displayed in the menu, used to close all tabs currently open. */
 "Menu.CloseAllTabsAction.Title" = "Alle Tabs schließen";
 
@@ -33,9 +30,6 @@
 
 /* Label for the button, displayed in the menu, used to navigate to the home page. */
 "Menu.OpenHomePageAction.Title" = "Startseite";
-
-/* Accessibility label for the button, displayed in the menu, used to open the Reading list home panel. */
-"Menu.OpenReadingListAction.AccessibilityLabel" = "Leseliste";
 
 /* Label for the button, displayed in the menu, used to open the Settings menu. */
 "Menu.OpenSettingsAction.Title" = "Einstel­lungen";

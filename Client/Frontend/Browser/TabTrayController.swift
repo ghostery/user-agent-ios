@@ -34,7 +34,6 @@ protocol TabTrayDelegate: AnyObject {
     func tabTrayDidDismiss(_ tabTray: TabTrayController)
     func tabTrayDidAddTab(_ tabTray: TabTrayController, tab: Tab)
     func tabTrayDidAddBookmark(_ tab: Tab)
-    func tabTrayDidAddToReadingList(_ tab: Tab) -> ReadingListItem?
     func tabTrayRequestsPresentationOf(_ viewController: UIViewController)
 }
 
@@ -604,10 +603,6 @@ extension TabTrayController: TabPeekDelegate {
 
     func tabPeekDidAddBookmark(_ tab: Tab) {
         delegate?.tabTrayDidAddBookmark(tab)
-    }
-
-    func tabPeekDidAddToReadingList(_ tab: Tab) -> ReadingListItem? {
-        return delegate?.tabTrayDidAddToReadingList(tab)
     }
 
     func tabPeekDidCloseTab(_ tab: Tab) {
