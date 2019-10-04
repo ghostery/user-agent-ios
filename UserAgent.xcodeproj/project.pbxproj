@@ -156,6 +156,10 @@
 		46828D8A233E213A00E7D8A3 /* PrivacyIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */; };
 		46828D8E2341F23300E7D8A3 /* UserAgent.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46828D912341F23300E7D8A3 /* UserAgent.strings */; };
 		46828D8F2341F23300E7D8A3 /* UserAgent.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46828D912341F23300E7D8A3 /* UserAgent.strings */; };
+		46A4C4D32347757800F4BCE0 /* AutoCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */; };
+		46A4C4D42347757800F4BCE0 /* AutoCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */; };
+		46A4C4D6234775A800F4BCE0 /* AutoCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */; };
+		46A4C4D7234775A800F4BCE0 /* AutoCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */; };
 		46B68D282314201F0091156C /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
 		46B68D29231420200091156C /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
 		46B68D30231420DD0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
@@ -242,6 +246,8 @@
 		A83E5B1D1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5B1C1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift */; };
 		A83E5B1E1C1DAAAA0026D912 /* UIPasteboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */; };
 		A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */; };
+		AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
+		AC65328E23476CDF00FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
 		ACB6D4322306AC35002D64E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */; };
 		ACB6D4412306BB38002D64E6 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6D4402306BB38002D64E6 /* DeferredTestUtils.swift */; };
 		ACB6D4422306BB38002D64E6 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6D4402306BB38002D64E6 /* DeferredTestUtils.swift */; };
@@ -1174,6 +1180,8 @@
 		46828D922341F23800E7D8A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/UserAgent.strings; sourceTree = "<group>"; };
 		46947784232A982100129B51 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
 		46947785232A983500129B51 /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
+		46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompletion.swift; sourceTree = "<group>"; };
+		46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCompletion.m; sourceTree = "<group>"; };
 		46B68D2B231420930091156C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46BE36A12344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySuggestionsInputAccessoryView.swift; sourceTree = "<group>"; };
 		46BE36A52344D34800DADCB6 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
@@ -1266,6 +1274,7 @@
 		A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightModeHelper.swift; sourceTree = "<group>"; };
 		AB6FF2698BCC5B9E5E6A685C /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBF3643A363A265DF18EC61 /* Pods-Lumen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.release.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.release.xcconfig"; sourceTree = "<group>"; };
+		AC65328A2344E3D000FC7ADB /* TopSitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSitesView.swift; sourceTree = "<group>"; };
 		ACB6D4332306ACE3002D64E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACB6D4362306B29A002D64E6 /* azure-pipelines.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "azure-pipelines.yml"; sourceTree = "<group>"; };
 		ACB6D4382306B2B1002D64E6 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
@@ -2076,6 +2085,7 @@
 		463432F6233251F70014A9F0 /* UserAgent */ = {
 			isa = PBXGroup;
 			children = (
+				AC65328C2347674D00FC7ADB /* Home View */,
 				C56ED494233B68C7006A63B1 /* Interceptor */,
 				46828D87233E213A00E7D8A3 /* Views */,
 				463432F72332521F0014A9F0 /* Telemetry.swift */,
@@ -2118,6 +2128,8 @@
 		46CA60D42316B9D00010CE6B /* NativeModules */ = {
 			isa = PBXGroup;
 			children = (
+				46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */,
+				46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */,
 				46CA60DF2316CF300010CE6B /* BrowserActions.m */,
 				46CA60DB2316CED70010CE6B /* BrowserActions.swift */,
 				46CA60D72316BB3A0010CE6B /* History.m */,
@@ -2133,7 +2145,6 @@
 		46CA60FE2317F8EF0010CE6B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
 				46CA60D0231554980010CE6B /* SearchResultsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -2202,6 +2213,15 @@
 				7B42406D1CA04CAC009B5C28 /* Menu.xcassets */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		AC65328C2347674D00FC7ADB /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
+				AC65328A2344E3D000FC7ADB /* TopSitesView.swift */,
+			);
+			path = "Home View";
 			sourceTree = "<group>";
 		};
 		ACB739882306837000FA5626 /* Translations */ = {
@@ -4454,6 +4474,7 @@
 				ACB7375E23042BAB00FA5626 /* MetadataParserHelper.swift in Sources */,
 				ACB7375F23042BAB00FA5626 /* InsetButton.swift in Sources */,
 				ACB7376023042BAB00FA5626 /* TabDisplayManager.swift in Sources */,
+				46A4C4D42347757800F4BCE0 /* AutoCompletion.swift in Sources */,
 				ACB7376123042BAB00FA5626 /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
 				ACB7376223042BAB00FA5626 /* PrivilegedRequest.swift in Sources */,
 				ACB7376323042BAB00FA5626 /* SnapKitExtensions.swift in Sources */,
@@ -4471,6 +4492,7 @@
 				ACB7376F23042BAB00FA5626 /* HomePageAccessors.swift in Sources */,
 				ACB7377023042BAB00FA5626 /* OpenInHelper.swift in Sources */,
 				ACB7377123042BAB00FA5626 /* ReaderModeCache.swift in Sources */,
+				AC65328E23476CDF00FC7ADB /* TopSitesView.swift in Sources */,
 				ACB7377223042BAB00FA5626 /* TabTrayController+KeyCommands.swift in Sources */,
 				ACB7377323042BAB00FA5626 /* SettingsContentViewController.swift in Sources */,
 				ACB7377423042BAB00FA5626 /* FirefoxTabContentBlocker.swift in Sources */,
@@ -4550,6 +4572,7 @@
 				ACB737C023042BAB00FA5626 /* SimpleToast.swift in Sources */,
 				ACB737C123042BAB00FA5626 /* TrackingProtectionPageStats.swift in Sources */,
 				ACB737C223042BAB00FA5626 /* ScreenshotHelper.swift in Sources */,
+				46A4C4D7234775A800F4BCE0 /* AutoCompletion.m in Sources */,
 				ACB737C323042BAB00FA5626 /* UIImageViewExtensions.swift in Sources */,
 				ACB737C423042BAB00FA5626 /* DocumentServicesHelper.swift in Sources */,
 				ACB737C523042BAB00FA5626 /* TabManager.swift in Sources */,
@@ -4634,6 +4657,7 @@
 				D04CD74A216CF86B004FF5B0 /* SiriShortcuts.swift in Sources */,
 				EB9A179F20E6C1A200B12184 /* ThemedWidgets.swift in Sources */,
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
+				AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */,
 				46CA60F22317E4780010CE6B /* JSBridge.swift in Sources */,
 				E640E86A1C73A47C00C5F072 /* PasscodeViews.swift in Sources */,
 				D029A04920A62DB0001DB72F /* TemporaryDocument.swift in Sources */,
@@ -4702,6 +4726,7 @@
 				0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */,
 				D87F84AC20B891160091F2DA /* TabDisplayManager.swift in Sources */,
 				D0C95EF6201A55A800E4E51C /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
+				46A4C4D32347757800F4BCE0 /* AutoCompletion.swift in Sources */,
 				D31CF65C1CC1959A001D0BD0 /* PrivilegedRequest.swift in Sources */,
 				D8D33A7D1FBD080300A20A28 /* SnapKitExtensions.swift in Sources */,
 				E650755C1E37F747006961AC /* Swizzling.m in Sources */,
@@ -4798,6 +4823,7 @@
 				E68AEDB01B18F81A00133D99 /* SwipeAnimator.swift in Sources */,
 				3BF56D271CDBBE1F00AC4D75 /* SimpleToast.swift in Sources */,
 				EBB89504219398E500EB91A0 /* TrackingProtectionPageStats.swift in Sources */,
+				46A4C4D6234775A800F4BCE0 /* AutoCompletion.m in Sources */,
 				D31F95E91AC226CB005C9F3B /* ScreenshotHelper.swift in Sources */,
 				28EADE5D1AFC3A78007FB2FB /* UIImageViewExtensions.swift in Sources */,
 				39CE74F021A6D2B8007AE4F2 /* DocumentServicesHelper.swift in Sources */,
