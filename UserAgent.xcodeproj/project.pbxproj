@@ -156,6 +156,10 @@
 		46828D8A233E213A00E7D8A3 /* PrivacyIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */; };
 		46828D8E2341F23300E7D8A3 /* UserAgent.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46828D912341F23300E7D8A3 /* UserAgent.strings */; };
 		46828D8F2341F23300E7D8A3 /* UserAgent.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46828D912341F23300E7D8A3 /* UserAgent.strings */; };
+		46A4C4D32347757800F4BCE0 /* AutoCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */; };
+		46A4C4D42347757800F4BCE0 /* AutoCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */; };
+		46A4C4D6234775A800F4BCE0 /* AutoCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */; };
+		46A4C4D7234775A800F4BCE0 /* AutoCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */; };
 		46B68D282314201F0091156C /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
 		46B68D29231420200091156C /* FirefoxHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB50E1F1D627539004B33DF /* FirefoxHomeViewController.swift */; };
 		46B68D30231420DD0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
@@ -1180,6 +1184,8 @@
 		46828D922341F23800E7D8A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/UserAgent.strings; sourceTree = "<group>"; };
 		46947784232A982100129B51 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
 		46947785232A983500129B51 /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
+		46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompletion.swift; sourceTree = "<group>"; };
+		46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCompletion.m; sourceTree = "<group>"; };
 		46B68D2B231420930091156C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		46BE36A12344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySuggestionsInputAccessoryView.swift; sourceTree = "<group>"; };
 		46BE36A52344D34800DADCB6 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
@@ -2128,6 +2134,8 @@
 		46CA60D42316B9D00010CE6B /* NativeModules */ = {
 			isa = PBXGroup;
 			children = (
+				46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */,
+				46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */,
 				46CA60DF2316CF300010CE6B /* BrowserActions.m */,
 				46CA60DB2316CED70010CE6B /* BrowserActions.swift */,
 				46CA60D72316BB3A0010CE6B /* History.m */,
@@ -4473,6 +4481,7 @@
 				ACB7375E23042BAB00FA5626 /* MetadataParserHelper.swift in Sources */,
 				ACB7375F23042BAB00FA5626 /* InsetButton.swift in Sources */,
 				ACB7376023042BAB00FA5626 /* TabDisplayManager.swift in Sources */,
+				46A4C4D42347757800F4BCE0 /* AutoCompletion.swift in Sources */,
 				ACB7376123042BAB00FA5626 /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
 				ACB7376223042BAB00FA5626 /* PrivilegedRequest.swift in Sources */,
 				ACB7376323042BAB00FA5626 /* SnapKitExtensions.swift in Sources */,
@@ -4571,6 +4580,7 @@
 				ACB737C023042BAB00FA5626 /* SimpleToast.swift in Sources */,
 				ACB737C123042BAB00FA5626 /* TrackingProtectionPageStats.swift in Sources */,
 				ACB737C223042BAB00FA5626 /* ScreenshotHelper.swift in Sources */,
+				46A4C4D7234775A800F4BCE0 /* AutoCompletion.m in Sources */,
 				ACB737C323042BAB00FA5626 /* UIImageViewExtensions.swift in Sources */,
 				ACB737C423042BAB00FA5626 /* DocumentServicesHelper.swift in Sources */,
 				ACB737C523042BAB00FA5626 /* TabManager.swift in Sources */,
@@ -4725,6 +4735,7 @@
 				0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */,
 				D87F84AC20B891160091F2DA /* TabDisplayManager.swift in Sources */,
 				D0C95EF6201A55A800E4E51C /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
+				46A4C4D32347757800F4BCE0 /* AutoCompletion.swift in Sources */,
 				D31CF65C1CC1959A001D0BD0 /* PrivilegedRequest.swift in Sources */,
 				D8D33A7D1FBD080300A20A28 /* SnapKitExtensions.swift in Sources */,
 				E650755C1E37F747006961AC /* Swizzling.m in Sources */,
@@ -4822,6 +4833,7 @@
 				E68AEDB01B18F81A00133D99 /* SwipeAnimator.swift in Sources */,
 				3BF56D271CDBBE1F00AC4D75 /* SimpleToast.swift in Sources */,
 				EBB89504219398E500EB91A0 /* TrackingProtectionPageStats.swift in Sources */,
+				46A4C4D6234775A800F4BCE0 /* AutoCompletion.m in Sources */,
 				D31F95E91AC226CB005C9F3B /* ScreenshotHelper.swift in Sources */,
 				28EADE5D1AFC3A78007FB2FB /* UIImageViewExtensions.swift in Sources */,
 				39CE74F021A6D2B8007AE4F2 /* DocumentServicesHelper.swift in Sources */,
