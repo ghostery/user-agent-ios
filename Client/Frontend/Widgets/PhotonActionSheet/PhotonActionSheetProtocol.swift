@@ -63,32 +63,18 @@ extension PhotonActionSheetProtocol {
      */
 
     typealias PageOptionsVC = SettingsDelegate & PresentingModalViewControllerDelegate & UIViewController
-
+    
     func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         var items: [PhotonActionSheetItem] = []
 
-        let trackingProtectionEnabled = FirefoxTabContentBlocker.isTrackingProtectionEnabled(tabManager: self.tabManager)
-        let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: trackingProtectionEnabled, accessory: .Switch) { action in
-            FirefoxTabContentBlocker.toggleTrackingProtectionEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+        let trackingProtectionItem = self.trackingProtectionItem()
+        items.append(trackingProtectionItem)
+        if #available(iOS 13.0, *) {} else {
+            let nighModeItem = self.nightModeItem()
+            items.append(nighModeItem)
         }
-        items.append(contentsOf: [trackingProtection])
-
-        let openSettings = PhotonActionSheetItem(title: Strings.AppMenuSettingsTitleString, iconString: "menu-Settings") { action in
-            let settingsTableViewController = AppSettingsTableViewController()
-            settingsTableViewController.profile = self.profile
-            settingsTableViewController.tabManager = self.tabManager
-            settingsTableViewController.settingsDelegate = vcDelegate
-
-            let controller = ThemedNavigationController(rootViewController: settingsTableViewController)
-            controller.presentingModalViewControllerDelegate = vcDelegate
-
-            // Wait to present VC in an async dispatch queue to prevent a case where dismissal
-            // of this popover on iPad seems to block the presentation of the modal VC.
-            DispatchQueue.main.async {
-                vcDelegate.present(controller, animated: true, completion: nil)
-            }
-        }
-        items.append(openSettings)
+        let openSettingsItem = self.openSettingsItem(vcDelegate: vcDelegate)
+        items.append(openSettingsItem)
 
         return items
     }
@@ -398,4 +384,42 @@ extension PhotonActionSheetProtocol {
             return [toggleDesktopSite]
         }
     }
+    
+    // MARK: - Private methods
+    
+    private func trackingProtectionItem() -> PhotonActionSheetItem {
+        let trackingProtectionEnabled = FirefoxTabContentBlocker.isTrackingProtectionEnabled(tabManager: self.tabManager)
+        let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: trackingProtectionEnabled, accessory: .Switch) { action in
+            FirefoxTabContentBlocker.toggleTrackingProtectionEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+        }
+        return trackingProtection
+    }
+    
+    private func nightModeItem() -> PhotonActionSheetItem {
+        let nightModeEnabled = NightModeHelper.isActivated(profile.prefs)
+        let nightMode = PhotonActionSheetItem(title: Strings.AppMenuNightMode, iconString: "menu-NightMode", isEnabled: nightModeEnabled, accessory: .Switch) { action in
+            NightModeHelper.toggle(self.profile.prefs, tabManager: self.tabManager)
+        }
+        return nightMode
+    }
+    
+    private func openSettingsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
+        let openSettings = PhotonActionSheetItem(title: Strings.AppMenuSettingsTitleString, iconString: "menu-Settings") { action in
+            let settingsTableViewController = AppSettingsTableViewController()
+            settingsTableViewController.profile = self.profile
+            settingsTableViewController.tabManager = self.tabManager
+            settingsTableViewController.settingsDelegate = vcDelegate
+
+            let controller = ThemedNavigationController(rootViewController: settingsTableViewController)
+            controller.presentingModalViewControllerDelegate = vcDelegate
+
+            // Wait to present VC in an async dispatch queue to prevent a case where dismissal
+            // of this popover on iPad seems to block the presentation of the modal VC.
+            DispatchQueue.main.async {
+                vcDelegate.present(controller, animated: true, completion: nil)
+            }
+        }
+        return openSettings
+    }
+    
 }

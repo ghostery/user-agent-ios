@@ -513,29 +513,6 @@ class OpenWithSetting: Setting {
     }
 }
 
-class ThemeSetting: Setting {
-    let profile: Profile
-    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
-    override var style: UITableViewCell.CellStyle { return .value1 }
-    override var accessibilityIdentifier: String? { return "DisplayThemeOption" }
-
-    override var status: NSAttributedString {
-        if ThemeManager.instance.automaticBrightnessIsOn {
-            return NSAttributedString(string: Strings.DisplayThemeAutomaticStatusLabel)
-        }
-        return NSAttributedString(string: "")
-    }
-
-    init(settings: SettingsTableViewController) {
-        self.profile = settings.profile
-        super.init(title: NSAttributedString(string: Strings.SettingsDisplayThemeTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        navigationController?.pushViewController(ThemeSettingsController(), animated: true)
-    }
-}
-
 class TranslationSetting: Setting {
     let profile: Profile
     override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }

@@ -29,7 +29,6 @@ enum SettingsPage: String {
     case search = "search"
     case clearPrivateData = "clear-private-data"
     case fxa = "fxa"
-    case theme = "theme"
 }
 
 // Used by the App to navigate to different views.
@@ -180,8 +179,6 @@ enum NavigationPath {
             viewController.profile = profile
             viewController.tabManager = tabManager
             controller.pushViewController(viewController, animated: true)
-        case .theme:
-            controller.pushViewController(ThemeSettingsController(), animated: true)
         default:
             break
         }

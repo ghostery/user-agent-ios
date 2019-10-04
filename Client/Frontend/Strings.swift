@@ -609,18 +609,6 @@ extension Strings {
     public static let SettingTranslateSnackBarSwitchSubtitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchSubtitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
 }
 
-// Display Theme
-extension Strings {
-    public static let SettingsDisplayThemeTitle = NSLocalizedString("Settings.DisplayTheme.Title", comment: "Title in main app settings for Display (theme) settings")
-    public static let DisplayThemeSectionHeader = NSLocalizedString("Settings.DisplayTheme.SectionHeader", comment: "Display (theme) settings section title")
-    public static let DisplayThemeSectionFooter = NSLocalizedString("Settings.DisplayTheme.SectionFooter", comment: "Display (theme) settings footer describing how the brightness slider works.")
-    public static let DisplayThemeAutomaticSwitchTitle = NSLocalizedString("Settings.DisplayTheme.SwitchTitle", comment: "Display (theme) settings switch to choose whether to set the dark mode manually, or automatically based on the brightness slider.")
-    public static let DisplayThemeAutomaticStatusLabel = NSLocalizedString("Settings.DisplayTheme.SwitchTitle", comment: "Display (theme) settings label to show if automatically switch theme is enabled.")
-    public static let DisplayThemeAutomaticSwitchSubtitle = NSLocalizedString("Settings.DisplayTheme.SwitchSubtitle", comment: "Display (theme) settings switch subtitle, explaining the title 'Automatically'.")
-    public static let DisplayThemeOptionLight = NSLocalizedString("Settings.DisplayTheme.OptionLight", comment: "Option choice in display theme settings for light theme")
-    public static let DisplayThemeOptionDark = NSLocalizedString("Settings.DisplayTheme.OptionDark", comment: "Option choice in display theme settings for dark theme")
-}
-
 // InterceptorUI
 extension Strings {
     public static let InterceptorUIAntiPhishingTitle = NSLocalizedString("Interceptor.AntiPhishing.UI.Title", tableName: "UserAgent", comment: "Antiphishing alert title")
