@@ -14,12 +14,12 @@ class SavedTab: NSObject, NSCoding {
     var sessionData: SessionData?
     var screenshotUUID: UUID?
     var faviconURL: String?
-    
+
     var jsonDictionary: [String: AnyObject] {
         let title: String = self.title ?? "null"
         let faviconURL: String = self.faviconURL ?? "null"
         let uuid: String = self.screenshotUUID?.uuidString ?? "null"
-        
+
         var json: [String: AnyObject] = [
             "title": title as AnyObject,
             "isPrivate": String(self.isPrivate) as AnyObject,
@@ -27,33 +27,33 @@ class SavedTab: NSObject, NSCoding {
             "faviconURL": faviconURL as AnyObject,
             "screenshotUUID": uuid as AnyObject
         ]
-        
+
         if let sessionDataInfo = self.sessionData?.jsonDictionary {
             json["sessionData"] = sessionDataInfo as AnyObject?
         }
-        
+
         return json
     }
-    
+
     init?(tab: Tab, isSelected: Bool) {
         assert(Thread.isMainThread)
-        
+
         self.screenshotUUID = tab.screenshotUUID as UUID?
         self.isSelected = isSelected
         self.title = tab.displayTitle
         self.isPrivate = tab.isPrivate
         self.faviconURL = tab.displayFavicon?.url
         super.init()
-        
+
         if tab.sessionData == nil {
             let currentItem: WKBackForwardListItem! = tab.webView?.backForwardList.currentItem
-            
+
             // Freshly created web views won't have any history entries at all.
             // If we have no history, abort.
             if currentItem == nil {
                 return nil
             }
-            
+
             let backList = tab.webView?.backForwardList.backList ?? []
             let forwardList = tab.webView?.backForwardList.forwardList ?? []
             let urls = (backList + [currentItem] + forwardList).map { $0.url }
@@ -63,7 +63,7 @@ class SavedTab: NSObject, NSCoding {
             self.sessionData = tab.sessionData
         }
     }
-    
+
     required init?(coder: NSCoder) {
         self.sessionData = coder.decodeObject(forKey: "sessionData") as? SessionData
         self.screenshotUUID = coder.decodeObject(forKey: "screenshotUUID") as? UUID
@@ -72,7 +72,7 @@ class SavedTab: NSObject, NSCoding {
         self.isPrivate = coder.decodeBool(forKey: "isPrivate")
         self.faviconURL = coder.decodeObject(forKey: "faviconURL") as? String
     }
-    
+
     func encode(with coder: NSCoder) {
         coder.encode(sessionData, forKey: "sessionData")
         coder.encode(screenshotUUID, forKey: "screenshotUUID")

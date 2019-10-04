@@ -225,7 +225,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         }
         return true
     }
-    
+
     @available(iOS 13.0, *)
     private func matchInterfaceStyleWithSystemStyle() {
         guard let prefs = self.profile?.prefs else {
@@ -244,7 +244,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         @unknown default: break
         }
     }
-    
+
     // We sync in the foreground only, to avoid the possibility of runaway resource usage.
     // Eventually we'll sync in response to notifications.
     func applicationDidBecomeActive(_ application: UIApplication) {

@@ -176,7 +176,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
             } else {
                 self.titleText.text = tab.webView?.url?.absoluteDisplayString
             }
-            
+
             self.closeButton.accessibilityLabel = String(format: Strings.TopSitesRemoveButtonAccessibilityLabel, self.titleText.text ?? "")
         } else {
             self.accessibilityLabel = tab.displayTitle

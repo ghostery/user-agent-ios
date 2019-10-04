@@ -13,7 +13,7 @@ class TabEventHandlers {
             MetadataParserHelper(),
             MediaImageLoader(prefs)
         ]
-        
+
         return handlers
     }
 }

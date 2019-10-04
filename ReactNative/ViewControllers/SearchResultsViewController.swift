@@ -109,8 +109,8 @@ extension SearchResultsViewController: BrowserCoreClient {
 
     private func updateTheme() {
          browserCore.callAction(
-           module: "Screen:SearchResults", 
-           action: "changeTheme", 
+           module: "Screen:SearchResults",
+           action: "changeTheme",
            args: [SearchResultsViewController.getTheme()]
          )
     }

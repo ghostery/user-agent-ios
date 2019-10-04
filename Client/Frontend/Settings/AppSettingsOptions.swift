@@ -175,7 +175,7 @@ class VersionSetting: Setting {
             }
         }
     }
-    
+
     func getSelectedCell(by navigationController: UINavigationController?) -> UITableViewCell? {
         let controller = navigationController?.topViewController
         let tableView = (controller as? AppSettingsTableViewController)?.tableView

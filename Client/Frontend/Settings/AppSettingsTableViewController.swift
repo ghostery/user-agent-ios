@@ -25,7 +25,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         var settings = [SettingSection]()
 
         let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
-        
+
         let prefs = profile.prefs
         var generalSettings: [Setting] = [
             SearchSetting(settings: self),

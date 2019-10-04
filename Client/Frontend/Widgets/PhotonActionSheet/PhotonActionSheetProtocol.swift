@@ -63,7 +63,7 @@ extension PhotonActionSheetProtocol {
      */
 
     typealias PageOptionsVC = SettingsDelegate & PresentingModalViewControllerDelegate & UIViewController
-    
+
     func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         var items: [PhotonActionSheetItem] = []
 
@@ -395,9 +395,9 @@ extension PhotonActionSheetProtocol {
             return [toggleDesktopSite]
         }
     }
-    
+
     // MARK: - Private methods
-    
+
     private func trackingProtectionItem() -> PhotonActionSheetItem {
         let trackingProtectionEnabled = FirefoxTabContentBlocker.isTrackingProtectionEnabled(tabManager: self.tabManager)
         let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: trackingProtectionEnabled, accessory: .Switch) { action in
@@ -405,7 +405,7 @@ extension PhotonActionSheetProtocol {
         }
         return trackingProtection
     }
-    
+
     private func nightModeItem() -> PhotonActionSheetItem {
         let nightModeEnabled = NightModeHelper.isActivated(profile.prefs)
         let nightMode = PhotonActionSheetItem(title: Strings.AppMenuNightMode, iconString: "menu-NightMode", isEnabled: nightModeEnabled, accessory: .Switch) { action in
@@ -413,7 +413,7 @@ extension PhotonActionSheetProtocol {
         }
         return nightMode
     }
-    
+
     private func openSettingsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
         let openSettings = PhotonActionSheetItem(title: Strings.AppMenuSettingsTitleString, iconString: "menu-Settings") { action in
             let settingsTableViewController = AppSettingsTableViewController()
@@ -432,5 +432,5 @@ extension PhotonActionSheetProtocol {
         }
         return openSettings
     }
-    
+
 }

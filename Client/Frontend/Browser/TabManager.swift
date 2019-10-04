@@ -247,7 +247,7 @@ class TabManager: NSObject {
         // Wait momentarily before selecting the new tab, otherwise the parent tab
         // may be unable to set `window.location` on the popup immediately after
         // calling `window.open("")`.
-        DispatchQueue.main.asyncAfter(deadline: .now() + delaySelectingNewPopupTab) { 
+        DispatchQueue.main.asyncAfter(deadline: .now() + delaySelectingNewPopupTab) {
             self.selectTab(popup)
         }
 

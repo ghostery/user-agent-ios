@@ -221,7 +221,7 @@ extension SQLiteBookmarks {
             if deleted {
                 throw DatabaseError(description: "Local folder \(parent) is deleted.")
             }
-            
+
             try bumpParentStatus(1)
         }
 

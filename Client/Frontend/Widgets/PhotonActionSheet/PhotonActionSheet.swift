@@ -89,7 +89,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             tableView.backgroundView = blurEffectView
         }
-        
+
         let width = min(self.view.frame.size.width, PhotonActionSheetUX.MaxWidth) - (PhotonActionSheetUX.Padding * 2)
 
         if style == .bottom {

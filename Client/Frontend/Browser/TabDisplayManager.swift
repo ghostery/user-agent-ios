@@ -134,7 +134,7 @@ class TabDisplayManager: NSObject {
                 tabManager.addTab(isPrivate: true)
             }
         }
-        
+
         let tab = mostRecentTab(inTabs: tabsToDisplay) ?? tabsToDisplay.last
         if let tab = tab {
             tabManager.selectTab(tab)
@@ -154,7 +154,7 @@ class TabDisplayManager: NSObject {
         }
         return nil
     }
-    
+
     func searchTabsAnimated() {
         let isUnchanged = (tabsToDisplay.count == dataStore.count) && tabsToDisplay.zip(dataStore).reduce(true) { $0 && $1.0 === $1.1 }
         if !tabsToDisplay.isEmpty && isUnchanged {

@@ -376,7 +376,7 @@ extension TabTrayController: TabManagerDelegate {
             }
         }
     }
-   
+
     func tabManagerDidRestoreTabs(_ tabManager: TabManager) {
         self.emptyPrivateTabsView.isHidden = !self.privateTabsAreEmpty()
     }

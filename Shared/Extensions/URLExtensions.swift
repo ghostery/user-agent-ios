@@ -306,7 +306,7 @@ extension URL {
         }
         return self
     }
-    
+
     public func isEqual(_ url: URL) -> Bool {
         if self == url {
             return true

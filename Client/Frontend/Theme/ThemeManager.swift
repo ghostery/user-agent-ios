@@ -27,7 +27,7 @@ class ThemeManager {
         guard UIDevice.current.isPhone else { return .lightContent }
         return currentName == .dark ? .lightContent : .default
     }
-    
+
 }
 
 fileprivate func themeFrom(name: String?) -> Theme {

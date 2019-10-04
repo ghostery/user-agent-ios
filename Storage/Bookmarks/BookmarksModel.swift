@@ -145,7 +145,7 @@ public protocol BookmarksModelFactory {
     func modelForFolder(_ guid: GUID, title: String) -> Deferred<Maybe<BookmarksModel>>
 
     func modelForRoot() -> Deferred<Maybe<BookmarksModel>>
-    
+
     // Whenever async construction is necessary, we fall into a pattern of needing
     // a placeholder that behaves correctly for the period between kickoff and set.
     var nullModel: BookmarksModel { get }

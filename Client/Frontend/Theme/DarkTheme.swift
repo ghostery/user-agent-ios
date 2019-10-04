@@ -92,7 +92,7 @@ fileprivate class DarkHomePanelColor: HomePanelColor {
     override var bookmarkFolderText: UIColor { return UIColor.White }
     override var bookmarkCurrentFolderText: UIColor { return UIColor.White }
     override var bookmarkBackNavCellBackground: UIColor { return UIColor.Grey70 }
-    
+
     override var activityStreamHeaderText: UIColor { return UIColor.Grey30 }
     override var activityStreamCellTitle: UIColor { return UIColor.Grey20 }
     override var activityStreamCellDescription: UIColor { return UIColor.Grey30 }
@@ -135,5 +135,5 @@ class DarkTheme: NormalTheme {
     override var homePanel: HomePanelColor { return DarkHomePanelColor() }
     override var snackbar: SnackBarColor { return DarkSnackBarColor() }
     override var general: GeneralColor { return DarkGeneralColor() }
-    override var actionMenu: ActionMenuColor { return DarkActionMenuColor() } 
+    override var actionMenu: ActionMenuColor { return DarkActionMenuColor() }
 }

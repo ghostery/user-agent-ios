@@ -584,7 +584,7 @@ class URLBarView: UIView {
             $0.badge.alpha = (!toolbarIsShowing || inOverlayMode) ? 0 : 1
             $0.backdrop.alpha = (!toolbarIsShowing || inOverlayMode) ? 0 : BadgeWithBackdrop.backdropAlpha
         }
-        
+
     }
 
     func animateToOverlayState(overlayMode overlay: Bool, didCancel cancel: Bool = false) {
@@ -782,7 +782,7 @@ extension URLBarView: PrivateModeUI {
         if !UIDevice.current.isPad {
             privateModeBadge.show(isPrivate)
         }
-        
+
         locationActiveBorderColor = UIColor.theme.urlbar.activeBorder(isPrivate)
         progressBar.setGradientColors(startColor: UIColor.theme.loadingBar.start(isPrivate),
                                       endColor: UIColor.theme.loadingBar.end(isPrivate))
