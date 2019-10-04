@@ -9,3 +9,9 @@
 "Interceptor.AntiPhishing.UI.Message" = "%1$@ hat den Zugang zu %2$@ blockiert, weil sie als Phishing-Seite gemeldet wurde. Phishing-Seiten tarnen sich als vertrauenswürdige Websites, um dich dazu zu bringen, deinen Benutzernamen, dein Passwort oder andere vertrauliche Informationen preiszugeben.";
 "Interceptor.AntiPhishing.UI.BackButtonLabel" = "Zurück zu sicherer Webseite";
 "Interceptor.AntiPhishing.UI.ContinueButtonLabel" = "Trotz der Warnung fortfahren";
+
+/* Home View */
+"HomeView.SegmentedControl.TopSites.Title" = "Übersicht";
+"HomeView.SegmentedControl.Bookmarks.Title" = "Lesezeichen";
+"HomeView.SegmentedControl.History.Title" = "Verlauf";
+"HomeView.SegmentedControl.Downloads.Title" = "Downloads";
