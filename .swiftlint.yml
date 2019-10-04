@@ -37,7 +37,6 @@ disabled_rules: # rule identifiers to exclude from running
   - force_try
   - force_cast
   - unused_setter_value
-  - void_return
   - reduce_boolean
   - notification_center_detachment
 
