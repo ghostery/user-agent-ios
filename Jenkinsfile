@@ -19,13 +19,13 @@ def vagrantfile = '''
 require 'uri'
 
 node_id = URI::encode(ENV['NODE_ID'] || '')
-name = "mojave-#{ENV['BRANCH_NAME'] || ''}"
+name = "mojave-xcode11-#{ENV['BRANCH_NAME'] || ''}"
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "mojave"
+    config.vm.box = "mojave-xcode11"
 
     config.vm.define "mojave" do |mojave|
-        mojave.vm.hostname ="mojave"
+        mojave.vm.hostname = "mojave-xcode11"
         mojave.ssh.forward_agent = true
 
         config.vm.provider "parallels" do |prl|
