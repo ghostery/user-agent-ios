@@ -92,6 +92,14 @@ extension Strings {
     public static let ReopenLastTabCancelText = NSLocalizedString("ReopenAlert.Actions.Cancel", comment: "Cancel button text shown in reopen-alert at home page.")
 }
 
+// Home View
+extension Strings {
+    public static let SegmentedControlTopSitesTitle = NSLocalizedString("HomeView.SegmentedControl.TopSites.Title", tableName: "UserAgent", comment: "")
+    public static let SegmentedControlBookmarksTitle = NSLocalizedString("HomeView.SegmentedControl.Bookmarks.Title", tableName: "UserAgent", comment: "")
+    public static let SegmentedControlHistoryTitle = NSLocalizedString("HomeView.SegmentedControl.History.Title", tableName: "UserAgent", comment: "")
+    public static let SegmentedControlDownloadsTitle = NSLocalizedString("HomeView.SegmentedControl.Downloads.Title", tableName: "UserAgent", comment: "")
+}
+
 // Settings.
 extension Strings {
     public static let SettingsGeneralSectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")
