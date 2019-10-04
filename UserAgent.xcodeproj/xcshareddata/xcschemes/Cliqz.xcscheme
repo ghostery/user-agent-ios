@@ -162,6 +162,15 @@
                   Identifier = "DesktopModeTestsIphone">
                </Test>
                <Test
+                  Identifier = "DisplaySettingTests/testChangeMode()">
+               </Test>
+               <Test
+                  Identifier = "DisplaySettingTests/testCheckDisplaySettingsDefault()">
+               </Test>
+               <Test
+                  Identifier = "DisplaySettingTests/testModifySwitchAutomatically()">
+               </Test>
+               <Test
                   Identifier = "DownloadFilesTests/testLongPressOnDownloadedFile()">
                </Test>
                <Test
