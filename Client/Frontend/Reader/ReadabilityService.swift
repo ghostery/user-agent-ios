@@ -71,7 +71,7 @@ class ReadabilityOperation: Operation {
                     print("Failed to store readability results in the cache: \(error.localizedDescription)")
                     // TO DO Fail
                 }
-            case .error(_):
+            case .error:
                 // Not entitely sure what to do on error. Needs UX discussion and followup bug.
                 break
             }

@@ -19,7 +19,6 @@ disabled_rules: # rule identifiers to exclude from running
   - shorthand_operator
   - unused_optional_binding
   - private_over_fileprivate
-  - empty_enum_arguments
   - block_based_kvo
   - nesting
   - is_disjoint
