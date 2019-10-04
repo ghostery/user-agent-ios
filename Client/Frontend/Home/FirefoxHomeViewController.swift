@@ -12,7 +12,7 @@ import SnapKit
 private let log = Logger.browserLogger
 private let DefaultSuggestedSitesKey = "topSites.deletedSuggestedSites"
 
-// MARK: -  Lifecycle
+// MARK: - Lifecycle
 struct FirefoxHomeUX {
     static let rowSpacing: CGFloat = UIDevice.current.isPad ? 30 : 20
     static let highlightCellHeight: CGFloat = UIDevice.current.isPad ? 250 : 200
@@ -219,7 +219,7 @@ class FirefoxHomeViewController: UICollectionViewController, HomePanel {
     }
 }
 
-// MARK: -  Section management
+// MARK: - Section management
 extension FirefoxHomeViewController {
     enum Section: Int {
         case topSites
@@ -349,7 +349,7 @@ extension FirefoxHomeViewController {
     }
 }
 
-// MARK: -  Tableview Delegate
+// MARK: - Tableview Delegate
 extension FirefoxHomeViewController: UICollectionViewDelegateFlowLayout {
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
