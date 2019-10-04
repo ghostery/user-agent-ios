@@ -128,7 +128,7 @@ class CustomSearchViewController: SettingsTableViewController {
         }
 
         let titleField = CustomSearchEngineTextView(placeholder: Strings.SettingsAddCustomEngineTitlePlaceholder, settingIsValid: { text in
-            return text != nil && text != ""
+            return text != nil && text?.isEmpty != true
         }, settingDidChange: {fieldText in
             guard let title = fieldText else {
                 return
@@ -236,18 +236,18 @@ class CustomSearchEngineTextView: Setting, UITextViewDelegate {
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        placeholderLabel.isHidden = textField.text != ""
+        placeholderLabel.isHidden = textField.text.isEmpty == false
     }
 
     func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = textField.text != ""
+        placeholderLabel.isHidden = textField.text.isEmpty == false
         settingDidChange?(textView.text)
         let color = isValid(textField.text) ? UIColor.theme.tableView.rowText : UIColor.theme.general.destructiveRed
         textField.textColor = color
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        placeholderLabel.isHidden = textField.text != ""
+        placeholderLabel.isHidden = textField.text.isEmpty == false
         settingDidChange?(textView.text)
     }
 }
