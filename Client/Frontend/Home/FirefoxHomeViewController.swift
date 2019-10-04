@@ -963,9 +963,7 @@ class ASHeaderView: UICollectionReusableView {
     var rightConstraint: Constraint?
 
     var titleInsets: CGFloat {
-        get {
-            return UIScreen.main.bounds.size.width == self.frame.size.width && UIDevice.current.isPad ? FirefoxHomeHeaderViewUX.Insets : FirefoxHomeUX.MinimumInsets
-        }
+        return UIScreen.main.bounds.size.width == self.frame.size.width && UIDevice.current.isPad ? FirefoxHomeHeaderViewUX.Insets : FirefoxHomeUX.MinimumInsets
     }
 
     override func prepareForReuse() {

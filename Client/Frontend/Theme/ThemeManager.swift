@@ -30,7 +30,7 @@ class ThemeManager {
 
 }
 
-fileprivate func themeFrom(name: String?) -> Theme {
+private func themeFrom(name: String?) -> Theme {
     guard let name = name, let theme = BuiltinThemeName(rawValue: name) else { return NormalTheme() }
     switch theme {
     case .dark:

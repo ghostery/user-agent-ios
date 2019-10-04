@@ -202,9 +202,7 @@ open class MemoryBookmarkFolder: BookmarkFolder, Sequence {
     }
 
     override open subscript(index: Int) -> BookmarkNode {
-        get {
-            return children[index]
-        }
+        return children[index]
     }
 
     override open func itemIsEditableAtIndex(_ index: Int) -> Bool {

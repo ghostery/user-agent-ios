@@ -526,7 +526,7 @@ class BookmarkFolderTableViewCell: TwoLineTableViewCell {
     }
 }
 
-fileprivate class BookmarkFolderTableViewHeader: UITableViewHeaderFooterView {
+private class BookmarkFolderTableViewHeader: UITableViewHeaderFooterView {
     var delegate: BookmarkFolderTableViewHeaderDelegate?
 
     let titleLabel = UILabel()

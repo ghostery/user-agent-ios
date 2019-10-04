@@ -23,9 +23,9 @@ enum BuiltinThemeName: String {
 }
 
 // Convenience reference to these normal mode colors which are used in a few color classes.
-fileprivate let defaultBackground = UIColor.Grey10
-fileprivate let defaultSeparator = UIColor.Grey30
-fileprivate let defaultTextAndTint = UIColor.Grey80
+private let defaultBackground = UIColor.Grey10
+private let defaultSeparator = UIColor.Grey30
+private let defaultTextAndTint = UIColor.Grey80
 
 class TableViewColor {
     var rowBackground: UIColor { return UIColor.White }

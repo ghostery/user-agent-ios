@@ -9,7 +9,7 @@ import Shared
 import SwiftyJSON
 import XCGLogger
 
-fileprivate var debugTabCount = 0
+private var debugTabCount = 0
 
 func mostRecentTab(inTabs tabs: [Tab]) -> Tab? {
     var recent = tabs.first

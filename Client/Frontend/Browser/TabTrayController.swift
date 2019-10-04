@@ -693,7 +693,7 @@ extension TabTrayController {
     }
 }
 
-fileprivate class TabLayoutDelegate: NSObject, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+private class TabLayoutDelegate: NSObject, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     weak var tabSelectionDelegate: TabSelectionDelegate?
     var searchHeightConstraint: Constraint?
     let scrollView: UIScrollView
@@ -830,7 +830,7 @@ private struct EmptyPrivateTabsViewUX {
 }
 
 // View we display when there are no private tabs created
-fileprivate class EmptyPrivateTabsView: UIView {
+private class EmptyPrivateTabsView: UIView {
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.White
