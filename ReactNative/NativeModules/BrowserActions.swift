@@ -40,6 +40,14 @@ class BrowserActions: NSObject {
         }
     }
 
+    @objc(showQuerySuggestions:suggestions:)
+    func showQuerySuggestions(query: NSString?, suggestions: NSArray?) {
+        guard let query = query, let suggestions = suggestions else { return }
+        NotificationCenter.default.post(
+            name: QuerySuggestionsInputAccessoryView.ShowSuggestionsNotification,
+            object: ["query": query, "suggestions": suggestions])
+    }
+
     @objc(searchHistory:callback:)
     func searchHistory(query: NSString, callback: @escaping RCTResponseSenderBlock) {
         debugPrint("searchHistory")

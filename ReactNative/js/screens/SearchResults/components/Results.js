@@ -4,11 +4,12 @@ import {
   Text,
   ScrollView,
   TouchableWithoutFeedback,
+  NativeModules,
 } from 'react-native';
 import SearchUIVertical from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/SearchUI';
 import { Provider as CliqzProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards/cliqz';
 import { Provider as ThemeProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
-import themes, { baseTheme, mergeStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/themes';
+import { baseTheme, mergeStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/themes';
 import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 
 import t from '../../../services/i18n';
@@ -118,7 +119,8 @@ export default class Results extends React.Component {
     const styles = getStyles(this.props.theme);
     const theme = getTheme(this.props.theme);
 
-    // NativeModules.QuerySuggestion.showQuerySuggestions(query, suggestions);
+    NativeModules.BrowserActions.showQuerySuggestions(this.props.results.query, suggestions);
+
     return (
       <View style={styles.container}>
         <CliqzProvider value={this.props.cliqz}>

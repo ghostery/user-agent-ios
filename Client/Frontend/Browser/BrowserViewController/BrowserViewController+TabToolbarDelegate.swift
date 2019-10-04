@@ -29,7 +29,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         }
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
-        let shouldSuppress = !topTabsVisible && UIDevice.current.userInterfaceIdiom == .pad
+        let shouldSuppress = !topTabsVisible && UIDevice.current.isPad
         presentSheetWith(actions: [urlActions], on: self, from: button, suppressPopover: shouldSuppress)
     }
 
@@ -64,7 +64,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         actions.append(getLibraryActions(vcDelegate: self))
         actions.append(getOtherPanelActions(vcDelegate: self))
         // force a modal if the menu is being displayed in compact split screen
-        let shouldSuppress = !topTabsVisible && UIDevice.current.userInterfaceIdiom == .pad
+        let shouldSuppress = !topTabsVisible && UIDevice.current.isPad
         presentSheetWith(actions: actions, on: self, from: button, suppressPopover: shouldSuppress)
     }
 
@@ -125,7 +125,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         actions.append(getMoreTabToolbarLongPressActions())
 
         // Force a modal if the menu is being displayed in compact split screen.
-        let shouldSuppress = !topTabsVisible && UIDevice.current.userInterfaceIdiom == .pad
+        let shouldSuppress = !topTabsVisible && UIDevice.current.isPad
 
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()

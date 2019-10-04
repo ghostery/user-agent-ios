@@ -4,8 +4,6 @@
 import Foundation
 
 enum ThemeManagerPrefs: String {
-    case automaticSwitchIsOn = "prefKeyAutomaticSwitchOnOff"
-    case automaticSliderValue = "prefKeyAutomaticSliderValue"
     case themeName = "prefKeyThemeName"
 }
 
@@ -23,45 +21,13 @@ class ThemeManager {
         return BuiltinThemeName(rawValue: ThemeManager.instance.current.name) ?? .normal
     }
 
-    var automaticBrightnessValue: Float = UserDefaults.standard.float(forKey: ThemeManagerPrefs.automaticSliderValue.rawValue) {
-        didSet {
-            UserDefaults.standard.set(automaticBrightnessValue, forKey: ThemeManagerPrefs.automaticSliderValue.rawValue)
-        }
-    }
-
-    var automaticBrightnessIsOn: Bool = UserDefaults.standard.bool(forKey: ThemeManagerPrefs.automaticSwitchIsOn.rawValue) {
-        didSet {
-            UserDefaults.standard.set(automaticBrightnessIsOn, forKey: ThemeManagerPrefs.automaticSwitchIsOn.rawValue)
-        }
-    }
-
-    private init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(brightnessChanged), name: UIScreen.brightnessDidChangeNotification, object: nil)
-    }
-
     // UIViewControllers / UINavigationControllers need to have `preferredStatusBarStyle` and call this.
     var statusBarStyle: UIStatusBarStyle {
         // On iPad the dark and normal theme both have a dark tab bar
-        guard UIDevice.current.userInterfaceIdiom == .phone else { return .lightContent }
+        guard UIDevice.current.isPhone else { return .lightContent }
         return currentName == .dark ? .lightContent : .default
     }
-
-    func updateCurrentThemeBasedOnScreenBrightness() {
-        let prefValue = UserDefaults.standard.float(forKey: ThemeManagerPrefs.automaticSliderValue.rawValue)
-
-        let screenLessThanPref = Float(UIScreen.main.brightness) < prefValue
-
-        if screenLessThanPref, self.currentName == .normal {
-            self.current = DarkTheme()
-        } else if !screenLessThanPref, self.currentName == .dark {
-            self.current = NormalTheme()
-        }
-    }
-
-    @objc private func brightnessChanged() {
-        guard automaticBrightnessIsOn else { return }
-        updateCurrentThemeBasedOnScreenBrightness()
-    }
+    
 }
 
 fileprivate func themeFrom(name: String?) -> Theme {

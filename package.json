@@ -34,7 +34,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
-    "detox": "^14.0.3",
+    "detox": "^14.3.4",
     "glob": "^7.1.3",
     "lodash": "^4.17.15",
     "mocha": "^6.2.1",
@@ -48,7 +48,7 @@
         "binaryPath": "builds/Build/Products/Release-iphonesimulator/UserAgent.app",
         "build": "xcodebuild -workspace UserAgent.xcworkspace -scheme 'Cliqz' -configuration Release -sdk iphonesimulator -derivedDataPath builds",
         "type": "ios.simulator",
-        "name": "iPhone Xs"
+        "name": "iPhone 11"
       }
     },
     "test-runner": "mocha"
