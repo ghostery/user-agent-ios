@@ -1283,6 +1283,7 @@
 		ACC6EC5223290974000F5499 /* UIColor+Blending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Blending.swift"; sourceTree = "<group>"; };
 		ACC6EC5D232945F0000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
 		ACC6EC5E232945FF000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
+		ACCEBD8823476EBB00B87136 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		B7467EC9C781BBCEB81EC866 /* Pods_Cliqz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cliqz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78340F0A41C2ACA24F3D0B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
@@ -2237,6 +2238,7 @@
 		C50ED2AF2326A7ED00EE71B8 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
+				ACCEBD8823476EBB00B87136 /* .swiftlint.yml */,
 				ACB6D4362306B29A002D64E6 /* azure-pipelines.yml */,
 				E6C191D41E38F7B7000A213B /* Cartfile */,
 				E6C191D51E38F7B7000A213B /* Cartfile.resolved */,
