@@ -236,10 +236,10 @@ class ReaderMode: TabContentScript {
 
     fileprivate func handleReaderPageEvent(_ readerPageEvent: ReaderPageEvent) {
         switch readerPageEvent {
-            case .pageShow:
-                if let tab = tab {
-                    delegate?.readerMode(self, didDisplayReaderizedContentForTab: tab)
-                }
+        case .pageShow:
+            if let tab = tab {
+                delegate?.readerMode(self, didDisplayReaderizedContentForTab: tab)
+            }
         }
     }
 
@@ -262,18 +262,18 @@ class ReaderMode: TabContentScript {
         if let msg = message.body as? [String: Any] {
             if let messageType = ReaderModeMessageType(rawValue: msg["Type"] as? String ?? "") {
                 switch messageType {
-                    case .pageEvent:
-                        if let readerPageEvent = ReaderPageEvent(rawValue: msg["Value"] as? String ?? "Invalid") {
-                            handleReaderPageEvent(readerPageEvent)
-                        }
-                    case .stateChange:
-                        if let readerModeState = ReaderModeState(rawValue: msg["Value"] as? String ?? "Invalid") {
-                            handleReaderModeStateChange(readerModeState)
-                        }
-                    case .contentParsed:
-                        if let readabilityResult = ReadabilityResult(object: msg["Value"] as AnyObject?) {
-                            handleReaderContentParsed(readabilityResult)
-                        }
+                case .pageEvent:
+                    if let readerPageEvent = ReaderPageEvent(rawValue: msg["Value"] as? String ?? "Invalid") {
+                        handleReaderPageEvent(readerPageEvent)
+                    }
+                case .stateChange:
+                    if let readerModeState = ReaderModeState(rawValue: msg["Value"] as? String ?? "Invalid") {
+                        handleReaderModeStateChange(readerModeState)
+                    }
+                case .contentParsed:
+                    if let readabilityResult = ReadabilityResult(object: msg["Value"] as AnyObject?) {
+                        handleReaderContentParsed(readabilityResult)
+                    }
                 }
             }
         }

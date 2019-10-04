@@ -98,8 +98,8 @@ class AppSettingsTableViewController: SettingsTableViewController {
         let headerView = super.tableView(tableView, viewForHeaderInSection: section) as! ThemedTableSectionHeaderFooterView
         // Prevent the top border from showing for the General section.
         switch section {
-            case 1:
-                headerView.showTopBorder = false
+        case 1:
+            headerView.showTopBorder = false
         default:
             break
         }

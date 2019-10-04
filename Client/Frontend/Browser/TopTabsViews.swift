@@ -34,15 +34,15 @@ class TopTabsHeaderFooter: UICollectionReusableView {
         line.snp.removeConstraints()
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-                line.snp.makeConstraints { make in
-                    make.trailing.equalTo(self)
-                }
+            line.snp.makeConstraints { make in
+                make.trailing.equalTo(self)
+            }
         case UICollectionView.elementKindSectionFooter:
-                line.snp.makeConstraints { make in
-                    make.leading.equalTo(self)
-                }
-            default:
-                break
+            line.snp.makeConstraints { make in
+                make.leading.equalTo(self)
+            }
+        default:
+            break
         }
         line.snp.makeConstraints { make in
             make.height.equalTo(TopTabsUX.SeparatorHeight)

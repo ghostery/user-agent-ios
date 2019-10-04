@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+// swiftlint:disable switch_case_alignment
+
 import Shared
 import UIKit
 import Storage
@@ -44,14 +46,14 @@ struct UXSizeClasses {
 
     subscript(sizeClass: UIUserInterfaceSizeClass) -> CGFloat {
         switch sizeClass {
-            case .compact:
-                return self.compact
-            case .regular:
-                return self.regular
-            case .unspecified:
-                return self.unspecified
-            @unknown default:
-                fatalError()
+        case .compact:
+            return self.compact
+        case .regular:
+            return self.regular
+        case .unspecified:
+            return self.unspecified
+        @unknown default:
+            fatalError()
         }
 
     }
