@@ -259,7 +259,7 @@ class ReaderMode: TabContentScript {
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        if let msg = message.body as? Dictionary<String, Any> {
+        if let msg = message.body as? [String: Any] {
             if let messageType = ReaderModeMessageType(rawValue: msg["Type"] as? String ?? "") {
                 switch messageType {
                     case .pageEvent:

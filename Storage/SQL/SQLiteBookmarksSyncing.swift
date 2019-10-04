@@ -6,6 +6,8 @@ import Foundation
 import Shared
 import XCGLogger
 
+// swiftlint:disable syntactic_sugar
+
 private let log = Logger.syncLogger
 
 extension SQLiteBookmarks: LocalItemSource {

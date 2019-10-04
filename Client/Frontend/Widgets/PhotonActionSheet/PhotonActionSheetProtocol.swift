@@ -100,7 +100,7 @@ extension PhotonActionSheetProtocol {
                        presentableVC: PresentableVC,
                        isBookmarked: Bool,
                        isPinned: Bool,
-                       success: @escaping (String) -> Void) -> Array<[PhotonActionSheetItem]> {
+                       success: @escaping (String) -> Void) -> [[PhotonActionSheetItem]] {
         if tab.url?.isFileURL ?? false {
             let shareFile = PhotonActionSheetItem(title: Strings.AppMenuSharePageTitleString, iconString: "action_share") { action in
                 guard let url = tab.url else { return }
