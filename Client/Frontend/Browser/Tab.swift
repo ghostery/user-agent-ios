@@ -132,10 +132,6 @@ class Tab: NSObject {
             }
 
             webView?.evaluateJavaScript("window.__firefox__.NightMode.setEnabled(\(nightMode))")
-//            // For WKWebView background color to take effect, isOpaque must be false,
-//            // which is counter-intuitive. Default is true. The color is previously
-//            // set to black in the WKWebView init.
-//            webView?.isOpaque = !nightMode
 
             UserScriptManager.shared.injectUserScriptsIntoTab(self, nightMode: nightMode)
         }
