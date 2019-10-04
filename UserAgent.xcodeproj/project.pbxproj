@@ -243,6 +243,7 @@
 		A83E5B1E1C1DAAAA0026D912 /* UIPasteboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */; };
 		A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */; };
 		AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
+		AC65328E23476CDF00FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
 		ACB6D4322306AC35002D64E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */; };
 		ACB6D4412306BB38002D64E6 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6D4402306BB38002D64E6 /* DeferredTestUtils.swift */; };
 		ACB6D4422306BB38002D64E6 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6D4402306BB38002D64E6 /* DeferredTestUtils.swift */; };
@@ -2143,7 +2144,6 @@
 			isa = PBXGroup;
 			children = (
 				46CA60D0231554980010CE6B /* SearchResultsViewController.swift */,
-				AC65328A2344E3D000FC7ADB /* TopSitesView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2217,6 +2217,7 @@
 			isa = PBXGroup;
 			children = (
 				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
+				AC65328A2344E3D000FC7ADB /* TopSitesView.swift */,
 			);
 			path = "Home View";
 			sourceTree = "<group>";
@@ -4489,6 +4490,7 @@
 				ACB7376F23042BAB00FA5626 /* HomePageAccessors.swift in Sources */,
 				ACB7377023042BAB00FA5626 /* OpenInHelper.swift in Sources */,
 				ACB7377123042BAB00FA5626 /* ReaderModeCache.swift in Sources */,
+				AC65328E23476CDF00FC7ADB /* TopSitesView.swift in Sources */,
 				ACB7377223042BAB00FA5626 /* TabTrayController+KeyCommands.swift in Sources */,
 				ACB7377323042BAB00FA5626 /* SettingsContentViewController.swift in Sources */,
 				ACB7377423042BAB00FA5626 /* FirefoxTabContentBlocker.swift in Sources */,
