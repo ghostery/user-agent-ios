@@ -336,4 +336,3 @@ extension ErrorPageHelper: TabContentScript {
         }
     }
 }
-

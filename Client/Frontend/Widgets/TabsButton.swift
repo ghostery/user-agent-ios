@@ -233,4 +233,3 @@ extension TabsButton: Themeable {
         }
     }
 }
-

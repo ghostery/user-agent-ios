@@ -26,4 +26,3 @@ private class ReactNativeBridgeDelegate: NSObject, RCTBridgeDelegate {
         #endif
     }
 }
-

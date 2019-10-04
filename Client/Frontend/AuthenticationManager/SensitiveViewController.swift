@@ -104,4 +104,3 @@ class SensitiveViewController: UIViewController {
         return blurView
     }
 }
-

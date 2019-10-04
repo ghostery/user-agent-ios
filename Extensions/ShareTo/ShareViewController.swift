@@ -379,4 +379,3 @@ extension ShareViewController {
         finish(afterDelay: 0)
     }
 }
-
