@@ -883,24 +883,11 @@
 /* Destructive action button in alert when user is prompted for disconnect */
 "Settings.Disconnect.DestructiveButton" = "Verbindung trennen";
 
-/* Option choice in display theme settings for dark theme */
-"Settings.DisplayTheme.OptionDark" = "Dunkel";
-
-/* Option choice in display theme settings for light theme */
-"Settings.DisplayTheme.OptionLight" = "Hell";
-
 /* Display (theme) settings footer describing how the brightness slider works. */
 "Settings.DisplayTheme.SectionFooter" = "Das Theme ändert sich automatisch und passt sich an Ihre Display-Helligkeit an. Sie können die Schwelle festlegen, bei der sich das Theme ändert. Der Kreis zeigt Ihre aktuelle Display-Helligkeit.";
 
 /* Display (theme) settings section title */
 "Settings.DisplayTheme.SectionHeader" = "Theme";
-
-/* Display (theme) settings switch subtitle, explaining the title 'Automatically'. */
-"Settings.DisplayTheme.SwitchSubtitle" = "Theme automatisch je nach Display-Helligkeit wechseln";
-
-/* Display (theme) settings label to show if automatically switch theme is enabled.
-   Display (theme) settings switch to choose whether to set the dark mode manually, or automatically based on the brightness slider. */
-"Settings.DisplayTheme.SwitchTitle" = "Automatisch";
 
 /* Title in main app settings for Display (theme) settings */
 "Settings.DisplayTheme.Title" = "Anzeige";

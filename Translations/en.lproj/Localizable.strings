@@ -883,24 +883,11 @@
 /* Destructive action button in alert when user is prompted for disconnect */
 "Settings.Disconnect.DestructiveButton" = "Disconnect";
 
-/* Option choice in display theme settings for dark theme */
-"Settings.DisplayTheme.OptionDark" = "Dark";
-
-/* Option choice in display theme settings for light theme */
-"Settings.DisplayTheme.OptionLight" = "Light";
-
 /* Display (theme) settings footer describing how the brightness slider works. */
 "Settings.DisplayTheme.SectionFooter" = "The theme will automatically change based on your display brightness. You can set the threshold where the theme changes. The circle indicates your display's current brightness.";
 
 /* Display (theme) settings section title */
 "Settings.DisplayTheme.SectionHeader" = "Theme";
-
-/* Display (theme) settings switch subtitle, explaining the title 'Automatically'. */
-"Settings.DisplayTheme.SwitchSubtitle" = "Switch automatically based on screen brightness";
-
-/* Display (theme) settings label to show if automatically switch theme is enabled.
-   Display (theme) settings switch to choose whether to set the dark mode manually, or automatically based on the brightness slider. */
-"Settings.DisplayTheme.SwitchTitle" = "Automatically";
 
 /* Title in main app settings for Display (theme) settings */
 "Settings.DisplayTheme.Title" = "Display";
