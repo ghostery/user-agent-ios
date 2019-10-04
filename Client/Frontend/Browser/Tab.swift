@@ -157,13 +157,6 @@ class Tab: NSObject {
         }
     }
 
-    var readerModeAvailableOrActive: Bool {
-        if let readerMode = self.getContentScript(name: "ReaderMode") as? ReaderMode {
-            return readerMode.state != .unavailable
-        }
-        return false
-    }
-
     fileprivate(set) var screenshot: UIImage?
     var screenshotUUID: UUID?
 

@@ -59,7 +59,6 @@ protocol Profile: AnyObject {
     var certStore: CertStore { get }
     var recentlyClosedTabs: ClosedTabsStore { get }
     var panelDataObservers: PanelDataObservers { get }
-    var readingList: ReadingList { get }
 
     var isShutdown: Bool { get }
 
@@ -308,10 +307,6 @@ open class BrowserProfile: Profile {
 
     lazy var prefs: Prefs = {
         return self.makePrefs()
-    }()
-
-    lazy var readingList: ReadingList = {
-        return SQLiteReadingList(db: self.readingListDB)
     }()
 
     lazy var certStore: CertStore = {
