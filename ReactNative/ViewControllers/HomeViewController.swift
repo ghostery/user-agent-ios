@@ -18,21 +18,22 @@ class HomeViewController: UIViewController {
 
     fileprivate let profile: Profile
 
-    private enum Segment: String {
-        case topSites = "top siiites"
-        case bookmarks = "boookmarkz"
-        case history = "hirrostyyy"
+    private enum Segment {
+        case topSites
+        case bookmarks
+        case history
+        case downloads
     }
 
-    private let segments: [Segment] = [.topSites, .bookmarks, .history]
+    private let segments: [Segment] = [.topSites, .bookmarks, .history, .downloads]
     private lazy var segmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: self.segments.map({ $0.rawValue }))
+        let segmentedControl = UISegmentedControl(items: self.segments.map({ self.title(for: $0) }))
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         segmentedControl.setContentCompressionResistancePriority(.required, for: .vertical)
         return segmentedControl
     }()
 
-    private lazy var allViews: [UIView] = { return [topSitesView, bookmarksView, historyView] }()
+    private lazy var allViews: [UIView] = { return [topSitesView, bookmarksView, historyView, downloadsView] }()
 
     private lazy var topSitesView: UIView = {
         let topSitesView = TopSitesView(profile: self.profile)
@@ -49,6 +50,12 @@ class HomeViewController: UIViewController {
         let historyView = UIView()
         historyView.backgroundColor = UIColor.red
         return historyView
+    }()
+
+    private let downloadsView: UIView = {
+        let downloadsView = UIView()
+        downloadsView.backgroundColor = UIColor.green
+        return downloadsView
     }()
 
     // MARK: - Initialization
@@ -86,6 +93,7 @@ private extension HomeViewController {
         view.addSubview(topSitesView)
         view.addSubview(bookmarksView)
         view.addSubview(historyView)
+        view.addSubview(downloadsView)
 
         let margins = 8
 
@@ -110,6 +118,11 @@ private extension HomeViewController {
             make.top.equalTo(segmentedControl.snp.bottom).offset(8)
             make.bottom.leading.trailing.equalToSuperview()
         }
+
+        downloadsView.snp.makeConstraints { make in
+            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
     }
 
     @objc
@@ -125,6 +138,19 @@ private extension HomeViewController {
         allViews.forEach { $0.alpha = 0 }
         guard let segmentIndex = segments.firstIndex(of: segment) else { return }
         allViews[segmentIndex].alpha = 1
+    }
+
+    private func title(for segment: Segment) -> String {
+        switch segment {
+        case .topSites:
+            return Strings.SegmentedControlTopSitesTitle
+        case .bookmarks:
+            return Strings.SegmentedControlBookmarksTitle
+        case .history:
+            return Strings.SegmentedControlHistoryTitle
+        case .downloads:
+            return Strings.SegmentedControlDownloadsTitle
+        }
     }
 }
 
