@@ -1538,6 +1538,7 @@ open class BrowserSchema: Schema {
     }
 
     fileprivate func fillDomainNamesFromCursor(_ cursor: Cursor<String>, db: SQLiteDBConnection) -> Bool {
+        // swiftlint:disable:next empty_count
         if cursor.count == 0 {
             return true
         }

@@ -170,6 +170,7 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
     }
 
     fileprivate func updateEmptyPanelState() {
+        // swiftlint:disable:next empty_count
         if source?.current.count == 0 && source?.current.guid == BookmarkRoots.MobileFolderGUID {
             if self.emptyStateOverlayView.superview == nil {
                 self.view.addSubview(self.emptyStateOverlayView)

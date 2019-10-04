@@ -476,6 +476,7 @@ class BrowserViewController: UIViewController {
 
             // This assumes that the DB returns rows in some kind of sane order.
             // It does in practice, so WFM.
+            // swiftlint:disable:next empty_count
             if cursor.count > 0 {
 
                 // Filter out any tabs received by a push notification to prevent dupes.
@@ -833,7 +834,7 @@ class BrowserViewController: UIViewController {
 
     func addBookmark(url: String, title: String? = nil, favicon: Favicon? = nil) {
         var title = (title ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-        if title.count == 0 {
+        if title.isEmpty {
             title = url
         }
 

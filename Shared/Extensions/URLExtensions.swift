@@ -406,7 +406,7 @@ public struct InternalURL {
     public var stripAuthorization: String {
         guard var components = URLComponents(string: url.absoluteString), let items = components.queryItems else { return url.absoluteString }
         components.queryItems = items.filter { !Param.uuidkey.matches($0.name) }
-        if let items = components.queryItems, items.count == 0 {
+        if let items = components.queryItems, items.isEmpty {
             components.queryItems = nil // This cleans up the url to not end with a '?'
         }
         return components.url?.absoluteString ?? ""

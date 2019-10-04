@@ -541,7 +541,7 @@ extension AppDelegate {
                 }
             }
 
-            if receivedURLs.count > 0 {
+            if !receivedURLs.isEmpty {
                 // If we're in the foreground, load the queued tabs now.
                 if application.applicationState == .active {
                     DispatchQueue.main.async {

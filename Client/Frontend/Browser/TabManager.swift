@@ -579,6 +579,7 @@ extension TabManager {
                 }
             }
         }
+        // swiftlint:disable:next empty_count
         guard count == 0, !AppConstants.IsRunningTest, !DebugSettingsBundleOptions.skipSessionRestore, store.hasTabsToRestoreAtStartup else {
             return
         }

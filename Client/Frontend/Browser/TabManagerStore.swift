@@ -29,7 +29,7 @@ class TabManagerStore {
     }
 
     var hasTabsToRestoreAtStartup: Bool {
-        return archivedStartupTabs.count > 0
+        return !archivedStartupTabs.isEmpty
     }
 
     fileprivate func tabsStateArchivePath() -> String? {
@@ -122,7 +122,7 @@ class TabManagerStore {
 
     func restoreTabs(savedTabs: [SavedTab], clearPrivateTabs: Bool, tabManager: TabManager) -> Tab? {
         assertIsMainThread("Restoration is a main-only operation")
-        guard !lockedForReading, savedTabs.count > 0 else { return nil }
+        guard !lockedForReading, !savedTabs.isEmpty else { return nil }
         lockedForReading = true
         defer {
             lockedForReading = false

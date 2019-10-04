@@ -114,7 +114,7 @@ class SuggestionsView: UIView {
     }
 
     private func shouldShowSuggestions(query: String, suggestions: [String]) -> Bool {
-        return currentQuery == query && suggestions.count > 0
+        return currentQuery == query && !suggestions.isEmpty
     }
 
     private func updateSuggestions(_ suggestions: [String]) {

@@ -84,7 +84,7 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
     var clearHistoryCell: UITableViewCell?
 
     var hasRecentlyClosed: Bool {
-        return profile.recentlyClosedTabs.tabs.count > 0
+        return !profile.recentlyClosedTabs.tabs.isEmpty
     }
 
     lazy var emptyStateOverlayView: UIView = createEmptyStateOverlayView()
