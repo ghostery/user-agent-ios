@@ -77,7 +77,7 @@ class SearchResultsViewController: UIViewController {
 
     fileprivate static func getTheme() -> [String: Any] {
         return [
-            "backgroundColor": UIColor.theme.browser.background.hexString,
+            "backgroundColor": UIColor.theme.browser.background.hexString
         ]
     }
 }
@@ -96,7 +96,7 @@ extension SearchResultsViewController: BrowserCoreClient {
         browserCore.callAction(module: "search", action: "startSearch", args: [
             searchQuery,
             ["key": keyCode],
-            ["contextId": "mobile-cards"],
+            ["contextId": "mobile-cards"]
         ])
     }
 

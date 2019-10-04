@@ -400,7 +400,7 @@ extension SQLiteBookmarks {
                         return self.db.run([
                             (deleteStructure, topArgs),
                             (deleteNew, childArgs),
-                            (markChanged, childArgs),
+                            (markChanged, childArgs)
                         ])
                 }
         }
@@ -459,7 +459,7 @@ extension SQLiteBookmarks {
             (updateIndices, args),
             (deleteNew, args),
             (markChanged, args),
-            (deleteStructure, args),
+            (deleteStructure, args)
         ])
     }
 
@@ -690,7 +690,7 @@ extension SQLiteBookmarks {
             BookmarkRoots.MenuFolderGUID,
             BookmarkRoots.ToolbarFolderGUID,
             BookmarkRoots.UnfiledFolderGUID,
-            BookmarkRoots.MobileFolderGUID,
+            BookmarkRoots.MobileFolderGUID
         ]
         let sql = "SELECT NOT EXISTS(SELECT 1 FROM bookmarksMirror) AND EXISTS(SELECT 1 FROM bookmarksBufferStructure WHERE parent IN (?, ?, ?, ?))"
         return self.db.runQuery(sql, args: parents, factory: { $0[0] as! Int == 1 })

@@ -11,7 +11,7 @@ class TabEventHandlers {
             FaviconHandler(),
             UserActivityHandler(),
             MetadataParserHelper(),
-            MediaImageLoader(prefs),
+            MediaImageLoader(prefs)
         ]
         
         return handlers

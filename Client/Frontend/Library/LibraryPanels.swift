@@ -103,6 +103,6 @@ class LibraryPanels {
             profile: profile,
             imageName: "Downloads",
             accessibilityLabel: NSLocalizedString("Downloads", comment: "Panel accessibility label"),
-            accessibilityIdentifier: "LibraryPanels.Downloads"),
+            accessibilityIdentifier: "LibraryPanels.Downloads")
     ]
 }

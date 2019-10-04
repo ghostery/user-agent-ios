@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
         func toDial(site: Site) -> [String: String] {
             return [
                 "url": site.url,
-                "title": site.title,
+                "title": site.title
             ]
         }
 
@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
             moduleName: "Home",
             initialProperties: [
                 "speedDials": speedDials.map(toDial),
-                "pinnedSites": pinnedSites.map(toDial),
+                "pinnedSites": pinnedSites.map(toDial)
             ]
         )
 

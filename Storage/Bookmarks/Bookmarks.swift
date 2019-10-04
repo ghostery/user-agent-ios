@@ -43,7 +43,7 @@ public struct BookmarkRoots {
         BookmarkRoots.MenuFolderGUID,
         BookmarkRoots.ToolbarFolderGUID,
         BookmarkRoots.UnfiledFolderGUID,
-        BookmarkRoots.MobileFolderGUID,
+        BookmarkRoots.MobileFolderGUID
     ]
 
     public static let Real = Set<GUID>([
@@ -51,7 +51,7 @@ public struct BookmarkRoots {
         BookmarkRoots.MobileFolderGUID,
         BookmarkRoots.MenuFolderGUID,
         BookmarkRoots.ToolbarFolderGUID,
-        BookmarkRoots.UnfiledFolderGUID,
+        BookmarkRoots.UnfiledFolderGUID
     ])
 
     public static let All = Set<GUID>([
@@ -59,7 +59,7 @@ public struct BookmarkRoots {
         BookmarkRoots.MobileFolderGUID,
         BookmarkRoots.MenuFolderGUID,
         BookmarkRoots.ToolbarFolderGUID,
-        BookmarkRoots.UnfiledFolderGUID,
+        BookmarkRoots.UnfiledFolderGUID
     ])
 
     /**

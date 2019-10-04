@@ -293,7 +293,7 @@ class AuthenticationSettingsViewController: SettingsTableViewController {
         let requirePasscodeSection = SettingSection(title: nil, children: requirePasscodeSectionChildren)
         settings += [
             passcodeSection,
-            requirePasscodeSection,
+            requirePasscodeSection
         ]
 
         return settings
@@ -309,12 +309,12 @@ class AuthenticationSettingsViewController: SettingsTableViewController {
         ])
 
         let requirePasscodeSection = SettingSection(title: nil, children: [
-            RequirePasscodeSetting(settings: self, delegate: nil, enabled: false),
+            RequirePasscodeSetting(settings: self, delegate: nil, enabled: false)
         ])
 
         settings += [
             passcodeSection,
-            requirePasscodeSection,
+            requirePasscodeSection
         ]
 
         return settings

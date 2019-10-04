@@ -98,7 +98,7 @@ private let AllTables: [String] = [
     TableTabs,
     TableFaviconSiteURLs,
 
-    MatViewAwesomebarBookmarksWithFavicons,
+    MatViewAwesomebarBookmarksWithFavicons
 ]
 
 private let AllViews: [String] = [
@@ -113,7 +113,7 @@ private let AllViews: [String] = [
     ViewAllBookmarks,
     ViewAwesomebarBookmarks,
     ViewAwesomebarBookmarksWithFavicons,
-    ViewHistoryVisits,
+    ViewHistoryVisits
 ]
 
 private let AllIndices: [String] = [
@@ -124,14 +124,14 @@ private let AllIndices: [String] = [
     IndexBookmarksMirrorStructureParentIdx,
     IndexBookmarksMirrorStructureChild,
     IndexPageMetadataCacheKey,
-    IndexPageMetadataSiteURL,
+    IndexPageMetadataSiteURL
 ]
 
 private let AllTriggers: [String] = [
     TriggerHistoryBeforeUpdate,
     TriggerHistoryBeforeDelete,
     TriggerHistoryAfterUpdate,
-    TriggerHistoryAfterInsert,
+    TriggerHistoryAfterInsert
 ]
 
 private let AllTablesIndicesTriggersAndViews: [String] = AllViews + AllTriggers + AllIndices + AllTables
@@ -215,7 +215,7 @@ open class BrowserSchema: Schema {
             BookmarkRoots.MobileID, BookmarkRoots.MobileFolderGUID, type, now, BookmarkRoots.RootGUID, status, now,
             BookmarkRoots.MenuID, BookmarkRoots.MenuFolderGUID, type, now, BookmarkRoots.RootGUID, status, now,
             BookmarkRoots.ToolbarID, BookmarkRoots.ToolbarFolderGUID, type, now, BookmarkRoots.RootGUID, status, now,
-            BookmarkRoots.UnfiledID, BookmarkRoots.UnfiledFolderGUID, type, now, BookmarkRoots.RootGUID, status, now,
+            BookmarkRoots.UnfiledID, BookmarkRoots.UnfiledFolderGUID, type, now, BookmarkRoots.RootGUID, status, now
         ]
 
         // Compute these args using the sequence in RootChildren, rather than hard-coding.
@@ -911,7 +911,7 @@ open class BrowserSchema: Schema {
             allBookmarksView,
             historyVisitsView,
             awesomebarBookmarksView,
-            awesomebarBookmarksWithIconsView,
+            awesomebarBookmarksWithIconsView
         ]
 
         assert(queries.count == AllTablesIndicesTriggersAndViews.count, "Did you forget to add your table, index, trigger, or view to the list?")
@@ -977,7 +977,7 @@ open class BrowserSchema: Schema {
                 "DROP INDEX IF EXISTS idx_visits_siteID_date",
                 "CREATE INDEX IF NOT EXISTS idx_visits_siteID_is_local_date ON visits (siteID, is_local, date)",
                 self.domainsTableCreate,
-                "ALTER TABLE history ADD COLUMN domain_id INTEGER REFERENCES domains(id) ON DELETE CASCADE",
+                "ALTER TABLE history ADD COLUMN domain_id INTEGER REFERENCES domains(id) ON DELETE CASCADE"
             ]) {
                 return false
             }
@@ -1053,7 +1053,7 @@ open class BrowserSchema: Schema {
                 bookmarksLocal,
                 bookmarksMirror,
                 bookmarksLocalStructure,
-                bookmarksMirrorStructure,
+                bookmarksMirrorStructure
             ]
 
             // Only migrate bookmarks. The only folders are our roots, and we'll create those later.
@@ -1102,7 +1102,7 @@ open class BrowserSchema: Schema {
                 // Create indices for each structure table.
                 (indexBufferStructureParentIdx, nil),
                 (indexLocalStructureParentIdx, nil),
-                (indexMirrorStructureParentIdx, nil),
+                (indexMirrorStructureParentIdx, nil)
             ]
 
             if !self.run(db, queries: prep) ||
@@ -1343,7 +1343,7 @@ open class BrowserSchema: Schema {
                 "DELETE FROM history WHERE is_deleted = 0 AND length(url) > 65536",
                 "DELETE FROM page_metadata WHERE length(site_url) > 65536",
                 "DELETE FROM bookmarksLocal WHERE is_deleted = 0 AND length(bmkUri) > 65536",
-                "UPDATE bookmarksLocal SET title = substr(title, 1, 4096) WHERE is_deleted = 0 AND length(title) > 4096",
+                "UPDATE bookmarksLocal SET title = substr(title, 1, 4096) WHERE is_deleted = 0 AND length(title) > 4096"
                 ]) {
                 return false
             }
@@ -1358,7 +1358,7 @@ open class BrowserSchema: Schema {
                 historyBeforeUpdateTrigger,
                 historyBeforeDeleteTrigger,
                 historyAfterUpdateTrigger,
-                historyAfterInsertTrigger,
+                historyAfterInsertTrigger
                 ]) {
                 return false
             }
@@ -1367,7 +1367,7 @@ open class BrowserSchema: Schema {
         if from < 36 && to >= 36 {
             // Rebuild the FTS index for the `history_fts` table.
             if !self.run(db, queries: [
-                historyFTSRebuild,
+                historyFTSRebuild
                 ]) {
                 return false
             }
@@ -1379,7 +1379,7 @@ open class BrowserSchema: Schema {
             // v29.
             if from > 29 {
                 if !self.run(db, queries: [
-                    "ALTER TABLE remote_devices ADD availableCommands TEXT",
+                    "ALTER TABLE remote_devices ADD availableCommands TEXT"
                     ]) {
                     return false
                 }
@@ -1389,7 +1389,7 @@ open class BrowserSchema: Schema {
         if from < 38 && to >= 38 {
             // Create the "materialized view" table `matview_awesomebar_bookmarks_with_favicons`.
             if !self.run(db, queries: [
-                awesomebarBookmarksWithFaviconsCreate,
+                awesomebarBookmarksWithFaviconsCreate
                 ]) {
                 return false
             }
@@ -1400,7 +1400,7 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 "CREATE INDEX IF NOT EXISTS idx_bookmarksBuffer_keyword ON bookmarksBuffer (keyword)",
                 "CREATE INDEX IF NOT EXISTS idx_bookmarksLocal_keyword ON bookmarksLocal (keyword)",
-                "CREATE INDEX IF NOT EXISTS idx_bookmarksMirror_keyword ON bookmarksMirror (keyword)",
+                "CREATE INDEX IF NOT EXISTS idx_bookmarksMirror_keyword ON bookmarksMirror (keyword)"
                 ]) {
                 return false
             }
@@ -1409,7 +1409,7 @@ open class BrowserSchema: Schema {
         if from < 40 && to >= 40 {
             // Create indices on the bookmarks tables for the `keyword` column.
             if !self.run(db, queries: [
-                faviconSiteURLsCreate,
+                faviconSiteURLsCreate
                 ]) {
                 return false
             }

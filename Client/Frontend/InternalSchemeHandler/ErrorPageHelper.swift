@@ -27,7 +27,7 @@ fileprivate let CertErrors = [
 fileprivate let CertErrorCodes = [
     -9813: "SEC_ERROR_UNKNOWN_ISSUER",
     -9814: "SEC_ERROR_EXPIRED_CERTIFICATE",
-    -9843: "SSL_ERROR_BAD_CERT_DOMAIN",
+    -9843: "SSL_ERROR_BAD_CERT_DOMAIN"
 ]
 
 fileprivate func certFromErrorURL(_ url: URL) -> SecCertificate? {
@@ -166,7 +166,7 @@ class ErrorPageHandler: InternalSchemeResponse {
         var variables = [
             "error_code": "\(errCode)",
             "error_title": errDescription,
-            "short_description": errDomain,
+            "short_description": errDomain
             ]
 
         let tryAgain = NSLocalizedString("Try again", tableName: "ErrorPages", comment: "Shown in error pages on a button that will try to load the page again")

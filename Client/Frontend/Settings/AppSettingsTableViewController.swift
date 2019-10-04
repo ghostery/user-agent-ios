@@ -33,7 +33,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             HomeSetting(settings: self),
             OpenWithSetting(settings: self),
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
-                        titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
+                        titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting"))
            ]
 
         if #available(iOS 12.0, *) {
@@ -77,7 +77,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 ShowIntroductionSetting(settings: self),
                 SendFeedbackSetting(),
                 SendAnonymousUsageDataSetting(prefs: prefs, delegate: settingsDelegate),
-                OpenSupportPageSetting(delegate: settingsDelegate),
+                OpenSupportPageSetting(delegate: settingsDelegate)
             ]),
             SettingSection(title: NSAttributedString(string: NSLocalizedString("About", comment: "About settings section title")), children: [
                 VersionSetting(settings: self),
@@ -88,7 +88,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 DeleteExportedDataSetting(settings: self),
                 ForceCrashSetting(settings: self),
                 SlowTheDatabase(settings: self),
-                SentryIDSetting(settings: self),
+                SentryIDSetting(settings: self)
             ])]
 
         return settings
