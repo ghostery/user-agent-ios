@@ -371,7 +371,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             [ (AboutHomeHandler.path, AboutHomeHandler()),
               (AboutLicenseHandler.path, AboutLicenseHandler()),
               (SessionRestoreHandler.path, SessionRestoreHandler()),
-              (ErrorPageHandler.path, ErrorPageHandler())]
+              (ErrorPageHandler.path, ErrorPageHandler()), ]
         responders.forEach { (path, responder) in
             InternalSchemeHandler.responders[path] = responder
         }

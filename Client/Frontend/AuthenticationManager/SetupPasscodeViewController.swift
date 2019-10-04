@@ -15,7 +15,7 @@ class SetupPasscodeViewController: PagingPasscodeViewController, PasscodeInputVi
         self.title = AuthenticationStrings.setPasscode
         self.panes = [
             PasscodePane(title: AuthenticationStrings.enterAPasscode, passcodeSize: 6),
-            PasscodePane(title: AuthenticationStrings.reenterPasscode, passcodeSize: 6)
+            PasscodePane(title: AuthenticationStrings.reenterPasscode, passcodeSize: 6),
         ]
     }
 

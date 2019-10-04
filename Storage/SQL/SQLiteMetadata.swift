@@ -36,7 +36,7 @@ extension SQLiteMetadata: Metadata {
         let selectUniqueCacheKey = "coalesce((SELECT cache_key FROM page_metadata WHERE cache_key = ?), ?)"
         let args: Args = [cacheKey, cacheKey, metadata.siteURL, metadata.mediaURL, metadata.title,
                           metadata.type, metadata.description, metadata.providerName,
-                          expireAt]
+                          expireAt, ]
 
         let insert = """
             INSERT OR REPLACE INTO page_metadata (

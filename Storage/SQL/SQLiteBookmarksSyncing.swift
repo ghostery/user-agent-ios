@@ -136,7 +136,7 @@ extension SQLiteBookmarks {
             parent,
             parentTitle,
             Date.nowNumber(),
-            2
+            2,
         ]
 
         let faviconID: Int?
@@ -290,7 +290,7 @@ private extension BookmarkMirrorItem {
             self.keyword,
             self.folderName,
             self.queryID,
-            self.guid
+            self.guid,
         ]
 
         return args

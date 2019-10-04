@@ -190,7 +190,7 @@ class ReadingListPanel: UITableViewController, LibraryPanel {
 
         [ Notification.Name.FirefoxAccountChanged,
           Notification.Name.DynamicFontChanged,
-          Notification.Name.DatabaseWasReopened ].forEach {
+          Notification.Name.DatabaseWasReopened, ].forEach {
             NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: $0, object: nil)
         }
 

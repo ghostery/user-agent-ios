@@ -301,7 +301,7 @@ class Tab: NSObject {
                              WKWebsiteDataTypeLocalStorage,
                              WKWebsiteDataTypeSessionStorage,
                              WKWebsiteDataTypeWebSQLDatabases,
-                             WKWebsiteDataTypeIndexedDBDatabases])
+                             WKWebsiteDataTypeIndexedDBDatabases, ])
 
         webView?.configuration.websiteDataStore.removeData(ofTypes: dataTypes,
                                                      modifiedSince: Date.distantPast,

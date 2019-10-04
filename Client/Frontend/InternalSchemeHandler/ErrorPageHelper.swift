@@ -19,7 +19,7 @@ private let CertErrors = [
     NSURLErrorServerCertificateUntrusted,
     NSURLErrorServerCertificateHasBadDate,
     NSURLErrorServerCertificateHasUnknownRoot,
-    NSURLErrorServerCertificateNotYetValid
+    NSURLErrorServerCertificateNotYetValid,
 ]
 
 // Error codes copied from Gecko. The ints corresponding to these codes were determined
@@ -27,7 +27,7 @@ private let CertErrors = [
 private let CertErrorCodes = [
     -9813: "SEC_ERROR_UNKNOWN_ISSUER",
     -9814: "SEC_ERROR_EXPIRED_CERTIFICATE",
-    -9843: "SSL_ERROR_BAD_CERT_DOMAIN"
+    -9843: "SSL_ERROR_BAD_CERT_DOMAIN",
 ]
 
 private func certFromErrorURL(_ url: URL) -> SecCertificate? {
@@ -166,7 +166,7 @@ class ErrorPageHandler: InternalSchemeResponse {
         var variables = [
             "error_code": "\(errCode)",
             "error_title": errDescription,
-            "short_description": errDomain
+            "short_description": errDomain,
             ]
 
         let tryAgain = NSLocalizedString("Try again", tableName: "ErrorPages", comment: "Shown in error pages on a button that will try to load the page again")
@@ -271,7 +271,7 @@ class ErrorPageHelper {
             URLQueryItem(name: "domain", value: error.domain),
             URLQueryItem(name: "description", value: error.localizedDescription),
             // 'timestamp' is used for the js reload logic
-            URLQueryItem(name: "timestamp", value: "\(Int(Date().timeIntervalSince1970 * 1000))")
+            URLQueryItem(name: "timestamp", value: "\(Int(Date().timeIntervalSince1970 * 1000))"),
         ]
 
         // If this is an invalid certificate, show a certificate error allowing the

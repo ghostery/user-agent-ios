@@ -100,7 +100,7 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         [ Notification.Name.FirefoxAccountChanged,
           Notification.Name.PrivateDataClearedHistory,
           Notification.Name.DynamicFontChanged,
-          Notification.Name.DatabaseWasReopened ].forEach {
+          Notification.Name.DatabaseWasReopened, ].forEach {
             NotificationCenter.default.addObserver(self, selector: #selector(onNotificationReceived), name: $0, object: nil)
         }
     }
@@ -255,7 +255,7 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
 
         [(Strings.ClearHistoryMenuOptionTheLastHour, 1),
          (Strings.ClearHistoryMenuOptionToday, 24),
-         (Strings.ClearHistoryMenuOptionTodayAndYesterday, 48)].forEach {
+         (Strings.ClearHistoryMenuOptionTodayAndYesterday, 48), ].forEach {
             (name, time) in
             let action = UIAlertAction(title: name, style: .destructive) { _ in
                 remove(hoursAgo: time)

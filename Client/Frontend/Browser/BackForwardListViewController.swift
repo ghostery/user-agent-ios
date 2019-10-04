@@ -192,13 +192,13 @@ class BackForwardListViewController: UIViewController, UITableViewDataSource, UI
             if snappedToBottom {
                 verticalConstraints += [
                     make.bottom.equalTo(tableView.snp.top).constraint,
-                    make.top.equalTo(self.view).constraint
+                    make.top.equalTo(self.view).constraint,
                 ]
 
             } else {
                 verticalConstraints += [
                     make.top.equalTo(tableView.snp.bottom).constraint,
-                    make.bottom.equalTo(self.view).constraint
+                    make.bottom.equalTo(self.view).constraint,
                 ]
             }
         }

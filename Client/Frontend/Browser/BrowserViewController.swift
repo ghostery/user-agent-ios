@@ -21,7 +21,7 @@ private let KVOs: [KVOConstants] = [
     .canGoBack,
     .canGoForward,
     .URL,
-    .title
+    .title,
 ]
 
 private let ActionSheetTitleMaxLength = 120

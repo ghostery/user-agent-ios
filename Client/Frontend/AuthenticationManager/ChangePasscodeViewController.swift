@@ -17,7 +17,7 @@ class ChangePasscodeViewController: PagingPasscodeViewController, PasscodeInputV
         self.panes = [
             PasscodePane(title: AuthenticationStrings.enterPasscode, passcodeSize: authenticationInfo?.passcode?.count ?? 6),
             PasscodePane(title: AuthenticationStrings.enterNewPasscode, passcodeSize: 6),
-            PasscodePane(title: AuthenticationStrings.reenterPasscode, passcodeSize: 6)
+            PasscodePane(title: AuthenticationStrings.reenterPasscode, passcodeSize: 6),
         ]
     }
 

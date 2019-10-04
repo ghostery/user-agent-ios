@@ -31,8 +31,8 @@ private let apsEnvironment: [String: Any] = [
     "mutable-content": 1,
     "alert": [
         "title": " ",
-        "body": " "
-    ]
+        "body": " ",
+    ],
 ]
 
 public struct PushRemoteError {
@@ -94,7 +94,7 @@ public extension PushClient {
         if experimentalMode {
             parameters = [
                 "token": apnsToken,
-                "aps": apsEnvironment
+                "aps": apsEnvironment,
             ]
         } else {
             parameters = ["token": apnsToken]

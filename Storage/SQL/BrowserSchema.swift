@@ -98,7 +98,7 @@ private let AllTables: [String] = [
     TableTabs,
     TableFaviconSiteURLs,
 
-    MatViewAwesomebarBookmarksWithFavicons
+    MatViewAwesomebarBookmarksWithFavicons,
 ]
 
 private let AllViews: [String] = [
@@ -113,7 +113,7 @@ private let AllViews: [String] = [
     ViewAllBookmarks,
     ViewAwesomebarBookmarks,
     ViewAwesomebarBookmarksWithFavicons,
-    ViewHistoryVisits
+    ViewHistoryVisits,
 ]
 
 private let AllIndices: [String] = [
@@ -124,14 +124,14 @@ private let AllIndices: [String] = [
     IndexBookmarksMirrorStructureParentIdx,
     IndexBookmarksMirrorStructureChild,
     IndexPageMetadataCacheKey,
-    IndexPageMetadataSiteURL
+    IndexPageMetadataSiteURL,
 ]
 
 private let AllTriggers: [String] = [
     TriggerHistoryBeforeUpdate,
     TriggerHistoryBeforeDelete,
     TriggerHistoryAfterUpdate,
-    TriggerHistoryAfterInsert
+    TriggerHistoryAfterInsert,
 ]
 
 private let AllTablesIndicesTriggersAndViews: [String] = AllViews + AllTriggers + AllIndices + AllTables
@@ -215,7 +215,7 @@ open class BrowserSchema: Schema {
             BookmarkRoots.MobileID, BookmarkRoots.MobileFolderGUID, type, now, BookmarkRoots.RootGUID, status, now,
             BookmarkRoots.MenuID, BookmarkRoots.MenuFolderGUID, type, now, BookmarkRoots.RootGUID, status, now,
             BookmarkRoots.ToolbarID, BookmarkRoots.ToolbarFolderGUID, type, now, BookmarkRoots.RootGUID, status, now,
-            BookmarkRoots.UnfiledID, BookmarkRoots.UnfiledFolderGUID, type, now, BookmarkRoots.RootGUID, status, now
+            BookmarkRoots.UnfiledID, BookmarkRoots.UnfiledFolderGUID, type, now, BookmarkRoots.RootGUID, status, now,
         ]
 
         // Compute these args using the sequence in RootChildren, rather than hard-coding.
@@ -911,7 +911,7 @@ open class BrowserSchema: Schema {
             allBookmarksView,
             historyVisitsView,
             awesomebarBookmarksView,
-            awesomebarBookmarksWithIconsView
+            awesomebarBookmarksWithIconsView,
         ]
 
         assert(queries.count == AllTablesIndicesTriggersAndViews.count, "Did you forget to add your table, index, trigger, or view to the list?")
@@ -977,7 +977,7 @@ open class BrowserSchema: Schema {
                 "DROP INDEX IF EXISTS idx_visits_siteID_date",
                 "CREATE INDEX IF NOT EXISTS idx_visits_siteID_is_local_date ON visits (siteID, is_local, date)",
                 self.domainsTableCreate,
-                "ALTER TABLE history ADD COLUMN domain_id INTEGER REFERENCES domains(id) ON DELETE CASCADE"
+                "ALTER TABLE history ADD COLUMN domain_id INTEGER REFERENCES domains(id) ON DELETE CASCADE",
             ]) {
                 return false
             }
@@ -1053,7 +1053,7 @@ open class BrowserSchema: Schema {
                 bookmarksLocal,
                 bookmarksMirror,
                 bookmarksLocalStructure,
-                bookmarksMirrorStructure
+                bookmarksMirrorStructure,
             ]
 
             // Only migrate bookmarks. The only folders are our roots, and we'll create those later.
@@ -1102,7 +1102,7 @@ open class BrowserSchema: Schema {
                 // Create indices for each structure table.
                 (indexBufferStructureParentIdx, nil),
                 (indexLocalStructureParentIdx, nil),
-                (indexMirrorStructureParentIdx, nil)
+                (indexMirrorStructureParentIdx, nil),
             ]
 
             if !self.run(db, queries: prep) ||
@@ -1123,7 +1123,7 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 self.bufferBookmarksStructureView,
                 self.localBookmarksStructureView,
-                indexMirrorStructureChild]) {
+                indexMirrorStructureChild, ]) {
                 return false
             }
         }
@@ -1134,7 +1134,7 @@ open class BrowserSchema: Schema {
                 "DROP VIEW IF EXISTS view_bookmarksBufferStructure_on_mirror",
                 "DROP VIEW IF EXISTS view_bookmarksLocalStructure_on_mirror",
                 self.bufferBookmarksStructureView,
-                self.localBookmarksStructureView]) {
+                self.localBookmarksStructureView, ]) {
                 return false
             }
         }
@@ -1144,7 +1144,7 @@ open class BrowserSchema: Schema {
                 oldAllBookmarksView,         // Replaced in v30. The new one is not compatible here.
                 historyVisitsView,
                 awesomebarBookmarksView,     // … but this depends on ViewAllBookmarks.
-                awesomebarBookmarksWithIconsView]) {
+                awesomebarBookmarksWithIconsView, ]) {
                 return false
             }
         }
@@ -1162,7 +1162,7 @@ open class BrowserSchema: Schema {
         if from < 18 && to >= 18 {
             if !self.run(db, queries: [
                 // Adds the Activity Stream blocklist table
-                activityStreamBlocklistCreate]) {
+                activityStreamBlocklistCreate, ]) {
                 return false
             }
         }
@@ -1171,7 +1171,7 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 // Adds tables/indicies for metadata content
                 pageMetadataCreate,
-                indexPageMetadataCacheKeyCreate]) {
+                indexPageMetadataCacheKeyCreate, ]) {
                 return false
             }
         }
@@ -1189,7 +1189,7 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 "DROP VIEW IF EXISTS view_history_visits",
                 self.historyVisitsView,
-                indexPageMetadataSiteURLCreate]) {
+                indexPageMetadataSiteURLCreate, ]) {
                 return false
             }
         }
@@ -1239,7 +1239,7 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 // The old pin table was never released so we can safely drop
                 "DROP TABLE IF EXISTS pinned_top_sites",
-                pinnedTopSitesTableCreate
+                pinnedTopSitesTableCreate,
                 ]) {
                 return false
             }
@@ -1252,7 +1252,7 @@ open class BrowserSchema: Schema {
                 pageMetadataCreate,
                 indexPageMetadataCacheKeyCreate,
                 indexPageMetadataSiteURLCreate,
-                highlightsCreate
+                highlightsCreate,
                 ]) {
                 return false
             }
@@ -1260,7 +1260,7 @@ open class BrowserSchema: Schema {
 
         if from < 28 && to >= 28 {
             if !self.run(db, queries: [
-                self.pendingBookmarksDeletions
+                self.pendingBookmarksDeletions,
             ]) {
                 return false
             }
@@ -1268,7 +1268,7 @@ open class BrowserSchema: Schema {
 
         if from < 29 && to >= 29 {
             if !self.run(db, queries: [
-                self.remoteDevices
+                self.remoteDevices,
             ]) {
                 return false
             }
@@ -1279,7 +1279,7 @@ open class BrowserSchema: Schema {
             // deletions from the bookmarked set.
             if !self.run(db, queries: [
                 "DROP VIEW IF EXISTS view_all_bookmarks",
-                allBookmarksView
+                allBookmarksView,
             ]) {
                 return false
             }
@@ -1293,7 +1293,7 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 syncCommandsTableCreate,
                 clientsTableCreate,
-                tabsTableCreate
+                tabsTableCreate,
                 ]) {
                 return false
             }
@@ -1306,12 +1306,12 @@ open class BrowserSchema: Schema {
                 queries.append(contentsOf: [
                     "ALTER TABLE bookmarksLocal ADD date_added INTEGER",
                     "ALTER TABLE bookmarksMirror ADD date_added INTEGER",
-                    "ALTER TABLE bookmarksBuffer ADD date_added INTEGER"
+                    "ALTER TABLE bookmarksBuffer ADD date_added INTEGER",
                 ])
             }
             queries.append(contentsOf: [
                 "UPDATE bookmarksLocal SET date_added = local_modified",
-                "UPDATE bookmarksMirror SET date_added = server_modified"
+                "UPDATE bookmarksMirror SET date_added = server_modified",
             ])
             if !self.run(db, queries: queries) {
                 return false
@@ -1325,7 +1325,7 @@ open class BrowserSchema: Schema {
                 "DROP VIEW IF EXISTS view_bookmarksLocal_on_mirror",
                 self.bufferBookmarksView,
                 self.bufferBookmarksWithDeletionsView,
-                self.localBookmarksView
+                self.localBookmarksView,
                 ]) {
                 return false
             }
@@ -1343,7 +1343,7 @@ open class BrowserSchema: Schema {
                 "DELETE FROM history WHERE is_deleted = 0 AND length(url) > 65536",
                 "DELETE FROM page_metadata WHERE length(site_url) > 65536",
                 "DELETE FROM bookmarksLocal WHERE is_deleted = 0 AND length(bmkUri) > 65536",
-                "UPDATE bookmarksLocal SET title = substr(title, 1, 4096) WHERE is_deleted = 0 AND length(title) > 4096"
+                "UPDATE bookmarksLocal SET title = substr(title, 1, 4096) WHERE is_deleted = 0 AND length(title) > 4096",
                 ]) {
                 return false
             }
@@ -1358,7 +1358,7 @@ open class BrowserSchema: Schema {
                 historyBeforeUpdateTrigger,
                 historyBeforeDeleteTrigger,
                 historyAfterUpdateTrigger,
-                historyAfterInsertTrigger
+                historyAfterInsertTrigger,
                 ]) {
                 return false
             }
@@ -1367,7 +1367,7 @@ open class BrowserSchema: Schema {
         if from < 36 && to >= 36 {
             // Rebuild the FTS index for the `history_fts` table.
             if !self.run(db, queries: [
-                historyFTSRebuild
+                historyFTSRebuild,
                 ]) {
                 return false
             }
@@ -1379,7 +1379,7 @@ open class BrowserSchema: Schema {
             // v29.
             if from > 29 {
                 if !self.run(db, queries: [
-                    "ALTER TABLE remote_devices ADD availableCommands TEXT"
+                    "ALTER TABLE remote_devices ADD availableCommands TEXT",
                     ]) {
                     return false
                 }
@@ -1389,7 +1389,7 @@ open class BrowserSchema: Schema {
         if from < 38 && to >= 38 {
             // Create the "materialized view" table `matview_awesomebar_bookmarks_with_favicons`.
             if !self.run(db, queries: [
-                awesomebarBookmarksWithFaviconsCreate
+                awesomebarBookmarksWithFaviconsCreate,
                 ]) {
                 return false
             }
@@ -1400,7 +1400,7 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 "CREATE INDEX IF NOT EXISTS idx_bookmarksBuffer_keyword ON bookmarksBuffer (keyword)",
                 "CREATE INDEX IF NOT EXISTS idx_bookmarksLocal_keyword ON bookmarksLocal (keyword)",
-                "CREATE INDEX IF NOT EXISTS idx_bookmarksMirror_keyword ON bookmarksMirror (keyword)"
+                "CREATE INDEX IF NOT EXISTS idx_bookmarksMirror_keyword ON bookmarksMirror (keyword)",
                 ]) {
                 return false
             }
@@ -1409,7 +1409,7 @@ open class BrowserSchema: Schema {
         if from < 40 && to >= 40 {
             // Create indices on the bookmarks tables for the `keyword` column.
             if !self.run(db, queries: [
-                faviconSiteURLsCreate
+                faviconSiteURLsCreate,
                 ]) {
                 return false
             }
@@ -1589,7 +1589,7 @@ open class BrowserSchema: Schema {
         if !self.run(db, queries: [domains,
                                    domainIDs,
                                    updateHistory,
-                                   dropTemp]) {
+                                   dropTemp, ]) {
             log.error("Unable to migrate domains.")
             return false
         }
@@ -1600,7 +1600,7 @@ open class BrowserSchema: Schema {
     public func drop(_ db: SQLiteDBConnection) -> Bool {
         log.debug("Dropping all browser tables.")
         let additional = [
-            "DROP TABLE IF EXISTS faviconSites" // We renamed it to match naming convention.
+            "DROP TABLE IF EXISTS faviconSites", // We renamed it to match naming convention.
         ]
 
         let views = AllViews.map { "DROP VIEW IF EXISTS \($0)" }

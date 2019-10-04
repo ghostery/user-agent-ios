@@ -262,7 +262,7 @@ class AuthenticationSettingsViewController: SettingsTableViewController {
         let passcodeSectionTitle = NSAttributedString(string: AuthenticationStrings.passcode)
         let passcodeSection = SettingSection(title: passcodeSectionTitle, children: [
             TurnPasscodeOffSetting(settings: self),
-            ChangePasscodeSetting(settings: self, delegate: nil, enabled: true)
+            ChangePasscodeSetting(settings: self, delegate: nil, enabled: true),
         ])
 
         var requirePasscodeSectionChildren: [Setting] = [RequirePasscodeSetting(settings: self)]
@@ -293,7 +293,7 @@ class AuthenticationSettingsViewController: SettingsTableViewController {
         let requirePasscodeSection = SettingSection(title: nil, children: requirePasscodeSectionChildren)
         settings += [
             passcodeSection,
-            requirePasscodeSection
+            requirePasscodeSection,
         ]
 
         return settings
@@ -305,16 +305,16 @@ class AuthenticationSettingsViewController: SettingsTableViewController {
         let passcodeSectionTitle = NSAttributedString(string: AuthenticationStrings.passcode)
         let passcodeSection = SettingSection(title: passcodeSectionTitle, children: [
             TurnPasscodeOnSetting(settings: self),
-            ChangePasscodeSetting(settings: self, delegate: nil, enabled: false)
+            ChangePasscodeSetting(settings: self, delegate: nil, enabled: false),
         ])
 
         let requirePasscodeSection = SettingSection(title: nil, children: [
-            RequirePasscodeSetting(settings: self, delegate: nil, enabled: false)
+            RequirePasscodeSetting(settings: self, delegate: nil, enabled: false),
         ])
 
         settings += [
             passcodeSection,
-            requirePasscodeSection
+            requirePasscodeSection,
         ]
 
         return settings

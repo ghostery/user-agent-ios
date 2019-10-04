@@ -287,7 +287,7 @@ extension SQLiteBookmarks {
         log.warning("CALLING clearBookmarks -- this should only be used from tests.")
         return self.db.run([
             ("DELETE FROM bookmarksLocal WHERE parentid IS NOT ?", [BookmarkRoots.RootGUID]),
-            self.favicons.getCleanupFaviconsQuery()
+            self.favicons.getCleanupFaviconsQuery(),
         ])
     }
 
@@ -400,7 +400,7 @@ extension SQLiteBookmarks {
                         return self.db.run([
                             (deleteStructure, topArgs),
                             (deleteNew, childArgs),
-                            (markChanged, childArgs)
+                            (markChanged, childArgs),
                         ])
                 }
         }
@@ -459,7 +459,7 @@ extension SQLiteBookmarks {
             (updateIndices, args),
             (deleteNew, args),
             (markChanged, args),
-            (deleteStructure, args)
+            (deleteStructure, args),
         ])
     }
 
@@ -690,7 +690,7 @@ extension SQLiteBookmarks {
             BookmarkRoots.MenuFolderGUID,
             BookmarkRoots.ToolbarFolderGUID,
             BookmarkRoots.UnfiledFolderGUID,
-            BookmarkRoots.MobileFolderGUID
+            BookmarkRoots.MobileFolderGUID,
         ]
         let sql = "SELECT NOT EXISTS(SELECT 1 FROM bookmarksMirror) AND EXISTS(SELECT 1 FROM bookmarksBufferStructure WHERE parent IN (?, ?, ?, ?))"
         return self.db.runQuery(sql, args: parents, factory: { $0[0] as! Int == 1 })

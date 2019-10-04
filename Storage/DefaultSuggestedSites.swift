@@ -29,8 +29,8 @@ open class DefaultSuggestedSites {
             "te": "https://www.amazon.in",
             "ur": "https://www.amazon.in",
             "en_CA": "https://www.amazon.ca",
-            "fr_CA": "https://www.amazon.ca"
-        ]
+            "fr_CA": "https://www.amazon.ca",
+        ],
     ]
 
     public static let sites = [
@@ -74,7 +74,7 @@ open class DefaultSuggestedSites {
                 faviconUrl: "asset://defaultFavicon",
                 trackingId: 628,
                 title: NSLocalizedString("Twitter", comment: "Tile title for Twitter")
-            )
+            ),
         ],
         "zh_CN": [
             SuggestedSiteData(
@@ -124,7 +124,7 @@ open class DefaultSuggestedSites {
                 faviconUrl: "asset://jdLogo",
                 trackingId: 705,
                 title: "京东"
-            )
-        ]
+            ),
+        ],
     ]
 }

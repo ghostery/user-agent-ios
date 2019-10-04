@@ -1,5 +1,6 @@
 disabled_rules: # rule identifiers to exclude from running
   - variable_name
+  - file_header
   - type_name
   - function_body_length
   - missing_docs
@@ -49,11 +50,12 @@ opt_in_rules: # some rules are only opt-in
   - unused_import
   - toggle_bool
   - explicit_self
+  - file_header
 
   # The following rules are disabled for now because firefox code breaks them. Try to reintroduce them gradually
   # - discouraged_optional_collection
   # - redundant_type_annotation
-  # - file_header
+
   
 included: # paths to include during linting. `--path` is ignored if present.
 excluded: # paths to ignore during linting. Takes precedence over `included`.
@@ -90,6 +92,8 @@ colon: error
 comma: error
 force_try: warning
 force_cast: warning
+trailing_comma:
+  mandatory_comma: true
 
 # The following rule is useless, but is kept for compatibility with firefox code for now. 
 # Try to reduce to 140 gradually.

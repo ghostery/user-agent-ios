@@ -25,7 +25,7 @@ class SavedTab: NSObject, NSCoding {
             "isPrivate": String(self.isPrivate) as AnyObject,
             "isSelected": String(self.isSelected) as AnyObject,
             "faviconURL": faviconURL as AnyObject,
-            "screenshotUUID": uuid as AnyObject
+            "screenshotUUID": uuid as AnyObject,
         ]
 
         if let sessionDataInfo = self.sessionData?.jsonDictionary {

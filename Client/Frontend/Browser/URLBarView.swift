@@ -181,7 +181,7 @@ class URLBarView: UIView {
     }()
 
     lazy var actionButtons: [Themeable & UIButton] = [self.tabsButton, self.libraryButton, self.menuButton, self.forwardButton,
-                                                      self.backButton, self.stopReloadButton]
+                                                      self.backButton, self.stopReloadButton, ]
 
     var currentURL: URL? {
         get {
@@ -217,7 +217,7 @@ class URLBarView: UIView {
         cancelButton.addSubview(separator)
 
         [scrollToTopButton, line, tabsButton, progressBar,
-         libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer].forEach {
+         libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer, ].forEach {
             addSubview($0)
         }
 

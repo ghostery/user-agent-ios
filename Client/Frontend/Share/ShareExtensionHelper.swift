@@ -46,7 +46,7 @@ class ShareExtensionHelper: NSObject {
         // We would also hide View Later, if possible, but the exclusion list doesn't currently support
         // third-party activity types (rdar://19430419).
         activityViewController.excludedActivityTypes = [
-            UIActivity.ActivityType.addToReadingList
+            UIActivity.ActivityType.addToReadingList,
         ]
 
         activityViewController.completionWithItemsHandler = { activityType, completed, returnedItems, activityError in

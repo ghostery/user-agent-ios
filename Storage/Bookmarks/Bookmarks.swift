@@ -43,7 +43,7 @@ public struct BookmarkRoots {
         BookmarkRoots.MenuFolderGUID,
         BookmarkRoots.ToolbarFolderGUID,
         BookmarkRoots.UnfiledFolderGUID,
-        BookmarkRoots.MobileFolderGUID
+        BookmarkRoots.MobileFolderGUID,
     ]
 
     public static let Real = Set<GUID>([
@@ -51,7 +51,7 @@ public struct BookmarkRoots {
         BookmarkRoots.MobileFolderGUID,
         BookmarkRoots.MenuFolderGUID,
         BookmarkRoots.ToolbarFolderGUID,
-        BookmarkRoots.UnfiledFolderGUID
+        BookmarkRoots.UnfiledFolderGUID,
     ])
 
     public static let All = Set<GUID>([
@@ -59,7 +59,7 @@ public struct BookmarkRoots {
         BookmarkRoots.MobileFolderGUID,
         BookmarkRoots.MenuFolderGUID,
         BookmarkRoots.ToolbarFolderGUID,
-        BookmarkRoots.UnfiledFolderGUID
+        BookmarkRoots.UnfiledFolderGUID,
     ])
 
     /**
@@ -90,7 +90,7 @@ public struct BookmarkRoots {
             "mobile": MobileFolderGUID,
             "menu": MenuFolderGUID,
             "toolbar": ToolbarFolderGUID,
-            "unfiled": UnfiledFolderGUID
+            "unfiled": UnfiledFolderGUID,
         ][guid] ?? guid
     }
 
@@ -100,7 +100,7 @@ public struct BookmarkRoots {
             MobileFolderGUID: "mobile",
             MenuFolderGUID: "menu",
             ToolbarFolderGUID: "toolbar",
-            UnfiledFolderGUID: "unfiled"
+            UnfiledFolderGUID: "unfiled",
         ][guid] ?? guid
     }
 

@@ -73,7 +73,7 @@ class ReaderModeStyleViewController: UIViewController {
 
         fontTypeButtons = [
             FontTypeButton(fontType: ReaderModeFontType.sansSerif),
-            FontTypeButton(fontType: ReaderModeFontType.serif)
+            FontTypeButton(fontType: ReaderModeFontType.serif),
         ]
 
         setupButtons(fontTypeButtons, inRow: fontTypeRow, action: #selector(changeFontType))
@@ -101,7 +101,7 @@ class ReaderModeStyleViewController: UIViewController {
         fontSizeButtons = [
             FontSizeButton(fontSizeAction: FontSizeAction.smaller),
             FontSizeButton(fontSizeAction: FontSizeAction.reset),
-            FontSizeButton(fontSizeAction: FontSizeAction.bigger)
+            FontSizeButton(fontSizeAction: FontSizeAction.bigger),
         ]
 
         setupButtons(fontSizeButtons, inRow: fontSizeRow, action: #selector(changeFontSize))
@@ -120,7 +120,7 @@ class ReaderModeStyleViewController: UIViewController {
         themeButtons = [
             ThemeButton(theme: ReaderModeTheme.light),
             ThemeButton(theme: ReaderModeTheme.dark),
-            ThemeButton(theme: ReaderModeTheme.sepia)
+            ThemeButton(theme: ReaderModeTheme.sepia),
         ]
 
         setupButtons(themeButtons, inRow: themeRow, action: #selector(changeTheme))
