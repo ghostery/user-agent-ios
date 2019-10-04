@@ -350,7 +350,6 @@ class TabManager: NSObject {
                 if let webView = tab.webView as? TabWebView {
                     webView.applyTheme()
                 }
-                break
             default:
                 // The common case, where the NewTabPage enum defines
                 // one of the about:home pages.

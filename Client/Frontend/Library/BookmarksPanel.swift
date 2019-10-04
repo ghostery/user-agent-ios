@@ -120,7 +120,6 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
         default:
             // no need to do anything at all
             log.warning("Received unexpected notification \(notification.name)")
-            break
         }
     }
 
@@ -338,7 +337,6 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
         switch bookmark {
         case let item as BookmarkItem:
             libraryPanelDelegate?.libraryPanel(didSelectURLString: item.url, visitType: .bookmark)
-            break
         case let folder as BookmarkFolder:
             log.debug("Selected \(folder.guid)")
             let nextController = BookmarksPanel(profile: profile)
@@ -354,7 +352,6 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
                 nextController.source = BookmarksModel(modelFactory: specificFactory, root: folder)
                 self.navigationController?.pushViewController(nextController, animated: true)
             }
-            break
 
         default:
             // You can't do anything with separators.

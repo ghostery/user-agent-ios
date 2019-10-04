@@ -222,10 +222,8 @@ class ReaderModeStyleViewController: UIViewController {
             switch button.fontSizeAction {
             case .bigger:
                 button.isEnabled = !readerModeStyle.fontSize.isLargest()
-                break
             case .smaller:
                 button.isEnabled = !readerModeStyle.fontSize.isSmallest()
-                break
             case .reset:
                 break
             }

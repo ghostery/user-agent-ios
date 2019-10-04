@@ -335,8 +335,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         switch notification.name {
         case .FirefoxAccountChanged, .PrivateDataClearedHistory:
             reloadData()
-
-            break
         case .DynamicFontChanged:
             reloadData()
 
@@ -344,7 +342,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
                 emptyStateOverlayView.removeFromSuperview()
             }
             emptyStateOverlayView = createEmptyStateOverlayView()
-            break
         case .DatabaseWasReopened:
             if let dbName = notification.object as? String, dbName == "browser.db" {
                 reloadData()
@@ -352,7 +349,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         default:
             // no need to do anything at all
             print("Error: Received unexpected notification \(notification.name)")
-            break
         }
     }
 

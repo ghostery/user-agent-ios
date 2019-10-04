@@ -111,11 +111,9 @@ class DownloadsPanel: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.emptyStateOverlayView.removeFromSuperview()
                 }
                 self.emptyStateOverlayView = self.createEmptyStateOverlayView()
-                break
             default:
                 // no need to do anything at all
                 print("Error: Received unexpected notification \(notification.name)")
-                break
             }
         }
     }

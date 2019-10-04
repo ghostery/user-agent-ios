@@ -234,7 +234,6 @@ class ReadingListPanel: UITableViewController, LibraryPanel {
         default:
             // no need to do anything at all
             log.warning("Received unexpected notification \(notification.name)")
-            break
         }
     }
 

@@ -368,13 +368,10 @@ open class MockMemoryBookmarksStore: BookmarksModelFactory, ShareToDestination {
         case BookmarkRoots.MobileFolderGUID:
             // Transparently merges in any queued items.
             m = self.mobile.append(self.sink.queue)
-            break
         case BookmarkRoots.RootGUID:
             m = self.root
-            break
         case BookmarkRoots.UnfiledFolderGUID:
             m = self.unsorted
-            break
         default:
             return deferMaybe(DatabaseError(description: "No such folder \(guid)."))
         }
