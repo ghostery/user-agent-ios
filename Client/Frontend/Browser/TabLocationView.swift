@@ -182,7 +182,7 @@ class TabLocationView: UIView {
             make.width.equalTo(TabLocationViewUX.Spacing)
         }
         // The lock and TP icons have custom spacing.
-        // TODO: Once we cut ios10 support we can use UIstackview.setCustomSpacing
+        // TO DO : Once we cut ios10 support we can use UIstackview.setCustomSpacing
         let iconStack = UIStackView(arrangedSubviews: [spaceView, lockImageView, privacyIndicator])
         iconStack.spacing = TabLocationViewUX.Spacing / 2
 
@@ -332,7 +332,7 @@ extension TabLocationView: Themeable {
         urlTextField.textColor = UIColor.theme.textField.textAndTint
         readerModeButton.selectedTintColor = UIColor.theme.urlbar.readerModeButtonSelected
         readerModeButton.unselectedTintColor = UIColor.theme.urlbar.readerModeButtonUnselected
-        
+
         pageOptionsButton.selectedTintColor = UIColor.theme.urlbar.pageOptionsSelected
         pageOptionsButton.unselectedTintColor = UIColor.theme.urlbar.pageOptionsUnselected
         pageOptionsButton.tintColor = pageOptionsButton.unselectedTintColor

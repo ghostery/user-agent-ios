@@ -17,28 +17,25 @@ protocol LibraryViewDelegate: AnyObject {
 }
 
 class LibraryView: UIView, Themeable {
-    
     // MARK: - Properties
     var delegate: LibraryViewDelegate?
-    
     private (set) var profile: Profile
 
     private let cellIdentifier = "cellIdentifier"
     private let headerIdentifier = "headerIdentifier"
 
     private (set) var tableView = UITableView()
-    
     private lazy var longPressRecognizer: UILongPressGestureRecognizer = {
         return UILongPressGestureRecognizer(target: self, action: #selector(onLongPressGestureRecognized))
     }()
-    
+
     // MARK: - Initialization
     init(profile: Profile) {
         self.profile = profile
         super.init(frame: .zero)
         self.setup()
     }
-    
+
     override init(frame: CGRect) {
         fatalError("Use init(profile:) to initialize")
     }
@@ -46,24 +43,24 @@ class LibraryView: UIView, Themeable {
     required init?(coder aDecoder: NSCoder) {
         fatalError("Use init(profile:) to initialize")
     }
-    
+
     func setup() {
         self.configureTableView()
         self.applyTheme()
     }
-    
+
     func applyTheme() {
         self.tableView.backgroundColor = UIColor.theme.tableView.rowBackground
         self.tableView.separatorColor = UIColor.theme.tableView.separator
     }
-    
+
     func siteForIndexPath(_ indexPath: IndexPath) -> Site? {
         return nil
     }
-    
+
     func removeSiteForURLAtIndexPath(_ indexPath: IndexPath) {
     }
-    
+
     func pinToTopSites(_ site: Site) {
     }
 
@@ -71,7 +68,7 @@ class LibraryView: UIView, Themeable {
 
 // MARK: - Private methods
 extension LibraryView {
-    
+
     private func configureTableView() {
         self.addSubview(self.tableView)
         self.tableView.snp.makeConstraints { make in
@@ -91,34 +88,34 @@ extension LibraryView {
 
         // Set an empty footer to prevent empty cells from appearing in the list.
         self.tableView.tableFooterView = UIView()
-        
+
         self.tableView.addGestureRecognizer(self.longPressRecognizer)
     }
-    
+
 }
 
 // MARK: - Actions
 extension LibraryView {
-    
+
     @objc private func onLongPressGestureRecognized(_ longPressGestureRecognizer: UILongPressGestureRecognizer) {
         guard longPressGestureRecognizer.state == .began else { return }
         let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
         guard let indexPath = self.tableView.indexPathForRow(at: touchPoint) else { return }
         self.presentContextMenu(for: indexPath)
     }
-    
+
 }
 
 extension LibraryView: UITableViewDataSource {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 0
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
         cell.textLabel?.textColor = UIColor.theme.tableView.rowText
@@ -128,23 +125,23 @@ extension LibraryView: UITableViewDataSource {
 }
 
 extension LibraryView: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return tableView.dequeueReusableHeaderFooterView(withIdentifier: self.headerIdentifier)
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return SiteTableViewControllerUX.HeaderHeight
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return SiteTableViewControllerUX.RowHeight
     }
-    
+
 }
 
 extension LibraryView: LibraryContextMenu {
-    
+
     func presentContextMenu(for site: Site, with indexPath: IndexPath, completionHandler: @escaping () -> PhotonActionSheet?) {
         guard let contextMenu = completionHandler() else { return }
         self.delegate?.library(wantsToOpen: contextMenu)
@@ -168,5 +165,5 @@ extension LibraryView: LibraryContextMenu {
         actions.append(removeAction)
         return actions
     }
-    
+
 }

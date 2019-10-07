@@ -173,7 +173,7 @@ private class TwoLineCellHelper {
     var imageView: UIImageView!
     var hasRightBadge: Bool = false
 
-    // TODO: Not ideal. We should figure out a better way to get this initialized.
+    // TO DO : Not ideal. We should figure out a better way to get this initialized.
     func setUpViews(_ container: UIView, textLabel: UILabel, detailTextLabel: UILabel, imageView: UIImageView) {
         self.container = container
         self.textLabel = textLabel

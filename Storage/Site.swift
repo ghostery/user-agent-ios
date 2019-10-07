@@ -9,7 +9,7 @@ public protocol Identifiable: Equatable {
     var id: Int? { get set }
 }
 
-public func ==<T>(lhs: T, rhs: T) -> Bool where T: Identifiable {
+public func == <T>(lhs: T, rhs: T) -> Bool where T: Identifiable {
     return lhs.id == rhs.id
 }
 
@@ -27,7 +27,7 @@ open class Favicon: Identifiable {
     }
 }
 
-// TODO: Site shouldn't have all of these optional decorators. Include those in the
+// TO DO: Site shouldn't have all of these optional decorators. Include those in the
 // cursor results, perhaps as a tuple.
 open class Site: Identifiable {
     open var id: Int?

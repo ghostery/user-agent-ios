@@ -23,9 +23,9 @@ enum BuiltinThemeName: String {
 }
 
 // Convenience reference to these normal mode colors which are used in a few color classes.
-fileprivate let defaultBackground = UIColor.Grey10
-fileprivate let defaultSeparator = UIColor.Grey30
-fileprivate let defaultTextAndTint = UIColor.Grey80 
+private let defaultBackground = UIColor.Grey10
+private let defaultSeparator = UIColor.Grey30
+private let defaultTextAndTint = UIColor.Grey80
 
 class TableViewColor {
     var rowBackground: UIColor { return UIColor.White }
@@ -54,7 +54,7 @@ class ActionMenuColor {
 
 class URLBarColor {
     var border: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
-    func activeBorder(_ isPrivate: Bool) -> UIColor { 
+    func activeBorder(_ isPrivate: Bool) -> UIColor {
         return !isPrivate ? UIColor.CliqzBlue.with(alpha: .eightyPercent) : UIColor.Defaults.MobilePrivatePurple
     }
     var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
@@ -153,14 +153,14 @@ class HomePanelColor {
     var separator: UIColor { return defaultSeparator }
     var border: UIColor { return UIColor.Grey60 }
     var buttonContainerBorder: UIColor { return separator }
-    
+
     var welcomeScreenText: UIColor { return UIColor.Grey50 }
     var bookmarkIconBorder: UIColor { return UIColor.Grey30 }
-    var bookmarkFolderBackground: UIColor { return UIColor.Grey10.withAlphaComponent(0.3) } 
-    var bookmarkFolderText: UIColor { return UIColor.Grey80 } 
+    var bookmarkFolderBackground: UIColor { return UIColor.Grey10.withAlphaComponent(0.3) }
+    var bookmarkFolderText: UIColor { return UIColor.Grey80 }
     var bookmarkCurrentFolderText: UIColor { return UIColor.Blue40 }
     var bookmarkBackNavCellBackground: UIColor { return UIColor.clear }
-    
+
     var siteTableHeaderBorder: UIColor { return UIColor.Grey30.withAlphaComponent(0.8) }
 
     var topSiteDomain: UIColor { return UIColor.black }
@@ -174,9 +174,9 @@ class HomePanelColor {
 
     var readingListActive: UIColor { return defaultTextAndTint }
     var readingListDimmed: UIColor { return UIColor.Grey40 }
-    
+
     var downloadedFileIcon: UIColor { return UIColor.Grey60 }
-    
+
     var historyHeaderIconsBackground: UIColor { return UIColor.White }
 
     var searchSuggestionPillBackground: UIColor { return UIColor.White }

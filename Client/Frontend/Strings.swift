@@ -593,7 +593,7 @@ extension Strings {
     public static let ShareSearchIn = String(format: NSLocalizedString("ShareExtension.SeachInUserAgentAction.Title", tableName: "ShareTo", comment: "Action label on share extension to search for the selected text in Firefox."), AppInfo.displayName)
 
     public static let ShareLoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", tableName: "ShareTo", comment: "Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground.")
-    
+
     public static let ShareLoadInBackgroundDone = String(format: NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", tableName: "ShareTo", comment: "Share extension label shown after user has performed 'Load in Background' action."), AppInfo.displayName)
 
 }

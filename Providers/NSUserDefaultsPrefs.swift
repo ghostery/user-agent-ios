@@ -126,7 +126,7 @@ open class NSUserDefaultsPrefs: Prefs {
     }
 
     open func clearAll() {
-        // TODO: userDefaults.removePersistentDomainForName() has no effect for app group suites.
+        // userDefaults.removePersistentDomainForName() has no effect for app group suites.
         // iOS Bug? Iterate and remove each manually for now.
         for key in userDefaults.dictionaryRepresentation().keys {
             if key.hasPrefix(prefixWithDot) {

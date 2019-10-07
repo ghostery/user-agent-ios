@@ -56,7 +56,7 @@ class ToggleButton: UIButton {
             animation.values = [
                 startPath,
                 largerPath,
-                endPath
+                endPath,
             ]
             animation.duration = UX.ShowDuration
             self.maskShapeLayer.path = endPath

@@ -11,7 +11,7 @@ private let SectionHeaderFooterIdentifier = "SectionHeaderFooterIdentifier"
 
 class WebsiteDataSearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var tableView: UITableView!
-    
+
     private var filteredSiteRecords = [WKWebsiteDataRecord]()
     var siteRecords = [WKWebsiteDataRecord]()
 
@@ -36,7 +36,7 @@ class WebsiteDataSearchResultsViewController: UIViewController, UITableViewDataS
             make.edges.equalTo(view)
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredSiteRecords.count
     }

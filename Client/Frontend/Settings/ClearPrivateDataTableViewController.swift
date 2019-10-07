@@ -24,7 +24,7 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
 
     fileprivate typealias DefaultCheckedState = Bool
 
-    // TODO: The next person to add a new clearable in the UI here needs to
+    // TO DO : The next person to add a new clearable in the UI here needs to
     // refactor how we store the saved values. We currently save an array of
     // `Bool`s which is highly insufficient.
     // Bug 1445687 -- https://bugzilla.mozilla.org/show_bug.cgi?id=1445687
@@ -35,7 +35,7 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
             (CookiesClearable(tabManager: self.tabManager), true),
             (SiteDataClearable(tabManager: self.tabManager), true),
             (TrackingProtectionClearable(), true),
-            (DownloadedFilesClearable(), false) // Don't clear downloaded files by default
+            (DownloadedFilesClearable(), false), // Don't clear downloaded files by default
         ]
         return items
     }()

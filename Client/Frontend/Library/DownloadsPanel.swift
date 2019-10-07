@@ -36,7 +36,7 @@ struct DownloadedFile: Equatable {
         return MIMEType.mimeTypeFromFileExtension(fileExtension)
     }
 
-    static public func ==(lhs: DownloadedFile, rhs: DownloadedFile) -> Bool {
+    static public func == (lhs: DownloadedFile, rhs: DownloadedFile) -> Bool {
         return lhs.path == rhs.path
     }
 }
@@ -111,11 +111,9 @@ class DownloadsPanel: UIViewController, UITableViewDelegate, UITableViewDataSour
                     self.emptyStateOverlayView.removeFromSuperview()
                 }
                 self.emptyStateOverlayView = self.createEmptyStateOverlayView()
-                break
             default:
                 // no need to do anything at all
                 print("Error: Received unexpected notification \(notification.name)")
-                break
             }
         }
     }
@@ -212,7 +210,7 @@ class DownloadsPanel: UIViewController, UITableViewDelegate, UITableViewDataSour
         let attributedString = NSAttributedString(string: label, attributes: [
             .baselineOffset: -(strokeWidth * 2),
             .font: UIFont.systemFont(ofSize: fontSize),
-            .foregroundColor: strokeColor
+            .foregroundColor: strokeColor,
             ])
         let stringHeight: CGFloat = fontSize * 2
         let stringWidth = attributedString.boundingRect(with: CGSize(width: width, height: stringHeight), options: .usesLineFragmentOrigin, context: nil).size.width

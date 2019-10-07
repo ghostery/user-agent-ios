@@ -102,7 +102,7 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
             cell.textLabel?.textColor = showMoreButtonEnabled ? UIColor.theme.general.highlightBlue : UIColor.gray
             cell.accessibilityTraits = UIAccessibilityTraits.button
             cell.accessibilityIdentifier = "ShowMoreWebsiteData"
-            showMoreButton = cell 
+            showMoreButton = cell
         case .clearAllButton:
             cell.textLabel?.text = Strings.SettingsClearAllWebsiteDataButton
             cell.textLabel?.textAlignment = .center

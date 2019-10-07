@@ -89,7 +89,7 @@ function readerize() {
   return readabilityResult;
 }
 
-// TODO: The following code only makes sense in about:reader context. It may be a good idea to move
+// TO DO : The following code only makes sense in about:reader context. It may be a good idea to move
 // it out of this file and into for example a Reader.js.
 
 function setStyle(style) {

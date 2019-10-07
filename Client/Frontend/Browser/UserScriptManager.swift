@@ -24,7 +24,7 @@ class UserScriptManager {
         [(WKUserScriptInjectionTime.atDocumentStart, mainFrameOnly: false),
          (WKUserScriptInjectionTime.atDocumentEnd, mainFrameOnly: false),
          (WKUserScriptInjectionTime.atDocumentStart, mainFrameOnly: true),
-         (WKUserScriptInjectionTime.atDocumentEnd, mainFrameOnly: true)].forEach { arg in
+         (WKUserScriptInjectionTime.atDocumentEnd, mainFrameOnly: true), ].forEach { arg in
             let (injectionTime, mainFrameOnly) = arg
             let name = (mainFrameOnly ? "MainFrame" : "AllFrames") + "AtDocument" + (injectionTime == .atDocumentStart ? "Start" : "End")
             if let path = Bundle.main.path(forResource: name, ofType: "js"),
@@ -47,7 +47,7 @@ class UserScriptManager {
         [(WKUserScriptInjectionTime.atDocumentStart, mainFrameOnly: false),
          (WKUserScriptInjectionTime.atDocumentEnd, mainFrameOnly: false),
          (WKUserScriptInjectionTime.atDocumentStart, mainFrameOnly: true),
-         (WKUserScriptInjectionTime.atDocumentEnd, mainFrameOnly: true)].forEach { arg in
+         (WKUserScriptInjectionTime.atDocumentEnd, mainFrameOnly: true), ].forEach { arg in
             let (injectionTime, mainFrameOnly) = arg
             let name = (mainFrameOnly ? "MainFrame" : "AllFrames") + "AtDocument" + (injectionTime == .atDocumentStart ? "Start" : "End")
             if let userScript = compiledUserScripts[name] {

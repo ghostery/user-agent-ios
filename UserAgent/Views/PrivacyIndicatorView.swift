@@ -54,7 +54,7 @@ class PrivacyIndicatorView: UIView {
     private lazy var disabledIcon = { UIImage.templateImageNamed("tracking-protection-off") }()
 
     private lazy var badge = { BadgeView() }()
-    
+
     private lazy var button: UIButton = {
         let button = UIButton()
         button.setImage(UIImage.templateImageNamed("tracking-protection"), for: .normal)

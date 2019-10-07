@@ -294,8 +294,8 @@ fileprivate struct SQLiteFrecentHistory: FrecentHistory {
         // NOTE: When using GROUP BY we need to be explicit about which URL to use when grouping. By using "max(frecency)" the result row
         //       for that domain will contain the projected URL corresponding to the history item with the max frecency, https://sqlite.org/lang_select.html#resultset
         //       This is the behavior we want in order to ensure that the most popular URL for a domain is used for the top sites tile.
-        // TODO: make is_bookmarked here accurate by joining against ViewAllBookmarks.
-        // TODO: ensure that the same URL doesn't appear twice in the list, either from duplicate
+        // TO DO : make is_bookmarked here accurate by joining against ViewAllBookmarks.
+        // TO DO : ensure that the same URL doesn't appear twice in the list, either from duplicate
         //       bookmarks or from being in both bookmarks and history.
         let historySQL = """
             SELECT historyID, url, title, guid, domain_id, domain,
@@ -576,7 +576,7 @@ extension SQLiteHistory: BrowserHistory {
         return 0
     }
 
-    // TODO: thread siteID into this to avoid the need to do the lookup.
+    // TO DO : thread siteID into this to avoid the need to do the lookup.
     func addLocalVisitForExistingSite(_ visit: SiteVisit) -> Success {
         return db.withConnection { conn -> Void in
             // INSERT OR IGNORE because we *might* have a clock error that causes a timestamp

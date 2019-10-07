@@ -28,7 +28,7 @@ private enum HistorySection: Int, CaseIterable {
             return Strings.TableDateSectionTitleLastMonth
         }
     }
-    
+
 }
 
 private struct HistoryViewUX {
@@ -57,52 +57,50 @@ class HistoryView: LibraryView {
     private var isFetchInProgress = false
 
     private lazy var emptyStateOverlayView: UIView = createEmptyStateOverlayView()
-        
+
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         self.reloadData()
     }
-    
+
     override func setup() {
         super.setup()
         self.tableView.prefetchDataSource = self
         self.tableView.accessibilityIdentifier = "History List"
         self.registerNotification()
     }
-    
+
     override func applyTheme() {
        super.applyTheme()
        self.emptyStateOverlayView.removeFromSuperview()
        self.emptyStateOverlayView = self.createEmptyStateOverlayView()
        self.updateEmptyPanelState()
    }
-    
+
     override func siteForIndexPath(_ indexPath: IndexPath) -> Site? {
         let sitesInSection = self.groupedSites.itemsForSection(indexPath.section)
         return sitesInSection[safe: indexPath.row]
     }
-    
+
     override func pinToTopSites(_ site: Site) {
         _ = self.profile.history.addPinnedTopSite(site).value
     }
-    
+
     override func removeSiteForURLAtIndexPath(_ indexPath: IndexPath) {
         self.removeHistoryForURLAtIndexPath(indexPath: indexPath)
     }
-    
+
 }
 
 // MARK: - Private Implementation
 private extension HistoryView {
-    
+
     private func registerNotification() {
-        [Notification.Name.PrivateDataClearedHistory,
-         Notification.Name.DynamicFontChanged,
-         Notification.Name.DatabaseWasReopened].forEach {
+        [Notification.Name.PrivateDataClearedHistory, Notification.Name.DynamicFontChanged, Notification.Name.DatabaseWasReopened].forEach {
             NotificationCenter.default.addObserver(self, selector: #selector(onNotificationReceived), name: $0, object: nil)
         }
     }
-    
+
     @objc private func onNotificationReceived(_ notification: Notification) {
         switch notification.name {
         case .PrivateDataClearedHistory:
@@ -120,10 +118,9 @@ private extension HistoryView {
         default:
             // no need to do anything at all
             print("Error: Received unexpected notification \(notification.name)")
-            break
         }
     }
-    
+
     private func createEmptyStateOverlayView() -> UIView {
         let overlayView = UIView()
         let emptyLabel = UILabel()
@@ -190,7 +187,7 @@ private extension HistoryView {
             self.tableView.tableFooterView = UIView()
         }
     }
-    
+
     private func configureSite(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
         if let site = self.siteForIndexPath(indexPath), let cell = cell as? TwoLineTableViewCell {
             cell.setLines(site.title, detailText: site.url)
@@ -206,7 +203,7 @@ private extension HistoryView {
         }
         return cell
     }
-    
+
     private func removeHistoryForURLAtIndexPath(indexPath: IndexPath) {
         guard let site = self.siteForIndexPath(indexPath) else {
             return
@@ -228,22 +225,22 @@ private extension HistoryView {
 
 // MARK: - Table view dataSource
 extension HistoryView {
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return HistorySection.allCases.count
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.groupedSites.numberOfItemsForSection(section)
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         cell.accessoryType = .none
         return self.configureSite(cell, for: indexPath)
 
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         guard groupedSites.numberOfItemsForSection(section) > 0 else {
             return nil
@@ -255,7 +252,7 @@ extension HistoryView {
 
 // MARK: - Table view delegate
 extension HistoryView {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defer {
             tableView.deselectRow(at: indexPath, animated: true)
@@ -264,28 +261,28 @@ extension HistoryView {
             self.delegate?.library(didSelectURL: url)
         }
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView {
             header.textLabel?.textColor = UIColor.theme.tableView.headerTextDark
             header.contentView.backgroundColor = UIColor.theme.tableView.headerBackground
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard self.groupedSites.numberOfItemsForSection(section) > 0 else {
             return nil
         }
         return super.tableView(tableView, viewForHeaderInSection: section)
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         guard self.groupedSites.numberOfItemsForSection(section) > 0 else {
             return 0
         }
         return super.tableView(tableView, heightForHeaderInSection: section)
     }
-    
+
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let title = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
         let delete = UITableViewRowAction(style: .default, title: title, handler: { (action, indexPath) in
@@ -293,11 +290,11 @@ extension HistoryView {
         })
         return [delete]
     }
-    
+
 }
 
 extension HistoryView: UITableViewDataSourcePrefetching {
-    
+
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         guard !self.isFetchInProgress, indexPaths.contains(where: self.shouldLoadRow) else {
             return
@@ -319,5 +316,5 @@ extension HistoryView: UITableViewDataSourcePrefetching {
     func shouldLoadRow(for indexPath: IndexPath) -> Bool {
         return indexPath.row >= self.groupedSites.numberOfItemsForSection(indexPath.section) - 1
     }
-    
+
 }

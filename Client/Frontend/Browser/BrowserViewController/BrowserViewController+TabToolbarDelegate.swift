@@ -144,4 +144,3 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         }
     }
 }
-

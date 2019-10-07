@@ -34,15 +34,15 @@ class TopTabsHeaderFooter: UICollectionReusableView {
         line.snp.removeConstraints()
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-                line.snp.makeConstraints { make in
-                    make.trailing.equalTo(self)
-                }
+            line.snp.makeConstraints { make in
+                make.trailing.equalTo(self)
+            }
         case UICollectionView.elementKindSectionFooter:
-                line.snp.makeConstraints { make in
-                    make.leading.equalTo(self)
-                }
-            default:
-                break
+            line.snp.makeConstraints { make in
+                make.leading.equalTo(self)
+            }
+        default:
+            break
         }
         line.snp.makeConstraints { make in
             make.height.equalTo(TopTabsUX.SeparatorHeight)
@@ -176,7 +176,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
             } else {
                 self.titleText.text = tab.webView?.url?.absoluteDisplayString
             }
-            
+
             self.closeButton.accessibilityLabel = String(format: Strings.TopSitesRemoveButtonAccessibilityLabel, self.titleText.text ?? "")
         } else {
             self.accessibilityLabel = tab.displayTitle

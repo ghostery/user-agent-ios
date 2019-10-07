@@ -17,7 +17,6 @@ protocol LibraryContextMenu {
 }
 
 extension LibraryContextMenu {
-    
     func presentContextMenu(for indexPath: IndexPath) {
         guard let site = getSiteDetails(for: indexPath) else { return }
 
@@ -49,5 +48,4 @@ extension LibraryContextMenu {
         }
         return [openInNewTabAction, openInNewPrivateTabAction]
     }
-    
 }

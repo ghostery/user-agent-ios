@@ -49,7 +49,7 @@ class ReaddleSparkIntegration: MailProvider {
         "textbody",
         "html",
         "cc",
-        "bcc"
+        "bcc",
     ]
 
     func newEmailURLFromMetadata(_ metadata: MailToMetadata) -> URL? {
@@ -66,7 +66,7 @@ class AirmailIntegration: MailProvider {
         "cc",
         "bcc",
         "plainBody",
-        "htmlBody"
+        "htmlBody",
     ]
 
     func newEmailURLFromMetadata(_ metadata: MailToMetadata) -> URL? {
@@ -81,7 +81,7 @@ class MyMailIntegration: MailProvider {
         "subject",
         "body",
         "cc",
-        "bcc"
+        "bcc",
     ]
 
     func newEmailURLFromMetadata(_ metadata: MailToMetadata) -> URL? {
@@ -103,7 +103,7 @@ class MSOutlookIntegration: MailProvider {
         "cc",
         "bcc",
         "subject",
-        "body"
+        "body",
     ]
 
     func newEmailURLFromMetadata(_ metadata: MailToMetadata) -> URL? {
@@ -117,7 +117,7 @@ class YMailIntegration: MailProvider {
         "to",
         "cc",
         "subject",
-        "body"
+        "body",
     ]
 
     func newEmailURLFromMetadata(_ metadata: MailToMetadata) -> URL? {
@@ -132,7 +132,7 @@ class GoogleGmailIntegration: MailProvider {
         "cc",
         "bcc",
         "subject",
-        "body"
+        "body",
     ]
 
     func newEmailURLFromMetadata(_ metadata: MailToMetadata) -> URL? {
@@ -147,7 +147,7 @@ class GoogleInboxIntegration: MailProvider {
         "cc",
         "bcc",
         "subject",
-        "body"
+        "body",
     ]
 
     func newEmailURLFromMetadata(_ metadata: MailToMetadata) -> URL? {

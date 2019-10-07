@@ -84,7 +84,7 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
     var clearHistoryCell: UITableViewCell?
 
     var hasRecentlyClosed: Bool {
-        return profile.recentlyClosedTabs.tabs.count > 0
+        return !profile.recentlyClosedTabs.tabs.isEmpty
     }
 
     lazy var emptyStateOverlayView: UIView = createEmptyStateOverlayView()
@@ -100,7 +100,7 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         [ Notification.Name.FirefoxAccountChanged,
           Notification.Name.PrivateDataClearedHistory,
           Notification.Name.DynamicFontChanged,
-          Notification.Name.DatabaseWasReopened ].forEach {
+          Notification.Name.DatabaseWasReopened, ].forEach {
             NotificationCenter.default.addObserver(self, selector: #selector(onNotificationReceived), name: $0, object: nil)
         }
     }
@@ -255,7 +255,7 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
 
         [(Strings.ClearHistoryMenuOptionTheLastHour, 1),
          (Strings.ClearHistoryMenuOptionToday, 24),
-         (Strings.ClearHistoryMenuOptionTodayAndYesterday, 48)].forEach {
+         (Strings.ClearHistoryMenuOptionTodayAndYesterday, 48), ].forEach {
             (name, time) in
             let action = UIAlertAction(title: name, style: .destructive) { _ in
                 remove(hoursAgo: time)
@@ -335,8 +335,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         switch notification.name {
         case .FirefoxAccountChanged, .PrivateDataClearedHistory:
             reloadData()
-
-            break
         case .DynamicFontChanged:
             reloadData()
 
@@ -344,7 +342,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
                 emptyStateOverlayView.removeFromSuperview()
             }
             emptyStateOverlayView = createEmptyStateOverlayView()
-            break
         case .DatabaseWasReopened:
             if let dbName = notification.object as? String, dbName == "browser.db" {
                 reloadData()
@@ -352,7 +349,6 @@ class HistoryPanel: SiteTableViewController, LibraryPanel {
         default:
             // no need to do anything at all
             print("Error: Received unexpected notification \(notification.name)")
-            break
         }
     }
 

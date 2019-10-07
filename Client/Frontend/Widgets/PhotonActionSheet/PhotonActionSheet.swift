@@ -89,7 +89,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             tableView.backgroundView = blurEffectView
         }
-        
+
         let width = min(self.view.frame.size.width, PhotonActionSheetUX.MaxWidth) - (PhotonActionSheetUX.Padding * 2)
 
         if style == .bottom {
@@ -244,7 +244,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         if action.accessory == .Switch {
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
-            action.isEnabled = !action.isEnabled
+            action.isEnabled.toggle()
             actions[indexPath.section][indexPath.row] = action
             self.tableView.deselectRow(at: indexPath, animated: true)
             self.tableView.reloadData()

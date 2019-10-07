@@ -13,13 +13,11 @@ class ReactNativeBridge {
     lazy var bridge: RCTBridge = RCTBridge(delegate: ReactNativeBridgeDelegate(), launchOptions: nil)
 
     var browserCore: JSBridge {
-        get {
-            return bridge.module(for: JSBridge.self) as! JSBridge
-        }
+        return bridge.module(for: JSBridge.self) as! JSBridge
     }
 }
 
-fileprivate class ReactNativeBridgeDelegate: NSObject, RCTBridgeDelegate {
+private class ReactNativeBridgeDelegate: NSObject, RCTBridgeDelegate {
     func sourceURL(for bridge: RCTBridge!) -> URL! {
         #if DEBUG
             return URL(string: "http://localhost:8081/index.bundle?platform=ios")
@@ -28,4 +26,3 @@ fileprivate class ReactNativeBridgeDelegate: NSObject, RCTBridgeDelegate {
         #endif
     }
 }
-

@@ -11,7 +11,7 @@ import React
 
 /// Encapsulates a React Native View
 class ReactViewController: UIViewController, BrowserCoreClient {
-  
+
     // MARK: Properties
     private let componentName: String
     private var initialProperties: [String: Any]?

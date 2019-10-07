@@ -45,7 +45,7 @@ open class Bytes {
     }
 
     func fromHex(_ str: String) -> Data {
-       // TODO
+       // TO DO
         return Data()
     }
 }

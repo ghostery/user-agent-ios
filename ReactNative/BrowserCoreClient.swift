@@ -15,14 +15,10 @@ protocol BrowserCoreClient {
 
 extension BrowserCoreClient {
     var browserCore: JSBridge {
-        get {
-            return ReactNativeBridge.sharedInstance.browserCore
-        }
+        return ReactNativeBridge.sharedInstance.browserCore
     }
 
     static var browserCore: JSBridge {
-        get {
-            return ReactNativeBridge.sharedInstance.browserCore
-        }
+        return ReactNativeBridge.sharedInstance.browserCore
     }
 }

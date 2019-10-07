@@ -19,7 +19,7 @@ class QuerySuggestionsInputAccessoryView: UIView {
 
     private var suggestionsView: SuggestionsView!
 
-    // MARK:- Initialization
+    // MARK: - Initialization
     init() {
         let screenBounds = UIScreen.main.bounds
         let width = min(screenBounds.width, screenBounds.height)
@@ -48,7 +48,7 @@ class QuerySuggestionsInputAccessoryView: UIView {
         NotificationCenter.default.removeObserver(self)
     }
 
-    // MARK:- Private Helpers
+    // MARK: - Private Helpers
     @objc private func showSuggestions(notification: NSNotification) {
         guard
             let suggestionsData = notification.object as? [String: AnyObject],

@@ -31,7 +31,7 @@ private let apsEnvironment: [String: Any] = [
     "mutable-content": 1,
     "alert": [
         "title": " ",
-        "body": " "
+        "body": " ",
     ],
 ]
 

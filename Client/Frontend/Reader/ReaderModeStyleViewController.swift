@@ -6,7 +6,6 @@ import UIKit
 import Shared
 
 private struct ReaderModeStyleViewControllerUX {
-    // TODO Erica can't find this to visually test
     static let RowHeight = 50
 
     static let Width = 270
@@ -74,7 +73,7 @@ class ReaderModeStyleViewController: UIViewController {
 
         fontTypeButtons = [
             FontTypeButton(fontType: ReaderModeFontType.sansSerif),
-            FontTypeButton(fontType: ReaderModeFontType.serif)
+            FontTypeButton(fontType: ReaderModeFontType.serif),
         ]
 
         setupButtons(fontTypeButtons, inRow: fontTypeRow, action: #selector(changeFontType))
@@ -102,7 +101,7 @@ class ReaderModeStyleViewController: UIViewController {
         fontSizeButtons = [
             FontSizeButton(fontSizeAction: FontSizeAction.smaller),
             FontSizeButton(fontSizeAction: FontSizeAction.reset),
-            FontSizeButton(fontSizeAction: FontSizeAction.bigger)
+            FontSizeButton(fontSizeAction: FontSizeAction.bigger),
         ]
 
         setupButtons(fontSizeButtons, inRow: fontSizeRow, action: #selector(changeFontSize))
@@ -121,7 +120,7 @@ class ReaderModeStyleViewController: UIViewController {
         themeButtons = [
             ThemeButton(theme: ReaderModeTheme.light),
             ThemeButton(theme: ReaderModeTheme.dark),
-            ThemeButton(theme: ReaderModeTheme.sepia)
+            ThemeButton(theme: ReaderModeTheme.sepia),
         ]
 
         setupButtons(themeButtons, inRow: themeRow, action: #selector(changeTheme))
@@ -223,10 +222,8 @@ class ReaderModeStyleViewController: UIViewController {
             switch button.fontSizeAction {
             case .bigger:
                 button.isEnabled = !readerModeStyle.fontSize.isLargest()
-                break
             case .smaller:
                 button.isEnabled = !readerModeStyle.fontSize.isSmallest()
-                break
             case .reset:
                 break
             }
@@ -305,7 +302,7 @@ class FontSizeButton: UIButton {
             accessibilityLabel = Strings.ReaderModeResetFontSizeAccessibilityLabel
         }
 
-        // TODO Does this need to change with the selected font type? Not sure if makes sense for just +/-
+        // Does this need to change with the selected font type? Not sure if makes sense for just +/-
         titleLabel?.font = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
     }
 }
@@ -321,7 +318,6 @@ class FontSizeLabel: UILabel {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        // TODO
         fatalError("init(coder:) has not been implemented")
     }
 

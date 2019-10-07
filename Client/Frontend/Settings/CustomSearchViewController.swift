@@ -128,7 +128,7 @@ class CustomSearchViewController: SettingsTableViewController {
         }
 
         let titleField = CustomSearchEngineTextView(placeholder: Strings.SettingsAddCustomEngineTitlePlaceholder, settingIsValid: { text in
-            return text != nil && text != ""
+            return text != nil && text?.isEmpty != true
         }, settingDidChange: {fieldText in
             guard let title = fieldText else {
                 return
@@ -149,7 +149,7 @@ class CustomSearchViewController: SettingsTableViewController {
 
         let settings: [SettingSection] = [
             SettingSection(title: NSAttributedString(string: Strings.SettingsAddCustomEngineTitleLabel), children: [titleField]),
-            SettingSection(title: NSAttributedString(string: Strings.SettingsAddCustomEngineURLLabel), footerTitle: NSAttributedString(string: "http://youtube.com/search?q=%s"), children: [urlField])
+            SettingSection(title: NSAttributedString(string: Strings.SettingsAddCustomEngineURLLabel), footerTitle: NSAttributedString(string: "http://youtube.com/search?q=%s"), children: [urlField]),
         ]
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.addCustomSearchEngine))
@@ -236,18 +236,18 @@ class CustomSearchEngineTextView: Setting, UITextViewDelegate {
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        placeholderLabel.isHidden = textField.text != ""
+        placeholderLabel.isHidden = textField.text.isEmpty == false
     }
 
     func textViewDidChange(_ textView: UITextView) {
-        placeholderLabel.isHidden = textField.text != ""
+        placeholderLabel.isHidden = textField.text.isEmpty == false
         settingDidChange?(textView.text)
         let color = isValid(textField.text) ? UIColor.theme.tableView.rowText : UIColor.theme.general.destructiveRed
         textField.textColor = color
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        placeholderLabel.isHidden = textField.text != ""
+        placeholderLabel.isHidden = textField.text.isEmpty == false
         settingDidChange?(textView.text)
     }
 }

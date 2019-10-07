@@ -247,7 +247,7 @@ class TabManager: NSObject {
         // Wait momentarily before selecting the new tab, otherwise the parent tab
         // may be unable to set `window.location` on the popup immediately after
         // calling `window.open("")`.
-        DispatchQueue.main.asyncAfter(deadline: .now() + delaySelectingNewPopupTab) { 
+        DispatchQueue.main.asyncAfter(deadline: .now() + delaySelectingNewPopupTab) {
             self.selectTab(popup)
         }
 
@@ -350,7 +350,6 @@ class TabManager: NSObject {
                 if let webView = tab.webView as? TabWebView {
                     webView.applyTheme()
                 }
-                break
             default:
                 // The common case, where the NewTabPage enum defines
                 // one of the about:home pages.
@@ -579,6 +578,7 @@ extension TabManager {
                 }
             }
         }
+        // swiftlint:disable:next empty_count
         guard count == 0, !AppConstants.IsRunningTest, !DebugSettingsBundleOptions.skipSessionRestore, store.hasTabsToRestoreAtStartup else {
             return
         }

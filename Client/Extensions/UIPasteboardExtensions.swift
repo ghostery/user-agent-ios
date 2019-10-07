@@ -13,8 +13,8 @@ extension UIPasteboard {
         // Setting pasteboard.items allows us to set multiple representations for the same item.
         items = [[
             kUTTypeURL as String: url,
-            imageTypeKey(isGIF): data
-        ]]
+            imageTypeKey(isGIF): data,
+        ], ]
     }
 
     fileprivate func imageTypeKey(_ isGIF: Bool) -> String {

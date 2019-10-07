@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+// swiftlint:disable switch_case_alignment
+
 import Shared
 import UIKit
 import Storage
@@ -12,7 +14,7 @@ import SnapKit
 private let log = Logger.browserLogger
 private let DefaultSuggestedSitesKey = "topSites.deletedSuggestedSites"
 
-// MARK: -  Lifecycle
+// MARK: - Lifecycle
 struct FirefoxHomeUX {
     static let rowSpacing: CGFloat = UIDevice.current.isPad ? 30 : 20
     static let highlightCellHeight: CGFloat = UIDevice.current.isPad ? 250 : 200
@@ -44,14 +46,14 @@ struct UXSizeClasses {
 
     subscript(sizeClass: UIUserInterfaceSizeClass) -> CGFloat {
         switch sizeClass {
-            case .compact:
-                return self.compact
-            case .regular:
-                return self.regular
-            case .unspecified:
-                return self.unspecified
-            @unknown default:
-                fatalError()
+        case .compact:
+            return self.compact
+        case .regular:
+            return self.regular
+        case .unspecified:
+            return self.unspecified
+        @unknown default:
+            fatalError()
         }
 
     }
@@ -219,7 +221,7 @@ class FirefoxHomeViewController: UICollectionViewController, HomePanel {
     }
 }
 
-// MARK: -  Section management
+// MARK: - Section management
 extension FirefoxHomeViewController {
     enum Section: Int {
         case topSites
@@ -349,7 +351,7 @@ extension FirefoxHomeViewController {
     }
 }
 
-// MARK: -  Tableview Delegate
+// MARK: - Tableview Delegate
 extension FirefoxHomeViewController: UICollectionViewDelegateFlowLayout {
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -957,9 +959,7 @@ class ASHeaderView: UICollectionReusableView {
     var rightConstraint: Constraint?
 
     var titleInsets: CGFloat {
-        get {
-            return UIScreen.main.bounds.size.width == self.frame.size.width && UIDevice.current.isPad ? FirefoxHomeHeaderViewUX.Insets : FirefoxHomeUX.MinimumInsets
-        }
+        return UIScreen.main.bounds.size.width == self.frame.size.width && UIDevice.current.isPad ? FirefoxHomeHeaderViewUX.Insets : FirefoxHomeUX.MinimumInsets
     }
 
     override func prepareForReuse() {

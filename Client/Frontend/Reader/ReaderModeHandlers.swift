@@ -77,7 +77,7 @@ struct ReaderModeHandlers {
             }
 
             let errorString = NSLocalizedString("There was an error converting the page", comment: "Error displayed when reader mode cannot be enabled")
-            return GCDWebServerDataResponse(html: errorString) // TODO Needs a proper error page
+            return GCDWebServerDataResponse(html: errorString) // TO DO Needs a proper error page
         }
     }
 }

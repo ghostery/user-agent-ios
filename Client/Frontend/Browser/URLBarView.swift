@@ -161,7 +161,7 @@ class URLBarView: UIView {
         let button = UIButton()
         // This button interferes with accessibility of the URL bar as it partially overlays it, and keeps getting the VoiceOver focus
         // instead of the URL bar.
-        // @TODO: figure out if there is an iOS standard way to do this that works with accessibility.
+        // TO DO: figure out if there is an iOS standard way to do this that works with accessibility.
         button.isAccessibilityElement = false
         button.addTarget(self, action: #selector(tappedScrollToTopArea), for: .touchUpInside)
         return button
@@ -181,7 +181,7 @@ class URLBarView: UIView {
     }()
 
     lazy var actionButtons: [Themeable & UIButton] = [self.tabsButton, self.libraryButton, self.menuButton, self.forwardButton,
-                                                      self.backButton, self.stopReloadButton]
+                                                      self.backButton, self.stopReloadButton, ]
 
     var currentURL: URL? {
         get {
@@ -217,7 +217,7 @@ class URLBarView: UIView {
         cancelButton.addSubview(separator)
 
         [scrollToTopButton, line, tabsButton, progressBar,
-         libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer].forEach {
+         libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer, ].forEach {
             addSubview($0)
         }
 
@@ -584,7 +584,7 @@ class URLBarView: UIView {
             $0.badge.alpha = (!toolbarIsShowing || inOverlayMode) ? 0 : 1
             $0.backdrop.alpha = (!toolbarIsShowing || inOverlayMode) ? 0 : BadgeWithBackdrop.backdropAlpha
         }
-        
+
     }
 
     func animateToOverlayState(overlayMode overlay: Bool, didCancel cancel: Bool = false) {
@@ -782,7 +782,7 @@ extension URLBarView: PrivateModeUI {
         if !UIDevice.current.isPad {
             privateModeBadge.show(isPrivate)
         }
-        
+
         locationActiveBorderColor = UIColor.theme.urlbar.activeBorder(isPrivate)
         progressBar.setGradientColors(startColor: UIColor.theme.loadingBar.start(isPrivate),
                                       endColor: UIColor.theme.loadingBar.end(isPrivate))

@@ -8,7 +8,7 @@
 
 import Foundation
 
-// TODO: Replace this with a class var
+// TO DO : Replace this with a class var
 public var DeferredDefaultQueue = DispatchQueue.global(qos: .default)
 
 open class Deferred<T> {

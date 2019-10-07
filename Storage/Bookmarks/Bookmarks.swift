@@ -80,7 +80,7 @@ public struct BookmarkRoots {
      * We translate the record's ID and also its parent. Evidence suggests that
      * we don't need to translate children IDs.
      *
-     * TODO: We don't create outbound records yet, so that's why there's no
+     * We don't create outbound records yet, so that's why there's no
      * translation in that direction yet!
      */
     public static func translateIncomingRootGUID(_ guid: GUID) -> GUID {
@@ -90,7 +90,7 @@ public struct BookmarkRoots {
             "mobile": MobileFolderGUID,
             "menu": MenuFolderGUID,
             "toolbar": ToolbarFolderGUID,
-            "unfiled": UnfiledFolderGUID
+            "unfiled": UnfiledFolderGUID,
         ][guid] ?? guid
     }
 
@@ -100,7 +100,7 @@ public struct BookmarkRoots {
             MobileFolderGUID: "mobile",
             MenuFolderGUID: "menu",
             ToolbarFolderGUID: "toolbar",
-            UnfiledFolderGUID: "unfiled"
+            UnfiledFolderGUID: "unfiled",
         ][guid] ?? guid
     }
 
@@ -307,7 +307,7 @@ public struct BookmarkMirrorItem: Equatable {
         out["dateAdded"] = self.dateAdded
         out["hasDupe"] = self.hasDupe
 
-        // TODO: this should never be nil!
+        // TO DO : this should never be nil!
         if let parentID = self.parentID {
             out["parentid"] = BookmarkRoots.translateOutgoingRootGUID(parentID)
             take("parentName", titleForSpecialGUID(parentID) ?? self.parentName ?? "")
