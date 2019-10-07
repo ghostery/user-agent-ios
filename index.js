@@ -8,6 +8,7 @@ import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
 import SearchResults from './ReactNative/js/screens/SearchResults';
 import BridgeManager from './ReactNative/js/bridge-manager';
+import Logo from './ReactNative/js/components/Logo';
 
 YellowBox.ignoreWarnings([
   'Warning: NetInfo', // TODO: use netinfo from community package
@@ -33,3 +34,4 @@ const bridgeManager = new BridgeManager(NativeModules.JSBridge, inject, appReady
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component {});
 AppRegistry.registerComponent('Home', () => Home);
 AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults bridgeManager={bridgeManager} events={events} {...props} />);
+AppRegistry.registerComponent('Logo', () => Logo);

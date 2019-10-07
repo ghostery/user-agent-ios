@@ -6,8 +6,7 @@ import {
   Text,
 } from 'react-native';
 import { parse } from 'tldts';
-import getLogo from 'cliqz-logo-database';
-import { Logo } from '@cliqz/component-ui-logo';
+import Logo from './Logo';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,13 +14,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-});
-
-const convertLogoUrl = logo => ({
-  ...logo,
-  url: (logo.url || '')
-    .replace('logos', 'pngs')
-    .replace('.svg', '_192.png'),
 });
 
 export default ({ speedDial, onPress }) => {
@@ -34,11 +26,7 @@ export default ({ speedDial, onPress }) => {
       <View style={styles.container}>
         <Logo
           key={speedDial.url}
-          logo={convertLogoUrl(getLogo(url))}
-          size={60}
-          borderRadius={5}
-          logoSize={60}
-          fontSize={28}
+          url={speedDial.url}
         />
         <Text numberOfLines={1}>{name}</Text>
       </View>
