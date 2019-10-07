@@ -23,7 +23,7 @@ class JSBridge: RCTEventEmitter {
         return ["publishEvent", "callAction"]
     }
 
-    func callAction(module: String, action: String, args: Array<Any>) {
+    func callAction(module: String, action: String, args: [Any]) {
         lockDispatchQueue.async {
             if !self.bridgeReady {
                 self.lockSemaphore.wait()

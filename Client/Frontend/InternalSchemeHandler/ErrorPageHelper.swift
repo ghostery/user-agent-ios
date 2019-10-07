@@ -8,29 +8,29 @@ import GCDWebServer
 import Shared
 import Storage
 
-fileprivate let MozDomain = "mozilla"
-fileprivate let MozErrorDownloadsNotEnabled = 100
-fileprivate let MessageOpenInSafari = "openInSafari"
-fileprivate let MessageCertVisitOnce = "certVisitOnce"
+private let MozDomain = "mozilla"
+private let MozErrorDownloadsNotEnabled = 100
+private let MessageOpenInSafari = "openInSafari"
+private let MessageCertVisitOnce = "certVisitOnce"
 
 // Regardless of cause, NSURLErrorServerCertificateUntrusted is currently returned in all cases.
 // Check the other cases in case this gets fixed in the future.
-fileprivate let CertErrors = [
+private let CertErrors = [
     NSURLErrorServerCertificateUntrusted,
     NSURLErrorServerCertificateHasBadDate,
     NSURLErrorServerCertificateHasUnknownRoot,
-    NSURLErrorServerCertificateNotYetValid
+    NSURLErrorServerCertificateNotYetValid,
 ]
 
 // Error codes copied from Gecko. The ints corresponding to these codes were determined
 // by inspecting the NSError in each of these cases.
-fileprivate let CertErrorCodes = [
+private let CertErrorCodes = [
     -9813: "SEC_ERROR_UNKNOWN_ISSUER",
     -9814: "SEC_ERROR_EXPIRED_CERTIFICATE",
     -9843: "SSL_ERROR_BAD_CERT_DOMAIN",
 ]
 
-fileprivate func certFromErrorURL(_ url: URL) -> SecCertificate? {
+private func certFromErrorURL(_ url: URL) -> SecCertificate? {
     func getCert(_ url: URL) -> SecCertificate? {
         let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         if let encodedCert = components?.queryItems?.filter({ $0.name == "badcert" }).first?.value,
@@ -47,14 +47,14 @@ fileprivate func certFromErrorURL(_ url: URL) -> SecCertificate? {
     }
 
     // Fallback case when the error url is nested, this happens when restoring an error url, it will be inside a 'sessionrestore' url.
-    // TODO: Investigate if we can restore directly as an error url and avoid the 'sessionrestore?url=' wrapping.
+    // TO DO : Investigate if we can restore directly as an error url and avoid the 'sessionrestore?url=' wrapping.
     if let internalUrl = InternalURL(url), let url = internalUrl.extractedUrlParam {
         return getCert(url)
     }
     return nil
 }
 
-fileprivate func cfErrorToName(_ err: CFNetworkErrors) -> String {
+private func cfErrorToName(_ err: CFNetworkErrors) -> String {
     switch err {
     case .cfHostErrorHostNotFound: return "CFHostErrorHostNotFound"
     case .cfHostErrorUnknown: return "CFHostErrorUnknown"
@@ -271,7 +271,7 @@ class ErrorPageHelper {
             URLQueryItem(name: "domain", value: error.domain),
             URLQueryItem(name: "description", value: error.localizedDescription),
             // 'timestamp' is used for the js reload logic
-            URLQueryItem(name: "timestamp", value: "\(Int(Date().timeIntervalSince1970 * 1000))")
+            URLQueryItem(name: "timestamp", value: "\(Int(Date().timeIntervalSince1970 * 1000))"),
         ]
 
         // If this is an invalid certificate, show a certificate error allowing the
@@ -336,4 +336,3 @@ extension ErrorPageHelper: TabContentScript {
         }
     }
 }
-

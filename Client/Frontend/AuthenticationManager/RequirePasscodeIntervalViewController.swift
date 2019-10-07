@@ -14,7 +14,7 @@ class RequirePasscodeIntervalViewController: UITableViewController {
         .fiveMinutes,
         .tenMinutes,
         .fifteenMinutes,
-        .oneHour
+        .oneHour,
     ]
 
     fileprivate let BasicCheckmarkCell = "BasicCheckmarkCell"

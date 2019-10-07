@@ -145,7 +145,7 @@ public protocol BookmarksModelFactory {
     func modelForFolder(_ guid: GUID, title: String) -> Deferred<Maybe<BookmarksModel>>
 
     func modelForRoot() -> Deferred<Maybe<BookmarksModel>>
-    
+
     // Whenever async construction is necessary, we fall into a pattern of needing
     // a placeholder that behaves correctly for the period between kickoff and set.
     var nullModel: BookmarksModel { get }
@@ -192,6 +192,7 @@ open class MemoryBookmarkFolder: BookmarkFolder, Sequence {
             }
             return nil
         }
+        // swiftlint:disable:next unused_setter_value
         set {
         }
     }
@@ -201,9 +202,7 @@ open class MemoryBookmarkFolder: BookmarkFolder, Sequence {
     }
 
     override open subscript(index: Int) -> BookmarkNode {
-        get {
-            return children[index]
-        }
+        return children[index]
     }
 
     override open func itemIsEditableAtIndex(_ index: Int) -> Bool {
@@ -368,13 +367,10 @@ open class MockMemoryBookmarksStore: BookmarksModelFactory, ShareToDestination {
         case BookmarkRoots.MobileFolderGUID:
             // Transparently merges in any queued items.
             m = self.mobile.append(self.sink.queue)
-            break
         case BookmarkRoots.RootGUID:
             m = self.root
-            break
         case BookmarkRoots.UnfiledFolderGUID:
             m = self.unsorted
-            break
         default:
             return deferMaybe(DatabaseError(description: "No such folder \(guid)."))
         }

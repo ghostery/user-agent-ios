@@ -25,7 +25,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         var settings = [SettingSection]()
 
         let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
-        
+
         let prefs = profile.prefs
         var generalSettings: [Setting] = [
             SearchSetting(settings: self),
@@ -47,7 +47,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         generalSettings += [
             BoolSetting(prefs: prefs, prefKey: "showClipboardBar", defaultValue: false,
                         titleText: Strings.SettingsOfferClipboardBarTitle,
-                        statusText: Strings.SettingsOfferClipboardBarStatus)
+                        statusText: Strings.SettingsOfferClipboardBarStatus),
         ]
 
         settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsGeneralSectionTitle), children: generalSettings)]
@@ -62,13 +62,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 prefKey: "settings.closePrivateTabs",
                 defaultValue: false,
                 titleText: NSLocalizedString("Close Private Tabs", tableName: "PrivateBrowsing", comment: "Setting for closing private tabs"),
-                statusText: NSLocalizedString("When Leaving Private Browsing", tableName: "PrivateBrowsing", comment: "Will be displayed in Settings under 'Close Private Tabs'"))
+                statusText: NSLocalizedString("When Leaving Private Browsing", tableName: "PrivateBrowsing", comment: "Will be displayed in Settings under 'Close Private Tabs'")),
         ]
 
         privacySettings.append(ContentBlockerSetting(settings: self))
 
         privacySettings += [
-            PrivacyPolicySetting()
+            PrivacyPolicySetting(),
         ]
 
         settings += [
@@ -89,7 +89,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 ForceCrashSetting(settings: self),
                 SlowTheDatabase(settings: self),
                 SentryIDSetting(settings: self),
-            ])]
+            ]), ]
 
         return settings
     }
@@ -98,8 +98,8 @@ class AppSettingsTableViewController: SettingsTableViewController {
         let headerView = super.tableView(tableView, viewForHeaderInSection: section) as! ThemedTableSectionHeaderFooterView
         // Prevent the top border from showing for the General section.
         switch section {
-            case 1:
-                headerView.showTopBorder = false
+        case 1:
+            headerView.showTopBorder = false
         default:
             break
         }

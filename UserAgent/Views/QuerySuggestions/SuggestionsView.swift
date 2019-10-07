@@ -16,10 +16,10 @@ private extension String {
 }
 
 class SuggestionsView: UIView {
-    // MARK:- Instance variables
+    // MARK: - Instance variables
     var onSuggestionTapped: ((_ suggestion: String) -> Void)?
 
-    // MARK:- Constants
+    // MARK: - Constants
     private let boldFontAttributes = [
         NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17),
         NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -31,7 +31,7 @@ class SuggestionsView: UIView {
     private let separatorBgColor = UIColor(rgb: 0xC7CBD3)
     private let margin: CGFloat = 10
 
-    // MARK:- Private variables
+    // MARK: - Private variables
     private var currentSuggestions: [String] = []
 
     private var currentQuery: String = "" {
@@ -105,7 +105,7 @@ class SuggestionsView: UIView {
         return suggestionsShown
     }
 
-    // MARK:- Helper methods
+    // MARK: - Helper methods
     private func clearSuggestions() {
         let subViews = self.subviews
         for subView in subViews {
@@ -114,7 +114,7 @@ class SuggestionsView: UIView {
     }
 
     private func shouldShowSuggestions(query: String, suggestions: [String]) -> Bool {
-        return currentQuery == query && suggestions.count > 0
+        return currentQuery == query && !suggestions.isEmpty
     }
 
     private func updateSuggestions(_ suggestions: [String]) {

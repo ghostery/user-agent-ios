@@ -976,7 +976,7 @@ open class ConcreteSQLiteDBConnection: SQLiteDBConnection {
     /// Closes a connection. This is called via deinit. Do not call this yourself.
     @discardableResult fileprivate func closeCustomConnection(immediately: Bool = false) -> NSError? {
         log.debug("Closing custom connection for \(self.filename) on \(Thread.current).")
-        // TODO: add a lock here?
+        // TO DO : add a lock here?
         let db = self.sqliteDB
         self.sqliteDB = nil
 

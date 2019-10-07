@@ -9,7 +9,7 @@ import Shared
 import SwiftyJSON
 import XCGLogger
 
-fileprivate var debugTabCount = 0
+private var debugTabCount = 0
 
 func mostRecentTab(inTabs tabs: [Tab]) -> Tab? {
     var recent = tabs.first
@@ -95,7 +95,7 @@ class Tab: NSObject {
 
     var webView: WKWebView?
     var tabDelegate: TabDelegate?
-    weak var urlDidChangeDelegate: URLChangeDelegate?     // TODO: generalize this.
+    weak var urlDidChangeDelegate: URLChangeDelegate?     // TO DO : generalize this.
     var bars = [SnackBar]()
     var favicons = [Favicon]()
     var lastExecutedTime: Timestamp?
@@ -290,7 +290,7 @@ class Tab: NSObject {
                              WKWebsiteDataTypeLocalStorage,
                              WKWebsiteDataTypeSessionStorage,
                              WKWebsiteDataTypeWebSQLDatabases,
-                             WKWebsiteDataTypeIndexedDBDatabases])
+                             WKWebsiteDataTypeIndexedDBDatabases, ])
 
         webView?.configuration.websiteDataStore.removeData(ofTypes: dataTypes,
                                                      modifiedSince: Date.distantPast,
@@ -480,7 +480,7 @@ class Tab: NSObject {
     }
 
     func toggleDesktopSite() {
-        desktopSite = !desktopSite
+        desktopSite.toggle()
         reload()
         TabEvent.post(.didToggleDesktopMode, for: self)
     }

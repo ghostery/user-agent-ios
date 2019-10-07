@@ -103,14 +103,14 @@ extension SearchResultsViewController: BrowserCoreClient {
     private func stopSearch() {
         browserCore.callAction(module: "search", action: "stopSearch", args: [
             ["entryPoint": ""],
-            ["contextId": "mobile-cards"]
+            ["contextId": "mobile-cards"],
         ])
     }
 
     private func updateTheme() {
          browserCore.callAction(
-           module: "Screen:SearchResults", 
-           action: "changeTheme", 
+           module: "Screen:SearchResults",
+           action: "changeTheme",
            args: [SearchResultsViewController.getTheme()]
          )
     }

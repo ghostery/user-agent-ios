@@ -27,7 +27,7 @@ private typealias TLDEntryMap = [String: ETLDEntry]
 private func loadEntriesFromDisk() -> TLDEntryMap? {
     if let data = String.contentsOfFileWithResourceName("effective_tld_names", ofType: "dat", fromBundle: Bundle(identifier: "org.mozilla.Shared")!, encoding: .utf8, error: nil) {
         let lines = data.components(separatedBy: "\n")
-        let trimmedLines = lines.filter { !$0.hasPrefix("//") && $0 != "\n" && $0 != "" }
+        let trimmedLines = lines.filter { !$0.hasPrefix("//") && $0 != "\n" && $0.isEmpty == false }
 
         var entries = TLDEntryMap()
         for line in trimmedLines {
@@ -256,7 +256,7 @@ extension URL {
     public var normalizedHost: String? {
         // Use components.host instead of self.host since the former correctly preserves
         // brackets for IPv6 hosts, whereas the latter strips them.
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false), var host = components.host, host != "" else {
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false), var host = components.host, !(host.isEmpty) else {
             return nil
         }
 
@@ -306,7 +306,7 @@ extension URL {
         }
         return self
     }
-    
+
     public func isEqual(_ url: URL) -> Bool {
         if self == url {
             return true
@@ -387,7 +387,7 @@ public struct InternalURL {
             return false
         }
 
-        // TODO: (reader-mode-custom-scheme) remove isWebServerUrl when updating code.
+        // (reader-mode-custom-scheme) remove isWebServerUrl when updating code.
         return isWebServerUrl || InternalURL.scheme == url.scheme
     }
 
@@ -406,7 +406,7 @@ public struct InternalURL {
     public var stripAuthorization: String {
         guard var components = URLComponents(string: url.absoluteString), let items = components.queryItems else { return url.absoluteString }
         components.queryItems = items.filter { !Param.uuidkey.matches($0.name) }
-        if let items = components.queryItems, items.count == 0 {
+        if let items = components.queryItems, items.isEmpty {
             components.queryItems = nil // This cleans up the url to not end with a '?'
         }
         return components.url?.absoluteString ?? ""
@@ -478,7 +478,7 @@ public struct InternalURL {
     }
 }
 
-//MARK: Private Helpers
+// MARK: Private Helpers
 private extension URL {
     func publicSuffixFromHost( _ host: String, withAdditionalParts additionalPartCount: Int) -> String? {
         if host.isEmpty {
@@ -549,9 +549,9 @@ private extension URL {
                 // Take out the public suffixed and add in the additional parts we want.
                 let literalFromEnd: NSString.CompareOptions = [.literal,        // Match the string exactly.
                                      .backwards,      // Search from the end.
-                                     .anchored]         // Stick to the end.
+                                     .anchored, ]         // Stick to the end.
                 let suffixlessHost = host.replacingOccurrences(of: suffix, with: "", options: literalFromEnd, range: nil)
-                let suffixlessTokens = suffixlessHost.components(separatedBy: ".").filter { $0 != "" }
+                let suffixlessTokens = suffixlessHost.components(separatedBy: ".").filter { $0.isEmpty == false }
                 let maxAdditionalCount = max(0, suffixlessTokens.count - additionalPartCount)
                 let additionalParts = suffixlessTokens[maxAdditionalCount..<suffixlessTokens.count]
                 let partsString = additionalParts.joined(separator: ".")

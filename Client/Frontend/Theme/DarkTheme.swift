@@ -5,11 +5,11 @@
 import Foundation
 
 // Convenience reference to these normal mode colors which are used in a few color classes.
-fileprivate let defaultBackground = UIColor.Grey80
-fileprivate let defaultSeparator = UIColor.Grey60
-fileprivate let defaultTextAndTint = UIColor.Grey10
+private let defaultBackground = UIColor.Grey80
+private let defaultSeparator = UIColor.Grey60
+private let defaultTextAndTint = UIColor.Grey10
 
-fileprivate class DarkTableViewColor: TableViewColor {
+private class DarkTableViewColor: TableViewColor {
     override var rowBackground: UIColor { return UIColor.Grey70 }
     override var rowText: UIColor { return defaultTextAndTint }
     override var rowDetailText: UIColor { return UIColor.Grey30 }
@@ -21,14 +21,14 @@ fileprivate class DarkTableViewColor: TableViewColor {
     override var syncText: UIColor { return defaultTextAndTint }
 }
 
-fileprivate class DarkActionMenuColor: ActionMenuColor {
+private class DarkActionMenuColor: ActionMenuColor {
     override var foreground: UIColor { return defaultTextAndTint }
     override var iPhoneBackground: UIColor { return UIColor.Grey90.withAlphaComponent(0.9) }
     override var closeButtonBackground: UIColor { return defaultBackground }
 
 }
 
-fileprivate class DarkURLBarColor: URLBarColor {
+private class DarkURLBarColor: URLBarColor {
     override func textSelectionHighlight(_ isPrivate: Bool) -> TextSelectionHighlight {
         let color = isPrivate ? UIColor.Defaults.MobilePrivatePurple : UIColor(rgb: 0x3d89cc)
         return (labelMode: color.withAlphaComponent(0.25), textFieldMode: color)
@@ -36,17 +36,17 @@ fileprivate class DarkURLBarColor: URLBarColor {
     }
 }
 
-fileprivate class DarkBrowserColor: BrowserColor {
+private class DarkBrowserColor: BrowserColor {
     override var background: UIColor { return defaultBackground }
     override var tint: UIColor { return defaultTextAndTint }
 }
 
 // The back/forward/refresh/menu button (bottom toolbar)
-fileprivate class DarkToolbarButtonColor: ToolbarButtonColor {
+private class DarkToolbarButtonColor: ToolbarButtonColor {
 
 }
 
-fileprivate class DarkTabTrayColor: TabTrayColor {
+private class DarkTabTrayColor: TabTrayColor {
     override var tabTitleText: UIColor { return defaultTextAndTint }
     override var tabTitleBlur: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
     override var background: UIColor { return UIColor.Grey90 }
@@ -58,7 +58,7 @@ fileprivate class DarkTabTrayColor: TabTrayColor {
     override var searchBackground: UIColor { return UIColor.Grey60 }
 }
 
-fileprivate class DarkTopTabsColor: TopTabsColor {
+private class DarkTopTabsColor: TopTabsColor {
     override var background: UIColor { return UIColor.Grey80 }
     override var tabBackgroundSelected: UIColor { return UIColor.Grey80 }
     override var tabBackgroundUnselected: UIColor { return UIColor.Grey80 }
@@ -69,7 +69,7 @@ fileprivate class DarkTopTabsColor: TopTabsColor {
     override var separator: UIColor { return UIColor.Grey50 }
 }
 
-fileprivate class DarkTextFieldColor: TextFieldColor {
+private class DarkTextFieldColor: TextFieldColor {
     override var background: UIColor { return UIColor.Grey60 }
     override var backgroundInOverlay: UIColor { return self.background }
 
@@ -77,7 +77,7 @@ fileprivate class DarkTextFieldColor: TextFieldColor {
     override var separator: UIColor { return super.separator.withAlphaComponent(0.3) }
 }
 
-fileprivate class DarkHomePanelColor: HomePanelColor {
+private class DarkHomePanelColor: HomePanelColor {
     override var toolbarBackground: UIColor { return defaultBackground }
     override var toolbarHighlight: UIColor { return UIColor.Blue40 }
     override var toolbarTint: UIColor { return UIColor.Grey30 }
@@ -92,7 +92,7 @@ fileprivate class DarkHomePanelColor: HomePanelColor {
     override var bookmarkFolderText: UIColor { return UIColor.White }
     override var bookmarkCurrentFolderText: UIColor { return UIColor.White }
     override var bookmarkBackNavCellBackground: UIColor { return UIColor.Grey70 }
-    
+
     override var activityStreamHeaderText: UIColor { return UIColor.Grey30 }
     override var activityStreamCellTitle: UIColor { return UIColor.Grey20 }
     override var activityStreamCellDescription: UIColor { return UIColor.Grey30 }
@@ -113,11 +113,11 @@ fileprivate class DarkHomePanelColor: HomePanelColor {
     override var searchSuggestionPillForeground: UIColor { return defaultTextAndTint }
 }
 
-fileprivate class DarkSnackBarColor: SnackBarColor {
+private class DarkSnackBarColor: SnackBarColor {
 // Use defaults
 }
 
-fileprivate class DarkGeneralColor: GeneralColor {
+private class DarkGeneralColor: GeneralColor {
     override var settingsTextPlaceholder: UIColor? { return UIColor.black }
     override var faviconBackground: UIColor { return UIColor.White }
     override var passcodeDot: UIColor { return UIColor.Grey40 }
@@ -135,5 +135,5 @@ class DarkTheme: NormalTheme {
     override var homePanel: HomePanelColor { return DarkHomePanelColor() }
     override var snackbar: SnackBarColor { return DarkSnackBarColor() }
     override var general: GeneralColor { return DarkGeneralColor() }
-    override var actionMenu: ActionMenuColor { return DarkActionMenuColor() } 
+    override var actionMenu: ActionMenuColor { return DarkActionMenuColor() }
 }

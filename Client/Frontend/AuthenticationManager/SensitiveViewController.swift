@@ -28,6 +28,7 @@ class SensitiveViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // swiftlint:disable:next notification_center_detachment
         NotificationCenter.default.removeObserver(self)
     }
 
@@ -103,4 +104,3 @@ class SensitiveViewController: UIViewController {
         return blurView
     }
 }
-

@@ -53,7 +53,7 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
 
         [ Notification.Name.FirefoxAccountChanged,
           Notification.Name.DynamicFontChanged,
-          Notification.Name.DatabaseWasReopened ].forEach {
+          Notification.Name.DatabaseWasReopened, ].forEach {
             NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: $0, object: nil)
         }
 
@@ -120,7 +120,6 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
         default:
             // no need to do anything at all
             log.warning("Received unexpected notification \(notification.name)")
-            break
         }
     }
 
@@ -170,6 +169,7 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
     }
 
     fileprivate func updateEmptyPanelState() {
+        // swiftlint:disable:next empty_count
         if source?.current.count == 0 && source?.current.guid == BookmarkRoots.MobileFolderGUID {
             if self.emptyStateOverlayView.superview == nil {
                 self.view.addSubview(self.emptyStateOverlayView)
@@ -337,7 +337,6 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
         switch bookmark {
         case let item as BookmarkItem:
             libraryPanelDelegate?.libraryPanel(didSelectURLString: item.url, visitType: .bookmark)
-            break
         case let folder as BookmarkFolder:
             log.debug("Selected \(folder.guid)")
             let nextController = BookmarksPanel(profile: profile)
@@ -353,7 +352,6 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
                 nextController.source = BookmarksModel(modelFactory: specificFactory, root: folder)
                 self.navigationController?.pushViewController(nextController, animated: true)
             }
-            break
 
         default:
             // You can't do anything with separators.
@@ -420,7 +418,7 @@ class BookmarksPanel: SiteTableViewController, LibraryPanel {
 
         assert(!(bookmark is BookmarkFolder))
         if bookmark is BookmarkFolder {
-            // TODO: check whether the folder is empty (excluding separators). If it isn't
+            // TO DO : check whether the folder is empty (excluding separators). If it isn't
             // then we must ask the user to confirm. Bug 1232810.
             log.debug("Not deleting folder.")
             return
@@ -528,7 +526,7 @@ class BookmarkFolderTableViewCell: TwoLineTableViewCell {
     }
 }
 
-fileprivate class BookmarkFolderTableViewHeader: UITableViewHeaderFooterView {
+private class BookmarkFolderTableViewHeader: UITableViewHeaderFooterView {
     var delegate: BookmarkFolderTableViewHeaderDelegate?
 
     let titleLabel = UILabel()

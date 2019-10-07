@@ -160,7 +160,7 @@ class AdvancedAccountSettingViewController: SettingsTableViewController {
                         self.setCustomAutoconfigPrefs()
                     }
             }),
-            customAutoconfigURISetting
+            customAutoconfigURISetting,
         ]
 
         let tokenServerSettings = [
@@ -173,14 +173,14 @@ class AdvancedAccountSettingViewController: SettingsTableViewController {
                         self.setCustomSyncTokenServerPrefs()
                     }
             }),
-            customSyncTokenServerURISetting
+            customSyncTokenServerURISetting,
         ]
 
         let settings: [SettingSection] = [
             SettingSection(title: nil, children: autoconfigSettings),
             SettingSection(title: NSAttributedString(string: Strings.SettingsAdvancedAccountAutoconfigSectionFooter), children: []),
             SettingSection(title: nil, children: tokenServerSettings),
-            SettingSection(title: NSAttributedString(string: Strings.SettingsAdvancedAccountTokenServerSectionFooter), children: [])
+            SettingSection(title: NSAttributedString(string: Strings.SettingsAdvancedAccountTokenServerSectionFooter), children: []),
         ]
 
         return settings

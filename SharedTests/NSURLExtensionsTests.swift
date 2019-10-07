@@ -70,7 +70,7 @@ class NSURLExtensionsTests: XCTestCase {
         }
     }
 
-    //MARK: Public Suffix
+    // MARK: Public Suffix
     func testNormalBaseDomainWithSingleSubdomain() {
         // TLD Entry: co.uk
         let url = "http://a.bbc.co.uk".asURL!
@@ -118,7 +118,7 @@ class NSURLExtensionsTests: XCTestCase {
         XCTAssertEqual("kawasaki.jp", expected)
     }
 
-    //MARK: Base Domain
+    // MARK: Base Domain
     func testNormalBaseSubdomain() {
         // TLD Entry: co.uk
         let url = "http://bbc.co.uk".asURL!

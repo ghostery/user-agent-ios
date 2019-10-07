@@ -175,6 +175,7 @@ extension TabEventHandler {
     func register(_ observer: AnyObject, forTabEvents events: TabEventLabel...) {
         let wrapper = ObserverWrapper()
         wrapper.observers = events.map { [weak self] eventType in
+            // swiftlint:disable:next discarded_notification_center_observer
             center.addObserver(forName: eventType.name, object: nil, queue: .main) { notification in
                 guard let tab = notification.object as? Tab,
                     let event = notification.userInfo?["payload"] as? TabEvent else {

@@ -23,13 +23,11 @@ public struct UIConstants {
     static let TopToolbarHeight: CGFloat = 56
     static var ToolbarHeight: CGFloat = 46
     static var BottomToolbarHeight: CGFloat {
-        get {
-            var bottomInset: CGFloat = 0.0
-            if let window = UIApplication.shared.keyWindow {
-                bottomInset = window.safeAreaInsets.bottom
-            }
-            return ToolbarHeight + bottomInset
+        var bottomInset: CGFloat = 0.0
+        if let window = UIApplication.shared.keyWindow {
+            bottomInset = window.safeAreaInsets.bottom
         }
+        return ToolbarHeight + bottomInset
     }
 
     static let SystemBlueColor = UIColor.CliqzBlue

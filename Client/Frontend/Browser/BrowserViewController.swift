@@ -105,7 +105,7 @@ class BrowserViewController: UIViewController {
     var downloadToast: DownloadToast? // A toast that is showing the combined download progress
 
     // Tracking navigation items to record history types.
-    // TODO: weak references?
+    // TO DO : weak references?
     var ignoredNavigation = Set<WKNavigation>()
     var typedNavigation = [WKNavigation: VisitType]()
     var navigationToolbar: TabToolbarProtocol {
@@ -476,6 +476,7 @@ class BrowserViewController: UIViewController {
 
             // This assumes that the DB returns rows in some kind of sane order.
             // It does in practice, so WFM.
+            // swiftlint:disable:next empty_count
             if cursor.count > 0 {
 
                 // Filter out any tabs received by a push notification to prevent dupes.
@@ -833,7 +834,7 @@ class BrowserViewController: UIViewController {
 
     func addBookmark(url: String, title: String? = nil, favicon: Favicon? = nil) {
         var title = (title ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-        if title.count == 0 {
+        if title.isEmpty {
             title = url
         }
 
@@ -1137,7 +1138,7 @@ extension BrowserViewController: PresentingModalViewControllerDelegate {
 
 /**
  * History visit management.
- * TODO: this should be expanded to track various visit types; see Bug 1166084.
+ * TO DO: this should be expanded to track various visit types; see Bug 1166084.
  */
 extension BrowserViewController {
     func ignoreNavigationInTab(_ tab: Tab, navigation: WKNavigation) {
@@ -1336,7 +1337,7 @@ extension BrowserViewController: URLBarDelegate {
             return
         }
 
-        // TODO: We need a `getURLForKeywordSearch` API in RustPlaces to
+        // TO DO : We need a `getURLForKeywordSearch` API in RustPlaces to
         // handle the keyword search.
         submitSearchText(text, forTab: currentTab)
         /*

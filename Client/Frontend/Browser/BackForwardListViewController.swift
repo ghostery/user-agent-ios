@@ -49,10 +49,8 @@ class BackForwardListViewController: UIViewController, UITableViewDataSource, UI
     var listData = [WKBackForwardListItem]()
 
     var tableHeight: CGFloat {
-        get {
-            assert(Thread.isMainThread, "tableHeight interacts with UIKit components - cannot call from background thread.")
-            return min(BackForwardViewUX.RowHeight * CGFloat(listData.count), self.view.frame.height/2)
-        }
+        assert(Thread.isMainThread, "tableHeight interacts with UIKit components - cannot call from background thread.")
+        return min(BackForwardViewUX.RowHeight * CGFloat(listData.count), self.view.frame.height/2)
     }
 
     var backForwardTransitionDelegate: UIViewControllerTransitioningDelegate? {
@@ -158,7 +156,7 @@ class BackForwardListViewController: UIViewController, UITableViewDataSource, UI
                 }
                 make.height.equalTo(0)
             }
-            snappedToBottom = !snappedToBottom
+            snappedToBottom.toggle()
         }
     }
 
@@ -194,13 +192,13 @@ class BackForwardListViewController: UIViewController, UITableViewDataSource, UI
             if snappedToBottom {
                 verticalConstraints += [
                     make.bottom.equalTo(tableView.snp.top).constraint,
-                    make.top.equalTo(self.view).constraint
+                    make.top.equalTo(self.view).constraint,
                 ]
 
             } else {
                 verticalConstraints += [
                     make.top.equalTo(tableView.snp.bottom).constraint,
-                    make.bottom.equalTo(self.view).constraint
+                    make.bottom.equalTo(self.view).constraint,
                 ]
             }
         }

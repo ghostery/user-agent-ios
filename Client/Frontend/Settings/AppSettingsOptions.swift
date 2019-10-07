@@ -96,7 +96,7 @@ class SlowTheDatabase: HiddenSetting {
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
-        debugSimulateSlowDBOperations = !debugSimulateSlowDBOperations
+        debugSimulateSlowDBOperations.toggle()
     }
 }
 
@@ -155,7 +155,7 @@ class VersionSetting: Setting {
         DebugSettingsClickCount += 1
         if DebugSettingsClickCount >= 5 {
             DebugSettingsClickCount = 0
-            ShowDebugSettings = !ShowDebugSettings
+            ShowDebugSettings.toggle()
             settings.tableView.reloadData()
         }
     }
@@ -175,7 +175,7 @@ class VersionSetting: Setting {
             }
         }
     }
-    
+
     func getSelectedCell(by navigationController: UINavigationController?) -> UITableViewCell? {
         let controller = navigationController?.topViewController
         let tableView = (controller as? AppSettingsTableViewController)?.tableView

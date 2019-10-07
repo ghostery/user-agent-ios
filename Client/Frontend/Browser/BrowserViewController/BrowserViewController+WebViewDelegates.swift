@@ -154,7 +154,7 @@ extension BrowserViewController: WKNavigationDelegate {
     }
 
     // Use for sms and mailto links, which do not show a confirmation before opening.
-    fileprivate func showSnackbar(forExternalUrl url: URL, tab: Tab, completion: @escaping (Bool) -> ()) {
+    fileprivate func showSnackbar(forExternalUrl url: URL, tab: Tab, completion: @escaping (Bool) -> Void) {
         let snackBar = TimerSnackBar(text: Strings.ExternalLinkGenericConfirmation + "\n\(url.absoluteString)", img: nil)
         let ok = SnackButton(title: Strings.OKString, accessibilityIdentifier: "AppOpenExternal.button.ok") { bar in
             tab.removeSnackbar(bar)
@@ -221,7 +221,7 @@ extension BrowserViewController: WKNavigationDelegate {
 
         // Second special case are a set of URLs that look like regular http links, but should be handed over to iOS
         // instead of being loaded in the webview. Note that there is no point in calling canOpenURL() here, because
-        // iOS will always say yes. TODO Is this the same as isWhitelisted?
+        // iOS will always say yes. TO DO Is this the same as isWhitelisted?
 
         if isAppleMapsURL(url) {
             UIApplication.shared.open(url, options: [:])

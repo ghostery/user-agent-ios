@@ -91,7 +91,7 @@ public protocol SyncableHistory {
     func hasSyncedHistory() -> Deferred<Maybe<Bool>>
 }
 
-// TODO: integrate Site with this.
+// TO DO: integrate Site with this.
 
 open class Place {
     public let guid: GUID

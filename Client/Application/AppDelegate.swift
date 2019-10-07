@@ -217,7 +217,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         }
         return true
     }
-    
+
     @available(iOS 13.0, *)
     private func matchInterfaceStyleWithSystemStyle() {
         guard let prefs = self.profile?.prefs else {
@@ -236,7 +236,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         @unknown default: break
         }
     }
-    
+
     // We sync in the foreground only, to avoid the possibility of runaway resource usage.
     // Eventually we'll sync in response to notifications.
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -363,7 +363,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             [ (AboutHomeHandler.path, AboutHomeHandler()),
               (AboutLicenseHandler.path, AboutLicenseHandler()),
               (SessionRestoreHandler.path, SessionRestoreHandler()),
-              (ErrorPageHandler.path, ErrorPageHandler())]
+              (ErrorPageHandler.path, ErrorPageHandler()), ]
         responders.forEach { (path, responder) in
             InternalSchemeHandler.responders[path] = responder
         }
@@ -505,7 +505,7 @@ extension AppDelegate {
     }
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // TODO: Check if this whole method can be removed, seeing that we don't Accound and Sync modules any more
+        // TO DO : Check if this whole method can be removed, seeing that we don't Accound and Sync modules any more
 
         if Logger.logPII && log.isEnabledFor(level: .info) {
             NSLog("APNS NOTIFICATION \(userInfo)")
@@ -534,7 +534,7 @@ extension AppDelegate {
                 }
             }
 
-            if receivedURLs.count > 0 {
+            if !receivedURLs.isEmpty {
                 // If we're in the foreground, load the queued tabs now.
                 if application.applicationState == .active {
                     DispatchQueue.main.async {

@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+// swiftlint:disable reduce_boolean
+
 import Foundation
 import Shared
 import Storage
@@ -132,7 +134,7 @@ class TabDisplayManager: NSObject {
                 tabManager.addTab(isPrivate: true)
             }
         }
-        
+
         let tab = mostRecentTab(inTabs: tabsToDisplay) ?? tabsToDisplay.last
         if let tab = tab {
             tabManager.selectTab(tab)
@@ -152,7 +154,7 @@ class TabDisplayManager: NSObject {
         }
         return nil
     }
-    
+
     func searchTabsAnimated() {
         let isUnchanged = (tabsToDisplay.count == dataStore.count) && tabsToDisplay.zip(dataStore).reduce(true) { $0 && $1.0 === $1.1 }
         if !tabsToDisplay.isEmpty && isUnchanged {

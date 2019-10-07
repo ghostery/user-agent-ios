@@ -91,7 +91,7 @@ public enum BookmarkTreeNode: Comparable {
 
     }
 
-    public static func <(lhs: BookmarkTreeNode, rhs: BookmarkTreeNode) -> Bool {
+    public static func < (lhs: BookmarkTreeNode, rhs: BookmarkTreeNode) -> Bool {
         return lhs.recordGUID < rhs.recordGUID
     }
 }

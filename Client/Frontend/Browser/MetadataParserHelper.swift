@@ -42,7 +42,7 @@ class MetadataParserHelper: TabEventHandler {
             let userInfo: [String: Any] = [
                 "isPrivate": tab.isPrivate,
                 "pageMetadata": pageMetadata,
-                "tabURL": pageURL
+                "tabURL": pageURL,
             ]
             NotificationCenter.default.post(name: .OnPageMetadataFetched, object: nil, userInfo: userInfo)
         }
