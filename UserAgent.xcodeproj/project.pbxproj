@@ -498,6 +498,12 @@
 		ACC6EC5F2329460B000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
 		ACC6EC602329460F000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5D232945F0000F5499 /* colors.xcassets */; };
 		ACC6EC612329485E000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
+		B3854B00234B2C65003E9D4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854AFF234B2C65003E9D4A /* HistoryView.swift */; };
+		B3854B01234B2C65003E9D4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854AFF234B2C65003E9D4A /* HistoryView.swift */; };
+		B3854B03234B6866003E9D4A /* LibraryContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */; };
+		B3854B04234B6866003E9D4A /* LibraryContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */; };
+		B3854B09234B6FB5003E9D4A /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854B08234B6FB5003E9D4A /* LibraryView.swift */; };
+		B3854B0A234B6FB5003E9D4A /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854B08234B6FB5003E9D4A /* LibraryView.swift */; };
 		B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
 		B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
 		C2EDC31C6828A137B57F370B /* Pods_SharedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */; };
@@ -1283,6 +1289,9 @@
 		ACC6EC5223290974000F5499 /* UIColor+Blending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Blending.swift"; sourceTree = "<group>"; };
 		ACC6EC5D232945F0000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
 		ACC6EC5E232945FF000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
+		B3854AFF234B2C65003E9D4A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryContextMenu.swift; sourceTree = "<group>"; };
+		B3854B08234B6FB5003E9D4A /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		B7467EC9C781BBCEB81EC866 /* Pods_Cliqz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cliqz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78340F0A41C2ACA24F3D0B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
@@ -2207,6 +2216,9 @@
 			children = (
 				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
 				AC65328A2344E3D000FC7ADB /* TopSitesView.swift */,
+				B3854B08234B6FB5003E9D4A /* LibraryView.swift */,
+				B3854AFF234B2C65003E9D4A /* HistoryView.swift */,
+				B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */,
 			);
 			path = "Home View";
 			sourceTree = "<group>";
@@ -4383,6 +4395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3854B01234B2C65003E9D4A /* HistoryView.swift in Sources */,
 				ACB7371F23042BAB00FA5626 /* SiriShortcuts.swift in Sources */,
 				ACB7372023042BAB00FA5626 /* ThemedWidgets.swift in Sources */,
 				ACB7372123042BAB00FA5626 /* AppSettingsTableViewController.swift in Sources */,
@@ -4478,6 +4491,7 @@
 				ACB7377323042BAB00FA5626 /* SettingsContentViewController.swift in Sources */,
 				ACB7377423042BAB00FA5626 /* FirefoxTabContentBlocker.swift in Sources */,
 				ACB7377523042BAB00FA5626 /* PhotonActionSheet.swift in Sources */,
+				B3854B0A234B6FB5003E9D4A /* LibraryView.swift in Sources */,
 				ACB7377623042BAB00FA5626 /* BackForwardTableViewCell.swift in Sources */,
 				ACB7377823042BAB00FA5626 /* PhotonActionSheetCell.swift in Sources */,
 				ACB7377923042BAB00FA5626 /* DrawerViewController.swift in Sources */,
@@ -4575,6 +4589,7 @@
 				ACB737D423042BAB00FA5626 /* main.swift in Sources */,
 				ACB737D523042BAB00FA5626 /* WebPagesForTesting.swift in Sources */,
 				ACB737D623042BAB00FA5626 /* BrowserViewController.swift in Sources */,
+				B3854B04234B6866003E9D4A /* LibraryContextMenu.swift in Sources */,
 				ACB737D823042BAB00FA5626 /* SensitiveViewController.swift in Sources */,
 				ACB737D923042BAB00FA5626 /* ChangePasscodeViewController.swift in Sources */,
 				46CA60E32316D4A80010CE6B /* History.swift in Sources */,
@@ -4634,6 +4649,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3854B00234B2C65003E9D4A /* HistoryView.swift in Sources */,
 				D04CD74A216CF86B004FF5B0 /* SiriShortcuts.swift in Sources */,
 				EB9A179F20E6C1A200B12184 /* ThemedWidgets.swift in Sources */,
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
@@ -4729,6 +4745,7 @@
 				74E36D781B71323500D69DA1 /* SettingsContentViewController.swift in Sources */,
 				EBB8950C21939E4100EB91A0 /* FirefoxTabContentBlocker.swift in Sources */,
 				742A56391D80B54A00BDB803 /* PhotonActionSheet.swift in Sources */,
+				B3854B09234B6FB5003E9D4A /* LibraryView.swift in Sources */,
 				C4EFEECF1CEBB6F2009762A4 /* BackForwardTableViewCell.swift in Sources */,
 				EBA3B2C32268F16300728BDB /* PhotonActionSheetCell.swift in Sources */,
 				D0EAE0E2228B3762001C875A /* DrawerViewController.swift in Sources */,
@@ -4826,6 +4843,7 @@
 				D3BE7B261B054D4400641031 /* main.swift in Sources */,
 				EB8A0A77206ABCE000A9859A /* WebPagesForTesting.swift in Sources */,
 				D3A9949C1A3686BD008AD1AC /* BrowserViewController.swift in Sources */,
+				B3854B03234B6866003E9D4A /* LibraryContextMenu.swift in Sources */,
 				E6CF28E71CB43B7900151AB3 /* SensitiveViewController.swift in Sources */,
 				E68E7ADA1CAC207400FDCA76 /* ChangePasscodeViewController.swift in Sources */,
 				ACC6EC4A2327F4B6000F5499 /* Colors.swift in Sources */,
