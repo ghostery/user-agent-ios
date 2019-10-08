@@ -478,6 +478,11 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
 
     }
 
+    map.addScreenState(TopSitesPanelContextMenu) { screenState in
+        screenState.dismissOnUse = true
+        screenState.backAction = dismissContextMenuAction
+    }
+
     map.addScreenState(SettingsScreen) { screenState in
         let table = app.tables.element(boundBy: 0)
 
