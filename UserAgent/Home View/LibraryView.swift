@@ -59,9 +59,11 @@ class LibraryView: UIView, Themeable {
     }
 
     func removeSiteForURLAtIndexPath(_ indexPath: IndexPath) {
+        fatalError("Subclass must overide this method")
     }
 
     func pinToTopSites(_ site: Site) {
+        fatalError("Subclass must overide this method")
     }
 
 }
