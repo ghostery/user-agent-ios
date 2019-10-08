@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import React
 import Shared
 import Storage
 
@@ -40,8 +39,17 @@ private extension TopSitesView {
         _ = profile.history.getTopSitesWithLimit(8).both(
             profile.history.getPinnedTopSites()
             ).bindQueue(.main) { (topSites, pinned) -> Success in
+                let speedDials = (topSites.successValue?.asArray() ?? []).map { site -> Site? in
+                    guard
+                        let url = URL(string: site.url),
+                        let scheme = url.scheme,
+                        let host = url.host
+                    else { return nil }
+                    return Site(url: "\(scheme)://\(host)/", title: site.title)
+                }.compactMap { $0 }
+
                 self.addHomeView(
-                    speedDials: topSites.successValue?.asArray() ?? [],
+                    speedDials: speedDials,
                     pinnedSites: pinned.successValue?.asArray() ?? []
                 )
                 return succeed()
@@ -49,23 +57,7 @@ private extension TopSitesView {
     }
 
     private func addHomeView(speedDials: [Site], pinnedSites: [Site]) {
-        func toDial(site: Site) -> [String: String] {
-            return [
-                "url": site.url,
-                "title": site.title,
-            ]
-        }
-
-        let topSitesView = RCTRootView(
-            bridge: ReactNativeBridge.sharedInstance.bridge,
-            moduleName: "Home",
-            initialProperties: [
-                "speedDials": speedDials.map(toDial),
-                "pinnedSites": pinnedSites.map(toDial),
-            ]
-        )
-
-        guard let homeView = topSitesView else { return }
+        let homeView = HomeView(speedDials: speedDials, pinnedSites: pinnedSites)
 
         addSubview(homeView)
 
