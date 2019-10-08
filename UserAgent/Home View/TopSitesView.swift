@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import React
 import Shared
 import Storage
 
