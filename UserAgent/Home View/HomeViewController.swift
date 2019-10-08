@@ -25,6 +25,8 @@ class HomeViewController: UIViewController {
         case downloads
     }
 
+    private var logo = LogoView(url: "https://cliqz.com")
+
     private let segments: [Segment] = [.topSites, .bookmarks, .history, .downloads]
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: self.segments.map({ self.title(for: $0) }))
@@ -94,6 +96,11 @@ private extension HomeViewController {
         view.addSubview(bookmarksView)
         view.addSubview(historyView)
         view.addSubview(downloadsView)
+
+        historyView.addSubview(logo)
+        logo.snp.makeConstraints { make in
+            make.width.height.equalTo(60)
+        }
 
         let margins = 8
 
