@@ -380,25 +380,6 @@ class NavigationTest: BaseTestCase {
         app.buttons[optionSelected].tap()
     }
 
-    func testDownloadLink() {
-        longPressLinkOptions(optionSelected: "Download Link")
-        waitForExistence(app.tables["Context Menu"])
-        XCTAssertTrue(app.tables["Context Menu"].cells["download"].exists)
-        app.tables["Context Menu"].cells["download"].tap()
-        navigator.goto(BrowserTabMenu)
-        navigator.goto(LibraryPanel_Downloads)
-        waitForExistence(app.tables["DownloadsTable"])
-        // There should be one item downloaded. It's name and size should be shown
-        let downloadedList = app.tables["DownloadsTable"].cells.count
-        XCTAssertEqual(downloadedList, 1, "The number of items in the downloads table is not correct")
-        XCTAssertTrue(app.tables.cells.staticTexts["reserved.html"].exists)
-
-        // Tap on the just downloaded link to check that the web page is loaded
-        app.tables.cells.staticTexts["reserved.html"].tap()
-        waitUntilPageLoad()
-        waitForValueContains(app.textFields["url"], value: "reserved.html")
-    }
-
     func testShareLink() {
         longPressLinkOptions(optionSelected: "Share Link")
         waitForExistence(app.collectionViews.buttons["Copy"])
