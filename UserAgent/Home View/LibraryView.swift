@@ -10,6 +10,10 @@ import UIKit
 import Storage
 import Shared
 
+struct LibraryPanelUX {
+    static let EmptyTabContentOffset = -180
+}
+
 protocol LibraryViewDelegate: AnyObject {
     func libraryDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool)
     func library(didSelectURL url: URL, visitType: VisitType)
