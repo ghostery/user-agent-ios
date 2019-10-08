@@ -680,7 +680,7 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    fileprivate func showFirefoxHome(inline: Bool) {
+    fileprivate func showUserAgentHome(inline: Bool) {
         homePanelIsInline = inline
         if self.homeViewController == nil {
             let homeViewController = HomeViewController(profile: profile)
@@ -708,17 +708,17 @@ class BrowserViewController: UIViewController {
     }
 
     fileprivate func hideFirefoxHome() {
-        guard let firefoxHomeViewController = self.homeViewController else {
+        guard let browserHomeViewController = self.homeViewController else {
             return
         }
 
         self.homeViewController = nil
         UIView.animate(withDuration: 0.2, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-            firefoxHomeViewController.view.alpha = 0
+            browserHomeViewController.view.alpha = 0
         }, completion: { _ in
-            firefoxHomeViewController.willMove(toParent: nil)
-            firefoxHomeViewController.view.removeFromSuperview()
-            firefoxHomeViewController.removeFromParent()
+            browserHomeViewController.willMove(toParent: nil)
+            browserHomeViewController.view.removeFromSuperview()
+            browserHomeViewController.removeFromParent()
             self.webViewContainer.accessibilityElementsHidden = false
             UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: nil)
 
@@ -737,12 +737,12 @@ class BrowserViewController: UIViewController {
                 return
             }
             if isAboutHomeURL {
-                showFirefoxHome(inline: true)
+                showUserAgentHome(inline: true)
             } else if !url.absoluteString.hasPrefix("\(InternalURL.baseUrl)/\(SessionRestoreHandler.path)") {
                 hideFirefoxHome()
             }
         } else if isAboutHomeURL {
-            showFirefoxHome(inline: false)
+            showUserAgentHome(inline: false)
         }
     }
 
@@ -1405,7 +1405,7 @@ extension BrowserViewController: URLBarDelegate {
                 toast.removeFromSuperview()
             }
 
-            showFirefoxHome(inline: false)
+            showUserAgentHome(inline: false)
         }
     }
 

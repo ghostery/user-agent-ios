@@ -39,11 +39,6 @@ extension PhotonActionSheetProtocol {
     func getLibraryActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         guard let tab = self.tabManager.selectedTab else { return [] }
 
-        let openLibrary = PhotonActionSheetItem(title: Strings.AppMenuLibraryTitleString, iconString: "menu-library") { action in
-            let bvc = vcDelegate as? BrowserViewController
-            bvc?.showLibrary()
-        }
-
         let openHomePage = PhotonActionSheetItem(title: Strings.AppMenuOpenHomePageTitleString, iconString: "menu-Home") { _ in
             let page = NewTabAccessors.getHomePage(self.profile.prefs)
             if page == .homePage, let homePageURL = HomeButtonHomePageAccessors.getHomePage(self.profile.prefs) {
@@ -53,7 +48,7 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        return [openHomePage, openLibrary]
+        return [openHomePage]
     }
 
     /*

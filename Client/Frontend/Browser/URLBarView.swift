@@ -168,8 +168,6 @@ class URLBarView: UIView {
     }()
 
     var menuButton = ToolbarButton()
-    var libraryButton = ToolbarButton()
-
     var bookmarkButton = ToolbarButton()
     var forwardButton = ToolbarButton()
     var stopReloadButton = ToolbarButton()
@@ -180,7 +178,7 @@ class URLBarView: UIView {
         return backButton
     }()
 
-    lazy var actionButtons: [Themeable & UIButton] = [self.tabsButton, self.libraryButton, self.menuButton, self.forwardButton,
+    lazy var actionButtons: [Themeable & UIButton] = [self.tabsButton, self.menuButton, self.forwardButton,
                                                       self.backButton, self.stopReloadButton, ]
 
     var currentURL: URL? {
@@ -217,7 +215,7 @@ class URLBarView: UIView {
         cancelButton.addSubview(separator)
 
         [scrollToTopButton, line, tabsButton, progressBar,
-         libraryButton, menuButton, forwardButton, backButton, stopReloadButton, locationContainer, ].forEach {
+         menuButton, forwardButton, backButton, stopReloadButton, locationContainer, ].forEach {
             addSubview($0)
         }
 
@@ -289,12 +287,6 @@ class URLBarView: UIView {
             make.size.equalTo(URLBarViewUX.ButtonHeight)
         }
 
-        libraryButton.snp.makeConstraints { make in
-            make.trailing.equalTo(self.menuButton.snp.leading)
-            make.centerY.equalTo(self)
-            make.size.equalTo(URLBarViewUX.ButtonHeight)
-        }
-
         menuButton.snp.makeConstraints { make in
             make.trailing.equalTo(self.safeArea.trailing).offset(-URLBarViewUX.Padding)
             make.centerY.equalTo(self)
@@ -329,14 +321,8 @@ class URLBarView: UIView {
         } else {
             self.locationContainer.snp.remakeConstraints { make in
                 if self.toolbarIsShowing {
-                    // If we are showing a toolbar, show the text field next to the forward button
                     make.leading.equalTo(self.stopReloadButton.snp.trailing).offset(URLBarViewUX.Padding)
-                    if self.topTabsIsShowing {
-                        make.trailing.equalTo(self.libraryButton.snp.leading).offset(-URLBarViewUX.Padding)
-                    } else {
-                        make.trailing.equalTo(self.tabsButton.snp.leading).offset(-URLBarViewUX.Padding)
-                    }
-
+                    make.trailing.equalTo(self.tabsButton.snp.leading).offset(-URLBarViewUX.Padding)
                 } else {
                     // Otherwise, left align the location view
                     make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0,
@@ -524,7 +510,6 @@ class URLBarView: UIView {
         cancelButton.isHidden = false
         progressBar.isHidden = false
         menuButton.isHidden = !toolbarIsShowing
-        libraryButton.isHidden = !toolbarIsShowing || !topTabsIsShowing
         forwardButton.isHidden = !toolbarIsShowing
         backButton.isHidden = !toolbarIsShowing
         tabsButton.isHidden = !toolbarIsShowing || topTabsIsShowing
@@ -537,7 +522,6 @@ class URLBarView: UIView {
         progressBar.alpha = inOverlayMode || didCancel ? 0 : 1
         tabsButton.alpha = inOverlayMode ? 0 : 1
         menuButton.alpha = inOverlayMode ? 0 : 1
-        libraryButton.alpha = inOverlayMode ? 0 : 1
         forwardButton.alpha = inOverlayMode ? 0 : 1
         backButton.alpha = inOverlayMode ? 0 : 1
         stopReloadButton.alpha = inOverlayMode ? 0 : 1
@@ -573,7 +557,6 @@ class URLBarView: UIView {
         cancelButton.isHidden = !inOverlayMode
         progressBar.isHidden = inOverlayMode
         menuButton.isHidden = !toolbarIsShowing || inOverlayMode
-        libraryButton.isHidden = !toolbarIsShowing || inOverlayMode || !topTabsIsShowing
         forwardButton.isHidden = !toolbarIsShowing || inOverlayMode
         backButton.isHidden = !toolbarIsShowing || inOverlayMode
         tabsButton.isHidden = !toolbarIsShowing || inOverlayMode || topTabsIsShowing
@@ -658,7 +641,7 @@ extension URLBarView: TabToolbarProtocol {
                 return [locationTextField, cancelButton]
             } else {
                 if toolbarIsShowing {
-                    return [backButton, forwardButton, stopReloadButton, locationView, tabsButton, libraryButton, menuButton, progressBar]
+                    return [backButton, forwardButton, stopReloadButton, locationView, tabsButton, menuButton, progressBar]
                 } else {
                     return [locationView, progressBar]
                 }

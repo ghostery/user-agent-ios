@@ -10,9 +10,6 @@
 /* Label for the button, displayed in the menu, used to open the toolbar to search for text within the current page. */
 "Menu.FindInPageAction.Title" = "Find in Page";
 
-/* Label for the button, displayed in the menu, used to open the Library */
-"Menu.Library.Title" = "Your Library";
-
 /* Label for the button, displayed in the menu, used to open a new private tab. */
 "Menu.NewPrivateTabAction.Title" = "Open New Private Tab";
 

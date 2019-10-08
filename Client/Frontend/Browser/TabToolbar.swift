@@ -10,7 +10,6 @@ protocol TabToolbarProtocol: AnyObject {
     var tabToolbarDelegate: TabToolbarDelegate? { get set }
     var tabsButton: TabsButton { get }
     var menuButton: ToolbarButton { get }
-    var libraryButton: ToolbarButton { get }
     var forwardButton: ToolbarButton { get }
     var backButton: ToolbarButton { get }
     var stopReloadButton: ToolbarButton { get }
@@ -92,13 +91,6 @@ open class TabToolbarHelper: NSObject {
         toolbar.menuButton.accessibilityLabel = Strings.AppMenuButtonAccessibilityLabel
         toolbar.menuButton.addTarget(self, action: #selector(didClickMenu), for: .touchUpInside)
         toolbar.menuButton.accessibilityIdentifier = "TabToolbar.menuButton"
-
-        toolbar.libraryButton.contentMode = .center
-        toolbar.libraryButton.setImage(UIImage.templateImageNamed("menu-library"), for: .normal)
-        toolbar.libraryButton.accessibilityLabel = Strings.AppMenuButtonAccessibilityLabel
-        toolbar.libraryButton.addTarget(self, action: #selector(didClickLibrary), for: .touchUpInside)
-        toolbar.libraryButton.accessibilityIdentifier = "TabToolbar.libraryButton"
-        setTheme(forButtons: toolbar.actionButtons)
     }
 
     func didClickBack() {
@@ -208,7 +200,6 @@ class TabToolbar: UIView {
 
     let tabsButton = TabsButton()
     let menuButton = ToolbarButton()
-    let libraryButton = ToolbarButton()
     let forwardButton = ToolbarButton()
     let backButton = ToolbarButton()
     let stopReloadButton = ToolbarButton()
