@@ -10,27 +10,6 @@ import UIKit
 import Shared
 import Storage
 
-private enum HistorySection: Int, CaseIterable {
-    case today
-    case yesterday
-    case lastWeek
-    case lastMonth
-
-    var title: String {
-        switch self {
-        case .today:
-            return Strings.TableDateSectionTitleToday
-        case .yesterday:
-            return Strings.TableDateSectionTitleYesterday
-        case .lastWeek:
-            return Strings.TableDateSectionTitleLastWeek
-        case .lastMonth:
-            return Strings.TableDateSectionTitleLastMonth
-        }
-    }
-
-}
-
 private struct HistoryViewUX {
     static let EmptyScreenItemWidth = 170
     static let IconSize = 23
@@ -58,15 +37,11 @@ class HistoryView: LibraryView {
 
     private lazy var emptyStateOverlayView: UIView = createEmptyStateOverlayView()
 
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        self.reloadData()
-    }
-
     override func setup() {
         super.setup()
         self.tableView.prefetchDataSource = self
         self.tableView.accessibilityIdentifier = "History List"
+        self.tableView.addGestureRecognizer(self.longPressRecognizer)
         self.registerNotification()
     }
 
@@ -88,6 +63,24 @@ class HistoryView: LibraryView {
 
     override func removeSiteForURLAtIndexPath(_ indexPath: IndexPath) {
         self.removeHistoryForURLAtIndexPath(indexPath: indexPath)
+    }
+
+    override func reloadData() {
+        guard !self.isFetchInProgress else { return }
+        self.groupedSites = DateGroupedTableData<Site>()
+
+        self.currentFetchOffset = 0
+        self.fetchData().uponQueue(.main) { result in
+            if let sites = result.successValue {
+                for site in sites {
+                    if let site = site, let latestVisit = site.latestVisit {
+                        self.groupedSites.add(site, timestamp: TimeInterval.fromMicrosecondTimestamp(latestVisit.date))
+                    }
+                }
+                self.tableView.reloadData()
+                self.updateEmptyPanelState()
+            }
+        }
     }
 
 }
@@ -141,24 +134,6 @@ private extension HistoryView {
             make.width.equalTo(HistoryViewUX.EmptyScreenItemWidth)
         }
         return overlayView
-    }
-
-    private func reloadData() {
-        guard !self.isFetchInProgress else { return }
-        self.groupedSites = DateGroupedTableData<Site>()
-
-        self.currentFetchOffset = 0
-        self.fetchData().uponQueue(.main) { result in
-            if let sites = result.successValue {
-                for site in sites {
-                    if let site = site, let latestVisit = site.latestVisit {
-                        self.groupedSites.add(site, timestamp: TimeInterval.fromMicrosecondTimestamp(latestVisit.date))
-                    }
-                }
-                self.tableView.reloadData()
-                self.updateEmptyPanelState()
-            }
-        }
     }
 
     private func fetchData() -> Deferred<Maybe<Cursor<Site>>> {
@@ -227,7 +202,7 @@ private extension HistoryView {
 extension HistoryView {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return HistorySection.allCases.count
+        return LibrarySection.allCases.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -242,10 +217,10 @@ extension HistoryView {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard groupedSites.numberOfItemsForSection(section) > 0 else {
+        guard self.groupedSites.numberOfItemsForSection(section) > 0 else {
             return nil
         }
-        return HistorySection(rawValue: section)?.title
+        return LibrarySection(rawValue: section)?.title
     }
 
 }
@@ -259,13 +234,6 @@ extension HistoryView {
         }
         if let site = self.siteForIndexPath(indexPath), let url = URL(string: site.url) {
             self.delegate?.library(didSelectURL: url, visitType: .typed)
-        }
-    }
-
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = UIColor.theme.tableView.headerTextDark
-            header.contentView.backgroundColor = UIColor.theme.tableView.headerBackground
         }
     }
 
