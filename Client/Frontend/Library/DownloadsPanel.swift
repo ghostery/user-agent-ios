@@ -11,36 +11,6 @@ private struct DownloadsPanelUX {
     static let WelcomeScreenItemWidth = 170
 }
 
-struct DownloadedFile: Equatable {
-    let path: URL
-    let size: UInt64
-    let lastModified: Date
-
-    var canShowInWebView: Bool {
-        return MIMEType.canShowInWebView(mimeType)
-    }
-
-    var filename: String {
-        return path.lastPathComponent
-    }
-
-    var fileExtension: String {
-        return path.pathExtension
-    }
-
-    var formattedSize: String {
-        return ByteCountFormatter.string(fromByteCount: Int64(size), countStyle: .file)
-    }
-
-    var mimeType: String {
-        return MIMEType.mimeTypeFromFileExtension(fileExtension)
-    }
-
-    static public func == (lhs: DownloadedFile, rhs: DownloadedFile) -> Bool {
-        return lhs.path == rhs.path
-    }
-}
-
 class DownloadsPanel: UIViewController, UITableViewDelegate, UITableViewDataSource, LibraryPanel, UIDocumentInteractionControllerDelegate {
     weak var libraryPanelDelegate: LibraryPanelDelegate?
     let profile: Profile
