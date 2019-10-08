@@ -12,7 +12,7 @@ import Shared
 
 protocol LibraryViewDelegate: AnyObject {
     func libraryDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool)
-    func library(didSelectURL url: URL)
+    func library(didSelectURL url: URL, visitType: VisitType)
     func library(wantsToOpen contextMenu: PhotonActionSheet)
 }
 

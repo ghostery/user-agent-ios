@@ -258,7 +258,7 @@ extension HistoryView {
             tableView.deselectRow(at: indexPath, animated: true)
         }
         if let site = self.siteForIndexPath(indexPath), let url = URL(string: site.url) {
-            self.delegate?.library(didSelectURL: url)
+            self.delegate?.library(didSelectURL: url, visitType: .typed)
         }
     }
 

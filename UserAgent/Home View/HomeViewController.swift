@@ -172,11 +172,11 @@ extension HomeViewController: HomeViewControllerProtocol {
 extension HomeViewController: LibraryViewDelegate {
 
     func libraryDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
-
+        self.homePanelDelegate?.homePanelDidRequestToOpenInNewTab(url, isPrivate: isPrivate)
     }
 
-    func library(didSelectURL url: URL) {
-
+    func library(didSelectURL url: URL, visitType: VisitType) {
+        self.homePanelDelegate?.homePanel(didSelectURL: url, visitType: visitType)
     }
 
     func library(wantsToOpen contextMenu: PhotonActionSheet) {
