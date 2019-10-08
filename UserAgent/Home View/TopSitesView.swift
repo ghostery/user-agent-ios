@@ -58,23 +58,7 @@ private extension TopSitesView {
     }
 
     private func addHomeView(speedDials: [Site], pinnedSites: [Site]) {
-        func toDial(site: Site) -> [String: String] {
-            return [
-                "url": site.url,
-                "title": site.title,
-            ]
-        }
-
-        let topSitesView = RCTRootView(
-            bridge: ReactNativeBridge.sharedInstance.bridge,
-            moduleName: "Home",
-            initialProperties: [
-                "speedDials": speedDials.map(toDial),
-                "pinnedSites": pinnedSites.map(toDial),
-            ]
-        )
-
-        guard let homeView = topSitesView else { return }
+        let homeView = HomeView(speedDials: speedDials, pinnedSites: pinnedSites)
 
         addSubview(homeView)
 
