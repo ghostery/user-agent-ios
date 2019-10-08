@@ -54,9 +54,10 @@ class HomeViewController: UIViewController {
         return historyView
     }()
 
-    private let downloadsView: UIView = {
-        let downloadsView = UIView()
-        downloadsView.backgroundColor = UIColor.green
+    private lazy var downloadsView: UIView = {
+        let downloadsView = DownloadsView(profile: self.profile)
+        downloadsView.delegate = self
+        downloadsView.documentDelegate = self
         return downloadsView
     }()
 
@@ -186,8 +187,26 @@ extension HomeViewController: LibraryViewDelegate {
         self.homePanelDelegate?.homePanel(didSelectURL: url, visitType: visitType)
     }
 
-    func library(wantsToOpen contextMenu: PhotonActionSheet) {
-        self.present(contextMenu, animated: true)
+    func library(wantsToPresent viewController: UIViewController) {
+        self.present(viewController, animated: true)
+    }
+
+}
+
+extension HomeViewController: DownloadsViewDocumentDelegate {
+
+    func downlaodsView(wantsToPresentDocument path: URL) {
+        let dc = UIDocumentInteractionController(url: path)
+        dc.delegate = self
+        dc.presentPreview(animated: true)
+    }
+
+}
+
+extension HomeViewController: UIDocumentInteractionControllerDelegate {
+
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
     }
 
 }

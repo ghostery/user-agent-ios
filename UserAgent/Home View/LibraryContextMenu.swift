@@ -38,13 +38,13 @@ extension LibraryContextMenu {
         return contextMenu
     }
 
-    func getDefaultContextMenuActions(for site: Site, libraryPanelDelegate: LibraryViewDelegate?) -> [PhotonActionSheetItem]? {
+    func getDefaultContextMenuActions(for site: Site, libraryViewDelegate: LibraryViewDelegate?) -> [PhotonActionSheetItem]? {
         guard let siteURL = URL(string: site.url) else { return nil }
         let openInNewTabAction = PhotonActionSheetItem(title: Strings.OpenInNewTabContextMenuTitle, iconString: "quick_action_new_tab") { action in
-            libraryPanelDelegate?.libraryDidRequestToOpenInNewTab(siteURL, isPrivate: false)
+            libraryViewDelegate?.libraryDidRequestToOpenInNewTab(siteURL, isPrivate: false)
         }
         let openInNewPrivateTabAction = PhotonActionSheetItem(title: Strings.OpenInNewPrivateTabContextMenuTitle, iconString: "quick_action_new_private_tab") { action in
-            libraryPanelDelegate?.libraryDidRequestToOpenInNewTab(siteURL, isPrivate: true)
+            libraryViewDelegate?.libraryDidRequestToOpenInNewTab(siteURL, isPrivate: true)
         }
         return [openInNewTabAction, openInNewPrivateTabAction]
     }

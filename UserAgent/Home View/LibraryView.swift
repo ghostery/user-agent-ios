@@ -10,26 +10,48 @@ import UIKit
 import Storage
 import Shared
 
+
 struct LibraryPanelUX {
     static let EmptyTabContentOffset = -180
+}
+
+enum LibrarySection: Int, CaseIterable {
+    case today
+    case yesterday
+    case lastWeek
+    case lastMonth
+
+    var title: String {
+        switch self {
+        case .today:
+            return Strings.TableDateSectionTitleToday
+        case .yesterday:
+            return Strings.TableDateSectionTitleYesterday
+        case .lastWeek:
+            return Strings.TableDateSectionTitleLastWeek
+        case .lastMonth:
+            return Strings.TableDateSectionTitleLastMonth
+        }
+    }
 }
 
 protocol LibraryViewDelegate: AnyObject {
     func libraryDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool)
     func library(didSelectURL url: URL, visitType: VisitType)
-    func library(wantsToOpen contextMenu: PhotonActionSheet)
+    func library(wantsToPresent viewController: UIViewController)
 }
 
 class LibraryView: UIView, Themeable {
     // MARK: - Properties
-    var delegate: LibraryViewDelegate?
+    weak var delegate: LibraryViewDelegate?
     private (set) var profile: Profile
 
     private let cellIdentifier = "cellIdentifier"
     private let headerIdentifier = "headerIdentifier"
 
     private (set) var tableView = UITableView()
-    private lazy var longPressRecognizer: UILongPressGestureRecognizer = {
+
+    lazy var longPressRecognizer: UILongPressGestureRecognizer = {
         return UILongPressGestureRecognizer(target: self, action: #selector(onLongPressGestureRecognized))
     }()
 
@@ -46,6 +68,11 @@ class LibraryView: UIView, Themeable {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("Use init(profile:) to initialize")
+    }
+
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        self.reloadData()
     }
 
     func setup() {
@@ -70,6 +97,10 @@ class LibraryView: UIView, Themeable {
         fatalError("Subclass must overide this method")
     }
 
+    func reloadData() {
+        fatalError("Subclass must overide this method")
+    }
+
 }
 
 // MARK: - Private methods
@@ -86,7 +117,7 @@ extension LibraryView {
         self.tableView.dataSource = self
 
         self.tableView.register(SiteTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
-        tableView.register(SiteTableViewHeader.self, forHeaderFooterViewReuseIdentifier: self.headerIdentifier)
+        self.tableView.register(SiteTableViewHeader.self, forHeaderFooterViewReuseIdentifier: self.headerIdentifier)
         self.tableView.layoutMargins = .zero
         self.tableView.keyboardDismissMode = .onDrag
 
@@ -94,8 +125,6 @@ extension LibraryView {
 
         // Set an empty footer to prevent empty cells from appearing in the list.
         self.tableView.tableFooterView = UIView()
-
-        self.tableView.addGestureRecognizer(self.longPressRecognizer)
     }
 
 }
@@ -144,13 +173,20 @@ extension LibraryView: UITableViewDelegate {
         return SiteTableViewControllerUX.RowHeight
     }
 
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.textColor = UIColor.theme.tableView.headerTextDark
+            header.contentView.backgroundColor = UIColor.theme.tableView.headerBackground
+        }
+    }
+
 }
 
 extension LibraryView: LibraryContextMenu {
 
     func presentContextMenu(for site: Site, with indexPath: IndexPath, completionHandler: @escaping () -> PhotonActionSheet?) {
         guard let contextMenu = completionHandler() else { return }
-        self.delegate?.library(wantsToOpen: contextMenu)
+        self.delegate?.library(wantsToPresent: contextMenu)
     }
 
     func getSiteDetails(for indexPath: IndexPath) -> Site? {
@@ -158,7 +194,7 @@ extension LibraryView: LibraryContextMenu {
     }
 
     func getContextMenuActions(for site: Site, with indexPath: IndexPath) -> [PhotonActionSheetItem]? {
-        guard var actions = getDefaultContextMenuActions(for: site, libraryPanelDelegate: self.delegate) else { return nil }
+        guard var actions = self.getDefaultContextMenuActions(for: site, libraryViewDelegate: self.delegate) else { return nil }
 
         let removeAction = PhotonActionSheetItem(title: Strings.DeleteFromHistoryContextMenuTitle, iconString: "action_delete", handler: { action in
             self.removeSiteForURLAtIndexPath(indexPath)
