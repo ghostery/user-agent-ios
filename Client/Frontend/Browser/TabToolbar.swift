@@ -32,7 +32,6 @@ protocol TabToolbarDelegate: AnyObject {
     func tabToolbarDidLongPressReload(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressStop(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressMenu(_ tabToolbar: TabToolbarProtocol, button: UIButton)
-    func tabToolbarDidPressLibrary(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidLongPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton)
 }
@@ -123,10 +122,6 @@ open class TabToolbarHelper: NSObject {
 
     func didClickMenu() {
         toolbar.tabToolbarDelegate?.tabToolbarDidPressMenu(toolbar, button: toolbar.menuButton)
-    }
-
-    func didClickLibrary() {
-        toolbar.tabToolbarDelegate?.tabToolbarDidPressLibrary(toolbar, button: toolbar.menuButton)
     }
 
     func didClickStopReload() {

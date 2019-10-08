@@ -135,7 +135,7 @@ private extension HistoryView {
         emptyLabel.snp.makeConstraints { make in
             make.centerX.equalTo(overlayView)
             // Sets proper top constraint for iPhone 6 in portait and for iPad.
-            make.centerY.equalTo(overlayView).offset(LibraryPanelUX.EmptyTabContentOffset).priority(100)
+            make.centerY.equalTo(overlayView).offset(-180).priority(100)
             // Sets proper top constraint for iPhone 4, 5 in portrait.
             make.top.greaterThanOrEqualTo(overlayView).offset(50)
             make.width.equalTo(HistoryViewUX.EmptyScreenItemWidth)

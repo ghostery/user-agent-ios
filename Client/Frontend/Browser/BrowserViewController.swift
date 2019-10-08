@@ -43,7 +43,6 @@ protocol HomeViewControllerProtocol: Themeable {
 
 class BrowserViewController: UIViewController {
     var homeViewController: HomeViewControllerProtocol?
-    var libraryViewController: LibraryViewController?
     var libraryDrawerViewController: DrawerViewController?
     var webViewContainer: UIView!
     var urlBar: URLBarView!
@@ -744,27 +743,6 @@ class BrowserViewController: UIViewController {
         } else if isAboutHomeURL {
             showUserAgentHome(inline: false)
         }
-    }
-
-    func showLibrary(panel: LibraryPanelType? = nil) {
-        if let presentedViewController = self.presentedViewController {
-            presentedViewController.dismiss(animated: true, completion: nil)
-        }
-
-        let libraryViewController = self.libraryViewController ?? LibraryViewController(profile: profile)
-        libraryViewController.delegate = self
-        self.libraryViewController = libraryViewController
-
-        if panel != nil {
-            libraryViewController.selectedPanel = panel
-        }
-
-        let libraryDrawerViewController = self.libraryDrawerViewController ?? DrawerViewController(childViewController: libraryViewController)
-        self.libraryDrawerViewController = libraryDrawerViewController
-
-        addChild(libraryDrawerViewController)
-        view.addSubview(libraryDrawerViewController.view)
-        libraryDrawerViewController.view.snp.remakeConstraints(constraintsForLibraryDrawerView)
     }
 
     fileprivate func createSearchControllerIfNeeded() {
@@ -1539,51 +1517,7 @@ extension BrowserViewController: TabDelegate {
     }
 }
 
-extension BrowserViewController: LibraryPanelDelegate {
-    func libraryPanelDidRequestToSignIn() {
-        // This method stub is a leftover from when we remøved the Account and Sync modules
-    }
-
-    func libraryPanelDidRequestToCreateAccount() {
-        // This method stub is a leftover from when we remüved the Account and Sync modules
-    }
-
-    func libraryPanel(didSelectURL url: URL, visitType: VisitType) {
-        guard let tab = tabManager.selectedTab else { return }
-        finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
-        libraryDrawerViewController?.close()
-    }
-
-    func libraryPanel(didSelectURLString url: String, visitType: VisitType) {
-        guard let url = URIFixup.getURL(url) ?? profile.searchEngines.defaultEngine.searchURLForQuery(url) else {
-            Logger.browserLogger.warning("Invalid URL, and couldn't generate a search URL for it.")
-            return
-        }
-        return self.libraryPanel(didSelectURL: url, visitType: visitType)
-    }
-
-    func libraryPanelDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
-        let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
-        // If we are showing toptabs a user can just use the top tab bar
-        // If in overlay mode switching doesnt correctly dismiss the homepanels
-        guard !topTabsVisible, !self.urlBar.inOverlayMode else {
-            return
-        }
-        // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
-        let toast = ButtonToast(labelText: Strings.ContextMenuButtonToastNewTabOpenedLabelText, buttonText: Strings.ContextMenuButtonToastNewTabOpenedButtonText, completion: { buttonPressed in
-            if buttonPressed {
-                self.tabManager.selectTab(tab)
-            }
-        })
-        self.show(toast: toast)
-    }
-}
-
 extension BrowserViewController: HomePanelDelegate {
-    func homePanelDidRequestToOpenLibrary(panel: LibraryPanelType) {
-        showLibrary(panel: panel)
-    }
-
     func homePanel(didSelectURL url: URL, visitType: VisitType) {
         guard let tab = tabManager.selectedTab else { return }
         finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
@@ -2255,7 +2189,7 @@ extension BrowserViewController: TabTrayDelegate {
 extension BrowserViewController: Themeable {
     func applyTheme() {
         guard self.isViewLoaded else { return }
-        let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, homeViewController, searchController, libraryViewController, libraryDrawerViewController]
+        let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, homeViewController, searchController, libraryDrawerViewController]
         ui.forEach { $0?.applyTheme() }
         statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Grey80 : urlBar.backgroundColor
         setNeedsStatusBarAppearanceUpdate()
