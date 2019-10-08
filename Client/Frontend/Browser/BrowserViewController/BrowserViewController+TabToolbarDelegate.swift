@@ -59,6 +59,10 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         presentSheetWith(actions: actions, on: self, from: button, suppressPopover: shouldSuppress)
     }
 
+    func tabToolbarDidPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
+        self.focusLocationTextField(forTab: self.tabManager.selectedTab)
+    }
+
     func tabToolbarDidPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
         showTabTray()
     }

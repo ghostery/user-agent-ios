@@ -101,6 +101,10 @@ class URLBarView: UIView {
         }
     }
 
+    lazy var searchButton: ToolbarButton = {
+        return ToolbarButton()
+    }()
+
     lazy var locationView: TabLocationView = {
         let locationView = TabLocationView()
         locationView.layer.cornerRadius = URLBarViewUX.TextFieldCornerRadius
@@ -603,6 +607,7 @@ class URLBarView: UIView {
 }
 
 extension URLBarView: TabToolbarProtocol {
+
     func privateModeBadge(visible: Bool) {
         if !UIDevice.current.isPad {
             privateModeBadge.show(visible)
