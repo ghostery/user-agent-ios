@@ -40,8 +40,17 @@ private extension TopSitesView {
         _ = profile.history.getTopSitesWithLimit(8).both(
             profile.history.getPinnedTopSites()
             ).bindQueue(.main) { (topSites, pinned) -> Success in
+                let speedDials = (topSites.successValue?.asArray() ?? []).map { site -> Site? in
+                    guard
+                        let url = URL(string: site.url),
+                        let scheme = url.scheme,
+                        let host = url.host
+                    else { return nil }
+                    return Site(url: "\(scheme)://\(host)/", title: site.title)
+                }.compactMap { $0 }
+
                 self.addHomeView(
-                    speedDials: topSites.successValue?.asArray() ?? [],
+                    speedDials: speedDials,
                     pinnedSites: pinned.successValue?.asArray() ?? []
                 )
                 return succeed()
