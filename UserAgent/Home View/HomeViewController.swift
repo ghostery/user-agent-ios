@@ -48,9 +48,9 @@ class HomeViewController: UIViewController {
         return bookmarksView
     }()
 
-    private let historyView: UIView = {
-        let historyView = UIView()
-        historyView.backgroundColor = UIColor.red
+    private lazy var historyView: UIView = {
+        let historyView = HistoryView(profile: self.profile)
+        historyView.delegate = self
         return historyView
     }()
 
@@ -174,4 +174,20 @@ extension HomeViewController: HomeViewControllerProtocol {
     func scrollToTop(animated: Bool) {
 
     }
+}
+
+extension HomeViewController: LibraryViewDelegate {
+
+    func libraryDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
+        self.homePanelDelegate?.homePanelDidRequestToOpenInNewTab(url, isPrivate: isPrivate)
+    }
+
+    func library(didSelectURL url: URL, visitType: VisitType) {
+        self.homePanelDelegate?.homePanel(didSelectURL: url, visitType: visitType)
+    }
+
+    func library(wantsToOpen contextMenu: PhotonActionSheet) {
+        self.present(contextMenu, animated: true)
+    }
+
 }
