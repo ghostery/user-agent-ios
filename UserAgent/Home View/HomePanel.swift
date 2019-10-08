@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Storage
+import Shared
 
 protocol HomePanelDelegate: AnyObject {
     func homePanelDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool)
