@@ -190,7 +190,7 @@ extension LibraryView: LibraryContextMenu {
     }
 
     func getContextMenuActions(for site: Site, with indexPath: IndexPath) -> [PhotonActionSheetItem]? {
-        guard var actions = getDefaultContextMenuActions(for: site, libraryPanelDelegate: self.delegate) else { return nil }
+        guard var actions = self.getDefaultContextMenuActions(for: site, libraryViewDelegate: self.delegate) else { return nil }
 
         let removeAction = PhotonActionSheetItem(title: Strings.DeleteFromHistoryContextMenuTitle, iconString: "action_delete", handler: { action in
             self.removeSiteForURLAtIndexPath(indexPath)
