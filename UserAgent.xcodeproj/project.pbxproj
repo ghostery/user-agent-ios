@@ -135,6 +135,8 @@
 		463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463432FA233381C70014A9F0 /* BrowserCoreClient.swift */; };
 		464E6838234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E6839234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
+		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
+		464E683C234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464F67662326AFB70090D0B5 /* Punycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B2AC11D41F02D00429414 /* Punycode.swift */; };
 		464F67672326AFB70090D0B5 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
 		464F67682326AFB70090D0B5 /* URIFixup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C744CC1A687D6C004CE85D /* URIFixup.swift */; };
@@ -1176,6 +1178,7 @@
 		463432F72332521F0014A9F0 /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		463432FA233381C70014A9F0 /* BrowserCoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCoreClient.swift; sourceTree = "<group>"; };
 		464E6837234B75E300ABAC43 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		464E683A234CB06200ABAC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -2093,6 +2096,7 @@
 			isa = PBXGroup;
 			children = (
 				464E6837234B75E300ABAC43 /* LogoView.swift */,
+				464E683A234CB06200ABAC43 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4606,6 +4610,7 @@
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
 				ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */,
 				ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */,
+				464E683C234CB06200ABAC43 /* HomeView.swift in Sources */,
 				ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */,
 				464E6839234B75E300ABAC43 /* LogoView.swift in Sources */,
 				ACB737ED23042BAB00FA5626 /* UIImage+ImageEffects.m in Sources */,
@@ -4860,6 +4865,7 @@
 				B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */,
 				E692E3291C46E62D009D1240 /* AuthenticationSettingsViewController.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
+				464E683B234CB06200ABAC43 /* HomeView.swift in Sources */,
 				EBA3B2D22268F57E00728BDB /* BadgeIcon.swift in Sources */,
 				464E6838234B75E300ABAC43 /* LogoView.swift in Sources */,
 				E6327A641BF6438E008D12E0 /* DebugSettingsBundleOptions.swift in Sources */,
