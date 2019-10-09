@@ -36,7 +36,7 @@ class DatabaseFixtureTest: BaseTestCase {
     }
 
     func testHistoryDatabaseFixture() {
-        navigator.goto(LibraryPanel_History)
+//        navigator.goto(LibraryPanel_History)
 
         // History list has two cells that are for recently closed and synced devices that should not count as history items,
         // the actual max number is 100

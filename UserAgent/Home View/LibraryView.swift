@@ -10,6 +10,11 @@ import UIKit
 import Storage
 import Shared
 
+
+struct LibraryPanelUX {
+    static let EmptyTabContentOffset = -180
+}
+
 enum LibrarySection: Int, CaseIterable {
     case today
     case yesterday
@@ -28,7 +33,6 @@ enum LibrarySection: Int, CaseIterable {
             return Strings.TableDateSectionTitleLastMonth
         }
     }
-
 }
 
 protocol LibraryViewDelegate: AnyObject {
