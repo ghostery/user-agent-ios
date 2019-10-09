@@ -113,7 +113,6 @@ open class TabToolbarHelper: NSObject {
         toolbar.tabToolbarDelegate?.tabToolbarDidPressMenu(toolbar, button: toolbar.menuButton)
     }
 
-
     func didClickSearch() {
         toolbar.tabToolbarDelegate?.tabToolbarDidPressSearch(toolbar, button: toolbar.searchButton)
     }
