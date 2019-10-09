@@ -71,6 +71,9 @@ extension PhotonActionSheetProtocol {
         let openSettingsItem = self.openSettingsItem(vcDelegate: vcDelegate)
         items.append(openSettingsItem)
 
+        let refreshItem = self.refreshPageItem(vcDelegate: vcDelegate)
+        items.append(refreshItem)
+
         return items
     }
 
@@ -416,5 +419,12 @@ extension PhotonActionSheetProtocol {
         }
         return openSettings
     }
+
+    private func refreshPageItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
+           let refreshPage = PhotonActionSheetItem(title: Strings.AppMenuReloadTitleString, iconString: "nav-refresh") { action in
+                self.tabManager.selectedTab?.reload()
+           }
+           return refreshPage
+       }
 
 }
