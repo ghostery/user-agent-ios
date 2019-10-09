@@ -10,7 +10,6 @@
 import Shared
 import Storage
 import XCGLogger
-import SwiftKeychainWrapper
 
 // Import these dependencies ONLY for the main `Client` application target.
 #if APP_TARGET_CLIENT
@@ -93,26 +92,11 @@ extension Profile {
 
 open class BrowserProfile: Profile {
     fileprivate let name: String
-    fileprivate let keychain: KeychainWrapper
     var isShutdown = false
 
     internal let files: FileAccessor
 
     let db: BrowserDB
-
-    private static var loginsKey: String {
-        let key = "sqlcipher.key.logins.db"
-        let keychain = KeychainWrapper.sharedAppContainerKeychain
-        keychain.ensureStringItemAccessibility(.afterFirstUnlock, forKey: key)
-        if keychain.hasValue(forKey: key), let secret = keychain.string(forKey: key) {
-            return secret
-        }
-
-        let Length: UInt = 256
-        let secret = Bytes.generateRandomBytes(Length).base64EncodedString
-        keychain.set(secret, forKey: key, withAccessibility: .afterFirstUnlock)
-        return secret
-    }
 
     /**
      * N.B., BrowserProfile is used from our extensions, often via a pattern like
@@ -130,7 +114,6 @@ open class BrowserProfile: Profile {
         log.debug("Initing profile \(localName) on thread \(Thread.current).")
         self.name = localName
         self.files = ProfileFileAccessor(localName: localName)
-        self.keychain = KeychainWrapper.sharedAppContainerKeychain
 
         if clear {
             do {
@@ -157,7 +140,6 @@ open class BrowserProfile: Profile {
 
         if isNewProfile {
             log.info("New profile. Removing old account metadata.")
-            _ = keychain.removeAllKeys()
             prefs.clearAll()
         }
 
