@@ -9,20 +9,24 @@ const convertLogoUrl = logo => ({
     .replace('.svg', '_192.png'),
 });
 
-export default function ({
-  url,
-  size = 60,
-  borderRadius = 5,
-  logoSize = 60,
-  fontSize = 28
-}) {
+const DEFAULT_SIZE = 60;
+const DEFAULT_FONT_SIZE = 28;
+
+export default function ({ url, size: _size, fontSize: _fontSize }) {
+  let size = _size || DEFAULT_SIZE;
+  let fontSize = _fontSize || DEFAULT_FONT_SIZE;
+
+  if (size !== DEFAULT_SIZE && !_fontSize) {
+    fontSize = DEFAULT_FONT_SIZE / DEFAULT_SIZE * size;
+  }
+
   return (
     <Logo
       key={url}
       logo={convertLogoUrl(getLogo(url))}
       size={size}
-      borderRadius={borderRadius}
-      logoSize={logoSize}
+      borderRadius={5}
+      logoSize={size}
       fontSize={fontSize}
     />
   );

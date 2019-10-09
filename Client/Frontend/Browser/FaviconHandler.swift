@@ -43,9 +43,7 @@ class FaviconHandler {
                 return
             }
 
-            profile.favicons.addFavicon(favicon, forSite: site) >>> {
-                deferred.fill(Maybe(success: (favicon, data)))
-            }
+            deferred.fill(Maybe(success: (favicon, data)))
         }
 
         let onCompletedSiteFavicon: SDInternalCompletionBlock = { (img, data, _, _, _, url) -> Void in

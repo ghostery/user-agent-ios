@@ -27,29 +27,13 @@ class LogoView: UIView {
         return reactView
     }()
 
-    override init(frame: CGRect) {
+    init(frame: CGRect, url: String) {
         super.init(frame: frame)
-        self.addSubview(self.reactView)
-    }
-
-    convenience init(url: String) {
-        self.init(
-            frame: .zero,
-            url: url
-        )
-    }
-
-    convenience init(frame: CGRect, url: String) {
-        self.init(frame: frame)
         self.url = url
+        self.addSubview(self.reactView)
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.reactView.frame = self.bounds
     }
 }

@@ -1023,11 +1023,8 @@ class TabCell: UICollectionViewCell {
         return label
     }()
 
-    let favicon: UIImageView = {
-        let favicon = UIImageView()
-        favicon.backgroundColor = UIColor.clear
-        favicon.layer.cornerRadius = 2.0
-        favicon.layer.masksToBounds = true
+    let favicon: UIView = {
+        let favicon = UIView()
         return favicon
     }()
 
@@ -1130,17 +1127,22 @@ class TabCell: UICollectionViewCell {
         isAccessibilityElement = true
         accessibilityHint = NSLocalizedString("Swipe right or left with three fingers to close the tab.", comment: "Accessibility hint for tab tray's displayed tab.")
 
-        if let favIcon = tab.displayFavicon, let url = URL(string: favIcon.url) {
-            favicon.sd_setImage(with: url, placeholderImage: UIImage(named: "defaultFavicon"), options: [], completed: nil)
-        } else {
-            let defaultFavicon = UIImage(named: "defaultFavicon")
-            if tab.isPrivate {
-                favicon.image = defaultFavicon
-                favicon.tintColor = UIColor.theme.tabTray.faviconTint
-            } else {
-                favicon.image = defaultFavicon
-            }
+        let logoPlaceholderURL = URL(string: Strings.BrandWebsite)!
+
+        let faviconURL = URL(nullableString: tab.displayFavicon?.url)
+
+        var logoURL = tab.url ?? faviconURL ?? logoPlaceholderURL
+
+        if InternalURL.isValid(url: logoURL) {
+            logoURL = logoPlaceholderURL
         }
+
+        let logo = LogoView(
+            frame: CGRect(x: 0, y: 0, width: TabTrayControllerUX.FaviconSize, height: TabTrayControllerUX.FaviconSize),
+            url: logoURL.absoluteString
+        )
+        favicon.addSubview(logo)
+
         if selected {
             setTabSelected(tab.isPrivate)
         } else {
@@ -1199,5 +1201,12 @@ class SearchBarTextField: UITextField, PrivateModeUI {
 
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: SearchBarTextField.leftInset, dy: 0)
+    }
+}
+
+private extension URL {
+    init?(nullableString: String?) {
+        guard let nonNullString = nullableString else { return nil }
+        self.init(string: nonNullString)
     }
 }
