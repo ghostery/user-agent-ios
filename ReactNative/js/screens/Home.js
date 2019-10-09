@@ -2,13 +2,16 @@ import React from 'react';
 import {
   NativeModules,
   View,
-  Text,
+  ScrollView,
   StyleSheet,
 } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import SpeedDial from '../components/SpeedDial';
+import Header from '../components/Header';
+import News from './Home/News';
 
 const openSpeedDialLink = speedDial => NativeModules.BrowserActions.openLink(speedDial.url, "", false);
+const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
 const styles = StyleSheet.create({
   container: {
@@ -24,9 +27,7 @@ const styles = StyleSheet.create({
 const Section = ({ title, sites }) => {
   return (
     <View>
-      <Text style={styles.header}>
-        { title }
-      </Text>
+      <Header title={title} />
       <FlatGrid
         itemDimension={80}
         items={sites}
@@ -42,9 +43,12 @@ const Section = ({ title, sites }) => {
   );
 }
 
-export default function Home({ speedDials, pinnedSites }) {
+export default function Home({ speedDials, pinnedSites, newsModule }) {
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      onScroll={hideKeyboard}
+    >
       {pinnedSites.length > 0 && (
         <Section
           title={NativeModules.LocaleConstants['ActivityStream.PinnedSites.SectionTitle']}
@@ -57,6 +61,7 @@ export default function Home({ speedDials, pinnedSites }) {
           sites={speedDials}
         />
       )}
-    </View>
+      <News newsModule={newsModule} />
+    </ScrollView>
   )
 }
