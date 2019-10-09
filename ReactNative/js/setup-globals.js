@@ -9,6 +9,12 @@ global.browser = global.chrome = {
     onVisited: {
       addListener() {},
     },
+    getVisits() {
+      return Promise.resolve([]);
+    },
+    search() {
+      return Promise.resolve([]);
+    },
   },
   tabs: {
     onCreated: {
