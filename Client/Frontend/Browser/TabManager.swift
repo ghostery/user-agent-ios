@@ -337,26 +337,9 @@ class TabManager: NSObject {
         if let request = request {
             tab.loadRequest(request)
         } else if !isPopup {
-            let newTabChoice = NewTabAccessors.getNewTabPage(profile.prefs)
-            switch newTabChoice {
-            case .homePage:
-                // We definitely have a homepage if we've got here
-                // (so we can safely dereference it).
-                let url = NewTabHomePageAccessors.getHomePage(profile.prefs)!
-                tab.loadRequest(URLRequest(url: url))
-            case .blankPage:
-                // If we're showing "about:blank" in a webview, set
-                // the <html> `background-color` to match the theme.
-                if let webView = tab.webView as? TabWebView {
-                    webView.applyTheme()
-                }
-            default:
-                // The common case, where the NewTabPage enum defines
-                // one of the about:home pages.
-                if let url = newTabChoice.url {
-                    tab.loadRequest(PrivilegedRequest(url: url) as URLRequest)
-                    tab.url = url
-                }
+            if let url = NewTabPage.topSites.url {
+                tab.loadRequest(PrivilegedRequest(url: url) as URLRequest)
+                tab.url = url
             }
         }
 
@@ -368,6 +351,8 @@ class TabManager: NSObject {
     }
 
     enum SwitchPrivacyModeResult { case createdNewTab; case usedExistingTab }
+
+    @discardableResult
     func switchPrivacyMode() -> SwitchPrivacyModeResult {
         var result = SwitchPrivacyModeResult.usedExistingTab
         guard let selectedTab = selectedTab else { return result }
