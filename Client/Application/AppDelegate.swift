@@ -316,7 +316,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         }
 
         var taskId: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
-        taskId = application.beginBackgroundTask (expirationHandler: {
+        taskId = application.beginBackgroundTask(expirationHandler: {
             print("Running out of background time, but we have a profile shutdown pending.")
             self.shutdownProfileWhenNotActive(application)
             application.endBackgroundTask(taskId)

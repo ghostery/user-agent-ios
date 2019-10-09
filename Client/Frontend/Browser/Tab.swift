@@ -652,14 +652,14 @@ extension Tab {
         private static let file: URL = {
             let root = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             return root.appendingPathComponent("desktop-sites-set-of-strings.xcarchive")
-        } ()
+        }()
 
         private static var baseDomainList: Set<String> = {
             if let hosts = NSKeyedUnarchiver.unarchiveObject(withFile: DesktopSites.file.path) as? Set<String> {
                 return hosts
             }
             return Set<String>()
-        } ()
+        }()
 
         static func clear() {
             try? FileManager.default.removeItem(at: Tab.DesktopSites.file)
