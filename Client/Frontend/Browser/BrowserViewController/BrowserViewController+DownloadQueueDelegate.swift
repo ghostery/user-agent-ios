@@ -52,7 +52,7 @@ extension BrowserViewController: DownloadQueueDelegate {
                 let downloadCompleteToast = ButtonToast(labelText: download.filename, imageName: "check", buttonText: Strings.DownloadsButtonTitle, completion: { buttonPressed in
                     guard buttonPressed else { return }
 
-                    self.showLibrary(panel: .downloads)
+                    // Todo: #211 open download screen
                 })
 
                 self.show(toast: downloadCompleteToast, duration: DispatchTimeInterval.seconds(8))

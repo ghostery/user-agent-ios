@@ -43,8 +43,6 @@ protocol HomeViewControllerProtocol: Themeable {
 
 class BrowserViewController: UIViewController {
     var homeViewController: HomeViewControllerProtocol?
-    var libraryViewController: LibraryViewController?
-    var libraryDrawerViewController: DrawerViewController?
     var webViewContainer: UIView!
     var urlBar: URLBarView!
     var clipboardBarDisplayHandler: ClipboardBarDisplayHandler?
@@ -204,17 +202,6 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    fileprivate func constraintsForLibraryDrawerView(_ make: SnapKit.ConstraintMaker) {
-        guard libraryDrawerViewController?.view.superview != nil else { return }
-        if self.topTabsVisible {
-            make.top.equalTo(webViewContainer)
-        } else {
-            make.top.equalTo(view)
-        }
-
-        make.right.bottom.left.equalToSuperview()
-    }
-
     fileprivate func updateToolbarStateForTraitCollection(_ newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator? = nil) {
         let showToolbar = shouldShowFooterForTraitCollection(newCollection)
         let showTopTabs = shouldShowTopTabsForTraitCollection(newCollection)
@@ -270,8 +257,6 @@ class BrowserViewController: UIViewController {
             navigationToolbar.updateForwardStatus(webView.canGoForward)
             navigationToolbar.updateReloadStatus(tab.loading)
         }
-
-        libraryDrawerViewController?.view.snp.remakeConstraints(constraintsForLibraryDrawerView)
     }
 
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -680,7 +665,7 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    fileprivate func showFirefoxHome(inline: Bool) {
+    fileprivate func showUserAgentHome(inline: Bool) {
         homePanelIsInline = inline
         if self.homeViewController == nil {
             let homeViewController = HomeViewController(profile: profile)
@@ -708,17 +693,17 @@ class BrowserViewController: UIViewController {
     }
 
     fileprivate func hideFirefoxHome() {
-        guard let firefoxHomeViewController = self.homeViewController else {
+        guard let browserHomeViewController = self.homeViewController else {
             return
         }
 
         self.homeViewController = nil
         UIView.animate(withDuration: 0.2, delay: 0, options: .beginFromCurrentState, animations: { () -> Void in
-            firefoxHomeViewController.view.alpha = 0
+            browserHomeViewController.view.alpha = 0
         }, completion: { _ in
-            firefoxHomeViewController.willMove(toParent: nil)
-            firefoxHomeViewController.view.removeFromSuperview()
-            firefoxHomeViewController.removeFromParent()
+            browserHomeViewController.willMove(toParent: nil)
+            browserHomeViewController.view.removeFromSuperview()
+            browserHomeViewController.removeFromParent()
             self.webViewContainer.accessibilityElementsHidden = false
             UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: nil)
 
@@ -737,34 +722,13 @@ class BrowserViewController: UIViewController {
                 return
             }
             if isAboutHomeURL {
-                showFirefoxHome(inline: true)
+                showUserAgentHome(inline: true)
             } else if !url.absoluteString.hasPrefix("\(InternalURL.baseUrl)/\(SessionRestoreHandler.path)") {
                 hideFirefoxHome()
             }
         } else if isAboutHomeURL {
-            showFirefoxHome(inline: false)
+            showUserAgentHome(inline: false)
         }
-    }
-
-    func showLibrary(panel: LibraryPanelType? = nil) {
-        if let presentedViewController = self.presentedViewController {
-            presentedViewController.dismiss(animated: true, completion: nil)
-        }
-
-        let libraryViewController = self.libraryViewController ?? LibraryViewController(profile: profile)
-        libraryViewController.delegate = self
-        self.libraryViewController = libraryViewController
-
-        if panel != nil {
-            libraryViewController.selectedPanel = panel
-        }
-
-        let libraryDrawerViewController = self.libraryDrawerViewController ?? DrawerViewController(childViewController: libraryViewController)
-        self.libraryDrawerViewController = libraryDrawerViewController
-
-        addChild(libraryDrawerViewController)
-        view.addSubview(libraryDrawerViewController.view)
-        libraryDrawerViewController.view.snp.remakeConstraints(constraintsForLibraryDrawerView)
     }
 
     fileprivate func createSearchControllerIfNeeded() {
@@ -1243,8 +1207,6 @@ extension BrowserViewController: URLBarDelegate {
     }
 
     func urlBarDidPressReaderMode(_ urlBar: URLBarView) {
-        libraryDrawerViewController?.close()
-
         guard let tab = tabManager.selectedTab, let readerMode = tab.getContentScript(name: "ReaderMode") as? ReaderMode else {
             return
         }
@@ -1393,7 +1355,6 @@ extension BrowserViewController: URLBarDelegate {
     }
 
     func urlBarDidEnterOverlayMode(_ urlBar: URLBarView) {
-        libraryDrawerViewController?.close()
         guard let profile = profile as? BrowserProfile else {
             return
         }
@@ -1405,7 +1366,7 @@ extension BrowserViewController: URLBarDelegate {
                 toast.removeFromSuperview()
             }
 
-            showFirefoxHome(inline: false)
+            showUserAgentHome(inline: false)
         }
     }
 
@@ -1539,51 +1500,7 @@ extension BrowserViewController: TabDelegate {
     }
 }
 
-extension BrowserViewController: LibraryPanelDelegate {
-    func libraryPanelDidRequestToSignIn() {
-        // This method stub is a leftover from when we remøved the Account and Sync modules
-    }
-
-    func libraryPanelDidRequestToCreateAccount() {
-        // This method stub is a leftover from when we remüved the Account and Sync modules
-    }
-
-    func libraryPanel(didSelectURL url: URL, visitType: VisitType) {
-        guard let tab = tabManager.selectedTab else { return }
-        finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
-        libraryDrawerViewController?.close()
-    }
-
-    func libraryPanel(didSelectURLString url: String, visitType: VisitType) {
-        guard let url = URIFixup.getURL(url) ?? profile.searchEngines.defaultEngine.searchURLForQuery(url) else {
-            Logger.browserLogger.warning("Invalid URL, and couldn't generate a search URL for it.")
-            return
-        }
-        return self.libraryPanel(didSelectURL: url, visitType: visitType)
-    }
-
-    func libraryPanelDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
-        let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
-        // If we are showing toptabs a user can just use the top tab bar
-        // If in overlay mode switching doesnt correctly dismiss the homepanels
-        guard !topTabsVisible, !self.urlBar.inOverlayMode else {
-            return
-        }
-        // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
-        let toast = ButtonToast(labelText: Strings.ContextMenuButtonToastNewTabOpenedLabelText, buttonText: Strings.ContextMenuButtonToastNewTabOpenedButtonText, completion: { buttonPressed in
-            if buttonPressed {
-                self.tabManager.selectTab(tab)
-            }
-        })
-        self.show(toast: toast)
-    }
-}
-
 extension BrowserViewController: HomePanelDelegate {
-    func homePanelDidRequestToOpenLibrary(panel: LibraryPanelType) {
-        showLibrary(panel: panel)
-    }
-
     func homePanel(didSelectURL url: URL, visitType: VisitType) {
         guard let tab = tabManager.selectedTab else { return }
         finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
@@ -1608,8 +1525,6 @@ extension BrowserViewController: HomePanelDelegate {
 
 extension BrowserViewController: TabManagerDelegate {
     func tabManager(_ tabManager: TabManager, didSelectedTabChange selected: Tab?, previous: Tab?, isRestoring: Bool) {
-        libraryDrawerViewController?.close(immediately: true)
-
         // Reset the scroll position for the ActivityStreamPanel so that it
         // is always presented scrolled to the top when switching tabs.
         if !isRestoring, selected != previous,
@@ -2255,7 +2170,7 @@ extension BrowserViewController: TabTrayDelegate {
 extension BrowserViewController: Themeable {
     func applyTheme() {
         guard self.isViewLoaded else { return }
-        let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, homeViewController, searchController, libraryViewController, libraryDrawerViewController]
+        let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, homeViewController, searchController]
         ui.forEach { $0?.applyTheme() }
         statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Grey80 : urlBar.backgroundColor
         setNeedsStatusBarAppearanceUpdate()
@@ -2276,18 +2191,15 @@ extension BrowserViewController: JSPromptAlertControllerDelegate {
 
 extension BrowserViewController: TopTabsDelegate {
     func topTabsDidPressTabs() {
-        libraryDrawerViewController?.close(immediately: true)
         urlBar.leaveOverlayMode(didCancel: true)
         self.urlBarDidPressTabs(urlBar)
     }
 
     func topTabsDidPressNewTab(_ isPrivate: Bool) {
-        libraryDrawerViewController?.close(immediately: true)
         openBlankNewTab(focusLocationField: false, isPrivate: isPrivate)
     }
 
     func topTabsDidTogglePrivateMode() {
-        libraryDrawerViewController?.close(immediately: true)
         guard let _ = tabManager.selectedTab else {
             return
         }
@@ -2295,7 +2207,6 @@ extension BrowserViewController: TopTabsDelegate {
     }
 
     func topTabsDidChangeTab() {
-        libraryDrawerViewController?.close()
         urlBar.leaveOverlayMode(didCancel: true)
     }
 }
