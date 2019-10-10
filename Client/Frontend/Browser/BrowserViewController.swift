@@ -1496,7 +1496,7 @@ extension BrowserViewController: TabDelegate {
     }
 
     func tab(_ tab: Tab, didSelectSearchWithFirefoxForSelection selection: String) {
-        openSearchNewTab(isPrivate: tab.isPrivate, selection)
+        self.openBlankNewTab(focusLocationField: true, isPrivate: tab.isPrivate, searchFor: selection)
     }
 }
 
