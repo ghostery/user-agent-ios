@@ -198,22 +198,6 @@ class LicenseAndAcknowledgementsSetting: Setting {
     }
 }
 
-// Opens about:rights page in the content view controller
-class YourRightsSetting: Setting {
-    override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Your Rights", comment: "Your Rights settings section title"), attributes:
-            [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
-    }
-
-    override var url: URL? {
-        return URL(string: "https://www.mozilla.org/about/legal/terms/firefox/")
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        setUpAndPushSettingsContentViewController(navigationController)
-    }
-}
-
 // Opens the on-boarding screen again
 class ShowIntroductionSetting: Setting {
     let profile: Profile
