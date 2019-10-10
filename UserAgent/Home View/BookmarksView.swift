@@ -48,7 +48,7 @@ class BookmarksView: LibraryView {
     // MARK: - Initialization
     override func setup() {
         super.setup()
-        self.tableView.accessibilityIdentifier = "Bookmarks List"
+        self.tableView.accessibilityIdentifier = Strings.BookmarksTitle
         self.tableView.addGestureRecognizer(self.longPressRecognizer)
         self.loadData()
     }
@@ -235,6 +235,6 @@ extension BookmarksView {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Bookmarks"
+        return Strings.BookmarksTitle
     }
 }
