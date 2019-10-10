@@ -42,9 +42,9 @@ class HomeViewController: UIViewController {
         return topSitesView
     }()
 
-    private let bookmarksView: UIView = {
-        let bookmarksView = UIView()
-        bookmarksView.backgroundColor = UIColor.blue
+    private lazy var bookmarksView: UIView = {
+        let bookmarksView = BookmarksView(profile: self.profile)
+        bookmarksView.delegate = self
         return bookmarksView
     }()
 

@@ -241,6 +241,8 @@
 		A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */; };
 		AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
 		AC65328E23476CDF00FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
+		AC6DB603234F399600A9C397 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB602234F399600A9C397 /* BookmarksView.swift */; };
+		AC6DB604234F3DE500A9C397 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB602234F399600A9C397 /* BookmarksView.swift */; };
 		ACB6D4322306AC35002D64E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */; };
 		ACB6D4412306BB38002D64E6 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6D4402306BB38002D64E6 /* DeferredTestUtils.swift */; };
 		ACB6D4422306BB38002D64E6 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6D4402306BB38002D64E6 /* DeferredTestUtils.swift */; };
@@ -1245,6 +1247,7 @@
 		AB6FF2698BCC5B9E5E6A685C /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBF3643A363A265DF18EC61 /* Pods-Lumen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.release.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.release.xcconfig"; sourceTree = "<group>"; };
 		AC65328A2344E3D000FC7ADB /* TopSitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSitesView.swift; sourceTree = "<group>"; };
+		AC6DB602234F399600A9C397 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		ACB6D4332306ACE3002D64E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACB6D4362306B29A002D64E6 /* azure-pipelines.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "azure-pipelines.yml"; sourceTree = "<group>"; };
 		ACB6D4382306B2B1002D64E6 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
@@ -2189,6 +2192,7 @@
 				B3854AFF234B2C65003E9D4A /* HistoryView.swift */,
 				2B51FB2C234CB274006CF17D /* DownloadsView.swift */,
 				B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */,
+				AC6DB602234F399600A9C397 /* BookmarksView.swift */,
 			);
 			path = "Home View";
 			sourceTree = "<group>";
@@ -4415,6 +4419,7 @@
 				46CA610E23190FFD0010CE6B /* ReactViewController.swift in Sources */,
 				ACB7377D23042BAB00FA5626 /* TranslationSettingsController.swift in Sources */,
 				ACB7377E23042BAB00FA5626 /* OpenSearch.swift in Sources */,
+				AC6DB604234F3DE500A9C397 /* BookmarksView.swift in Sources */,
 				ACB7378223042BAB00FA5626 /* BrowserViewController+DownloadQueueDelegate.swift in Sources */,
 				ACB7378323042BAB00FA5626 /* SearchSettingsTableViewController.swift in Sources */,
 				ACB7378423042BAB00FA5626 /* UserActivityHandler.swift in Sources */,
@@ -4661,6 +4666,7 @@
 				E64ED8FA1BC55AE300DAF864 /* UIAlertControllerExtensions.swift in Sources */,
 				39CE74F821A83105007AE4F2 /* TranslationSettingsController.swift in Sources */,
 				282DA4731A68C1E700A406E2 /* OpenSearch.swift in Sources */,
+				AC6DB603234F399600A9C397 /* BookmarksView.swift in Sources */,
 				D0625CA8208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift in Sources */,
 				2F44FCC71A9E8CF500FD20CC /* SearchSettingsTableViewController.swift in Sources */,
 				39A359E41BFCCE94006B9E87 /* UserActivityHandler.swift in Sources */,
