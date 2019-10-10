@@ -311,9 +311,6 @@
 /* Accessibility Label for the tab toolbar Forward button */
 "Forward" = "Forward";
 
-/* Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ */
-"Help" = "Help";
-
 /* Toggle history syncing setting */
 "History" = "History";
 
