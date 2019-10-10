@@ -769,7 +769,7 @@
 "Secure connection" = "Sichere Verbindung";
 
 /* Menu item in settings used to open input.mozilla.org where people can submit feedback */
-"Send Feedback" = "Feedback senden";
+"FAQ & Support" = "FAQ & Support";
 
 /* Used as a button label for crash dialog prompt */
 "Send Report" = "Bericht senden";

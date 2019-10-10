@@ -236,12 +236,11 @@ class ShowIntroductionSetting: Setting {
 
 class SendFeedbackSetting: Setting {
     override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Send Feedback", comment: "Menu item in settings used to open input.mozilla.org where people can submit feedback"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
+        return NSAttributedString(string: NSLocalizedString("FAQ & Support", comment: "Menu item in settings used to open https://cliqz.com/support"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
     }
 
     override var url: URL? {
-        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        return URL(string: "https://input.mozilla.org/feedback/fxios/\(appVersion)")
+        return URL(string: "https://cliqz.com/support")
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -364,7 +363,7 @@ class PrivacyPolicySetting: Setting {
     }
 
     override var url: URL? {
-        return URL(string: "https://www.mozilla.org/privacy/firefox/")
+        return URL(string: "https://www.cliqz.com/mobile/privacy-cliqz-for-ios")
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
