@@ -10,7 +10,6 @@ import UIKit
 import Storage
 import Shared
 
-
 struct LibraryPanelUX {
     static let EmptyTabContentOffset = -180
 }

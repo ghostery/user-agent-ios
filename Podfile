@@ -11,10 +11,6 @@ use_frameworks!
 # Then the individual targets are just lists of method calls (see bottom of the file).
 
 ## Definition for individual pods, or groups of pods
-def swiftkeychainwrapper
-  pod 'SwiftKeychainWrapper', '~> 3.2', :modular_headers => true
-end
-
 def xclogger
   pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
 end
@@ -82,7 +78,6 @@ def main_app
   swiftyjson
   fuzi
   xclogger
-  swiftkeychainwrapper
   react_native
   gcdwebserver
 end
@@ -91,7 +86,6 @@ def share_to
   snapkit
   swiftyjson
   fuzi
-  swiftkeychainwrapper
 end
 
 target 'Cliqz' do
@@ -108,7 +102,6 @@ target 'Storage' do
   swiftyjson
   fuzi
   xclogger
-  swiftkeychainwrapper
   sqlite
 
   target 'StorageTests' do
@@ -125,11 +118,11 @@ target 'GhosteryShareTo' do
 end
 
 target 'StoragePerfTests' do
-  swiftkeychainwrapper
+
 end
 
 target 'SharedTests' do
-  swiftkeychainwrapper
+
 end
 
 target 'ClientTests' do
@@ -137,7 +130,6 @@ target 'ClientTests' do
   sdwebimage
   sentry
   gcdwebserver
-  swiftkeychainwrapper
 end
 
 target 'Shared' do
@@ -146,5 +138,4 @@ target 'Shared' do
   sentry
   swiftlint
   xclogger
-  swiftkeychainwrapper
 end

@@ -6,7 +6,6 @@
 import Foundation
 import Shared
 import Storage
-import SwiftKeychainWrapper
 
 import XCTest
 
@@ -21,12 +20,5 @@ class ProfileTest: XCTestCase {
         profile._shutdown()
     }
 
-    func testNewProfileClearsExistingAuthenticationInfo() {
-        // TO DO : Disable this test in CI
-        let authInfo = AuthenticationKeychainInfo(passcode: "1234")
-        KeychainWrapper.sharedAppContainerKeychain.setAuthenticationInfo(authInfo)
-        XCTAssertNotNil(KeychainWrapper.sharedAppContainerKeychain.authenticationInfo())
-        let _ = BrowserProfile(localName: "my_profile", clear: true)
-        XCTAssertNil(KeychainWrapper.sharedAppContainerKeychain.authenticationInfo())
-    }
 }
+

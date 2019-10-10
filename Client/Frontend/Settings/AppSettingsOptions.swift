@@ -4,7 +4,6 @@
 
 import Foundation
 import Shared
-import SwiftKeychainWrapper
 import LocalAuthentication
 
 // This file contains all of the settings available in the main settings screen of the app.
@@ -199,22 +198,6 @@ class LicenseAndAcknowledgementsSetting: Setting {
     }
 }
 
-// Opens about:rights page in the content view controller
-class YourRightsSetting: Setting {
-    override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Your Rights", comment: "Your Rights settings section title"), attributes:
-            [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
-    }
-
-    override var url: URL? {
-        return URL(string: "https://www.mozilla.org/about/legal/terms/firefox/")
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        setUpAndPushSettingsContentViewController(navigationController)
-    }
-}
-
 // Opens the on-boarding screen again
 class ShowIntroductionSetting: Setting {
     let profile: Profile
@@ -237,12 +220,11 @@ class ShowIntroductionSetting: Setting {
 
 class SendFeedbackSetting: Setting {
     override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Send Feedback", comment: "Menu item in settings used to open input.mozilla.org where people can submit feedback"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
+        return NSAttributedString(string: NSLocalizedString("FAQ & Support", comment: "Menu item in settings used to open https://cliqz.com/support"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText])
     }
 
     override var url: URL? {
-        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        return URL(string: "https://input.mozilla.org/feedback/fxios/\(appVersion)")
+        return URL(string: "https://cliqz.com/support")
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -274,22 +256,6 @@ class SendAnonymousUsageDataSetting: BoolSetting {
     }
 }
 
-// Opens the SUMO page in a new tab
-class OpenSupportPageSetting: Setting {
-    init(delegate: SettingsDelegate?) {
-        super.init(title: NSAttributedString(string: NSLocalizedString("Help", comment: "Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]),
-            delegate: delegate)
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        navigationController?.dismiss(animated: true) {
-            if let url = URL(string: "https://support.mozilla.org/products/ios") {
-                self.delegate?.settingsOpenURLInNewTab(url)
-            }
-        }
-    }
-}
-
 // Opens the search settings pane
 class SearchSetting: Setting {
     let profile: Profile
@@ -310,40 +276,6 @@ class SearchSetting: Setting {
     override func onClick(_ navigationController: UINavigationController?) {
         let viewController = SearchSettingsTableViewController()
         viewController.model = profile.searchEngines
-        viewController.profile = profile
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-class TouchIDPasscodeSetting: Setting {
-    let profile: Profile
-    var tabManager: TabManager!
-
-    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
-
-    override var accessibilityIdentifier: String? { return "TouchIDPasscode" }
-
-    init(settings: SettingsTableViewController, delegate: SettingsDelegate? = nil) {
-        self.profile = settings.profile
-        self.tabManager = settings.tabManager
-        let localAuthContext = LAContext()
-
-        let title: String
-        if localAuthContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
-            if localAuthContext.biometryType == .faceID {
-                title = AuthenticationStrings.faceIDPasscodeSetting
-            } else {
-                title = AuthenticationStrings.touchIDPasscodeSetting
-            }
-        } else {
-            title = AuthenticationStrings.passcode
-        }
-        super.init(title: NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]),
-                   delegate: delegate)
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        let viewController = AuthenticationSettingsViewController()
         viewController.profile = profile
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -399,62 +331,11 @@ class PrivacyPolicySetting: Setting {
     }
 
     override var url: URL? {
-        return URL(string: "https://www.mozilla.org/privacy/firefox/")
+        return URL(string: "https://www.cliqz.com/mobile/privacy-cliqz-for-ios")
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
         setUpAndPushSettingsContentViewController(navigationController)
-    }
-}
-
-class NewTabPageSetting: Setting {
-    let profile: Profile
-
-    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
-
-    override var accessibilityIdentifier: String? { return "NewTab" }
-
-    override var status: NSAttributedString {
-        return NSAttributedString(string: NewTabAccessors.getNewTabPage(self.profile.prefs).settingTitle)
-    }
-
-    override var style: UITableViewCell.CellStyle { return .value1 }
-
-    init(settings: SettingsTableViewController) {
-        self.profile = settings.profile
-        super.init(title: NSAttributedString(string: Strings.SettingsNewTabSectionName, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        let viewController = NewTabContentSettingsViewController(prefs: profile.prefs)
-        viewController.profile = profile
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-class HomeSetting: Setting {
-    let profile: Profile
-
-    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
-
-    override var accessibilityIdentifier: String? { return "Home" }
-
-    override var status: NSAttributedString {
-        return NSAttributedString(string: NewTabAccessors.getHomePage(self.profile.prefs).settingTitle)
-    }
-
-    override var style: UITableViewCell.CellStyle { return .value1 }
-
-    init(settings: SettingsTableViewController) {
-        self.profile = settings.profile
-
-        super.init(title: NSAttributedString(string: Strings.AppMenuOpenHomePageTitleString, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        let viewController = HomePageSettingViewController(prefs: profile.prefs)
-        viewController.profile = profile
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

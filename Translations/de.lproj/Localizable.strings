@@ -311,9 +311,6 @@
 /* Accessibility Label for the tab toolbar Forward button */
 "Forward" = "Vorwärts";
 
-/* Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ */
-"Help" = "Hilfe";
-
 /* Toggle history syncing setting */
 "History" = "Chronik";
 
@@ -769,7 +766,7 @@
 "Secure connection" = "Sichere Verbindung";
 
 /* Menu item in settings used to open input.mozilla.org where people can submit feedback */
-"Send Feedback" = "Feedback senden";
+"FAQ & Support" = "FAQ & Support";
 
 /* Used as a button label for crash dialog prompt */
 "Send Report" = "Bericht senden";
@@ -1217,9 +1214,6 @@
 
 /* Tile title for YouTube */
 "YouTube" = "YouTube";
-
-/* Your Rights settings section title */
-"Your Rights" = "Ihre Rechte";
 
 /* Accessibility label for Desktop Computer (PC) image in remote tabs list */
 "computer" = "Computer";

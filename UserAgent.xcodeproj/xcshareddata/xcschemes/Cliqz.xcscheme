@@ -228,6 +228,18 @@
                   Identifier = "ReaderViewTest">
                </Test>
                <Test
+                  Identifier = "SearchSettingsUITests/testCustomSearchEngineAsDefaultIsNotEditable()">
+               </Test>
+               <Test
+                  Identifier = "SearchSettingsUITests/testDefaultSearchEngine()">
+               </Test>
+               <Test
+                  Identifier = "SearchSettingsUITests/testNavigateToSearchPickerTurnsOffEditing()">
+               </Test>
+               <Test
+                  Identifier = "SettingsTest/testHelpOpensSUMOInTab()">
+               </Test>
+               <Test
                   Identifier = "SettingsTest/testOpenSiriOption()">
                </Test>
                <Test

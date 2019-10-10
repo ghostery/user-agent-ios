@@ -101,10 +101,6 @@ open class MockProfile: Client.Profile {
         return SQLiteMetadata(db: self.db)
     }()
 
-    lazy public var isChinaEdition: Bool = {
-        return Locale.current.identifier == "zh_CN"
-    }()
-
     lazy public var certStore: CertStore = {
         return CertStore()
     }()
