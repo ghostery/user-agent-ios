@@ -10,7 +10,6 @@ import Shared
 import Storage
 import UIKit
 
-// TODO
 // MARK: - Placeholder strings for Bug 1232810.
 let deleteWarningTitle = NSLocalizedString("This folder isn’t empty.", tableName: "BookmarkPanelDeleteConfirm", comment: "Title of the confirmation alert when the user tries to delete a folder that still contains bookmarks and/or folders.")
 let deleteWarningDescription = NSLocalizedString("Are you sure you want to delete it and its contents?", tableName: "BookmarkPanelDeleteConfirm", comment: "Main body of the confirmation alert when the user tries to delete a folder that still contains bookmarks and/or folders.")
@@ -19,8 +18,6 @@ let deleteDeleteButtonLabel = NSLocalizedString("Delete", tableName: "BookmarkPa
 
 // Placeholder strings for Bug 1248034
 let emptyBookmarksText = NSLocalizedString("Bookmarks you save will show up here.", comment: "Status label for the empty Bookmarks state.")
-
-
 
 class BookmarksView: LibraryView {
     // MARK: - UX constants.
@@ -49,15 +46,11 @@ class BookmarksView: LibraryView {
     fileprivate let BookmarkFolderHeaderViewIdentifier = "BookmarkFolderHeaderIdentifier"
 
     // MARK: - Initialization
-    
     override func setup() {
         super.setup()
-        loadData()
-
-        // TODO
-//         self.tableView.register(BookmarkFolderTableViewCell.self, forCellReuseIdentifier: BookmarkFolderCellIdentifier)
-//            self.tableView.register(BookmarkFolderTableViewHeader.self, forHeaderFooterViewReuseIdentifier: BookmarkFolderHeaderViewIdentifier)
-//
+        self.tableView.accessibilityIdentifier = "Bookmarks List"
+        self.tableView.addGestureRecognizer(self.longPressRecognizer)
+        self.loadData()
     }
 
     override func applyTheme() {
@@ -70,27 +63,48 @@ class BookmarksView: LibraryView {
 
         switch bookmark {
         case let item as BookmarkItem:
-            return Site(url: item.url, title: item.title, bookmarked: true)
+            return Site(url: item.url, title: item.title, bookmarked: true, guid: item.guid)
         case is BookmarkSeparator:
             return Site(url: "", title: "—", bookmarked: false)
-        case let bookmark as BookmarkFolder:
+        case is BookmarkFolder:
             return Site(url: "", title: "Folder", bookmarked: false)
         default:
             // This should never happen, said the bishop to the actress
             break
         }
 
-
-        // TODO
         return nil
     }
 
     override func removeSiteForURLAtIndexPath(_ indexPath: IndexPath) {
-        // TODO
+        guard let source = source, let bookmark = source.current[indexPath.row] else {
+            print("Source not set, aborting.")
+            return
+        }
+
+        // Don't delete folders, we don't create them anyway
+        guard !(bookmark is BookmarkFolder) else { return }
+
+        // Block to do this -- this is UI code.
+        guard let factory = source.modelFactory.value.successValue else {
+            print("Couldn't get model factory. This is unexpected.")
+            self.onModelFailure(DatabaseError(description: "Unable to get factory."))
+            return
+        }
+
+        let specificFactory = factory.factoryForIndex(indexPath.row, inFolder: source.current)
+        if let err = specificFactory.removeByGUID(bookmark.guid).value.failureValue {
+            print("Failed to remove \(bookmark.guid).")
+            self.onModelFailure(err)
+            return
+        }
+
+        self.source = source.removeGUIDFromCurrent(bookmark.guid)
+        self.updateEmptyPanelState()
     }
 
     override func pinToTopSites(_ site: Site) {
-        // TODO
+        _ = self.profile.history.addPinnedTopSite(site).value
     }
 
     override func reloadData() {
@@ -117,7 +131,6 @@ class BookmarksView: LibraryView {
         }
     }
 
-
     fileprivate func onModelFetched(_ result: Maybe<BookmarksModel>) {
         guard let model = result.successValue else {
             self.onModelFailure(result.failureValue as Any)
@@ -141,7 +154,6 @@ class BookmarksView: LibraryView {
     }
 
     fileprivate func onModelFailure(_ e: Any) {
-        // TODO: logging?
         print("Error: failed to get data: \(e)")
     }
 
@@ -149,10 +161,6 @@ class BookmarksView: LibraryView {
 
 // MARK: - Private API
 private extension BookmarksView {
-    private func fetchData() {
-        // TODO
-    }
-
     private func updateEmptyPanelState() {
         // TOOD
     }
@@ -191,17 +199,12 @@ private extension BookmarksView {
 
         return overlayView
     }
-
-    private func removeHistoryForURLAtIndexPath(indexPath: IndexPath) {
-        // TODO ?
-    }
 }
 
 // MARK: - Table view dataSource
 extension BookmarksView {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO
         return 1
     }
 
@@ -232,12 +235,6 @@ extension BookmarksView {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        // TODO
-        return "boookomarks"
-        return nil
-//        guard self.groupedSites.numberOfItemsForSection(section) > 0 else {
-//            return nil
-//        }
-//        return LibrarySection(rawValue: section)?.title
+        return "Bookmarks"
     }
 }
