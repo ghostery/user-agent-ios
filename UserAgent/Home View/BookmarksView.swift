@@ -39,11 +39,11 @@ class BookmarksView: LibraryView {
     var bookmarkFolder: BookmarkFolder?
     var refreshControl: UIRefreshControl?
 
-    fileprivate lazy var emptyStateOverlayView: UIView = self.createEmptyStateOverlayView()
+    private lazy var emptyStateOverlayView: UIView = self.createEmptyStateOverlayView()
 
-    fileprivate let BookmarkFolderCellIdentifier = "BookmarkFolderIdentifier"
-    fileprivate let BookmarkSeparatorCellIdentifier = "BookmarkSeparatorIdentifier"
-    fileprivate let BookmarkFolderHeaderViewIdentifier = "BookmarkFolderHeaderIdentifier"
+    private let BookmarkFolderCellIdentifier = "BookmarkFolderIdentifier"
+    private let BookmarkSeparatorCellIdentifier = "BookmarkSeparatorIdentifier"
+    private let BookmarkFolderHeaderViewIdentifier = "BookmarkFolderHeaderIdentifier"
 
     // MARK: - Initialization
     override func setup() {
@@ -134,7 +134,7 @@ class BookmarksView: LibraryView {
         }
     }
 
-    fileprivate func onModelFetched(_ result: Maybe<BookmarksModel>) {
+    private func onModelFetched(_ result: Maybe<BookmarksModel>) {
         guard let model = result.successValue else {
             self.onModelFailure(result.failureValue as Any)
             return
@@ -142,7 +142,7 @@ class BookmarksView: LibraryView {
         self.onNewModel(model)
     }
 
-    fileprivate func onNewModel(_ model: BookmarksModel) {
+    private func onNewModel(_ model: BookmarksModel) {
         if Thread.current.isMainThread {
             self.source = model
             self.tableView.reloadData()
@@ -156,7 +156,7 @@ class BookmarksView: LibraryView {
         }
     }
 
-    fileprivate func onModelFailure(_ e: Any) {
+    private func onModelFailure(_ e: Any) {
         print("Error: failed to get data: \(e)")
     }
 
