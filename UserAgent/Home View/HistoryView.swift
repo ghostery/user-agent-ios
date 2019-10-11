@@ -215,7 +215,6 @@ extension HistoryView {
         }
         return LibrarySection(rawValue: section)?.title
     }
-
 }
 
 // MARK: - Table view delegate
