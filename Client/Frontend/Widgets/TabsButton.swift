@@ -37,7 +37,7 @@ class TabsButton: UIButton {
     override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
-                borderView.color = titleBackgroundColor
+                borderView.color = .CliqzBlue
             } else {
                 borderView.color = textColor
             }
