@@ -10,9 +10,6 @@ import Shared
 import Storage
 import UIKit
 
-// Placeholder strings for Bug 1248034
-let emptyBookmarksText = NSLocalizedString("Bookmarks you save will show up here.", comment: "Status label for the empty Bookmarks state.")
-
 class BookmarksView: LibraryView {
     // MARK: - UX constants.
     private struct BookmarksPanelUX {
@@ -190,7 +187,7 @@ private extension BookmarksView {
 
         let welcomeLabel = UILabel()
         overlayView.addSubview(welcomeLabel)
-        welcomeLabel.text = emptyBookmarksText
+        welcomeLabel.text = Strings.emptyBookmarksText
         welcomeLabel.textAlignment = .center
         welcomeLabel.font = DynamicFontHelper.defaultHelper.DeviceFontLight
         welcomeLabel.numberOfLines = 0
@@ -247,7 +244,7 @@ extension BookmarksView {
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let title = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
+        let title = Strings.deleteBookmark
         let delete = UITableViewRowAction(style: .default, title: title, handler: { (action, indexPath) in
             self.removeSiteForURLAtIndexPath(indexPath)
         })
