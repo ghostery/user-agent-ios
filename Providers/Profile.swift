@@ -10,7 +10,6 @@
 import Shared
 import Storage
 import XCGLogger
-import SwiftKeychainWrapper
 
 // Import these dependencies ONLY for the main `Client` application target.
 #if APP_TARGET_CLIENT
@@ -55,7 +54,6 @@ protocol Profile: AnyObject {
     var history: BrowserHistory & SyncableHistory { get }
     var metadata: Metadata { get }
     var recommendations: HistoryRecommendations { get }
-    var favicons: Favicons { get }
     var certStore: CertStore { get }
     var recentlyClosedTabs: ClosedTabsStore { get }
     var panelDataObservers: PanelDataObservers { get }
@@ -93,26 +91,11 @@ extension Profile {
 
 open class BrowserProfile: Profile {
     fileprivate let name: String
-    fileprivate let keychain: KeychainWrapper
     var isShutdown = false
 
     internal let files: FileAccessor
 
     let db: BrowserDB
-
-    private static var loginsKey: String {
-        let key = "sqlcipher.key.logins.db"
-        let keychain = KeychainWrapper.sharedAppContainerKeychain
-        keychain.ensureStringItemAccessibility(.afterFirstUnlock, forKey: key)
-        if keychain.hasValue(forKey: key), let secret = keychain.string(forKey: key) {
-            return secret
-        }
-
-        let Length: UInt = 256
-        let secret = Bytes.generateRandomBytes(Length).base64EncodedString
-        keychain.set(secret, forKey: key, withAccessibility: .afterFirstUnlock)
-        return secret
-    }
 
     /**
      * N.B., BrowserProfile is used from our extensions, often via a pattern like
@@ -130,7 +113,6 @@ open class BrowserProfile: Profile {
         log.debug("Initing profile \(localName) on thread \(Thread.current).")
         self.name = localName
         self.files = ProfileFileAccessor(localName: localName)
-        self.keychain = KeychainWrapper.sharedAppContainerKeychain
 
         if clear {
             do {
@@ -157,7 +139,6 @@ open class BrowserProfile: Profile {
 
         if isNewProfile {
             log.info("New profile. Removing old account metadata.")
-            _ = keychain.removeAllKeys()
             prefs.clearAll()
         }
 
@@ -166,25 +147,7 @@ open class BrowserProfile: Profile {
         // side-effect of instantiating SQLiteHistory (and thus BrowserDB) on the main thread.
         prefs.setBool(false, forKey: PrefsKeys.KeyTopSitesCacheIsValid)
 
-        if BrowserProfile.isChinaEdition {
-
-            // Set the default homepage.
-            prefs.setString(PrefsDefaults.ChineseHomePageURL, forKey: PrefsKeys.KeyDefaultHomePageURL)
-
-            if prefs.stringForKey(PrefsKeys.KeyNewTab) == nil {
-                prefs.setString(PrefsDefaults.ChineseHomePageURL, forKey: PrefsKeys.NewTabCustomUrlPrefKey)
-                prefs.setString(PrefsDefaults.ChineseNewTabDefault, forKey: PrefsKeys.KeyNewTab)
-            }
-
-            if prefs.stringForKey(PrefsKeys.HomePageTab) == nil {
-                prefs.setString(PrefsDefaults.ChineseHomePageURL, forKey: PrefsKeys.HomeButtonHomePageURL)
-                prefs.setString(PrefsDefaults.ChineseNewTabDefault, forKey: PrefsKeys.HomePageTab)
-            }
-        } else {
-            // Remove the default homepage. This does not change the user's preference,
-            // just the behaviour when there is no homepage.
-            prefs.removeObjectForKey(PrefsKeys.KeyDefaultHomePageURL)
-        }
+        prefs.removeObjectForKey(PrefsKeys.KeyDefaultHomePageURL)
 
         // Create the "Downloads" folder in the documents directory.
         if let downloadsPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Downloads").path {
@@ -263,13 +226,9 @@ open class BrowserProfile: Profile {
      * Any other class that needs to access any one of these should ensure
      * that this is initialized first.
      */
-    fileprivate lazy var places: BrowserHistory & Favicons & SyncableHistory  & HistoryRecommendations  = {
+    fileprivate lazy var places: BrowserHistory & SyncableHistory  & HistoryRecommendations  = {
         return SQLiteHistory(db: self.db, prefs: self.prefs)
     }()
-
-    var favicons: Favicons {
-        return self.places
-    }
 
     var history: BrowserHistory & SyncableHistory {
         return self.places
@@ -319,7 +278,4 @@ open class BrowserProfile: Profile {
         recommendations.cleanupHistoryIfNeeded()
     }
 
-    static var isChinaEdition: Bool = {
-        return Locale.current.identifier == "zh_CN"
-    }()
 }

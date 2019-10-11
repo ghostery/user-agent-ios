@@ -190,7 +190,7 @@ class TabToolbar: UIView {
     private let contentView = UIStackView()
 
     fileprivate override init(frame: CGRect) {
-        actionButtons = [backButton, forwardButton, searchButton, tabsButton, menuButton]
+        actionButtons = [backButton, forwardButton, searchButton, menuButton, tabsButton]
         super.init(frame: frame)
         setupAccessibility()
 

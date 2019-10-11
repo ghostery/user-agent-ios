@@ -141,7 +141,6 @@ open class FaviconFetcher: NSObject, XMLParserDelegate {
         let deferred = Deferred<Maybe<Favicon>>()
         let url = icon.url
         let manager = SDWebImageManager.shared
-        let site = Site(url: siteUrl.absoluteString, title: "")
 
         var fav = Favicon(url: url)
         if let url = url.asURL {
@@ -163,7 +162,6 @@ open class FaviconFetcher: NSObject, XMLParserDelegate {
                     if let img = img {
                         fav.width = Int(img.size.width)
                         fav.height = Int(img.size.height)
-                        profile.favicons.addFavicon(fav, forSite: site)
                     } else {
                         fav.width = 0
                         fav.height = 0

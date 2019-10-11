@@ -19,6 +19,7 @@ class TwoLineTableViewCell: UITableViewCell, Themeable {
 
     let _textLabel = UILabel()
     let _detailTextLabel = UILabel()
+    let _logoView = UIView()
 
     // Override the default labels with our own to disable default UITableViewCell label behaviours like dynamic type
     override var textLabel: UILabel? {
@@ -34,8 +35,9 @@ class TwoLineTableViewCell: UITableViewCell, Themeable {
 
         contentView.addSubview(_textLabel)
         contentView.addSubview(_detailTextLabel)
+        contentView.addSubview(_logoView)
 
-        twoLineHelper.setUpViews(self, textLabel: textLabel!, detailTextLabel: detailTextLabel!, imageView: imageView!)
+        twoLineHelper.setUpViews(self, textLabel: textLabel!, detailTextLabel: detailTextLabel!, imageView: _logoView)
 
         indentationWidth = 0
         layoutMargins = .zero
@@ -170,21 +172,17 @@ private class TwoLineCellHelper {
     weak var container: UIView?
     var textLabel: UILabel!
     var detailTextLabel: UILabel!
-    var imageView: UIImageView!
+    var imageView: UIView!
     var hasRightBadge: Bool = false
 
     // TO DO : Not ideal. We should figure out a better way to get this initialized.
-    func setUpViews(_ container: UIView, textLabel: UILabel, detailTextLabel: UILabel, imageView: UIImageView) {
+    func setUpViews(_ container: UIView, textLabel: UILabel, detailTextLabel: UILabel, imageView: UIView) {
         self.container = container
         self.textLabel = textLabel
         self.detailTextLabel = detailTextLabel
         self.imageView = imageView
 
         setupDynamicFonts()
-
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 6 //hmm
-        imageView.layer.masksToBounds = true
     }
 
     func applyTheme() {

@@ -15,19 +15,12 @@ class BackForwardTableViewCell: UITableViewCell {
         static let labelPadding = 20
         static let borderSmall = 2
         static let borderBold = 5
-        static let IconSize = 23
         static let fontSize: CGFloat = 12.0
         static let textColor = UIColor.Grey80
     }
 
-    lazy var faviconView: UIImageView = {
-        let faviconView = UIImageView(image: FaviconFetcher.defaultFavicon)
-        faviconView.backgroundColor = UIColor.White
-        faviconView.layer.cornerRadius = 6
-        faviconView.layer.borderWidth = 0.5
-        faviconView.layer.borderColor = UIColor(white: 0, alpha: 0.1).cgColor
-        faviconView.layer.masksToBounds = true
-        faviconView.contentMode = .center
+    lazy var faviconView: UIView = {
+        let faviconView = UIView()
         return faviconView
     }()
 
@@ -53,17 +46,17 @@ class BackForwardTableViewCell: UITableViewCell {
     var site: Site? {
         didSet {
             if let s = site {
-                faviconView.setFavicon(forSite: s, onCompletion: { [weak self] (color, url) in
-                    if InternalURL.isValid(url: s.tileURL) {
-                        self?.faviconView.image = UIImage(named: "faviconFox")
-                        self?.faviconView.image = self?.faviconView.image?.createScaled(CGSize(width: BackForwardViewCellUX.IconSize, height: BackForwardViewCellUX.IconSize))
-                        self?.faviconView.backgroundColor = UIColor.White
-                        return
-                    }
+                var url = s.url
+                if InternalURL.isValid(url: s.tileURL) {
+                    url = Strings.BrandWebsite
+                }
 
-                    self?.faviconView.image = self?.faviconView.image?.createScaled(CGSize(width: BackForwardViewCellUX.IconSize, height: BackForwardViewCellUX.IconSize))
-                    self?.faviconView.backgroundColor = color == .clear ? .white : color
-                })
+                let logo = LogoView(
+                    frame: CGRect(x: 0, y: 0, width: BackForwardViewCellUX.faviconWidth, height: BackForwardViewCellUX.faviconWidth),
+                    url: url
+                )
+                faviconView.addSubview(logo)
+
                 var title = s.title
                 if title.isEmpty {
                     title = s.url

@@ -1355,19 +1355,11 @@ extension BrowserViewController: URLBarDelegate {
     }
 
     func urlBarDidEnterOverlayMode(_ urlBar: URLBarView) {
-        guard let profile = profile as? BrowserProfile else {
-            return
+        if let toast = clipboardBarDisplayHandler?.clipboardToast {
+            toast.removeFromSuperview()
         }
 
-        if .blankPage == NewTabAccessors.getNewTabPage(profile.prefs) {
-            UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged, argument: UIAccessibility.Notification.screenChanged)
-        } else {
-            if let toast = clipboardBarDisplayHandler?.clipboardToast {
-                toast.removeFromSuperview()
-            }
-
-            showUserAgentHome(inline: false)
-        }
+        showUserAgentHome(inline: false)
     }
 
     func urlBarDidLeaveOverlayMode(_ urlBar: URLBarView) {
@@ -1496,7 +1488,7 @@ extension BrowserViewController: TabDelegate {
     }
 
     func tab(_ tab: Tab, didSelectSearchWithFirefoxForSelection selection: String) {
-        openSearchNewTab(isPrivate: tab.isPrivate, selection)
+        self.openBlankNewTab(focusLocationField: true, isPrivate: tab.isPrivate, searchFor: selection)
     }
 }
 
@@ -1635,13 +1627,6 @@ extension BrowserViewController: TabManagerDelegate {
         }
 
         updateInContentHomePanel(selected?.url as URL?)
-        if let tab = selected, NewTabAccessors.getNewTabPage(self.profile.prefs) == .blankPage {
-            if tab.url == nil, !tab.restoring {
-                urlBar.tabLocationViewDidTapLocation(urlBar.locationView)
-            } else {
-                urlBar.leaveOverlayMode()
-            }
-        }
     }
 
     func tabManager(_ tabManager: TabManager, didAddTab tab: Tab, isRestoring: Bool) {
@@ -1733,7 +1718,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
             }
             present(introViewController, animated: animated) {
                 // On first run (and forced) open up the homepage in the background.
-                if let homePageURL = NewTabHomePageAccessors.getHomePage(self.profile.prefs), let tab = self.tabManager.selectedTab, DeviceInfo.hasConnectivity() {
+                if let homePageURL = NewTabPage.topSites.url, let tab = self.tabManager.selectedTab, DeviceInfo.hasConnectivity() {
                     tab.loadRequest(URLRequest(url: homePageURL))
                 }
             }
@@ -1882,7 +1867,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
                 let changeCount = pasteboard.changeCount
                 let application = UIApplication.shared
                 var taskId: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
-                taskId = application.beginBackgroundTask (expirationHandler: {
+                taskId = application.beginBackgroundTask(expirationHandler: {
                     application.endBackgroundTask(taskId)
                 })
 

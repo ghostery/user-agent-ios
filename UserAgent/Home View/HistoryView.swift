@@ -166,15 +166,8 @@ private extension HistoryView {
     private func configureSite(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
         if let site = self.siteForIndexPath(indexPath), let cell = cell as? TwoLineTableViewCell {
             cell.setLines(site.title, detailText: site.url)
-            cell.imageView?.layer.borderColor = HistoryViewUX.IconBorderColor.cgColor
-            cell.imageView?.layer.borderWidth = HistoryViewUX.IconBorderWidth
-            cell.imageView?.setIcon(site.icon, forURL: site.tileURL, completed: { (color, url) in
-                if site.tileURL == url {
-                    cell.imageView?.image = cell.imageView?.image?.createScaled(CGSize(width: HistoryViewUX.IconSize, height: HistoryViewUX.IconSize))
-                    cell.imageView?.backgroundColor = color
-                    cell.imageView?.contentMode = .center
-                }
-            })
+            let logo = LogoView(frame: CGRect(x: 0, y: 0, width: 30, height: 30), url: site.url)
+            cell._logoView.addSubview(logo)
         }
         return cell
     }

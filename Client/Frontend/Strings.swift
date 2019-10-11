@@ -623,3 +623,8 @@ extension Strings {
     public static let InterceptorUIAntiPhishingBack = NSLocalizedString("Interceptor.AntiPhishing.UI.BackButtonLabel", tableName: "UserAgent", comment: "Back to safe site buttun title in antiphishing alert title")
     public static let InterceptorUIAntiPhishingContinue = NSLocalizedString("Interceptor.AntiPhishing.UI.ContinueButtonLabel", tableName: "UserAgent", comment: "Continue despite warning buttun title in antiphishing alert title")
 }
+
+// Brand
+extension Strings {
+    public static let BrandWebsite = NSLocalizedString("website", tableName: "brand", comment: "brand website url")
+}

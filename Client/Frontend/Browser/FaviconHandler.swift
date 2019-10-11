@@ -24,7 +24,6 @@ class FaviconHandler {
         let deferred = Deferred<Maybe<(Favicon, Data?)>>()
         let manager = SDWebImageManager.shared
         let url = currentURL.absoluteString
-        let site = Site(url: url, title: "")
         let options: SDWebImageOptions = tab.isPrivate ? [SDWebImageOptions.lowPriority, SDWebImageOptions.fromCacheOnly] : SDWebImageOptions.lowPriority
 
         var fetch: SDWebImageOperation?
@@ -43,9 +42,7 @@ class FaviconHandler {
                 return
             }
 
-            profile.favicons.addFavicon(favicon, forSite: site) >>> {
-                deferred.fill(Maybe(success: (favicon, data)))
-            }
+            deferred.fill(Maybe(success: (favicon, data)))
         }
 
         let onCompletedSiteFavicon: SDInternalCompletionBlock = { (img, data, _, _, _, url) -> Void in

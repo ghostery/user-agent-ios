@@ -139,27 +139,10 @@ extension SQLiteBookmarks {
             2,
         ]
 
-        let faviconID: Int?
+        let faviconID: Int? = nil
 
-        // Insert the favicon.
-        if let icon = favicon {
-            faviconID = self.favicons.insertOrUpdateFaviconInTransaction(icon, conn: conn)
-        } else {
-            faviconID = nil
-        }
-
-        log.debug("Inserting bookmark with GUID \(newGUID) and specified icon \(faviconID ??? "nil").")
-
-        // If the caller didn't provide an icon (and they usually don't!),
-        // do a reverse lookup in history. We use a view to make this simple.
-        let iconValue: String
-        if let faviconID = faviconID {
-            iconValue = "?"
-            args.append(faviconID  )
-        } else {
-            iconValue = "(SELECT iconID FROM view_icon_for_url WHERE url = ?)"
-            args.append(urlString  )
-        }
+        let iconValue = "(SELECT iconID FROM view_icon_for_url WHERE url = ?)"
+        args.append(urlString)
 
         let insertSQL = """
             INSERT INTO bookmarksLocal (

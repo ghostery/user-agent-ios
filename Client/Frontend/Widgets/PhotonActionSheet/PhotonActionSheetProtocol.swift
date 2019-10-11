@@ -40,10 +40,7 @@ extension PhotonActionSheetProtocol {
         guard let tab = self.tabManager.selectedTab else { return [] }
 
         let openHomePage = PhotonActionSheetItem(title: Strings.AppMenuOpenHomePageTitleString, iconString: "menu-Home") { _ in
-            let page = NewTabAccessors.getHomePage(self.profile.prefs)
-            if page == .homePage, let homePageURL = HomeButtonHomePageAccessors.getHomePage(self.profile.prefs) {
-                tab.loadRequest(PrivilegedRequest(url: homePageURL) as URLRequest)
-            } else if let homePanelURL = page.url {
+            if let homePanelURL = NewTabPage.topSites.url {
                 tab.loadRequest(PrivilegedRequest(url: homePanelURL) as URLRequest)
             }
         }
