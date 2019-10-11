@@ -162,7 +162,18 @@ class BookmarksView: LibraryView {
 // MARK: - Private API
 private extension BookmarksView {
     private func updateEmptyPanelState() {
-        // TOOD
+        // swiftlint:disable:next empty_count
+        if source?.current.count == 0 && source?.current.guid == BookmarkRoots.MobileFolderGUID {
+            if self.emptyStateOverlayView.superview == nil {
+                self.addSubview(self.emptyStateOverlayView)
+                self.bringSubviewToFront(self.emptyStateOverlayView)
+                self.emptyStateOverlayView.snp.makeConstraints { make -> Void in
+                    make.edges.equalTo(self.tableView)
+                }
+            }
+        } else {
+            self.emptyStateOverlayView.removeFromSuperview()
+        }
     }
 
     private func createEmptyStateOverlayView() -> UIView {
