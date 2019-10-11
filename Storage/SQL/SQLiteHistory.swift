@@ -132,13 +132,11 @@ extension SDRow {
  */
 open class SQLiteHistory {
     let db: BrowserDB
-    let favicons: SQLiteFavicons
     let prefs: Prefs
     let clearTopSitesQuery: (String, Args?) = ("DELETE FROM cached_top_sites", nil)
 
     required public init(db: BrowserDB, prefs: Prefs) {
         self.db = db
-        self.favicons = SQLiteFavicons(db: self.db)
         self.prefs = prefs
     }
 
@@ -451,8 +449,6 @@ extension SQLiteHistory: BrowserHistory {
         return db.run([
             (sql: deleteVisits, args: visitArgs),
             (sql: markDeleted, args: markArgs),
-            favicons.getCleanupFaviconsQuery(),
-            favicons.getCleanupFaviconSiteURLsQuery()
         ])
     }
 
@@ -472,8 +468,6 @@ extension SQLiteHistory: BrowserHistory {
         return db.run([
             (sql: historyRemoval, args: historyRemovalArgs),
             (sql: visitRemoval, args: visitRemovalArgs),
-            favicons.getCleanupFaviconsQuery(),
-            favicons.getCleanupFaviconSiteURLsQuery()
         ])
     }
 

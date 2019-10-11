@@ -312,17 +312,5 @@ private func createTransitionCellFromTab(_ tab: Tab?, withFrame frame: CGRect) -
     let cell = TabCell(frame: frame)
     cell.screenshotView.image = tab?.screenshot
     cell.titleText.text = tab?.displayTitle
-
-    if let favIcon = tab?.displayFavicon {
-        cell.favicon.sd_setImage(with: URL(string: favIcon.url)!)
-    } else {
-        let defaultFavicon = UIImage(named: "defaultFavicon")
-        if tab?.isPrivate ?? false {
-            cell.favicon.image = defaultFavicon
-            cell.favicon.tintColor = (tab?.isPrivate ?? false) ? UIColor.White : UIColor.Grey60
-        } else {
-            cell.favicon.image = defaultFavicon
-        }
-    }
     return cell
 }

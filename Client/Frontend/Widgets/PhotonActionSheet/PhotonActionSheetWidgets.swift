@@ -159,13 +159,8 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         return titleLabel
     }()
 
-    lazy var siteImageView: UIImageView = {
-        let siteImageView = UIImageView()
-        siteImageView.contentMode = .center
-        siteImageView.clipsToBounds = true
-        siteImageView.layer.cornerRadius = PhotonActionSheetUX.CornerRadius
-        siteImageView.layer.borderColor = PhotonActionSheetUX.BorderColor.cgColor
-        siteImageView.layer.borderWidth = PhotonActionSheetUX.BorderWidth
+    lazy var siteImageView: UIView = {
+        let siteImageView = UIView()
         return siteImageView
     }()
 
@@ -201,28 +196,12 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.siteImageView.image = nil
-        self.siteImageView.backgroundColor = UIColor.clear
-    }
-
     func configure(with site: Site) {
-        if let _ = site.icon {
-            self.siteImageView.setFavicon(forSite: site) { (color, url) in
-                self.siteImageView.backgroundColor = color
-                self.siteImageView.image = self.siteImageView.image?.createScaled(PhotonActionSheetUX.IconSize)
-            }
-        } else if let appDelegate = UIApplication.shared.delegate as? AppDelegate, let profile = appDelegate.profile {
-            profile.favicons.getFaviconImage(forSite: site).uponQueue(.main) { result in
-                guard let image = result.successValue else {
-                    return
-                }
-
-                self.siteImageView.backgroundColor = .clear
-                self.siteImageView.image = image.createScaled(PhotonActionSheetUX.IconSize)
-            }
-        }
+        let logo = LogoView(
+            frame: CGRect(x: 0, y: 0, width: PhotonActionSheetUX.SiteImageViewSize, height: PhotonActionSheetUX.SiteImageViewSize),
+            url: site.url
+        )
+        self.siteImageView.addSubview(logo)
         self.titleLabel.text = site.title.isEmpty ? site.url : site.title
         self.descriptionLabel.text = site.tileURL.baseDomain
     }
