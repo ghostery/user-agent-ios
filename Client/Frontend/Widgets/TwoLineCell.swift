@@ -37,7 +37,6 @@ class TwoLineTableViewCell: UITableViewCell, Themeable {
         contentView.addSubview(_detailTextLabel)
         contentView.addSubview(_logoView)
 
-
         twoLineHelper.setUpViews(self, textLabel: textLabel!, detailTextLabel: detailTextLabel!, imageView: _logoView)
 
         indentationWidth = 0

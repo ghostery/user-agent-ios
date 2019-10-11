@@ -141,7 +141,6 @@ open class FaviconFetcher: NSObject, XMLParserDelegate {
         let deferred = Deferred<Maybe<Favicon>>()
         let url = icon.url
         let manager = SDWebImageManager.shared
-        let site = Site(url: siteUrl.absoluteString, title: "")
 
         var fav = Favicon(url: url)
         if let url = url.asURL {
