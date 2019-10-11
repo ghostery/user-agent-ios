@@ -31,7 +31,7 @@ addConnectionChangeListener();
 
 const bridgeManager = new BridgeManager(NativeModules.JSBridge, inject, appReady);
 
-AppRegistry.registerComponent('BrowserCore', () => class extends React.Component {});
+AppRegistry.registerComponent('BrowserCore', () => class extends React.Component { render() { return null; }});
 AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.module('news')} {...props} />);
 AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults bridgeManager={bridgeManager} events={events} {...props} />);
 AppRegistry.registerComponent('Logo', () => Logo);

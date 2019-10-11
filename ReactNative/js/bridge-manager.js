@@ -17,7 +17,6 @@ export default class BridgeManager {
   }
 
   async onAction({ module, action, args, id }) {
-    console.warn("XXXXXXXXXXXX on action")
     for(const listener of this.actionListeners) {
       try {
         const handled = listener({ module, action, args, id });
