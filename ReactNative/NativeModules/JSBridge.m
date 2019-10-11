@@ -12,4 +12,5 @@
 
 @interface RCT_EXTERN_MODULE(JSBridge, RCTEventEmitter)
 RCT_EXTERN_METHOD(ready)
+RCT_EXTERN_METHOD(replyToAction:(nonnull NSInteger *)actionId result:(NSDictionary *)result)
 @end
