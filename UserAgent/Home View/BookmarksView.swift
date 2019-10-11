@@ -99,7 +99,10 @@ class BookmarksView: LibraryView {
             return
         }
 
+        self.tableView.beginUpdates()
         self.source = source.removeGUIDFromCurrent(bookmark.guid)
+        self.tableView.deleteRows(at: [indexPath], with: .left)
+        self.tableView.endUpdates()
         self.updateEmptyPanelState()
     }
 
@@ -212,7 +215,7 @@ private extension BookmarksView {
     }
 }
 
-// MARK: - Table view dataSource
+// MARK: - Table View Data Source
 extension BookmarksView {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -247,5 +250,13 @@ extension BookmarksView {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return Strings.BookmarksTitle
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let title = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
+        let delete = UITableViewRowAction(style: .default, title: title, handler: { (action, indexPath) in
+            self.removeSiteForURLAtIndexPath(indexPath)
+        })
+        return [delete]
     }
 }
