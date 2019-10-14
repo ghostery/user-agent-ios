@@ -9,10 +9,42 @@
 import Foundation
 import React
 
+/*
+ * Remeber to assign url and set view constraints.
+ */
 class LogoView: UIView {
-    private var url: String?
-    private lazy var reactView: UIView = {
-        guard let url = self.url else { return UIView() }
+    public var url: String? {
+        didSet {
+            // To prepareForReuse set url to nil - this will remove React view
+            if url == nil {
+                guard let reactView = self.reactView else { return }
+                reactView.removeFromSuperview()
+                self.reactView = nil
+            }
+        }
+    }
+
+    private var reactView: RCTRootView?
+    private var size: CGFloat?
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if self.reactView != nil && (self.bounds.height == self.size) {
+            return
+        }
+        // In case the view have resized the React has to be re-created
+        self.size = self.bounds.height
+        if self.reactView != nil {
+            self.reactView!.removeFromSuperview()
+            self.reactView = nil
+        }
+        guard let reactView = self.createLogoView() else { return }
+        self.reactView = reactView
+        self.addSubview(reactView)
+    }
+
+    private func createLogoView() -> RCTRootView? {
+        guard let url = self.url else { return nil }
 
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
@@ -25,15 +57,5 @@ class LogoView: UIView {
 
         reactView.backgroundColor = .clear
         return reactView
-    }()
-
-    init(frame: CGRect, url: String) {
-        super.init(frame: frame)
-        self.url = url
-        self.addSubview(self.reactView)
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("This class does not support NSCoding")
     }
 }

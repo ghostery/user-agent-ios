@@ -159,9 +159,8 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         return titleLabel
     }()
 
-    lazy var siteImageView: UIView = {
-        let siteImageView = UIView()
-        return siteImageView
+    lazy var logoView: LogoView = {
+        LogoView()
     }()
 
     override init(reuseIdentifier: String?) {
@@ -169,9 +168,9 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
 
         self.backgroundView = UIView()
         self.backgroundView?.backgroundColor = .clear
-        contentView.addSubview(siteImageView)
+        contentView.addSubview(logoView)
 
-        siteImageView.snp.remakeConstraints { make in
+        logoView.snp.remakeConstraints { make in
             make.top.equalTo(contentView).offset(PhotonActionSheetSiteHeaderView.Padding)
             make.centerY.equalTo(contentView)
             make.leading.equalTo(contentView).offset(PhotonActionSheetSiteHeaderView.Padding)
@@ -186,9 +185,9 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         contentView.addSubview(stackView)
 
         stackView.snp.makeConstraints { make in
-            make.leading.equalTo(siteImageView.snp.trailing).offset(PhotonActionSheetSiteHeaderView.Padding)
+            make.leading.equalTo(logoView.snp.trailing).offset(PhotonActionSheetSiteHeaderView.Padding)
             make.trailing.equalTo(contentView).inset(PhotonActionSheetSiteHeaderView.Padding)
-            make.centerY.equalTo(siteImageView.snp.centerY)
+            make.centerY.equalTo(logoView.snp.centerY)
         }
     }
 
@@ -196,12 +195,13 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.logoView.url = nil
+    }
+
     func configure(with site: Site) {
-        let logo = LogoView(
-            frame: CGRect(x: 0, y: 0, width: PhotonActionSheetUX.SiteImageViewSize, height: PhotonActionSheetUX.SiteImageViewSize),
-            url: site.url
-        )
-        self.siteImageView.addSubview(logo)
+        self.logoView.url = site.url
         self.titleLabel.text = site.title.isEmpty ? site.url : site.title
         self.descriptionLabel.text = site.tileURL.baseDomain
     }

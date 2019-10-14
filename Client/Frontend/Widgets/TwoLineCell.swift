@@ -19,7 +19,7 @@ class TwoLineTableViewCell: UITableViewCell, Themeable {
 
     let _textLabel = UILabel()
     let _detailTextLabel = UILabel()
-    let _logoView = UIView()
+    let logoView = LogoView()
 
     // Override the default labels with our own to disable default UITableViewCell label behaviours like dynamic type
     override var textLabel: UILabel? {
@@ -35,9 +35,9 @@ class TwoLineTableViewCell: UITableViewCell, Themeable {
 
         contentView.addSubview(_textLabel)
         contentView.addSubview(_detailTextLabel)
-        contentView.addSubview(_logoView)
+        contentView.addSubview(logoView)
 
-        twoLineHelper.setUpViews(self, textLabel: textLabel!, detailTextLabel: detailTextLabel!, imageView: _logoView)
+        twoLineHelper.setUpViews(self, textLabel: textLabel!, detailTextLabel: detailTextLabel!, imageView: logoView)
 
         indentationWidth = 0
         layoutMargins = .zero
@@ -60,6 +60,7 @@ class TwoLineTableViewCell: UITableViewCell, Themeable {
         super.prepareForReuse()
         self.textLabel!.alpha = 1
         self.imageView!.alpha = 1
+        self.logoView.url = nil
         self.selectionStyle = .default
         separatorInset = UIEdgeInsets(top: 0, left: TwoLineCellUX.ImageSize + 2 * TwoLineCellUX.BorderViewMargin, bottom: 0, right: 0)
         twoLineHelper.setupDynamicFonts()

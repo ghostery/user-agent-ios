@@ -228,8 +228,7 @@ extension BookmarksView {
             cell.setLines(site.title, detailText: site.url)
             cell.imageView?.layer.borderColor = BookmarksPanelUX.IconBorderColor.cgColor
             cell.imageView?.layer.borderWidth = BookmarksPanelUX.IconBorderWidth
-            let logo = LogoView(frame: CGRect(x: 0, y: 0, width: 30, height: 30), url: site.url)
-            cell._logoView.addSubview(logo)
+            cell.logoView.url = site.url
         }
         return cell
     }

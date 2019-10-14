@@ -166,8 +166,7 @@ private extension HistoryView {
     private func configureSite(_ cell: UITableViewCell, for indexPath: IndexPath) -> UITableViewCell {
         if let site = self.siteForIndexPath(indexPath), let cell = cell as? TwoLineTableViewCell {
             cell.setLines(site.title, detailText: site.url)
-            let logo = LogoView(frame: CGRect(x: 0, y: 0, width: 30, height: 30), url: site.url)
-            cell._logoView.addSubview(logo)
+            cell.logoView.url = site.url
         }
         return cell
     }
