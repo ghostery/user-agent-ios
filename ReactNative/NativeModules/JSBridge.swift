@@ -11,9 +11,14 @@ import React
 
 @objc(JSBridge)
 class JSBridge: RCTEventEmitter {
-    fileprivate let lockDispatchQueue = DispatchQueue(label: "com.cliqz.jsbridge.lock", attributes: [])
-    fileprivate let lockSemaphore = DispatchSemaphore(value: 0)
-    fileprivate var bridgeReady = false
+    public typealias Callback = (_ error: NSError?, _ result: Any?) -> Void
+
+    private typealias ActionId = NSInteger
+    private let lockDispatchQueue = DispatchQueue(label: "com.cliqz.jsbridge.lock", attributes: [])
+    private let lockSemaphore = DispatchSemaphore(value: 0)
+    private var bridgeReady = false
+    private var actionCounter: ActionId = 0
+    private var callbacks = [ActionId: Callback]()
 
     override static func requiresMainQueueSetup() -> Bool {
         return false
@@ -23,12 +28,26 @@ class JSBridge: RCTEventEmitter {
         return ["publishEvent", "callAction"]
     }
 
-    func callAction(module: String, action: String, args: [Any]) {
+    func callAction(module: String, action: String, args: [Any], callback: Callback? = nil) {
+        var actionId: ActionId?
+
+        if callback != nil {
+            actionId = self.nextActionId()
+            self.callbacks[actionId!] = callback
+        }
+
         lockDispatchQueue.async {
             if !self.bridgeReady {
                 self.lockSemaphore.wait()
             }
-            self.sendEvent(withName: "callAction", body: ["module": module, "action": action, "args": args])
+
+            var body: [String: Any] = ["module": module, "action": action, "args": args]
+
+            if let actionId = actionId {
+                body["id"] = actionId
+            }
+
+            self.sendEvent(withName: "callAction", body: body)
         }
     }
 
@@ -38,5 +57,25 @@ class JSBridge: RCTEventEmitter {
             bridgeReady = true
             lockSemaphore.signal()
         }
+    }
+
+    @objc(replyToAction:result:)
+    func replyToAction(_ actionId: NSInteger, result: NSDictionary) {
+        if let callback = self.callbacks[actionId] {
+            if let error = result["error"] {
+                callback(NSError(domain: "BrowserCore", code: 100, userInfo: ["error": error]), nil)
+            } else {
+                callback(nil, result["result"])
+            }
+        }
+    }
+
+    private func nextActionId() -> ActionId {
+        var nextId: NSInteger = 0
+        lockDispatchQueue.sync {
+            self.actionCounter += 1
+            nextId = self.actionCounter
+        }
+        return nextId
     }
 }
