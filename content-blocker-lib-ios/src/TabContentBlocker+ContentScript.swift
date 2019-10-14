@@ -6,7 +6,7 @@ import WebKit
 
 extension TabContentBlocker {
     func clearPageStats() {
-        stats = TPPageStats()
+        self.stats = TPPageStats()
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
@@ -30,7 +30,7 @@ extension TabContentBlocker {
 
         TPStatsBlocklistChecker.shared.isBlocked(url: url, enabledBlocklists: enabledLists).uponQueue(.main) { listItem in
             if let listItem = listItem {
-                self.stats = self.stats.create(byAddingListItem: listItem)
+                self.stats.update(byAddingListItem: listItem)
             }
         }
     }
