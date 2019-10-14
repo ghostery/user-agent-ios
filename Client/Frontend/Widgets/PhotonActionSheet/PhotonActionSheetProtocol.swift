@@ -68,9 +68,6 @@ extension PhotonActionSheetProtocol {
         let openSettingsItem = self.openSettingsItem(vcDelegate: vcDelegate)
         items.append(openSettingsItem)
 
-        let refreshItem = self.refreshPageItem(vcDelegate: vcDelegate)
-        items.append(refreshItem)
-
         return items
     }
 
@@ -194,8 +191,10 @@ extension PhotonActionSheetProtocol {
 
         mainActions.append(contentsOf: [copyURL])
 
+        let refreshPage = self.refreshPageItem()
+
         let pinAction = (isPinned ? removeTopSitesPin : pinToTopSites)
-        var commonActions = [toggleDesktopSite, pinAction]
+        var commonActions = [toggleDesktopSite, pinAction, refreshPage]
 
         // Disable find in page if document is pdf.
         if tab.mimeType != MIMEType.PDF {
@@ -417,7 +416,7 @@ extension PhotonActionSheetProtocol {
         return openSettings
     }
 
-    private func refreshPageItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
+    private func refreshPageItem() -> PhotonActionSheetItem {
            let refreshPage = PhotonActionSheetItem(title: Strings.AppMenuReloadTitleString, iconString: "nav-refresh") { action in
                 self.tabManager.selectedTab?.reload()
            }
