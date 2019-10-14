@@ -6,39 +6,24 @@ import WebKit
 import Shared
 
 enum BlocklistName: String {
-    case advertising = "advertising"
-    case analytics = "site_analytics"
-    case content = "content"
-    case social = "social_media"
-    case essential = "essential"
-    case misc = "misc"
-    case hosting = "hosting"
-    case pornvertising = "pornvertising"
-    case audioVideoPlayer = "audio_video_player"
-    case extensions = "extensions"
-    case customerInteraction = "customer_interaction"
-    case comments = "comments"
-    case cdn = "cdn"
-    case unknown = "unknown"
+    case advertisingNetwork = "advertisingNetwork"
+    case advertisingCosmetic = "advertisingCosmetic"
+    case trackingNetwork = "trackingNetwork"
 
     var filename: String {
         switch self {
-        case .advertising:
-            return "disconnect-advertising"
-        case .analytics:
-            return "disconnect-analytics"
-        case .content:
-            return "disconnect-content"
-        case .social:
-            return "disconnect-social"
-        default:
-            return self.rawValue
+        case .advertisingNetwork:
+            return "safari-ads-network"
+        case .advertisingCosmetic:
+            return "safari-ads-cosmetic"
+        case .trackingNetwork:
+            return "safari-tracking-network"
         }
     }
 
-    static var all: [BlocklistName] { return [.advertising, .analytics, .content, .social] }
-    static var basic: [BlocklistName] { return [.advertising, .analytics, .social] }
-    static var strict: [BlocklistName] { return [.content] }
+    static var all: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic, .trackingNetwork] }
+    static var basic: [BlocklistName] { return [.trackingNetwork] }
+    static var strict: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic] }
 
     static func forStrictMode(isOn: Bool) -> [BlocklistName] {
         return BlocklistName.basic + (isOn ? BlocklistName.strict : [])
@@ -246,7 +231,7 @@ extension ContentBlocker {
                     var str = jsonString
                     guard let range = str.range(of: "]", options: String.CompareOptions.backwards) else { return }
                     str = str.replacingCharacters(in: range, with: self.whitelistAsJSON() + "]")
-                    self.ruleStore.compileContentRuleList(forIdentifier: filename, encodedContentRuleList: str) { rule, error in
+                    self.ruleStore.compileContentRuleList(forIdentifier: filename, encodedContentRuleList: jsonString) { rule, error in
                         if let error = error {
                             print("Content blocker error: \(error)")
                             assert(false)

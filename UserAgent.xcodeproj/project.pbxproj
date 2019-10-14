@@ -123,6 +123,12 @@
 		461E5E5B234F68A7004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E5A234F68A7004DDE84 /* brand.strings */; };
 		4620EA492350ABF9004586CF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA482350ABF9004586CF /* Search.swift */; };
 		4620EA4A2350ABF9004586CF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA482350ABF9004586CF /* Search.swift */; };
+		4620EA4F2354C59F004586CF /* safari-ads-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA4B2354C59E004586CF /* safari-ads-cosmetic.json */; };
+		4620EA502354C59F004586CF /* safari-ads-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA4B2354C59E004586CF /* safari-ads-cosmetic.json */; };
+		4620EA532354C59F004586CF /* safari-tracking-network.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA4D2354C59E004586CF /* safari-tracking-network.json */; };
+		4620EA542354C59F004586CF /* safari-tracking-network.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA4D2354C59E004586CF /* safari-tracking-network.json */; };
+		4620EA552354C59F004586CF /* safari-ads-network.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA4E2354C59F004586CF /* safari-ads-network.json */; };
+		4620EA562354C59F004586CF /* safari-ads-network.json in Resources */ = {isa = PBXBuildFile; fileRef = 4620EA4E2354C59F004586CF /* safari-ads-network.json */; };
 		463432F82332521F0014A9F0 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463432F72332521F0014A9F0 /* Telemetry.swift */; };
 		463432F92332521F0014A9F0 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463432F72332521F0014A9F0 /* Telemetry.swift */; };
 		463432FB233381C70014A9F0 /* BrowserCoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463432FA233381C70014A9F0 /* BrowserCoreClient.swift */; };
@@ -418,15 +424,12 @@
 		ACB737F923042BAB00FA5626 /* NetError.css in Resources */ = {isa = PBXBuildFile; fileRef = 0BA1E02F1B051A07007675AF /* NetError.css */; };
 		ACB737FC23042BAB00FA5626 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F84B21EF1A0910F600AAB793 /* Images.xcassets */; };
 		ACB737FD23042BAB00FA5626 /* SessionRestore.html in Resources */ = {isa = PBXBuildFile; fileRef = F35B8D2A1D6380EA008E3D61 /* SessionRestore.html */; };
-		ACB737FE23042BAB00FA5626 /* disconnect-advertising.json in Resources */ = {isa = PBXBuildFile; fileRef = EBB894EC219398E500EB91A0 /* disconnect-advertising.json */; };
 		ACB737FF23042BAB00FA5626 /* Menu.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B42406D1CA04CAC009B5C28 /* Menu.xcassets */; };
 		ACB7380023042BAB00FA5626 /* Intro.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E49943F61AE69EDD00BF9DE4 /* Intro.xcassets */; };
-		ACB7380223042BAB00FA5626 /* disconnect-social.json in Resources */ = {isa = PBXBuildFile; fileRef = EBB894ED219398E500EB91A0 /* disconnect-social.json */; };
 		ACB7380423042BAB00FA5626 /* Reader.html in Resources */ = {isa = PBXBuildFile; fileRef = E4CD9F531A71506400318571 /* Reader.html */; };
 		ACB7380523042BAB00FA5626 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */; };
 		ACB7380623042BAB00FA5626 /* Licenses.html in Resources */ = {isa = PBXBuildFile; fileRef = E69922121B94E3EF007C480D /* Licenses.html */; };
 		ACB7380723042BAB00FA5626 /* Reader.css in Resources */ = {isa = PBXBuildFile; fileRef = E4CD9F5A1A71506C00318571 /* Reader.css */; };
-		ACB7380823042BAB00FA5626 /* disconnect-analytics.json in Resources */ = {isa = PBXBuildFile; fileRef = EBB894EF219398E500EB91A0 /* disconnect-analytics.json */; };
 		ACB7380923042BAB00FA5626 /* AllFramesAtDocumentEnd.js in Resources */ = {isa = PBXBuildFile; fileRef = D0FCF8031FE4772C004A7995 /* AllFramesAtDocumentEnd.js */; };
 		ACB7380B23042BAB00FA5626 /* topdomains.txt in Resources */ = {isa = PBXBuildFile; fileRef = D37524861C6E8B5A00A5F6C2 /* topdomains.txt */; };
 		ACB7380D23042BAB00FA5626 /* Settings.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B4980A71CE363ED0017547C /* Settings.xcassets */; };
@@ -437,7 +440,6 @@
 		ACB7381723042BAB00FA5626 /* CertError.css in Resources */ = {isa = PBXBuildFile; fileRef = D308EE551CBF0BF5006843F2 /* CertError.css */; };
 		ACB7381B23042BAB00FA5626 /* NetError.html in Resources */ = {isa = PBXBuildFile; fileRef = 0BA1E00D1B03FB0B007675AF /* NetError.html */; };
 		ACB7381C23042BAB00FA5626 /* ReaderViewLoading.html in Resources */ = {isa = PBXBuildFile; fileRef = E4A961371AC06FA50069AD6F /* ReaderViewLoading.html */; };
-		ACB7381D23042BAB00FA5626 /* disconnect-content.json in Resources */ = {isa = PBXBuildFile; fileRef = EBB894EE219398E500EB91A0 /* disconnect-content.json */; };
 		ACB7381E23042BAB00FA5626 /* SendTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */; };
 		ACB7382023042BAB00FA5626 /* FxASignIn.js in Resources */ = {isa = PBXBuildFile; fileRef = D0E17FA7201F847600F1FCB5 /* FxASignIn.js */; };
 		ACB7382223042BAB00FA5626 /* SpotlightHelper.js in Resources */ = {isa = PBXBuildFile; fileRef = 39A35AEC1C0662A3006B9E87 /* SpotlightHelper.js */; };
@@ -736,10 +738,6 @@
 		EBA3B2C32268F16300728BDB /* PhotonActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2C22268F16300728BDB /* PhotonActionSheetCell.swift */; };
 		EBA3B2CD2268F27500728BDB /* PhotonActionSheetWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2CC2268F27500728BDB /* PhotonActionSheetWidgets.swift */; };
 		EBA3B2D22268F57E00728BDB /* BadgeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */; };
-		EBB894FD219398E500EB91A0 /* disconnect-advertising.json in Resources */ = {isa = PBXBuildFile; fileRef = EBB894EC219398E500EB91A0 /* disconnect-advertising.json */; };
-		EBB894FE219398E500EB91A0 /* disconnect-social.json in Resources */ = {isa = PBXBuildFile; fileRef = EBB894ED219398E500EB91A0 /* disconnect-social.json */; };
-		EBB894FF219398E500EB91A0 /* disconnect-content.json in Resources */ = {isa = PBXBuildFile; fileRef = EBB894EE219398E500EB91A0 /* disconnect-content.json */; };
-		EBB89500219398E500EB91A0 /* disconnect-analytics.json in Resources */ = {isa = PBXBuildFile; fileRef = EBB894EF219398E500EB91A0 /* disconnect-analytics.json */; };
 		EBB89504219398E500EB91A0 /* TrackingProtectionPageStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB894F5219398E500EB91A0 /* TrackingProtectionPageStats.swift */; };
 		EBB89506219398E500EB91A0 /* TabContentBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB894F7219398E500EB91A0 /* TabContentBlocker.swift */; };
 		EBB89507219398E500EB91A0 /* ContentBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB894F8219398E500EB91A0 /* ContentBlocker.swift */; };
@@ -1107,6 +1105,9 @@
 		461E5E58234F6891004DDE84 /* brand.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = brand.strings; sourceTree = "<group>"; };
 		461E5E5A234F68A7004DDE84 /* brand.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = brand.strings; sourceTree = "<group>"; };
 		4620EA482350ABF9004586CF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		4620EA4B2354C59E004586CF /* safari-ads-cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-ads-cosmetic.json"; sourceTree = "<group>"; };
+		4620EA4D2354C59E004586CF /* safari-tracking-network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-tracking-network.json"; sourceTree = "<group>"; };
+		4620EA4E2354C59F004586CF /* safari-ads-network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-ads-network.json"; sourceTree = "<group>"; };
 		463432F72332521F0014A9F0 /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 		463432FA233381C70014A9F0 /* BrowserCoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCoreClient.swift; sourceTree = "<group>"; };
 		464E6837234B75E300ABAC43 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
@@ -1517,10 +1518,6 @@
 		EBA3B2C22268F16300728BDB /* PhotonActionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCell.swift; sourceTree = "<group>"; };
 		EBA3B2CC2268F27500728BDB /* PhotonActionSheetWidgets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetWidgets.swift; sourceTree = "<group>"; };
 		EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeIcon.swift; sourceTree = "<group>"; };
-		EBB894EC219398E500EB91A0 /* disconnect-advertising.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-advertising.json"; sourceTree = "<group>"; };
-		EBB894ED219398E500EB91A0 /* disconnect-social.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-social.json"; sourceTree = "<group>"; };
-		EBB894EE219398E500EB91A0 /* disconnect-content.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-content.json"; sourceTree = "<group>"; };
-		EBB894EF219398E500EB91A0 /* disconnect-analytics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "disconnect-analytics.json"; sourceTree = "<group>"; };
 		EBB894F5219398E500EB91A0 /* TrackingProtectionPageStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingProtectionPageStats.swift; sourceTree = "<group>"; };
 		EBB894F7219398E500EB91A0 /* TabContentBlocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabContentBlocker.swift; sourceTree = "<group>"; };
 		EBB894F8219398E500EB91A0 /* ContentBlocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentBlocker.swift; sourceTree = "<group>"; };
@@ -2689,10 +2686,9 @@
 			isa = PBXGroup;
 			children = (
 				2B03608F2350B07200273A24 /* tracker_db_v2.json */,
-				EBB894EC219398E500EB91A0 /* disconnect-advertising.json */,
-				EBB894ED219398E500EB91A0 /* disconnect-social.json */,
-				EBB894EE219398E500EB91A0 /* disconnect-content.json */,
-				EBB894EF219398E500EB91A0 /* disconnect-analytics.json */,
+				4620EA4B2354C59E004586CF /* safari-ads-cosmetic.json */,
+				4620EA4E2354C59F004586CF /* safari-ads-network.json */,
+				4620EA4D2354C59E004586CF /* safari-tracking-network.json */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -3361,18 +3357,16 @@
 				ACB737F923042BAB00FA5626 /* NetError.css in Resources */,
 				ACB737FC23042BAB00FA5626 /* Images.xcassets in Resources */,
 				ACB737FD23042BAB00FA5626 /* SessionRestore.html in Resources */,
-				ACB737FE23042BAB00FA5626 /* disconnect-advertising.json in Resources */,
 				ACB737FF23042BAB00FA5626 /* Menu.xcassets in Resources */,
 				ACB7380023042BAB00FA5626 /* Intro.xcassets in Resources */,
-				ACB7380223042BAB00FA5626 /* disconnect-social.json in Resources */,
 				ACB7380423042BAB00FA5626 /* Reader.html in Resources */,
 				ACC6EC602329460F000F5499 /* colors.xcassets in Resources */,
 				ACB7380523042BAB00FA5626 /* InfoPlist.strings in Resources */,
 				ACB7380623042BAB00FA5626 /* Licenses.html in Resources */,
 				ACB7380723042BAB00FA5626 /* Reader.css in Resources */,
-				ACB7380823042BAB00FA5626 /* disconnect-analytics.json in Resources */,
 				ACB7380923042BAB00FA5626 /* AllFramesAtDocumentEnd.js in Resources */,
 				ACB7380B23042BAB00FA5626 /* topdomains.txt in Resources */,
+				4620EA562354C59F004586CF /* safari-ads-network.json in Resources */,
 				ACB7380D23042BAB00FA5626 /* Settings.xcassets in Resources */,
 				46CA610323180E1A0010CE6B /* Icons.xcassets in Resources */,
 				ACB7380E23042BAB00FA5626 /* FocusHelper.js in Resources */,
@@ -3380,10 +3374,11 @@
 				ACB7381423042BAB00FA5626 /* SearchPlugins in Resources */,
 				ACB7381523042BAB00FA5626 /* MailSchemes.plist in Resources */,
 				ACB7381723042BAB00FA5626 /* CertError.css in Resources */,
+				4620EA542354C59F004586CF /* safari-tracking-network.json in Resources */,
 				ACB7381B23042BAB00FA5626 /* NetError.html in Resources */,
+				4620EA502354C59F004586CF /* safari-ads-cosmetic.json in Resources */,
 				ACB7381C23042BAB00FA5626 /* ReaderViewLoading.html in Resources */,
 				2B0360912350B07200273A24 /* tracker_db_v2.json in Resources */,
-				ACB7381D23042BAB00FA5626 /* disconnect-content.json in Resources */,
 				ACB7381E23042BAB00FA5626 /* SendTo.xcassets in Resources */,
 				ACB7382023042BAB00FA5626 /* FxASignIn.js in Resources */,
 				C50ED2BE2326B18200EE71B8 /* brand.xcassets in Resources */,
@@ -3410,15 +3405,12 @@
 				0BA1E0301B051A07007675AF /* NetError.css in Resources */,
 				F84B220B1A0910F600AAB793 /* Images.xcassets in Resources */,
 				F35B8D2B1D6380EA008E3D61 /* SessionRestore.html in Resources */,
-				EBB894FD219398E500EB91A0 /* disconnect-advertising.json in Resources */,
 				7B42406E1CA04CAC009B5C28 /* Menu.xcassets in Resources */,
 				E49943F71AE69EDD00BF9DE4 /* Intro.xcassets in Resources */,
-				EBB894FE219398E500EB91A0 /* disconnect-social.json in Resources */,
 				E4CD9F541A71506400318571 /* Reader.html in Resources */,
 				E69922171B94E3EF007C480D /* Licenses.html in Resources */,
 				E4CD9F5B1A71506C00318571 /* Reader.css in Resources */,
 				C50ED2B62326AB1100EE71B8 /* brand.xcassets in Resources */,
-				EBB89500219398E500EB91A0 /* disconnect-analytics.json in Resources */,
 				D0FCF8061FE4772D004A7995 /* AllFramesAtDocumentEnd.js in Resources */,
 				D37524871C6E8B5A00A5F6C2 /* topdomains.txt in Resources */,
 				ACC6EC5F2329460B000F5499 /* colors.xcassets in Resources */,
@@ -3431,7 +3423,6 @@
 				D308EE561CBF0BF5006843F2 /* CertError.css in Resources */,
 				0BA1E00E1B03FB0B007675AF /* NetError.html in Resources */,
 				E4A961381AC06FA50069AD6F /* ReaderViewLoading.html in Resources */,
-				EBB894FF219398E500EB91A0 /* disconnect-content.json in Resources */,
 				EBE7635820ADCB7600E27F2D /* SendTo.xcassets in Resources */,
 				D0E17FB6201F847600F1FCB5 /* FxASignIn.js in Resources */,
 				39A35AED1C0662A3006B9E87 /* SpotlightHelper.js in Resources */,
@@ -3442,6 +3433,7 @@
 				D03F8F23200EAC1F003C2224 /* AllFramesAtDocumentStart.js in Resources */,
 				46CA610223180E1A0010CE6B /* Icons.xcassets in Resources */,
 				834A40198503DEA0CC1E7FBA /* Shared.strings in Resources */,
+				4620EA552354C59F004586CF /* safari-ads-network.json in Resources */,
 				DAF24B7382D07138FE660E37 /* HistoryPanel.strings in Resources */,
 				A835425991BEA33554CC85C2 /* Storage.strings in Resources */,
 				172D411A9902FAA934616773 /* Search.strings in Resources */,
@@ -3449,6 +3441,8 @@
 				6B064B9E955F05E7483746FA /* PrivateBrowsing.strings in Resources */,
 				2B0360902350B07200273A24 /* tracker_db_v2.json in Resources */,
 				1B954C90A7579FD9F5A0A9B7 /* Localizable.strings in Resources */,
+				4620EA4F2354C59F004586CF /* safari-ads-cosmetic.json in Resources */,
+				4620EA532354C59F004586CF /* safari-tracking-network.json in Resources */,
 				2B184F45BDED21008E6376E1 /* ClearHistoryConfirm.strings in Resources */,
 				FAAB475499C966BF3A44A105 /* Intro.strings in Resources */,
 				A3C9447C9B26E53049AC9503 /* 3DTouchActions.strings in Resources */,
