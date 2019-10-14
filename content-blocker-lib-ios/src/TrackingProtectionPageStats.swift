@@ -4,33 +4,55 @@
 import Shared
 
 struct TPPageStats {
-    let adCount: Int
-    let analyticCount: Int
-    let contentCount: Int
-    let socialCount: Int
+    private (set) var adCount: Int = 0
+    private (set) var analyticCount: Int = 0
+    private (set) var contentCount: Int = 0
+    private (set) var socialCount: Int = 0
+    private (set) var essentialCount: Int = 0
+    private (set) var miscCount: Int = 0
+    private (set) var hostingCount: Int = 0
+    private (set) var pornvertisingCount: Int = 0
+    private (set) var audioVideoPlayerCount: Int = 0
+    private (set) var extensionsCount: Int = 0
+    private (set) var customerInteractionCount: Int = 0
+    private (set) var commentsCount: Int = 0
+    private (set) var cdnCount: Int = 0
+    private (set) var unknownCount: Int = 0
 
-    var total: Int { return adCount + socialCount + analyticCount + contentCount }
-
-    init() {
-        adCount = 0
-        analyticCount = 0
-        contentCount = 0
-        socialCount = 0
+    var total: Int {
+        return self.adCount + self.socialCount + self.analyticCount + self.contentCount + self.essentialCount + self.miscCount + self.hostingCount + self.pornvertisingCount + self.audioVideoPlayerCount + self.extensionsCount + self.customerInteractionCount + self.commentsCount + self.cdnCount + self.unknownCount
     }
 
-    private init(adCount: Int, analyticCount: Int, contentCount: Int, socialCount: Int) {
-        self.adCount = adCount
-        self.analyticCount = analyticCount
-        self.contentCount = contentCount
-        self.socialCount = socialCount
-    }
-
-    func create(byAddingListItem listItem: BlocklistName) -> TPPageStats {
+    mutating func update(byAddingListItem listItem: BlocklistName) {
         switch listItem {
-        case .advertising: return TPPageStats(adCount: adCount + 1, analyticCount: analyticCount, contentCount: contentCount, socialCount: socialCount)
-        case .analytics: return TPPageStats(adCount: adCount, analyticCount: analyticCount + 1, contentCount: contentCount, socialCount: socialCount)
-        case .content: return TPPageStats(adCount: adCount, analyticCount: analyticCount, contentCount: contentCount + 1, socialCount: socialCount)
-        case .social: return TPPageStats(adCount: adCount, analyticCount: analyticCount, contentCount: contentCount, socialCount: socialCount + 1)
+        case .advertising:
+            self.adCount += 1
+        case .analytics:
+            self.analyticCount += 1
+        case .content:
+            self.contentCount += 1
+        case .social:
+            self.socialCount += 1
+        case .essential:
+            self.essentialCount += 1
+        case .misc:
+            self.miscCount += 1
+        case .hosting:
+            self.hostingCount += 1
+        case .pornvertising:
+            self.pornvertisingCount += 1
+        case .audioVideoPlayer:
+            self.audioVideoPlayerCount += 1
+        case .extensions:
+            self.extensionsCount += 1
+        case .customerInteraction:
+            self.customerInteractionCount += 1
+        case .comments:
+            self.commentsCount += 1
+        case .cdn:
+            self.cdnCount += 1
+        case .unknown:
+            self.unknownCount += 1
         }
     }
 }
@@ -91,125 +113,71 @@ func wildcardContentBlockerDomainToRegex(domain: String) -> String? {
 }
 
 class TPStatsBlocklists {
-    class Rule {
-        let regex: String
-        let loadType: LoadType
-        let resourceType: ResourceType
-        let domainExceptions: [String]?
-        let list: BlocklistName
 
-        init(regex: String, loadType: LoadType, resourceType: ResourceType, domainExceptions: [String]?, list: BlocklistName) {
-            self.regex = regex
-            self.loadType = loadType
-            self.resourceType = resourceType
-            self.domainExceptions = domainExceptions
-            self.list = list
-        }
-    }
-
-    private var blockRules = [String: [Rule]]()
-
-    enum LoadType {
-        case all
-        case thirdParty
-    }
-
-    enum ResourceType {
-        case all
-        case font
-    }
+    private var blockRules = [String: BlocklistName]()
 
     func load() {
-        // All rules have this prefix on the domain to match.
-        let standardPrefix = "^https?://([^/]+\\.)?"
-
-        for blockList in BlocklistName.all {
-            let list: [[String: AnyObject]]
-            do {
-                guard let path = Bundle.main.path(forResource: blockList.filename, ofType: "json") else {
-                    assertionFailure("Blocklists: bad file path.")
-                    return
-                }
-
-                let json = try Data(contentsOf: URL(fileURLWithPath: path))
-                guard let data = try JSONSerialization.jsonObject(with: json, options: []) as? [[String: AnyObject]] else {
-                    assertionFailure("Blocklists: bad JSON cast.")
-                    return
-                }
-                list = data
-            } catch {
-                assertionFailure("Blocklists: \(error.localizedDescription)")
+        do {
+            guard let path = Bundle.main.path(forResource: "tracker_db_v2", ofType: "json") else {
+                assertionFailure("Blocklists: bad file path.")
                 return
             }
 
-            for rule in list {
-                guard let trigger = rule["trigger"] as? [String: AnyObject],
-                    let filter = trigger["url-filter"] as? String else {
-                        assertionFailure("Blocklists error: Rule has unexpected format.")
-                        continue
-                }
-
-                guard let loc = filter.range(of: standardPrefix) else {
-                    assert(false, "url-filter code needs updating for new list format")
-                    return
-                }
-                let baseDomain = String(filter[loc.upperBound...]).replacingOccurrences(of: "\\.", with: ".")
-                assert(!baseDomain.isEmpty)
-
-                // Sanity check for the lists.
-                ["*", "?", "+"].forEach { x in
-                    // This will only happen on debug
-                    assert(!baseDomain.contains(x), "No wildcards allowed in baseDomain")
-                }
-
-                let domainExceptionsRegex = (trigger["unless-domain"] as? [String])?.compactMap { domain in
-                    return wildcardContentBlockerDomainToRegex(domain: domain)
-                }
-
-                // Only "third-party" is supported; other types are not used in our block lists.
-                let loadTypes = trigger["load-type"] as? [String] ?? []
-                let loadType = loadTypes.contains("third-party") ? LoadType.thirdParty : .all
-
-                // Only "font" is supported; other types are not used in our block lists.
-                let resourceTypes = trigger["resource-type"] as? [String] ?? []
-                let resourceType = resourceTypes.contains("font") ? ResourceType.font : .all
-
-                let rule = Rule(regex: filter, loadType: loadType, resourceType: resourceType, domainExceptions: domainExceptionsRegex, list: blockList)
-                blockRules[baseDomain] = (blockRules[baseDomain] ?? []) + [rule]
+            let json = try Data(contentsOf: URL(fileURLWithPath: path))
+            guard let data = try JSONSerialization.jsonObject(with: json, options: []) as? [String: AnyObject] else {
+                assertionFailure("Blocklists: bad JSON cast.")
+                return
             }
+            guard let apps = data["apps"] as? [String: AnyObject] else {
+                assertionFailure("Blocklists: bad JSON cast.")
+                return
+            }
+            var categories = [String: String]()
+            for app in apps {
+                if let value = app.value as? [String: String] {
+                    if let category = value["cat"] {
+                        categories[app.key] = category
+                    }
+                }
+            }
+            guard let domainsData = data["domains"] as? [String: AnyObject] else {
+                assertionFailure("Blocklists: bad JSON cast.")
+                return
+            }
+            for domainData in domainsData {
+                var keyValue: String?
+                if let intValue = domainData.value as? Int {
+                    keyValue = String(intValue)
+                } else if let stringValue = domainData.value as? String {
+                    keyValue = stringValue
+                }
+                guard let key = keyValue, let category = categories[key], let list = BlocklistName(rawValue: category) else {
+                    continue
+                }
+                self.blockRules[domainData.key] = list
+            }
+        } catch {
+            assertionFailure("Blocklists: \(error.localizedDescription)")
+            return
         }
     }
 
     func urlIsInList(_ url: URL, whitelistedDomains: [String]) -> BlocklistName? {
-        let resourceString = url.absoluteString
-
-        guard let baseDomain = url.baseDomain, let rules = blockRules[baseDomain] else {
+        guard let baseDomain = url.baseDomain else {
             return nil
         }
-
-        domainSearch: for rule in rules {
-            // First, test the top-level filters to see if this URL might be blocked.
-            if resourceString.range(of: rule.regex, options: .regularExpression) != nil {
-                // Check the domain exceptions. If a domain exception matches, this filter does not apply.
-                for domainRegex in (rule.domainExceptions ?? []) {
-                    if resourceString.range(of: domainRegex, options: .regularExpression) != nil {
-                        continue domainSearch
-                    }
+        guard let list = self.blockRules[baseDomain] else {
+            return nil
+        }
+        // Check the whitelist.
+        if !whitelistedDomains.isEmpty {
+            for ignoreDomain in whitelistedDomains {
+                if baseDomain.range(of: ignoreDomain, options: .regularExpression) != nil {
+                    return nil
                 }
-
-                // Check the whitelist.
-                if let baseDomain = url.baseDomain, !whitelistedDomains.isEmpty {
-                    for ignoreDomain in whitelistedDomains {
-                        if baseDomain.range(of: ignoreDomain, options: .regularExpression) != nil {
-                            return nil
-                        }
-                    }
-                }
-
-                return rule.list
             }
         }
-
-        return nil
+        return list
     }
+
 }

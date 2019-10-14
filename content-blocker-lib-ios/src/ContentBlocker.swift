@@ -6,12 +6,35 @@ import WebKit
 import Shared
 
 enum BlocklistName: String {
-    case advertising = "disconnect-advertising"
-    case analytics = "disconnect-analytics"
-    case content = "disconnect-content"
-    case social = "disconnect-social"
+    case advertising = "advertising"
+    case analytics = "site_analytics"
+    case content = "content"
+    case social = "social_media"
+    case essential = "essential"
+    case misc = "misc"
+    case hosting = "hosting"
+    case pornvertising = "pornvertising"
+    case audioVideoPlayer = "audio_video_player"
+    case extensions = "extensions"
+    case customerInteraction = "customer_interaction"
+    case comments = "comments"
+    case cdn = "cdn"
+    case unknown = "unknown"
 
-    var filename: String { return self.rawValue }
+    var filename: String {
+        switch self {
+        case .advertising:
+            return "disconnect-advertising"
+        case .analytics:
+            return "disconnect-analytics"
+        case .content:
+            return "disconnect-content"
+        case .social:
+            return "disconnect-social"
+        default:
+            return self.rawValue
+        }
+    }
 
     static var all: [BlocklistName] { return [.advertising, .analytics, .content, .social] }
     static var basic: [BlocklistName] { return [.advertising, .analytics, .social] }
@@ -20,6 +43,7 @@ enum BlocklistName: String {
     static func forStrictMode(isOn: Bool) -> [BlocklistName] {
         return BlocklistName.basic + (isOn ? BlocklistName.strict : [])
     }
+
 }
 
 enum BlockerStatus: String {
