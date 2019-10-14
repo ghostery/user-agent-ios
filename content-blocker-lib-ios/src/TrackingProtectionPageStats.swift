@@ -3,6 +3,23 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 import Shared
 
+enum WTMCategory: String {
+    case advertising = "advertising"
+    case analytics = "site_analytics"
+    case content = "content"
+    case social = "social_media"
+    case essential = "essential"
+    case misc = "misc"
+    case hosting = "hosting"
+    case pornvertising = "pornvertising"
+    case audioVideoPlayer = "audio_video_player"
+    case extensions = "extensions"
+    case customerInteraction = "customer_interaction"
+    case comments = "comments"
+    case cdn = "cdn"
+    case unknown = "unknown"
+}
+
 struct TPPageStats {
     private (set) var adCount: Int = 0
     private (set) var analyticCount: Int = 0
@@ -23,8 +40,8 @@ struct TPPageStats {
         return self.adCount + self.socialCount + self.analyticCount + self.contentCount + self.essentialCount + self.miscCount + self.hostingCount + self.pornvertisingCount + self.audioVideoPlayerCount + self.extensionsCount + self.customerInteractionCount + self.commentsCount + self.cdnCount + self.unknownCount
     }
 
-    mutating func update(byAddingListItem listItem: BlocklistName) {
-        switch listItem {
+    mutating func update(byAddingCategory category: WTMCategory) {
+        switch category {
         case .advertising:
             self.adCount += 1
         case .analytics:
@@ -63,8 +80,8 @@ class TPStatsBlocklistChecker {
     // Initialized async, is non-nil when ready to be used.
     private var blockLists: TPStatsBlocklists?
 
-    func isBlocked(url: URL, enabledBlocklists: [BlocklistName]) -> Deferred<BlocklistName?> {
-        let deferred = Deferred<BlocklistName?>()
+    func isBlocked(url: URL) -> Deferred<WTMCategory?> {
+        let deferred = Deferred<WTMCategory?>()
 
         guard let blockLists = blockLists, let host = url.host, !host.isEmpty else {
             // TP Stats init isn't complete yet
@@ -76,8 +93,7 @@ class TPStatsBlocklistChecker {
         let whitelistRegex = ContentBlocker.shared.whitelistedDomains.domainRegex
 
         DispatchQueue.global().async {
-            // Return true in the Defered if the blocked url is in a list that is enabled.
-            deferred.fill(blockLists.urlIsInList(url, whitelistedDomains: whitelistRegex).flatMap { return enabledBlocklists.contains($0) ? $0 : nil })
+            deferred.fill(blockLists.urlIsInCategory(url, whitelistedDomains: whitelistRegex).flatMap { $0 })
         }
         return deferred
     }
@@ -114,7 +130,7 @@ func wildcardContentBlockerDomainToRegex(domain: String) -> String? {
 
 class TPStatsBlocklists {
 
-    private var blockRules = [String: BlocklistName]()
+    private var domainCategoryMap = [String: WTMCategory]()
 
     func load() {
         do {
@@ -140,21 +156,19 @@ class TPStatsBlocklists {
                     }
                 }
             }
-            guard let domainsData = data["domains"] as? [String: AnyObject] else {
+            guard let domains = data["domains"] as? [String: AnyObject] else {
                 assertionFailure("Blocklists: bad JSON cast.")
                 return
             }
-            for domainData in domainsData {
-                var keyValue: String?
-                if let intValue = domainData.value as? Int {
-                    keyValue = String(intValue)
-                } else if let stringValue = domainData.value as? String {
-                    keyValue = stringValue
-                }
-                guard let key = keyValue, let category = categories[key], let list = BlocklistName(rawValue: category) else {
+            for domain in domains {
+                let id = String(describing: domain.value)
+                guard
+                    let category = categories[id],
+                    let wtmCategory = WTMCategory(rawValue: category)
+                else {
                     continue
                 }
-                self.blockRules[domainData.key] = list
+                self.domainCategoryMap[domain.key] = wtmCategory
             }
         } catch {
             assertionFailure("Blocklists: \(error.localizedDescription)")
@@ -162,11 +176,11 @@ class TPStatsBlocklists {
         }
     }
 
-    func urlIsInList(_ url: URL, whitelistedDomains: [String]) -> BlocklistName? {
+    func urlIsInCategory(_ url: URL, whitelistedDomains: [String]) -> WTMCategory? {
         guard let baseDomain = url.baseDomain else {
             return nil
         }
-        guard let list = self.blockRules[baseDomain] else {
+        guard let category = self.domainCategoryMap[baseDomain] else {
             return nil
         }
         // Check the whitelist.
@@ -177,7 +191,7 @@ class TPStatsBlocklists {
                 }
             }
         }
-        return list
+        return category
     }
 
 }
