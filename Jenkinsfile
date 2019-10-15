@@ -1,10 +1,22 @@
 #!/bin/env groovy
 
+def apps = [
+    'Cliqz': [
+        'name': 'Cliqz'
+    ],
+    'CliqzNightly': [
+        'name': 'CliqzNightly'
+    ],
+]
 
 def triggers = []
+def app
 
 if("$BRANCH_NAME" == 'develop') {
     triggers << cron('H H(19-22) * * *')
+    app = apps['CliqzNightly']
+} else {
+    app = apps['Cliqz']
 }
 
 @Library('cliqz-shared-library@vagrant') _
@@ -89,7 +101,6 @@ node('gideon') {
 
                             pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
                             sudo xcodebuild -license accept
-                            
                             sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 
                             sudo gem install which bundler || gem install bundler
@@ -118,7 +129,7 @@ node('gideon') {
                 ]) {
                     timeout(20) {
                         ansiColor('xterm') {
-                            sh '''#!/bin/bash -l
+                            sh """#!/bin/bash -l
                                 set -x
                                 set -e
 
@@ -130,8 +141,8 @@ node('gideon') {
 
                                 export MATCH_KEYCHAIN_NAME=ios-build.keychain
 
-                                bundle exec fastlane CliqzNightly
-                            '''
+                                bundle exec fastlane Build --app ${app.name}
+                            """
                         }
                     }
                 }
@@ -163,7 +174,7 @@ ${newChangelog}"""
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
 
-                                bundle exec fastlane upload
+                                bundle exec fastlane Upload --app ${app.name}
                             """
                         }
                     }
