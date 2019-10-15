@@ -504,6 +504,7 @@
 		C50ED2E723290BBA00EE71B8 /* MMScreenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2D92328F99C00EE71B8 /* MMScreenGraph.swift */; };
 		C50ED2EE232914B100EE71B8 /* GraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2EC232914B100EE71B8 /* GraphNode.swift */; };
 		C50ED2EF232914B100EE71B8 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2ED232914B100EE71B8 /* SortedArray.swift */; };
+		C52F2D52235610C800146300 /* Tab+ChangeUserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */; };
 		C56ED497233B692B006A63B1 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ED496233B692B006A63B1 /* Interceptor.swift */; };
 		C56ED498233B692B006A63B1 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ED496233B692B006A63B1 /* Interceptor.swift */; };
 		C56ED49E233B712F006A63B1 /* InterceptorFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ED49D233B712F006A63B1 /* InterceptorFeature.swift */; };
@@ -4252,6 +4253,7 @@
 				ACB7375323042BAB00FA5626 /* SyncContentSettingsViewController.swift in Sources */,
 				ACB7375623042BAB00FA5626 /* TopTabsViews.swift in Sources */,
 				ACB7375923042BAB00FA5626 /* FocusHelper.swift in Sources */,
+				C52F2D52235610C800146300 /* Tab+ChangeUserAgent.swift in Sources */,
 				ACB7375A23042BAB00FA5626 /* TabLocationView.swift in Sources */,
 				ACB7375B23042BAB00FA5626 /* SnackBar.swift in Sources */,
 				ACB7375C23042BAB00FA5626 /* SessionRestoreHandler.swift in Sources */,

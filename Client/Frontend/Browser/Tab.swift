@@ -456,7 +456,7 @@ class Tab: NSObject {
     }
 
     func toggleChangeUserAgent() {
-        changedUserAgent = !changedUserAgent
+        changedUserAgent.toggle()
         reload()
         TabEvent.post(.didToggleDesktopMode, for: self)
     }
