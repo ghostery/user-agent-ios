@@ -139,12 +139,13 @@ node('gideon') {
                                 # For Cocoapods and Fastlane
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
+                                export FASTLANE_HIDE_CHANGELOG=true
 
                                 rm -rf /Users/vagrant/Library/Keychains/ios-build.keychain*
 
                                 export MATCH_KEYCHAIN_NAME=ios-build.keychain
 
-                                bundle exec fastlane Build --app ${app.name}
+                                bundle exec fastlane Build app:${app.name}
                             """
                         }
                     }
@@ -176,8 +177,9 @@ ${newChangelog}"""
                                 # For Cocoapods and Fastlane
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
+                                export FASTLANE_HIDE_CHANGELOG=true
 
-                                bundle exec fastlane Upload --app ${app.name}
+                                bundle exec fastlane Upload app:${app.name}
                             """
                         }
                     }

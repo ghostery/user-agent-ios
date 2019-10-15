@@ -1,6 +1,6 @@
 default_platform(:ios)
 
-apps = {
+APPS = {
   "Cliqz" => {
     target: "Cliqz",
     scheme: "Cliqz Nightly",
@@ -39,6 +39,12 @@ apps = {
   }
 }
 
+def get_app(options)
+  app = APPS[options[:app]]
+  raise 'No such app' if app.nil?
+  OpenStruct.new(app)
+end
+
 platform :ios do
   lane :lint do
     swiftlint(
@@ -48,7 +54,7 @@ platform :ios do
   end
 
   lane :Build do |options|
-    app = apps[options["app"]]
+    app = get_app(options)
 
     create_keychain(
       path: "/Users/vagrant/Library/Keychains/"+ENV["MATCH_KEYCHAIN_NAME"],
@@ -149,15 +155,15 @@ platform :ios do
       export_options: {
         # method: "app-store",
         provisioningProfiles: {
-          app.app_identifier => provisioning_profile_name,
-          app.share_to_identifier => share_to_provisioning_profile_name,
+          app.app_identifier => app.provisioning_profile_name,
+          app.share_to_identifier => app.share_to_provisioning_profile_name,
         }
       }
     )
   end
 
   lane :Upload do |options|
-    app = apps[options["app"]]
+    app = get_app(options)
 
     changelog = read_changelog
 
