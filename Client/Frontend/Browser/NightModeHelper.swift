@@ -46,9 +46,6 @@ class NightModeHelper: TabContentScript {
 
     static func setNightMode(_ prefs: Prefs, tabManager: TabManager, enabled: Bool) {
         prefs.setBool(enabled, forKey: NightModePrefsKey.NightModeStatus)
-        for tab in tabManager.tabs {
-            tab.nightMode = enabled
-        }
     }
 
     static func setEnabledDarkTheme(_ prefs: Prefs, darkTheme enabled: Bool) {
