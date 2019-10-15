@@ -19,9 +19,8 @@ class BackForwardTableViewCell: UITableViewCell {
         static let textColor = UIColor.Grey80
     }
 
-    lazy var faviconView: UIView = {
-        let faviconView = UIView()
-        return faviconView
+    lazy var logoView: LogoView = {
+        LogoView()
     }()
 
     lazy var label: UILabel = {
@@ -51,11 +50,7 @@ class BackForwardTableViewCell: UITableViewCell {
                     url = Strings.BrandWebsite
                 }
 
-                let logo = LogoView(
-                    frame: CGRect(x: 0, y: 0, width: BackForwardViewCellUX.faviconWidth, height: BackForwardViewCellUX.faviconWidth),
-                    url: url
-                )
-                faviconView.addSubview(logo)
+                self.logoView.url = url
 
                 var title = s.title
                 if title.isEmpty {
@@ -72,10 +67,10 @@ class BackForwardTableViewCell: UITableViewCell {
         backgroundColor = UIColor.clear
         selectionStyle = .none
 
-        contentView.addSubview(faviconView)
+        contentView.addSubview(self.logoView)
         contentView.addSubview(label)
 
-        faviconView.snp.makeConstraints { make in
+        self.logoView.snp.makeConstraints { make in
             make.height.equalTo(BackForwardViewCellUX.faviconWidth)
             make.width.equalTo(BackForwardViewCellUX.faviconWidth)
             make.centerY.equalTo(self)
@@ -84,7 +79,7 @@ class BackForwardTableViewCell: UITableViewCell {
 
         label.snp.makeConstraints { make in
             make.centerY.equalTo(self)
-            make.leading.equalTo(faviconView.snp.trailing).offset(BackForwardViewCellUX.labelPadding)
+            make.leading.equalTo(self.logoView.snp.trailing).offset(BackForwardViewCellUX.labelPadding)
             make.trailing.equalTo(self.snp.trailing).offset(-BackForwardViewCellUX.labelPadding)
         }
 
