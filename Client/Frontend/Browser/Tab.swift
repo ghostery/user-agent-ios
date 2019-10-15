@@ -125,18 +125,6 @@ class Tab: NSObject {
         return url.absoluteString.lengthOfBytes(using: .utf8) > AppConstants.DB_URL_LENGTH_MAX
     }
 
-    var nightMode: Bool {
-        didSet {
-            guard nightMode != oldValue else {
-                return
-            }
-
-            webView?.evaluateJavaScript("window.__firefox__.NightMode.setEnabled(\(nightMode))")
-
-            UserScriptManager.shared.injectUserScriptsIntoTab(self, nightMode: nightMode)
-        }
-    }
-
     var contentBlocker: FirefoxTabContentBlocker?
 
     /// The last title shown by this tab. Used by the tab tray to show titles for zombie tabs.
@@ -169,7 +157,6 @@ class Tab: NSObject {
 
     init(configuration: WKWebViewConfiguration, isPrivate: Bool = false) {
         self.configuration = configuration
-        self.nightMode = false
         super.init()
         self.isPrivate = isPrivate
 
@@ -207,7 +194,7 @@ class Tab: NSObject {
 
             self.webView = webView
             self.webView?.addObserver(self, forKeyPath: KVOConstants.URL.rawValue, options: .new, context: nil)
-            UserScriptManager.shared.injectUserScriptsIntoTab(self, nightMode: nightMode)
+            UserScriptManager.shared.injectUserScriptsIntoTab(self)
             tabDelegate?.tab?(self, didCreateWebView: webView)
         }
     }
