@@ -90,15 +90,12 @@ class CustomSearchViewController: SettingsTableViewController {
             return deferred
         }
 
-        FaviconFetcher.fetchFavImageForURL(forURL: url, profile: profile).uponQueue(.main) { result in
-            let image = result.successValue ?? FaviconFetcher.getDefaultFavicon(url)
-            let engine = OpenSearchEngine(engineID: nil, shortName: name, image: image, searchTemplate: template, suggestTemplate: nil, isCustomEngine: true)
+        let engine = OpenSearchEngine(engineID: nil, shortName: name, searchTemplate: template, suggestTemplate: nil, isCustomEngine: true)
 
-            //Make sure a valid scheme is used
-            let url = engine.searchURLForQuery("test")
-            let maybe = (url == nil) ? Maybe(failure: CustomSearchError(.FormInput)) : Maybe(success: engine)
-            deferred.fill(maybe)
-        }
+        //Make sure a valid scheme is used
+        let testUrl = engine.searchURLForQuery("test")
+        let maybe = (testUrl == nil) ? Maybe(failure: CustomSearchError(.FormInput)) : Maybe(success: engine)
+        deferred.fill(maybe)
         return deferred
     }
 

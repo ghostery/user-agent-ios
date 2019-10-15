@@ -15,7 +15,7 @@ import React
 class LogoView: UIView {
     public var url: String? {
         willSet(newUrl) {
-            guard newUrl != url else {
+            guard newUrl != self.url else {
                 return
             }
             self.cleanReactView()
