@@ -82,8 +82,12 @@ platform :ios do
     previous_version = 0
 
     begin
-      previous_version = latest_testflight_build_number(version: version)
-    rescue
+      previous_version = latest_testflight_build_number(
+        version: version,
+        app_identifier: app.app_identifier,
+      )
+    rescue StandardError => e
+      puts "Something when wrong: #{e.inspect}"
       # latest_testflight_build_number fails if there is not build in TestFligh yet
     end
 
