@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import UIKit
+import Shared
 
 class PrivateModeButton: ToggleButton, PrivateModeUI {
     var offTint = UIColor.black
@@ -10,8 +11,8 @@ class PrivateModeButton: ToggleButton, PrivateModeUI {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        accessibilityLabel = PrivateModeStrings.toggleAccessibilityLabel
-        accessibilityHint = PrivateModeStrings.toggleAccessibilityHint
+        accessibilityLabel = Strings.PrivateBrowsingToggleAccessibilityLabel
+        accessibilityHint = Strings.PrivateBrowsingToggleAccessibilityHint
         let maskImage = UIImage(named: "smallPrivateMask")?.withRenderingMode(.alwaysTemplate)
         setImage(maskImage, for: [])
     }
@@ -26,7 +27,7 @@ class PrivateModeButton: ToggleButton, PrivateModeUI {
         tintColor = isPrivate ? onTint : offTint
         imageView?.tintColor = tintColor
 
-        accessibilityValue = isSelected ? PrivateModeStrings.toggleAccessibilityValueOn : PrivateModeStrings.toggleAccessibilityValueOff
+        accessibilityValue = isSelected ? Strings.PrivateBrowsingToggleAccessibilityValueOn : Strings.PrivateBrowsingToggleAccessibilityValueOff
     }
 }
 

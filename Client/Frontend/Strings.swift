@@ -160,8 +160,6 @@ extension Strings {
     public static let RecentlyClosedTabsPanelTitle = NSLocalizedString("RecentlyClosedTabsPanel.Title", comment: "Title for the Recently Closed Tabs Panel")
     public static let HistoryPanelClearHistoryButtonTitle = NSLocalizedString("HistoryPanel.ClearHistoryButtonTitle", comment: "Title for button in the history panel to clear recent history")
     public static let FirefoxHomePage = String(format: NSLocalizedString("UserAgent.HomePage.Title", comment: "Title for firefox about:home page in tab history list"), AppInfo.displayName)
-    public static let EmptyPrivateTabsDescription = String(format: NSLocalizedString("Empty.Private.Tab.Description", comment: "Empty tab title"), AppInfo.displayName)
-
 }
 
 // Clear recent history action menu
@@ -411,7 +409,6 @@ extension Strings {
 // Page context menu items (i.e. links and images).
 extension Strings {
     public static let ContextMenuOpenInNewTab = NSLocalizedString("ContextMenu.OpenInNewTabButtonTitle", comment: "Context menu item for opening a link in a new tab")
-    public static let ContextMenuOpenInNewPrivateTab = NSLocalizedString("ContextMenu.OpenInNewPrivateTabButtonTitle", tableName: "PrivateBrowsing", comment: "Context menu option for opening a link in a new private tab")
     public static let ContextMenuBookmarkLink = NSLocalizedString("ContextMenu.BookmarkLinkButtonTitle", comment: "Context menu item for bookmarking a link URL")
     public static let ContextMenuDownloadLink = NSLocalizedString("ContextMenu.DownloadLinkButtonTitle", comment: "Context menu item for downloading a link URL")
     public static let ContextMenuCopyLink = NSLocalizedString("ContextMenu.CopyLinkButtonTitle", comment: "Context menu item for copying a link URL to the clipboard")
@@ -621,9 +618,4 @@ extension Strings {
     public static let InterceptorUIAntiPhishingMessage = String(format: NSLocalizedString("Interceptor.AntiPhishing.UI.Message", tableName: "UserAgent", comment: "Antiphishing alert message"), AppInfo.displayName, "%@")
     public static let InterceptorUIAntiPhishingBack = NSLocalizedString("Interceptor.AntiPhishing.UI.BackButtonLabel", tableName: "UserAgent", comment: "Back to safe site buttun title in antiphishing alert title")
     public static let InterceptorUIAntiPhishingContinue = NSLocalizedString("Interceptor.AntiPhishing.UI.ContinueButtonLabel", tableName: "UserAgent", comment: "Continue despite warning buttun title in antiphishing alert title")
-}
-
-// Brand
-extension Strings {
-    public static let BrandWebsite = NSLocalizedString("website", tableName: "brand", comment: "brand website url")
 }

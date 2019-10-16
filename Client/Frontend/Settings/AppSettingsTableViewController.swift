@@ -55,11 +55,12 @@ class AppSettingsTableViewController: SettingsTableViewController {
         privacySettings.append(ClearPrivateDataSetting(settings: self))
 
         privacySettings += [
-            BoolSetting(prefs: prefs,
+            BoolSetting(
+                prefs: prefs,
                 prefKey: "settings.closePrivateTabs",
                 defaultValue: false,
-                titleText: NSLocalizedString("Close Private Tabs", tableName: "PrivateBrowsing", comment: "Setting for closing private tabs"),
-                statusText: NSLocalizedString("When Leaving Private Browsing", tableName: "PrivateBrowsing", comment: "Will be displayed in Settings under 'Close Private Tabs'")),
+                titleText: Strings.ClosePrivateTabsLabel,
+                statusText: Strings.ClosePrivateTabsDescription),
         ]
 
         privacySettings.append(ContentBlockerSetting(settings: self))
