@@ -1146,9 +1146,6 @@
 /* The label indicating that all the tabs were closed */
 "Tabs.DeleteAllUndo.Title" = "%d Tab(s) geschlossen";
 
-/* The placeholder text for the tab search bar */
-"Tabs.Search.PlaceholderText" = "Tabs durchsuchen";
-
 /* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
 "The page could not be displayed in Reader View." = "Die Seite konnte nicht in der Leseansicht dargestellt werden.";
 
