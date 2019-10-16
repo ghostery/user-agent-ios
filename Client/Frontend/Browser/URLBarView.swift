@@ -308,6 +308,18 @@ class URLBarView: UIView {
 
     override func updateConstraints() {
         super.updateConstraints()
+        self.locationContainer.snp.remakeConstraints { make in
+            if self.toolbarIsShowing {
+                make.leading.equalTo(self.stopReloadButton.snp.trailing).offset(URLBarViewUX.Padding)
+                make.trailing.equalTo(self.tabsButton.snp.leading).offset(-URLBarViewUX.Padding)
+            } else {
+                // Otherwise, left align the location view
+                make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0,
+                                                                       right: URLBarViewUX.LocationLeftPadding-1))
+            }
+
+            make.centerY.equalTo(self)
+        }
         if inOverlayMode {
             self.cancelButton.snp.remakeConstraints { make in
                 make.height.equalTo(locationContainer.snp.height)
@@ -323,24 +335,10 @@ class URLBarView: UIView {
                 make.bottom.equalTo(self.locationView.snp.bottom)
             }
         } else {
-            self.locationContainer.snp.remakeConstraints { make in
-                if self.toolbarIsShowing {
-                    make.leading.equalTo(self.stopReloadButton.snp.trailing).offset(URLBarViewUX.Padding)
-                    make.trailing.equalTo(self.tabsButton.snp.leading).offset(-URLBarViewUX.Padding)
-                } else {
-                    // Otherwise, left align the location view
-                    make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0,
-                                                                           right: URLBarViewUX.LocationLeftPadding-1))
-                }
-
-                make.centerY.equalTo(self)
-            }
-
             self.locationView.snp.remakeConstraints { make in
                 make.edges.equalTo(self.locationContainer).inset(UIEdgeInsets(equalInset: URLBarViewUX.TextFieldBorderWidth))
             }
         }
-
         updateShadow()
     }
 
