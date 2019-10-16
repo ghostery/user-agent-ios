@@ -7,9 +7,6 @@
 /* Description text displayed when there are no open tabs while in private mode */
 "Empty.Private.Tab.Description" = "%@ wird weder Chronik noch Cookies speichern. Neue Lesezeichen können jedoch gespeichert werden.";
 
-/* Text button displayed when there are no tabs open while in private mode */
-"Learn More" = "Mehr erfahren";
-
 /* Toggled OFF accessibility value */
 "Off" = "Aus";
 

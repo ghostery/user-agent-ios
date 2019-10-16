@@ -165,6 +165,8 @@
 		46A4C4D7234775A800F4BCE0 /* AutoCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */; };
 		46B68D30231420DD0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
 		46B68D31231420DE0091156C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */; };
+		46BBFA6023575AEC00283594 /* Strings+PrivateBrowsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */; };
+		46BBFA6223575B0000283594 /* Strings+Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BBFA6123575B0000283594 /* Strings+Brand.swift */; };
 		46BE36A22344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BE36A12344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift */; };
 		46BE36A32344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BE36A12344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift */; };
 		46BE36A62344D34800DADCB6 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BE36A52344D34800DADCB6 /* SuggestionsView.swift */; };
@@ -1116,6 +1118,8 @@
 		46947785232A983500129B51 /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
 		46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompletion.swift; sourceTree = "<group>"; };
 		46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCompletion.m; sourceTree = "<group>"; };
+		46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+PrivateBrowsing.swift"; sourceTree = "<group>"; };
+		46BBFA6123575B0000283594 /* Strings+Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Brand.swift"; sourceTree = "<group>"; };
 		46BE36A12344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySuggestionsInputAccessoryView.swift; sourceTree = "<group>"; };
 		46BE36A52344D34800DADCB6 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -2486,6 +2490,8 @@
 			isa = PBXGroup;
 			children = (
 				D35210E01CB2F16600FC5DCB /* Strings.swift */,
+				46BBFA6123575B0000283594 /* Strings+Brand.swift */,
+				46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */,
 				E650756F1E37F7AB006961AC /* Extensions */,
 				E4E0BB161AFBC9E4008D6260 /* Supporting Files */,
 				E65075621E37F7AB006961AC /* Accessibility.swift */,
@@ -3999,6 +4005,7 @@
 				E65075981E37F7AB006961AC /* Bytes.swift in Sources */,
 				E65075B11E37F7AB006961AC /* FSUtils.m in Sources */,
 				D3A14C221CB3145E00253BC6 /* Strings.swift in Sources */,
+				46BBFA6023575AEC00283594 /* Strings+PrivateBrowsing.swift in Sources */,
 				7B10AA9F1E3A15020002DD08 /* DataExtensions.swift in Sources */,
 				7B3D9E651E4CBFDB007A50DA /* NSCoderExtensions.swift in Sources */,
 				E65075931E37F7AB006961AC /* AppConstants.swift in Sources */,
@@ -4031,6 +4038,7 @@
 				C8DFFE492294AAB600296DB1 /* NetworkUtils.swift in Sources */,
 				E65075A41E37F7AB006961AC /* NSCharacterSetExtensions.swift in Sources */,
 				EB912B9A22722B5F00DF585A /* Deferred.swift in Sources */,
+				46BBFA6223575B0000283594 /* Strings+Brand.swift in Sources */,
 				E65075B71E37F7AB006961AC /* Logger.swift in Sources */,
 				E65075961E37F7AB006961AC /* AsyncReducer.swift in Sources */,
 				7B9BF91C1E43472E00CB24F4 /* JSONExtensions.swift in Sources */,

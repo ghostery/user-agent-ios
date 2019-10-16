@@ -22,13 +22,6 @@ struct TabTrayControllerUX {
     static let MenuFixedWidth: CGFloat = 320
 }
 
-struct PrivateModeStrings {
-    static let toggleAccessibilityLabel = NSLocalizedString("Private Mode", tableName: "PrivateBrowsing", comment: "Accessibility label for toggling on/off private mode")
-    static let toggleAccessibilityHint = NSLocalizedString("Turns private mode on or off", tableName: "PrivateBrowsing", comment: "Accessiblity hint for toggling on/off private mode")
-    static let toggleAccessibilityValueOn = NSLocalizedString("On", tableName: "PrivateBrowsing", comment: "Toggled ON accessibility value")
-    static let toggleAccessibilityValueOff = NSLocalizedString("Off", tableName: "PrivateBrowsing", comment: "Toggled OFF accessibility value")
-}
-
 protocol TabTrayDelegate: AnyObject {
     func tabTrayDidDismiss(_ tabTray: TabTrayController)
     func tabTrayDidAddTab(_ tabTray: TabTrayController, tab: Tab)
@@ -57,7 +50,6 @@ class TabTrayController: UIViewController {
 
     fileprivate lazy var emptyPrivateTabsView: EmptyPrivateTabsView = {
         let emptyView = EmptyPrivateTabsView()
-        emptyView.learnMoreButton.addTarget(self, action: #selector(didTapLearnMore), for: .touchUpInside)
         return emptyView
     }()
 
@@ -319,15 +311,6 @@ extension TabTrayController: TabDisplayer {
 }
 
 extension TabTrayController {
-
-    @objc func didTapLearnMore() {
-        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-        if let langID = Locale.preferredLanguages.first {
-            let learnMoreRequest = URLRequest(url: "https://support.mozilla.org/1/mobile/\(appVersion ?? "0.0")/iOS/\(langID)/private-browsing-ios".asURL!)
-            openNewTab(learnMoreRequest)
-        }
-    }
-
     func closeTabsForCurrentTray() {
         tabDisplayManager.hideDisplayedTabs() {
             self.tabManager.removeTabsWithUndoToast(self.tabDisplayManager.dataStore.compactMap { $0 })
@@ -665,16 +648,6 @@ private class EmptyPrivateTabsView: UIView {
         return label
     }()
 
-    fileprivate var learnMoreButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(
-            NSLocalizedString("Learn More", tableName: "PrivateBrowsing", comment: "Text button displayed when there are no tabs open while in private mode"),
-            for: [])
-        button.setTitleColor(UIColor.theme.tabTray.privateModeLearnMore, for: [])
-        button.titleLabel?.font = EmptyPrivateTabsViewUX.LearnMoreFont
-        return button
-    }()
-
     fileprivate var iconImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage.templateImageNamed("largePrivateMask"))
         imageView.tintColor = UIColor.Grey60
@@ -684,15 +657,12 @@ private class EmptyPrivateTabsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        titleLabel.text =  NSLocalizedString("Private Browsing",
-            tableName: "PrivateBrowsing", comment: "Title displayed for when there are no open tabs while in private mode")
-        descriptionLabel.text = NSLocalizedString(Strings.EmptyPrivateTabsDescription,
-            tableName: "PrivateBrowsing", comment: "Description text displayed when there are no open tabs while in private mode")
+        titleLabel.text = Strings.PrivateBrowsingEmptyPrivateTabsTitle
+        descriptionLabel.text = Strings.PrivateBrowsingEmptyPrivateTabsDescription
 
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         addSubview(iconImageView)
-        addSubview(learnMoreButton)
 
         titleLabel.snp.makeConstraints { make in
             make.center.equalTo(self)
@@ -706,12 +676,6 @@ private class EmptyPrivateTabsView: UIView {
 
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(EmptyPrivateTabsViewUX.TextMargin)
-            make.centerX.equalTo(self)
-        }
-
-        learnMoreButton.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(EmptyPrivateTabsViewUX.LearnMoreMargin).priority(10)
-            make.bottom.lessThanOrEqualTo(self).offset(-EmptyPrivateTabsViewUX.MinBottomMargin).priority(1000)
             make.centerX.equalTo(self)
         }
     }
