@@ -752,13 +752,14 @@ class BrowserViewController: UIViewController {
         addChild(searchController)
         view.addSubview(searchController.view)
         searchController.view.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(urlBar.snp.bottom)
+            make.left.bottom.right.equalTo(self.view)
         }
 
         searchController.searchView.snp.makeConstraints { make in
             make.top.equalTo(urlBar.snp.bottom).offset(-8)
-            make.left.equalTo(searchController.view.snp.left).offset(8)
-            make.right.equalTo(searchController.view.snp.right).offset(-8)
+            make.left.equalTo(urlBar.locationContainer.snp.left)
+            make.right.equalTo(urlBar.locationContainer.snp.right)
             make.bottom.equalToSuperview()
         }
 
