@@ -6,10 +6,6 @@ import UIKit
 import SDWebImage
 import Shared
 
-protocol SearchEnginePickerDelegate: AnyObject {
-    func searchEnginePicker(_ searchEnginePicker: SearchEnginePicker?, didSelectSearchEngine engine: OpenSearchEngine?)
-}
-
 class SearchSettingsTableViewController: ThemedTableViewController {
     fileprivate let ItemAddCustomSearch = 2
     fileprivate let NumberOfItemsInSectionDefault = 2
@@ -67,40 +63,52 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ThemedTableViewCell()
-        var engine: OpenSearchEngine!
-
         // The default engine is not a quick search engine.
         let index = indexPath.item + 1
         if index < model.orderedEngines.count {
-            engine = model.orderedEngines[index]
-            cell.showsReorderControl = true
-
-            let toggle = UISwitchThemed()
-            toggle.onTintColor = UIColor.theme.tableView.controlTint
-            // This is an easy way to get from the toggle control to the corresponding index.
-            toggle.tag = index
-            toggle.addTarget(self, action: #selector(didToggleEngine), for: .valueChanged)
-            toggle.isOn = model.isEngineEnabled(engine)
-
-            cell.editingAccessoryView = toggle
-            cell.textLabel?.text = engine.shortName
-            cell.textLabel?.adjustsFontSizeToFitWidth = true
-            cell.textLabel?.minimumScaleFactor = 0.5
-            cell.imageView?.image = engine.image.createScaled(IconSize)
-            cell.imageView?.layer.cornerRadius = 4
-            cell.imageView?.layer.masksToBounds = true
-            cell.selectionStyle = .none
+            let engine = model.orderedEngines[index]
+            return self.searchEngineCell(tableView: tableView, engine: engine, index: index)
         } else {
-            cell.editingAccessoryType = .disclosureIndicator
-            cell.accessibilityLabel = Strings.SettingsAddCustomEngineTitle
-            cell.accessibilityIdentifier = "customEngineViewButton"
-            cell.textLabel?.text = Strings.SettingsAddCustomEngine
+            return self.addSearchEngineCell(tableView: tableView)
+        }
+    }
+
+    private func searchEngineCell(tableView: UITableView, engine: OpenSearchEngine, index: Int) -> UITableViewCell {
+        let identifier = "SearchSettingsTableViewCell"
+        var cell: SearchSettingsTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "SearchSettingsTableViewCell?") as? SearchSettingsTableViewCell
+        if cell == nil {
+            cell = SearchSettingsTableViewCell(style: .default, reuseIdentifier: identifier)
         }
 
-        // So that the seperator line goes all the way to the left edge.
-        cell.separatorInset = .zero
+        cell.showsReorderControl = true
+        let toggle = UISwitchThemed()
+        toggle.onTintColor = UIColor.theme.tableView.controlTint
+        toggle.tag = index
+        toggle.addTarget(self, action: #selector(didToggleEngine), for: .valueChanged)
+        toggle.isOn = model.isEngineEnabled(engine)
+        cell.editingAccessoryView = toggle
 
+        cell.label.text = engine.shortName
+        if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
+            cell.updateLogo(url: url.absoluteString)
+        }
+        cell.selectionStyle = .none
+        cell.separatorInset = .zero
+        return cell
+    }
+
+    private func addSearchEngineCell(tableView: UITableView) -> UITableViewCell {
+        let identifier = "ThemedTableViewCell"
+        var cell: ThemedTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "ThemedTableViewCell?") as? ThemedTableViewCell
+        if cell == nil {
+            cell = ThemedTableViewCell(style: .default, reuseIdentifier: identifier)
+        }
+
+        cell.editingAccessoryType = .disclosureIndicator
+        cell.accessibilityLabel = Strings.SettingsAddCustomEngineTitle
+        cell.accessibilityIdentifier = "customEngineViewButton"
+        cell.textLabel?.text = Strings.SettingsAddCustomEngine
+        cell.separatorInset = .zero
         return cell
     }
 
@@ -267,15 +275,5 @@ extension SearchSettingsTableViewController {
 
     @objc func finishEditing() {
         setEditing(false, animated: false)
-    }
-}
-
-extension SearchSettingsTableViewController: SearchEnginePickerDelegate {
-    func searchEnginePicker(_ searchEnginePicker: SearchEnginePicker?, didSelectSearchEngine searchEngine: OpenSearchEngine?) {
-        if let engine = searchEngine {
-            model.defaultEngine = engine
-            self.tableView.reloadData()
-        }
-        _ = navigationController?.popViewController(animated: true)
     }
 }

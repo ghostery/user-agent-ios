@@ -383,10 +383,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         SDWebImageDownloader.shared.setValue(firefoxUA, forHTTPHeaderField: "User-Agent")
         //SDWebImage is setting accept headers that report we support webp. We don't
         SDWebImageDownloader.shared.setValue("image/*;q=0.8", forHTTPHeaderField: "Accept")
-
-        // Some sites will only serve HTML that points to .ico files.
-        // The FaviconFetcher is explicitly for getting high-res icons, so use the desktop user agent.
-        FaviconFetcher.userAgent = UserAgent.desktopUserAgent()
     }
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {

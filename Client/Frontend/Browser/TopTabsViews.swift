@@ -92,13 +92,9 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
         return titleText
     }()
 
-    let favicon: UIImageView = {
-        let favicon = UIImageView()
-        favicon.layer.cornerRadius = 2.0
-        favicon.layer.masksToBounds = true
-        favicon.semanticContentAttribute = .forceLeftToRight
-        return favicon
-    }()
+    let logoView: LogoView = {
+           LogoView()
+       }()
 
     let closeButton: UIButton = {
         let closeButton = UIButton()
@@ -129,10 +125,10 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
 
         contentView.addSubview(titleText)
         contentView.addSubview(closeButton)
-        contentView.addSubview(favicon)
+        contentView.addSubview(logoView)
         contentView.addSubview(highlightLine)
 
-        favicon.snp.makeConstraints { make in
+        logoView.snp.makeConstraints { make in
             make.centerY.equalTo(self).offset(TopTabsUX.TabNudge)
             make.size.equalTo(TabTrayControllerUX.FaviconSize)
             make.leading.equalTo(self).offset(TopTabsUX.TabTitlePadding)
@@ -141,7 +137,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
             make.centerY.equalTo(self)
             make.height.equalTo(self)
             make.trailing.equalTo(closeButton.snp.leading).offset(TopTabsUX.TabTitlePadding)
-            make.leading.equalTo(favicon.snp.trailing).offset(TopTabsUX.TabTitlePadding)
+            make.leading.equalTo(logoView.snp.trailing).offset(TopTabsUX.TabTitlePadding)
         }
         closeButton.snp.makeConstraints { make in
             make.centerY.equalTo(self).offset(TopTabsUX.TabNudge)
@@ -185,17 +181,10 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
 
         self.selectedTab = isSelected
         if let siteURL = tab.url?.displayURL {
-            self.favicon.setIcon(tab.displayFavicon, forURL: siteURL, completed: { (color, url) in
-                if siteURL == url {
-                    self.favicon.image = self.favicon.image?.createScaled(CGSize(width: 15, height: 15))
-                    self.favicon.backgroundColor = color == .clear ? .white : color
-                    self.favicon.contentMode = .center
-                }
-            })
+            self.logoView.url = nil
+            self.logoView.url = siteURL.absoluteString
         } else {
-            self.favicon.image = UIImage(named: "defaultFavicon")
-            self.favicon.contentMode = .scaleAspectFit
-            self.favicon.backgroundColor = .clear
+            self.logoView.url = Strings.BrandWebsite
         }
     }
 

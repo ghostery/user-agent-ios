@@ -35,7 +35,6 @@ class CustomSearchEnginesTest: XCTestCase {
             XCTAssertNotNil(result.successValue, "Make sure the new engine is not nil")
             let engine = result.successValue!
             XCTAssertEqual(engine.shortName, title)
-            XCTAssertNotNil(engine.image)
             XCTAssertEqual(engine.searchTemplate, "http://www.google.ca/?#q={searchTerms}")
             expectation.fulfill()
         }

@@ -2043,7 +2043,6 @@ extension BrowserViewController {
 
     func addSearchEngine(_ searchQuery: String, favicon: Favicon) {
         guard !searchQuery.isEmpty,
-            let iconURL = URL(string: favicon.url),
             let url = URL(string: searchQuery.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)!),
             let shortName = url.domainURL.host else {
                 let alert = ThirdPartySearchAlerts.failedToAddThirdPartySearch()
@@ -2054,17 +2053,10 @@ extension BrowserViewController {
         let alert = ThirdPartySearchAlerts.addThirdPartySearchEngine { alert in
             self.customSearchEngineButton.tintColor = UIColor.Grey50
             self.customSearchEngineButton.isUserInteractionEnabled = false
-            SDWebImageManager.shared.loadImage(with: iconURL, options: .continueInBackground, progress: nil) { (image, _, _, _, _, _) in
-                guard let image = image else {
-                    let alert = ThirdPartySearchAlerts.failedToAddThirdPartySearch()
-                    self.present(alert, animated: true, completion: nil)
-                    return
-                }
 
-                self.profile.searchEngines.addSearchEngine(OpenSearchEngine(engineID: nil, shortName: shortName, image: image, searchTemplate: searchQuery, suggestTemplate: nil, isCustomEngine: true))
-                let Toast = SimpleToast()
-                Toast.showAlertWithText(Strings.ThirdPartySearchEngineAdded, bottomContainer: self.webViewContainer)
-            }
+            self.profile.searchEngines.addSearchEngine(OpenSearchEngine(engineID: nil, shortName: shortName, searchTemplate: searchQuery, suggestTemplate: nil, isCustomEngine: true))
+            let Toast = SimpleToast()
+            Toast.showAlertWithText(Strings.ThirdPartySearchEngineAdded, bottomContainer: self.webViewContainer)
         }
 
         self.present(alert, animated: true, completion: {})

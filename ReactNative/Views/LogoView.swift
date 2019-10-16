@@ -14,13 +14,11 @@ import React
  */
 class LogoView: UIView {
     public var url: String? {
-        didSet {
-            // To prepareForReuse set url to nil - this will remove React view
-            if url == nil {
-                guard let reactView = self.reactView else { return }
-                reactView.removeFromSuperview()
-                self.reactView = nil
+        willSet(newUrl) {
+            guard newUrl != self.url else {
+                return
             }
+            self.cleanReactView()
         }
     }
 
@@ -32,15 +30,19 @@ class LogoView: UIView {
         if self.reactView != nil && (self.bounds.height == self.size) {
             return
         }
+
         // In case the view have resized the React has to be re-created
         self.size = self.bounds.height
-        if self.reactView != nil {
-            self.reactView!.removeFromSuperview()
-            self.reactView = nil
-        }
+        self.cleanReactView()
+
         guard let reactView = self.createLogoView() else { return }
         self.reactView = reactView
         self.addSubview(reactView)
+    }
+
+    private func cleanReactView() {
+        self.reactView?.removeFromSuperview()
+        self.reactView = nil
     }
 
     private func createLogoView() -> RCTRootView? {
