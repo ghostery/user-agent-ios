@@ -103,11 +103,18 @@ extension PhotonActionSheetProtocol {
             return [[shareFile]]
         }
 
-        let toggleActionTitle = tab.desktopSite ? Strings.AppMenuViewMobileSiteTitleString : Strings.AppMenuViewDesktopSiteTitleString
-        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.desktopSite, badgeIconNamed: "menuBadge") { action in
+        let defaultUAisDesktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
+        let toggleActionTitle: String
+        if defaultUAisDesktop {
+            toggleActionTitle = tab.changedUserAgent ? Strings.AppMenuViewDesktopSiteTitleString : Strings.AppMenuViewMobileSiteTitleString
+        } else {
+            toggleActionTitle = tab.changedUserAgent ? Strings.AppMenuViewMobileSiteTitleString : Strings.AppMenuViewDesktopSiteTitleString
+        }
+
+        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.changedUserAgent, badgeIconNamed: "menuBadge") { action in
             if let url = tab.url {
-                tab.toggleDesktopSite()
-                Tab.DesktopSites.updateDomainList(forUrl: url, isDesktopSite: tab.desktopSite, isPrivate: tab.isPrivate)
+                tab.toggleChangeUserAgent()
+                Tab.ChangeUserAgent.updateDomainList(forUrl: url, isChangedUA: tab.changedUserAgent, isPrivate: tab.isPrivate)
             }
         }
 
@@ -369,12 +376,19 @@ extension PhotonActionSheetProtocol {
             return []
         }
 
-        let toggleActionTitle = tab.desktopSite ? Strings.AppMenuViewMobileSiteTitleString : Strings.AppMenuViewDesktopSiteTitleString
+        let defaultUAisDesktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
+        let toggleActionTitle: String
+        if defaultUAisDesktop {
+            toggleActionTitle = tab.changedUserAgent ? Strings.AppMenuViewDesktopSiteTitleString : Strings.AppMenuViewMobileSiteTitleString
+        } else {
+            toggleActionTitle = tab.changedUserAgent ? Strings.AppMenuViewMobileSiteTitleString : Strings.AppMenuViewDesktopSiteTitleString
+        }
+
         let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite") { action in
 
             if let url = tab.url {
-                tab.toggleDesktopSite()
-                Tab.DesktopSites.updateDomainList(forUrl: url, isDesktopSite: tab.desktopSite, isPrivate: tab.isPrivate)
+                tab.toggleChangeUserAgent()
+                Tab.ChangeUserAgent.updateDomainList(forUrl: url, isChangedUA: tab.changedUserAgent, isPrivate: tab.isPrivate)
             }
         }
 
