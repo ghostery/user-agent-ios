@@ -233,6 +233,20 @@ extension BookmarksView {
         return cell
     }
 
+}
+
+// MARK: - Table View Delegate
+extension BookmarksView {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        defer {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        if let site = self.siteForIndexPath(indexPath), let url = URL(string: site.url) {
+            self.delegate?.library(didSelectURL: url, visitType: .typed)
+        }
+    }
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return Strings.BookmarksTitle
     }
@@ -244,4 +258,5 @@ extension BookmarksView {
         })
         return [delete]
     }
+
 }
