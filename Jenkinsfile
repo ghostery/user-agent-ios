@@ -1,10 +1,24 @@
 #!/bin/env groovy
 
+def apps = [
+    'Cliqz': [
+        'name': 'Cliqz',
+        'sentryDSN': 'c21d2e60-e4b9-4f75-bad7-6736398a1a05',
+    ],
+    'CliqzNightly': [
+        'name': 'CliqzNightly',
+        'sentryDSN': '9da58d1c-e7ce-4b2d-a99e-7ded5b130a20',
+    ],
+]
 
 def triggers = []
+def app
 
 if("$BRANCH_NAME" == 'develop') {
     triggers << cron('H H(19-22) * * *')
+    app = apps['CliqzNightly']
+} else {
+    app = apps['Cliqz']
 }
 
 @Library('cliqz-shared-library@vagrant') _
@@ -84,12 +98,14 @@ node('gideon') {
                             export LC_ALL=en_US.UTF-8
                             export LANG=en_US.UTF-8
 
+                            sudo systemsetup -setharddisksleep Off
+                            sudo systemsetup -setcomputersleep Never
+
                             sudo xcode-select --switch /Applications/Xcode.app/
                             xcodebuild -version
 
                             pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
                             sudo xcodebuild -license accept
-                            
                             sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 
                             sudo gem install which bundler || gem install bundler
@@ -114,24 +130,25 @@ node('gideon') {
                     string(credentialsId: '05be12cd-5177-4adf-9812-809f01451fa0', variable: 'FASTLANE_PASSWORD'),
                     string(credentialsId: 'ea8c47ad-1de8-4300-ae93-ec9ff4b68f39', variable: 'MATCH_PASSWORD'),
                     string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
-                    string(credentialsId: '9da58d1c-e7ce-4b2d-a99e-7ded5b130a20', variable: 'SENTRY_DSN'),
+                    string(credentialsId: app.sentryDSN, variable: 'SENTRY_DSN'),
                 ]) {
                     timeout(20) {
                         ansiColor('xterm') {
-                            sh '''#!/bin/bash -l
+                            sh """#!/bin/bash -l
                                 set -x
                                 set -e
 
                                 # For Cocoapods and Fastlane
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
+                                export FASTLANE_HIDE_CHANGELOG=true
 
                                 rm -rf /Users/vagrant/Library/Keychains/ios-build.keychain*
 
                                 export MATCH_KEYCHAIN_NAME=ios-build.keychain
 
-                                bundle exec fastlane CliqzNightly
-                            '''
+                                bundle exec fastlane Build app:${app.name}
+                            """
                         }
                     }
                 }
@@ -162,8 +179,9 @@ ${newChangelog}"""
                                 # For Cocoapods and Fastlane
                                 export LC_ALL=en_US.UTF-8
                                 export LANG=en_US.UTF-8
+                                export FASTLANE_HIDE_CHANGELOG=true
 
-                                bundle exec fastlane upload
+                                bundle exec fastlane Upload app:${app.name}
                             """
                         }
                     }
