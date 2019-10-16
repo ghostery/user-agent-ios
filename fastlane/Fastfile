@@ -4,7 +4,7 @@ APPS = {
   "Cliqz" => {
     target: "Cliqz",
     scheme: "Cliqz Nightly",
-    configuration: "Release",
+    configuration: "Adhoc",
 
     app_group_identifier: "group.com.cliqz.browser.nightly",
 
@@ -22,7 +22,7 @@ APPS = {
   "CliqzNightly" => {
     target: "Cliqz",
     scheme: "Cliqz Nightly",
-    configuration: "Release",
+    configuration: "Adhoc",
 
     app_group_identifier: "group.com.cliqz.browser.nightly",
 
