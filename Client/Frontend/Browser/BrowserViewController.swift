@@ -757,7 +757,7 @@ class BrowserViewController: UIViewController {
         }
 
         searchController.searchView.snp.makeConstraints { make in
-            make.top.equalTo(urlBar.snp.bottom).offset(-10)
+            make.top.equalTo(urlBar.snp.bottom).offset(-8)
             make.left.equalTo(urlBar.locationContainer.snp.left)
             make.right.equalTo(urlBar.locationContainer.snp.right)
             make.bottom.equalToSuperview()
@@ -766,7 +766,6 @@ class BrowserViewController: UIViewController {
         view.bringSubviewToFront(urlBarTopTabsContainer)
 
         homeViewController?.view?.isHidden = true
-        urlBar.inCliqzSearchMode = true
 
         searchController.didMove(toParent: self)
     }
@@ -777,7 +776,6 @@ class BrowserViewController: UIViewController {
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
             homeViewController?.view?.isHidden = false
-            urlBar.inCliqzSearchMode = false
         }
     }
 

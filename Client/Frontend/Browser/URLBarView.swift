@@ -94,13 +94,6 @@ class URLBarView: UIView {
     /// a panel, the first responder will be resigned, yet the overlay mode UI is still active.
     var inOverlayMode = false
 
-    /// Search Mode turns the container view transparent, so that we can insert the SearchResultsViewController from outside
-    var inCliqzSearchMode = false {
-        didSet {
-            backgroundColor = inCliqzSearchMode ? UIColor.clear : UIColor.theme.browser.background
-        }
-    }
-
     lazy var searchButton: ToolbarButton = {
         return ToolbarButton()
     }()
@@ -752,7 +745,7 @@ extension URLBarView: Themeable {
         tabsButton.applyTheme()
 
         cancelTintColor = UIColor.theme.browser.tint
-        backgroundColor = inCliqzSearchMode ? UIColor.clear : UIColor.theme.browser.background
+        backgroundColor = UIColor.theme.browser.background
         line.backgroundColor = UIColor.theme.browser.urlBarDivider
 
         locationBorderColor = UIColor.theme.urlbar.border
