@@ -192,7 +192,7 @@ class URLBarView: UIView {
 
         set(newURL) {
             locationView.url = newURL
-            if let url = newURL, InternalURL(url)?.isAboutHomeURL ?? false {
+             if let url = newURL, InternalURL(url)?.isAboutHomeURL ?? false || inOverlayMode {
                 line.isHidden = true
             } else {
                 line.isHidden = false
