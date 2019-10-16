@@ -766,6 +766,7 @@ class BrowserViewController: UIViewController {
         view.bringSubviewToFront(urlBarTopTabsContainer)
 
         homeViewController?.view?.isHidden = true
+        urlBar.inCliqzSearchMode = true
 
         searchController.didMove(toParent: self)
     }
@@ -776,6 +777,7 @@ class BrowserViewController: UIViewController {
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
             homeViewController?.view?.isHidden = false
+            urlBar.inCliqzSearchMode = false
         }
     }
 
