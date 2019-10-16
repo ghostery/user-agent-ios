@@ -350,7 +350,6 @@ extension Strings {
 extension Strings {
     public static let TabsDeleteAllUndoTitle = NSLocalizedString("Tabs.DeleteAllUndo.Title", comment: "The label indicating that all the tabs were closed")
     public static let TabsDeleteAllUndoAction = NSLocalizedString("Tabs.DeleteAllUndo.Button", comment: "The button to undo the delete all tabs")
-    public static let TabSearchPlaceholderText = NSLocalizedString("Tabs.Search.PlaceholderText", comment: "The placeholder text for the tab search bar")
 }
 
 //Clipboard Toast

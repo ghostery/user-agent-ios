@@ -85,7 +85,6 @@ private extension TrayToBrowserAnimator {
             tabCollectionViewSnapshot.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             tabCollectionViewSnapshot.alpha = 0
             tabTray.statusBarBG.alpha = 0
-            tabTray.searchBarHolder.alpha = 0
         }, completion: { finished in
             // Remove any of the views we used for the animation
             cell.removeFromSuperview()
@@ -168,7 +167,6 @@ private extension BrowserToTrayAnimator {
         // it brightens back to full white as they fade in. Setting these to not fade in produces a better effect.
         if UIDevice.current.isPhone {
             tabTray.statusBarBG.alpha = 1
-            tabTray.searchBarHolder.alpha = 1
         }
 
         // Since we are hiding the collection view and the snapshot API takes the snapshot after the next screen update,
@@ -200,7 +198,6 @@ private extension BrowserToTrayAnimator {
                 tabCollectionViewSnapshot.alpha = 1
 
                 tabTray.statusBarBG.alpha = 1
-                tabTray.searchBarHolder.alpha = 1
                 tabTray.toolbar.transform = .identity
                 resetTransformsForViews([tabCollectionViewSnapshot])
             }, completion: { finished in
