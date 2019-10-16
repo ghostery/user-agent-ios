@@ -3,21 +3,21 @@ default_platform(:ios)
 APPS = {
   "Cliqz" => {
     target: "Cliqz",
-    scheme: "Cliqz Nightly",
-    configuration: "Adhoc",
+    scheme: "Cliqz",
+    configuration: "Release",
 
     app_group_identifier: "group.com.cliqz.browser.nightly",
 
-    app_identifier: "com.cliqz.browser.nightly",
+    app_identifier: "com.cliqz",
     provisioning_profile: "0d0c370e-d393-40af-a704-42def1331441",
-    provisioning_profile_name: "match AppStore com.cliqz.browser.nightly",
+    provisioning_profile_name: "match AppStore com.cliqz",
 
-    share_to_identifier: "com.cliqz.browser.nightly.ShareTo",
+    share_to_identifier: "com.cliqz.ShareTo",
     share_to_provisioning_profile: "93a334ed-4bb7-4121-b7d1-326fe0546dec",
-    share_to_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.ShareTo",
+    share_to_provisioning_profile_name: "match AppStore com.cliqz.ShareTo",
 
-    sentry_slug: "cliqznighly-ios",
-    match_branch: "cliqz-browser-nightly",
+    sentry_slug: "cliqz-ios",
+    match_branch: "browser-ios",
   },
   "CliqzNightly" => {
     target: "Cliqz",
@@ -87,7 +87,7 @@ platform :ios do
         app_identifier: app.app_identifier,
       )
     rescue StandardError => e
-      puts "Something when wrong: #{e.inspect}"
+      puts "Something went wrong: #{e.inspect}"
       # latest_testflight_build_number fails if there is not build in TestFligh yet
     end
 

@@ -2,10 +2,12 @@
 
 def apps = [
     'Cliqz': [
-        'name': 'Cliqz'
+        'name': 'Cliqz',
+        'sentryDSN': 'c21d2e60-e4b9-4f75-bad7-6736398a1a05',
     ],
     'CliqzNightly': [
-        'name': 'CliqzNightly'
+        'name': 'CliqzNightly',
+        'sentryDSN': '9da58d1c-e7ce-4b2d-a99e-7ded5b130a20',
     ],
 ]
 
@@ -128,7 +130,7 @@ node('gideon') {
                     string(credentialsId: '05be12cd-5177-4adf-9812-809f01451fa0', variable: 'FASTLANE_PASSWORD'),
                     string(credentialsId: 'ea8c47ad-1de8-4300-ae93-ec9ff4b68f39', variable: 'MATCH_PASSWORD'),
                     string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
-                    string(credentialsId: '9da58d1c-e7ce-4b2d-a99e-7ded5b130a20', variable: 'SENTRY_DSN'),
+                    string(credentialsId: app.sentryDSN, variable: 'SENTRY_DSN'),
                 ]) {
                     timeout(20) {
                         ansiColor('xterm') {
