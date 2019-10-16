@@ -6,7 +6,7 @@ APPS = {
     scheme: "Cliqz",
     configuration: "Release",
 
-    app_group_identifier: "group.com.cliqz.browser.nightly",
+    app_group_identifier: "group.com.cliqz",
 
     app_identifier: "com.cliqz",
     provisioning_profile: "16efba72-233d-42af-9d30-2119f0a5b854",
