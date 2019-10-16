@@ -2043,7 +2043,6 @@ extension BrowserViewController {
 
     func addSearchEngine(_ searchQuery: String, favicon: Favicon) {
         guard !searchQuery.isEmpty,
-            let iconURL = URL(string: favicon.url),
             let url = URL(string: searchQuery.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlFragmentAllowed)!),
             let shortName = url.domainURL.host else {
                 let alert = ThirdPartySearchAlerts.failedToAddThirdPartySearch()
