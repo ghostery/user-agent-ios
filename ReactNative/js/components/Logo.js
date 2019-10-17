@@ -19,11 +19,10 @@ export default function ({ url, size: _size, fontSize: _fontSize }) {
   if (size !== DEFAULT_SIZE && !_fontSize) {
     fontSize = DEFAULT_FONT_SIZE / DEFAULT_SIZE * size;
   }
-
   return (
     <Logo
       key={url}
-      logo={convertLogoUrl(getLogo(url))}
+      logo={convertLogoUrl(getLogo(url) || {})}
       size={size}
       borderRadius={5}
       logoSize={size}
