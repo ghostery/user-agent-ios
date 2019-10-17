@@ -125,7 +125,14 @@ open class TabToolbarHelper: NSObject {
 class ToolbarButton: UIButton {
     var selectedTintColor: UIColor!
     var unselectedTintColor: UIColor!
-    var disabledTintColor = UIColor.Grey50
+    var disabledTintColor: UIColor = {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray
+        } else {
+            // Fallback on earlier versions
+            return UIColor.lightGray
+        }
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -162,7 +169,7 @@ class ToolbarButton: UIButton {
 extension ToolbarButton: Themeable {
     func applyTheme() {
         selectedTintColor = UIColor.theme.toolbarButton.selectedTint
-        disabledTintColor = UIColor.theme.toolbarButton.disabledTint
+//        disabledTintColor = UIColor.theme.toolbarButton.disabledTint
         unselectedTintColor = UIColor.theme.browser.tint
         tintColor = isEnabled ? unselectedTintColor : disabledTintColor
         imageView?.tintColor = tintColor
@@ -188,11 +195,23 @@ class TabToolbar: UIView {
 
     var helper: TabToolbarHelper?
     private let contentView = UIStackView()
+    private let effectView: UIVisualEffectView = {
+        let effectView = UIVisualEffectView()
+        if #available(iOS 13.0, *) {
+            effectView.effect = UIBlurEffect(style: .systemMaterial)
+        } else {
+            // Fallback on earlier versions
+            effectView.effect = UIBlurEffect(style: .light)
+        }
+        return effectView
+    }()
 
     fileprivate override init(frame: CGRect) {
-        actionButtons = [backButton, forwardButton, searchButton, menuButton, tabsButton]
+        actionButtons = [backButton, forwardButton, menuButton, searchButton, tabsButton]
         super.init(frame: frame)
         setupAccessibility()
+
+        addSubview(effectView)
 
         addSubview(contentView)
         helper = TabToolbarHelper(toolbar: self)
@@ -213,6 +232,11 @@ class TabToolbar: UIView {
             make.leading.trailing.top.equalTo(self)
             make.bottom.equalTo(self.safeArea.bottom)
         }
+
+        effectView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(self)
+        }
+
         super.updateConstraints()
     }
 
@@ -280,7 +304,7 @@ extension TabToolbar: TabToolbarProtocol {
 
 extension TabToolbar: Themeable, PrivateModeUI {
     func applyTheme() {
-        backgroundColor = UIColor.theme.browser.background
+        backgroundColor = UIColor.clear
         helper?.setTheme(forButtons: actionButtons)
 
         privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
