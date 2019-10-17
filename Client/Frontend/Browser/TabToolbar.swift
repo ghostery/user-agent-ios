@@ -129,7 +129,6 @@ class ToolbarButton: UIButton {
         if #available(iOS 13.0, *) {
             return UIColor.systemGray
         } else {
-            // TODO
             // Fallback on earlier versions
             return UIColor.lightGray
         }
@@ -201,8 +200,8 @@ class TabToolbar: UIView {
         if #available(iOS 13.0, *) {
             effectView.effect = UIBlurEffect(style: .systemMaterial)
         } else {
-            // TODO
             // Fallback on earlier versions
+            effectView.effect = UIBlurEffect(style: .light)
         }
         return effectView
     }()
