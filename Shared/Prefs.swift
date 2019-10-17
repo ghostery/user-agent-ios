@@ -70,6 +70,8 @@ public protocol Prefs {
     func dictionaryForKey(_ defaultName: String) -> [String: Any]?
     func removeObjectForKey(_ defaultName: String)
     func clearAll()
+    func addListener(_ defaultName: String, callback: @escaping () -> Void)
+    func removeListener(_ defaultName: String)
 }
 
 open class MockProfilePrefs: Prefs {
@@ -187,5 +189,13 @@ open class MockProfilePrefs: Prefs {
         let dictionary = things as! [String: Any]
         let keysToDelete: [String] = dictionary.keys.filter { $0.hasPrefix(self.prefix) }
         things.removeObjects(forKeys: keysToDelete)
+    }
+
+    open func addListener(_ defaultName: String, callback: @escaping () -> Void) {
+
+    }
+
+    open func removeListener(_ defaultName: String) {
+
     }
 }

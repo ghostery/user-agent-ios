@@ -17,8 +17,6 @@ public enum KVOConstants: String {
 public struct AppConstants {
     public static let IsRunningTest = NSClassFromString("XCTestCase") != nil || ProcessInfo.processInfo.arguments.contains(LaunchArguments.Test)
 
-    public static let PrefSendUsageData = "settings.sendUsageData"
-
     /// The maximum length of a URL stored by Firefox. Shared with Places on desktop.
     public static let DB_URL_LENGTH_MAX = 65536
 

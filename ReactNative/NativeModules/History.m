@@ -6,7 +6,6 @@
 //  Copyright © 2019 Cliqz. All rights reserved.
 //
 
-// CalendarManagerBridge.m
 #import <React/RCTBridgeModule.h>
 
 @interface RCT_EXTERN_MODULE(History, NSObject)
