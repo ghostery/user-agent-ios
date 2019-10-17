@@ -14,7 +14,7 @@ def apps = [
 def triggers = []
 def app
 
-if("$BRANCH_NAME" == 'develop') {
+if("$BRANCH_NAME" == 'develop' || "$BRANCH_NAME" == 'jenkins') {
     triggers << cron('H H(19-22) * * *')
     app = apps['CliqzNightly']
 } else {
