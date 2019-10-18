@@ -121,21 +121,25 @@ class AppSettingsTableViewController: SettingsTableViewController {
     // MARK: - Private methods
 
     private func resetSearchValues() {
-           self.currentRegion = nil
-           self.availableRegions = nil
-           self.currentAdultFilterMode = nil
-       }
+        self.currentRegion = nil
+        self.availableRegions = nil
+        self.currentAdultFilterMode = nil
+    }
 
-       private func updateSearchValues() {
-           Search.getBackendCountries { (config) in
-               self.currentRegion = config.selected
-               self.availableRegions = config.available
-               self.reloadData()
-           }
-           Search.getAdultFilter { (mode) in
-               self.currentAdultFilterMode = mode
-               self.reloadData()
-           }
-       }
+    private func updateSearchValues() {
+        Search.getBackendCountries { (config) in
+            DispatchQueue.main.async {
+                self.currentRegion = config.selected
+                self.availableRegions = config.available
+                self.reloadData()
+            }
+        }
+        Search.getAdultFilter { (mode) in
+            DispatchQueue.main.async {
+                self.currentAdultFilterMode = mode
+                self.reloadData()
+            }
+        }
+    }
 
 }

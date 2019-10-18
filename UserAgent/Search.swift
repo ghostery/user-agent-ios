@@ -41,16 +41,12 @@ extension Search: BrowserCoreClient {
             args: []
         ) { (error, result) in
             if error != nil {
-                DispatchQueue.main.async {
-                    callback(Self.defaultConfig)
-                }
+                callback(Self.defaultConfig)
                 return
             }
 
             guard let backends = result as? [String: [String: Any]] else {
-                DispatchQueue.main.async {
-                    callback(Self.defaultConfig)
-                }
+                callback(Self.defaultConfig)
                 return
             }
             var selectedRegion: Country!
@@ -68,9 +64,7 @@ extension Search: BrowserCoreClient {
                 }
             }
             let config = Config(selected: selectedRegion, available: availableRegions)
-            DispatchQueue.main.async {
-                callback(config)
-            }
+            callback(config)
         }
     }
 
@@ -89,14 +83,10 @@ extension Search: BrowserCoreClient {
             args: []
         ) { (error, result) in
             guard error == nil, let mode = result as? String else {
-                DispatchQueue.main.async {
-                    callback(.conservative)
-                }
+                callback(.conservative)
                 return
             }
-            DispatchQueue.main.async {
-                callback(AdultFilterMode(rawValue: mode) ?? .conservative)
-            }
+            callback(AdultFilterMode(rawValue: mode) ?? .conservative)
         }
     }
 
