@@ -44,10 +44,17 @@ class Search {
 }
 
 extension Search: BrowserCoreClient {
+
     static let defaultConfig = Config(selected: Search.Region.de, available: [Search.Region.de])
+    
     public struct Config {
         public var selected: Search.Region
         public var available: [Search.Region]
+    }
+
+    public enum AdultFilterMode: String, CaseIterable {
+        case liberal
+        case conservative
     }
 
     public static func getBackendCountries(callback: @escaping (Config) -> Void) {
@@ -88,5 +95,19 @@ extension Search: BrowserCoreClient {
             action: "setBackendCountries",
             args: [country.rawValue]
         )
+    }
+
+    public static func getAduleFilter(callback: @escaping (AdultFilterMode) -> Void) {
+        browserCore.callAction(
+            module: "search",
+            action: "getAduleFilter",
+            args: []
+        ) { (error, result) in
+            guard error == nil, let mode = result as? String else {
+                callback(.conservative)
+                return
+            }
+            callback(AdultFilterMode(rawValue: mode) ?? .conservative)
+        }
     }
 }

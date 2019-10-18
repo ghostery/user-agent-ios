@@ -178,11 +178,11 @@ platform :ios do
       app_identifier: app.app_identifier,
     )
 
+    download_dsyms(app_identifier: app.app_identifier)
     sentry_upload_dsym(
       auth_token: ENV["SENTRY_AUTH_TOKEN"],
       org_slug: 'cliqz',
       project_slug: app.sentry_slug,
-      dsym_path: 'UserAgent.app.dSYM.zip',
     )
   end
 end
