@@ -231,7 +231,7 @@ extension ContentBlocker {
                     var str = jsonString
                     guard let range = str.range(of: "]", options: String.CompareOptions.backwards) else { return }
                     str = str.replacingCharacters(in: range, with: self.whitelistAsJSON() + "]")
-                    self.ruleStore.compileContentRuleList(forIdentifier: filename, encodedContentRuleList: jsonString) { rule, error in
+                    self.ruleStore.compileContentRuleList(forIdentifier: filename, encodedContentRuleList: str) { rule, error in
                         if let error = error {
                             print("Content blocker error: \(error)")
                             assert(false)
