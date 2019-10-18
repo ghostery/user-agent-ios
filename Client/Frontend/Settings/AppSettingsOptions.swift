@@ -284,18 +284,18 @@ class SearchSetting: Setting {
 // Opens the search results for language settings
 class SearchResultsSetting: Setting {
 
-    private var currentRegion: Search.Region?
-    private var availableRegions: [Search.Region]?
+    private var currentRegion: Search.Country?
+    private var availableRegions: [Search.Country]?
 
     override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
 
     override var style: UITableViewCell.CellStyle { return .value1 }
 
-    override var status: NSAttributedString? { return self.currentRegion != nil ? NSAttributedString(string: self.currentRegion!.name) : NSAttributedString() }
+    override var status: NSAttributedString? { return NSAttributedString(string: self.currentRegion?.name ?? "") }
 
     override var accessibilityIdentifier: String? { return "Search Results" }
 
-    init(currentRegion: Search.Region?, availableRegions: [Search.Region]?) {
+    init(currentRegion: Search.Country?, availableRegions: [Search.Country]?) {
         self.currentRegion = currentRegion
         self.availableRegions = availableRegions
         super.init(title: NSAttributedString(string: Strings.SettingsSearchResultForLanguage, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))

@@ -11,10 +11,10 @@ import Shared
 
 class SearchResultsSettingsViewController: SettingsTableViewController {
 
-    private var selectedRegion: Search.Region
-    private var availableRegions: [Search.Region]
+    private var selectedRegion: Search.Country
+    private var availableRegions: [Search.Country]
 
-    init(selectedRegion: Search.Region, availableRegions: [Search.Region]) {
+    init(selectedRegion: Search.Country, availableRegions: [Search.Country]) {
         self.selectedRegion = selectedRegion
         self.availableRegions = availableRegions
         super.init(style: .grouped)

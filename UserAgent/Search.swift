@@ -16,17 +16,17 @@ public class Search {
         case conservative
     }
 
-    public struct Region {
+    public struct Country {
         public var key: String
         public var name: String
     }
 
     public struct Config {
-        public var selected: Region
-        public var available: [Region]
+        public var selected: Country
+        public var available: [Country]
     }
 
-    private static let defaultRegion = Region(key: "de", name: Strings.SettingsSearchResultForGerman)
+    private static let defaultRegion = Country(key: "de", name: Strings.SettingsSearchResultForGerman)
 
     static let defaultConfig = Config(selected: Search.defaultRegion, available: [Search.defaultRegion])
 
@@ -53,17 +53,17 @@ extension Search: BrowserCoreClient {
                 }
                 return
             }
-            var selectedRegion: Region!
+            var selectedRegion: Country!
             let selectedKey = backends.first { ($0.value["selected"] as? Bool) ?? false }?.key
             if let key = selectedKey, let selected = backends[key], let name = selected["name"] as? String {
-                selectedRegion = Region(key: key, name: name)
+                selectedRegion = Country(key: key, name: name)
             } else {
                 selectedRegion = self.defaultRegion
             }
-            var availableRegions = [Region]()
+            var availableRegions = [Country]()
             for key in backends.keys.sorted() {
                 if let name = backends[key]?["name"] as? String {
-                    let region = Region(key: key, name: name)
+                    let region = Country(key: key, name: name)
                     availableRegions.append(region)
                 }
             }
@@ -74,7 +74,7 @@ extension Search: BrowserCoreClient {
         }
     }
 
-    public static func setBackendCountry(country: Region) {
+    public static func setBackendCountry(country: Country) {
         self.browserCore.callAction(
             module: "search",
             action: "setBackendCountry",

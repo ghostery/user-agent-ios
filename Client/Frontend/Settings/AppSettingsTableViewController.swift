@@ -8,8 +8,8 @@ import Shared
 /// App Settings Screen (triggered by tapping the 'Gear' in the Tab Tray Controller)
 class AppSettingsTableViewController: SettingsTableViewController {
 
-    private var currentRegion: Search.Region?
-    private var availableRegions: [Search.Region]?
+    private var currentRegion: Search.Country?
+    private var availableRegions: [Search.Country]?
     private var currentAdultFilterMode: Search.AdultFilterMode?
 
     override func viewDidLoad() {
@@ -27,10 +27,10 @@ class AppSettingsTableViewController: SettingsTableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.currentRegion = nil
         self.availableRegions = nil
         self.currentAdultFilterMode = nil
+        super.viewWillAppear(animated)
         Search.getBackendCountries { (config) in
             self.currentRegion = config.selected
             self.availableRegions = config.available
