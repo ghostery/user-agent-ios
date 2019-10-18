@@ -841,6 +841,9 @@
 /* The button text in Search Settings that opens the list of supported search languages. */
 "Settings.SearchResultForLanguage" = "Search Results for";
 
+/* "Block explicit content" */
+"Settings.AdultFilterMode" = "Block Explicit Content";
+
 /* Localized String for German region */
 "region-DE" = "Germany";
 

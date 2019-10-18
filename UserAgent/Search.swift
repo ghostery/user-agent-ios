@@ -41,21 +41,21 @@ class Search {
         }
     }
 
-}
+    public enum AdultFilterMode: String, CaseIterable {
+        case liberal
+        case conservative
+    }
 
-extension Search: BrowserCoreClient {
-
-    static let defaultConfig = Config(selected: Search.Region.de, available: [Search.Region.de])
-    
     public struct Config {
         public var selected: Search.Region
         public var available: [Search.Region]
     }
 
-    public enum AdultFilterMode: String, CaseIterable {
-        case liberal
-        case conservative
-    }
+    static let defaultConfig = Config(selected: Search.Region.de, available: [Search.Region.de])
+
+}
+
+extension Search: BrowserCoreClient {
 
     public static func getBackendCountries(callback: @escaping (Config) -> Void) {
         browserCore.callAction(
@@ -110,4 +110,13 @@ extension Search: BrowserCoreClient {
             callback(AdultFilterMode(rawValue: mode) ?? .conservative)
         }
     }
+
+    public static func setAduleFilter(filter: AdultFilterMode) {
+        browserCore.callAction(
+            module: "search",
+            action: "setAduleFilter",
+            args: [filter.rawValue]
+        )
+    }
+
 }

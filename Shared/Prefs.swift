@@ -22,6 +22,7 @@ public struct PrefsKeys {
     public static let LoginsShowShortcutMenuItem = "showLoginsInAppMenu"
 
     public static let KeySearchResultsLanguage = "searchResultsLanguage"
+    public static let KeyAdultFilterMode = "adultFilterMode"
 
     public static let NewTabCustomUrlPrefKey = "HomePageURLPref"
     //Activity Stream

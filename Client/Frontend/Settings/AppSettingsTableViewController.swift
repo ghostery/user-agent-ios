@@ -31,12 +31,15 @@ class AppSettingsTableViewController: SettingsTableViewController {
             SearchResultsSetting(settings: self),
             SearchSetting(settings: self),
             OpenWithSetting(settings: self),
+            BoolSetting(prefs: prefs, prefKey: PrefsKeys.KeyAdultFilterMode, defaultValue: true, titleText: Strings.SettingsAdultFilterMode) { (value) in
+                Search.setAduleFilter(filter: value ? Search.AdultFilterMode.conservative : Search.AdultFilterMode.liberal)
+            },
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
                         titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
            ]
 
         if #available(iOS 12.0, *) {
-            generalSettings.insert(SiriPageSetting(settings: self), at: 2)
+            generalSettings.insert(SiriPageSetting(settings: self), at: 3)
         }
 
         // There is nothing to show in the Customize section if we don't include the compact tab layout
