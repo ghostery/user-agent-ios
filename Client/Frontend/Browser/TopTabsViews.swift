@@ -180,12 +180,7 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
         }
 
         self.selectedTab = isSelected
-        if let siteURL = tab.url?.displayURL {
-            self.logoView.url = nil
-            self.logoView.url = siteURL.absoluteString
-        } else {
-            self.logoView.url = Strings.BrandWebsite
-        }
+        self.logoView.url = tab.logoURL.absoluteString
     }
 
     required init?(coder aDecoder: NSCoder) {

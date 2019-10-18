@@ -169,6 +169,16 @@ class Tab: NSObject {
         }
     }
 
+    var logoURL: URL {
+        let logoPlaceholderURL = URL(string: Strings.BrandWebsite)!
+        let faviconURL = URL(nullableString: self.displayFavicon?.url)
+        var logoURL = self.url ?? faviconURL ?? logoPlaceholderURL
+        if InternalURL.isValid(url: logoURL) {
+            logoURL = logoPlaceholderURL
+        }
+        return logoURL
+    }
+
     func createWebview() {
         if webView == nil {
             configuration.userContentController = WKUserContentController()

@@ -517,6 +517,8 @@
 		C5B4863923328F03001F2E39 /* SQLiteBookmarksBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863423328F02001F2E39 /* SQLiteBookmarksBase.swift */; };
 		C5B4863B23328F03001F2E39 /* SQLiteBookmarksSyncing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863623328F02001F2E39 /* SQLiteBookmarksSyncing.swift */; };
 		C5B4863C23328F03001F2E39 /* SQLiteBookmarksHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */; };
+		C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3412359B30B00CB359A /* cliqz.xcassets */; };
+		C5C7D3442359B31D00CB359A /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3432359B31D00CB359A /* Ghostery.xcassets */; };
 		C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B53233112CD00D3F31F /* Bookmarks.swift */; };
 		C5E94B58233112CD00D3F31F /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B54233112CD00D3F31F /* BookmarksModel.swift */; };
 		C5E94B5A233112CD00D3F31F /* Trees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B56233112CD00D3F31F /* Trees.swift */; };
@@ -1269,6 +1271,8 @@
 		C5B4863423328F02001F2E39 /* SQLiteBookmarksBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksBase.swift; sourceTree = "<group>"; };
 		C5B4863623328F02001F2E39 /* SQLiteBookmarksSyncing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksSyncing.swift; sourceTree = "<group>"; };
 		C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksHelpers.swift; sourceTree = "<group>"; };
+		C5C7D3412359B30B00CB359A /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
+		C5C7D3432359B31D00CB359A /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
 		C5E94B53233112CD00D3F31F /* Bookmarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		C5E94B54233112CD00D3F31F /* BookmarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
 		C5E94B56233112CD00D3F31F /* Trees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trees.swift; sourceTree = "<group>"; };
@@ -2244,6 +2248,31 @@
 			path = AntiPhishing;
 			sourceTree = "<group>";
 		};
+		C5C7D33E2359B25E00CB359A /* Branding */ = {
+			isa = PBXGroup;
+			children = (
+				C5C7D3402359B27700CB359A /* Cliqz */,
+				C5C7D33F2359B27100CB359A /* Ghostery */,
+			);
+			path = Branding;
+			sourceTree = "<group>";
+		};
+		C5C7D33F2359B27100CB359A /* Ghostery */ = {
+			isa = PBXGroup;
+			children = (
+				C5C7D3432359B31D00CB359A /* Ghostery.xcassets */,
+			);
+			path = Ghostery;
+			sourceTree = "<group>";
+		};
+		C5C7D3402359B27700CB359A /* Cliqz */ = {
+			isa = PBXGroup;
+			children = (
+				C5C7D3412359B30B00CB359A /* cliqz.xcassets */,
+			);
+			path = Cliqz;
+			sourceTree = "<group>";
+		};
 		C5E94B52233112CD00D3F31F /* Bookmarks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2904,6 +2933,7 @@
 		F8708D241A0970990051AB07 /* ShareTo */ = {
 			isa = PBXGroup;
 			children = (
+				C5C7D33E2359B25E00CB359A /* Branding */,
 				EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */,
 				F8708D251A0970990051AB07 /* Images.xcassets */,
 				F8708D261A0970990051AB07 /* Cliqz-Info.plist */,
@@ -3342,6 +3372,7 @@
 			files = (
 				464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */,
 				464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */,
+				C5C7D3442359B31D00CB359A /* Ghostery.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3465,6 +3496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */,
 				EBE7635920ADCB7600E27F2D /* SendTo.xcassets in Resources */,
 				F8708D2E1A0970B70051AB07 /* Images.xcassets in Resources */,
 				C50ED2A723269F2A00EE71B8 /* ShareTo.strings in Resources */,
