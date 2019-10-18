@@ -85,7 +85,7 @@ extension Search: BrowserCoreClient {
     public static func getAdultFilter(callback: @escaping (AdultFilterMode) -> Void) {
         self.browserCore.callAction(
             module: "search",
-            action: "getAduleFilter",
+            action: "getAdultFilter",
             args: []
         ) { (error, result) in
             guard error == nil, let mode = result as? String else {
@@ -103,7 +103,7 @@ extension Search: BrowserCoreClient {
     public static func setAdultFilter(filter: AdultFilterMode) {
         self.browserCore.callAction(
             module: "search",
-            action: "setAduleFilter",
+            action: "setAdultFilter",
             args: [filter.rawValue]
         )
     }
