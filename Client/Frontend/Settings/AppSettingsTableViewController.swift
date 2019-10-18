@@ -27,19 +27,9 @@ class AppSettingsTableViewController: SettingsTableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.currentRegion = nil
-        self.availableRegions = nil
-        self.currentAdultFilterMode = nil
+        self.resetSearchValues()
         super.viewWillAppear(animated)
-        Search.getBackendCountries { (config) in
-            self.currentRegion = config.selected
-            self.availableRegions = config.available
-            self.reloadData()
-        }
-        Search.getAdultFilter { (mode) in
-            self.currentAdultFilterMode = mode
-            self.reloadData()
-        }
+        self.updateSearchValues()
     }
 
     override func generateSettings() -> [SettingSection] {
@@ -127,4 +117,25 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         return headerView
     }
+
+    // MARK: - Private methods
+
+    private func resetSearchValues() {
+           self.currentRegion = nil
+           self.availableRegions = nil
+           self.currentAdultFilterMode = nil
+       }
+
+       private func updateSearchValues() {
+           Search.getBackendCountries { (config) in
+               self.currentRegion = config.selected
+               self.availableRegions = config.available
+               self.reloadData()
+           }
+           Search.getAdultFilter { (mode) in
+               self.currentAdultFilterMode = mode
+               self.reloadData()
+           }
+       }
+
 }
