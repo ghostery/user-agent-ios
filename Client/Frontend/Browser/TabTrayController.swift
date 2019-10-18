@@ -911,17 +911,7 @@ class TabCell: UICollectionViewCell {
         isAccessibilityElement = true
         accessibilityHint = NSLocalizedString("Swipe right or left with three fingers to close the tab.", comment: "Accessibility hint for tab tray's displayed tab.")
 
-        let logoPlaceholderURL = URL(string: Strings.BrandWebsite)!
-
-        let faviconURL = URL(nullableString: tab.displayFavicon?.url)
-
-        var logoURL = tab.url ?? faviconURL ?? logoPlaceholderURL
-
-        if InternalURL.isValid(url: logoURL) {
-            logoURL = logoPlaceholderURL
-        }
-
-        self.logoView.url = logoURL.absoluteString
+        self.logoView.url = tab.logoURL.absoluteString
 
         if selected {
             setTabSelected(tab.isPrivate)
@@ -961,12 +951,5 @@ class TabCell: UICollectionViewCell {
 
     @objc func close() {
         delegate?.tabCellDidClose(self)
-    }
-}
-
-private extension URL {
-    init?(nullableString: String?) {
-        guard let nonNullString = nullableString else { return nil }
-        self.init(string: nonNullString)
     }
 }
