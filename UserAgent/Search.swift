@@ -7,26 +7,35 @@
 //
 
 import Foundation
+import Shared
 
-class Search {
-
-}
-
-extension Search: BrowserCoreClient {
-    private static let defaultConfig = Config(selected: "de", available: ["de"])
-
-    public struct Config {
-        public var selected: String
-        public var available: [String]
-    }
+public class Search {
 
     public enum AdultFilterMode: String, CaseIterable {
         case liberal
         case conservative
     }
 
+    public struct Country {
+        public var key: String
+        public var name: String
+    }
+
+    public struct Config {
+        public var selected: Country
+        public var available: [Country]
+    }
+
+    private static let defaultRegion = Country(key: "de", name: Strings.SettingsSearchResultForGerman)
+
+    static let defaultConfig = Config(selected: Search.defaultRegion, available: [Search.defaultRegion])
+
+}
+
+extension Search: BrowserCoreClient {
+
     public static func getBackendCountries(callback: @escaping (Config) -> Void) {
-        browserCore.callAction(
+        self.browserCore.callAction(
             module: "search",
             action: "getBackendCountries",
             args: []
@@ -40,28 +49,37 @@ extension Search: BrowserCoreClient {
                 callback(Self.defaultConfig)
                 return
             }
-
-            let config = Config(
-                selected: backends.first { ($0.value["selected"] as? Bool) ?? false == true }?.key ?? "de",
-                available: Array(backends.keys)
-            )
-
+            var selectedRegion: Country!
+            let selectedKey = backends.first { ($0.value["selected"] as? Bool) ?? false }?.key
+            if let key = selectedKey, let selected = backends[key], let name = selected["name"] as? String {
+                selectedRegion = Country(key: key, name: name)
+            } else {
+                selectedRegion = self.defaultRegion
+            }
+            var availableRegions = [Country]()
+            for key in backends.keys.sorted() {
+                if let name = backends[key]?["name"] as? String {
+                    let region = Country(key: key, name: name)
+                    availableRegions.append(region)
+                }
+            }
+            let config = Config(selected: selectedRegion, available: availableRegions)
             callback(config)
         }
     }
 
-    public static func setBackendCountry(country: String) {
-        browserCore.callAction(
+    public static func setBackendCountry(country: Country) {
+        self.browserCore.callAction(
             module: "search",
-            action: "getBackendCountries",
-            args: [country]
+            action: "setBackendCountry",
+            args: [country.key]
         )
     }
 
-    public static func getAduleFilter(callback: @escaping (AdultFilterMode) -> Void) {
-        browserCore.callAction(
+    public static func getAdultFilter(callback: @escaping (AdultFilterMode) -> Void) {
+        self.browserCore.callAction(
             module: "search",
-            action: "getAduleFilter",
+            action: "getAdultFilter",
             args: []
         ) { (error, result) in
             guard error == nil, let mode = result as? String else {
@@ -71,4 +89,13 @@ extension Search: BrowserCoreClient {
             callback(AdultFilterMode(rawValue: mode) ?? .conservative)
         }
     }
+
+    public static func setAdultFilter(filter: AdultFilterMode) {
+        self.browserCore.callAction(
+            module: "search",
+            action: "setAdultFilter",
+            args: [filter.rawValue]
+        )
+    }
+
 }

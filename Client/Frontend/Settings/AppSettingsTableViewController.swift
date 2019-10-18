@@ -7,6 +7,11 @@ import Shared
 
 /// App Settings Screen (triggered by tapping the 'Gear' in the Tab Tray Controller)
 class AppSettingsTableViewController: SettingsTableViewController {
+
+    private var currentRegion: Search.Country?
+    private var availableRegions: [Search.Country]?
+    private var currentAdultFilterMode: Search.AdultFilterMode?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +26,12 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.resetSearchValues()
+        super.viewWillAppear(animated)
+        self.updateSearchValues()
+    }
+
     override func generateSettings() -> [SettingSection] {
         var settings = [SettingSection]()
 
@@ -28,14 +39,18 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         let prefs = profile.prefs
         var generalSettings: [Setting] = [
+            SearchResultsSetting(currentRegion: self.currentRegion, availableRegions: self.availableRegions),
             SearchSetting(settings: self),
             OpenWithSetting(settings: self),
+            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
+                Search.setAdultFilter(filter: value ? .conservative : .liberal)
+            },
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
                         titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
            ]
 
         if #available(iOS 12.0, *) {
-            generalSettings.insert(SiriPageSetting(settings: self), at: 2)
+            generalSettings.insert(SiriPageSetting(settings: self), at: 3)
         }
 
         // There is nothing to show in the Customize section if we don't include the compact tab layout
@@ -102,4 +117,29 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         return headerView
     }
+
+    // MARK: - Private methods
+
+    private func resetSearchValues() {
+        self.currentRegion = nil
+        self.availableRegions = nil
+        self.currentAdultFilterMode = nil
+    }
+
+    private func updateSearchValues() {
+        Search.getBackendCountries { (config) in
+            DispatchQueue.main.async {
+                self.currentRegion = config.selected
+                self.availableRegions = config.available
+                self.reloadData()
+            }
+        }
+        Search.getAdultFilter { (mode) in
+            DispatchQueue.main.async {
+                self.currentAdultFilterMode = mode
+                self.reloadData()
+            }
+        }
+    }
+
 }

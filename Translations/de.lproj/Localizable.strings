@@ -838,6 +838,15 @@
 /* The placeholder for URL Field when saving a custom search engine */
 "Settings.AddCustomEngine.URLPlaceholder" = "URL (Anfrage durch %s ersetzen)";
 
+/* The button text in Search Settings that opens the list of supported search languages. */
+"Settings.SearchResultForLanguage" = "Suchergebnisse für";
+
+/* "Enable/Disable adult filter setting" */
+"Settings.AdultFilterMode" = "18+ Seiten blockieren";
+
+/* Localized String for German region */
+"region-DE" = "Deutschland";
+
 /* Button in Data Management that clears private data for the selected items. */
 "Settings.ClearAllWebsiteData.Clear.Button" = "Alle Website-Daten löschen";
 

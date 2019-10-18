@@ -398,6 +398,17 @@ extension Strings {
     public static let SettingsAddCustomEngineSaveButtonText = NSLocalizedString("Settings.AddCustomEngine.SaveButtonText", comment: "The text on the Save button when saving a custom search engine")
 }
 
+// Search Results For Language
+extension Strings {
+    public static let SettingsSearchResultForLanguage = NSLocalizedString("Settings.SearchResultForLanguage", comment: "The button text in Settings that opens the list of supported search languages.")
+    public static let SettingsSearchResultForGerman = NSLocalizedString("region-DE", comment: "Localized String for German region")
+}
+
+// Adult Filter Mode
+extension Strings {
+    public static let SettingsAdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
+}
+
 // Context menu ButtonToast instances.
 extension Strings {
     public static let ContextMenuButtonToastNewTabOpenedLabelText = NSLocalizedString("ContextMenu.ButtonToast.NewTabOpened.LabelText", comment: "The label text in the Button Toast for switching to a fresh New Tab.")
