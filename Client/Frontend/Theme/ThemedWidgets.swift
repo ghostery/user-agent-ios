@@ -54,6 +54,10 @@ class ThemedTableViewController: UITableViewController, Themeable {
         applyTheme()
     }
 
+    func reloadData() {
+        self.applyTheme()
+    }
+
     func applyTheme() {
         tableView.separatorColor = UIColor.theme.tableView.separator
         tableView.backgroundColor = UIColor.theme.tableView.headerBackground

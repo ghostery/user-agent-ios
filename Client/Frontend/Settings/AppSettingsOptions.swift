@@ -283,28 +283,29 @@ class SearchSetting: Setting {
 
 // Opens the search results for language settings
 class SearchResultsSetting: Setting {
-    let profile: Profile
+
+    private var currentRegion: Search.Region?
+    private var availableRegions: [Search.Region]?
 
     override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
 
     override var style: UITableViewCell.CellStyle { return .value1 }
 
-    override var status: NSAttributedString {
-        guard let language = self.profile.prefs.stringForKey(PrefsKeys.KeySearchResultsLanguage), let region = Search.Region(rawValue: language) else {
-            return NSAttributedString()
-        }
-        return NSAttributedString(string: region.title)
-    }
+    override var status: NSAttributedString? { return self.currentRegion != nil ? NSAttributedString(string: self.currentRegion!.name) : NSAttributedString() }
 
     override var accessibilityIdentifier: String? { return "Search Results" }
 
-    init(settings: SettingsTableViewController) {
-        self.profile = settings.profile
+    init(currentRegion: Search.Region?, availableRegions: [Search.Region]?) {
+        self.currentRegion = currentRegion
+        self.availableRegions = availableRegions
         super.init(title: NSAttributedString(string: Strings.SettingsSearchResultForLanguage, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
-        let viewController = SearchResultsSettingsViewController(prefs: self.profile.prefs)
+        guard let region = self.currentRegion, let regions = self.availableRegions else {
+            return
+        }
+        let viewController = SearchResultsSettingsViewController(selectedRegion: region, availableRegions: regions)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -7,6 +7,11 @@ import Shared
 
 /// App Settings Screen (triggered by tapping the 'Gear' in the Tab Tray Controller)
 class AppSettingsTableViewController: SettingsTableViewController {
+
+    private var currentRegion: Search.Region?
+    private var availableRegions: [Search.Region]?
+    private var currentAdultFilterMode: Search.AdultFilterMode?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +26,22 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.currentRegion = nil
+        self.availableRegions = nil
+        self.currentAdultFilterMode = nil
+        Search.getBackendCountries { (config) in
+            self.currentRegion = config.selected
+            self.availableRegions = config.available
+            self.reloadData()
+        }
+        Search.getAdultFilter { (mode) in
+            self.currentAdultFilterMode = mode
+            self.reloadData()
+        }
+    }
+
     override func generateSettings() -> [SettingSection] {
         var settings = [SettingSection]()
 
@@ -28,11 +49,11 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         let prefs = profile.prefs
         var generalSettings: [Setting] = [
-            SearchResultsSetting(settings: self),
+            SearchResultsSetting(currentRegion: self.currentRegion, availableRegions: self.availableRegions),
             SearchSetting(settings: self),
             OpenWithSetting(settings: self),
-            BoolSetting(prefs: prefs, prefKey: PrefsKeys.KeyAdultFilterMode, defaultValue: true, titleText: Strings.SettingsAdultFilterMode) { (value) in
-                Search.setAduleFilter(filter: value ? Search.AdultFilterMode.conservative : Search.AdultFilterMode.liberal)
+            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
+                Search.setAdultFilter(filter: value ? .conservative : .liberal)
             },
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
                         titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),

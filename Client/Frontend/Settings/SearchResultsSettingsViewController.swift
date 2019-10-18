@@ -11,17 +11,12 @@ import Shared
 
 class SearchResultsSettingsViewController: SettingsTableViewController {
 
-    private let prefs: Prefs
-
     private var selectedRegion: Search.Region
+    private var availableRegions: [Search.Region]
 
-    init(prefs: Prefs) {
-        self.prefs = prefs
-        if let regionKey = prefs.stringForKey(PrefsKeys.KeySearchResultsLanguage), let region = Search.Region(rawValue: regionKey) {
-            self.selectedRegion = region
-        } else {
-            self.selectedRegion = Search.defaultConfig.selected
-        }
+    init(selectedRegion: Search.Region, availableRegions: [Search.Region]) {
+        self.selectedRegion = selectedRegion
+        self.availableRegions = availableRegions
         super.init(style: .grouped)
         self.title = Strings.SettingsSearchResultForLanguage
         self.hasSectionSeparatorLine = false
@@ -32,12 +27,11 @@ class SearchResultsSettingsViewController: SettingsTableViewController {
     }
 
     override func generateSettings() -> [SettingSection] {
-        let searchSettings: [CheckmarkSetting] = Search.Region.allCases.map { region in
-            return CheckmarkSetting(title: NSAttributedString(string: region.title), subtitle: nil, accessibilityIdentifier: region.rawValue, isEnabled: {
-                return region == self.selectedRegion
+        let searchSettings: [CheckmarkSetting] = self.availableRegions.map { region in
+            return CheckmarkSetting(title: NSAttributedString(string: region.name), subtitle: nil, accessibilityIdentifier: region.key, isEnabled: {
+                return region.key == self.selectedRegion.key
             }, onChanged: {
                 self.selectedRegion = region
-                self.prefs.setString(self.selectedRegion.rawValue, forKey: PrefsKeys.KeySearchResultsLanguage)
                 Search.setBackendCountry(country: region)
                 self.tableView.reloadData()
             })

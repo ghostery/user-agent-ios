@@ -172,22 +172,24 @@ class BoolSetting: Setting {
     fileprivate let defaultValue: Bool
     fileprivate let settingDidChange: ((Bool) -> Void)?
     fileprivate let statusText: NSAttributedString?
+    fileprivate let switchEnabled: Bool
 
-    init(prefs: Prefs, prefKey: String? = nil, defaultValue: Bool, attributedTitleText: NSAttributedString, attributedStatusText: NSAttributedString? = nil, settingDidChange: ((Bool) -> Void)? = nil) {
+    init(prefs: Prefs, prefKey: String? = nil, defaultValue: Bool, attributedTitleText: NSAttributedString, attributedStatusText: NSAttributedString? = nil, enabled: Bool = true, settingDidChange: ((Bool) -> Void)? = nil) {
         self.prefs = prefs
         self.prefKey = prefKey
         self.defaultValue = defaultValue
         self.settingDidChange = settingDidChange
         self.statusText = attributedStatusText
+        self.switchEnabled = enabled
         super.init(title: attributedTitleText)
     }
 
-    convenience init(prefs: Prefs, prefKey: String? = nil, defaultValue: Bool, titleText: String, statusText: String? = nil, settingDidChange: ((Bool) -> Void)? = nil) {
+    convenience init(prefs: Prefs, prefKey: String? = nil, defaultValue: Bool, titleText: String, statusText: String? = nil, enabled: Bool = true, settingDidChange: ((Bool) -> Void)? = nil) {
         var statusTextAttributedString: NSAttributedString?
         if let statusTextString = statusText {
             statusTextAttributedString = NSAttributedString(string: statusTextString, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight])
         }
-        self.init(prefs: prefs, prefKey: prefKey, defaultValue: defaultValue, attributedTitleText: NSAttributedString(string: titleText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]), attributedStatusText: statusTextAttributedString, settingDidChange: settingDidChange)
+        self.init(prefs: prefs, prefKey: prefKey, defaultValue: defaultValue, attributedTitleText: NSAttributedString(string: titleText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]), attributedStatusText: statusTextAttributedString, enabled: enabled, settingDidChange: settingDidChange)
     }
 
     override var status: NSAttributedString? {
@@ -198,6 +200,7 @@ class BoolSetting: Setting {
         super.onConfigureCell(cell)
 
         let control = UISwitchThemed()
+        control.isEnabled = self.switchEnabled
         control.onTintColor = UIConstants.SystemBlueColor
         control.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         control.accessibilityIdentifier = prefKey
@@ -223,6 +226,7 @@ class BoolSetting: Setting {
     // These methods allow a subclass to control how the pref is saved
     func displayBool(_ control: UISwitch) {
         guard let key = prefKey else {
+            control.isOn = defaultValue
             return
         }
         control.isOn = prefs.boolForKey(key) ?? defaultValue
