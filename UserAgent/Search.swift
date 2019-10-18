@@ -7,16 +7,47 @@
 //
 
 import Foundation
+import Shared
 
 class Search {
+
+    enum Region: String {
+        case de = "de"
+        case fr = "fr"
+        case us = "us"
+        case it = "it"
+        case es = "es"
+        case gb = "gb"
+
+        var title: String {
+            switch self {
+            case .de:
+                return Strings.SettingsSearchResultForGerman
+            case .fr:
+                return Strings.SettingsSearchResultForFrance
+            case .us:
+                return Strings.SettingsSearchResultForUnitedStates
+            case .it:
+                return Strings.SettingsSearchResultForItaly
+            case .es:
+                return Strings.SettingsSearchResultForSpain
+            case .gb:
+                return Strings.SettingsSearchResultForUnitedKingdom
+            }
+        }
+
+        static var allCases: [Region] {
+            return [.de, .fr, .us, .it, .es, .gb]
+        }
+    }
 
 }
 
 extension Search: BrowserCoreClient {
-    private static let defaultConfig = Config(selected: "de", available: ["de"])
+    static let defaultConfig = Config(selected: Search.Region.de, available: [Search.Region.de])
     public struct Config {
-        public var selected: String
-        public var available: [String]
+        public var selected: Search.Region
+        public var available: [Search.Region]
     }
 
     public static func getBackendCountries(callback: @escaping (Config) -> Void) {
@@ -34,21 +65,28 @@ extension Search: BrowserCoreClient {
                 callback(Self.defaultConfig)
                 return
             }
-
+            let selectedKey = backends.first { ($0.value["selected"] as? Bool) ?? false == true }?.key ?? ""
+            let selected = Search.Region(rawValue: selectedKey) ?? Search.Region(rawValue: "de")!
+            var available = [Search.Region]()
+            for item in backends.keys {
+                if let region = Search.Region(rawValue: item) {
+                    available.append(region)
+                }
+            }
             let config = Config(
-                selected: backends.first { ($0.value["selected"] as? Bool) ?? false == true }?.key ?? "de",
-                available: Array(backends.keys)
+                selected: selected,
+                available: available
             )
 
             callback(config)
         }
     }
 
-    public static func setBackendCountry(country: String) {
+    public static func setBackendCountry(country: Search.Region) {
         browserCore.callAction(
             module: "search",
-            action: "getBackendCountries",
-            args: [country]
+            action: "setBackendCountries",
+            args: [country.rawValue]
         )
     }
 }

@@ -838,6 +838,27 @@
 /* The placeholder for URL Field when saving a custom search engine */
 "Settings.AddCustomEngine.URLPlaceholder" = "URL (Anfrage durch %s ersetzen)";
 
+/* The button text in Search Settings that opens the list of supported search languages. */
+"Settings.SearchResultForLanguage" = "";
+
+/* Localized String for German region */
+"region-DE" = "";
+
+/* Localized String for France region */
+"region-FR" = "";
+
+/* Localized String for United States region */
+"region-US" = "";
+
+/* Localized String for Italy region */
+"region-IT" = "";
+
+/* Localized String for Spain region */
+"region-ES" = "";
+
+/* Localized String for United Kingdom region */
+"region-GB" = "";
+
 /* Button in Data Management that clears private data for the selected items. */
 "Settings.ClearAllWebsiteData.Clear.Button" = "Alle Website-Daten löschen";
 

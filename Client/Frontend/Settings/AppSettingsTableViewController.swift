@@ -28,6 +28,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         let prefs = profile.prefs
         var generalSettings: [Setting] = [
+            SearchResultsSetting(settings: self),
             SearchSetting(settings: self),
             OpenWithSetting(settings: self),
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,

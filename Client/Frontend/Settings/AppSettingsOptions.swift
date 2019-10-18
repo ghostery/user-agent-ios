@@ -281,6 +281,34 @@ class SearchSetting: Setting {
     }
 }
 
+// Opens the search results for language settings
+class SearchResultsSetting: Setting {
+    let profile: Profile
+
+    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
+
+    override var style: UITableViewCell.CellStyle { return .value1 }
+
+    override var status: NSAttributedString {
+        guard let language = self.profile.prefs.stringForKey(PrefsKeys.KeySearchResultsLanguage), let region = Search.Region(rawValue: language) else {
+            return NSAttributedString()
+        }
+        return NSAttributedString(string: region.title)
+    }
+
+    override var accessibilityIdentifier: String? { return "Search Results" }
+
+    init(settings: SettingsTableViewController) {
+        self.profile = settings.profile
+        super.init(title: NSAttributedString(string: Strings.SettingsSearchResultForLanguageSectionName, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
+    }
+
+    override func onClick(_ navigationController: UINavigationController?) {
+        let viewController = SearchResultsSettingsViewController(prefs: self.profile.prefs)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 class ContentBlockerSetting: Setting {
     let profile: Profile
     var tabManager: TabManager!
