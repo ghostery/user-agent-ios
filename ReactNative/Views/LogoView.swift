@@ -46,6 +46,7 @@ class LogoView: UIView {
     }
 
     private func createLogoView() -> RCTRootView? {
+        return nil
         guard let url = self.url else { return nil }
 
         let reactView = RCTRootView(
