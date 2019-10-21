@@ -8,31 +8,42 @@
 
 import Foundation
 import React
+import Shared
 
 @objc(BrowserCliqz)
 class BrowserCliqz: RCTEventEmitter {
+
+    private func withAppDelegate(completion: @escaping (AppDelegate) -> Void) {
+        DispatchQueue.main.async {
+            guard let appDel = UIApplication.shared.delegate as? AppDelegate else { return }
+            completion(appDel)
+        }
+    }
+
     private let PrefMapping = [
-        "toolkit.telemetry.enabled": Preference.SendUsageData.key,
+        "toolkit.telemetry.enabled": AppConstants.PrefSendUsageData,
     ]
 
     @objc(getPref:resolve:reject:)
     public func getPref(key: NSString, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
-        if key as String == "toolkit.telemetry.enabled" {
-            let value = Preference.SendUsageData.get()
-            resolve(value)
+        guard let pref = PrefMapping[key as String] else {
+            resolve(nil)
             return
         }
-        resolve(nil)
+        self.withAppDelegate { appDel in
+            guard let profile = appDel.profile else {
+                resolve(nil)
+                return
+            }
+            resolve(profile.prefs.objectForKey(pref) as Any?)
+        }
     }
 
     @objc(addPrefListener:)
     public func addPrefListener(key: NSString) {
         guard let pref = PrefMapping[key as String] else { return }
 
-        DispatchQueue.main.async {
-            guard let appDel = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
+        self.withAppDelegate { appDel in
             appDel.profile?.prefs.addListener(pref, callback: {
                 self.sendEvent(withName: "prefChange", body: key)
             })
@@ -42,10 +53,7 @@ class BrowserCliqz: RCTEventEmitter {
     @objc(removePrefListener:)
     public func removePrefListener(key: NSString) {
         guard let pref = PrefMapping[key as String] else { return }
-        DispatchQueue.main.async {
-            guard let appDel = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
+        self.withAppDelegate { appDel in
             appDel.profile?.prefs.removeListener(pref)
         }
     }

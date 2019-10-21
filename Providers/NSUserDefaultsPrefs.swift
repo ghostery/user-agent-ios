@@ -5,7 +5,7 @@
 import Foundation
 import Shared
 
-open class NSUserDefaultsPrefs: NSObject, Prefs {
+open class NSUserDefaultsPrefs: Prefs {
     fileprivate var prefCallbacks: [String: () -> Void] = [:]
     fileprivate let prefixWithDot: String
     fileprivate let userDefaults: UserDefaults
