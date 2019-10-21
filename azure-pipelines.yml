@@ -61,6 +61,7 @@ steps:
     actions: '$(actions)'
     sdk: 'iphonesimulator'
     xcWorkspacePath: 'UserAgent.xcworkspace'
+    configuration: 'Release'
     scheme: '$(scheme)'
     packageApp: true
     destinationPlatformOption: 'iOS'
