@@ -1027,26 +1027,17 @@
 /* The option that takes you to the siri shortcuts settings page */
 "Settings.Siri.SectionName" = "Siri-Kürzel";
 
-/* Header description for tracking protection options section where Basic/Strict block list can be selected */
-"Settings.TrackingProtection.BlockListsHeader" = "Sie können die Liste auswählen, welche %@ zum Blockieren von Ihre Internetaktivitäten verfolgenden Web-Elementen verwenden soll.";
-
 /* Explanation of basic mode. */
 "Settings.TrackingProtection.Info.BasicTitle" = "Ausgewogen für Schutz und Leistung.";
 
 /* The Title on info view which shows a list of all blocked websites */
 "Settings.TrackingProtection.Info.BlocksTitle" = "BLOCKIERT";
 
-/* Explanation of strict mode. */
-"Settings.TrackingProtection.Info.StrictTitle" = "Bietet stärkeren Schutz, kann jedoch dazu führen, dass einige Websites nicht funktionieren.";
-
 /* Title for tracking protection options section where level can be selected. */
 "Settings.TrackingProtection.ProtectionLevelTitle" = "Schutzniveau";
 
 /* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
 "Settings.TrackingProtection.SectionName" = "Schutz vor Aktivitätenverfolgung";
-
-/* Additional information about the strict level setting */
-"Settings.TrackingProtection.StrictLevelInfoFooter" = "Das Blockieren von Trackern kann die Funktionalität einiger Websites beeinträchtigen.";
 
 /* Tracking protection settings option for using the basic blocklist. */
 "Settings.TrackingProtectionOption.BasicBlockList" = "Standard";

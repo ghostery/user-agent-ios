@@ -504,8 +504,6 @@ extension Strings {
     public static let TrackingProtectionOptionOnInNormalBrowsing = NSLocalizedString("Settings.TrackingProtectionOption.OnInNormalBrowsingLabel", comment: "Settings option to specify that Tracking Protection is on only in Private Browsing mode.")
     public static let TrackingProtectionOptionOnOffHeader = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateHeaderLabel", comment: "Description label shown at the top of tracking protection options screen.")
     public static let TrackingProtectionOptionOnOffFooter = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateFooterLabel", comment: "Description label shown on tracking protection options screen.")
-    public static let TrackingProtectionOptionBlockListsTitle = NSLocalizedString("Settings.TrackingProtection.BlockListsTitle", comment: "Title for tracking protection options section where Basic/Strict block list can be selected")
-    public static let TrackingProtectionOptionBlockListsHeader = String(format: NSLocalizedString("Settings.TrackingProtection.BlockListsHeader", comment: "Header description for tracking protection options section where Basic/Strict block list can be selected"), AppInfo.displayName)
     public static let TrackingProtectionReloadWithout = NSLocalizedString("Menu.ReloadWithoutTrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to reload the current website without Tracking Protection")
     public static let TrackingProtectionReloadWith = NSLocalizedString("Menu.ReloadWithTrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled")
 }
