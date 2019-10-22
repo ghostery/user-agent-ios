@@ -126,9 +126,19 @@ export default class Results extends React.Component {
         <CliqzProvider value={this.props.cliqz}>
           <ThemeProvider value={theme}>
             <ScrollView
-              bounces={false}
+              bounces={true}
               ref={this.scrollRef}
             >
+              <View
+                style={{
+                  backgroundColor: 'white',
+                  height: 500,
+                  position: 'absolute',
+                  top: -500,
+                  left: 0,
+                  right: 0,
+                }}
+              />
               <SearchUIVertical
                 results={results}
                 meta={meta}
