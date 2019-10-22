@@ -88,7 +88,7 @@ class SearchResultsViewController: UIViewController {
 // MARK: - Themeable
 extension SearchResultsViewController: Themeable {
     func applyTheme() {
-        view.backgroundColor = UIColor.theme.browser.background
+        view.backgroundColor = UIColor.clear
         updateTheme()
     }
 }

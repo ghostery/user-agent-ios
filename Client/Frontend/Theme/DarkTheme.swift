@@ -5,17 +5,22 @@
 import Foundation
 
 // Convenience reference to these normal mode colors which are used in a few color classes.
-private let defaultBackground = UIColor.Grey80
+private var defaultBackground: UIColor {
+    if #available(iOS 13.0, *) {
+        return UIColor.systemGray6
+    } else {
+        // Fallback on earlier versions
+        return UIColor.Grey80
+    }
+}
+
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
 private class DarkTableViewColor: TableViewColor {
-    override var rowBackground: UIColor { return UIColor.Grey70 }
     override var rowText: UIColor { return defaultTextAndTint }
     override var rowDetailText: UIColor { return UIColor.Grey30 }
     override var disabledRowText: UIColor { return UIColor.Grey40 }
-    override var separator: UIColor { return UIColor.Grey60 }
-    override var headerBackground: UIColor { return UIColor.Grey80 }
     override var headerTextLight: UIColor { return UIColor.Grey30 }
     override var headerTextDark: UIColor { return UIColor.Grey30 }
     override var syncText: UIColor { return defaultTextAndTint }
@@ -23,9 +28,9 @@ private class DarkTableViewColor: TableViewColor {
 
 private class DarkActionMenuColor: ActionMenuColor {
     override var foreground: UIColor { return defaultTextAndTint }
-    override var iPhoneBackground: UIColor { return UIColor.Grey90.withAlphaComponent(0.9) }
+    override var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
     override var closeButtonBackground: UIColor { return defaultBackground }
-
+    override var closeButtonTitleColor: UIColor { return UIColor.CliqzBlue }
 }
 
 private class DarkURLBarColor: URLBarColor {
@@ -70,11 +75,32 @@ private class DarkTopTabsColor: TopTabsColor {
 }
 
 private class DarkTextFieldColor: TextFieldColor {
-    override var background: UIColor { return UIColor.Grey60 }
+    override var background: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray4
+        } else {
+            return UIColor.Grey60
+        }
+    }
+
     override var backgroundInOverlay: UIColor { return self.background }
 
-    override var textAndTint: UIColor { return defaultTextAndTint }
-    override var separator: UIColor { return super.separator.withAlphaComponent(0.3) }
+    override var textAndTint: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            // Fallback on earlier versions
+            return defaultTextAndTint
+        }
+    }
+    override var separator: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray2
+        } else {
+            // Fallback on earlier versions
+            return super.separator.withAlphaComponent(0.3)
+        }
+    }
 }
 
 private class DarkHomePanelColor: HomePanelColor {
@@ -121,6 +147,7 @@ private class DarkGeneralColor: GeneralColor {
     override var settingsTextPlaceholder: UIColor? { return UIColor.black }
     override var faviconBackground: UIColor { return UIColor.White }
     override var passcodeDot: UIColor { return UIColor.Grey40 }
+    override var controlTint: UIColor { return UIColor.CliqzBlue }
 }
 
 class DarkTheme: NormalTheme {

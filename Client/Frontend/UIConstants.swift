@@ -22,6 +22,7 @@ public struct UIConstants {
     static let SnackbarButtonHeight: CGFloat = 57
     static let TopToolbarHeight: CGFloat = 56
     static var ToolbarHeight: CGFloat = 46
+    static let URLBarViewHeight: CGFloat = 38
     static var BottomToolbarHeight: CGFloat {
         var bottomInset: CGFloat = 0.0
         if let window = UIApplication.shared.keyWindow {

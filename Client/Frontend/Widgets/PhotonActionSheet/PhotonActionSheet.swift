@@ -30,7 +30,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setTitle(Strings.CloseButtonTitle, for: .normal)
-        button.setTitleColor(UIConstants.SystemBlueColor, for: .normal)
+        button.setTitleColor(UIColor.theme.actionMenu.closeButtonTitleColor, for: .normal)
         button.layer.cornerRadius = PhotonActionSheetUX.CornerRadius
         button.titleLabel?.font = DynamicFontHelper.defaultHelper.DeviceFontExtraLargeBold
         button.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
