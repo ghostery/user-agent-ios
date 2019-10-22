@@ -9,11 +9,11 @@ private struct URLBarViewUX {
     static let TextFieldBorderColor = UIColor.Grey40
     static let TextFieldActiveBorderColor = UIColor.Blue40
 
-    static let LocationLeftPadding: CGFloat = 8
+    static let LocationLeftPadding: CGFloat = 18
     static let Padding: CGFloat = 10
     static let ButtonHeight: CGFloat = 36
 
-    static let TextFieldCornerRadius: CGFloat = 8
+    static let TextFieldCornerRadius: CGFloat = 18
     static let TextFieldBorderWidth: CGFloat = 0
     static let TextFieldBorderWidthSelected: CGFloat = 0
     static let ProgressBarHeight: CGFloat = 4
@@ -115,6 +115,7 @@ class URLBarView: UIView {
 
     lazy var locationContainer: UIView = {
         let locationContainer = TabLocationContainerView()
+        locationContainer.layer.cornerRadius = URLBarViewUX.TextFieldCornerRadius
         locationContainer.translatesAutoresizingMaskIntoConstraints = false
         locationContainer.backgroundColor = .clear
         return locationContainer
@@ -145,7 +146,8 @@ class URLBarView: UIView {
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.BackTitle
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
-        cancelButton.setTitleColor(UIColor.Grey80, for: .normal)
+        cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
         cancelButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -402,6 +404,7 @@ class URLBarView: UIView {
         locationTextField.applyTheme()
         locationTextField.backgroundColor = UIColor.green
         locationTextField.inputAccessoryView = querySuggestionsInputAccessoryView
+//        locationTextField.layer.cornerRadius = self.locationView.layer.cornerRadius
     }
 
     override func becomeFirstResponder() -> Bool {
@@ -788,14 +791,9 @@ extension URLBarView: QuerySuggestionDelegate {
 // This subclass creates a strong shadow on the URLBar
 class TabLocationContainerView: UIView {
 
-    private struct LocationContainerUX {
-        static let CornerRadius: CGFloat = 8
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         let layer = self.layer
-        layer.cornerRadius = LocationContainerUX.CornerRadius
         layer.masksToBounds = false
     }
 

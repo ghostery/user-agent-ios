@@ -23,7 +23,7 @@ enum BuiltinThemeName: String {
 }
 
 // Convenience reference to these normal mode colors which are used in a few color classes.
-private let defaultBackground = UIColor.lightText
+private let defaultBackground = UIColor.LightSky
 private let defaultSeparator = UIColor.Grey30
 private let defaultTextAndTint = UIColor.Grey80
 
