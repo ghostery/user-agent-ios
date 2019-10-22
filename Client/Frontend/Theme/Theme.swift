@@ -37,12 +37,33 @@ private let defaultSeparator = UIColor.Grey30
 private let defaultTextAndTint = UIColor.Grey80
 
 class TableViewColor {
-    var rowBackground: UIColor { return UIColor.White }
+    var rowBackground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.secondarySystemGroupedBackground
+        } else {
+            // Fallback on earlier versions
+            return UIColor.White
+        }
+    }
     var rowText: UIColor { return UIColor.Grey90 }
     var rowDetailText: UIColor { return UIColor.Grey80 }
     var disabledRowText: UIColor { return UIColor.Grey60 }
-    var separator: UIColor { return defaultSeparator }
-    var headerBackground: UIColor { return defaultBackground }
+    var separator: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.opaqueSeparator
+        } else {
+            // Fallback on earlier versions
+            return defaultSeparator
+        }
+    }
+    var headerBackground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGroupedBackground
+        } else {
+            // Fallback on earlier versions
+            return defaultBackground
+        }
+    }
     // Used for table headers in Settings and Photon menus
     var headerTextLight: UIColor { return UIColor.DarkBlue }
     // Used for table headers in home panel tables
@@ -55,10 +76,19 @@ class TableViewColor {
 }
 
 class ActionMenuColor {
+    var separatorColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray2
+        } else {
+            // Fallback on earlier versions
+            return defaultTextAndTint
+        }
+    }
     var foreground: UIColor { return defaultTextAndTint }
     var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.light }
     var iPhoneBackground: UIColor { return UIColor.theme.browser.background.withAlphaComponent(0.9) }
     var closeButtonBackground: UIColor { return defaultBackground }
+    var closeButtonTitleColor: UIColor { return UIColor.BrightBlue }
 }
 
 class URLBarColor {
@@ -146,10 +176,30 @@ class TopTabsColor {
 }
 
 class TextFieldColor {
-    var background: UIColor { return UIColor.CloudySky }
+    var background: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray4
+        } else {
+            return UIColor.CloudySky
+        }
+    }
     var backgroundInOverlay: UIColor { return UIColor.white }
-    var textAndTint: UIColor { return defaultTextAndTint }
-    var separator: UIColor { return .white }
+    var textAndTint: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            // Fallback on earlier versions
+            return defaultTextAndTint
+        }
+    }
+    var separator: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray2
+        } else {
+            // Fallback on earlier versions
+            return .white
+        }
+    }
 }
 
 class HomePanelColor {
@@ -206,7 +256,7 @@ class GeneralColor {
     var destructiveRed: UIColor { return UIColor.Red50 }
     var separator: UIColor { return defaultSeparator }
     var settingsTextPlaceholder: UIColor? { return nil }
-    var controlTint: UIColor { return UIColor.CliqzBlue }
+    var controlTint: UIColor { return UIColor.BrightBlue }
 }
 
 protocol Theme {
