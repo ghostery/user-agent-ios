@@ -17,6 +17,7 @@ import React
 ///     - add constraints for `.view`
 ///     - ALSO add constraints for `.searchView` (!!!)
 class SearchResultsViewController: UIViewController {
+    public var isLastCharacterRemoved = false
 
     // MARK: Properties
     public private(set) var lastQuery: String = ""
@@ -28,8 +29,10 @@ class SearchResultsViewController: UIViewController {
 
             if lastStringLength - searchQuery.count == 1 {
                 keyCode = "Backspace"
+                self.isLastCharacterRemoved = true
             } else if searchQuery.count > lastStringLength {
                 keyCode = "Key" + String(searchQuery.last!).uppercased()
+                self.isLastCharacterRemoved = false
             }
 
             lastQuery = searchQuery
@@ -95,7 +98,7 @@ extension SearchResultsViewController: BrowserCoreClient {
     private func startSearch(_ keyCode: String) {
         browserCore.callAction(module: "search", action: "startSearch", args: [
             searchQuery,
-            ["key": keyCode],
+            ["keyCode": keyCode],
             ["contextId": "mobile-cards"],
         ])
     }
