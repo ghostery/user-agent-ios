@@ -8,8 +8,10 @@ import Shared
 struct ContentBlockingConfig {
     struct Prefs {
         static let StrengthKey = "prefkey.trackingprotection.strength"
-        static let NormalBrowsingEnabledKey = "prefkey.trackingprotection.normalbrowsing"
-        static let PrivateBrowsingEnabledKey = "prefkey.trackingprotection.privatebrowsing"
+        static let NormalBrowsingTrackingProtectionEnabledKey = "prefkey.trackingprotection.normalbrowsing"
+        static let PrivateBrowsingTrackingProtectionEnabledKey = "prefkey.trackingprotection.privatebrowsing"
+        static let NormalBrowsingAdBlockingEnabledKey = "prefkey.adBlocking.normalbrowsing"
+        static let PrivateBrowsingAdBlockingEnabledKey = "prefkey.adBlocking.privatebrowsing"
     }
 
     struct Defaults {
@@ -35,29 +37,30 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
         return "TrackingProtectionStats"
     }
 
-    var isUserEnabled: Bool? {
-        didSet {
-            guard let tab = tab as? Tab else { return }
-            setupForTab()
-            TabEvent.post(.didChangeContentBlocking, for: tab)
-            tab.reload()
-        }
-    }
-
-    override var isEnabled: Bool {
-        if let enabled = isUserEnabled {
-            return enabled
-        }
+    override var isEnabledTrackingProtection: Bool {
         guard let tab = tab as? Tab else { return false }
-        return tab.isPrivate ? isEnabledInPrivateBrowsing : isEnabledInNormalBrowsing
+        return tab.isPrivate ? self.isEnabledTrackingProtectionInPrivateBrowsing : self.isEnabledTrackingProtectionInNormalBrowsing
     }
 
-    var isEnabledInNormalBrowsing: Bool {
-        return userPrefs.boolForKey(ContentBlockingConfig.Prefs.NormalBrowsingEnabledKey) ?? ContentBlockingConfig.Defaults.NormalBrowsing
+    override var isEnabledAdBlocking: Bool {
+        guard let tab = tab as? Tab else { return false }
+        return tab.isPrivate ? self.isEnabledAdBlockingInPrivateBrowsing : self.isEnabledAdBlockingInNormalBrowsing
     }
 
-    var isEnabledInPrivateBrowsing: Bool {
-        return userPrefs.boolForKey(ContentBlockingConfig.Prefs.PrivateBrowsingEnabledKey) ?? ContentBlockingConfig.Defaults.PrivateBrowsing
+    var isEnabledTrackingProtectionInNormalBrowsing: Bool {
+        return userPrefs.boolForKey(ContentBlockingConfig.Prefs.NormalBrowsingTrackingProtectionEnabledKey) ?? ContentBlockingConfig.Defaults.NormalBrowsing
+    }
+
+    var isEnabledTrackingProtectionInPrivateBrowsing: Bool {
+        return userPrefs.boolForKey(ContentBlockingConfig.Prefs.PrivateBrowsingTrackingProtectionEnabledKey) ?? ContentBlockingConfig.Defaults.PrivateBrowsing
+    }
+
+    var isEnabledAdBlockingInNormalBrowsing: Bool {
+        return userPrefs.boolForKey(ContentBlockingConfig.Prefs.NormalBrowsingAdBlockingEnabledKey) ?? ContentBlockingConfig.Defaults.NormalBrowsing
+    }
+
+    var isEnabledAdBlockingInPrivateBrowsing: Bool {
+        return userPrefs.boolForKey(ContentBlockingConfig.Prefs.PrivateBrowsingAdBlockingEnabledKey) ?? ContentBlockingConfig.Defaults.PrivateBrowsing
     }
 
     var blockingStrengthPref: BlockingStrength {
@@ -72,8 +75,10 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 
     func setupForTab() {
         guard let tab = tab else { return }
-        let rules = BlocklistName.forStrictMode(isOn: blockingStrengthPref == .strict)
-        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: isEnabled, rules: rules)
+        let adsRules = BlocklistName.ads
+        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: self.isEnabledAdBlocking, rules: adsRules)
+        let trackingRules = BlocklistName.tracking
+        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: self.isEnabledTrackingProtection, rules: trackingRules)
     }
 
     @objc override func notifiedTabSetupRequired() {
@@ -81,7 +86,14 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
     }
 
     override func currentlyEnabledLists() -> [BlocklistName] {
-        return BlocklistName.forStrictMode(isOn: blockingStrengthPref == .strict)
+        var list = [BlocklistName]()
+        if self.isEnabledAdBlocking {
+            list.append(contentsOf: BlocklistName.ads)
+        }
+        if self.isEnabledTrackingProtection {
+            list.append(contentsOf: BlocklistName.tracking)
+        }
+        return list
     }
 
     override func notifyContentBlockingChanged() {
@@ -92,9 +104,17 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 
 // Static methods to access user prefs for tracking protection
 extension FirefoxTabContentBlocker {
+
     static func setTrackingProtection(enabled: Bool, prefs: Prefs, tabManager: TabManager) {
         guard let isPrivate = tabManager.selectedTab?.isPrivate else { return }
-        let key = isPrivate ? ContentBlockingConfig.Prefs.PrivateBrowsingEnabledKey : ContentBlockingConfig.Prefs.NormalBrowsingEnabledKey
+        let key = isPrivate ? ContentBlockingConfig.Prefs.PrivateBrowsingTrackingProtectionEnabledKey : ContentBlockingConfig.Prefs.NormalBrowsingTrackingProtectionEnabledKey
+        prefs.setBool(enabled, forKey: key)
+        ContentBlocker.shared.prefsChanged()
+    }
+
+    static func setAdBlocking(enabled: Bool, prefs: Prefs, tabManager: TabManager) {
+        guard let isPrivate = tabManager.selectedTab?.isPrivate else { return }
+        let key = isPrivate ? ContentBlockingConfig.Prefs.PrivateBrowsingAdBlockingEnabledKey : ContentBlockingConfig.Prefs.NormalBrowsingAdBlockingEnabledKey
         prefs.setBool(enabled, forKey: key)
         ContentBlocker.shared.prefsChanged()
     }
@@ -102,11 +122,23 @@ extension FirefoxTabContentBlocker {
     static func isTrackingProtectionEnabled(tabManager: TabManager) -> Bool {
         guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
         let isPrivate = tabManager.selectedTab?.isPrivate ?? false
-        return isPrivate ? blocker.isEnabledInPrivateBrowsing : blocker.isEnabledInNormalBrowsing
+        return isPrivate ? blocker.isEnabledTrackingProtectionInPrivateBrowsing : blocker.isEnabledTrackingProtectionInNormalBrowsing
+    }
+
+    static func isAdBlockingEnabled(tabManager: TabManager) -> Bool {
+        guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
+        let isPrivate = tabManager.selectedTab?.isPrivate ?? false
+        return isPrivate ? blocker.isEnabledAdBlockingInPrivateBrowsing : blocker.isEnabledAdBlockingInNormalBrowsing
     }
 
     static func toggleTrackingProtectionEnabled(prefs: Prefs, tabManager: TabManager) {
         let isEnabled = FirefoxTabContentBlocker.isTrackingProtectionEnabled(tabManager: tabManager)
-        setTrackingProtection(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
+        self.setTrackingProtection(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
     }
+
+    static func toggleAdBlockingEnabled(prefs: Prefs, tabManager: TabManager) {
+        let isEnabled = FirefoxTabContentBlocker.isAdBlockingEnabled(tabManager: tabManager)
+        self.setAdBlocking(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
+    }
+
 }

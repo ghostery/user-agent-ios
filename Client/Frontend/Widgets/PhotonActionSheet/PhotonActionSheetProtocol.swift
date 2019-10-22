@@ -59,8 +59,8 @@ extension PhotonActionSheetProtocol {
     func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         var items: [PhotonActionSheetItem] = []
 
-        let trackingProtectionItem = self.trackingProtectionItem()
-        items.append(trackingProtectionItem)
+        let trackingProtectionItems = self.trackingProtectionItems()
+        items.append(contentsOf: trackingProtectionItems)
         if #available(iOS 13.0, *) {} else {
             let nighModeItem = self.nightModeItem()
             items.append(nighModeItem)
@@ -257,13 +257,12 @@ extension PhotonActionSheetProtocol {
 
     @available(iOS 11.0, *)
     private func menuActionsForTrackingProtectionDisabled(for tab: Tab) -> [[PhotonActionSheetItem]] {
-        let enableTP = PhotonActionSheetItem(title: Strings.EnableTPBlocking, iconString: "menu-TrackingProtection") { _ in
-            // When TP is off for the tab tapping enable in this menu should turn it back on for the Tab.
-            if let blocker = tab.contentBlocker, blocker.isUserEnabled == false {
-                blocker.isUserEnabled = true
-            } else {
-                FirefoxTabContentBlocker.toggleTrackingProtectionEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
-            }
+        let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: false, accessory: .Switch) { action in
+            FirefoxTabContentBlocker.toggleTrackingProtectionEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+            tab.reload()
+        }
+        let adBlocking = PhotonActionSheetItem(title: Strings.ABMenuTitle, iconString: "menu-AdBlocking", isEnabled: false, accessory: .Switch) { action in
+            FirefoxTabContentBlocker.toggleAdBlockingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
             tab.reload()
         }
 
@@ -271,12 +270,12 @@ extension PhotonActionSheetProtocol {
             let url = SupportUtils.URLForTopic("tracking-protection-ios")!
             tab.loadRequest(PrivilegedRequest(url: url) as URLRequest)
         }
-        return [[moreInfo], [enableTP]]
+        return [[moreInfo], [trackingProtection, adBlocking]]
     }
 
     @available(iOS 11.0, *)
     private func menuActionsForTrackingProtectionEnabled(for tab: Tab) -> [[PhotonActionSheetItem]] {
-        guard let blocker = tab.contentBlocker, let currentURL = tab.url else {
+        guard let blocker = tab.contentBlocker else {
             return []
         }
 
@@ -299,26 +298,33 @@ extension PhotonActionSheetProtocol {
 
         let statList = [totalCount, adCount, analyticsCount, socialCount, contentCount, essentialCount, miscCount, hostingCount, pornvertisingCount, audioVideoPlayerCount, extensionsCount, customerInteractionCount, commentsCount, cdnCount, unknownCount]
 
-        let addToWhitelist = PhotonActionSheetItem(title: Strings.TrackingProtectionDisableTitle, iconString: "menu-TrackingProtection-Off") { _ in
-            ContentBlocker.shared.whitelist(enable: true, url: currentURL) {
-                tab.reload()
-            }
-        }
-        return [statList, [addToWhitelist]]
+        let menuActions = self.menuActions(for: tab)
+        return [statList, menuActions]
     }
 
     @available(iOS 11.0, *)
     private func menuActionsForWhitelistedSite(for tab: Tab) -> [[PhotonActionSheetItem]] {
+        return [self.menuActions(for: tab)]
+    }
+
+    private func menuActions(for tab: Tab) -> [PhotonActionSheetItem] {
         guard let currentURL = tab.url else {
             return []
         }
 
-        let removeFromWhitelist = PhotonActionSheetItem(title: Strings.TrackingProtectionWhiteListRemove, iconString: "menu-TrackingProtection") { _ in
-            ContentBlocker.shared.whitelist(enable: false, url: currentURL) {
+        let trackingProtectionEnabled = ContentBlocker.shared.isTrackingWhitelisted(url: currentURL)
+        let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: !trackingProtectionEnabled, accessory: .Switch) { action in
+            ContentBlocker.shared.trackingWhitelist(enable: !trackingProtectionEnabled, url: currentURL) {
                 tab.reload()
             }
         }
-        return [[removeFromWhitelist]]
+        let adBlockingEnabled = ContentBlocker.shared.isAdsWhitelisted(url: currentURL)
+        let adBlocking = PhotonActionSheetItem(title: Strings.ABMenuTitle, iconString: "menu-AdBlocking", isEnabled: !adBlockingEnabled, accessory: .Switch) { action in
+            ContentBlocker.shared.adsWhitelist(enable: !adBlockingEnabled, url: currentURL) {
+                tab.reload()
+            }
+        }
+        return [trackingProtection, adBlocking]
     }
 
     @available(iOS 11.0, *)
@@ -346,7 +352,7 @@ extension PhotonActionSheetProtocol {
             return  [tpBlocking]
         case .Whitelisted:
             let actions = self.menuActionsForWhitelistedSite(for: tab)
-            let tpBlocking = PhotonActionSheetItem(title: Strings.SettingsTrackingProtectionSectionName, text: Strings.TrackingProtectionWhiteListOn, iconString: "menu-TrackingProtection-Off", isEnabled: false, accessory: .Disclosure) { _ in
+            let tpBlocking = PhotonActionSheetItem(title: Strings.SettingsTrackingProtectionSectionName, text: Strings.TrackingProtectionWhiteListOn, iconString: "menu-TrackingProtection", isEnabled: false, accessory: .Disclosure) { _ in
                 guard let bvc = self as? PresentableVC else { return }
                 self.presentSheetWith(title: Strings.SettingsTrackingProtectionSectionName, actions: actions, on: bvc, from: urlBar)
             }
@@ -371,47 +377,18 @@ extension PhotonActionSheetProtocol {
         }
     }
 
-    func getRefreshLongPressMenu(for tab: Tab) -> [PhotonActionSheetItem] {
-        guard tab.webView?.url != nil && (tab.getContentScript(name: ReaderMode.name()) as? ReaderMode)?.state != .active else {
-            return []
-        }
-
-        let defaultUAisDesktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
-        let toggleActionTitle: String
-        if defaultUAisDesktop {
-            toggleActionTitle = tab.changedUserAgent ? Strings.AppMenuViewDesktopSiteTitleString : Strings.AppMenuViewMobileSiteTitleString
-        } else {
-            toggleActionTitle = tab.changedUserAgent ? Strings.AppMenuViewMobileSiteTitleString : Strings.AppMenuViewDesktopSiteTitleString
-        }
-
-        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite") { action in
-
-            if let url = tab.url {
-                tab.toggleChangeUserAgent()
-                Tab.ChangeUserAgent.updateDomainList(forUrl: url, isChangedUA: tab.changedUserAgent, isPrivate: tab.isPrivate)
-            }
-        }
-
-        if let helper = tab.contentBlocker {
-            let title = helper.isEnabled ? Strings.TrackingProtectionReloadWithout : Strings.TrackingProtectionReloadWith
-            let imageName = helper.isEnabled ? "menu-TrackingProtection-Off" : "menu-TrackingProtection"
-            let toggleTP = PhotonActionSheetItem(title: title, iconString: imageName) { action in
-                helper.isUserEnabled = !helper.isEnabled
-            }
-            return [toggleDesktopSite, toggleTP]
-        } else {
-            return [toggleDesktopSite]
-        }
-    }
-
     // MARK: - Private methods
 
-    private func trackingProtectionItem() -> PhotonActionSheetItem {
+    private func trackingProtectionItems() -> [PhotonActionSheetItem] {
         let trackingProtectionEnabled = FirefoxTabContentBlocker.isTrackingProtectionEnabled(tabManager: self.tabManager)
         let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: trackingProtectionEnabled, accessory: .Switch) { action in
             FirefoxTabContentBlocker.toggleTrackingProtectionEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
         }
-        return trackingProtection
+        let adBlockingEnabled = FirefoxTabContentBlocker.isAdBlockingEnabled(tabManager: self.tabManager)
+        let adBlocking = PhotonActionSheetItem(title: Strings.ABMenuTitle, iconString: "menu-AdBlocking", isEnabled: adBlockingEnabled, accessory: .Switch) { action in
+            FirefoxTabContentBlocker.toggleAdBlockingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+        }
+        return [trackingProtection, adBlocking]
     }
 
     private func nightModeItem() -> PhotonActionSheetItem {

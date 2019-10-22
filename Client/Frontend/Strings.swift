@@ -515,6 +515,7 @@ extension Strings {
 // Tracking Protection menu
 extension Strings {
     public static let TPMenuTitle = NSLocalizedString("Menu.TrackingProtection.Title", value: "Tracking Protection", comment: "Label for the button, displayed in the menu, used to get more info about Tracking Protection")
+    public static let ABMenuTitle = NSLocalizedString("Menu.AdBlocking.Title", value: "Ad-blocking", comment: "Label for the button, displayed in the menu, used to get more info about Ad blocking")
     public static let TPBlockingDescription =  String(format: NSLocalizedString("Menu.TrackingProtectionBlocking.Description", comment: "Description of the Tracking protection menu when TP is blocking parts of the page"), AppInfo.displayName)
     public static let TPNoBlockingDescription = NSLocalizedString("Menu.TrackingProtectionNoBlocking.Description", comment: "The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled.")
     public static let TPBlockingDisabledDescription = NSLocalizedString("Menu.TrackingProtectionBlockingDisabled.Description", comment: "The description of the Tracking Protection menu item when tracking is enabled")

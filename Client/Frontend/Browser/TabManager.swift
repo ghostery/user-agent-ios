@@ -596,7 +596,7 @@ extension TabManager: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         guard let tab = self[webView] else { return }
 
-        if let tpHelper = tab.contentBlocker, !tpHelper.isEnabled {
+        if let tpHelper = tab.contentBlocker, !tpHelper.isEnabledAdBlocking, !tpHelper.isEnabledTrackingProtection {
             webView.evaluateJavaScript("window.__firefox__.TrackingProtectionStats.setEnabled(false, \(UserScriptManager.securityToken))")
         }
     }
