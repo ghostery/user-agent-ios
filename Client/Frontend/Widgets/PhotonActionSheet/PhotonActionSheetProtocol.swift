@@ -313,13 +313,13 @@ extension PhotonActionSheetProtocol {
         }
 
         let trackingProtectionEnabled = ContentBlocker.shared.isTrackingWhitelisted(url: currentURL)
-        let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: trackingProtectionEnabled, accessory: .Switch) { action in
+        let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: !trackingProtectionEnabled, accessory: .Switch) { action in
             ContentBlocker.shared.trackingWhitelist(enable: !trackingProtectionEnabled, url: currentURL) {
                 tab.reload()
             }
         }
         let adBlockingEnabled = ContentBlocker.shared.isAdsWhitelisted(url: currentURL)
-        let adBlocking = PhotonActionSheetItem(title: Strings.ABMenuTitle, iconString: "menu-AdBlocking", isEnabled: adBlockingEnabled, accessory: .Switch) { action in
+        let adBlocking = PhotonActionSheetItem(title: Strings.ABMenuTitle, iconString: "menu-AdBlocking", isEnabled: !adBlockingEnabled, accessory: .Switch) { action in
             ContentBlocker.shared.adsWhitelist(enable: !adBlockingEnabled, url: currentURL) {
                 tab.reload()
             }
