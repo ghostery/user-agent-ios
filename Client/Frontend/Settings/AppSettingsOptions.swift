@@ -270,7 +270,7 @@ class SearchSetting: Setting {
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
-        super.init(title: NSAttributedString(string: NSLocalizedString("Search", comment: "Open search section of settings"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.SettingsAdditionalSearchEnginesSectionTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -282,7 +282,7 @@ class SearchSetting: Setting {
 }
 
 // Opens the search results for language settings
-class SearchResultsSetting: Setting {
+class SearchLanguageSetting: Setting {
 
     private var currentRegion: Search.Country?
     private var availableRegions: [Search.Country]?

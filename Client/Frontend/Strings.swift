@@ -389,6 +389,8 @@ extension Strings {
 
 // Add Custom Search Engine
 extension Strings {
+    public static let SettingsSearchSectionTitle = NSLocalizedString("Settings.Search.SectionName", comment: "Search settings section title")
+    public static let SettingsAdditionalSearchEnginesSectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
     public static let SettingsAddCustomEngine = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
     public static let SettingsAddCustomEngineTitle = NSLocalizedString("Settings.AddCustomEngine.Title", comment: "The title of the  Custom Search Engine view.")
     public static let SettingsAddCustomEngineTitleLabel = NSLocalizedString("Settings.AddCustomEngine.TitleLabel", comment: "The title for the field which sets the title for a custom search engine.")
