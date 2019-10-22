@@ -17,7 +17,11 @@ protocol ContentBlockerTab: class {
 class TabContentBlocker {
     weak var tab: ContentBlockerTab?
 
-    var isEnabled: Bool {
+    var isEnabledTrackingProtection: Bool {
+        return false
+    }
+
+    var isEnabledAdBlocking: Bool {
         return false
     }
 
@@ -30,14 +34,19 @@ class TabContentBlocker {
     func notifyContentBlockingChanged() {}
 
     var status: BlockerStatus {
-        guard isEnabled else {
+        guard self.isEnabledAdBlocking || self.isEnabledTrackingProtection else {
             return .Disabled
         }
         if stats.total == 0 {
             guard let url = tab?.currentURL() else {
                 return .NoBlockedURLs
             }
-            return ContentBlocker.shared.isWhitelisted(url: url) ? .Whitelisted : .NoBlockedURLs
+            if self.isEnabledAdBlocking && ContentBlocker.shared.isAdsWhitelisted(url: url) {
+                return .Whitelisted
+            } else if self.isEnabledTrackingProtection && ContentBlocker.shared.isTrackingWhitelisted(url: url) {
+                return .Whitelisted
+            }
+            return .NoBlockedURLs
         } else {
             return .Blocking
         }

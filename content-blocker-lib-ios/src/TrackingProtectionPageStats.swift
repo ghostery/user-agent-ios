@@ -90,7 +90,7 @@ class TPStatsBlocklistChecker {
         }
 
         // Make a copy on the main thread
-        let whitelistRegex = ContentBlocker.shared.whitelistedDomains.domainRegex
+        let whitelistRegex = ContentBlocker.shared.adsWhitelistedDomains.domainRegex + ContentBlocker.shared.trackingWhitelistedDomains.domainRegex
 
         DispatchQueue.global().async {
             deferred.fill(blockLists.urlIsInCategory(url, whitelistedDomains: whitelistRegex).flatMap { $0 })

@@ -4,7 +4,6 @@
 
 import WebKit
 import Shared
-
 /**
  Firefox-specific implementation of tab content blocking.
  */
@@ -15,25 +14,12 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
         return "TrackingProtectionStats"
     }
 
-    var isUserEnabled: Bool? {
-        didSet {
-            guard let tab = tab as? Tab else { return }
-            setupForTab()
-            TabEvent.post(.didChangeContentBlocking, for: tab)
-            tab.reload()
-        }
+    override var isEnabledTrackingProtection: Bool {
+        return self.userPrefs.boolForKey(PrefsKeys.TrackingProtectionEnabledKey) ?? true
     }
 
-    override var isEnabled: Bool {
-        if let enabled = isUserEnabled {
-            return enabled
-        }
-        guard let _ = self.tab as? Tab else { return false }
-        return self.isEnabledInBrowsing
-    }
-
-    var isEnabledInBrowsing: Bool {
-        return self.userPrefs.boolForKey(PrefsKeys.BrowsingEnabledKey) ?? true
+    override var isEnabledAdBlocking: Bool {
+        return self.userPrefs.boolForKey(PrefsKeys.AdBlockingEnabledKey) ?? true
     }
 
     init(tab: ContentBlockerTab, prefs: Prefs) {
@@ -44,7 +30,10 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 
     func setupForTab() {
         guard let tab = tab else { return }
-        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: isEnabled, rules: BlocklistName.all)
+        let adsRules = BlocklistName.ads
+        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: self.isEnabledAdBlocking, rules: adsRules)
+        let trackingRules = BlocklistName.tracking
+        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: self.isEnabledTrackingProtection, rules: trackingRules)
     }
 
     @objc override func notifiedTabSetupRequired() {
@@ -52,7 +41,14 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
     }
 
     override func currentlyEnabledLists() -> [BlocklistName] {
-        return BlocklistName.all
+        var list = [BlocklistName]()
+        if self.isEnabledAdBlocking {
+            list.append(contentsOf: BlocklistName.ads)
+        }
+        if self.isEnabledTrackingProtection {
+            list.append(contentsOf: BlocklistName.tracking)
+        }
+        return list
     }
 
     override func notifyContentBlockingChanged() {
@@ -63,18 +59,35 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 
 // Static methods to access user prefs for tracking protection
 extension FirefoxTabContentBlocker {
+
     static func setTrackingProtection(enabled: Bool, prefs: Prefs, tabManager: TabManager) {
-        prefs.setBool(enabled, forKey: PrefsKeys.BrowsingEnabledKey)
+        prefs.setBool(enabled, forKey: PrefsKeys.TrackingProtectionEnabledKey)
+        ContentBlocker.shared.prefsChanged()
+    }
+
+    static func setAdBlocking(enabled: Bool, prefs: Prefs, tabManager: TabManager) {
+        prefs.setBool(enabled, forKey: PrefsKeys.AdBlockingEnabledKey)
         ContentBlocker.shared.prefsChanged()
     }
 
     static func isTrackingProtectionEnabled(tabManager: TabManager) -> Bool {
         guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
-        return blocker.isEnabledInBrowsing
+        return blocker.isEnabledTrackingProtection
+    }
+
+    static func isAdBlockingEnabled(tabManager: TabManager) -> Bool {
+        guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
+        return blocker.isEnabledAdBlocking
     }
 
     static func toggleTrackingProtectionEnabled(prefs: Prefs, tabManager: TabManager) {
         let isEnabled = FirefoxTabContentBlocker.isTrackingProtectionEnabled(tabManager: tabManager)
-        setTrackingProtection(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
+        self.setTrackingProtection(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
     }
+
+    static func toggleAdBlockingEnabled(prefs: Prefs, tabManager: TabManager) {
+        let isEnabled = FirefoxTabContentBlocker.isAdBlockingEnabled(tabManager: tabManager)
+        self.setAdBlocking(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
+    }
+
 }
