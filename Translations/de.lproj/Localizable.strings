@@ -522,10 +522,10 @@
 "Menu.TrackingProtection.TitlePrefix" = "Schutz für %@";
 
 /* Label for the button, displayed in the menu, used to get more info about Tracking Protection */
-"Menu.TrackingProtection.Title" = "";
+"Menu.TrackingProtection.Title" = "Anti-Tracking";
 
 /* Label for the button, displayed in the menu, used to get more info about Ad blocking */
-"Menu.AdBlocking.Title" = "";
+"Menu.AdBlocking.Title" = "Werbeblocker";
 
 /* The title that shows the number of content cookies blocked */
 "Menu.TrackingProtectionBlockedContent.Title" = "Tracking-Inhalt";

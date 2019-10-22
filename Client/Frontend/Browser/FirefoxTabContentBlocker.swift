@@ -44,7 +44,7 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 
     override var isEnabledAdBlocking: Bool {
         guard let tab = tab as? Tab else { return false }
-        return tab.isPrivate ? self.isEnabledTrackingProtectionInPrivateBrowsing : self.isEnabledAdBlockingInNormalBrowsing
+        return tab.isPrivate ? self.isEnabledAdBlockingInPrivateBrowsing : self.isEnabledAdBlockingInNormalBrowsing
     }
 
     var isEnabledTrackingProtectionInNormalBrowsing: Bool {
