@@ -54,6 +54,7 @@ class BrowserViewController: UIViewController {
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
     let notchAreaCover = UIView()
+    let overlayBackground = UIView()
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
     var findInPageBar: FindInPageBar?
 
@@ -362,6 +363,9 @@ class BrowserViewController: UIViewController {
         topTouchArea.addTarget(self, action: #selector(tappedTopArea), for: .touchUpInside)
         view.addSubview(topTouchArea)
 
+        view.addSubview(self.overlayBackground)
+        self.hideOverlayBackground()
+
         // Setup the URL bar, wrapped in a view to get transparency effect
         urlBar = URLBarView()
         urlBar.translatesAutoresizingMaskIntoConstraints = false
@@ -440,6 +444,10 @@ class BrowserViewController: UIViewController {
 
         webViewContainerBackdrop.snp.makeConstraints { make in
             make.edges.equalTo(webViewContainer)
+        }
+
+        overlayBackground.snp.makeConstraints { make in
+            make.edges.equalTo(self.view)
         }
 
         notchAreaCover.snp.makeConstraints { (make) in
@@ -766,7 +774,7 @@ class BrowserViewController: UIViewController {
         }
 
         searchController.searchView.snp.makeConstraints { make in
-            make.top.equalTo(urlBar.snp.bottom).offset(-9)
+            make.top.equalTo(urlBar.snp.bottom).offset(-self.urlBar.frame.size.height / 2)
             make.left.equalTo(urlBar.locationContainer.snp.left)
             make.right.equalTo(urlBar.locationContainer.snp.right)
             make.bottom.equalToSuperview()
@@ -778,9 +786,11 @@ class BrowserViewController: UIViewController {
         urlBar.inCliqzSearchMode = true
 
         searchController.didMove(toParent: self)
+        self.showOverlayBackground()
     }
 
     fileprivate func hideSearchController() {
+        self.hideOverlayBackground()
         if let searchController = self.searchController {
             searchController.willMove(toParent: nil)
             searchController.view.removeFromSuperview()
@@ -788,6 +798,14 @@ class BrowserViewController: UIViewController {
             homeViewController?.view?.isHidden = false
             urlBar.inCliqzSearchMode = false
         }
+    }
+
+    fileprivate func hideOverlayBackground() {
+        self.overlayBackground.isHidden = true
+    }
+
+    fileprivate func showOverlayBackground() {
+        self.overlayBackground.isHidden = false
     }
 
     fileprivate func destroySearchController() {
@@ -2166,6 +2184,7 @@ extension BrowserViewController: Themeable {
         webViews.forEach({ $0.applyTheme() })
 
         self.notchAreaCover.backgroundColor = UIColor.theme.browser.background
+        self.overlayBackground.backgroundColor = UIColor.black.withAlphaComponent(0.7)
     }
 }
 

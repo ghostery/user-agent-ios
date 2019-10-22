@@ -5,7 +5,15 @@
 import Foundation
 
 // Convenience reference to these normal mode colors which are used in a few color classes.
-private let defaultBackground = UIColor.Grey80
+private var defaultBackground: UIColor {
+    if #available(iOS 13.0, *) {
+        return UIColor.systemGray6
+    } else {
+        // Fallback on earlier versions
+        return UIColor.Grey80
+    }
+}
+
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 

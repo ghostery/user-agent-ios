@@ -23,7 +23,16 @@ enum BuiltinThemeName: String {
 }
 
 // Convenience reference to these normal mode colors which are used in a few color classes.
-private let defaultBackground = UIColor.LightSky
+
+private var defaultBackground: UIColor {
+    if #available(iOS 13.0, *) {
+        return UIColor.systemGray6
+    } else {
+        // Fallback on earlier versions
+        return UIColor.LightSky
+    }
+}
+
 private let defaultSeparator = UIColor.Grey30
 private let defaultTextAndTint = UIColor.Grey80
 
