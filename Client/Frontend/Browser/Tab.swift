@@ -535,6 +535,10 @@ class Tab: NSObject {
             self.urlDidChangeDelegate = nil
         }
     }
+
+    func applyTheme() {
+        UITextField.appearance().keyboardAppearance = isPrivate ? .dark : (ThemeManager.instance.currentName == .dark ? .dark : .light)
+    }
 }
 
 extension Tab: TabWebViewDelegate {
