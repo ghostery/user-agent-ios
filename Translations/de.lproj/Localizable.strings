@@ -521,6 +521,12 @@
 /* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
 "Menu.TrackingProtection.TitlePrefix" = "Schutz für %@";
 
+/* Label for the button, displayed in the menu, used to get more info about Tracking Protection */
+"Menu.TrackingProtection.Title" = "";
+
+/* Label for the button, displayed in the menu, used to get more info about Ad blocking */
+"Menu.AdBlocking.Title" = "";
+
 /* The title that shows the number of content cookies blocked */
 "Menu.TrackingProtectionBlockedContent.Title" = "Tracking-Inhalt";
 

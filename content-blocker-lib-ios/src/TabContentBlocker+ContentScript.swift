@@ -10,7 +10,7 @@ extension TabContentBlocker {
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        guard isEnabled,
+        guard (self.isEnabledTrackingProtection || self.isEnabledAdBlocking),
             let body = message.body as? [String: String],
             let urlString = body["url"],
             let mainDocumentUrl = tab?.currentURL() else {
@@ -18,7 +18,9 @@ extension TabContentBlocker {
         }
 
         // Reset the pageStats to make sure the trackingprotection shield icon knows that a page was whitelisted
-        guard !ContentBlocker.shared.isWhitelisted(url: mainDocumentUrl) else {
+        let isAdsWhiteListed = !self.isEnabledAdBlocking || ContentBlocker.shared.isAdsWhitelisted(url: mainDocumentUrl)
+        let isTrackingWhiteListed = !self.isEnabledTrackingProtection || ContentBlocker.shared.isTrackingWhitelisted(url: mainDocumentUrl)
+        guard !isAdsWhiteListed || !isTrackingWhiteListed else {
             clearPageStats()
             return
         }

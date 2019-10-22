@@ -22,12 +22,8 @@ enum BlocklistName: String {
     }
 
     static var all: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic, .trackingNetwork] }
-    static var basic: [BlocklistName] { return [.trackingNetwork] }
-    static var strict: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic] }
-
-    static func forStrictMode(isOn: Bool) -> [BlocklistName] {
-        return BlocklistName.basic + (isOn ? BlocklistName.strict : [])
-    }
+    static var ads: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic] }
+    static var tracking: [BlocklistName] { return [.trackingNetwork] }
 
 }
 
@@ -38,8 +34,20 @@ enum BlockerStatus: String {
     case Blocking
 }
 
+struct WhitelistedDomains {
+    var domainSet = Set<String>() {
+        didSet {
+            domainRegex = domainSet.compactMap { wildcardContentBlockerDomainToRegex(domain: "*" + $0) }
+        }
+    }
+
+    private(set) var domainRegex = [String]()
+}
+
 class ContentBlocker {
-    var whitelistedDomains = WhitelistedDomains()
+    var adsWhitelistedDomains = WhitelistedDomains()
+    var trackingWhitelistedDomains = WhitelistedDomains()
+
     let ruleStore: WKContentRuleListStore = WKContentRuleListStore.default()
     var setupCompleted = false
 
@@ -47,13 +55,17 @@ class ContentBlocker {
 
     private init() {
         // Read the whitelist at startup
-        if let list = readWhitelistFile() {
-            whitelistedDomains.domainSet = Set(list)
+        if let list = self.readAdsWhitelistFile() {
+            self.adsWhitelistedDomains.domainSet = Set(list)
+        }
+
+        if let list = self.readAdsWhitelistFile() {
+            self.adsWhitelistedDomains.domainSet = Set(list)
         }
 
         TPStatsBlocklistChecker.shared.startup()
 
-        removeOldListsByDateFromStore() {
+        self.removeOldListsByDateFromStore() {
             self.removeOldListsByNameFromStore() {
                 self.compileListsNotInStore {
                     self.setupCompleted = true
@@ -61,6 +73,14 @@ class ContentBlocker {
                 }
             }
         }
+    }
+
+    // Ensure domains used for whitelisting are standardized by using this function.
+    func whitelistableDomain(fromUrl url: URL) -> String? {
+        guard let domain = url.host, !domain.isEmpty else {
+            return nil
+        }
+        return domain
     }
 
     func prefsChanged() {
@@ -219,19 +239,23 @@ extension ContentBlocker {
     }
 
     func compileListsNotInStore(completion: @escaping () -> Void) {
-        let blocklists = BlocklistName.all.map { $0.filename }
-        let deferreds: [Deferred<Void>] = blocklists.map { filename in
+        let deferreds: [Deferred<Void>] = BlocklistName.all.map { item in
             let result = Deferred<Void>()
-            ruleStore.lookUpContentRuleList(forIdentifier: filename) { contentRuleList, error in
+            ruleStore.lookUpContentRuleList(forIdentifier: item.filename) { contentRuleList, error in
                 if contentRuleList != nil {
                     result.fill(())
                     return
                 }
-                self.loadJsonFromBundle(forResource: filename) { jsonString in
+                self.loadJsonFromBundle(forResource: item.filename) { jsonString in
                     var str = jsonString
                     guard let range = str.range(of: "]", options: String.CompareOptions.backwards) else { return }
-                    str = str.replacingCharacters(in: range, with: self.whitelistAsJSON() + "]")
-                    self.ruleStore.compileContentRuleList(forIdentifier: filename, encodedContentRuleList: str) { rule, error in
+                    switch item {
+                    case .advertisingNetwork, .advertisingCosmetic:
+                        str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "]")
+                    case .trackingNetwork:
+                        str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "]")
+                    }
+                    self.ruleStore.compileContentRuleList(forIdentifier: item.filename, encodedContentRuleList: str) { rule, error in
                         if let error = error {
                             print("Content blocker error: \(error)")
                             assert(false)
