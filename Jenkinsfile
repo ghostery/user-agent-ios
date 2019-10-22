@@ -147,6 +147,8 @@ node('gideon') {
 
                                 export MATCH_KEYCHAIN_NAME=ios-build.keychain
 
+                                npm run update-content-blocker
+
                                 bundle exec fastlane Build app:${app.name}
                             """
                         }

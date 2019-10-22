@@ -6,7 +6,7 @@ import Foundation
 import Shared
 
 open class NSUserDefaultsPrefs: Prefs {
-
+    fileprivate var prefCallbacks: [String: () -> Void] = [:]
     fileprivate let prefixWithDot: String
     fileprivate let userDefaults: UserDefaults
 
@@ -61,7 +61,11 @@ open class NSUserDefaultsPrefs: Prefs {
     }
 
     open func setObject(_ value: Any?, forKey defaultName: String) {
-        userDefaults.set(value, forKey: qualifyKey(defaultName))
+        let key = qualifyKey(defaultName)
+        userDefaults.set(value, forKey: key)
+        // Notify listeners
+        guard let callback = prefCallbacks[key] else { return }
+        callback()
     }
 
     open func stringForKey(_ defaultName: String) -> String? {
@@ -134,4 +138,15 @@ open class NSUserDefaultsPrefs: Prefs {
             }
         }
     }
+
+    open func addListener(_ defaultName: String, callback: @escaping () -> Void) {
+        let key = qualifyKey(defaultName)
+        prefCallbacks[key] = callback
+    }
+
+    open func removeListener(_ defaultName: String) {
+        let key = qualifyKey(defaultName)
+        prefCallbacks[key] = nil
+    }
+
 }
