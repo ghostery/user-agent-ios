@@ -1042,9 +1042,6 @@
 /* Explanation of strict mode. */
 "Settings.TrackingProtection.Info.StrictTitle" = "Offers stronger protection, but may cause some sites to break.";
 
-/* 'More Info' link on the Tracking Protection settings screen. */
-"Settings.TrackingProtection.MoreInfo" = "More Info…";
-
 /* Title for tracking protection options section where level can be selected. */
 "Settings.TrackingProtection.ProtectionLevelTitle" = "Protection Level";
 
@@ -1056,15 +1053,6 @@
 
 /* Tracking protection settings option for using the basic blocklist. */
 "Settings.TrackingProtectionOption.BasicBlockList" = "Standard (default)";
-
-/* Tracking protection settings option description for using the basic blocklist. */
-"Settings.TrackingProtectionOption.BlockListBasicDescription" = "Allows some trackers so websites function properly.";
-
-/* Tracking protection settings option for using the strict blocklist. */
-"Settings.TrackingProtectionOption.BlockListStrict" = "Strict";
-
-/* Tracking protection settings option description for using the strict blocklist. */
-"Settings.TrackingProtectionOption.BlockListStrictDescription" = "Blocks known trackers. Some websites may not function properly.";
 
 /* Description label shown on tracking protection options screen. */
 "Settings.TrackingProtectionOption.EnabledStateFooterLabel" = "Tracking is the collection of your browsing data across multiple websites.";

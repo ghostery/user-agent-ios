@@ -83,8 +83,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 statusText: Strings.ClosePrivateTabsDescription),
         ]
 
-        privacySettings.append(ContentBlockerSetting(settings: self))
-
         privacySettings += [
             PrivacyPolicySetting(),
         ]

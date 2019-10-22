@@ -310,26 +310,6 @@ class SearchLanguageSetting: Setting {
     }
 }
 
-class ContentBlockerSetting: Setting {
-    let profile: Profile
-    var tabManager: TabManager!
-    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
-    override var accessibilityIdentifier: String? { return "TrackingProtection" }
-
-    init(settings: SettingsTableViewController) {
-        self.profile = settings.profile
-        self.tabManager = settings.tabManager
-        super.init(title: NSAttributedString(string: Strings.SettingsTrackingProtectionSectionName, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        let viewController = ContentBlockerSettingViewController(prefs: profile.prefs)
-        viewController.profile = profile
-        viewController.tabManager = tabManager
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
 class ClearPrivateDataSetting: Setting {
     let profile: Profile
     var tabManager: TabManager!

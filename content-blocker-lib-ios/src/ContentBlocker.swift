@@ -23,11 +23,6 @@ enum BlocklistName: String {
 
     static var all: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic, .trackingNetwork] }
     static var basic: [BlocklistName] { return [.trackingNetwork] }
-    static var strict: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic] }
-
-    static func forStrictMode(isOn: Bool) -> [BlocklistName] {
-        return BlocklistName.basic + (isOn ? BlocklistName.strict : [])
-    }
 
 }
 
