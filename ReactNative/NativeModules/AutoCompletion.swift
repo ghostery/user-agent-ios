@@ -17,6 +17,14 @@ class AutoCompletion: NSObject {
                 return
             }
 
+            // don't call auto complete if user is backspacing
+            guard
+                let searchController = appDel.browserViewController.searchController,
+                !searchController.isLastCharacterRemoved
+            else {
+                return
+            }
+
             appDel.browserViewController.urlBar.setAutocompleteSuggestion(suggestion as String)
         }
     }
