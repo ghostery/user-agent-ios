@@ -54,7 +54,16 @@ class BrowserViewController: UIViewController {
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
     let notchAreaCover = UIView()
-    let overlayBackground = UIView()
+    private let overlayBackground: UIVisualEffectView = {
+        let effectView = UIVisualEffectView()
+        if #available(iOS 13.0, *) {
+            effectView.effect = UIBlurEffect(style: .systemMaterialDark)
+        } else {
+            // Fallback on earlier versions
+            effectView.effect = UIBlurEffect(style: .dark)
+        }
+        return effectView
+    }()
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
     var findInPageBar: FindInPageBar?
 
@@ -363,9 +372,6 @@ class BrowserViewController: UIViewController {
         topTouchArea.addTarget(self, action: #selector(tappedTopArea), for: .touchUpInside)
         view.addSubview(topTouchArea)
 
-        view.addSubview(self.overlayBackground)
-        self.hideOverlayBackground()
-
         // Setup the URL bar, wrapped in a view to get transparency effect
         urlBar = URLBarView()
         urlBar.translatesAutoresizingMaskIntoConstraints = false
@@ -406,6 +412,8 @@ class BrowserViewController: UIViewController {
         alertStackView.axis = .vertical
         alertStackView.alignment = .center
 
+        view.addSubview(self.overlayBackground)
+        self.hideOverlayBackground()
         clipboardBarDisplayHandler = ClipboardBarDisplayHandler(prefs: profile.prefs, tabManager: tabManager)
         clipboardBarDisplayHandler?.delegate = self
 
