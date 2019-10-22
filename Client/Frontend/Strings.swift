@@ -540,7 +540,6 @@ extension Strings {
 // Settings Home
 extension Strings {
     public static let SendUsageSettingTitle = NSLocalizedString("Settings.SendUsage.Title", comment: "The title for the setting to send usage data.")
-    public static let SendUsageSettingLink = NSLocalizedString("Settings.SendUsage.Link", comment: "title for a link that explains how mozilla collects telemetry")
     public static let SendUsageSettingMessage = String(format: NSLocalizedString("Settings.SendUsage.Message", comment: "A short description that explains why mozilla collects usage data."), AppInfo.displayName, AppInfo.displayName)
     public static let SettingsSiriSectionName = NSLocalizedString("Settings.Siri.SectionName", comment: "The option that takes you to the siri shortcuts settings page")
     public static let SettingsSiriSectionDescription = String(format: NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are"), AppInfo.displayName)

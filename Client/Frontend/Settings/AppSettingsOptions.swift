@@ -232,30 +232,6 @@ class SendFeedbackSetting: Setting {
     }
 }
 
-class SendAnonymousUsageDataSetting: BoolSetting {
-    init(prefs: Prefs, delegate: SettingsDelegate?) {
-        let statusText = NSMutableAttributedString()
-        statusText.append(NSAttributedString(string: Strings.SendUsageSettingMessage, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight]))
-        statusText.append(NSAttributedString(string: " "))
-        statusText.append(NSAttributedString(string: Strings.SendUsageSettingLink, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.general.highlightBlue]))
-
-        super.init(
-            prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true,
-            attributedTitleText: NSAttributedString(string: Strings.SendUsageSettingTitle),
-            attributedStatusText: statusText,
-            settingDidChange: nil
-        )
-    }
-
-    override var url: URL? {
-        return SupportUtils.URLForTopic("adjust")
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        setUpAndPushSettingsContentViewController(navigationController)
-    }
-}
-
 // Opens the search settings pane
 class SearchSetting: Setting {
     let profile: Profile

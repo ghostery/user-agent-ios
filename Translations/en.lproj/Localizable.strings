@@ -1009,9 +1009,6 @@
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Edit.Button" = "Edit";
 
-/* title for a link that explains how mozilla collects telemetry */
-"Settings.SendUsage.Link" = "Learn More.";
-
 /* A short description that explains why mozilla collects usage data. */
 "Settings.SendUsage.Message" = "%@ strives to only collect what we need to provide and improve %@ for everyone.";
 
