@@ -9,12 +9,11 @@ private struct URLBarViewUX {
     static let TextFieldBorderColor = UIColor.Grey40
     static let TextFieldActiveBorderColor = UIColor.Blue40
 
-    static let LocationLeftPadding: CGFloat = 8
+    static let LocationLeftPadding: CGFloat = 18
     static let Padding: CGFloat = 10
-    static let LocationHeight: CGFloat = 40
-    static let ButtonHeight: CGFloat = 44
-    static let LocationContentOffset: CGFloat = 8
-    static let TextFieldCornerRadius: CGFloat = 8
+    static let ButtonHeight: CGFloat = 36
+
+    static let TextFieldCornerRadius: CGFloat = 18
     static let TextFieldBorderWidth: CGFloat = 0
     static let TextFieldBorderWidthSelected: CGFloat = 0
     static let ProgressBarHeight: CGFloat = 4
@@ -24,8 +23,8 @@ private struct URLBarViewUX {
     static let ToolbarButtonInsets = UIEdgeInsets(equalInset: Padding)
 
     static let LocationContainerShadowColor: CGColor = UIColor.CloudySky.cgColor
-    static let LocationContainerShadowOpacity: Double  = 0.3
-    static let LocationContainerShadowOffset: CGSize = CGSize(width: 0, height: 1)
+    static let LocationContainerShadowOpacity: Double  = 0.1
+    static let LocationContainerShadowOffset: CGSize = CGSize(width: 0, height: 2)
     static let LocationContainerShadowRadius: CGFloat = 1
 }
 
@@ -116,6 +115,7 @@ class URLBarView: UIView {
 
     lazy var locationContainer: UIView = {
         let locationContainer = TabLocationContainerView()
+        locationContainer.layer.cornerRadius = URLBarViewUX.TextFieldCornerRadius
         locationContainer.translatesAutoresizingMaskIntoConstraints = false
         locationContainer.backgroundColor = .clear
         return locationContainer
@@ -146,7 +146,8 @@ class URLBarView: UIView {
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.BackTitle
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
-        cancelButton.setTitleColor(UIColor.Grey80, for: .normal)
+        cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
         cancelButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -157,7 +158,7 @@ class URLBarView: UIView {
 
     fileprivate lazy var separator: UIView = {
         let separator = UIView()
-        separator.backgroundColor = UIColor.Grey80
+        separator.backgroundColor = UIColor.theme.textField.separator
         return separator
     }()
 
@@ -319,6 +320,7 @@ class URLBarView: UIView {
             }
 
             make.centerY.equalTo(self)
+            make.height.equalTo(UIConstants.URLBarViewHeight)
         }
         if inOverlayMode {
             self.cancelButton.snp.remakeConstraints { make in
@@ -402,6 +404,7 @@ class URLBarView: UIView {
         locationTextField.applyTheme()
         locationTextField.backgroundColor = UIColor.green
         locationTextField.inputAccessoryView = querySuggestionsInputAccessoryView
+//        locationTextField.layer.cornerRadius = self.locationView.layer.cornerRadius
     }
 
     override func becomeFirstResponder() -> Bool {
@@ -788,14 +791,9 @@ extension URLBarView: QuerySuggestionDelegate {
 // This subclass creates a strong shadow on the URLBar
 class TabLocationContainerView: UIView {
 
-    private struct LocationContainerUX {
-        static let CornerRadius: CGFloat = 8
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         let layer = self.layer
-        layer.cornerRadius = LocationContainerUX.CornerRadius
         layer.masksToBounds = false
     }
 
@@ -806,50 +804,11 @@ class TabLocationContainerView: UIView {
 
 class ToolbarTextField: AutocompleteTextField {
 
-    @objc dynamic var clearButtonTintColor: UIColor? {
-        didSet {
-            // Clear previous tinted image that's cache and ask for a relayout
-            tintedClearImage = nil
-            setNeedsLayout()
-        }
-    }
-
-    fileprivate var tintedClearImage: UIImage?
-
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        guard let image = UIImage.templateImageNamed("topTabs-closeTabs") else { return }
-        if tintedClearImage == nil {
-            if let clearButtonTintColor = clearButtonTintColor {
-                tintedClearImage = image.tinted(withColor: clearButtonTintColor)
-            } else {
-                tintedClearImage = image
-            }
-        }
-        // Since we're unable to change the tint color of the clear image, we need to iterate through the
-        // subviews, find the clear button, and tint it ourselves.
-        // https://stackoverflow.com/questions/55046917/clear-button-on-text-field-not-accessible-with-voice-over-swift
-        if let clearButton = value(forKey: "_clearButton") as? UIButton {
-            clearButton.setImage(tintedClearImage, for: [])
-
-        }
-    }
-
-    // The default button size is 19x19, make this larger
-    override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
-        let r = super.clearButtonRect(forBounds: bounds)
-        let grow: CGFloat = 16
-        let r2 = CGRect(x: r.minX - grow/2, y: r.minY - grow/2, width: r.width + grow, height: r.height + grow)
-        return r2
     }
 }
 
@@ -857,8 +816,6 @@ extension ToolbarTextField: Themeable {
     func applyTheme() {
         backgroundColor = UIColor.theme.textField.backgroundInOverlay
         textColor = UIColor.theme.textField.textAndTint
-        clearButtonTintColor = textColor
-        tintColor = AutocompleteTextField.textSelectionColor.textFieldMode
     }
 
     // ToolbarTextField is created on-demand, so the textSelectionColor is a static prop for use when created

@@ -53,6 +53,17 @@ class BrowserViewController: UIViewController {
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
+    let notchAreaCover = UIView()
+    private let overlayBackground: UIVisualEffectView = {
+        let effectView = UIVisualEffectView()
+        if #available(iOS 13.0, *) {
+            effectView.effect = UIBlurEffect(style: .systemMaterialDark)
+        } else {
+            // Fallback on earlier versions
+            effectView.effect = UIBlurEffect(style: .dark)
+        }
+        return effectView
+    }()
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
     var findInPageBar: FindInPageBar?
 
@@ -350,6 +361,8 @@ class BrowserViewController: UIViewController {
         webViewContainer = UIView()
         view.addSubview(webViewContainer)
 
+        view.addSubview(self.notchAreaCover)
+
         // Temporary work around for covering the non-clipped web view content
         statusBarOverlay = UIView()
         view.addSubview(statusBarOverlay)
@@ -399,6 +412,8 @@ class BrowserViewController: UIViewController {
         alertStackView.axis = .vertical
         alertStackView.alignment = .center
 
+        view.addSubview(self.overlayBackground)
+        self.hideOverlayBackground()
         clipboardBarDisplayHandler = ClipboardBarDisplayHandler(prefs: profile.prefs, tabManager: tabManager)
         clipboardBarDisplayHandler?.delegate = self
 
@@ -437,6 +452,16 @@ class BrowserViewController: UIViewController {
 
         webViewContainerBackdrop.snp.makeConstraints { make in
             make.edges.equalTo(webViewContainer)
+        }
+
+        overlayBackground.snp.makeConstraints { make in
+            make.edges.equalTo(self.view)
+        }
+
+        notchAreaCover.snp.makeConstraints { (make) in
+            make.topMargin.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+            make.left.right.equalTo(self.view)
+            make.bottom.equalTo(self.header.snp.bottom)
         }
     }
 
@@ -757,7 +782,7 @@ class BrowserViewController: UIViewController {
         }
 
         searchController.searchView.snp.makeConstraints { make in
-            make.top.equalTo(urlBar.snp.bottom).offset(-8)
+            make.top.equalTo(urlBar.snp.bottom).offset(-self.urlBar.frame.size.height / 2)
             make.left.equalTo(urlBar.locationContainer.snp.left)
             make.right.equalTo(urlBar.locationContainer.snp.right)
             make.bottom.equalToSuperview()
@@ -769,9 +794,11 @@ class BrowserViewController: UIViewController {
         urlBar.inCliqzSearchMode = true
 
         searchController.didMove(toParent: self)
+        self.showOverlayBackground()
     }
 
     fileprivate func hideSearchController() {
+        self.hideOverlayBackground()
         if let searchController = self.searchController {
             searchController.willMove(toParent: nil)
             searchController.view.removeFromSuperview()
@@ -779,6 +806,14 @@ class BrowserViewController: UIViewController {
             homeViewController?.view?.isHidden = false
             urlBar.inCliqzSearchMode = false
         }
+    }
+
+    fileprivate func hideOverlayBackground() {
+        self.overlayBackground.isHidden = true
+    }
+
+    fileprivate func showOverlayBackground() {
+        self.overlayBackground.isHidden = false
     }
 
     fileprivate func destroySearchController() {
@@ -2155,6 +2190,9 @@ extension BrowserViewController: Themeable {
         // Update the `background-color` of any blank webviews.
         let webViews = tabManager.tabs.compactMap({ $0.webView as? TabWebView })
         webViews.forEach({ $0.applyTheme() })
+
+        self.notchAreaCover.backgroundColor = UIColor.theme.browser.background
+        self.overlayBackground.backgroundColor = UIColor.black.withAlphaComponent(0.7)
     }
 }
 

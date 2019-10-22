@@ -115,7 +115,7 @@ class TabLocationView: UIView {
 
     fileprivate lazy var lockImageView: UIImageView = {
         let lockImageView = UIImageView(image: UIImage.templateImageNamed("lock_verified"))
-        lockImageView.tintColor = UIColor.LightGreen
+        lockImageView.tintColor = UIColor.theme.textField.textAndTint
         lockImageView.isAccessibilityElement = true
         lockImageView.contentMode = .center
         lockImageView.accessibilityLabel = NSLocalizedString("Secure connection", comment: "Accessibility label for the lock icon, which is only present if the connection is secure")
@@ -183,7 +183,7 @@ class TabLocationView: UIView {
         }
         // The lock and TP icons have custom spacing.
         // TO DO : Once we cut ios10 support we can use UIstackview.setCustomSpacing
-        let iconStack = UIStackView(arrangedSubviews: [spaceView, lockImageView, privacyIndicator])
+        let iconStack = UIStackView(arrangedSubviews: [spaceView, privacyIndicator, lockImageView])
         iconStack.spacing = TabLocationViewUX.Spacing / 2
 
         let subviews = [iconStack, urlTextField, readerModeButton, separatorLine, pageOptionsButton]
@@ -197,7 +197,6 @@ class TabLocationView: UIView {
         }
 
         lockImageView.snp.makeConstraints { make in
-            make.width.equalTo(TabLocationViewUX.StatusIconSize)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
         privacyIndicator.snp.makeConstraints { make in
@@ -331,7 +330,7 @@ extension TabLocationView: Themeable {
         backgroundColor = UIColor.theme.textField.background
         urlTextField.textColor = UIColor.theme.textField.textAndTint
         readerModeButton.selectedTintColor = UIColor.theme.urlbar.readerModeButtonSelected
-        readerModeButton.unselectedTintColor = UIColor.theme.urlbar.readerModeButtonUnselected
+        readerModeButton.unselectedTintColor = UIColor.theme.textField.textAndTint
 
         pageOptionsButton.selectedTintColor = UIColor.theme.urlbar.pageOptionsSelected
         pageOptionsButton.unselectedTintColor = UIColor.theme.urlbar.pageOptionsUnselected

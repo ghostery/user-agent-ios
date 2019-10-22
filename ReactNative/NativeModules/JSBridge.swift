@@ -71,11 +71,7 @@ class JSBridge: RCTEventEmitter {
     }
 
     private func nextActionId() -> ActionId {
-        var nextId: NSInteger = 0
-        lockDispatchQueue.sync {
-            self.actionCounter += 1
-            nextId = self.actionCounter
-        }
-        return nextId
+        self.actionCounter += 1
+        return self.actionCounter
     }
 }
