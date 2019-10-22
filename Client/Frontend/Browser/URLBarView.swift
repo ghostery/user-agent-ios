@@ -11,9 +11,8 @@ private struct URLBarViewUX {
 
     static let LocationLeftPadding: CGFloat = 8
     static let Padding: CGFloat = 10
-    static let LocationHeight: CGFloat = 40
-    static let ButtonHeight: CGFloat = 44
-    static let LocationContentOffset: CGFloat = 8
+    static let ButtonHeight: CGFloat = 36
+
     static let TextFieldCornerRadius: CGFloat = 8
     static let TextFieldBorderWidth: CGFloat = 0
     static let TextFieldBorderWidthSelected: CGFloat = 0
@@ -319,6 +318,7 @@ class URLBarView: UIView {
             }
 
             make.centerY.equalTo(self)
+            make.height.equalTo(UIConstants.URLBarViewHeight)
         }
         if inOverlayMode {
             self.cancelButton.snp.remakeConstraints { make in

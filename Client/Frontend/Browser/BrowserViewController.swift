@@ -53,6 +53,7 @@ class BrowserViewController: UIViewController {
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
+    let notchAreaCover = UIView()
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
     var findInPageBar: FindInPageBar?
 
@@ -350,6 +351,8 @@ class BrowserViewController: UIViewController {
         webViewContainer = UIView()
         view.addSubview(webViewContainer)
 
+        view.addSubview(self.notchAreaCover)
+
         // Temporary work around for covering the non-clipped web view content
         statusBarOverlay = UIView()
         view.addSubview(statusBarOverlay)
@@ -437,6 +440,12 @@ class BrowserViewController: UIViewController {
 
         webViewContainerBackdrop.snp.makeConstraints { make in
             make.edges.equalTo(webViewContainer)
+        }
+
+        notchAreaCover.snp.makeConstraints { (make) in
+            make.topMargin.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+            make.left.right.equalTo(self.view)
+            make.bottom.equalTo(self.header.snp.bottom)
         }
     }
 
@@ -757,7 +766,7 @@ class BrowserViewController: UIViewController {
         }
 
         searchController.searchView.snp.makeConstraints { make in
-            make.top.equalTo(urlBar.snp.bottom).offset(-8)
+            make.top.equalTo(urlBar.snp.bottom).offset(-9)
             make.left.equalTo(urlBar.locationContainer.snp.left)
             make.right.equalTo(urlBar.locationContainer.snp.right)
             make.bottom.equalToSuperview()
@@ -2155,6 +2164,8 @@ extension BrowserViewController: Themeable {
         // Update the `background-color` of any blank webviews.
         let webViews = tabManager.tabs.compactMap({ $0.webView as? TabWebView })
         webViews.forEach({ $0.applyTheme() })
+
+        self.notchAreaCover.backgroundColor = UIColor.theme.browser.background
     }
 }
 

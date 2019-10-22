@@ -115,7 +115,7 @@ class TabLocationView: UIView {
 
     fileprivate lazy var lockImageView: UIImageView = {
         let lockImageView = UIImageView(image: UIImage.templateImageNamed("lock_verified"))
-        lockImageView.tintColor = UIColor.LightGreen
+        lockImageView.tintColor = UIColor.black
         lockImageView.isAccessibilityElement = true
         lockImageView.contentMode = .center
         lockImageView.accessibilityLabel = NSLocalizedString("Secure connection", comment: "Accessibility label for the lock icon, which is only present if the connection is secure")
@@ -183,7 +183,7 @@ class TabLocationView: UIView {
         }
         // The lock and TP icons have custom spacing.
         // TO DO : Once we cut ios10 support we can use UIstackview.setCustomSpacing
-        let iconStack = UIStackView(arrangedSubviews: [spaceView, lockImageView, privacyIndicator])
+        let iconStack = UIStackView(arrangedSubviews: [spaceView, privacyIndicator, lockImageView])
         iconStack.spacing = TabLocationViewUX.Spacing / 2
 
         let subviews = [iconStack, urlTextField, readerModeButton, separatorLine, pageOptionsButton]

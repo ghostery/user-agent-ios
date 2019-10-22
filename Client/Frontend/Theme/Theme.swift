@@ -23,7 +23,7 @@ enum BuiltinThemeName: String {
 }
 
 // Convenience reference to these normal mode colors which are used in a few color classes.
-private let defaultBackground = UIColor.Grey10
+private let defaultBackground = UIColor.lightText
 private let defaultSeparator = UIColor.Grey30
 private let defaultTextAndTint = UIColor.Grey80
 
@@ -137,7 +137,7 @@ class TopTabsColor {
 }
 
 class TextFieldColor {
-    var background: UIColor { return UIColor.Grey25 }
+    var background: UIColor { return UIColor.CloudySky }
     var backgroundInOverlay: UIColor { return UIColor.white }
     var textAndTint: UIColor { return defaultTextAndTint }
     var separator: UIColor { return .white }
