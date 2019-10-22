@@ -2141,6 +2141,7 @@ extension BrowserViewController: Themeable {
 
         self.notchAreaCover.backgroundColor = .clear
         self.overlayBackground.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        tabManager.tabs.forEach { $0.applyTheme() }
     }
 }
 
