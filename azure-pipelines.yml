@@ -70,6 +70,10 @@ steps:
     args: '-derivedDataPath builds'
 
 - bash: |
+    find builds
+  displayName: 'list artifacts'
+
+- bash: |
     brew tap wix/brew
     brew install applesimutils
   displayName: Install dependencies
@@ -85,3 +89,4 @@ steps:
     pathtoPublish: './artifacts'
     artifactName: 'Screenshots'
     publishLocation: 'Container'
+
