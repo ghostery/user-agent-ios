@@ -20,9 +20,9 @@ extension UIColor {
 public struct UIConstants {
     static let DefaultPadding: CGFloat = 10
     static let SnackbarButtonHeight: CGFloat = 57
-    static let TopToolbarHeight: CGFloat = 56
+    static let TopToolbarHeight: CGFloat = 50
     static var ToolbarHeight: CGFloat = 46
-    static let URLBarViewHeight: CGFloat = 38
+    static let URLBarViewHeight: CGFloat = 35
     static var BottomToolbarHeight: CGFloat {
         var bottomInset: CGFloat = 0.0
         if let window = UIApplication.shared.keyWindow {
