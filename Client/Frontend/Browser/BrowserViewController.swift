@@ -53,7 +53,21 @@ class BrowserViewController: UIViewController {
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
-    let notchAreaCover = UIView()
+    private var notchAreaCover: UIView = {
+        let view = UIView()
+        let effectView = UIVisualEffectView()
+        if #available(iOS 13.0, *) {
+            effectView.effect = UIBlurEffect(style: .systemMaterial)
+        } else {
+            // Fallback on earlier versions
+            effectView.effect = UIBlurEffect(style: .light)
+        }
+        view.addSubview(effectView)
+        effectView.snp.makeConstraints { make in
+            make.top.bottom.trailing.leading.equalTo(view)
+        }
+        return view
+    }()
     private let overlayBackground: UIVisualEffectView = {
         let effectView = UIVisualEffectView()
         if #available(iOS 13.0, *) {
@@ -791,7 +805,6 @@ class BrowserViewController: UIViewController {
         view.bringSubviewToFront(urlBarTopTabsContainer)
 
         homeViewController?.view?.isHidden = true
-        urlBar.inCliqzSearchMode = true
 
         searchController.didMove(toParent: self)
         self.showOverlayBackground()
@@ -804,7 +817,6 @@ class BrowserViewController: UIViewController {
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
             homeViewController?.view?.isHidden = false
-            urlBar.inCliqzSearchMode = false
         }
     }
 
@@ -2191,7 +2203,7 @@ extension BrowserViewController: Themeable {
         let webViews = tabManager.tabs.compactMap({ $0.webView as? TabWebView })
         webViews.forEach({ $0.applyTheme() })
 
-        self.notchAreaCover.backgroundColor = UIColor.theme.browser.background
+        self.notchAreaCover.backgroundColor = .clear
         self.overlayBackground.backgroundColor = UIColor.black.withAlphaComponent(0.7)
     }
 }

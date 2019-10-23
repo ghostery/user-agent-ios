@@ -93,13 +93,6 @@ class URLBarView: UIView {
     /// a panel, the first responder will be resigned, yet the overlay mode UI is still active.
     var inOverlayMode = false
 
-    /// Search Mode turns the container view transparent, so that we can insert the SearchResultsViewController from outside
-    var inCliqzSearchMode = false {
-        didSet {
-            backgroundColor = inCliqzSearchMode ? UIColor.clear : UIColor.theme.browser.background
-        }
-    }
-
     lazy var searchButton: ToolbarButton = {
         return ToolbarButton()
     }()
@@ -117,7 +110,6 @@ class URLBarView: UIView {
         let locationContainer = TabLocationContainerView()
         locationContainer.layer.cornerRadius = URLBarViewUX.TextFieldCornerRadius
         locationContainer.translatesAutoresizingMaskIntoConstraints = false
-        locationContainer.backgroundColor = .clear
         return locationContainer
     }()
 
@@ -402,7 +394,7 @@ class URLBarView: UIView {
         }
 
         locationTextField.applyTheme()
-        locationTextField.backgroundColor = UIColor.green
+        locationTextField.backgroundColor = .clear
         locationTextField.inputAccessoryView = querySuggestionsInputAccessoryView
 //        locationTextField.layer.cornerRadius = self.locationView.layer.cornerRadius
     }
@@ -755,12 +747,18 @@ extension URLBarView: Themeable {
         tabsButton.applyTheme()
 
         cancelTintColor = UIColor.theme.browser.tint
-        backgroundColor = inCliqzSearchMode ? UIColor.clear : UIColor.theme.browser.background
+        backgroundColor = .clear
         line.backgroundColor = UIColor.theme.browser.urlBarDivider
 
         locationBorderColor = UIColor.theme.urlbar.border
-        locationView.backgroundColor = inOverlayMode ? UIColor.theme.textField.backgroundInOverlay : UIColor.theme.textField.background
-        locationContainer.backgroundColor = UIColor.theme.textField.background
+
+        if inOverlayMode {
+            locationView.backgroundColor = UIColor.theme.textField.backgroundInOverlay
+        } else {
+            locationView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.25)
+        }
+
+        locationContainer.backgroundColor = .clear
 
         privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
     }
