@@ -845,7 +845,7 @@
 "Settings.AddCustomEngine.URLPlaceholder" = "URL (Anfrage durch %s ersetzen)";
 
 /* The button text in Search Settings that opens the list of supported search languages. */
-"Settings.SearchResultForLanguage" = "Suchergebnisse für";
+"Settings.SearchResultForLanguage" = "Suchsprache";
 
 /* "Enable/Disable adult filter setting" */
 "Settings.AdultFilterMode" = "18+ Seiten blockieren";
@@ -906,6 +906,12 @@
 
 /* General settings section title */
 "Settings.General.SectionName" = "Allgemein";
+
+/* Search settings seciton title */
+"Settings.Search.SectionName" = "Suche";
+
+/* The button text in Search Settings that opens the Additional Search Engines view. */
+"Settings.AdditionalSearchEngines.SectionName" = "Weitere Suchmaschinen";
 
 /* Button in settings to clear the home page. */
 "Settings.HomePage.Clear.Button" = "Löschen";
@@ -1009,9 +1015,6 @@
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Edit.Button" = "Bearbeiten";
 
-/* title for a link that explains how mozilla collects telemetry */
-"Settings.SendUsage.Link" = "Weitere Informationen.";
-
 /* A short description that explains why mozilla collects usage data. */
 "Settings.SendUsage.Message" = "%@ ist bestrebt, nur die Informationen zu sammeln, mit denen wir %@ anbieten und für alle Nutzer verbessern können.";
 
@@ -1030,20 +1033,11 @@
 /* The option that takes you to the siri shortcuts settings page */
 "Settings.Siri.SectionName" = "Siri-Kürzel";
 
-/* Header description for tracking protection options section where Basic/Strict block list can be selected */
-"Settings.TrackingProtection.BlockListsHeader" = "Sie können die Liste auswählen, welche %@ zum Blockieren von Ihre Internetaktivitäten verfolgenden Web-Elementen verwenden soll.";
-
 /* Explanation of basic mode. */
 "Settings.TrackingProtection.Info.BasicTitle" = "Ausgewogen für Schutz und Leistung.";
 
 /* The Title on info view which shows a list of all blocked websites */
 "Settings.TrackingProtection.Info.BlocksTitle" = "BLOCKIERT";
-
-/* Explanation of strict mode. */
-"Settings.TrackingProtection.Info.StrictTitle" = "Bietet stärkeren Schutz, kann jedoch dazu führen, dass einige Websites nicht funktionieren.";
-
-/* 'More Info' link on the Tracking Protection settings screen. */
-"Settings.TrackingProtection.MoreInfo" = "Weitere Informationen…";
 
 /* Title for tracking protection options section where level can be selected. */
 "Settings.TrackingProtection.ProtectionLevelTitle" = "Schutzniveau";
@@ -1051,20 +1045,8 @@
 /* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
 "Settings.TrackingProtection.SectionName" = "Schutz vor Aktivitätenverfolgung";
 
-/* Additional information about the strict level setting */
-"Settings.TrackingProtection.StrictLevelInfoFooter" = "Das Blockieren von Trackern kann die Funktionalität einiger Websites beeinträchtigen.";
-
 /* Tracking protection settings option for using the basic blocklist. */
 "Settings.TrackingProtectionOption.BasicBlockList" = "Standard";
-
-/* Tracking protection settings option description for using the basic blocklist. */
-"Settings.TrackingProtectionOption.BlockListBasicDescription" = "Erlaubt einigen System („Trackern“), Ihre Aktivitäten zu verfolgen, damit Websites wie erwartet funktionieren.";
-
-/* Tracking protection settings option for using the strict blocklist. */
-"Settings.TrackingProtectionOption.BlockListStrict" = "Streng";
-
-/* Tracking protection settings option description for using the strict blocklist. */
-"Settings.TrackingProtectionOption.BlockListStrictDescription" = "Blockiert bekannte „Tracker“. Einige Websites funktionieren dann möglicherweise nicht richtig.";
 
 /* Description label shown on tracking protection options screen. */
 "Settings.TrackingProtectionOption.EnabledStateFooterLabel" = "Aktivitätenverfolgung („Tracking“) bezeichnet das Sammeln Ihrer Surf-Daten über mehrere Websites hinweg.";

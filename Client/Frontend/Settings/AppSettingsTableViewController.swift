@@ -39,18 +39,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         let prefs = profile.prefs
         var generalSettings: [Setting] = [
-            SearchResultsSetting(currentRegion: self.currentRegion, availableRegions: self.availableRegions),
-            SearchSetting(settings: self),
             OpenWithSetting(settings: self),
-            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
-                Search.setAdultFilter(filter: value ? .conservative : .liberal)
-            },
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
                         titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
            ]
 
         if #available(iOS 12.0, *) {
-            generalSettings.insert(SiriPageSetting(settings: self), at: 3)
+            generalSettings.insert(SiriPageSetting(settings: self), at: 1)
         }
 
         // There is nothing to show in the Customize section if we don't include the compact tab layout
@@ -65,6 +60,16 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsGeneralSectionTitle), children: generalSettings)]
 
+        let searchSettings: [Setting] = [
+            SearchLanguageSetting(currentRegion: self.currentRegion, availableRegions: self.availableRegions),
+            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
+                Search.setAdultFilter(filter: value ? .conservative : .liberal)
+            },
+            SearchSetting(settings: self),
+        ]
+
+        settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsSearchSectionTitle), children: searchSettings)]
+
         var privacySettings = [Setting]()
 
         privacySettings.append(ClearPrivateDataSetting(settings: self))
@@ -78,8 +83,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 statusText: Strings.ClosePrivateTabsDescription),
         ]
 
-        privacySettings.append(ContentBlockerSetting(settings: self))
-
         privacySettings += [
             PrivacyPolicySetting(),
         ]
@@ -89,7 +92,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: [
                 ShowIntroductionSetting(settings: self),
                 SendFeedbackSetting(),
-                SendAnonymousUsageDataSetting(prefs: prefs, delegate: settingsDelegate),
+                BoolSetting(prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true, attributedTitleText: NSAttributedString(string: Strings.SendUsageSettingTitle), attributedStatusText: NSAttributedString(string: Strings.SendUsageSettingMessage, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight])),
             ]),
             SettingSection(title: NSAttributedString(string: NSLocalizedString("About", comment: "About settings section title")), children: [
                 VersionSetting(settings: self),

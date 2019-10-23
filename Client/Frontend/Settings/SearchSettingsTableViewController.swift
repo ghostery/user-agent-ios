@@ -31,7 +31,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = NSLocalizedString("Search", comment: "Navigation title for search settings.")
+        navigationItem.title = Strings.SettingsAdditionalSearchEnginesSectionTitle
 
         // To allow re-ordering the list of search engines at all times.
         tableView.isEditing = true
@@ -63,8 +63,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // The default engine is not a quick search engine.
-        let index = indexPath.item + 1
+        let index = indexPath.item
         if index < model.orderedEngines.count {
             let engine = model.orderedEngines[index]
             return self.searchEngineCell(tableView: tableView, engine: engine, index: index)
@@ -117,11 +116,11 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.orderedEngines.count
+        return model.orderedEngines.count + 1
     }
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.item + 1 == model.orderedEngines.count {
+        if indexPath.item == model.orderedEngines.count {
             let customSearchEngineForm = CustomSearchViewController()
             customSearchEngineForm.profile = self.profile
             customSearchEngineForm.successCallback = {
@@ -135,11 +134,11 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
     // Don't show delete button on the left.
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.item + 1 == model.orderedEngines.count {
+        if indexPath.item == model.orderedEngines.count {
             return UITableViewCell.EditingStyle.none
         }
 
-        let index = indexPath.item + 1
+        let index = indexPath.item
         let engine = model.orderedEngines[index]
         return (self.showDeletion && engine.isCustomEngine) ? .delete : .none
     }
@@ -183,7 +182,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.item + 1 == model.orderedEngines.count {
+        if indexPath.item == model.orderedEngines.count {
             return false
         } else {
             return true
@@ -192,8 +191,8 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
     override func tableView(_ tableView: UITableView, moveRowAt indexPath: IndexPath, to newIndexPath: IndexPath) {
         // The first engine (default engine) is not shown in the list, so the indices are off-by-1.
-        let index = indexPath.item + 1
-        let newIndex = newIndexPath.item + 1
+        let index = indexPath.item
+        let newIndex = newIndexPath.item
         let engine = model.orderedEngines.remove(at: index)
         model.orderedEngines.insert(engine, at: newIndex)
         tableView.reloadData()
@@ -203,14 +202,14 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
 
         //Can't drag/drop over "Add Custom Engine button"
-        if sourceIndexPath.item + 1 == model.orderedEngines.count || proposedDestinationIndexPath.item + 1 == model.orderedEngines.count {
+        if sourceIndexPath.item == model.orderedEngines.count || proposedDestinationIndexPath.item == model.orderedEngines.count {
             return sourceIndexPath
         }
 
         if sourceIndexPath.section != proposedDestinationIndexPath.section {
             var row = 0
             if sourceIndexPath.section < proposedDestinationIndexPath.section {
-                row = tableView.numberOfRows(inSection: sourceIndexPath.section) - 1
+                row = tableView.numberOfRows(inSection: sourceIndexPath.section)
             }
             return IndexPath(row: row, section: sourceIndexPath.section)
         }
@@ -219,7 +218,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let index = indexPath.item + 1
+            let index = indexPath.item
             let engine = model.orderedEngines[index]
             model.deleteCustomEngine(engine)
             tableView.deleteRows(at: [indexPath], with: .right)

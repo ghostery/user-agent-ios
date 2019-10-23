@@ -389,6 +389,8 @@ extension Strings {
 
 // Add Custom Search Engine
 extension Strings {
+    public static let SettingsSearchSectionTitle = NSLocalizedString("Settings.Search.SectionName", comment: "Search settings section title")
+    public static let SettingsAdditionalSearchEnginesSectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
     public static let SettingsAddCustomEngine = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
     public static let SettingsAddCustomEngineTitle = NSLocalizedString("Settings.AddCustomEngine.Title", comment: "The title of the  Custom Search Engine view.")
     public static let SettingsAddCustomEngineTitleLabel = NSLocalizedString("Settings.AddCustomEngine.TitleLabel", comment: "The title for the field which sets the title for a custom search engine.")
@@ -502,12 +504,6 @@ extension Strings {
     public static let TrackingProtectionOptionOnInNormalBrowsing = NSLocalizedString("Settings.TrackingProtectionOption.OnInNormalBrowsingLabel", comment: "Settings option to specify that Tracking Protection is on only in Private Browsing mode.")
     public static let TrackingProtectionOptionOnOffHeader = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateHeaderLabel", comment: "Description label shown at the top of tracking protection options screen.")
     public static let TrackingProtectionOptionOnOffFooter = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateFooterLabel", comment: "Description label shown on tracking protection options screen.")
-    public static let TrackingProtectionOptionBlockListsTitle = NSLocalizedString("Settings.TrackingProtection.BlockListsTitle", comment: "Title for tracking protection options section where Basic/Strict block list can be selected")
-    public static let TrackingProtectionOptionBlockListsHeader = String(format: NSLocalizedString("Settings.TrackingProtection.BlockListsHeader", comment: "Header description for tracking protection options section where Basic/Strict block list can be selected"), AppInfo.displayName)
-    public static let TrackingProtectionOptionBlockListTypeBasic = NSLocalizedString("Settings.TrackingProtectionOption.BlockListBasic", comment: "Tracking protection settings option for using the basic blocklist.")
-    public static let TrackingProtectionOptionBlockListTypeBasicDescription = NSLocalizedString("Settings.TrackingProtectionOption.BlockListBasicDescription", comment: "Tracking protection settings option description for using the basic blocklist.")
-    public static let TrackingProtectionOptionBlockListTypeStrict = NSLocalizedString("Settings.TrackingProtectionOption.BlockListStrict", comment: "Tracking protection settings option for using the strict blocklist.")
-    public static let TrackingProtectionOptionBlockListTypeStrictDescription = NSLocalizedString("Settings.TrackingProtectionOption.BlockListStrictDescription", comment: "Tracking protection settings option description for using the strict blocklist.")
     public static let TrackingProtectionReloadWithout = NSLocalizedString("Menu.ReloadWithoutTrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to reload the current website without Tracking Protection")
     public static let TrackingProtectionReloadWith = NSLocalizedString("Menu.ReloadWithTrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled")
 }
@@ -543,7 +539,6 @@ extension Strings {
 // Settings Home
 extension Strings {
     public static let SendUsageSettingTitle = NSLocalizedString("Settings.SendUsage.Title", comment: "The title for the setting to send usage data.")
-    public static let SendUsageSettingLink = NSLocalizedString("Settings.SendUsage.Link", comment: "title for a link that explains how mozilla collects telemetry")
     public static let SendUsageSettingMessage = String(format: NSLocalizedString("Settings.SendUsage.Message", comment: "A short description that explains why mozilla collects usage data."), AppInfo.displayName, AppInfo.displayName)
     public static let SettingsSiriSectionName = NSLocalizedString("Settings.Siri.SectionName", comment: "The option that takes you to the siri shortcuts settings page")
     public static let SettingsSiriSectionDescription = String(format: NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are"), AppInfo.displayName)

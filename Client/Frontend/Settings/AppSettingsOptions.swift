@@ -232,30 +232,6 @@ class SendFeedbackSetting: Setting {
     }
 }
 
-class SendAnonymousUsageDataSetting: BoolSetting {
-    init(prefs: Prefs, delegate: SettingsDelegate?) {
-        let statusText = NSMutableAttributedString()
-        statusText.append(NSAttributedString(string: Strings.SendUsageSettingMessage, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight]))
-        statusText.append(NSAttributedString(string: " "))
-        statusText.append(NSAttributedString(string: Strings.SendUsageSettingLink, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.general.highlightBlue]))
-
-        super.init(
-            prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true,
-            attributedTitleText: NSAttributedString(string: Strings.SendUsageSettingTitle),
-            attributedStatusText: statusText,
-            settingDidChange: nil
-        )
-    }
-
-    override var url: URL? {
-        return SupportUtils.URLForTopic("adjust")
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        setUpAndPushSettingsContentViewController(navigationController)
-    }
-}
-
 // Opens the search settings pane
 class SearchSetting: Setting {
     let profile: Profile
@@ -270,7 +246,7 @@ class SearchSetting: Setting {
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
-        super.init(title: NSAttributedString(string: NSLocalizedString("Search", comment: "Open search section of settings"), attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.SettingsAdditionalSearchEnginesSectionTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -282,7 +258,7 @@ class SearchSetting: Setting {
 }
 
 // Opens the search results for language settings
-class SearchResultsSetting: Setting {
+class SearchLanguageSetting: Setting {
 
     private var currentRegion: Search.Country?
     private var availableRegions: [Search.Country]?
@@ -306,26 +282,6 @@ class SearchResultsSetting: Setting {
             return
         }
         let viewController = SearchResultsSettingsViewController(selectedRegion: region, availableRegions: regions)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-}
-
-class ContentBlockerSetting: Setting {
-    let profile: Profile
-    var tabManager: TabManager!
-    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
-    override var accessibilityIdentifier: String? { return "TrackingProtection" }
-
-    init(settings: SettingsTableViewController) {
-        self.profile = settings.profile
-        self.tabManager = settings.tabManager
-        super.init(title: NSAttributedString(string: Strings.SettingsTrackingProtectionSectionName, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
-    }
-
-    override func onClick(_ navigationController: UINavigationController?) {
-        let viewController = ContentBlockerSettingViewController(prefs: profile.prefs)
-        viewController.profile = profile
-        viewController.tabManager = tabManager
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
