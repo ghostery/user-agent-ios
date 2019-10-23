@@ -13,9 +13,17 @@ import { baseTheme, mergeStyles } from 'browser-core-user-agent-ios/build/module
 import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 
 import t from '../../../services/i18n';
-
+console.warn(baseTheme)
 const getTheme = (theme) => mergeStyles(baseTheme, {
-
+  card: {
+    bgColor: theme.backgroundColor,
+  },
+  snippet: {
+    titleColor: theme.textColor,
+    descriptionColor: theme.textColor,
+    visitedTitleColor: theme.visitedColor,
+    separatorColor: theme.separatorColor,
+  },
 });
 
 const getStyles = (theme) => StyleSheet.create({
@@ -23,11 +31,23 @@ const getStyles = (theme) => StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  searchUI: {
+    paddingTop: 25,
+    backgroundColor: theme.backgroundColor,
+  },
+  bouncer: {
+    backgroundColor: theme.backgroundColor,
+    height: 500,
+    position: 'absolute',
+    top: -500,
+    left: 0,
+    right: 0,
+  },
   footer: {
     height: 50,
     borderTopColor: '#D9D9D9',
     borderTopWidth: 1,
-    backgroundColor: 'white',
+    backgroundColor: theme.backgroundColor,
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomLeftRadius: 10,
@@ -38,14 +58,14 @@ const getStyles = (theme) => StyleSheet.create({
     fontSize: 9,
   },
   noResults: {
-    backgroundColor: 'white',
+    backgroundColor: theme.backgroundColor,
     paddingTop: 24,
     paddingBottom: 24,
     alignItems: 'center',
     justifyContent: 'center',
   },
   noResultsText: {
-    color: '#656d7e',
+    color: theme.textColor,
     fontSize: 14,
   },
   searchEnginesHeader: {
@@ -131,19 +151,12 @@ export default class Results extends React.Component {
               ref={this.scrollRef}
             >
               <View
-                style={{
-                  backgroundColor: 'white',
-                  height: 500,
-                  position: 'absolute',
-                  top: -500,
-                  left: 0,
-                  right: 0,
-                }}
+                style={styles.bouncer}
               />
               <SearchUIVertical
                 results={results}
                 meta={meta}
-                style={{ backgroundColor: 'white', paddingTop: 25 }}
+                style={styles.searchUI}
                 cardListStyle={{ paddingLeft: 0, paddingRight: 0 }}
                 header={<View />}
                 separator={<View style={{ height: 0.5, backgroundColor: '#D9D9D9' }} />}

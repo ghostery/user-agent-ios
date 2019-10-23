@@ -80,9 +80,18 @@ class SearchResultsViewController: UIViewController {
     }
 
     fileprivate static func getTheme() -> [String: Any] {
+        var mode = "dark"
+        if #available(iOS 13.0, *) {
+            mode = UITraitCollection.current.userInterfaceStyle == .dark ? "dark" : "light"
+        }
         return [
-            "backgroundColor": UIColor.theme.browser.background.hexString,
+            "mode": mode,
+            "backgroundColor": UIColor.theme.textField.backgroundInOverlay.hexString,
             "textColor": UIColor.theme.browser.tint.hexString,
+            "descriptionColor": mode == "dark" ? "rgba(0, 0, 0, 0.61)" : "rgba(255, 255, 255, 0.61)",
+            "visitedColor": mode == "dark" ? "#BDB6FF" : "#610072",
+            "separatorColor": mode == "dark" ? "rgba(255, 255, 255, 0.15)" : "#D9D9D9",
+            "linkColor": mode == "dark" ? "#6BA573" : "#579D61",
         ]
     }
 }
