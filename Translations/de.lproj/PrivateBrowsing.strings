@@ -13,6 +13,12 @@
 /* Toggled ON accessibility value */
 "On" = "An";
 
+/* Will be displayed in Tabs view bottom bar. */
+"Tabbar.Private.Title" = "Privater";
+
+/* Button displayed at the bottom of the tabbar view. */
+"TabsView.Done.Title" = "Fertig";
+
 /* Title displayed for when there are no open tabs while in private mode */
 "Private Browsing" = "Privates Surfen";
 

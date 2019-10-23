@@ -44,7 +44,9 @@ class TabTrayController: UIViewController {
         let toolbar = TrayToolbar()
         toolbar.addTabButton.addTarget(self, action: #selector(didTapToolbarAddTab), for: .touchUpInside)
         toolbar.maskButton.addTarget(self, action: #selector(didTogglePrivateMode), for: .touchUpInside)
-        toolbar.deleteButton.addTarget(self, action: #selector(didTapToolbarDelete), for: .touchUpInside)
+        toolbar.doneButton.addTarget(self, action: #selector(didTapToolbarDone), for: .touchUpInside)
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressedToolbarDone(_:)))
+        toolbar.doneButton.addGestureRecognizer(longPressGesture)
         return toolbar
     }()
 
@@ -507,8 +509,29 @@ extension TabTrayController {
 }
 
 extension TabTrayController {
-    @objc func didTapToolbarDelete(_ sender: UIButton) {
-        if tabDisplayManager.isDragging {
+
+    @objc func didTapToolbarDone(_ sender: UIButton) {
+        if self.tabDisplayManager.isDragging {
+            return
+        }
+        guard !self.tabDisplayManager.isPrivate || !self.tabManager.privateTabs.isEmpty else {
+            self.openNewTab()
+            return
+        }
+        guard let tab = self.tabManager.selectedTab else {
+            self.openNewTab()
+            return
+        }
+        self.tabManager.selectTab(tab)
+        self.dismissTabTray()
+    }
+
+    @objc func didLongPressedToolbarDone(_ sender: UIButton) {
+        if self.tabDisplayManager.isDragging {
+            return
+        }
+
+        guard !self.tabDisplayManager.isPrivate || !self.tabManager.privateTabs.isEmpty else {
             return
         }
 
@@ -517,8 +540,9 @@ extension TabTrayController {
         controller.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Label for Cancel button"), style: .cancel, handler: nil), accessibilityIdentifier: "TabTrayController.deleteButton.cancel")
         controller.popoverPresentationController?.sourceView = sender
         controller.popoverPresentationController?.sourceRect = sender.bounds
-        present(controller, animated: true, completion: nil)
+        self.present(controller, animated: true, completion: nil)
     }
+
 }
 
 private class TabLayoutDelegate: NSObject, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
@@ -705,9 +729,10 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
         return button
     }()
 
-    lazy var deleteButton: UIButton = {
+    lazy var doneButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage.templateImageNamed("action_delete"), for: .normal)
+        button.setTitle(Strings.DoneTabsViewButtonTitle, for: [])
+        button.setTitleColor(UIColor.theme.tabTray.privateModeButtonOffTint, for: [])
         button.accessibilityLabel = Strings.TabTrayDeleteMenuButtonAccessibilityLabel
         button.accessibilityIdentifier = "TabTrayController.removeTabsButton"
         return button
@@ -718,11 +743,10 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
 
     fileprivate override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(addTabButton)
 
         var buttonToCenter: UIButton?
-        addSubview(deleteButton)
-        buttonToCenter = deleteButton
+        addSubview(addTabButton)
+        buttonToCenter = addTabButton
 
         maskButton.accessibilityIdentifier = "TabTrayController.maskButton"
 
@@ -732,7 +756,8 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
             make.size.equalTo(toolbarButtonSize)
         }
 
-        addTabButton.snp.makeConstraints { make in
+        addSubview(doneButton)
+        doneButton.snp.makeConstraints { make in
             make.top.equalTo(self)
             make.trailing.equalTo(self).offset(-sideOffset)
             make.size.equalTo(toolbarButtonSize)
@@ -742,7 +767,7 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
         maskButton.snp.makeConstraints { make in
             make.top.equalTo(self)
             make.leading.equalTo(self).offset(sideOffset)
-            make.size.equalTo(toolbarButtonSize)
+            make.height.equalTo(toolbarButtonSize.height)
         }
 
         applyTheme()
@@ -758,7 +783,7 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
     }
 
     func applyTheme() {
-        [addTabButton, deleteButton].forEach {
+        [addTabButton, doneButton].forEach {
             $0.tintColor = UIColor.theme.tabTray.toolbarButtonTint
         }
         backgroundColor = UIColor.theme.tabTray.toolbar

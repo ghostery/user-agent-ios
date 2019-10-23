@@ -5,14 +5,14 @@
 import UIKit
 
 private struct UX {
-    static let BackgroundColor = UIColor.Grey70
+    static let BackgroundColor = UIColor.Grey90
 
     // The amount of pixels the toggle button will expand over the normal size. This results in the larger -> contract animation.
     static let ExpandDelta: CGFloat = 5
-    static let ShowDuration: TimeInterval = 0.4
-    static let HideDuration: TimeInterval = 0.2
+    static let ShowDuration: TimeInterval = 0.1
+    static let HideDuration: TimeInterval = 0.1
 
-    static let BackgroundSize = CGSize(width: 32, height: 32)
+    static let BackgroundSizeHeight: CGFloat = 32.0
 }
 
 class ToggleButton: UIButton {
@@ -26,36 +26,31 @@ class ToggleButton: UIButton {
     fileprivate func updateMaskPathForSelectedState(_ selected: Bool) {
         let path = CGMutablePath()
         if selected {
-            var rect = CGRect(size: UX.BackgroundSize)
+            var rect = CGRect(size: CGSize(width: self.frame.size.width + UX.ExpandDelta, height: UX.BackgroundSizeHeight))
             rect.center = maskShapeLayer.position
-            path.addEllipse(in: rect)
+            path.addRoundedRect(in: rect, cornerWidth: 5, cornerHeight: 5)
         } else {
-            path.addEllipse(in: CGRect(origin: maskShapeLayer.position, size: .zero))
+            path.addRoundedRect(in: CGRect(origin: maskShapeLayer.position, size: CGSize(width: 1, height: 1)), cornerWidth: 0, cornerHeight: 0)
         }
         self.maskShapeLayer.path = path
     }
 
     fileprivate func animateSelection(_ selected: Bool) {
-        var endFrame = CGRect(size: UX.BackgroundSize)
+        var endFrame = CGRect(size: CGSize(width: self.frame.size.width + UX.ExpandDelta, height: UX.BackgroundSizeHeight))
         endFrame.center = maskShapeLayer.position
 
         if selected {
             let animation = CAKeyframeAnimation(keyPath: "path")
 
             let startPath = CGMutablePath()
-            startPath.addEllipse(in: CGRect(origin: maskShapeLayer.position, size: .zero))
-
-            let largerPath = CGMutablePath()
-            let largerBounds = endFrame.insetBy(dx: -UX.ExpandDelta, dy: -UX.ExpandDelta)
-            largerPath.addEllipse(in: largerBounds)
+            startPath.addRoundedRect(in: CGRect(origin: maskShapeLayer.position, size: CGSize(width: 1, height: 1)), cornerWidth: 0, cornerHeight: 0)
 
             let endPath = CGMutablePath()
-            endPath.addEllipse(in: endFrame)
+            endPath.addRoundedRect(in: endFrame, cornerWidth: UX.ExpandDelta, cornerHeight: UX.ExpandDelta)
 
             animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             animation.values = [
                 startPath,
-                largerPath,
                 endPath,
             ]
             animation.duration = UX.ShowDuration
@@ -67,12 +62,12 @@ class ToggleButton: UIButton {
             animation.fillMode = CAMediaTimingFillMode.forwards
 
             let fromPath = CGMutablePath()
-            fromPath.addEllipse(in: endFrame)
+            fromPath.addRoundedRect(in: endFrame, cornerWidth: UX.ExpandDelta, cornerHeight: UX.ExpandDelta)
             animation.fromValue = fromPath
             animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 
             let toPath = CGMutablePath()
-            toPath.addEllipse(in: CGRect(origin: self.maskShapeLayer.bounds.center, size: .zero))
+            toPath.addRoundedRect(in: CGRect(origin: self.maskShapeLayer.bounds.center, size: CGSize(width: 1, height: 1)), cornerWidth: 0, cornerHeight: 0)
 
             self.maskShapeLayer.path = toPath
             self.maskShapeLayer.add(animation, forKey: "shrink")
