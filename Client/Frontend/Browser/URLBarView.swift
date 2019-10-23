@@ -812,7 +812,6 @@ class ToolbarTextField: AutocompleteTextField {
 
 extension ToolbarTextField: Themeable {
     func applyTheme() {
-        backgroundColor = UIColor.theme.textField.backgroundInOverlay
         textColor = UIColor.theme.textField.textAndTint
     }
 
