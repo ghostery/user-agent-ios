@@ -304,7 +304,6 @@
 		2B65700F24AB68A7005DE5D3 /* ErrorPageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC4869A2195F58200CDA48D /* ErrorPageHelper.swift */; };
 		2B65701024AB68A7005DE5D3 /* TabsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660BDD81BB06521009AC090 /* TabsButton.swift */; };
 		2B65701124AB68A7005DE5D3 /* SavedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63306D3821103EAE00F25400 /* SavedTab.swift */; };
-		2B65701224AB68A7005DE5D3 /* HistoryStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02816C11ECA5E2A00240CAA /* HistoryStateHelper.swift */; };
 		2B65701324AB68A7005DE5D3 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B91209790B60074B35F /* Toast.swift */; };
 		2B65701424AB68A7005DE5D3 /* LibraryContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2B238BAC8B006D6B57 /* LibraryContextMenu.swift */; };
 		2B65701524AB68A7005DE5D3 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
@@ -960,7 +959,6 @@
 		ACB737B223042BAB00FA5626 /* ErrorPageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC4869A2195F58200CDA48D /* ErrorPageHelper.swift */; };
 		ACB737B323042BAB00FA5626 /* TabsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660BDD81BB06521009AC090 /* TabsButton.swift */; };
 		ACB737B423042BAB00FA5626 /* SavedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63306D3821103EAE00F25400 /* SavedTab.swift */; };
-		ACB737B623042BAB00FA5626 /* HistoryStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02816C11ECA5E2A00240CAA /* HistoryStateHelper.swift */; };
 		ACB737B823042BAB00FA5626 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B91209790B60074B35F /* Toast.swift */; };
 		ACB737B923042BAB00FA5626 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
 		ACB737BA23042BAB00FA5626 /* DynamicFontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65075531E37F6FC006961AC /* DynamicFontHelper.swift */; };
@@ -1121,7 +1119,6 @@
 		D01017F5219CB6BD009CBB5A /* DownloadContentScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01017F4219CB6BD009CBB5A /* DownloadContentScript.swift */; };
 		D0152245229855A8009DE753 /* OneLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0152244229855A8009DE753 /* OneLineCell.swift */; };
 		D018F93E1F44A71A0098F8CA /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D018F93D1F44A7190098F8CA /* Schema.swift */; };
-		D02816C21ECA5E2A00240CAA /* HistoryStateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02816C11ECA5E2A00240CAA /* HistoryStateHelper.swift */; };
 		D02818611EF056C800240CAA /* SentryIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02818601EF056C800240CAA /* SentryIntegration.swift */; };
 		D029A04920A62DB0001DB72F /* TemporaryDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029A04820A62DB0001DB72F /* TemporaryDocument.swift */; };
 		D03DCD95211B63D000151ACA /* DateGroupedTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03DCD94211B63D000151ACA /* DateGroupedTableData.swift */; };
@@ -2248,7 +2245,6 @@
 		D010187E21AF1B26009CBB5A /* TrackingProtectionStats.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = TrackingProtectionStats.js; sourceTree = "<group>"; };
 		D0152244229855A8009DE753 /* OneLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneLineCell.swift; sourceTree = "<group>"; };
 		D018F93D1F44A7190098F8CA /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
-		D02816C11ECA5E2A00240CAA /* HistoryStateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryStateHelper.swift; sourceTree = "<group>"; };
 		D02818601EF056C800240CAA /* SentryIntegration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentryIntegration.swift; sourceTree = "<group>"; };
 		D029A04820A62DB0001DB72F /* TemporaryDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryDocument.swift; sourceTree = "<group>"; };
 		D03DCD94211B63D000151ACA /* DateGroupedTableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateGroupedTableData.swift; sourceTree = "<group>"; };
@@ -4122,7 +4118,6 @@
 				EBB8950B2193994A00EB91A0 /* FirefoxTabContentBlocker.swift */,
 				39F4C1092045DB2E00746155 /* FocusHelper.swift */,
 				D0E55C4E1FB4FD23006DC274 /* FormPostHelper.swift */,
-				D02816C11ECA5E2A00240CAA /* HistoryStateHelper.swift */,
 				D3C3696D1CC6B78800348A61 /* LocalRequestHelper.swift */,
 				7482205B1DBAB56300EEEA72 /* MailProviders.swift */,
 				744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */,
@@ -6521,7 +6516,6 @@
 				2B65701024AB68A7005DE5D3 /* TabsButton.swift in Sources */,
 				2B6571AA24AB69A6005DE5D3 /* Features.swift in Sources */,
 				2B65701124AB68A7005DE5D3 /* SavedTab.swift in Sources */,
-				2B65701224AB68A7005DE5D3 /* HistoryStateHelper.swift in Sources */,
 				2B65701324AB68A7005DE5D3 /* Toast.swift in Sources */,
 				2B65701424AB68A7005DE5D3 /* LibraryContextMenu.swift in Sources */,
 				2B65701524AB68A7005DE5D3 /* Profile.swift in Sources */,
@@ -6932,7 +6926,6 @@
 				ACB737B223042BAB00FA5626 /* ErrorPageHelper.swift in Sources */,
 				ACB737B323042BAB00FA5626 /* TabsButton.swift in Sources */,
 				ACB737B423042BAB00FA5626 /* SavedTab.swift in Sources */,
-				ACB737B623042BAB00FA5626 /* HistoryStateHelper.swift in Sources */,
 				ACB737B823042BAB00FA5626 /* Toast.swift in Sources */,
 				2B516D34238BAC8B006D6B57 /* LibraryContextMenu.swift in Sources */,
 				ACB737B923042BAB00FA5626 /* Profile.swift in Sources */,
@@ -7256,7 +7249,6 @@
 				EBC4869D2195F58300CDA48D /* ErrorPageHelper.swift in Sources */,
 				E660BDD91BB06521009AC090 /* TabsButton.swift in Sources */,
 				63306D3921103EAE00F25400 /* SavedTab.swift in Sources */,
-				D02816C21ECA5E2A00240CAA /* HistoryStateHelper.swift in Sources */,
 				2B516D33238BAC8B006D6B57 /* LibraryContextMenu.swift in Sources */,
 				2B46494E243EF1DF002913F5 /* ContextualOnboardingViewController.swift in Sources */,
 				D04D1B92209790B60074B35F /* Toast.swift in Sources */,
