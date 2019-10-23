@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Circle based Privacy Indicator
 class PrivacyIndicatorView: UIView {
     // MARK: - Properties
     public var onButtonTap: (() -> Void)?
@@ -42,8 +43,11 @@ class PrivacyIndicatorView: UIView {
     }
 
     // MARK: - API
+    /// Update the Privacy Indicator with the specified TPPageStats object
+    ///
+    /// The update will be animated. You can call this method multiple times during load.
+    /// - Parameter stats: The page stas to animate to.
     func update(with stats: TPPageStats) {
-
         DispatchQueue.main.async {
             self.cachedStats[.adCount] = stats.adCount
             self.cachedStats[.analyticCount] = stats.analyticCount
