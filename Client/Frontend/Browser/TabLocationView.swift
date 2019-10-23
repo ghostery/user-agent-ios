@@ -181,12 +181,8 @@ class TabLocationView: UIView {
         spaceView.snp.makeConstraints { make in
             make.width.equalTo(TabLocationViewUX.Spacing)
         }
-        // The lock and TP icons have custom spacing.
-        // TO DO : Once we cut ios10 support we can use UIstackview.setCustomSpacing
-        let iconStack = UIStackView(arrangedSubviews: [spaceView, privacyIndicator, lockImageView])
-        iconStack.spacing = TabLocationViewUX.Spacing / 2
 
-        let subviews = [iconStack, urlTextField, readerModeButton, separatorLine, pageOptionsButton]
+        let subviews = [spaceView, privacyIndicator, lockImageView, urlTextField, readerModeButton, separatorLine, pageOptionsButton]
         contentView = UIStackView(arrangedSubviews: subviews)
         contentView.distribution = .fill
         contentView.alignment = .center
@@ -197,10 +193,12 @@ class TabLocationView: UIView {
         }
 
         lockImageView.snp.makeConstraints { make in
+            make.width.equalTo(TabLocationViewUX.StatusIconSize)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
+
         privacyIndicator.snp.makeConstraints { make in
-            make.width.equalTo(TabLocationViewUX.TPIconSize + 6)
+            make.width.equalTo(TabLocationViewUX.TPIconSize)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
 
