@@ -114,3 +114,119 @@ class PrivacyIndicatorView: UIView {
         }
     }
 }
+
+
+// TODO: Update the above class with this code
+class LivePrivacyIndicator: UIView {
+    // MARK: - Properties
+    public var categories: [UIColor: Int] = [:] { didSet { updateChart() }}
+
+    private var sliceLayers: [CGColor: CAShapeLayer] = [:]
+    private var fromPercentages: [UIColor: CGFloat] = [:]
+    private var toPercentages: [UIColor: CGFloat] = [:]
+
+    private lazy var canvasView = UIView()
+    private var backgroundTrackLayer: CAShapeLayer?
+
+    // MARK: - Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSubViews()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupSubViews()
+    }
+
+    // MARK: - Updating
+    private func updateChart() {
+
+        var numberOfitems: Int = 0
+        categories.values.forEach { numberOfitems += $0 }
+
+        var fromPercent: CGFloat = 0
+        var toPercent: CGFloat = 0
+
+        // Sorting the colors by their string representation does not make a lot of sense, except that
+        // it keeps the sorting stable so parts of the graph don't suddenly jump around
+        for (color, value) in categories.sorted(by: { String(describing: $0) < String(describing: $1) }) {
+            toPercent = fromPercent + CGFloat(value) / CGFloat(numberOfitems)
+            let slice = layer(for: color.cgColor)
+            slice.strokeStart = fromPercent
+            slice.strokeEnd = toPercent
+            canvasView.layer.addSublayer(slice)
+            fromPercentages[color] = fromPercent
+            toPercentages[color] = toPercent
+            fromPercent = toPercent
+        }
+    }
+
+    // MARK: - Setup
+    private func setupSubViews() {
+        canvasView.backgroundColor = UIColor.white
+        canvasView.translatesAutoresizingMaskIntoConstraints = false
+
+        addSubview(canvasView)
+        canvasView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        canvasView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        canvasView.heightAnchor.constraint(equalTo: canvasView.widthAnchor).isActive = true
+
+        [
+            canvasView.widthAnchor.constraint(equalTo: widthAnchor),
+            canvasView.heightAnchor.constraint(equalTo: heightAnchor),
+        ].forEach {
+            $0.priority = .defaultHigh
+            $0.isActive = true
+        }
+    }
+
+    func layer(for color: CGColor, cache: Bool = true) -> CAShapeLayer {
+        guard sliceLayers[color] == nil || !cache else {
+            return sliceLayers[color]!
+        }
+
+        let canvasWidth = canvasView.frame.width
+        let canvasCenter = CGPoint(x: canvasView.bounds.width / 2, y: canvasView.bounds.height / 2)
+        let path = UIBezierPath(arcCenter: canvasCenter,
+                                radius: canvasWidth * 3 / 8,
+                                startAngle: percentToRadian(0),
+                                endAngle: percentToRadian(0.9999),
+                                clockwise: true)
+        let backgroundLayer = CAShapeLayer()
+        backgroundLayer.path = path.cgPath
+        backgroundLayer.fillColor = nil
+        backgroundLayer.strokeColor = color
+        backgroundLayer.lineWidth = canvasWidth * 1 / 8
+        backgroundLayer.strokeStart = 0
+        backgroundLayer.strokeEnd = 1
+
+        sliceLayers[color] = backgroundLayer
+
+        return backgroundLayer
+    }
+
+    // MARK: - Internal Helper Functions
+    /// Convert slice percent to radian.
+    ///
+    /// - Parameter percent: Slice percent (0.0 - 1.0).
+    /// - Returns: Radian
+    private func percentToRadian(_ percent: CGFloat) -> CGFloat {
+        //Because angle starts wtih X positive axis, add 270 degrees to rotate it to Y positive axis.
+        var angle = 270 + percent * 360
+        if angle >= 360 {
+            angle -= 360
+        }
+        return angle * CGFloat.pi / 180.0
+    }
+
+    // MARK: - Layout
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        backgroundTrackLayer?.removeFromSuperlayer()
+        backgroundTrackLayer = layer(for: UIColor.lightGray.cgColor, cache: false)
+        backgroundTrackLayer?.lineWidth = (backgroundTrackLayer?.lineWidth ?? 0) + 2
+        canvasView.layer.addSublayer(backgroundTrackLayer!)
+    }
+}
