@@ -22,19 +22,20 @@ const getStyles = (theme) => StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: theme.backgroundColor,
   },
   footer: {
-    height: 30,
-    backgroundColor: '#a2a6ae',
+    height: 50,
+    borderTopColor: '#D9D9D9',
+    borderTopWidth: 1,
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },
   footerText: {
-    color: 'white',
-    fontSize: 11.5,
+    color: theme.textColor,
+    fontSize: 9,
   },
   noResults: {
     backgroundColor: 'white',
@@ -53,7 +54,7 @@ const getStyles = (theme) => StyleSheet.create({
     marginTop: 30,
   },
   searchEnginesHeaderText: {
-    color: 'black',
+    color: 'white',
     fontSize: 12,
   },
   searchEnginesContainer: {
@@ -70,7 +71,7 @@ const getStyles = (theme) => StyleSheet.create({
     overflow: 'hidden',
   },
   searchEngineText: {
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
     fontSize: 12,
   },
@@ -142,7 +143,7 @@ export default class Results extends React.Component {
               <SearchUIVertical
                 results={results}
                 meta={meta}
-                style={{ backgroundColor: 'white', paddingTop: 9 }}
+                style={{ backgroundColor: 'white', paddingTop: 25 }}
                 cardListStyle={{ paddingLeft: 0, paddingRight: 0 }}
                 header={<View />}
                 separator={<View style={{ height: 0.5, backgroundColor: '#D9D9D9' }} />}
@@ -169,7 +170,7 @@ export default class Results extends React.Component {
                     <View>
                       <NativeDrawable
                         style={styles.searchEngineIcon}
-                        color={'#a2a6ae'}
+                        color={'#ffffff'}
                         source={normalizeUrl('google.svg')}
                       />
                       <Text style={styles.searchEngineText}>Google</Text>
@@ -181,7 +182,7 @@ export default class Results extends React.Component {
                     <View>
                       <NativeDrawable
                         style={styles.searchEngineIcon}
-                        color={'#a2a6ae'}
+                        color={'#ffffff'}
                         source={normalizeUrl('ddg.svg')}
                       />
                       <Text style={styles.searchEngineText}>DuckDuckGo</Text>
@@ -193,7 +194,7 @@ export default class Results extends React.Component {
                     <View>
                       <NativeDrawable
                         style={styles.searchEngineIcon}
-                        color={'#a2a6ae'}
+                        color={'#ffffff'}
                         source={normalizeUrl('bing.svg')}
                       />
                       <Text style={styles.searchEngineText}>Bing</Text>

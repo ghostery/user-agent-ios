@@ -64,6 +64,7 @@ class SearchResultsViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchView.backgroundColor = .clear
         view.addSubview(searchView)
         applyTheme()
     }
@@ -81,6 +82,7 @@ class SearchResultsViewController: UIViewController {
     fileprivate static func getTheme() -> [String: Any] {
         return [
             "backgroundColor": UIColor.theme.browser.background.hexString,
+            "textColor": UIColor.theme.browser.tint.hexString,
         ]
     }
 }

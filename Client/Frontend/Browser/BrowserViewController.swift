@@ -70,12 +70,7 @@ class BrowserViewController: UIViewController {
     }()
     private let overlayBackground: UIVisualEffectView = {
         let effectView = UIVisualEffectView()
-        if #available(iOS 13.0, *) {
-            effectView.effect = UIBlurEffect(style: .systemMaterialDark)
-        } else {
-            // Fallback on earlier versions
-            effectView.effect = UIBlurEffect(style: .dark)
-        }
+        effectView.effect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
         return effectView
     }()
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
