@@ -9,7 +9,7 @@ private struct URLBarViewUX {
     static let TextFieldBorderColor = UIColor.Grey40
     static let TextFieldActiveBorderColor = UIColor.Blue40
 
-    static let LocationLeftPadding: CGFloat = 18
+    static let LocationLeftPadding: CGFloat = 10
     static let Padding: CGFloat = 10
     static let ButtonHeight: CGFloat = 36
 
@@ -315,8 +315,8 @@ class URLBarView: UIView {
                 make.trailing.equalTo(self.tabsButton.snp.leading).offset(-URLBarViewUX.Padding)
             } else {
                 // Otherwise, left align the location view
-                make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding-1, bottom: 0,
-                                                                       right: URLBarViewUX.LocationLeftPadding-1))
+                make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0,
+                                                                       right: URLBarViewUX.LocationLeftPadding))
             }
 
             make.centerY.equalTo(self)

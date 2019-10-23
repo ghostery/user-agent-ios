@@ -26,7 +26,7 @@ enum BuiltinThemeName: String {
 
 private var defaultBackground: UIColor {
     if #available(iOS 13.0, *) {
-        return UIColor.systemGray6
+        return UIColor.systemBackground
     } else {
         // Fallback on earlier versions
         return UIColor.LightSky
