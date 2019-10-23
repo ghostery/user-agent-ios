@@ -1664,10 +1664,6 @@ extension BrowserViewController: TabDelegate {
 
         tab.addContentScript(LocalRequestHelper(), name: LocalRequestHelper.name())
 
-        let historyStateHelper = HistoryStateHelper(tab: tab)
-        historyStateHelper.delegate = self
-        tab.addContentScript(historyStateHelper, name: HistoryStateHelper.name())
-
         let trampoline = TrampolineTabContentScript(tab: tab)
         trampoline.delegate = self
         tab.addContentScript(trampoline, name: TrampolineTabContentScript.name())
@@ -2217,22 +2213,6 @@ extension BrowserViewController {
     }
 }
 
-extension BrowserViewController: HistoryStateHelperDelegate {
-
-    // This gets called when a website invokes the `history.pushState()` or
-    // `history.replaceState()` web API such as on single-page web apps. It
-    // also occurs during our session restore process, so we be sure to avoid
-    // re-saving the tab manager changes when this happens.
-    func historyStateHelper(_ historyStateHelper: HistoryStateHelper, didPushOrReplaceStateInTab tab: Tab) {
-        navigateInTab(tab: tab, webViewStatus: .finishedNavigation)
-
-        if let url = tab.url, let internalUrl = InternalURL(url), internalUrl.isSessionRestore {
-            return
-        }
-
-        tabManager.storeChanges()
-    }
-}
 
 extension BrowserViewController: KeyboardHelperDelegate {
     func keyboardHelper(_ keyboardHelper: KeyboardHelper, keyboardWillShowWithState state: KeyboardState) {
