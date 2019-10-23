@@ -514,6 +514,10 @@ extension TabTrayController {
         if self.tabDisplayManager.isDragging {
             return
         }
+        guard !self.tabDisplayManager.isPrivate || !self.tabManager.privateTabs.isEmpty else {
+            self.openNewTab()
+            return
+        }
         guard let tab = self.tabManager.selectedTab else {
             self.openNewTab()
             return
