@@ -43,21 +43,24 @@ class PrivacyIndicatorView: UIView {
 
     // MARK: - API
     func update(with stats: TPPageStats) {
-        cachedStats[.adCount] = stats.adCount
-        cachedStats[.analyticCount] = stats.analyticCount
-        cachedStats[.contentCount] = stats.contentCount
-        cachedStats[.socialCount] = stats.socialCount
-        cachedStats[.essentialCount] = stats.essentialCount
-        cachedStats[.miscCount] = stats.miscCount
-        cachedStats[.hostingCount] = stats.hostingCount
-        cachedStats[.pornvertisingCount] = stats.pornvertisingCount
-        cachedStats[.audioVideoPlayerCount] = stats.audioVideoPlayerCount
-        cachedStats[.extensionsCount] = stats.extensionsCount
-        cachedStats[.customerInteractionCount] = stats.customerInteractionCount
-        cachedStats[.cdnCount] = stats.cdnCount
-        cachedStats[.unknownCount] = stats.unknownCount
 
-        updateChart()
+        DispatchQueue.main.async {
+            self.cachedStats[.adCount] = stats.adCount
+            self.cachedStats[.analyticCount] = stats.analyticCount
+            self.cachedStats[.contentCount] = stats.contentCount
+            self.cachedStats[.socialCount] = stats.socialCount
+            self.cachedStats[.essentialCount] = stats.essentialCount
+            self.cachedStats[.miscCount] = stats.miscCount
+            self.cachedStats[.hostingCount] = stats.hostingCount
+            self.cachedStats[.pornvertisingCount] = stats.pornvertisingCount
+            self.cachedStats[.audioVideoPlayerCount] = stats.audioVideoPlayerCount
+            self.cachedStats[.extensionsCount] = stats.extensionsCount
+            self.cachedStats[.customerInteractionCount] = stats.customerInteractionCount
+            self.cachedStats[.cdnCount] = stats.cdnCount
+            self.cachedStats[.unknownCount] = stats.unknownCount
+
+            self.updateChart()
+        }
     }
 
     // MARK: - Layout
@@ -65,8 +68,7 @@ class PrivacyIndicatorView: UIView {
         super.layoutSubviews()
 
         backgroundTrackLayer?.removeFromSuperlayer()
-        backgroundTrackLayer = layer(for: UIColor.lightGray.cgColor, cache: false)
-        backgroundTrackLayer?.lineWidth = (backgroundTrackLayer?.lineWidth ?? 0) + 2
+        backgroundTrackLayer = layer(for: UIColor.black.withAlphaComponent(0.3).cgColor, cache: false)
         canvasView.layer.addSublayer(backgroundTrackLayer!)
     }
 
@@ -143,8 +145,9 @@ private extension PrivacyIndicatorView {
         var fromPercent: CGFloat = 0
         var toPercent: CGFloat = 0
 
-        for statsType in TPPageStatsType.all() {
-            let value = cachedStats[statsType, default: 0]
+        for (statsType, value) in cachedStats.sorted(by: { String(describing: $0) < String(describing: $1) }) {
+            if value == 0 { continue }
+            // let value = cachedStats[statsType, default: 0]
             let color = self.color(for: statsType)
             toPercent = fromPercent + CGFloat(value) / CGFloat(numberOfitems)
             let slice = layer(for: color.cgColor)
@@ -156,8 +159,8 @@ private extension PrivacyIndicatorView {
     }
 
     private func setupSubViews() {
-        addSubview(button)
         addSubview(canvasView)
+        addSubview(button)
 
         canvasView.translatesAutoresizingMaskIntoConstraints = false
         canvasView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -193,7 +196,7 @@ private extension PrivacyIndicatorView {
         newPathLayer.path = path.cgPath
         newPathLayer.fillColor = nil
         newPathLayer.strokeColor = color
-        newPathLayer.lineWidth = canvasWidth * 1 / 20
+        newPathLayer.lineWidth = canvasWidth * 1 / 8
         newPathLayer.strokeStart = 0
         newPathLayer.strokeEnd = 1
 
