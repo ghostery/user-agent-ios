@@ -85,7 +85,7 @@ public struct PhotonActionSheetItem {
     }
 }
 
-class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView {
+class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView, Themeable {
     static let Padding: CGFloat = 12
 
     lazy var titleLabel: UILabel = {
@@ -131,6 +131,10 @@ class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView {
 
     func configure(with title: String) {
         self.titleLabel.text = title
+    }
+
+    func applyTheme() {
+        self.titleLabel.textColor = UIColor.theme.tableView.headerTextLight
     }
 
     override func prepareForReuse() {
@@ -207,7 +211,7 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
     }
 }
 
-class PhotonActionSheetSeparator: UITableViewHeaderFooterView {
+class PhotonActionSheetSeparator: UITableViewHeaderFooterView, Themeable {
 
     let separatorLineView = UIView()
 
@@ -227,4 +231,9 @@ class PhotonActionSheetSeparator: UITableViewHeaderFooterView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    func applyTheme() {
+        self.separatorLineView.backgroundColor = UIColor.theme.actionMenu.separatorColor
+    }
+
 }

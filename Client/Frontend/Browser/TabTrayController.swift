@@ -276,6 +276,18 @@ class TabTrayController: UIViewController {
     }
 }
 
+extension TabTrayController: Themeable {
+
+    func applyTheme() {
+        self.collectionView.reloadData()
+        self.collectionView.backgroundColor = UIColor.theme.tabTray.background
+        self.statusBarBG.backgroundColor = UIColor.theme.tabTray.toolbar
+        self.toolbar.applyTheme()
+        self.toolbar.applyUIMode(isPrivate: self.tabDisplayManager.isPrivate)
+    }
+
+}
+
 extension TabTrayController: TabManagerDelegate {
     func tabManager(_ tabManager: TabManager, didSelectedTabChange selected: Tab?, previous: Tab?, isRestoring: Bool) {}
     func tabManager(_ tabManager: TabManager, didAddTab tab: Tab, isRestoring: Bool) {}
@@ -306,6 +318,7 @@ extension TabTrayController: TabDisplayer {
         tabCell.delegate = self
         let selected = tab == tabManager.selectedTab
         tabCell.configureWith(tab: tab, is: selected)
+        tabCell.applyTheme()
         return tabCell
     }
 }
@@ -771,7 +784,7 @@ protocol TabCellDelegate: AnyObject {
     func tabCellDidClose(_ cell: TabCell)
 }
 
-class TabCell: UICollectionViewCell {
+class TabCell: UICollectionViewCell, Themeable {
     enum Style {
         case light
         case dark
@@ -881,6 +894,14 @@ class TabCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: -TabCell.BorderWidth, height: -TabCell.BorderWidth)
         let shadowPath = CGRect(width: layer.frame.width + (TabCell.BorderWidth * 2), height: layer.frame.height + (TabCell.BorderWidth * 2))
         layer.shadowPath = UIBezierPath(roundedRect: shadowPath, cornerRadius: TabTrayControllerUX.CornerRadius+TabCell.BorderWidth).cgPath
+    }
+
+    func applyTheme() {
+        self.backgroundHolder.backgroundColor = UIColor.theme.tabTray.cellBackground
+        self.screenshotView.backgroundColor = UIColor.theme.browser.background
+        self.titleText.textColor = UIColor.theme.tabTray.tabTitleText
+        self.closeButton.tintColor = UIColor.theme.tabTray.cellCloseButton
+        self.title.effect = UIBlurEffect(style: UIColor.theme.tabTray.tabTitleBlur)
     }
 
     required init?(coder aDecoder: NSCoder) {

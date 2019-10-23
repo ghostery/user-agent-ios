@@ -125,6 +125,13 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func applyTheme() {
+
+        if self.popoverPresentationController == nil {
+            let blurEffect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            self.tableView.backgroundView = blurEffectView
+        }
+
         if style == .popover {
             view.backgroundColor = UIColor.theme.browser.background.withAlphaComponent(0.7)
         } else {
@@ -270,7 +277,9 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // If we have multiple sections show a separator for each one except the first.
         if section > 0 {
-            return tableView.dequeueReusableHeaderFooterView(withIdentifier: "SeparatorSectionHeader")
+            let separator = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SeparatorSectionHeader") as? PhotonActionSheetSeparator
+            separator?.applyTheme()
+            return separator
         }
 
         if let site = site {
@@ -282,6 +291,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: PhotonActionSheetUX.TitleHeaderName) as! PhotonActionSheetTitleHeaderView
             header.tintColor = self.tintColor
             header.configure(with: title)
+            header.applyTheme()
             return header
         }
 
