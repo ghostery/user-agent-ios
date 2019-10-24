@@ -14,7 +14,7 @@
 "On" = "An";
 
 /* Will be displayed in Tabs view bottom bar. */
-"TabsView.Private.Title" = "Privater";
+"Tabbar.Private.Title" = "Privater";
 
 /* Button displayed at the bottom of the tabbar view. */
 "TabsView.Done.Title" = "Fertig";
