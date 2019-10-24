@@ -349,17 +349,8 @@ extension TabLocationView: TabEventHandler {
         assertIsMainThread("UI changes must be on the main thread")
         guard let blocker = tab.contentBlocker else { return }
         privacyIndicator.update(with: blocker.stats)
-
-        switch blocker.status {
-        case .Blocking:
-            // TODO privacyIndicator.showStatusEnabled()
-            privacyIndicator.isHidden = false
-        case .Disabled, .NoBlockedURLs:
-            privacyIndicator.isHidden = true
-        case .Whitelisted:
-            // TODO privacyIndicator.showStatusDisabled()
-            privacyIndicator.isHidden = false
-        }
+        privacyIndicator.status = blocker.status
+        privacyIndicator.isHidden = false
     }
 
     func tabDidGainFocus(_ tab: Tab) {

@@ -10,8 +10,16 @@ import Foundation
 
 /// Circle based Privacy Indicator
 class PrivacyIndicatorView: UIView {
+    // MARK: - Types
+    enum Status {
+        case enabled
+        case disabled
+    }
+
     // MARK: - Properties
     public var onButtonTap: (() -> Void)?
+
+    public var status: BlockerStatus = .Blocking { didSet { updateStatus() }}
 
     private var cachedStats: [WTMCategory: Int] = [:]
 
@@ -89,6 +97,10 @@ private extension PrivacyIndicatorView {
             canvasView.layer.addSublayer(slice)
             fromPercent = toPercent
         }
+    }
+
+    private func updateStatus() {
+        // TODO
     }
 
     private func setupSubViews() {
