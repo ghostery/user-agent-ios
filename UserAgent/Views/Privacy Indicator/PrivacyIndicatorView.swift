@@ -13,7 +13,7 @@ class PrivacyIndicatorView: UIView {
     // MARK: - Properties
     public var onButtonTap: (() -> Void)?
 
-    private var cachedStats: [TPPageStatsType: Int] = [:]
+    private var cachedStats: [WTMCategory: Int] = [:]
 
     private lazy var canvasView = UIView()
 
@@ -49,20 +49,7 @@ class PrivacyIndicatorView: UIView {
     /// - Parameter stats: The page stas to animate to.
     func update(with stats: TPPageStats) {
         DispatchQueue.main.async {
-            self.cachedStats[.adCount] = stats.adCount
-            self.cachedStats[.analyticCount] = stats.analyticCount
-            self.cachedStats[.contentCount] = stats.contentCount
-            self.cachedStats[.socialCount] = stats.socialCount
-            self.cachedStats[.essentialCount] = stats.essentialCount
-            self.cachedStats[.miscCount] = stats.miscCount
-            self.cachedStats[.hostingCount] = stats.hostingCount
-            self.cachedStats[.pornvertisingCount] = stats.pornvertisingCount
-            self.cachedStats[.audioVideoPlayerCount] = stats.audioVideoPlayerCount
-            self.cachedStats[.extensionsCount] = stats.extensionsCount
-            self.cachedStats[.customerInteractionCount] = stats.customerInteractionCount
-            self.cachedStats[.cdnCount] = stats.cdnCount
-            self.cachedStats[.unknownCount] = stats.unknownCount
-
+            self.cachedStats = WTMCategory.statsDict(from: stats)
             self.updateChart()
         }
     }
@@ -75,68 +62,10 @@ class PrivacyIndicatorView: UIView {
         backgroundTrackLayer = layer(for: UIColor.black.withAlphaComponent(0.3).cgColor, cache: false)
         canvasView.layer.addSublayer(backgroundTrackLayer!)
     }
-
-    // MARK: - Entities
-    private enum TPPageStatsType {
-        case adCount
-        case analyticCount
-        case contentCount
-        case socialCount
-        case essentialCount
-        case miscCount
-        case hostingCount
-        case pornvertisingCount
-        case audioVideoPlayerCount
-        case extensionsCount
-        case customerInteractionCount
-        case commentsCount
-        case cdnCount
-        case unknownCount
-
-        static func all() -> [TPPageStatsType] {
-            [
-                adCount, analyticCount, contentCount, socialCount, essentialCount, miscCount, hostingCount, pornvertisingCount,
-                audioVideoPlayerCount, extensionsCount, customerInteractionCount, commentsCount, cdnCount, unknownCount,
-            ]
-        }
-    }
 }
 
 // MARK: - Private API
 private extension PrivacyIndicatorView {
-    private func color(for statsType: TPPageStatsType) -> UIColor {
-        switch statsType {
-        case .adCount:
-            return UIColor(named: "Advertising")!
-        case .analyticCount:
-            return UIColor(named: "SiteAnalytics")!
-        case .contentCount:
-            return UIColor(named: "Advertising")!
-        case .socialCount:
-            return UIColor(named: "SocialMedia")!
-        case .essentialCount:
-            return UIColor(named: "Essential")!
-        case .miscCount:
-            return UIColor(named: "Misc")!
-        case .hostingCount:
-            return UIColor(named: "Hosting")!
-        case .pornvertisingCount:
-            return UIColor(named: "Advertising")!
-        case .audioVideoPlayerCount:
-            return UIColor(named: "AudioVideoPlayer")!
-        case .extensionsCount:
-            return UIColor(named: "Advertising")!
-        case .customerInteractionCount:
-            return UIColor(named: "CustomerInteraction")!
-        case .commentsCount:
-            return UIColor(named: "Advertising")!
-        case .cdnCount:
-            return UIColor(named: "Cdn")!
-        default:
-            return UIColor(named: "Unknown")!
-        }
-    }
-
     @objc
     private func didPressButton(_ button: UIButton) {
         onButtonTap?()
@@ -152,7 +81,7 @@ private extension PrivacyIndicatorView {
         for (statsType, value) in cachedStats.sorted(by: { String(describing: $0) < String(describing: $1) }) {
             if value == 0 { continue }
             // let value = cachedStats[statsType, default: 0]
-            let color = self.color(for: statsType)
+            let color = statsType.color
             toPercent = fromPercent + CGFloat(value) / CGFloat(numberOfitems)
             let slice = layer(for: color.cgColor)
             slice.strokeStart = fromPercent
