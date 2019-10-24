@@ -12,8 +12,9 @@ import { Provider as ThemeProvider } from 'browser-core-user-agent-ios/build/mod
 import { baseTheme, mergeStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/themes';
 import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 
+import { withTheme } from '../../../contexts/theme';
 import t from '../../../services/i18n';
-console.warn(baseTheme)
+
 const getTheme = (theme) => mergeStyles(baseTheme, {
   card: {
     bgColor: theme.backgroundColor,
@@ -97,7 +98,7 @@ const getStyles = (theme) => StyleSheet.create({
   },
 });
 
-export default class Results extends React.Component {
+class Results extends React.Component {
   constructor(props) {
     super(props);
     this.scrollRef = React.createRef();
@@ -222,3 +223,5 @@ export default class Results extends React.Component {
     );
   }
 }
+
+export default withTheme(Results);

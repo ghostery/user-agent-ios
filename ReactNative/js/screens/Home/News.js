@@ -1,11 +1,18 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   NativeModules,
   View,
   FlatList,
+  StyleSheet
 } from 'react-native';
-import Header from '../../components/Header';
 import ListItem from '../../components/ListItem';
+
+const getStyles = (theme) => StyleSheet.create({
+  container: {
+    borderTopWidth: 1,
+    borderTopColor: 'black',
+  },
+});
 
 const openLink = url => NativeModules.BrowserActions.openLink(url, "", false);
 
@@ -24,16 +31,16 @@ const useNews = (newsModule) => {
   return data;
 };
 
-export default function ({ newsModule }) {
+export default function ({ newsModule, theme }) {
   const news = useNews(newsModule);
+
+  const styles = useMemo(() => getStyles(theme), theme);
 
   if (news.length === 0) {
     return null;
   }
-
   return (
-    <View>
-      <Header title={"News"} />
+    <View style={styles.container}>
       <FlatList
         scrollEnabled={false}
         data={news}

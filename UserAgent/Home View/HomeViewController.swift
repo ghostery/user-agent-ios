@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
 
     private lazy var allViews: [UIView] = { return [topSitesView, bookmarksView, historyView, downloadsView] }()
 
-    private lazy var topSitesView: UIView = {
+    private lazy var topSitesView: TopSitesView = {
         let topSitesView = TopSitesView(profile: self.profile)
         return topSitesView
     }()
@@ -159,6 +159,7 @@ private extension HomeViewController {
 extension HomeViewController: HomeViewControllerProtocol {
     func applyTheme() {
         view.backgroundColor = UIColor.theme.browser.background
+        self.topSitesView.applyTheme()
     }
 
     func scrollToTop() {

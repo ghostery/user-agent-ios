@@ -16,7 +16,7 @@ import React
 ///     - add `.view` as a subview to your view
 ///     - add constraints for `.view`
 ///     - ALSO add constraints for `.searchView` (!!!)
-class SearchResultsViewController: UIViewController {
+class SearchResultsViewController: UIViewController, ReactViewTheme {
     public var isLastCharacterRemoved = false
 
     // MARK: Properties
@@ -78,22 +78,6 @@ class SearchResultsViewController: UIViewController {
     func handleKeyCommands(sender: UIKeyCommand) {
 
     }
-
-    fileprivate static func getTheme() -> [String: Any] {
-        var mode = "dark"
-        if #available(iOS 13.0, *) {
-            mode = UITraitCollection.current.userInterfaceStyle == .dark ? "dark" : "light"
-        }
-        return [
-            "mode": mode,
-            "backgroundColor": UIColor.theme.textField.backgroundInOverlay.hexString,
-            "textColor": UIColor.theme.browser.tint.hexString,
-            "descriptionColor": mode == "dark" ? "rgba(0, 0, 0, 0.61)" : "rgba(255, 255, 255, 0.61)",
-            "visitedColor": mode == "dark" ? "#BDB6FF" : "#610072",
-            "separatorColor": mode == "dark" ? "rgba(255, 255, 255, 0.15)" : "#D9D9D9",
-            "linkColor": mode == "dark" ? "#6BA573" : "#579D61",
-        ]
-    }
 }
 
 // MARK: - Themeable
@@ -123,9 +107,9 @@ extension SearchResultsViewController: BrowserCoreClient {
 
     private func updateTheme() {
          browserCore.callAction(
-           module: "Screen:SearchResults",
+           module: "BrowserCore",
            action: "changeTheme",
-           args: [SearchResultsViewController.getTheme()]
+           args: [Self.getTheme()]
          )
     }
 }
