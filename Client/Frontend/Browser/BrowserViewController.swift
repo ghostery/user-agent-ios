@@ -53,7 +53,7 @@ class BrowserViewController: UIViewController {
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
-    private var notchAreaCover: UIView = {
+    var notchAreaCover: UIView = {
         let view = UIView()
         let effectView = UIVisualEffectView()
         if #available(iOS 13.0, *) {
