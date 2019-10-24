@@ -15,3 +15,7 @@
 "HomeView.SegmentedControl.Bookmarks.Title" = "Lesezeichen";
 "HomeView.SegmentedControl.History.Title" = "Verlauf";
 "HomeView.SegmentedControl.Downloads.Title" = "Downloads";
+
+/* Privacy Dashboard */
+"PrivacyDashboard.AllTrackersSeenOn" = "Alle Tracker auf";
+"PrivacyDashboard.ViewFulLReport" = "Kompletten Bericht anzeigen";

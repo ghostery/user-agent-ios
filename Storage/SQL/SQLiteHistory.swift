@@ -143,9 +143,9 @@ open class SQLiteHistory {
     public func getSites(forURLs urls: [String]) -> Deferred<Maybe<Cursor<Site?>>> {
         let inExpression = urls.joined(separator: "\",\"")
         let sql = """
-        SELECT history.id AS historyID, history.url AS url, title, guid, iconID, iconURL, iconDate, iconType, iconWidth
-        FROM view_favicons_widest, history
-        WHERE history.id = siteID AND history.url IN (\"\(inExpression)\")
+        SELECT history.id AS historyID, history.url AS url, title, guid
+        FROM history
+        WHERE history.url IN (\"\(inExpression)\")
         """
 
         let args: Args = []

@@ -205,6 +205,8 @@
 		46CA610A231909EF0010CE6B /* ReactNativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */; };
 		46CA610B231909EF0010CE6B /* ReactNativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */; };
 		46CA610E23190FFD0010CE6B /* ReactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D2231555220010CE6B /* ReactViewController.swift */; };
+		46E7DD552361C53D00C8372A /* ReactViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E7DD542361C53D00C8372A /* ReactViewTheme.swift */; };
+		46E7DD562361C53D00C8372A /* ReactViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E7DD542361C53D00C8372A /* ReactViewTheme.swift */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
 		59A68D66379CFA85C4EAF00B /* TwoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68B1F857A8638598A63A0 /* TwoLineCell.swift */; };
@@ -472,6 +474,10 @@
 		ACC6EC612329485E000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
 		ACD654792360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */; };
 		ACD6547A2360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */; };
+		ACD6547F23619B5C002D2EE0 /* PhotonCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */; };
+		ACD6548123619EEB002D2EE0 /* PrivacyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */; };
+		ACD654832361D2D2002D2EE0 /* WTMCategory+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */; };
+		ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */; };
 		B3854B00234B2C65003E9D4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854AFF234B2C65003E9D4A /* HistoryView.swift */; };
 		B3854B01234B2C65003E9D4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854AFF234B2C65003E9D4A /* HistoryView.swift */; };
 		B3854B03234B6866003E9D4A /* LibraryContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */; };
@@ -1151,6 +1157,7 @@
 		46CA610123180E1A0010CE6B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeBridge.swift; sourceTree = "<group>"; };
 		46E6117D232A51EB006FCADB /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		46E7DD542361C53D00C8372A /* ReactViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactViewTheme.swift; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		52280E16968DC760D8A37957 /* Pods-Lumen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.adhoc.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -1236,6 +1243,9 @@
 		ACC6EC5E232945FF000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
 		ACCEBD8823476EBB00B87136 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyIndicatorColors.xcassets; sourceTree = "<group>"; };
+		ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonCustomViewCell.swift; sourceTree = "<group>"; };
+		ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyDashboardView.swift; sourceTree = "<group>"; };
+		ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WTMCategory+Dict.swift"; sourceTree = "<group>"; };
 		B3854AFF234B2C65003E9D4A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryContextMenu.swift; sourceTree = "<group>"; };
 		B3854B08234B6FB5003E9D4A /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -2031,6 +2041,7 @@
 				46CA610D23190ABD0010CE6B /* NativeUIComponents */,
 				46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */,
 				46CA60D2231555220010CE6B /* ReactViewController.swift */,
+				46E7DD542361C53D00C8372A /* ReactViewTheme.swift */,
 				46CA60FE2317F8EF0010CE6B /* ViewControllers */,
 				464E6836234B75C800ABAC43 /* Views */,
 			);
@@ -2172,6 +2183,8 @@
 			children = (
 				46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */,
 				ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */,
+				ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */,
+				ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */,
 			);
 			path = "Privacy Indicator";
 			sourceTree = "<group>";
@@ -2718,6 +2731,7 @@
 				EBA3B2CC2268F27500728BDB /* PhotonActionSheetWidgets.swift */,
 				D88FDA9E1F4E2B9200FD9709 /* PhotonActionSheetProtocol.swift */,
 				D88FDAAE1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift */,
+				ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */,
 			);
 			path = PhotonActionSheet;
 			sourceTree = "<group>";
@@ -4347,6 +4361,7 @@
 				ACB7378B23042BAB00FA5626 /* ErrorToast.swift in Sources */,
 				ACB7378D23042BAB00FA5626 /* AppDelegate.swift in Sources */,
 				ACB7378E23042BAB00FA5626 /* UIImageViewAligned.m in Sources */,
+				ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */,
 				ACB7378F23042BAB00FA5626 /* BrowserPrompts.swift in Sources */,
 				46828D8A233E213A00E7D8A3 /* PrivacyIndicatorView.swift in Sources */,
 				ACB7379223042BAB00FA5626 /* ButtonToast.swift in Sources */,
@@ -4399,6 +4414,7 @@
 				ACB737C223042BAB00FA5626 /* ScreenshotHelper.swift in Sources */,
 				46A4C4D7234775A800F4BCE0 /* AutoCompletion.m in Sources */,
 				ACB737C423042BAB00FA5626 /* DocumentServicesHelper.swift in Sources */,
+				46E7DD562361C53D00C8372A /* ReactViewTheme.swift in Sources */,
 				ACB737C523042BAB00FA5626 /* TabManager.swift in Sources */,
 				ACB737C623042BAB00FA5626 /* TopTabsLayout.swift in Sources */,
 				ACB737C723042BAB00FA5626 /* UIConstants.swift in Sources */,
@@ -4480,6 +4496,7 @@
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
 				AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */,
 				46CA60F22317E4780010CE6B /* JSBridge.swift in Sources */,
+				ACD654832361D2D2002D2EE0 /* WTMCategory+Dict.swift in Sources */,
 				D029A04920A62DB0001DB72F /* TemporaryDocument.swift in Sources */,
 				E692E3371C46E86A009D1240 /* AppSettingsOptions.swift in Sources */,
 				3B61CD491F2A74EF00D38DE1 /* PocketFeed.swift in Sources */,
@@ -4505,6 +4522,7 @@
 				D0B9483D22A18B78002F4AA1 /* TextFieldTableViewCell.swift in Sources */,
 				C45F44691D087DB600CB7EF0 /* TopTabsViewController.swift in Sources */,
 				0BF0DB941A8545800039F300 /* URLBarView.swift in Sources */,
+				ACD6547F23619B5C002D2EE0 /* PhotonCustomViewCell.swift in Sources */,
 				D01017F5219CB6BD009CBB5A /* DownloadContentScript.swift in Sources */,
 				C817B34D1FC609500086018E /* UIScrollViewSwizzled.swift in Sources */,
 				39F819C61FD70F5D009E31E4 /* TabEventHandlers.swift in Sources */,
@@ -4539,6 +4557,7 @@
 				46CA60F62317E5D10010CE6B /* JSBridge.m in Sources */,
 				D0C95E36200FDC5500E4E51C /* MetadataParserHelper.swift in Sources */,
 				0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */,
+				ACD6548123619EEB002D2EE0 /* PrivacyDashboardView.swift in Sources */,
 				D87F84AC20B891160091F2DA /* TabDisplayManager.swift in Sources */,
 				D0C95EF6201A55A800E4E51C /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
 				46A4C4D32347757800F4BCE0 /* AutoCompletion.swift in Sources */,
@@ -4632,6 +4651,7 @@
 				4620EA492350ABF9004586CF /* Search.swift in Sources */,
 				EBB89504219398E500EB91A0 /* TrackingProtectionPageStats.swift in Sources */,
 				46A4C4D6234775A800F4BCE0 /* AutoCompletion.m in Sources */,
+				46E7DD552361C53D00C8372A /* ReactViewTheme.swift in Sources */,
 				D31F95E91AC226CB005C9F3B /* ScreenshotHelper.swift in Sources */,
 				39CE74F021A6D2B8007AE4F2 /* DocumentServicesHelper.swift in Sources */,
 				D3968F251A38FE8500CEFD3B /* TabManager.swift in Sources */,

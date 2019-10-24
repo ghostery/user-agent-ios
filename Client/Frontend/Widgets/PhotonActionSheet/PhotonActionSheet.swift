@@ -158,13 +158,15 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
         tableView.register(PhotonActionSheetCell.self, forCellReuseIdentifier: PhotonActionSheetUX.CellName)
+        tableView.register(PhotonCustomViewCell.self, forCellReuseIdentifier: String(describing: PhotonCustomViewCell.self))
         tableView.register(PhotonActionSheetSiteHeaderView.self, forHeaderFooterViewReuseIdentifier: PhotonActionSheetUX.SiteHeaderName)
         tableView.register(PhotonActionSheetTitleHeaderView.self, forHeaderFooterViewReuseIdentifier: PhotonActionSheetUX.TitleHeaderName)
         tableView.register(PhotonActionSheetSeparator.self, forHeaderFooterViewReuseIdentifier: "SeparatorSectionHeader")
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "EmptyHeader")
         tableView.estimatedRowHeight = PhotonActionSheetUX.RowHeight
         tableView.estimatedSectionFooterHeight = PhotonActionSheetUX.HeaderFooterHeight
-        // When the menu style is centered the header is much bigger than default. Set a larger estimated height to make sure autolayout sizes the view correctly
+        // When the menu style is centered the header is much bigger than default. Set a larger estimated height to make sure autolayout
+        // sizes the view correctly
         tableView.estimatedSectionHeaderHeight = (style == .centered) ? PhotonActionSheetUX.RowHeight : PhotonActionSheetUX.HeaderFooterHeight
         tableView.isScrollEnabled = true
         tableView.showsVerticalScrollIndicator = false
@@ -267,10 +269,28 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PhotonActionSheetUX.CellName, for: indexPath) as! PhotonActionSheetCell
         let action = actions[indexPath.section][indexPath.row]
+
+        if action.customView != nil {
+            return photonCustomViewCell(for: action, tableView, indexPath)
+        } else {
+            return photonActionSheetCell(for: action, tableView, indexPath)
+        }
+    }
+
+    private func photonActionSheetCell(for action: PhotonActionSheetItem,
+                                       _ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PhotonActionSheetUX.CellName, for: indexPath) as! PhotonActionSheetCell
         cell.tintColor = self.tintColor
         cell.configure(with: action)
+        return cell
+    }
+
+    private func photonCustomViewCell(for action: PhotonActionSheetItem,
+                                      _ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PhotonCustomViewCell.self), for: indexPath) as! PhotonCustomViewCell
+        cell.tintColor = self.tintColor
+        cell.customView = action.customView
         return cell
     }
 
@@ -301,6 +321,15 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
             make.height.equalTo(1)
         }
         return view
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let action = actions[indexPath.section][indexPath.row]
+        if action.customView != nil {
+            return UITableView.automaticDimension
+        } else {
+            return tableView.estimatedRowHeight
+        }
     }
 
     // A footer height of at least 1 is required to make sure the default footer size isnt used when laying out with AutoLayout

@@ -279,27 +279,27 @@ extension PhotonActionSheetProtocol {
             return []
         }
 
-        let stats = blocker.stats
-        let totalCount = PhotonActionSheetItem(title: Strings.TrackingProtectionTotalBlocked, accessory: .Text, accessoryText: "\(stats.total)", bold: true)
-        let adCount = PhotonActionSheetItem(title: Strings.TrackingProtectionAdsBlocked, accessory: .Text, accessoryText: "\(stats.adCount)")
-        let analyticsCount = PhotonActionSheetItem(title: Strings.TrackingProtectionAnalyticsBlocked, accessory: .Text, accessoryText: "\(stats.analyticCount)")
-        let socialCount = PhotonActionSheetItem(title: Strings.TrackingProtectionSocialBlocked, accessory: .Text, accessoryText: "\(stats.socialCount)")
-        let contentCount = PhotonActionSheetItem(title: Strings.TrackingProtectionContentBlocked, accessory: .Text, accessoryText: "\(stats.contentCount)")
-        let essentialCount = PhotonActionSheetItem(title: "Essential", accessory: .Text, accessoryText: "\(stats.essentialCount)")
-        let miscCount = PhotonActionSheetItem(title: "Misc", accessory: .Text, accessoryText: "\(stats.miscCount)")
-        let hostingCount = PhotonActionSheetItem(title: "Hosting", accessory: .Text, accessoryText: "\(stats.hostingCount)")
-        let pornvertisingCount = PhotonActionSheetItem(title: "Pornvertising", accessory: .Text, accessoryText: "\(stats.pornvertisingCount)")
-        let audioVideoPlayerCount = PhotonActionSheetItem(title: "Audio Video Player", accessory: .Text, accessoryText: "\(stats.audioVideoPlayerCount)")
-        let extensionsCount = PhotonActionSheetItem(title: "Extensions", accessory: .Text, accessoryText: "\(stats.extensionsCount)")
-        let customerInteractionCount = PhotonActionSheetItem(title: "CustomerInteraction", accessory: .Text, accessoryText: "\(stats.customerInteractionCount)")
-        let commentsCount = PhotonActionSheetItem(title: "Comments", accessory: .Text, accessoryText: "\(stats.commentsCount)")
-        let cdnCount = PhotonActionSheetItem(title: "Cdn", accessory: .Text, accessoryText: "\(stats.cdnCount)")
-        let unknownCount = PhotonActionSheetItem(title: "Unknown", accessory: .Text, accessoryText: "\(stats.unknownCount)")
-
-        let statList = [totalCount, adCount, analyticsCount, socialCount, contentCount, essentialCount, miscCount, hostingCount, pornvertisingCount, audioVideoPlayerCount, extensionsCount, customerInteractionCount, commentsCount, cdnCount, unknownCount]
-
+        // Menu Actions
         let menuActions = self.menuActions(for: tab)
-        return [statList, menuActions]
+
+        // Tracker Info
+        let trackerInfoView = PrivacyDashboardView()
+        trackerInfoView.domainURL = blocker.tab?.currentURL()
+        trackerInfoView.pageStats = blocker.stats
+        let trackerInfo = PhotonActionSheetItem(title: "", customView: trackerInfoView)
+
+        // Whotracks.me link
+
+        guard let baseDomain = blocker.tab?.currentURL()?.baseDomain, let appDel = UIApplication.shared.delegate as? AppDelegate else {
+            return [menuActions, [trackerInfo], ]
+        }
+
+        let whoTracksMeLink = PhotonActionSheetItem(title: Strings.PrivacyDashboard.ViewFullReport) { action in
+            let url = URL(string: "https://whotracks.me/websites/\(baseDomain).html")!
+            appDel.browserViewController.homePanel(didSelectURL: url, visitType: VisitType.link)
+        }
+
+        return [menuActions, [trackerInfo], [whoTracksMeLink]]
     }
 
     @available(iOS 11.0, *)

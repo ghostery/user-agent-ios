@@ -8,7 +8,6 @@ export default class SearchResults extends React.Component {
     this.state = {
       results: {},
       query: '',
-      theme: this.props.theme,
     };
     this.searchRef = React.createRef();
     this.onAction = this.onAction.bind(this);
@@ -34,13 +33,6 @@ export default class SearchResults extends React.Component {
         },
       });
     }
-
-    if (module === 'Screen:SearchResults' && action === 'changeTheme') {
-      this.setState({
-        theme: args[0],
-      });
-      return true;
-    }
   }
 
   componentWillMount() {
@@ -59,7 +51,6 @@ export default class SearchResults extends React.Component {
         results={this.state.results}
         query={this.state.query}
         cliqz={this.cliqz}
-        theme={this.state.theme}
       />
     );
   }

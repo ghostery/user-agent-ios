@@ -527,6 +527,16 @@ extension Strings {
     public static let TrackingProtectionContentBlocked = NSLocalizedString("Menu.TrackingProtectionContentBlocked.Title", tableName: "Menu", comment: "The title that shows the number of content scripts blocked")
     public static let TrackingProtectionWhiteListOn = NSLocalizedString("Menu.TrackingProtectionOption.WhiteListOnDescription", comment: "label for the menu item to show when the website is whitelisted from blocking trackers.")
     public static let TrackingProtectionWhiteListRemove = NSLocalizedString("Menu.TrackingProtectionWhitelistRemove.Title", comment: "label for the menu item that lets you remove a website from the tracking protection whitelist")
+    public static let TrackingProtectionEssentialBlocked = NSLocalizedString("Menu.TrackingProtectionEssentialBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionMiscBlocked = NSLocalizedString("Menu.TrackingProtectionEssentialMisc.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionHostingBlocked = NSLocalizedString("Menu.TrackingProtectionHostingBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionPornvertisingBlocked = NSLocalizedString("Menu.TrackingProtectionPornvertisingBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionAudioVideoPlayerBlocked = NSLocalizedString("Menu.TrackingProtectionAVPLayerBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionExtensionsBlocked = NSLocalizedString("Menu.TrackingProtectionExtensionsBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionCustomerInteractionBlocked = NSLocalizedString("Menu.TrackingProtectionCustomerInteractionBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionCommentsBlocked = NSLocalizedString("Menu.TrackingProtectionCommentsBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionCDNBlocked = NSLocalizedString("Menu.TrackingProtectionCDNBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectioUnknownBlocked = NSLocalizedString("Menu.TrackingProtectionUnknownBlocked.Title", tableName: "Menu", comment: "")
 }
 
 // Location bar long press menu
@@ -625,4 +635,12 @@ extension Strings {
     public static let InterceptorUIAntiPhishingMessage = String(format: NSLocalizedString("Interceptor.AntiPhishing.UI.Message", tableName: "UserAgent", comment: "Antiphishing alert message"), AppInfo.displayName, "%@")
     public static let InterceptorUIAntiPhishingBack = NSLocalizedString("Interceptor.AntiPhishing.UI.BackButtonLabel", tableName: "UserAgent", comment: "Back to safe site buttun title in antiphishing alert title")
     public static let InterceptorUIAntiPhishingContinue = NSLocalizedString("Interceptor.AntiPhishing.UI.ContinueButtonLabel", tableName: "UserAgent", comment: "Continue despite warning buttun title in antiphishing alert title")
+}
+
+// Privacy Dashboard
+extension Strings {
+    public struct PrivacyDashboard {
+        public static let AllTrackersSeenOn = NSLocalizedString("PrivacyDashboard.AllTrackersSeenOn", tableName: "UserAgent", comment: "")
+        public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFulLReport", tableName: "UserAgent", comment: "")
+    }
 }

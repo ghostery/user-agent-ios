@@ -10,7 +10,7 @@ import Foundation
 import React
 import Storage
 
-class HomeView: UIView {
+class HomeView: UIView, ReactViewTheme {
     private var speedDials: [Site]?
     private var pinnedSites: [Site]?
     private lazy var reactView: UIView = {
@@ -25,6 +25,7 @@ class HomeView: UIView {
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "Home",
             initialProperties: [
+                "theme": Self.getTheme(),
                 "speedDials": self.speedDials!.map(toDial),
                 "pinnedSites": self.pinnedSites!.map(toDial),
             ]
@@ -52,5 +53,23 @@ class HomeView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.reactView.frame = self.bounds
+    }
+}
+
+// MARK: - Themeable
+extension HomeView: Themeable {
+    func applyTheme() {
+        updateTheme()
+    }
+}
+
+// MARK: - Private API
+extension HomeView: BrowserCoreClient {
+    private func updateTheme() {
+         browserCore.callAction(
+           module: "BrowserCore",
+           action: "changeTheme",
+           args: [Self.getTheme()]
+         )
     }
 }
