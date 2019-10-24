@@ -745,7 +745,7 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
     lazy var doneButton: UIButton = {
         let button = UIButton()
         button.setTitle(Strings.DoneTabsViewButtonTitle, for: [])
-        button.setTitleColor(UIColor.theme.tabTray.privateModeButtonOffTint, for: [])
+        button.setTitleColor(UIColor.theme.tabTray.toolbarButtonTint, for: [])
         button.accessibilityLabel = Strings.TabTrayDeleteMenuButtonAccessibilityLabel
         button.accessibilityIdentifier = "TabTrayController.removeTabsButton"
         return button
@@ -796,12 +796,11 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
     }
 
     func applyTheme() {
-        [addTabButton, doneButton].forEach {
-            $0.tintColor = UIColor.theme.tabTray.toolbarButtonTint
-        }
-        backgroundColor = UIColor.theme.tabTray.toolbar
-        maskButton.offTint = UIColor.theme.tabTray.privateModeButtonOffTint
-        maskButton.onTint = UIColor.theme.tabTray.privateModeButtonOnTint
+        self.addTabButton.tintColor = UIColor.theme.tabTray.toolbarButtonTint
+        self.doneButton.setTitleColor(UIColor.theme.tabTray.toolbarButtonTint, for: [])
+        self.backgroundColor = UIColor.theme.tabTray.toolbar
+        self.maskButton.offTint = UIColor.theme.tabTray.privateModeButtonOffTint
+        self.maskButton.onTint = UIColor.theme.tabTray.privateModeButtonOnTint
     }
 }
 
