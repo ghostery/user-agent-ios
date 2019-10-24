@@ -283,7 +283,7 @@ extension PhotonActionSheetProtocol {
         let menuActions = self.menuActions(for: tab)
 
         // Tracker Info
-        let trackerInfoView = TrackerInfoView()
+        let trackerInfoView = PrivacyDashboardView()
         trackerInfoView.domainURL = blocker.tab?.currentURL()
         trackerInfoView.pageStats = blocker.stats
         let trackerInfo = PhotonActionSheetItem(title: "", customView: trackerInfoView)

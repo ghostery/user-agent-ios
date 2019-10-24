@@ -473,9 +473,9 @@
 		ACD654792360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */; };
 		ACD6547A2360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */; };
 		ACD6547F23619B5C002D2EE0 /* PhotonCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */; };
-		ACD6548123619EEB002D2EE0 /* TrackerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6548023619EEB002D2EE0 /* TrackerInfoView.swift */; };
-		ACD654832361D2D2002D2EE0 /* TPPageStatsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* TPPageStatsType.swift */; };
-		ACD654842361D55C002D2EE0 /* TPPageStatsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* TPPageStatsType.swift */; };
+		ACD6548123619EEB002D2EE0 /* PrivacyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */; };
+		ACD654832361D2D2002D2EE0 /* WTMCategory+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */; };
+		ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */; };
 		B3854B00234B2C65003E9D4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854AFF234B2C65003E9D4A /* HistoryView.swift */; };
 		B3854B01234B2C65003E9D4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854AFF234B2C65003E9D4A /* HistoryView.swift */; };
 		B3854B03234B6866003E9D4A /* LibraryContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */; };
@@ -1241,8 +1241,8 @@
 		ACCEBD8823476EBB00B87136 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyIndicatorColors.xcassets; sourceTree = "<group>"; };
 		ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonCustomViewCell.swift; sourceTree = "<group>"; };
-		ACD6548023619EEB002D2EE0 /* TrackerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerInfoView.swift; sourceTree = "<group>"; };
-		ACD654822361D2D2002D2EE0 /* TPPageStatsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPageStatsType.swift; sourceTree = "<group>"; };
+		ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyDashboardView.swift; sourceTree = "<group>"; };
+		ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WTMCategory+Dict.swift"; sourceTree = "<group>"; };
 		B3854AFF234B2C65003E9D4A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryContextMenu.swift; sourceTree = "<group>"; };
 		B3854B08234B6FB5003E9D4A /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -2179,8 +2179,8 @@
 			children = (
 				46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */,
 				ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */,
-				ACD6548023619EEB002D2EE0 /* TrackerInfoView.swift */,
-				ACD654822361D2D2002D2EE0 /* TPPageStatsType.swift */,
+				ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */,
+				ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */,
 			);
 			path = "Privacy Indicator";
 			sourceTree = "<group>";
@@ -4357,7 +4357,7 @@
 				ACB7378B23042BAB00FA5626 /* ErrorToast.swift in Sources */,
 				ACB7378D23042BAB00FA5626 /* AppDelegate.swift in Sources */,
 				ACB7378E23042BAB00FA5626 /* UIImageViewAligned.m in Sources */,
-				ACD654842361D55C002D2EE0 /* TPPageStatsType.swift in Sources */,
+				ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */,
 				ACB7378F23042BAB00FA5626 /* BrowserPrompts.swift in Sources */,
 				46828D8A233E213A00E7D8A3 /* PrivacyIndicatorView.swift in Sources */,
 				ACB7379223042BAB00FA5626 /* ButtonToast.swift in Sources */,
@@ -4491,7 +4491,7 @@
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
 				AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */,
 				46CA60F22317E4780010CE6B /* JSBridge.swift in Sources */,
-				ACD654832361D2D2002D2EE0 /* TPPageStatsType.swift in Sources */,
+				ACD654832361D2D2002D2EE0 /* WTMCategory+Dict.swift in Sources */,
 				D029A04920A62DB0001DB72F /* TemporaryDocument.swift in Sources */,
 				E692E3371C46E86A009D1240 /* AppSettingsOptions.swift in Sources */,
 				3B61CD491F2A74EF00D38DE1 /* PocketFeed.swift in Sources */,
@@ -4552,7 +4552,7 @@
 				46CA60F62317E5D10010CE6B /* JSBridge.m in Sources */,
 				D0C95E36200FDC5500E4E51C /* MetadataParserHelper.swift in Sources */,
 				0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */,
-				ACD6548123619EEB002D2EE0 /* TrackerInfoView.swift in Sources */,
+				ACD6548123619EEB002D2EE0 /* PrivacyDashboardView.swift in Sources */,
 				D87F84AC20B891160091F2DA /* TabDisplayManager.swift in Sources */,
 				D0C95EF6201A55A800E4E51C /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
 				46A4C4D32347757800F4BCE0 /* AutoCompletion.swift in Sources */,

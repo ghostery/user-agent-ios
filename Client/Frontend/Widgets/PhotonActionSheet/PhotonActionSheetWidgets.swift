@@ -73,7 +73,7 @@ public struct PhotonActionSheetItem {
          iconAlignment: IconAlignment = .left, isEnabled: Bool = false, accessory: PhotonActionSheetCellAccessoryType = .None,
          accessoryText: String? = nil, badgeIconNamed: String? = nil, bold: Bool? = false, tabCount: String? = nil,
          customView: UIView? = nil, handler: ((PhotonActionSheetItem) -> Void)? = nil) {
-        
+
         self.title = title
         self.iconString = iconString
         self.iconURL = iconURL

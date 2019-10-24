@@ -60,3 +60,13 @@
 "Menu.TrackingProtectionAnalyticsBlocked.Title" = "Analytic trackers";
 "Menu.TrackingProtectionSocialBlocked.Title" = "Social trackers";
 "Menu.TrackingProtectionContentBlocked.Title" = "Content trackers";
+"Menu.TrackingProtectionEssentialBlocked.Title" = "Essentials";
+"Menu.TrackingProtectionEssentialMisc.Title" = "Misc";
+"Menu.TrackingProtectionHostingBlocked.Title" = "Hosting";
+"Menu.TrackingProtectionPornvertisingBlocked.Title" = "Pornvertising";
+"Menu.TrackingProtectionAVPLayerBlocked.Title" = "Audio/Video Player";
+"Menu.TrackingProtectionExtensionsBlocked.Title" = "Extensions";
+"Menu.TrackingProtectionCustomerInteractionBlocked.Title" = "Customer Interactions";
+"Menu.TrackingProtectionCommentsBlocked.Title" = "Comments";
+"Menu.TrackingProtectionCDNBlocked.Title" = "CDN";
+"Menu.TrackingProtectionUnknownBlocked.Title" = "Unknown";

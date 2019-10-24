@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrackerInfoView: UIView {
+class PrivacyDashboardView: UIView {
     // MARK: - Properties
     var pageStats: TPPageStats? { didSet { self.updateStats() }}
     var domainURL: URL?
@@ -85,7 +85,7 @@ class TrackerInfoView: UIView {
     }
 }
 
-private extension TrackerInfoView {
+private extension PrivacyDashboardView {
     private func setup() {
         backgroundColor = UIColor.clear
 

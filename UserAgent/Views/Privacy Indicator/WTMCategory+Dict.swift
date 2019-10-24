@@ -83,25 +83,25 @@ extension WTMCategory {
         case .social:
             return Strings.TrackingProtectionSocialBlocked
         case .essential:
-            return "esential" // TODO: Localize
+            return Strings.TrackingProtectionEssentialBlocked
         case .misc:
-            return "missc" // TODO: Localize
+            return Strings.TrackingProtectionMiscBlocked
         case .hosting:
-            return "hoting" // TODO: Localize
+            return Strings.TrackingProtectionHostingBlocked
         case .pornvertising:
-            return "pronvertising" // TODO: Localize
+            return Strings.TrackingProtectionPornvertisingBlocked
         case .audioVideoPlayer:
-            return "audoi vidoi" // TODO: Localize
+            return Strings.TrackingProtectionAudioVideoPlayerBlocked
         case .extensions:
-            return "extenciones" // TODO: Localize
+            return Strings.TrackingProtectionExtensionsBlocked
         case .customerInteraction:
-            return "cutsomer intaractions" // TODO: Localize
+            return Strings.TrackingProtectionCustomerInteractionBlocked
         case .comments:
-            return "commentz" // TODO: Localize
+            return Strings.TrackingProtectionCommentsBlocked
         case .cdn:
-            return "cnd" // TODO: Localize
+            return Strings.TrackingProtectionCDNBlocked
         default:
-            return "unkanonwn" // TODO: Localize
+            return Strings.TrackingProtectioUnknownBlocked
         }
     }
 }
