@@ -26,7 +26,7 @@ class ToggleButton: UIButton {
     fileprivate func updateMaskPathForSelectedState(_ selected: Bool) {
         let path = CGMutablePath()
         if selected {
-            var rect = CGRect(size: CGSize(width: self.frame.size.width + UX.ExpandDelta, height: UX.BackgroundSizeHeight))
+            var rect = CGRect(size: CGSize(width: self.frame.size.width + 2 * UX.ExpandDelta, height: UX.BackgroundSizeHeight))
             rect.center = maskShapeLayer.position
             path.addRoundedRect(in: rect, cornerWidth: 5, cornerHeight: 5)
         } else {
@@ -36,7 +36,7 @@ class ToggleButton: UIButton {
     }
 
     fileprivate func animateSelection(_ selected: Bool) {
-        var endFrame = CGRect(size: CGSize(width: self.frame.size.width + UX.ExpandDelta, height: UX.BackgroundSizeHeight))
+        var endFrame = CGRect(size: CGSize(width: self.frame.size.width + 2 * UX.ExpandDelta, height: UX.BackgroundSizeHeight))
         endFrame.center = maskShapeLayer.position
 
         if selected {

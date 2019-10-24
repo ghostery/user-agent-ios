@@ -760,7 +760,7 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
         doneButton.snp.makeConstraints { make in
             make.top.equalTo(self)
             make.trailing.equalTo(self).offset(-sideOffset)
-            make.size.equalTo(toolbarButtonSize)
+            make.height.equalTo(toolbarButtonSize.height)
         }
 
         addSubview(maskButton)
