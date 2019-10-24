@@ -154,7 +154,8 @@ private extension PrivacyDashboardView {
         let label = UILabel()
         label.textColor = UIColor.Grey90
         label.text = text
-        // TODO: Make multiline
+        label.numberOfLines = 0
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         return label
     }
