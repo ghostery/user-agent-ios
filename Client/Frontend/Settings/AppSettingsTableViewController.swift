@@ -34,10 +34,38 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     override func generateSettings() -> [SettingSection] {
         var settings = [SettingSection]()
+        let prefs = profile.prefs
+
+        let searchSettings: [Setting] = [
+            SearchLanguageSetting(currentRegion: self.currentRegion, availableRegions: self.availableRegions),
+            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
+                Search.setAdultFilter(filter: value ? .conservative : .liberal)
+            },
+            SearchSetting(settings: self),
+        ]
+
+        settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsSearchSectionTitle), children: searchSettings)]
 
         let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
+        var privacySettings = [Setting]()
 
-        let prefs = profile.prefs
+        privacySettings.append(ClearPrivateDataSetting(settings: self))
+
+        privacySettings += [
+            BoolSetting(
+                prefs: prefs,
+                prefKey: "settings.closePrivateTabs",
+                defaultValue: false,
+                titleText: Strings.ClosePrivateTabsLabel,
+                statusText: Strings.ClosePrivateTabsDescription),
+        ]
+
+        privacySettings += [
+            PrivacyPolicySetting(),
+        ]
+
+        settings += [SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)]
+
         var generalSettings: [Setting] = [
             OpenWithSetting(settings: self),
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
@@ -60,35 +88,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsGeneralSectionTitle), children: generalSettings)]
 
-        let searchSettings: [Setting] = [
-            SearchLanguageSetting(currentRegion: self.currentRegion, availableRegions: self.availableRegions),
-            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
-                Search.setAdultFilter(filter: value ? .conservative : .liberal)
-            },
-            SearchSetting(settings: self),
-        ]
-
-        settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsSearchSectionTitle), children: searchSettings)]
-
-        var privacySettings = [Setting]()
-
-        privacySettings.append(ClearPrivateDataSetting(settings: self))
-
-        privacySettings += [
-            BoolSetting(
-                prefs: prefs,
-                prefKey: "settings.closePrivateTabs",
-                defaultValue: false,
-                titleText: Strings.ClosePrivateTabsLabel,
-                statusText: Strings.ClosePrivateTabsDescription),
-        ]
-
-        privacySettings += [
-            PrivacyPolicySetting(),
-        ]
-
         settings += [
-            SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings),
             SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: [
                 ShowIntroductionSetting(settings: self),
                 SendFeedbackSetting(),
