@@ -53,15 +53,24 @@ class BrowserViewController: UIViewController {
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
-    let notchAreaCover = UIView()
-    private let overlayBackground: UIVisualEffectView = {
+    private var notchAreaCover: UIView = {
+        let view = UIView()
         let effectView = UIVisualEffectView()
         if #available(iOS 13.0, *) {
-            effectView.effect = UIBlurEffect(style: .systemMaterialDark)
+            effectView.effect = UIBlurEffect(style: .systemMaterial)
         } else {
             // Fallback on earlier versions
-            effectView.effect = UIBlurEffect(style: .dark)
+            effectView.effect = UIBlurEffect(style: .light)
         }
+        view.addSubview(effectView)
+        effectView.snp.makeConstraints { make in
+            make.top.bottom.trailing.leading.equalTo(view)
+        }
+        return view
+    }()
+    private let overlayBackground: UIVisualEffectView = {
+        let effectView = UIVisualEffectView()
+        effectView.effect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
         return effectView
     }()
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
@@ -791,7 +800,6 @@ class BrowserViewController: UIViewController {
         view.bringSubviewToFront(urlBarTopTabsContainer)
 
         homeViewController?.view?.isHidden = true
-        urlBar.inCliqzSearchMode = true
 
         searchController.didMove(toParent: self)
         self.showOverlayBackground()
@@ -804,7 +812,6 @@ class BrowserViewController: UIViewController {
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
             homeViewController?.view?.isHidden = false
-            urlBar.inCliqzSearchMode = false
         }
     }
 
@@ -2191,7 +2198,7 @@ extension BrowserViewController: Themeable {
         let webViews = tabManager.tabs.compactMap({ $0.webView as? TabWebView })
         webViews.forEach({ $0.applyTheme() })
 
-        self.notchAreaCover.backgroundColor = UIColor.theme.browser.background
+        self.notchAreaCover.backgroundColor = .clear
         self.overlayBackground.backgroundColor = UIColor.black.withAlphaComponent(0.7)
     }
 }

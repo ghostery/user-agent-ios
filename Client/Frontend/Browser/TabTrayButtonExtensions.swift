@@ -13,8 +13,7 @@ class PrivateModeButton: ToggleButton, PrivateModeUI {
         super.init(frame: frame)
         accessibilityLabel = Strings.PrivateBrowsingToggleAccessibilityLabel
         accessibilityHint = Strings.PrivateBrowsingToggleAccessibilityHint
-        let maskImage = UIImage(named: "smallPrivateMask")?.withRenderingMode(.alwaysTemplate)
-        setImage(maskImage, for: [])
+        self.setTitle(Strings.PrivateTabsViewButtonTitle, for: [])
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -26,9 +25,11 @@ class PrivateModeButton: ToggleButton, PrivateModeUI {
 
         tintColor = isPrivate ? onTint : offTint
         imageView?.tintColor = tintColor
+        self.setTitleColor(self.tintColor, for: [])
 
         accessibilityValue = isSelected ? Strings.PrivateBrowsingToggleAccessibilityValueOn : Strings.PrivateBrowsingToggleAccessibilityValueOff
     }
+
 }
 
 extension UIButton {

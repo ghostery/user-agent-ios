@@ -470,6 +470,8 @@
 		ACC6EC5F2329460B000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
 		ACC6EC602329460F000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5D232945F0000F5499 /* colors.xcassets */; };
 		ACC6EC612329485E000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
+		ACD654792360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */; };
+		ACD6547A2360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */; };
 		B3854B00234B2C65003E9D4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854AFF234B2C65003E9D4A /* HistoryView.swift */; };
 		B3854B01234B2C65003E9D4A /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854AFF234B2C65003E9D4A /* HistoryView.swift */; };
 		B3854B03234B6866003E9D4A /* LibraryContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */; };
@@ -1233,6 +1235,7 @@
 		ACC6EC5D232945F0000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
 		ACC6EC5E232945FF000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
 		ACCEBD8823476EBB00B87136 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyIndicatorColors.xcassets; sourceTree = "<group>"; };
 		B3854AFF234B2C65003E9D4A /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		B3854B02234B6866003E9D4A /* LibraryContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryContextMenu.swift; sourceTree = "<group>"; };
 		B3854B08234B6FB5003E9D4A /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -2005,7 +2008,7 @@
 			isa = PBXGroup;
 			children = (
 				46BE36A42344D32D00DADCB6 /* QuerySuggestions */,
-				46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */,
+				ACD654772360926B002D2EE0 /* Privacy Indicator */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2162,6 +2165,15 @@
 				46828D912341F23300E7D8A3 /* UserAgent.strings */,
 			);
 			path = Translations;
+			sourceTree = "<group>";
+		};
+		ACD654772360926B002D2EE0 /* Privacy Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */,
+				ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */,
+			);
+			path = "Privacy Indicator";
 			sourceTree = "<group>";
 		};
 		C50ED2AF2326A7ED00EE71B8 /* Meta */ = {
@@ -3408,6 +3420,7 @@
 				ACB7380B23042BAB00FA5626 /* topdomains.txt in Resources */,
 				4620EA562354C59F004586CF /* safari-ads-network.json in Resources */,
 				ACB7380D23042BAB00FA5626 /* Settings.xcassets in Resources */,
+				ACD6547A2360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */,
 				46CA610323180E1A0010CE6B /* Icons.xcassets in Resources */,
 				ACB7380E23042BAB00FA5626 /* FocusHelper.js in Resources */,
 				ACB7381323042BAB00FA5626 /* MainFrameAtDocumentStart.js in Resources */,
@@ -3472,6 +3485,7 @@
 				E4D6BEB91A0930EC00F538BD /* LaunchScreen.xib in Resources */,
 				D03F8F23200EAC1F003C2224 /* AllFramesAtDocumentStart.js in Resources */,
 				46CA610223180E1A0010CE6B /* Icons.xcassets in Resources */,
+				ACD654792360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */,
 				834A40198503DEA0CC1E7FBA /* Shared.strings in Resources */,
 				4620EA552354C59F004586CF /* safari-ads-network.json in Resources */,
 				DAF24B7382D07138FE660E37 /* HistoryPanel.strings in Resources */,

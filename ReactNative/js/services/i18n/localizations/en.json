@@ -3,10 +3,10 @@
     "message": "No results found"
   },
   "search_footer": {
-    "message": "THIS SEARCH QUERY IS ANONYMOUS"
+    "message": "ANONYMOUS SEARCH RESULTS PROVIDED BY CLIQZ"
   },
   "search_alternative_search_engines_info": {
-    "message": "Leave Cliqz Search?"
+    "message": "Additional Search Engines"
   },
   "onboarding_title": {
     "message": "New: Anonymous Search"
