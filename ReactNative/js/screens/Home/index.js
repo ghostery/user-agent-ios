@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   NativeModules,
-  View,
+  SafeAreaView,
   ScrollView,
   StyleSheet,
 } from 'react-native';
@@ -30,24 +30,26 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
   ].slice(0, 8)
 
   return (
-    <ScrollView
-      style={styles.container}
-      onScroll={hideKeyboard}
-    >
-      {dials.length > 0 && (
-        <FlatGrid
-          itemDimension={80}
-          items={dials}
-          scrollEnabled={false}
-          renderItem={({ item: speedDial }) =>
-            SpeedDial({
-              speedDial,
-              onPress: openSpeedDialLink,
-            })
-          }
-        />
-      )}
-      <News newsModule={newsModule} />
-    </ScrollView>
+    <SafeAreaView>
+      <ScrollView
+        style={styles.container}
+        onScroll={hideKeyboard}
+      >
+        {dials.length > 0 && (
+          <FlatGrid
+            itemDimension={80}
+            items={dials}
+            scrollEnabled={false}
+            renderItem={({ item: speedDial }) =>
+              SpeedDial({
+                speedDial,
+                onPress: openSpeedDialLink,
+              })
+            }
+          />
+        )}
+        <News newsModule={newsModule} />
+      </ScrollView>
+    </SafeAreaView>
   )
 }

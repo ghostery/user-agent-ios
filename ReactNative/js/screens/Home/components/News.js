@@ -3,7 +3,9 @@ import {
   NativeModules,
   View,
   FlatList,
-  StyleSheet
+  StyleSheet,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
 import ListItem from '../../../components/ListItem';
 import ThemeContext from '../../../contexts/theme';
@@ -12,6 +14,15 @@ const getStyles = (theme) => StyleSheet.create({
   container: {
     borderTopWidth: 1,
     borderTopColor: theme.separatorColor,
+    paddingTop: 20,
+  },
+  image: {
+    height: 200,
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  item: {
+    marginBottom: 20,
   },
 });
 
@@ -48,11 +59,21 @@ export default function News({ newsModule }) {
         data={news}
         keyExtractor={(item) => item.url}
         renderItem={({ item }) =>
-          <ListItem
-            url={item.url}
-            title={item.title}
-            onPress={() => openLink(item.url)}
-          />
+          <View style={styles.item}>
+            <TouchableOpacity
+              onPress={() => openLink(item.url)}
+            >
+              <Image
+                style={styles.image}
+                source={{uri: item.imageUrl}}
+              />
+            </TouchableOpacity>
+            <ListItem
+              url={item.url}
+              title={item.title}
+              onPress={() => openLink(item.url)}
+            />
+          </View>
         }
       />
     </View>
