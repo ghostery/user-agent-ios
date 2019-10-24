@@ -54,6 +54,8 @@
 		2B2EA06B235F087100FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B51FB2D234CB274006CF17D /* DownloadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51FB2C234CB274006CF17D /* DownloadsView.swift */; };
 		2B51FB2E234CB274006CF17D /* DownloadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51FB2C234CB274006CF17D /* DownloadsView.swift */; };
+		2B66BE042362256D00D78A88 /* PhotonCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */; };
+		2B66BE052362258000D78A88 /* PrivacyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
@@ -4334,6 +4336,7 @@
 				ACB7376C23042BAB00FA5626 /* InnerStrokedView.swift in Sources */,
 				ACB7377023042BAB00FA5626 /* OpenInHelper.swift in Sources */,
 				ACB7377123042BAB00FA5626 /* ReaderModeCache.swift in Sources */,
+				2B66BE042362256D00D78A88 /* PhotonCustomViewCell.swift in Sources */,
 				AC65328E23476CDF00FC7ADB /* TopSitesView.swift in Sources */,
 				ACB7377223042BAB00FA5626 /* TabTrayController+KeyCommands.swift in Sources */,
 				ACB7377323042BAB00FA5626 /* SettingsContentViewController.swift in Sources */,
@@ -4363,6 +4366,7 @@
 				ACB7378E23042BAB00FA5626 /* UIImageViewAligned.m in Sources */,
 				ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */,
 				ACB7378F23042BAB00FA5626 /* BrowserPrompts.swift in Sources */,
+				2B66BE052362258000D78A88 /* PrivacyDashboardView.swift in Sources */,
 				46828D8A233E213A00E7D8A3 /* PrivacyIndicatorView.swift in Sources */,
 				ACB7379223042BAB00FA5626 /* ButtonToast.swift in Sources */,
 				C56ED4A8233B95BF006A63B1 /* AntiPhishingDetector.swift in Sources */,
