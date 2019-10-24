@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Shared
 
 class PrivacyDashboardView: UIView {
     // MARK: - Properties
@@ -19,7 +20,7 @@ class PrivacyDashboardView: UIView {
 
     private let allTrackersSeenOnLabel: UILabel = {
         let label = UILabel()
-        label.text = "All trackers seeeeeen on" // TODO: Localize
+        label.text = Strings.PrivacyDashboard.AllTrackersSeenOn
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.adjustsFontForContentSizeCategory = true
         return label
@@ -66,7 +67,7 @@ class PrivacyDashboardView: UIView {
 
         DispatchQueue.main.async {
             self.privacyIndicator.update(with: pageStats)
-            self.domainLabel.text = self.domainURL?.host
+            self.domainLabel.text = self.domainURL?.baseDomain
             self.numberOfTrackersLabel.text = "\(pageStats.total)"
         }
 
@@ -153,6 +154,7 @@ private extension PrivacyDashboardView {
         let label = UILabel()
         label.textColor = UIColor.Grey90
         label.text = text
+        // TODO: Make multiline
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         return label
     }

@@ -289,8 +289,14 @@ extension PhotonActionSheetProtocol {
         let trackerInfo = PhotonActionSheetItem(title: "", customView: trackerInfoView)
 
         // Whotracks.me link
-        let whoTracksMeLink = PhotonActionSheetItem(title: "View full Report") { action in // TODO: Localize
-            // TODO: open whotracks.me
+
+        guard let baseDomain = blocker.tab?.currentURL()?.baseDomain, let appDel = UIApplication.shared.delegate as? AppDelegate else {
+            return [menuActions, [trackerInfo], ]
+        }
+
+        let whoTracksMeLink = PhotonActionSheetItem(title: Strings.PrivacyDashboard.ViewFullReport) { action in
+            let url = URL(string: "https://whotracks.me/websites/\(baseDomain).html")!
+            appDel.browserViewController.homePanel(didSelectURL: url, visitType: VisitType.link)
         }
 
         return [menuActions, [trackerInfo], [whoTracksMeLink]]
