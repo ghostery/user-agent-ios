@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useContext } from 'react';
 import {
   NativeModules,
   View,
   FlatList,
   StyleSheet
 } from 'react-native';
-import ListItem from '../../components/ListItem';
+import ListItem from '../../../components/ListItem';
+import ThemeContext from '../../../contexts/theme';
 
 const getStyles = (theme) => StyleSheet.create({
   container: {
     borderTopWidth: 1,
-    borderTopColor: 'black',
+    borderTopColor: theme.separatorColor,
   },
 });
 
@@ -31,7 +32,8 @@ const useNews = (newsModule) => {
   return data;
 };
 
-export default function ({ newsModule, theme }) {
+export default function News({ newsModule }) {
+  const theme = useContext(ThemeContext);
   const news = useNews(newsModule);
 
   const styles = useMemo(() => getStyles(theme), theme);
