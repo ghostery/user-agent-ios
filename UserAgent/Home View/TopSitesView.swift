@@ -15,6 +15,8 @@ class TopSitesView: UIView {
     // MARK: - Properties
     var profile: Profile
 
+    private var homeView: HomeView?
+
     // MARK: - Initialization
     init(profile: Profile) {
         self.profile = profile
@@ -64,5 +66,14 @@ private extension TopSitesView {
         homeView.snp.makeConstraints { make in
             make.bottom.top.leading.trailing.equalTo(self)
         }
+
+        self.homeView = homeView
+    }
+}
+
+// MARK: - Themeable
+extension TopSitesView: Themeable {
+    func applyTheme() {
+        self.homeView?.applyTheme()
     }
 }
