@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
+  View,
 } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import SpeedDial from '../../components/SpeedDial';
@@ -15,6 +16,17 @@ const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 const styles = StyleSheet.create({
   container: {
     marginTop: 8,
+  },
+  contentContainer: {
+    flexDirection:'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  wrapper: {
+    flex:1,
+    maxWidth: 500,
+    flexDirection:'column',
+    justifyContent:'space-between',
   },
   header: {
     fontSize: 28,
@@ -34,21 +46,24 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
       <ScrollView
         style={styles.container}
         onScroll={hideKeyboard}
+        contentContainerStyle={styles.contentContainer}
       >
-        {dials.length > 0 && (
-          <FlatGrid
-            itemDimension={80}
-            items={dials}
-            scrollEnabled={false}
-            renderItem={({ item: speedDial }) =>
-              SpeedDial({
-                speedDial,
-                onPress: openSpeedDialLink,
-              })
-            }
-          />
-        )}
-        <News newsModule={newsModule} />
+        <View style={styles.wrapper}>
+          {dials.length > 0 && (
+            <FlatGrid
+              itemDimension={80}
+              items={dials}
+              scrollEnabled={false}
+              renderItem={({ item: speedDial }) =>
+                SpeedDial({
+                  speedDial,
+                  onPress: openSpeedDialLink,
+                })
+              }
+            />
+          )}
+          <News newsModule={newsModule} />
+        </View>
       </ScrollView>
     </SafeAreaView>
   )
