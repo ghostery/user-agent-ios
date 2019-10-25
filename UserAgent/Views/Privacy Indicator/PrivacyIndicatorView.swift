@@ -9,25 +9,25 @@
 import Foundation
 
 /// Circle based Privacy Indicator
+///
+/// Configure with `onTapBlock:` and `status`, then update with the `update:` method.
 class PrivacyIndicatorView: UIView {
-    // MARK: - Types
-    enum Status {
-        case enabled
-        case disabled
-    }
-
     // MARK: - Properties
-    public var onButtonTap: (() -> Void)?
+    /// Call this block whenever the user taps the Privacy Indicator
+    public var onTapBlock: (() -> Void)?
 
+    /// Set the status to configure the Privacy Indicator
+    ///
+    /// - Disabled: The Privacy Indicator is seen as strike through
+    /// - NoBlockedURLs: The Privacy Indicator is green
+    /// - Whitelisted: The Privacy Indicator is gray
+    /// - Blocking: The Privacy Indicator is filling up with color representations of various trackers found on the page
     public var status: BlockerStatus = .Blocking { didSet { updateStatus() }}
 
     private var cachedStats: [WTMCategory: Int] = [:]
-
     private lazy var canvasView = UIView()
-
     private var cachedSliceLayers: [CGColor: CAShapeLayer] = [:]
     private var backgroundTrackLayer: CAShapeLayer?
-
     private lazy var button: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(didPressButton(_:)), for: .touchUpInside)
@@ -58,7 +58,7 @@ class PrivacyIndicatorView: UIView {
     func update(with stats: TPPageStats) {
         DispatchQueue.main.async {
             self.cachedStats = WTMCategory.statsDict(from: stats)
-            self.updateChart()
+            self.addTrackersToChart()
         }
     }
 }
@@ -67,10 +67,12 @@ class PrivacyIndicatorView: UIView {
 private extension PrivacyIndicatorView {
     @objc
     private func didPressButton(_ button: UIButton) {
-        onButtonTap?()
+        onTapBlock?()
     }
 
-    private func updateChart() {
+    private func addTrackersToChart() {
+        guard status == .Blocking else { return }
+
         var numberOfitems: Int = 0
         cachedStats.values.forEach { numberOfitems += $0 }
 
@@ -90,8 +92,45 @@ private extension PrivacyIndicatorView {
         }
     }
 
-    private func updateStatus() {
+    private func removeTrackersFromChart() {
         // TODO
+    }
+
+    private func addStrikeThroughToChart() {
+        // TODO
+    }
+
+    private func removeStrikeThroughFromChart() {
+        // TODO
+    }
+
+    private func addGreenIndicatorToChart() {
+        // TODO
+    }
+
+    private func removeGreenIndicatorFromChart() {
+        // TODO
+    }
+
+    private func updateStatus() {
+        removeTrackersFromChart()
+        removeStrikeThroughFromChart()
+        removeGreenIndicatorFromChart()
+
+        switch status {
+        case .Disabled:
+            // The Privacy Indicator is seen as strike through
+            addStrikeThroughToChart()
+        case .NoBlockedURLs:
+            // The Privacy Indicator is green
+            addGreenIndicatorToChart()
+        case .Whitelisted:
+            // The Privacy Indicator is gray
+            break
+        case .Blocking:
+            // The Privacy Indicator is filling up with color representations of various trackers found on the page
+            addTrackersToChart()
+        }
     }
 
     private func setupSubViews() {
@@ -117,7 +156,7 @@ private extension PrivacyIndicatorView {
     }
 
     private func setupBackgroundTrack() {
-        backgroundTrackLayer = layer(for: UIColor.black.withAlphaComponent(0.3).cgColor, cache: false)
+        backgroundTrackLayer = layer(for: UIColor(named: "PrivacyIndicatorBackground")!.cgColor, cache: false)
         canvasView.layer.addSublayer(backgroundTrackLayer!)
     }
 

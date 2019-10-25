@@ -124,7 +124,7 @@ class TabLocationView: UIView {
 
     lazy var privacyIndicator: PrivacyIndicatorView = {
         let indicator = PrivacyIndicatorView()
-        indicator.onButtonTap = { () -> Void in self.delegate?.tabLocationViewDidTapShield(self) }
+        indicator.onTapBlock = { () -> Void in self.delegate?.tabLocationViewDidTapShield(self) }
         return indicator
     }()
 
