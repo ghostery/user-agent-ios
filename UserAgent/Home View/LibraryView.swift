@@ -175,7 +175,11 @@ extension LibraryView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView {
             header.textLabel?.textColor = UIColor.theme.tableView.headerTextDark
-            header.contentView.backgroundColor = UIColor.theme.tableView.headerBackground
+            if #available(iOS 13.0, *) {
+                header.contentView.backgroundColor = UIColor.systemGray5
+            } else {
+                header.contentView.backgroundColor = UIColor.Grey20
+            }
         }
     }
 

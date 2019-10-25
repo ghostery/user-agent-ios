@@ -30,6 +30,11 @@ class HomeViewController: UIViewController {
         let segmentedControl = UISegmentedControl(items: self.segments.map({ self.title(for: $0) }))
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         segmentedControl.setContentCompressionResistancePriority(.required, for: .vertical)
+        if #available(iOS 13.0, *) {
+            segmentedControl.backgroundColor = UIColor.systemGray6
+        } else {
+            segmentedControl.backgroundColor = UIColor.Grey20
+        }
         return segmentedControl
     }()
 
@@ -100,29 +105,29 @@ private extension HomeViewController {
 
         segmentedControl.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(margins)
-            make.left.lessThanOrEqualToSuperview().offset(margins)
-            make.right.lessThanOrEqualToSuperview().offset(-margins)
+            make.left.lessThanOrEqualTo(self.view.safeAreaLayoutGuide.snp.leftMargin).offset(margins)
+            make.right.lessThanOrEqualTo(self.view.safeAreaLayoutGuide.snp.rightMargin).offset(-margins)
             make.centerX.equalToSuperview()
         }
 
         topSitesView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
+            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
 
         bookmarksView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
+            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
 
         historyView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
+            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
 
         downloadsView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
+            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
 
