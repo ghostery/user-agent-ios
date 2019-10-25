@@ -54,6 +54,8 @@
 		2B2EA06B235F087100FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B51FB2D234CB274006CF17D /* DownloadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51FB2C234CB274006CF17D /* DownloadsView.swift */; };
 		2B51FB2E234CB274006CF17D /* DownloadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B51FB2C234CB274006CF17D /* DownloadsView.swift */; };
+		2B66BE062362E26800D78A88 /* PrivacyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */; };
+		2B66BE072362E27600D78A88 /* PhotonCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
@@ -4370,6 +4372,7 @@
 				ACB7379523042BAB00FA5626 /* UIPasteboardExtensions.swift in Sources */,
 				ACB7379623042BAB00FA5626 /* NavigationRouter.swift in Sources */,
 				ACB7379723042BAB00FA5626 /* FormPostHelper.swift in Sources */,
+				2B66BE072362E27600D78A88 /* PhotonCustomViewCell.swift in Sources */,
 				ACB7379823042BAB00FA5626 /* GeometryExtensions.swift in Sources */,
 				ACB7379923042BAB00FA5626 /* TitleActivityItemProvider.swift in Sources */,
 				ACB7379A23042BAB00FA5626 /* SiteTableViewController.swift in Sources */,
@@ -4441,6 +4444,7 @@
 				ACB737E123042BAB00FA5626 /* ShareExtensionHelper.swift in Sources */,
 				46CA60E92317E0DC0010CE6B /* LocaleConstants.m in Sources */,
 				46BE36A72344D34800DADCB6 /* SuggestionsView.swift in Sources */,
+				2B66BE062362E26800D78A88 /* PrivacyDashboardView.swift in Sources */,
 				ACB737E223042BAB00FA5626 /* SessionRestoreHelper.swift in Sources */,
 				ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
