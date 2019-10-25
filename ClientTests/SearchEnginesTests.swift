@@ -7,8 +7,8 @@ import Foundation
 import XCTest
 import Shared
 
-private let DefaultSearchEngineName = "Google"
-private let ExpectedEngineNames = ["Amazon.com", "Bing", "DuckDuckGo", "Google", "Twitter", "Wikipedia"]
+private let DefaultSearchEngineName = "Cliqz"
+private let ExpectedEngineNames = ["Cliqz", "Amazon.com", "Bing", "DuckDuckGo", "Google", "Twitter", "Wikipedia"]
 
 class SearchEnginesTests: XCTestCase {
 
@@ -153,10 +153,10 @@ class SearchEnginesTests: XCTestCase {
     }
 
     func testUnorderedSearchEngines() {
-        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "zh-TW")).compactMap({$0.shortName}), ["Google", "Bing", "DuckDuckGo", "Wikipedia (zh)"])
-        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "en-CA")).compactMap({$0.shortName}), ["Google", "Bing", "Amazon.com", "DuckDuckGo", "Twitter", "Wikipedia"])
-        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "de-DE")).compactMap({$0.shortName}), ["Google", "Bing", "Amazon.de", "DuckDuckGo", "Qwant", "Twitter", "Wikipedia (de)"])
-        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "en-US")).compactMap({$0.shortName}), ["Google", "Bing", "Amazon.com", "DuckDuckGo", "Twitter", "Wikipedia"])
+        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "zh-TW")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "DuckDuckGo", "Wikipedia (zh)"])
+        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "en-CA")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "Amazon.com", "DuckDuckGo", "Twitter", "Wikipedia"])
+        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "de-DE")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "Amazon.de", "DuckDuckGo", "Qwant", "Twitter", "Wikipedia (de)"])
+        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "en-US")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "Amazon.com", "DuckDuckGo", "Twitter", "Wikipedia"])
     }
 
     func testGetOrderedEngines() {
