@@ -61,10 +61,6 @@ extension PhotonActionSheetProtocol {
 
         let trackingProtectionItems = self.trackingProtectionItems()
         items.append(contentsOf: trackingProtectionItems)
-        if #available(iOS 13.0, *) {} else {
-            let nighModeItem = self.nightModeItem()
-            items.append(nighModeItem)
-        }
         let openSettingsItem = self.openSettingsItem(vcDelegate: vcDelegate)
         items.append(openSettingsItem)
 
@@ -389,14 +385,6 @@ extension PhotonActionSheetProtocol {
             FirefoxTabContentBlocker.toggleAdBlockingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
         }
         return [trackingProtection, adBlocking]
-    }
-
-    private func nightModeItem() -> PhotonActionSheetItem {
-        let nightModeEnabled = NightModeHelper.isActivated(profile.prefs)
-        let nightMode = PhotonActionSheetItem(title: Strings.AppMenuNightMode, iconString: "menu-NightMode", isEnabled: nightModeEnabled, accessory: .Switch) { action in
-            NightModeHelper.toggle(self.profile.prefs, tabManager: self.tabManager)
-        }
-        return nightMode
     }
 
     private func openSettingsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {

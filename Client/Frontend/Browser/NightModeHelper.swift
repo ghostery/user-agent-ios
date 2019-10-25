@@ -44,20 +44,20 @@ class NightModeHelper: TabContentScript {
         }
     }
 
-    static func setNightMode(_ prefs: Prefs, tabManager: TabManager, enabled: Bool) {
+    private static func setNightMode(_ prefs: Prefs, tabManager: TabManager, enabled: Bool) {
         prefs.setBool(enabled, forKey: NightModePrefsKey.NightModeStatus)
     }
 
-    static func setEnabledDarkTheme(_ prefs: Prefs, darkTheme enabled: Bool) {
+    private static func setEnabledDarkTheme(_ prefs: Prefs, darkTheme enabled: Bool) {
         ThemeManager.instance.current = enabled ? DarkTheme() : NormalTheme()
         prefs.setBool(enabled, forKey: NightModePrefsKey.NightModeEnabledDarkTheme)
     }
 
-    static func hasEnabledDarkTheme(_ prefs: Prefs) -> Bool {
+    private static func hasEnabledDarkTheme(_ prefs: Prefs) -> Bool {
         return prefs.boolForKey(NightModePrefsKey.NightModeEnabledDarkTheme) ?? false
     }
 
-    static func isActivated(_ prefs: Prefs) -> Bool {
+    private static func isActivated(_ prefs: Prefs) -> Bool {
         return prefs.boolForKey(NightModePrefsKey.NightModeStatus) ?? false
     }
 }

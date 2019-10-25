@@ -488,9 +488,6 @@
 /* Toast displayed to user after copy url pressed. */
 "Menu.CopyURL.Confirm" = "URL in Zwischenablage kopiert";
 
-/* Label for the button, displayed in the menu, turns on night mode. */
-"Menu.NightModeTurnOn.Label" = "Nachtmodus aktivieren";
-
 /* Label for title in page action menu. */
 "Menu.PageActions.Title" = "Aktionen für Seite";
 
