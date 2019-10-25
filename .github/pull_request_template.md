@@ -1,6 +1,6 @@
 
 <!--- Add a reference to the Github issue this PR relates to, if any, eg: 'Fixes #100' -->
-Fixes #
+Fix #
 
 ## Implementation details
 <!--- Provide a general summary of your changes in the Title above. Attach screenshot if relevant.-->
