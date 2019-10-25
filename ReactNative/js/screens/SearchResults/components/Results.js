@@ -179,6 +179,18 @@ class Results extends React.Component {
                 </View>
                 <View style={styles.searchEnginesContainer}>
                   <TouchableWithoutFeedback
+                      onPress={() => this.openSearchEngineLink(`https://serp.cliqz.com/search?q=${encodeURIComponent(query)}`, 2)}
+                    >
+                    <View>
+                      <NativeDrawable
+                        style={styles.searchEngineIcon}
+                        color={'#ffffff'}
+                        source={normalizeUrl('cliqz.svg')}
+                      />
+                      <Text style={styles.searchEngineText}>Cliqz</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
+                  <TouchableWithoutFeedback
                     onPress={() => this.openSearchEngineLink(`https://google.com/search?q=${encodeURIComponent(query)}`, 0)}
                   >
                     <View>
@@ -200,18 +212,6 @@ class Results extends React.Component {
                         source={normalizeUrl('ddg.svg')}
                       />
                       <Text style={styles.searchEngineText}>DuckDuckGo</Text>
-                    </View>
-                  </TouchableWithoutFeedback>
-                  <TouchableWithoutFeedback
-                    onPress={() => this.openSearchEngineLink(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, 2)}
-                  >
-                    <View>
-                      <NativeDrawable
-                        style={styles.searchEngineIcon}
-                        color={'#ffffff'}
-                        source={normalizeUrl('bing.svg')}
-                      />
-                      <Text style={styles.searchEngineText}>Bing</Text>
                     </View>
                   </TouchableWithoutFeedback>
                 </View>

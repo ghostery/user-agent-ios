@@ -9,6 +9,7 @@ import {
 import { FlatGrid } from 'react-native-super-grid';
 import SpeedDial from '../../components/SpeedDial';
 import News from './components/News';
+import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 
 const openSpeedDialLink = speedDial => NativeModules.BrowserActions.openLink(speedDial.url, "", false);
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex:1,
-    maxWidth: 500,
+    maxWidth: 400,
     flexDirection:'column',
     justifyContent:'space-between',
   },
