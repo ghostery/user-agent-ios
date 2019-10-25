@@ -46,8 +46,8 @@ class PrivacyIndicatorView: UIView {
     }
 
     private func setupView() {
-        // TOOD: isHidden = true
         setupSubViews()
+        setupBackgroundTrack()
     }
 
     // MARK: - API
@@ -60,15 +60,6 @@ class PrivacyIndicatorView: UIView {
             self.cachedStats = WTMCategory.statsDict(from: stats)
             self.updateChart()
         }
-    }
-
-    // MARK: - Layout
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        backgroundTrackLayer?.removeFromSuperlayer()
-        backgroundTrackLayer = layer(for: UIColor.black.withAlphaComponent(0.3).cgColor, cache: false)
-        canvasView.layer.addSublayer(backgroundTrackLayer!)
     }
 }
 
@@ -123,6 +114,11 @@ private extension PrivacyIndicatorView {
         button.snp.makeConstraints { make in
             make.bottom.top.leading.trailing.equalTo(self)
         }
+    }
+
+    private func setupBackgroundTrack() {
+        backgroundTrackLayer = layer(for: UIColor.black.withAlphaComponent(0.3).cgColor, cache: false)
+        canvasView.layer.addSublayer(backgroundTrackLayer!)
     }
 
     private func layer(for color: CGColor, cache: Bool = true) -> CAShapeLayer {
