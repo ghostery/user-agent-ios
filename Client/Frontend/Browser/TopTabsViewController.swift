@@ -8,14 +8,14 @@ import Storage
 import WebKit
 
 struct TopTabsUX {
-    static let TopTabsViewHeight: CGFloat = 44
+    static let TopTabsViewHeight: CGFloat = 36
     static let TopTabsBackgroundShadowWidth: CGFloat = 12
     static let TabWidth: CGFloat = 190
     static let FaderPading: CGFloat = 8
     static let SeparatorWidth: CGFloat = 1
     static let HighlightLineWidth: CGFloat = 3
     static let TabNudge: CGFloat = 1 // Nudge the favicon and close button by 1px
-    static let TabTitlePadding: CGFloat = 10
+    static let TabTitlePadding: CGFloat = 15
     static let AnimationSpeed: TimeInterval = 0.1
     static let SeparatorYOffset: CGFloat = 7
     static let SeparatorHeight: CGFloat = 32

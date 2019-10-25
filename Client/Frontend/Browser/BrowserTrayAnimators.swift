@@ -38,7 +38,6 @@ private extension TrayToBrowserAnimator {
         bvc.homeViewController?.view.isHidden = true
 
         bvc.webViewContainerBackdrop.isHidden = true
-        bvc.statusBarOverlay.isHidden = false
         bvc.notchAreaCover.isHidden = false
         if let url = selectedTab.url, !url.isReaderModeURL {
             bvc.hideReaderModeBar(animated: false)
@@ -159,7 +158,6 @@ private extension BrowserToTrayAnimator {
 
         // Hide views we don't want to show during the animation in the BVC
         bvc.homeViewController?.view.isHidden = true
-        bvc.statusBarOverlay.isHidden = true
         bvc.notchAreaCover.isHidden = true
         bvc.toggleSnackBarVisibility(show: false)
         toggleWebViewVisibility(false, usingTabManager: bvc.tabManager)

@@ -63,17 +63,6 @@ private class DarkTabTrayColor: TabTrayColor {
     override var searchBackground: UIColor { return UIColor.Grey60 }
 }
 
-private class DarkTopTabsColor: TopTabsColor {
-    override var background: UIColor { return UIColor.Grey80 }
-    override var tabBackgroundSelected: UIColor { return UIColor.Grey80 }
-    override var tabBackgroundUnselected: UIColor { return UIColor.Grey80 }
-    override var tabForegroundSelected: UIColor { return UIColor.Grey10 }
-    override var tabForegroundUnselected: UIColor { return UIColor.Grey40 }
-    override var closeButtonSelectedTab: UIColor { return tabForegroundSelected }
-    override var closeButtonUnselectedTab: UIColor { return tabForegroundUnselected }
-    override var separator: UIColor { return UIColor.Grey50 }
-}
-
 private class DarkTextFieldColor: TextFieldColor {
     override var background: UIColor {
         if #available(iOS 13.0, *) {
@@ -157,7 +146,7 @@ class DarkTheme: NormalTheme {
     override var browser: BrowserColor { return DarkBrowserColor() }
     override var toolbarButton: ToolbarButtonColor { return DarkToolbarButtonColor() }
     override var tabTray: TabTrayColor { return DarkTabTrayColor() }
-    override var topTabs: TopTabsColor { return DarkTopTabsColor() }
+    override var topTabs: TopTabsColor { return TopTabsColor() }
     override var textField: TextFieldColor { return DarkTextFieldColor() }
     override var homePanel: HomePanelColor { return DarkHomePanelColor() }
     override var snackbar: SnackBarColor { return DarkSnackBarColor() }

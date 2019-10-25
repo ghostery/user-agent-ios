@@ -48,7 +48,6 @@ class BrowserViewController: UIViewController {
     var clipboardBarDisplayHandler: ClipboardBarDisplayHandler?
     var readerModeBar: ReaderModeBarView?
     var readerModeCache: ReaderModeCache
-    var statusBarOverlay: UIView = UIView()
     fileprivate(set) var toolbar: TabToolbar?
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
@@ -211,6 +210,8 @@ class BrowserViewController: UIViewController {
     }
 
     func shouldShowTopTabsForTraitCollection(_ newTraitCollection: UITraitCollection) -> Bool {
+        guard UIDevice.current.isPhone else { return true }
+
         return newTraitCollection.verticalSizeClass == .regular && newTraitCollection.horizontalSizeClass == .regular
     }
 
@@ -292,7 +293,6 @@ class BrowserViewController: UIViewController {
         coordinator.animate(alongsideTransition: { context in
             self.scrollController.showToolbars(animated: false)
             if self.isViewLoaded {
-                self.statusBarOverlay.backgroundColor = self.shouldShowTopTabsForTraitCollection(self.traitCollection) ? UIColor.Grey80 : self.urlBar.backgroundColor
                 self.setNeedsStatusBarAppearanceUpdate()
             }
             }, completion: nil)
@@ -371,10 +371,6 @@ class BrowserViewController: UIViewController {
         view.addSubview(webViewContainer)
 
         view.addSubview(self.notchAreaCover)
-
-        // Temporary work around for covering the non-clipped web view content
-        statusBarOverlay = UIView()
-        view.addSubview(statusBarOverlay)
 
         topTouchArea = UIButton()
         topTouchArea.isAccessibilityElement = false
@@ -471,14 +467,6 @@ class BrowserViewController: UIViewController {
             make.topMargin.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
             make.left.right.equalTo(self.view)
             make.bottom.equalTo(self.header.snp.bottom)
-        }
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        statusBarOverlay.snp.remakeConstraints { make in
-            make.top.left.right.equalTo(self.view)
-            make.height.equalTo(self.view.safeAreaInsets.top)
         }
     }
 
@@ -626,7 +614,6 @@ class BrowserViewController: UIViewController {
         [header, footer, readerModeBar].forEach { view in
                 view?.transform = .identity
         }
-        statusBarOverlay.isHidden = false
     }
 
     override func updateViewConstraints() {
@@ -2191,7 +2178,6 @@ extension BrowserViewController: Themeable {
         guard self.isViewLoaded else { return }
         let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, tabTrayController, homeViewController, searchController]
         ui.forEach { $0?.applyTheme() }
-        statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Grey80 : urlBar.backgroundColor
         setNeedsStatusBarAppearanceUpdate()
 
         (presentedViewController as? Themeable)?.applyTheme()
