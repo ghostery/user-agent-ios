@@ -817,9 +817,11 @@ class BrowserViewController: UIViewController {
 
     fileprivate func hideOverlayBackground() {
         self.overlayBackground.isHidden = true
+        self.topTabsViewController?.view.isHidden = false
     }
 
     fileprivate func showOverlayBackground() {
+        self.topTabsViewController?.view.isHidden = true
         self.overlayBackground.isHidden = false
     }
 
