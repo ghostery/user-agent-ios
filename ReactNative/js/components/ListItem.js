@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { parse } from 'tldts';
 import Logo from './Logo';
@@ -35,18 +35,19 @@ export default function ListItem({ url, title, onPress }) {
   const name = parse(url).domain;
 
   return (
-    <TouchableOpacity
-      style={styles.row}
+    <TouchableWithoutFeedback
       onPress={onPress}
     >
-      <Logo url={url} />
-      <View style={styles.rowText}>
-        <Text style={styles.rowTitle}>{name}</Text>
-        <Text
-          numberOfLines={2}
-          style={styles.rowDescription}
-        >{title}</Text>
+      <View style={styles.row}>
+        <Logo url={url} />
+        <View style={styles.rowText}>
+          <Text style={styles.rowTitle}>{name}</Text>
+          <Text
+            numberOfLines={2}
+            style={styles.rowDescription}
+          >{title}</Text>
+        </View>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 }
