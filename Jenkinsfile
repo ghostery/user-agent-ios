@@ -106,7 +106,7 @@ node('gideon') {
 
                             pkgutil --pkg-info=com.apple.pkg.CLTools_Executables
                             sudo xcodebuild -license accept
-                            sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+                            # sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
 
                             sudo gem install which bundler || gem install bundler
 
