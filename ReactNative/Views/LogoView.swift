@@ -53,7 +53,7 @@ class LogoView: UIView {
             moduleName: "Logo",
             initialProperties: [
                 "url": url,
-                "size": self.bounds.width,
+                "size": self.bounds.height,
             ]
         )!
 
