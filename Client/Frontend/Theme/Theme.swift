@@ -85,7 +85,7 @@ class ActionMenuColor {
         }
     }
     var foreground: UIColor { return defaultTextAndTint }
-    var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.light }
+    var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
     var iPhoneBackground: UIColor { return UIColor.theme.browser.background.withAlphaComponent(0.9) }
     var closeButtonBackground: UIColor { return defaultBackground }
     var closeButtonTitleColor: UIColor { return UIColor.BrightBlue }
@@ -159,26 +159,52 @@ class TabTrayColor {
 }
 
 class TopTabsColor {
-    var background: UIColor { return UIColor.Grey80 }
-    var tabBackgroundSelected: UIColor { return UIColor.Grey10 }
-    var tabBackgroundUnselected: UIColor { return UIColor.Grey80 }
-    var tabForegroundSelected: UIColor { return UIColor.Grey90 }
-    var tabForegroundUnselected: UIColor { return UIColor.Grey40 }
-    func tabSelectedIndicatorBar(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.Blue40 : UIColor.Grey70
+    var background: UIColor { return UIColor.clear }
+    var tabBackgroundSelected: UIColor {
+        return self.background
     }
-    var buttonTint: UIColor { return UIColor.Grey40 }
+    var tabBackgroundUnselected: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray4
+        } else {
+            return UIColor.CloudySky
+        }
+    }
+    var tabForegroundSelected: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            return UIColor.Grey90
+        }
+    }
+    var tabForegroundUnselected: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray
+        } else {
+            return UIColor.DarkRain
+        }
+    }
+
+    var buttonTint: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            return UIColor.Grey90
+        }
+    }
     var privateModeButtonOffTint: UIColor { return buttonTint }
     var privateModeButtonOnTint: UIColor { return UIColor.Grey10 }
-    var closeButtonSelectedTab: UIColor { return tabBackgroundUnselected }
-    var closeButtonUnselectedTab: UIColor { return tabBackgroundSelected }
-    var separator: UIColor { return UIColor.Grey70 }
+    var closeButtonSelectedTab: UIColor { return tabForegroundSelected }
+    var closeButtonUnselectedTab: UIColor { return tabForegroundUnselected }
+    var separator: UIColor {
+        return background
+    }
 }
 
 class TextFieldColor {
     var background: UIColor {
         if #available(iOS 13.0, *) {
-            return UIColor.systemGray4
+            return UIColor.systemGray5
         } else {
             return UIColor.CloudySky
         }

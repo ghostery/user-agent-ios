@@ -755,7 +755,7 @@ extension URLBarView: Themeable {
         if inOverlayMode {
             locationView.backgroundColor = UIColor.theme.textField.backgroundInOverlay
         } else {
-            locationView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.25)
+            locationView.backgroundColor = UIColor.theme.textField.background
         }
 
         locationContainer.backgroundColor = .clear
