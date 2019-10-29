@@ -210,8 +210,6 @@ class BrowserViewController: UIViewController {
     }
 
     func shouldShowTopTabsForTraitCollection(_ newTraitCollection: UITraitCollection) -> Bool {
-        guard UIDevice.current.isPhone else { return true }
-
         return newTraitCollection.verticalSizeClass == .regular && newTraitCollection.horizontalSizeClass == .regular
     }
 
