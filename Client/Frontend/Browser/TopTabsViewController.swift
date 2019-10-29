@@ -15,7 +15,8 @@ struct TopTabsUX {
     static let SeparatorWidth: CGFloat = 1
     static let HighlightLineWidth: CGFloat = 3
     static let TabNudge: CGFloat = 1 // Nudge the favicon and close button by 1px
-    static let TabTitlePadding: CGFloat = 15
+    static let TabTitlePadding: CGFloat = 5
+    static let TabCloseButtonImagePadding: CGFloat = 12
     static let AnimationSpeed: TimeInterval = 0.1
     static let SeparatorYOffset: CGFloat = 7
     static let SeparatorHeight: CGFloat = 32

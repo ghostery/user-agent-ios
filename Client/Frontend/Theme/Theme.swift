@@ -204,12 +204,6 @@ class TopTabsColor {
     var closeButtonUnselectedTab: UIColor { return tabForegroundUnselected }
     var separator: UIColor {
         return background
-//        if #available(iOS 13.0, *) {
-//            return UIColor.systemGray3
-//        } else {
-//            // Fallback on earlier versions
-//            return defaultSeparator
-//        }
     }
 }
 
