@@ -169,7 +169,7 @@ class TopTabsColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemGray3.withAlphaComponent(0.5)
         } else {
-            return UIColor.CloudySky
+            return UIColor.CloudySky.withAlphaComponent(0.5)
         }
     }
     var tabForegroundSelected: UIColor {
