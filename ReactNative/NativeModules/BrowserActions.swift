@@ -42,10 +42,11 @@ class BrowserActions: NSObject {
 
     @objc(showQuerySuggestions:suggestions:)
     func showQuerySuggestions(query: NSString?, suggestions: NSArray?) {
-        guard let query = query, let suggestions = suggestions else { return }
-        NotificationCenter.default.post(
-            name: QuerySuggestionsInputAccessoryView.ShowSuggestionsNotification,
-            object: ["query": query, "suggestions": suggestions])
+        guard let query = query, let suggestions = suggestions else {
+            NotificationCenter.default.post(name: QuerySuggestionsInputAccessoryView.ShowSuggestionsNotification, object: nil)
+            return
+        }
+        NotificationCenter.default.post(name: QuerySuggestionsInputAccessoryView.ShowSuggestionsNotification, object: ["query": query, "suggestions": suggestions])
     }
 
     @objc(searchHistory:callback:)

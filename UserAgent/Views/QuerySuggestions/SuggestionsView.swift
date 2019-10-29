@@ -34,6 +34,8 @@ class SuggestionsView: UIView {
     // MARK: - Private variables
     private var currentSuggestions: [String] = []
 
+    private(set) var shouldShowSuggestions: Bool = false
+
     private var currentQuery: String = "" {
         didSet {
             if currentQuery.isEmpty {
@@ -43,14 +45,22 @@ class SuggestionsView: UIView {
         }
     }
 
+    func updateLastestSuggestions() {
+        guard self.shouldShowSuggestions(query: self.currentQuery, suggestions: self.currentSuggestions) else {
+            self.shouldShowSuggestions = false
+            return
+        }
+        self.updateSuggestions(query: self.currentQuery, suggestions: self.currentSuggestions)
+    }
+
     // MARK: - Public API
-    func displaySuggestions(query: String, suggestions: [String]) -> Bool {
-        currentQuery = query
-        var suggestionsShown = false
+    func updateSuggestions(query: String, suggestions: [String]) {
+        self.currentQuery = query
+        self.shouldShowSuggestions = false
 
         guard shouldShowSuggestions(query: query, suggestions: suggestions) else {
             updateSuggestions(suggestions)
-            return false
+            return
         }
 
         self.clearSuggestions()
@@ -100,9 +110,8 @@ class SuggestionsView: UIView {
             // increment step
             x = x + suggestionWidth + 2*margin + 1
             index = index + 1
-            suggestionsShown = true
+            self.shouldShowSuggestions = true
         }
-        return suggestionsShown
     }
 
     // MARK: - Helper methods
