@@ -1,5 +1,6 @@
 variables:
-- group: AccessTokens
+  configuration: Release
+  group: AccessTokens
 
 trigger:
 - master
