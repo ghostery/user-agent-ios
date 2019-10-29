@@ -42,6 +42,13 @@ class SuggestionsView: UIView {
             }
         }
     }
+    
+    func displayLastestSuggestions() -> Bool {
+        guard shouldShowSuggestions(query: self.currentQuery, suggestions: self.currentSuggestions) else {
+            return false
+        }
+        return self.displaySuggestions(query: self.currentQuery, suggestions: self.currentSuggestions)
+    }
 
     // MARK: - Public API
     func displaySuggestions(query: String, suggestions: [String]) -> Bool {

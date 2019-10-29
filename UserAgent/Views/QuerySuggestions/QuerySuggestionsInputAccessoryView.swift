@@ -38,6 +38,7 @@ class QuerySuggestionsInputAccessoryView: UIView {
             selector: #selector(showSuggestions),
             name: type(of: self).ShowSuggestionsNotification,
             object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewRotated), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -58,11 +59,13 @@ class QuerySuggestionsInputAccessoryView: UIView {
         }
 
         DispatchQueue.main.async {
-            if self.suggestionsView.displaySuggestions(query: query, suggestions: suggestions) {
-                self.isHidden = false
-            } else {
-                self.isHidden = true
-            }
+            self.isHidden = !self.suggestionsView.displaySuggestions(query: query, suggestions: suggestions)
+        }
+    }
+
+    @objc fileprivate func viewRotated() {
+        DispatchQueue.main.async {
+            self.isHidden = !self.suggestionsView.displayLastestSuggestions()
         }
     }
 
