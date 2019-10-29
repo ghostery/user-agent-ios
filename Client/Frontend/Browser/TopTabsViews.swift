@@ -70,7 +70,7 @@ class TopTabCell: UICollectionViewCell {
             backgroundColor = selectedTab ? UIColor.theme.topTabs.tabBackgroundSelected : UIColor.theme.topTabs.tabBackgroundUnselected
             titleText.textColor = selectedTab ? UIColor.theme.topTabs.tabForegroundSelected : UIColor.theme.topTabs.tabForegroundUnselected
             closeButton.tintColor = selectedTab ? UIColor.theme.topTabs.closeButtonSelectedTab : UIColor.theme.topTabs.closeButtonUnselectedTab
-            closeButton.backgroundColor = backgroundColor
+            closeButton.backgroundColor = .clear
             closeButton.layer.shadowColor = backgroundColor?.cgColor
             if selectedTab {
                 drawShadow()
@@ -117,10 +117,14 @@ class TopTabCell: UICollectionViewCell {
         contentView.addSubview(closeButton)
         contentView.addSubview(logoView)
 
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 18
+        self.closeButton.layer.cornerRadius = self.layer.cornerRadius
+
         logoView.snp.makeConstraints { make in
             make.centerY.equalTo(self).offset(TopTabsUX.TabNudge)
             make.size.equalTo(TabTrayControllerUX.FaviconSize)
-            make.leading.equalTo(self).offset(TopTabsUX.TabTitlePadding)
+            make.leading.equalTo(self).offset(self.layer.cornerRadius)
         }
         titleText.snp.makeConstraints { make in
             make.centerY.equalTo(self)
@@ -134,10 +138,6 @@ class TopTabCell: UICollectionViewCell {
             make.width.equalTo(self.snp.height)
             make.trailing.equalTo(self.snp.trailing)
         }
-
-        self.clipsToBounds = true
-        self.layer.cornerRadius = 18
-        self.closeButton.layer.cornerRadius = self.layer.cornerRadius
     }
 
     func configureWith(tab: Tab, isSelected: Bool) {

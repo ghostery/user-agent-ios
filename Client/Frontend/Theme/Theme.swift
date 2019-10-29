@@ -85,7 +85,7 @@ class ActionMenuColor {
         }
     }
     var foreground: UIColor { return defaultTextAndTint }
-    var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
+    var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.light }
     var iPhoneBackground: UIColor { return UIColor.theme.browser.background.withAlphaComponent(0.9) }
     var closeButtonBackground: UIColor { return defaultBackground }
     var closeButtonTitleColor: UIColor { return UIColor.BrightBlue }
@@ -97,7 +97,9 @@ class URLBarColor {
         return !isPrivate ? UIColor.CliqzBlue.with(alpha: .eightyPercent) : UIColor.Defaults.MobilePrivatePurple
     }
     var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
-
+    var background: UIColor {
+        return UIColor.systemGray.withAlphaComponent(0.15)
+    }
     // This text selection color is used in two ways:
     // 1) <UILabel>.background = textSelectionHighlight.withAlphaComponent(textSelectionHighlightAlpha)
     // To simulate text highlighting when the URL bar is tapped once, this is a background color to create a simulated selected text effect. The color will have an alpha applied when assigning it to the background.
@@ -165,7 +167,7 @@ class TopTabsColor {
     }
     var tabBackgroundUnselected: UIColor {
         if #available(iOS 13.0, *) {
-            return UIColor.systemGray4
+            return UIColor.systemGray3.withAlphaComponent(0.5)
         } else {
             return UIColor.CloudySky
         }
@@ -204,7 +206,7 @@ class TopTabsColor {
 class TextFieldColor {
     var background: UIColor {
         if #available(iOS 13.0, *) {
-            return UIColor.systemGray5
+            return UIColor.systemGray4
         } else {
             return UIColor.CloudySky
         }
