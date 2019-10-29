@@ -51,7 +51,11 @@ class QuerySuggestionsInputAccessoryView: UIView {
 
     // MARK: - Private Helpers
     @objc private func showSuggestions(notification: NSNotification) {
-        guard let suggestionsData = notification.object as? [String: AnyObject], let query = suggestionsData["query"] as? String, let suggestions = suggestionsData["suggestions"] as? [String] else {
+        guard
+            let suggestionsData = notification.object as? [String: AnyObject],
+            let query = suggestionsData["query"] as? String,
+            let suggestions = suggestionsData["suggestions"] as? [String]
+        else {
             DispatchQueue.main.async {
                 self.isHidden = true
             }
@@ -59,13 +63,15 @@ class QuerySuggestionsInputAccessoryView: UIView {
         }
 
         DispatchQueue.main.async {
-            self.isHidden = !self.suggestionsView.displaySuggestions(query: query, suggestions: suggestions)
+            self.suggestionsView.updateSuggestions(query: query, suggestions: suggestions)
+            self.isHidden = !self.suggestionsView.shouldShowSuggestions
         }
     }
 
     @objc fileprivate func viewRotated() {
         DispatchQueue.main.async {
-            self.isHidden = !self.suggestionsView.displayLastestSuggestions()
+            self.suggestionsView.updateLastestSuggestions()
+            self.isHidden = !self.suggestionsView.shouldShowSuggestions
         }
     }
 
