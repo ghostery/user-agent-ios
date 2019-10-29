@@ -50,11 +50,12 @@ class QuerySuggestionsInputAccessoryView: UIView {
 
     // MARK: - Private Helpers
     @objc private func showSuggestions(notification: NSNotification) {
-        guard
-            let suggestionsData = notification.object as? [String: AnyObject],
-            let query = suggestionsData["query"] as? String,
-            let suggestions = suggestionsData["suggestions"] as? [String]
-        else { return }
+        guard let suggestionsData = notification.object as? [String: AnyObject], let query = suggestionsData["query"] as? String, let suggestions = suggestionsData["suggestions"] as? [String] else {
+            DispatchQueue.main.async {
+                self.isHidden = true
+            }
+            return
+        }
 
         DispatchQueue.main.async {
             if self.suggestionsView.displaySuggestions(query: query, suggestions: suggestions) {
