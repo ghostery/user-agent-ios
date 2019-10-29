@@ -85,7 +85,7 @@ class ActionMenuColor {
         }
     }
     var foreground: UIColor { return defaultTextAndTint }
-    var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.light }
+    var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
     var iPhoneBackground: UIColor { return UIColor.theme.browser.background.withAlphaComponent(0.9) }
     var closeButtonBackground: UIColor { return defaultBackground }
     var closeButtonTitleColor: UIColor { return UIColor.BrightBlue }
@@ -159,13 +159,7 @@ class TabTrayColor {
 }
 
 class TopTabsColor {
-    var background: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.clear
-        } else {
-            return UIColor.Grey80
-        }
-    }
+    var background: UIColor { return UIColor.clear }
     var tabBackgroundSelected: UIColor {
         return self.background
     }
@@ -173,7 +167,7 @@ class TopTabsColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemGray4
         } else {
-            return UIColor.Grey10
+            return UIColor.CloudySky
         }
     }
     var tabForegroundSelected: UIColor {
@@ -187,7 +181,7 @@ class TopTabsColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemGray
         } else {
-            return UIColor.Grey40
+            return UIColor.DarkRain
         }
     }
 

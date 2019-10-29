@@ -132,7 +132,7 @@ class TopTabCell: UICollectionViewCell {
             make.centerY.equalTo(self).offset(TopTabsUX.TabNudge)
             make.height.equalTo(self)
             make.width.equalTo(self.snp.height)
-            make.trailing.equalTo(self.snp.trailing).offset(-10)
+            make.trailing.equalTo(self.snp.trailing)
         }
 
         self.clipsToBounds = true
