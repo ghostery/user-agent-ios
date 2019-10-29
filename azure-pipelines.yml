@@ -1,5 +1,5 @@
 variables:
-  configuration: Release
+  configuration: 'Release'
   group: AccessTokens
 
 trigger:
@@ -60,9 +60,10 @@ steps:
 - task: Xcode@5
   inputs:
     actions: '$(actions)'
-    sdk: 'iphonesimulator'
+    sdk: 'iphoneos'
     xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
+    configuration: '$(configuration)'
     packageApp: true
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 11'
