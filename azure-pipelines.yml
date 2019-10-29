@@ -60,7 +60,7 @@ steps:
 - task: Xcode@5
   inputs:
     actions: '$(actions)'
-    sdk: 'iphoneos'
+    sdk: 'iphonesimulator'
     xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
     configuration: '$(configuration)'
