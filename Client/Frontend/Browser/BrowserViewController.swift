@@ -52,24 +52,13 @@ class BrowserViewController: UIViewController {
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
-    var notchAreaCover: UIView = {
-        let view = UIView()
-        let effectView = UIVisualEffectView()
-        if #available(iOS 13.0, *) {
-            effectView.effect = UIBlurEffect(style: .systemMaterial)
-        } else {
-            // Fallback on earlier versions
-            effectView.effect = UIBlurEffect(style: .light)
-        }
-        view.addSubview(effectView)
-        effectView.snp.makeConstraints { make in
-            make.top.bottom.trailing.leading.equalTo(view)
-        }
-        return view
+    var notchAreaCover: UIVisualEffectView = {
+        return UIVisualEffectView()
     }()
+
     private let overlayBackground: UIVisualEffectView = {
         let effectView = UIVisualEffectView()
-        effectView.effect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
+        effectView.effect = UIBlurEffect(style: .light)
         return effectView
     }()
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
@@ -368,6 +357,7 @@ class BrowserViewController: UIViewController {
         webViewContainer = UIView()
         view.addSubview(webViewContainer)
 
+        self.setupURLBarBlurEffect()
         view.addSubview(self.notchAreaCover)
 
         topTouchArea = UIButton()
@@ -383,7 +373,7 @@ class BrowserViewController: UIViewController {
         header = urlBarTopTabsContainer
         urlBarTopTabsContainer.addSubview(urlBar)
         urlBarTopTabsContainer.addSubview(topTabsContainer)
-        view.addSubview(header)
+        notchAreaCover.contentView.addSubview(header)
 
         // UIAccessibilityCustomAction subclass holding an AccessibleAction instance does not work, thus unable to generate AccessibleActions and UIAccessibilityCustomActions "on-demand" and need to make them "persistent" e.g. by being stored in BVC
         pasteGoAction = AccessibleAction(name: Strings.PasteAndGoTitle, handler: { () -> Bool in
@@ -782,7 +772,7 @@ class BrowserViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
 
-        view.bringSubviewToFront(urlBarTopTabsContainer)
+        view.bringSubviewToFront(notchAreaCover)
 
         homeViewController?.view?.isHidden = true
 
@@ -803,11 +793,21 @@ class BrowserViewController: UIViewController {
     fileprivate func hideOverlayBackground() {
         self.overlayBackground.isHidden = true
         self.topTabsViewController?.view.isHidden = false
+        self.setupURLBarBlurEffect()
     }
 
     fileprivate func showOverlayBackground() {
         self.topTabsViewController?.view.isHidden = true
         self.overlayBackground.isHidden = false
+        self.notchAreaCover.effect = nil
+    }
+
+    fileprivate func setupURLBarBlurEffect() {
+        if #available(iOS 13.0, *) {
+            self.notchAreaCover.effect = UIBlurEffect(style: .systemMaterial)
+        } else {
+            self.notchAreaCover.effect = UIBlurEffect(style: .light)
+        }
     }
 
     fileprivate func destroySearchController() {

@@ -39,6 +39,9 @@ private class DarkURLBarColor: URLBarColor {
         return (labelMode: color.withAlphaComponent(0.25), textFieldMode: color)
 
     }
+    override var background: UIColor {
+        return UIColor.LightSky.withAlphaComponent(0.2)
+    }
 }
 
 private class DarkBrowserColor: BrowserColor {
