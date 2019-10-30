@@ -432,8 +432,4 @@ private class DisplayTextField: UITextField {
     fileprivate override var canBecomeFirstResponder: Bool {
         return false
     }
-
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: TabLocationViewUX.Spacing, dy: 0)
-    }
 }
