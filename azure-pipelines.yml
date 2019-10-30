@@ -1,5 +1,4 @@
 variables:
-  configuration: 'Release'
   group: AccessTokens
 
 trigger:
@@ -19,7 +18,7 @@ strategy:
       actions: 'test'
 
 pool:
-  vmImage: 'macOS 10.14'
+  vmImage: 'macos-latest'
 
 steps:
 - bash: |
@@ -60,10 +59,11 @@ steps:
 - task: Xcode@5
   inputs:
     actions: '$(actions)'
-    sdk: 'iphonesimulator'
+    sdk: 'iphoneos'
+    xcodeVersion: '11.1'
     xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
-    configuration: '$(configuration)'
+    configuration: 'Release'
     packageApp: true
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 11 Pro'
