@@ -60,7 +60,7 @@ steps:
   inputs:
     actions: '$(actions)'
     sdk: 'iphoneos'
-    xcodeVersion: '11.1'
+    xcodeVersion: '11'
     xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
     configuration: 'Release'
