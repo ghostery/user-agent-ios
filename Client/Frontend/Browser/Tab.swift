@@ -195,7 +195,6 @@ class Tab: NSObject {
                 webView.allowsLinkPreview = false
             }
 
-
             // Night mode enables this by toggling WKWebView.isOpaque, otherwise this has no effect.
             webView.backgroundColor = .black
 
