@@ -209,6 +209,14 @@
 		46CA610E23190FFD0010CE6B /* ReactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D2231555220010CE6B /* ReactViewController.swift */; };
 		46E7DD552361C53D00C8372A /* ReactViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E7DD542361C53D00C8372A /* ReactViewTheme.swift */; };
 		46E7DD562361C53D00C8372A /* ReactViewTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E7DD542361C53D00C8372A /* ReactViewTheme.swift */; };
+		46E96603236B2793003C23F3 /* UserAgentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E96602236B2793003C23F3 /* UserAgentConstants.swift */; };
+		46E96604236B2793003C23F3 /* UserAgentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E96602236B2793003C23F3 /* UserAgentConstants.swift */; };
+		46E96606236B27E6003C23F3 /* UserAgentConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E96605236B27E6003C23F3 /* UserAgentConstants.m */; };
+		46E96607236B27E6003C23F3 /* UserAgentConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E96605236B27E6003C23F3 /* UserAgentConstants.m */; };
+		46E96609236B33A1003C23F3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E96608236B33A1003C23F3 /* Constants.swift */; };
+		46E9660A236B33A1003C23F3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E96608236B33A1003C23F3 /* Constants.swift */; };
+		46E9660C236B33C2003C23F3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E9660B236B33C1003C23F3 /* Constants.m */; };
+		46E9660D236B33C2003C23F3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E9660B236B33C1003C23F3 /* Constants.m */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
 		59A68D66379CFA85C4EAF00B /* TwoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68B1F857A8638598A63A0 /* TwoLineCell.swift */; };
@@ -1160,6 +1168,10 @@
 		46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeBridge.swift; sourceTree = "<group>"; };
 		46E6117D232A51EB006FCADB /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
 		46E7DD542361C53D00C8372A /* ReactViewTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactViewTheme.swift; sourceTree = "<group>"; };
+		46E96602236B2793003C23F3 /* UserAgentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgentConstants.swift; sourceTree = "<group>"; };
+		46E96605236B27E6003C23F3 /* UserAgentConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAgentConstants.m; sourceTree = "<group>"; };
+		46E96608236B33A1003C23F3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		46E9660B236B33C1003C23F3 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		52280E16968DC760D8A37957 /* Pods-Lumen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.adhoc.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -2059,12 +2071,16 @@
 				46CA60DB2316CED70010CE6B /* BrowserActions.swift */,
 				46BBFA662358B13A00283594 /* BrowserCliqz.m */,
 				46BBFA632358B10400283594 /* BrowserCliqz.swift */,
+				46E9660B236B33C1003C23F3 /* Constants.m */,
+				46E96608236B33A1003C23F3 /* Constants.swift */,
 				46CA60D72316BB3A0010CE6B /* History.m */,
 				46CA60D52316B9EE0010CE6B /* History.swift */,
 				46CA60F52317E5D10010CE6B /* JSBridge.m */,
 				46CA60F12317E4780010CE6B /* JSBridge.swift */,
 				46CA60E72317E0DC0010CE6B /* LocaleConstants.m */,
 				46CA60E52317E0C60010CE6B /* LocaleConstants.swift */,
+				46E96605236B27E6003C23F3 /* UserAgentConstants.m */,
+				46E96602236B2793003C23F3 /* UserAgentConstants.swift */,
 			);
 			path = NativeModules;
 			sourceTree = "<group>";
@@ -4305,6 +4321,7 @@
 				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
 				46CA60FF2317F8F60010CE6B /* SearchResultsViewController.swift in Sources */,
 				ACB7374A23042BAB00FA5626 /* Clearables.swift in Sources */,
+				46E96607236B27E6003C23F3 /* UserAgentConstants.m in Sources */,
 				46BBFA682358B13A00283594 /* BrowserCliqz.m in Sources */,
 				ACB7374B23042BAB00FA5626 /* MailProviders.swift in Sources */,
 				ACB7374C23042BAB00FA5626 /* BackForwardListAnimator.swift in Sources */,
@@ -4415,6 +4432,7 @@
 				ACB737C123042BAB00FA5626 /* TrackingProtectionPageStats.swift in Sources */,
 				4620EA4A2350ABF9004586CF /* Search.swift in Sources */,
 				ACB737C223042BAB00FA5626 /* ScreenshotHelper.swift in Sources */,
+				46E9660D236B33C2003C23F3 /* Constants.m in Sources */,
 				46A4C4D7234775A800F4BCE0 /* AutoCompletion.m in Sources */,
 				ACB737C423042BAB00FA5626 /* DocumentServicesHelper.swift in Sources */,
 				46E7DD562361C53D00C8372A /* ReactViewTheme.swift in Sources */,
@@ -4455,6 +4473,7 @@
 				ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */,
 				ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */,
 				464E683C234CB06200ABAC43 /* HomeView.swift in Sources */,
+				46E96604236B2793003C23F3 /* UserAgentConstants.swift in Sources */,
 				ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */,
 				464E6839234B75E300ABAC43 /* LogoView.swift in Sources */,
 				46BBFA652358B10400283594 /* BrowserCliqz.swift in Sources */,
@@ -4470,6 +4489,7 @@
 				2B51FB2E234CB274006CF17D /* DownloadsView.swift in Sources */,
 				ACB737F523042BAB00FA5626 /* InstructionsViewController.swift in Sources */,
 				ACB737F623042BAB00FA5626 /* IntroViewController.swift in Sources */,
+				46E9660A236B33A1003C23F3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4542,6 +4562,7 @@
 				D3BE7B461B054F8600641031 /* TestAppDelegate.swift in Sources */,
 				463432F82332521F0014A9F0 /* Telemetry.swift in Sources */,
 				46CA60D82316BB3A0010CE6B /* History.m in Sources */,
+				46E96606236B27E6003C23F3 /* UserAgentConstants.m in Sources */,
 				0B62EFD21AD63CD100ACB9CD /* Clearables.swift in Sources */,
 				7482205C1DBAB56300EEEA72 /* MailProviders.swift in Sources */,
 				46BBFA672358B13A00283594 /* BrowserCliqz.m in Sources */,
@@ -4652,6 +4673,7 @@
 				0BD19A671A25309B0084FBA7 /* NSUserDefaultsPrefs.swift in Sources */,
 				E68AEDB01B18F81A00133D99 /* SwipeAnimator.swift in Sources */,
 				3BF56D271CDBBE1F00AC4D75 /* SimpleToast.swift in Sources */,
+				46E9660C236B33C2003C23F3 /* Constants.m in Sources */,
 				4620EA492350ABF9004586CF /* Search.swift in Sources */,
 				EBB89504219398E500EB91A0 /* TrackingProtectionPageStats.swift in Sources */,
 				46A4C4D6234775A800F4BCE0 /* AutoCompletion.m in Sources */,
@@ -4692,6 +4714,7 @@
 				3BE7275D1CCFE8B60099189F /* CustomSearchHandler.swift in Sources */,
 				B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
+				46E96603236B2793003C23F3 /* UserAgentConstants.swift in Sources */,
 				464E683B234CB06200ABAC43 /* HomeView.swift in Sources */,
 				EBA3B2D22268F57E00728BDB /* BadgeIcon.swift in Sources */,
 				464E6838234B75E300ABAC43 /* LogoView.swift in Sources */,
@@ -4707,6 +4730,7 @@
 				2B51FB2D234CB274006CF17D /* DownloadsView.swift in Sources */,
 				D04CD74C216CF86B004FF5B0 /* InstructionsViewController.swift in Sources */,
 				E49943F51AE6879C00BF9DE4 /* IntroViewController.swift in Sources */,
+				46E96609236B33A1003C23F3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
