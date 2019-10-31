@@ -61,6 +61,7 @@ __pycache__
 fastlane/README.md
 fastlane/report.xml
 /Client/Assets/AllFramesAtDocumentEnd.js
+/Client/Assets/AllFramesAtDocumentStart.js
 /Client/Assets/MainFrameAtDocumentEnd.js
 /Client/Assets/MainFrameAtDocumentStart.js
 
