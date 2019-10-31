@@ -1,5 +1,5 @@
 variables:
-  group: AccessTokens
+- group: AccessTokens
 
 trigger:
 - master
@@ -18,7 +18,7 @@ strategy:
       actions: 'test'
 
 pool:
-  vmImage: 'macos-latest'
+  vmImage: 'macOS 10.14'
 
 steps:
 - bash: |
@@ -59,14 +59,12 @@ steps:
 - task: Xcode@5
   inputs:
     actions: '$(actions)'
-    sdk: 'iphoneos'
-    xcodeVersion: '11'
+    sdk: 'iphonesimulator'
     xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
-    configuration: 'Release'
     packageApp: true
     destinationPlatformOption: 'iOS'
-    destinationSimulators: 'iPhone 11 Pro'
+    destinationSimulators: 'iPhone 11'
     publishJUnitResults: true
     args: '-derivedDataPath builds'
 
