@@ -45,7 +45,7 @@ class TabTrayController: UIViewController {
         toolbar.addTabButton.addTarget(self, action: #selector(didTapToolbarAddTab), for: .touchUpInside)
         toolbar.maskButton.addTarget(self, action: #selector(didTogglePrivateMode), for: .touchUpInside)
         toolbar.doneButton.addTarget(self, action: #selector(didTapToolbarDone), for: .touchUpInside)
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressedToolbarDone(_:)))
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressedToolbarDone))
         toolbar.doneButton.addGestureRecognizer(longPressGesture)
         return toolbar
     }()
@@ -539,7 +539,7 @@ extension TabTrayController {
         self.dismissTabTray()
     }
 
-    @objc func didLongPressedToolbarDone(_ sender: UIButton) {
+    @objc func didLongPressedToolbarDone() {
         if self.tabDisplayManager.isDragging {
             return
         }
@@ -551,8 +551,8 @@ extension TabTrayController {
         let controller = AlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         controller.addAction(UIAlertAction(title: Strings.AppMenuCloseAllTabsTitleString, style: .default, handler: { _ in self.closeTabsForCurrentTray() }), accessibilityIdentifier: "TabTrayController.deleteButton.closeAll")
         controller.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Label for Cancel button"), style: .cancel, handler: nil), accessibilityIdentifier: "TabTrayController.deleteButton.cancel")
-        controller.popoverPresentationController?.sourceView = sender
-        controller.popoverPresentationController?.sourceRect = sender.bounds
+        controller.popoverPresentationController?.sourceView = self.toolbar.doneButton
+        controller.popoverPresentationController?.sourceRect = self.toolbar.doneButton.bounds
         self.present(controller, animated: true, completion: nil)
     }
 
