@@ -63,6 +63,7 @@ steps:
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 11'
     publishJUnitResults: true
+    args: '-derivedDataPath builds'
 
 - bash: |
     brew tap wix/brew
