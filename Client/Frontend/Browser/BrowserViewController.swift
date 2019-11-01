@@ -1022,7 +1022,7 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    fileprivate func presentActivityViewController(_ url: URL, tab: Tab? = nil, sourceView: UIView?, sourceRect: CGRect, arrowDirection: UIPopoverArrowDirection) {
+    public func presentActivityViewController(_ url: URL, tab: Tab? = nil, sourceView: UIView?, sourceRect: CGRect, arrowDirection: UIPopoverArrowDirection) {
         let helper = ShareExtensionHelper(url: url, tab: tab)
 
         let controller = helper.createActivityViewController({ [unowned self] completed, _ in

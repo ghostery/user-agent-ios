@@ -3,6 +3,7 @@ import { AppRegistry, YellowBox, NativeModules } from 'react-native';
 import './ReactNative/js/setup-globals';
 import App from 'browser-core-user-agent-ios/build/modules/core/app';
 import inject from 'browser-core-user-agent-ios/build/modules/core/kord/inject';
+import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
 import { addConnectionChangeListener } from 'browser-core-user-agent-ios/build/modules/platform/network';
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
@@ -20,6 +21,8 @@ export class BrowserCore extends App {
     super({ browser });
   }
 }
+
+prefs.set('developer', NativeModules.Constants.isDebug);
 
 const app = new BrowserCore(global.browser);
 const appReady = app.start();
