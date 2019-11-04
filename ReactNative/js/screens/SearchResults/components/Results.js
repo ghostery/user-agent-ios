@@ -150,6 +150,7 @@ class Results extends React.Component {
             <ScrollView
               bounces={true}
               ref={this.scrollRef}
+              showsVerticalScrollIndicator={false}
             >
               <View
                 style={styles.bouncer}
