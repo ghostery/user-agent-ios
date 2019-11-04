@@ -64,6 +64,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "ClientTests/testUserAgent()">
+               </Test>
+               <Test
                   Identifier = "ProfileTest">
                </Test>
                <Test
