@@ -27,8 +27,16 @@ class BrowserActions: NSObject {
                 url = URL(string: encodedString)
             }
 
-            if let url = url {
-                appDel.browserViewController.homePanel(didSelectURL: url, visitType: VisitType.link)
+            if
+                let url = url,
+                let tab = appDel.tabManager.selectedTab
+            {
+                appDel.browserViewController.finishEditingAndSubmit(url,
+                    visitType: VisitType.link,
+                    forTab: tab)
+                if query.length > 0 {
+                    tab.queries[url] = String(query)
+                }
             }
         }
     }
