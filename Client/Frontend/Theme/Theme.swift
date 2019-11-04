@@ -236,8 +236,23 @@ class HomePanelColor {
     var toolbarTint: UIColor { return UIColor.Grey50 }
 
     var panelBackground: UIColor { return UIColor.White }
+    var separatorColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray5
+        } else {
+            // Fallback on earlier versions
+            return defaultSeparator
+        }
+    }
+    var separator: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray4
+        } else {
+            // Fallback on earlier versions
+            return defaultSeparator
+        }
+    }
 
-    var separator: UIColor { return defaultSeparator }
     var border: UIColor { return UIColor.Grey60 }
     var buttonContainerBorder: UIColor { return separator }
 
