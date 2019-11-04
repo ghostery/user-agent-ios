@@ -52,6 +52,8 @@ protocol URLBarDelegate: AnyObject {
     func urlBarDidBeginDragInteraction(_ urlBar: URLBarView)
 }
 
+typealias CancelAction = () -> Void
+
 class URLBarView: UIView {
     // Additional UIAppearance-configurable properties
     @objc dynamic var locationBorderColor: UIColor = URLBarViewUX.TextFieldBorderColor {
@@ -84,6 +86,8 @@ class URLBarView: UIView {
 
     var toolbarIsShowing = false
     var topTabsIsShowing = false
+
+    var onCancelAction: CancelAction?
 
     fileprivate var locationTextField: ToolbarTextField?
 
@@ -495,6 +499,7 @@ class URLBarView: UIView {
     }
 
     func leaveOverlayMode(didCancel cancel: Bool = false) {
+        self.onCancelAction?()
         locationTextField?.resignFirstResponder()
         animateToOverlayState(overlayMode: false, didCancel: cancel)
         delegate?.urlBarDidLeaveOverlayMode(self)
