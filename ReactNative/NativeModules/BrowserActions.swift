@@ -35,7 +35,7 @@ class BrowserActions: NSObject {
                     visitType: VisitType.link,
                     forTab: tab)
                 if query.length > 0 {
-                    tab.query = String(query)
+                    tab.queries[url] = String(query)
                 }
             }
         }

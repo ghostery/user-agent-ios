@@ -499,7 +499,10 @@ class URLBarView: UIView {
     }
 
     func leaveOverlayMode(didCancel cancel: Bool = false) {
-        self.onCancelAction?()
+        if self.onCancelAction != nil {
+            self.onCancelAction?()
+            self.onCancelAction = nil
+        }
         locationTextField?.resignFirstResponder()
         animateToOverlayState(overlayMode: false, didCancel: cancel)
         delegate?.urlBarDidLeaveOverlayMode(self)

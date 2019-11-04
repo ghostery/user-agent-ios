@@ -72,7 +72,7 @@ class Tab: NSObject {
 
     var consecutiveCrashes: UInt = 0
 
-    var query: String?
+    var queries: [URL: String] = [:]
 
     var canonicalURL: URL? {
         if let string = pageMetadata?.siteURL,
