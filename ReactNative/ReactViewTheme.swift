@@ -22,10 +22,11 @@ extension ReactViewTheme {
             "mode": mode,
             "backgroundColor": UIColor.theme.textField.backgroundInOverlay.hexString,
             "textColor": UIColor.theme.browser.tint.hexString,
-            "descriptionColor": mode == "dark" ? "rgba(0, 0, 0, 0.61)" : "rgba(255, 255, 255, 0.61)",
+            "descriptionColor": mode == "dark" ? "rgba(255, 255, 255, 0.61)" : "rgba(0, 0, 0, 0.61)",
             "visitedColor": mode == "dark" ? "#BDB6FF" : "#610072",
             "separatorColor": UIColor.theme.homePanel.separatorColor.hexString,
-            "linkColor": mode == "dark" ? "#6BA573" : "#579D61",
+            "urlColor": mode == "dark" ? "#6BA573" : "#579D61",
+            "linkColor": mode == "dark" ? "#FFFFFF" : "#003172",
         ]
     }
 }
