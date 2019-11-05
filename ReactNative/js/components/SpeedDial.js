@@ -20,10 +20,9 @@ const getStyles = (theme) => ({
     backgroundColor: theme.separatorColor,
     padding: 20,
     borderRadius: 60,
-
   },
   label: {
-    marginTop: 10,
+    marginTop: 5,
     color: theme.textColor,
     fontSize: 12,
   },
@@ -45,7 +44,7 @@ const getStyles = (theme) => ({
   },
 });
 
-const SpeedDial = ({ speedDial, onPress, theme}) => {
+const SpeedDial = ({ speedDial, onPress, theme, style = {} }) => {
   const styles = getStyles(theme)
   const url = speedDial.url;
   const name = parse(url).domain;
@@ -53,7 +52,12 @@ const SpeedDial = ({ speedDial, onPress, theme}) => {
     <TouchableWithoutFeedback
       onPress={() => onPress(speedDial)}
     >
-      <View style={styles.container}>
+      <View
+        style={{
+          ...styles.container,
+          ...style,
+        }}
+      >
         <View style={styles.circle}>
           {speedDial.pinned &&
             <View style={styles.pin}>

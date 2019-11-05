@@ -10,7 +10,10 @@ import { useStyles } from '../contexts/theme';
 
 const getStyle = (theme) => ({
   row: {
-    padding: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     flexDirection: 'row',
   },
   rowText: {
@@ -25,7 +28,7 @@ const getStyle = (theme) => ({
     fontWeight: 'bold',
   },
   rowDescription: {
-    color: theme.textColor,
+    color: theme.textColor + '99',
   },
 });
 
@@ -39,7 +42,7 @@ export default function ListItem({ url, title, onPress }) {
       onPress={onPress}
     >
       <View style={styles.row}>
-        <Logo url={url} />
+        <Logo url={url} size={48} />
         <View style={styles.rowText}>
           <Text style={styles.rowTitle}>{name}</Text>
           <Text

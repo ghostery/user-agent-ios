@@ -14,7 +14,7 @@ protocol ReactViewTheme {
 
 extension ReactViewTheme {
     static func getTheme() -> [String: Any] {
-        var mode = "dark"
+        var mode = "light"
         if #available(iOS 13.0, *) {
             mode = UITraitCollection.current.userInterfaceStyle == .dark ? "dark" : "light"
         }
@@ -22,10 +22,11 @@ extension ReactViewTheme {
             "mode": mode,
             "backgroundColor": UIColor.theme.textField.backgroundInOverlay.hexString,
             "textColor": UIColor.theme.browser.tint.hexString,
-            "descriptionColor": mode == "dark" ? "rgba(0, 0, 0, 0.61)" : "rgba(255, 255, 255, 0.61)",
+            "descriptionColor": mode == "dark" ? "rgba(255, 255, 255, 0.61)" : "rgba(0, 0, 0, 0.61)",
             "visitedColor": mode == "dark" ? "#BDB6FF" : "#610072",
-            "separatorColor": mode == "dark" ? "rgba(255, 255, 255, 0.15)" : "#D9D9D9",
-            "linkColor": mode == "dark" ? "#6BA573" : "#579D61",
+            "separatorColor": UIColor.theme.homePanel.separatorColor.hexString,
+            "urlColor": mode == "dark" ? "#6BA573" : "#579D61",
+            "linkColor": mode == "dark" ? "#FFFFFF" : "#003172",
         ]
     }
 }
