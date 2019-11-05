@@ -107,10 +107,9 @@ class ShareViewController: UIViewController {
         makeSeparator(addTo: stackView)
 
         if shareItem?.isUrlType() ?? true {
-            makeActionRow(addTo: stackView, label: Strings.ShareOpenIn, imageName: "open-in-firefox", action: #selector(actionOpenInFirefoxNow), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareOpenIn, imageName: "Icon-Small", action: #selector(actionOpenInFirefoxNow), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareLoadInBackground, imageName: "menu-Show-Tabs", action: #selector(actionLoadInBackground), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareBookmarkThisPage, imageName: "AddToBookmarks", action: #selector(actionBookmarkThisPage), hasNavigation: false)
-            makeSeparator(addTo: stackView)
         } else {
             pageInfoRowUrlLabel?.removeFromSuperview()
             makeActionRow(addTo: stackView, label: Strings.ShareSearchIn, imageName: "quickSearch", action: #selector(actionSearchInFirefox), hasNavigation: false)
@@ -178,6 +177,7 @@ class ShareViewController: UIViewController {
             label.allowsDefaultTighteningForTruncation = true
             label.lineBreakMode = .byTruncatingMiddle
             label.font = UX.baseFont
+            label.textColor = UX.actionRowTextAndIconColor
         }
 
         pageTitleLabel.font = UIFont.boldSystemFont(ofSize: UX.baseFont.pointSize)
