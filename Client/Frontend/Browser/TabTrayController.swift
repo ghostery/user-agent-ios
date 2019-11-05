@@ -832,7 +832,7 @@ class TabCell: UICollectionViewCell, Themeable {
         view.isUserInteractionEnabled = false
         view.alignLeft = true
         view.alignTop = true
-        view.backgroundColor = UIColor.theme.browser.background
+        view.backgroundColor = UIColor.theme.tabTray.background
         return view
     }()
 

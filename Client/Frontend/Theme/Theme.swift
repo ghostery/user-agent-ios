@@ -228,6 +228,10 @@ class TextFieldColor {
             return .white
         }
     }
+
+    var placeholder: UIColor {
+        return .systemGray
+    }
 }
 
 class HomePanelColor {
@@ -235,7 +239,7 @@ class HomePanelColor {
     var toolbarHighlight: UIColor { return UIColor.Blue40 }
     var toolbarTint: UIColor { return UIColor.Grey50 }
 
-    var panelBackground: UIColor { return UIColor.White }
+    var panelBackground: UIColor { return defaultBackground }
     var separatorColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemGray5
