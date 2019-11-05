@@ -340,7 +340,7 @@ class URLBarView: UIView {
         updateShadow()
     }
 
-    func updateShadow() {
+    private func updateShadow() {
         let opacity: Double = inOverlayMode ? URLBarViewUX.LocationContainerShadowOpacity : 0.0
         let offset: CGSize = inOverlayMode ? URLBarViewUX.LocationContainerShadowOffset : .zero
         let duration: TimeInterval = inOverlayMode ? 0.3 : 0.1
@@ -368,7 +368,7 @@ class URLBarView: UIView {
         CATransaction.commit()
     }
 
-    func createLocationTextField() {
+    private func createLocationTextField() {
         guard locationTextField == nil else { return }
 
         locationTextField = ToolbarTextField()
@@ -400,14 +400,13 @@ class URLBarView: UIView {
         locationTextField.applyTheme()
         locationTextField.backgroundColor = .clear
         locationTextField.inputAccessoryView = querySuggestionsInputAccessoryView
-//        locationTextField.layer.cornerRadius = self.locationView.layer.cornerRadius
     }
 
     override func becomeFirstResponder() -> Bool {
         return self.locationTextField?.becomeFirstResponder() ?? false
     }
 
-    func removeLocationTextField() {
+    private func removeLocationTextField() {
         locationTextField?.removeFromSuperview()
         locationTextField = nil
     }
@@ -604,6 +603,10 @@ class URLBarView: UIView {
 
     @objc func tappedScrollToTopArea() {
         delegate?.urlBarDidPressScrollToTop(self)
+    }
+
+    func closeKeyboard() {
+        self.locationTextField?.resignFirstResponder()
     }
 }
 
