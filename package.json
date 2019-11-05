@@ -26,7 +26,6 @@
     "react-native": "0.59.10",
     "react-native-fs": "^2.14.1",
     "react-native-sqlite-2": "^2.0.3",
-    "react-native-super-grid": "^3.0.9",
     "readability": "mozilla/readability#b9f47bcc8d3c223cabe2dec6a42eeb3bd778d85c",
     "tldts": "^5.0.3",
     "ws": ">=3.3.1"
