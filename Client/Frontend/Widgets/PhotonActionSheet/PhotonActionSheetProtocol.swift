@@ -178,13 +178,6 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        let copyURL = PhotonActionSheetItem(title: Strings.AppMenuCopyURLTitleString, iconString: "menu-Copy-Link") { _ in
-            if let url = tab.canonicalURL?.displayURL {
-                UIPasteboard.general.url = url
-                success(Strings.AppMenuCopyURLConfirmMessage)
-            }
-        }
-
         var mainActions = [sharePage]
 
         // Disable bookmarking if the URL is too long.
@@ -192,12 +185,12 @@ extension PhotonActionSheetProtocol {
             mainActions.append(isBookmarked ? removeBookmark : bookmarkPage)
         }
 
-        mainActions.append(contentsOf: [copyURL])
+        let pinAction = (isPinned ? removeTopSitesPin : pinToTopSites)
+        mainActions.append(pinAction)
 
         let refreshPage = self.refreshPageItem()
 
-        let pinAction = (isPinned ? removeTopSitesPin : pinToTopSites)
-        var commonActions = [toggleDesktopSite, pinAction, refreshPage]
+        var commonActions = [toggleDesktopSite, refreshPage]
 
         // Disable find in page if document is pdf.
         if tab.mimeType != MIMEType.PDF {
