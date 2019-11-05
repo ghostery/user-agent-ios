@@ -6,7 +6,6 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import { FlatGrid } from 'react-native-super-grid';
 import SpeedDial from '../../components/SpeedDial';
 import News from './components/News';
 import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
@@ -16,7 +15,7 @@ const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 8,
+    marginTop: 0,
   },
   contentContainer: {
     flexDirection:'row',
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex:1,
-    maxWidth: 400,
+    maxWidth: 414,
     flexDirection:'column',
     justifyContent:'space-between',
   },
@@ -33,6 +32,31 @@ const styles = StyleSheet.create({
     fontSize: 28,
     marginLeft: 12,
     marginRight: 12,
+  },
+  speedDials: {
+    marginTop: 0,
+    marginBottom: 25,
+    padding: 0,
+    flexDirection: 'row',
+    flex: 1,
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    alignSelf: 'center',
+    width: (70+10+10)*4,
+  },
+  speedDial: {
+    flex: 0,
+    marginHorizontal: 5,
+    marginVertical: 10,
+    width: 80,
+  },
+  logoWrapper: {
+    flex: 1,
+    marginTop: 40 - 8,
+    marginBottom: 30,
+  },
+  logo: {
+    height: 65,
   },
 });
 
@@ -50,18 +74,25 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
         contentContainerStyle={styles.contentContainer}
       >
         <View style={styles.wrapper}>
-          {dials.length > 0 && (
-            <FlatGrid
-              itemDimension={80}
-              items={dials}
-              scrollEnabled={false}
-              renderItem={({ item: speedDial }) =>
-                SpeedDial({
-                  speedDial,
-                  onPress: openSpeedDialLink,
-                })
-              }
+          <View style={styles.logoWrapper}>
+            <NativeDrawable
+              style={styles.logo}
+              source={normalizeUrl('logo.svg')}
             />
+          </View>
+          {dials.length > 0 && (
+            <View
+              style={styles.speedDials}
+            >
+              {dials.map(dial =>
+                <SpeedDial
+                  key={dial.url}
+                  style={styles.speedDial}
+                  speedDial={dial}
+                  onPress={openSpeedDialLink}
+                />
+              )}
+            </View>
           )}
           <News newsModule={newsModule} />
         </View>

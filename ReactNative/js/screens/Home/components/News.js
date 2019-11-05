@@ -14,15 +14,22 @@ const getStyles = (theme) => StyleSheet.create({
   container: {
     borderTopWidth: 1,
     borderTopColor: theme.separatorColor,
-    paddingTop: 25,
+    paddingTop: 30,
   },
   image: {
     height: 200,
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
   item: {
-    marginBottom: 25,
+    marginBottom: 20,
+  },
+  separator: {
+    marginTop: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    backgroundColor: theme.separatorColor,
+    height: 1,
   },
 });
 
@@ -73,6 +80,7 @@ export default function News({ newsModule }) {
               title={item.title}
               onPress={() => openLink(item.url)}
             />
+            <View style={styles.separator} />
           </View>
         }
       />
