@@ -57,9 +57,9 @@ private class DarkToolbarButtonColor: ToolbarButtonColor {
 private class DarkTabTrayColor: TabTrayColor {
     override var tabTitleText: UIColor { return defaultTextAndTint }
     override var tabTitleBlur: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
-    override var background: UIColor { return UIColor.Grey90 }
+    override var background: UIColor { return defaultBackground }
     override var cellBackground: UIColor { return defaultBackground }
-    override var toolbar: UIColor { return UIColor.Grey80 }
+    override var toolbar: UIColor { return UIColor.black.withAlphaComponent(0.8) }
     override var toolbarButtonTint: UIColor { return defaultTextAndTint }
     override var cellCloseButton: UIColor { return defaultTextAndTint }
     override var cellTitleBackground: UIColor { return UIColor.Grey70 }
@@ -99,7 +99,7 @@ private class DarkHomePanelColor: HomePanelColor {
     override var toolbarBackground: UIColor { return defaultBackground }
     override var toolbarHighlight: UIColor { return UIColor.Blue40 }
     override var toolbarTint: UIColor { return UIColor.Grey30 }
-    override var panelBackground: UIColor { return UIColor.Grey90 }
+    override var panelBackground: UIColor { return defaultBackground }
     override var separator: UIColor { return defaultSeparator }
     override var border: UIColor { return UIColor.Grey60 }
     override var buttonContainerBorder: UIColor { return separator }

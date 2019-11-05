@@ -307,7 +307,7 @@ extension TabToolbar: Themeable, PrivateModeUI {
 
         privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
         hideImagesBadge.badge.tintBackground(color: UIColor.theme.browser.background)
-        menuButton.imageView?.tintColor = UIColor.theme.general.controlTint
+        menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: UIColor.theme.general.controlTint), for: .normal)
     }
 
     func applyUIMode(isPrivate: Bool) {
