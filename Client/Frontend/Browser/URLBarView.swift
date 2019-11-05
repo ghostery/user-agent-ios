@@ -142,7 +142,7 @@ class URLBarView: UIView {
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.BackTitle
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
-        cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        cancelButton.setTitleColor(UIColor.theme.general.controlTint, for: .normal)
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
@@ -308,11 +308,11 @@ class URLBarView: UIView {
         self.locationContainer.snp.remakeConstraints { make in
             if self.toolbarIsShowing {
                 make.leading.equalTo(self.stopReloadButton.snp.trailing).offset(URLBarViewUX.Padding)
-                make.trailing.equalTo(self.tabsButton.snp.leading).offset(-URLBarViewUX.Padding)
+                make.trailing.equalTo(self.tabsButton.snp.leading).offset(-15)
             } else {
                 // Otherwise, left align the location view
                 make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0,
-                                                                       right: URLBarViewUX.LocationLeftPadding))
+                                                                       right: 15))
             }
 
             make.centerY.equalTo(self)
@@ -327,7 +327,7 @@ class URLBarView: UIView {
                 make.edges.equalTo(self.locationContainer).inset(UIEdgeInsets(equalInset: URLBarViewUX.TextFieldBorderWidthSelected))
             }
             self.locationTextField?.snp.remakeConstraints { make in
-                make.leading.equalTo(self.locationView.snp.leading).offset(URLBarViewUX.LocationLeftPadding)
+                make.leading.equalTo(self.locationView.snp.leading).offset(15)
                 make.trailing.equalTo(self.cancelButton.snp.leading).offset(-URLBarViewUX.Padding)
                 make.top.equalTo(self.locationView.snp.top)
                 make.bottom.equalTo(self.locationView.snp.bottom)
@@ -740,15 +740,6 @@ extension URLBarView: AutocompleteTextFieldDelegate {
     }
 }
 
-// MARK: UIAppearance
-extension URLBarView {
-
-    @objc dynamic var cancelTintColor: UIColor? {
-        get { return cancelButton.tintColor }
-        set { return cancelButton.tintColor = newValue }
-    }
-}
-
 extension URLBarView: Themeable {
     func applyTheme() {
         locationView.applyTheme()
@@ -756,8 +747,6 @@ extension URLBarView: Themeable {
 
         actionButtons.forEach { $0.applyTheme() }
         tabsButton.applyTheme()
-
-        cancelTintColor = UIColor.theme.browser.tint
         backgroundColor = .clear
         line.backgroundColor = UIColor.theme.browser.urlBarDivider
 
@@ -772,6 +761,7 @@ extension URLBarView: Themeable {
         locationContainer.backgroundColor = .clear
 
         privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
+        cancelButton.setTitleColor(UIColor.theme.general.controlTint, for: .normal)
     }
 }
 

@@ -228,6 +228,10 @@ class TextFieldColor {
             return .white
         }
     }
+
+    var placeholder: UIColor {
+        return .systemGray
+    }
 }
 
 class HomePanelColor {
