@@ -74,14 +74,12 @@ class PrivacyDashboardView: UIView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             let statsDict = WTMCategory.statsDict(from: pageStats)
 
-            UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-                for statType in WTMCategory.all() {
-                    let value = statsDict[statType, default: 0]
-                    self.cachedNumberLabelsForStats[statType]?.text = "\(value)"
-                    self.cachedStackViewsForStats[statType]?.isHidden = value <= 0
-                    self.cachedStackViewsForStats[statType]?.alpha = value <= 0 ? 0 : 1
-                }
-            }, completion: nil)
+            for statType in WTMCategory.all() {
+                let value = statsDict[statType, default: 0]
+                self.cachedNumberLabelsForStats[statType]?.text = "\(value)"
+                self.cachedStackViewsForStats[statType]?.isHidden = value <= 0
+                self.cachedStackViewsForStats[statType]?.alpha = value <= 0 ? 0 : 1
+            }
         }
     }
 }

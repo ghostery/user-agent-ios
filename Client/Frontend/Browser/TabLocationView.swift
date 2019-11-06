@@ -53,9 +53,7 @@ class TabLocationView: UIView {
             self.updateTextWithURL()
             self.updateStackViewSpacing()
             self.pageOptionsButton.isHidden = (self.url == nil)
-            if self.url == nil {
-                self.privacyIndicator.isHidden = true
-            }
+            self.privacyIndicator.isHidden = self.url == nil
             setNeedsUpdateConstraints()
         }
     }
@@ -135,7 +133,7 @@ class TabLocationView: UIView {
 
     lazy var privacyIndicator: PrivacyIndicatorView = {
         let indicator = PrivacyIndicatorView()
-        indicator.onButtonTap = { () -> Void in self.delegate?.tabLocationViewDidTapShield(self) }
+        indicator.onTapBlock = { () -> Void in self.delegate?.tabLocationViewDidTapShield(self) }
         return indicator
     }()
 
@@ -376,7 +374,6 @@ extension TabLocationView: TabEventHandler {
         guard let blocker = tab.contentBlocker else { return }
         privacyIndicator.update(with: blocker.stats)
         privacyIndicator.status = blocker.status
-        privacyIndicator.isHidden = false
     }
 
     func tabDidGainFocus(_ tab: Tab) {
