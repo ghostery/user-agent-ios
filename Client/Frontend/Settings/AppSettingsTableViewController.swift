@@ -43,7 +43,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
             },
             SearchSetting(settings: self),
         ]
-
         settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsSearchSectionTitle), children: searchSettings)]
 
         let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
@@ -63,7 +62,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
         privacySettings += [
             PrivacyPolicySetting(),
         ]
-
         settings += [SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)]
 
         var generalSettings: [Setting] = [
@@ -85,7 +83,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
                         titleText: Strings.SettingsOfferClipboardBarTitle,
                         statusText: Strings.SettingsOfferClipboardBarStatus),
         ]
-
         settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsGeneralSectionTitle), children: generalSettings)]
 
         settings += [

@@ -61,10 +61,6 @@ extension PhotonActionSheetProtocol {
 
         let trackingProtectionItems = self.trackingProtectionItems()
         items.append(contentsOf: trackingProtectionItems)
-        if #available(iOS 13.0, *) {} else {
-            let nighModeItem = self.nightModeItem()
-            items.append(nighModeItem)
-        }
         let openSettingsItem = self.openSettingsItem(vcDelegate: vcDelegate)
         items.append(openSettingsItem)
 
@@ -182,13 +178,6 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        let copyURL = PhotonActionSheetItem(title: Strings.AppMenuCopyURLTitleString, iconString: "menu-Copy-Link") { _ in
-            if let url = tab.canonicalURL?.displayURL {
-                UIPasteboard.general.url = url
-                success(Strings.AppMenuCopyURLConfirmMessage)
-            }
-        }
-
         var mainActions = [sharePage]
 
         // Disable bookmarking if the URL is too long.
@@ -196,12 +185,12 @@ extension PhotonActionSheetProtocol {
             mainActions.append(isBookmarked ? removeBookmark : bookmarkPage)
         }
 
-        mainActions.append(contentsOf: [copyURL])
+        let pinAction = (isPinned ? removeTopSitesPin : pinToTopSites)
+        mainActions.append(pinAction)
 
         let refreshPage = self.refreshPageItem()
 
-        let pinAction = (isPinned ? removeTopSitesPin : pinToTopSites)
-        var commonActions = [toggleDesktopSite, pinAction, refreshPage]
+        var commonActions = [toggleDesktopSite, refreshPage]
 
         // Disable find in page if document is pdf.
         if tab.mimeType != MIMEType.PDF {
@@ -389,14 +378,6 @@ extension PhotonActionSheetProtocol {
             FirefoxTabContentBlocker.toggleAdBlockingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
         }
         return [trackingProtection, adBlocking]
-    }
-
-    private func nightModeItem() -> PhotonActionSheetItem {
-        let nightModeEnabled = NightModeHelper.isActivated(profile.prefs)
-        let nightMode = PhotonActionSheetItem(title: Strings.AppMenuNightMode, iconString: "menu-NightMode", isEnabled: nightModeEnabled, accessory: .Switch) { action in
-            NightModeHelper.toggle(self.profile.prefs, tabManager: self.tabManager)
-        }
-        return nightMode
     }
 
     private func openSettingsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {

@@ -27,6 +27,7 @@ private struct TabLocationViewUX {
     static let HostFontColor = UIColor.black
     static let BaseURLFontColor = UIColor.Grey50
     static let Spacing: CGFloat = 8
+    static let PlaceholderLefPadding: CGFloat = 12
     static let StatusIconSize: CGFloat = 18
     static let TPIconSize: CGFloat = 24
     static let ReaderModeButtonWidth: CGFloat = 34
@@ -48,15 +49,11 @@ class TabLocationView: UIView {
 
     var url: URL? {
         didSet {
-            let wasHidden = lockImageView.isHidden
-            lockImageView.isHidden = url?.scheme != "https"
-            if wasHidden != lockImageView.isHidden {
-                UIAccessibility.post(notification: UIAccessibility.Notification.layoutChanged, argument: nil)
-            }
-            updateTextWithURL()
-            pageOptionsButton.isHidden = (url == nil)
-            privacyIndicator.isHidden = url == nil
-            
+            self.updateLockImageView()
+            self.updateTextWithURL()
+            self.updateStackViewSpacing()
+            self.pageOptionsButton.isHidden = (self.url == nil)
+            self.privacyIndicator.isHidden = self.url == nil
             setNeedsUpdateConstraints()
         }
     }
@@ -89,7 +86,7 @@ class TabLocationView: UIView {
 
     lazy var placeholder: NSAttributedString = {
         let placeholderText = NSLocalizedString("Search or enter address", comment: "The text shown in the URL bar on about:home")
-        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Grey50])
+        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.textField.placeholder])
     }()
 
     lazy var urlTextField: UITextField = {
@@ -113,13 +110,26 @@ class TabLocationView: UIView {
     }()
 
     fileprivate lazy var lockImageView: UIImageView = {
-        let lockImageView = UIImageView(image: UIImage.templateImageNamed("lock_verified"))
+        let lockImageView = UIImageView(image: UIImage.templateImageNamed("lock_not_verified"))
         lockImageView.tintColor = UIColor.theme.textField.textAndTint
         lockImageView.isAccessibilityElement = true
         lockImageView.contentMode = .center
         lockImageView.accessibilityLabel = NSLocalizedString("Secure connection", comment: "Accessibility label for the lock icon, which is only present if the connection is secure")
         return lockImageView
     }()
+
+    fileprivate func updateLockImageView() {
+        let wasHidden = lockImageView.isHidden
+        lockImageView.isHidden = (url == nil)
+        if wasHidden != lockImageView.isHidden {
+            UIAccessibility.post(notification: UIAccessibility.Notification.layoutChanged, argument: nil)
+        }
+        if self.url?.scheme != "https" {
+            self.lockImageView.image = UIImage.templateImageNamed("lock_not_verified")
+        } else {
+            self.lockImageView.image = UIImage.templateImageNamed("lock_verified")
+        }
+    }
 
     lazy var privacyIndicator: PrivacyIndicatorView = {
         let indicator = PrivacyIndicatorView()
@@ -176,12 +186,17 @@ class TabLocationView: UIView {
         addGestureRecognizer(longPressRecognizer)
         addGestureRecognizer(tapRecognizer)
 
-        let spaceView = UIView()
-        spaceView.snp.makeConstraints { make in
+        let frontSpaceView = UIView()
+        frontSpaceView.snp.makeConstraints { make in
             make.width.equalTo(TabLocationViewUX.Spacing)
         }
 
-        let subviews = [spaceView, privacyIndicator, lockImageView, urlTextField, readerModeButton, separatorLine, pageOptionsButton]
+        let privacyIndicatorSeparator = UIView()
+        privacyIndicatorSeparator.snp.makeConstraints { make in
+            make.width.equalTo(3)
+        }
+
+        let subviews = [frontSpaceView, privacyIndicator, privacyIndicatorSeparator, lockImageView, urlTextField, readerModeButton, separatorLine, pageOptionsButton]
         contentView = UIStackView(arrangedSubviews: subviews)
         contentView.distribution = .fill
         contentView.alignment = .center
@@ -280,6 +295,16 @@ class TabLocationView: UIView {
         // remove https:// (the scheme) from the url when displaying
         if let scheme = url?.scheme, let range = url?.absoluteString.range(of: "\(scheme)://") {
             urlTextField.text = url?.absoluteString.replacingCharacters(in: range, with: "")
+        }
+    }
+
+    fileprivate func updateStackViewSpacing() {
+        let leftPadding = self.url == nil ? TabLocationViewUX.PlaceholderLefPadding : TabLocationViewUX.Spacing
+        let frontView = self.contentView.arrangedSubviews.first
+        if frontView?.frame.size.width != leftPadding {
+            frontView?.snp.remakeConstraints({ (make) in
+                make.width.equalTo(leftPadding)
+            })
         }
     }
 }
@@ -429,9 +454,5 @@ private class DisplayTextField: UITextField {
 
     fileprivate override var canBecomeFirstResponder: Bool {
         return false
-    }
-
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: TabLocationViewUX.Spacing, dy: 0)
     }
 }

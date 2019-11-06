@@ -27,8 +27,16 @@ class BrowserActions: NSObject {
                 url = URL(string: encodedString)
             }
 
-            if let url = url {
-                appDel.browserViewController.homePanel(didSelectURL: url, visitType: VisitType.link)
+            if
+                let url = url,
+                let tab = appDel.tabManager.selectedTab
+            {
+                appDel.browserViewController.finishEditingAndSubmit(url,
+                    visitType: VisitType.link,
+                    forTab: tab)
+                if query.length > 0 {
+                    tab.queries[url] = String(query)
+                }
             }
         }
     }
@@ -42,10 +50,11 @@ class BrowserActions: NSObject {
 
     @objc(showQuerySuggestions:suggestions:)
     func showQuerySuggestions(query: NSString?, suggestions: NSArray?) {
-        guard let query = query, let suggestions = suggestions else { return }
-        NotificationCenter.default.post(
-            name: QuerySuggestionsInputAccessoryView.ShowSuggestionsNotification,
-            object: ["query": query, "suggestions": suggestions])
+        guard let query = query, let suggestions = suggestions else {
+            NotificationCenter.default.post(name: QuerySuggestionsInputAccessoryView.ShowSuggestionsNotification, object: nil)
+            return
+        }
+        NotificationCenter.default.post(name: QuerySuggestionsInputAccessoryView.ShowSuggestionsNotification, object: ["query": query, "suggestions": suggestions])
     }
 
     @objc(searchHistory:callback:)

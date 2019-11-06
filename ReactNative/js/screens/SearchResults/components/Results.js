@@ -20,8 +20,9 @@ const getTheme = (theme) => mergeStyles(baseTheme, {
     bgColor: theme.backgroundColor,
   },
   snippet: {
-    titleColor: theme.textColor,
-    descriptionColor: theme.textColor,
+    titleColor: theme.linkColor,
+    urlColor: theme.urlColor,
+    descriptionColor: theme.descriptionColor,
     visitedTitleColor: theme.visitedColor,
     separatorColor: theme.separatorColor,
   },
@@ -33,7 +34,7 @@ const getStyles = (theme) => StyleSheet.create({
     flexDirection: 'column',
   },
   searchUI: {
-    paddingTop: 25,
+    paddingTop: 20,
     backgroundColor: theme.backgroundColor,
   },
   bouncer: {
@@ -44,9 +45,13 @@ const getStyles = (theme) => StyleSheet.create({
     left: 0,
     right: 0,
   },
+  separator: {
+    height: 0.5,
+    backgroundColor: theme.separatorColor,
+  },
   footer: {
     height: 50,
-    borderTopColor: '#D9D9D9',
+    borderTopColor: theme.separatorColor,
     borderTopWidth: 1,
     backgroundColor: theme.backgroundColor,
     alignItems: 'center',
@@ -150,6 +155,7 @@ class Results extends React.Component {
             <ScrollView
               bounces={true}
               ref={this.scrollRef}
+              showsVerticalScrollIndicator={false}
             >
               <View
                 style={styles.bouncer}
@@ -160,7 +166,7 @@ class Results extends React.Component {
                 style={styles.searchUI}
                 cardListStyle={{ paddingLeft: 0, paddingRight: 0 }}
                 header={<View />}
-                separator={<View style={{ height: 0.5, backgroundColor: '#D9D9D9' }} />}
+                separator={<View style={styles.separator} />}
                 footer={<View />}
               />
               <>
@@ -178,6 +184,18 @@ class Results extends React.Component {
                   <Text style={styles.searchEnginesHeaderText}>{t('search_alternative_search_engines_info')}</Text>
                 </View>
                 <View style={styles.searchEnginesContainer}>
+                  <TouchableWithoutFeedback
+                      onPress={() => this.openSearchEngineLink(`https://serp.cliqz.com/search?q=${encodeURIComponent(query)}`, 2)}
+                    >
+                    <View>
+                      <NativeDrawable
+                        style={styles.searchEngineIcon}
+                        color={'#ffffff'}
+                        source={normalizeUrl('cliqz.svg')}
+                      />
+                      <Text style={styles.searchEngineText}>Cliqz</Text>
+                    </View>
+                  </TouchableWithoutFeedback>
                   <TouchableWithoutFeedback
                     onPress={() => this.openSearchEngineLink(`https://google.com/search?q=${encodeURIComponent(query)}`, 0)}
                   >
@@ -200,18 +218,6 @@ class Results extends React.Component {
                         source={normalizeUrl('ddg.svg')}
                       />
                       <Text style={styles.searchEngineText}>DuckDuckGo</Text>
-                    </View>
-                  </TouchableWithoutFeedback>
-                  <TouchableWithoutFeedback
-                    onPress={() => this.openSearchEngineLink(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, 2)}
-                  >
-                    <View>
-                      <NativeDrawable
-                        style={styles.searchEngineIcon}
-                        color={'#ffffff'}
-                        source={normalizeUrl('bing.svg')}
-                      />
-                      <Text style={styles.searchEngineText}>Bing</Text>
                     </View>
                   </TouchableWithoutFeedback>
                 </View>

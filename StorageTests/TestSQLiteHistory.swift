@@ -922,10 +922,9 @@ class TestSQLiteHistory: XCTestCase {
                 try files.remove("browser-v\(v).db")
             } catch {}
         }
-        do {
-            try files.remove("browser.db")
-            try files.remove("historysynced.db")
-        } catch {}
+        try? files.remove("browser.db")
+        try? files.remove("historysynced.db")
+        try? files.remove("testDomainUpgrade.db")
     }
 
     override func tearDown() {
@@ -1071,7 +1070,7 @@ class TestSQLiteHistory: XCTestCase {
         // Insert something with an invalid domain ID. We have to manually do this since domains are usually hidden.
         let insertDeferred = db.withConnection { connection -> Void in
             try connection.executeChange("PRAGMA foreign_keys = OFF")
-                         let insert = "INSERT INTO history (guid, url, title, local_modified, is_deleted, should_upload, domain_id) VALUES (?, ?, ?, ?, ?, ?, ?)"
+            let insert = "INSERT INTO history (guid, url, title, local_modified, is_deleted, should_upload, domain_id) VALUES (?, ?, ?, ?, ?, ?, ?)"
             let args: Args = [Bytes.generateGUID(), site.url, site.title, Date.now(), 0, 0, -1]
             try connection.executeChange(insert, withArgs: args)
         }

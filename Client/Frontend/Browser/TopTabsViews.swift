@@ -60,7 +60,7 @@ class TopTabsHeaderFooter: UICollectionReusableView {
     }
 }
 
-class TopTabCell: UICollectionViewCell, PrivateModeUI {
+class TopTabCell: UICollectionViewCell {
 
     static let Identifier = "TopTabCellIdentifier"
     static let ShadowOffsetSize: CGFloat = 2 //The shadow is used to hide the tab separator
@@ -69,9 +69,8 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
         didSet {
             backgroundColor = selectedTab ? UIColor.theme.topTabs.tabBackgroundSelected : UIColor.theme.topTabs.tabBackgroundUnselected
             titleText.textColor = selectedTab ? UIColor.theme.topTabs.tabForegroundSelected : UIColor.theme.topTabs.tabForegroundUnselected
-            highlightLine.isHidden = !selectedTab
             closeButton.tintColor = selectedTab ? UIColor.theme.topTabs.closeButtonSelectedTab : UIColor.theme.topTabs.closeButtonUnselectedTab
-            closeButton.backgroundColor = backgroundColor
+            closeButton.backgroundColor = .clear
             closeButton.layer.shadowColor = backgroundColor?.cgColor
             if selectedTab {
                 drawShadow()
@@ -99,21 +98,12 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
     let closeButton: UIButton = {
         let closeButton = UIButton()
         closeButton.setImage(UIImage.templateImageNamed("menu-CloseTabs"), for: [])
-        closeButton.tintColor = UIColor.Grey40
-        closeButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: TopTabsUX.TabTitlePadding, bottom: 15, right: TopTabsUX.TabTitlePadding)
+        closeButton.imageEdgeInsets = UIEdgeInsets(top: TopTabsUX.TabCloseButtonImagePadding, left: TopTabsUX.TabCloseButtonImagePadding, bottom: TopTabsUX.TabCloseButtonImagePadding, right: TopTabsUX.TabCloseButtonImagePadding)
         closeButton.layer.shadowOpacity = 0.8
         closeButton.layer.masksToBounds = false
         closeButton.layer.shadowOffset = CGSize(width: -TopTabsUX.TabTitlePadding, height: 0)
         closeButton.semanticContentAttribute = .forceLeftToRight
         return closeButton
-    }()
-
-    let highlightLine: UIView = {
-        let line = UIView()
-        line.backgroundColor = UIColor.Blue60
-        line.isHidden = true
-        line.semanticContentAttribute = .forceLeftToRight
-        return line
     }()
 
     weak var delegate: TopTabCellDelegate?
@@ -126,12 +116,15 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
         contentView.addSubview(titleText)
         contentView.addSubview(closeButton)
         contentView.addSubview(logoView)
-        contentView.addSubview(highlightLine)
+
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 18
+        self.closeButton.layer.cornerRadius = self.layer.cornerRadius
 
         logoView.snp.makeConstraints { make in
             make.centerY.equalTo(self).offset(TopTabsUX.TabNudge)
             make.size.equalTo(TabTrayControllerUX.FaviconSize)
-            make.leading.equalTo(self).offset(TopTabsUX.TabTitlePadding)
+            make.leading.equalTo(self).offset(self.layer.cornerRadius)
         }
         titleText.snp.makeConstraints { make in
             make.centerY.equalTo(self)
@@ -142,27 +135,12 @@ class TopTabCell: UICollectionViewCell, PrivateModeUI {
         closeButton.snp.makeConstraints { make in
             make.centerY.equalTo(self).offset(TopTabsUX.TabNudge)
             make.height.equalTo(self)
-            make.width.equalTo(self.snp.height).offset(-TopTabsUX.TabTitlePadding)
+            make.width.equalTo(self.snp.height)
             make.trailing.equalTo(self.snp.trailing)
         }
-        highlightLine.snp.makeConstraints { make in
-            make.top.equalTo(self)
-            make.leading.equalTo(self).offset(-TopTabCell.ShadowOffsetSize)
-            make.trailing.equalTo(self).offset(TopTabCell.ShadowOffsetSize)
-            make.height.equalTo(TopTabsUX.HighlightLineWidth)
-        }
-
-        self.clipsToBounds = false
-
-        applyUIMode(isPrivate: false)
-    }
-
-    func applyUIMode(isPrivate: Bool) {
-        highlightLine.backgroundColor = UIColor.theme.topTabs.tabSelectedIndicatorBar(isPrivate)
     }
 
     func configureWith(tab: Tab, isSelected: Bool) {
-        applyUIMode(isPrivate: tab.isPrivate)
         self.titleText.text = tab.displayTitle
 
         if tab.displayTitle.isEmpty {

@@ -39,6 +39,9 @@ private class DarkURLBarColor: URLBarColor {
         return (labelMode: color.withAlphaComponent(0.25), textFieldMode: color)
 
     }
+    override var background: UIColor {
+        return UIColor.LightSky.withAlphaComponent(0.2)
+    }
 }
 
 private class DarkBrowserColor: BrowserColor {
@@ -54,24 +57,13 @@ private class DarkToolbarButtonColor: ToolbarButtonColor {
 private class DarkTabTrayColor: TabTrayColor {
     override var tabTitleText: UIColor { return defaultTextAndTint }
     override var tabTitleBlur: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
-    override var background: UIColor { return UIColor.Grey90 }
+    override var background: UIColor { return defaultBackground }
     override var cellBackground: UIColor { return defaultBackground }
-    override var toolbar: UIColor { return UIColor.Grey80 }
+    override var toolbar: UIColor { return UIColor.black.withAlphaComponent(0.8) }
     override var toolbarButtonTint: UIColor { return defaultTextAndTint }
     override var cellCloseButton: UIColor { return defaultTextAndTint }
     override var cellTitleBackground: UIColor { return UIColor.Grey70 }
     override var searchBackground: UIColor { return UIColor.Grey60 }
-}
-
-private class DarkTopTabsColor: TopTabsColor {
-    override var background: UIColor { return UIColor.Grey80 }
-    override var tabBackgroundSelected: UIColor { return UIColor.Grey80 }
-    override var tabBackgroundUnselected: UIColor { return UIColor.Grey80 }
-    override var tabForegroundSelected: UIColor { return UIColor.Grey10 }
-    override var tabForegroundUnselected: UIColor { return UIColor.Grey40 }
-    override var closeButtonSelectedTab: UIColor { return tabForegroundSelected }
-    override var closeButtonUnselectedTab: UIColor { return tabForegroundUnselected }
-    override var separator: UIColor { return UIColor.Grey50 }
 }
 
 private class DarkTextFieldColor: TextFieldColor {
@@ -107,7 +99,7 @@ private class DarkHomePanelColor: HomePanelColor {
     override var toolbarBackground: UIColor { return defaultBackground }
     override var toolbarHighlight: UIColor { return UIColor.Blue40 }
     override var toolbarTint: UIColor { return UIColor.Grey30 }
-    override var panelBackground: UIColor { return UIColor.Grey90 }
+    override var panelBackground: UIColor { return defaultBackground }
     override var separator: UIColor { return defaultSeparator }
     override var border: UIColor { return UIColor.Grey60 }
     override var buttonContainerBorder: UIColor { return separator }
@@ -157,7 +149,7 @@ class DarkTheme: NormalTheme {
     override var browser: BrowserColor { return DarkBrowserColor() }
     override var toolbarButton: ToolbarButtonColor { return DarkToolbarButtonColor() }
     override var tabTray: TabTrayColor { return DarkTabTrayColor() }
-    override var topTabs: TopTabsColor { return DarkTopTabsColor() }
+    override var topTabs: TopTabsColor { return TopTabsColor() }
     override var textField: TextFieldColor { return DarkTextFieldColor() }
     override var homePanel: HomePanelColor { return DarkHomePanelColor() }
     override var snackbar: SnackBarColor { return DarkSnackBarColor() }

@@ -97,7 +97,9 @@ class URLBarColor {
         return !isPrivate ? UIColor.CliqzBlue.with(alpha: .eightyPercent) : UIColor.Defaults.MobilePrivatePurple
     }
     var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
-
+    var background: UIColor {
+        return UIColor.systemGray.withAlphaComponent(0.15)
+    }
     // This text selection color is used in two ways:
     // 1) <UILabel>.background = textSelectionHighlight.withAlphaComponent(textSelectionHighlightAlpha)
     // To simulate text highlighting when the URL bar is tapped once, this is a background color to create a simulated selected text effect. The color will have an alpha applied when assigning it to the background.
@@ -159,20 +161,46 @@ class TabTrayColor {
 }
 
 class TopTabsColor {
-    var background: UIColor { return UIColor.Grey80 }
-    var tabBackgroundSelected: UIColor { return UIColor.Grey10 }
-    var tabBackgroundUnselected: UIColor { return UIColor.Grey80 }
-    var tabForegroundSelected: UIColor { return UIColor.Grey90 }
-    var tabForegroundUnselected: UIColor { return UIColor.Grey40 }
-    func tabSelectedIndicatorBar(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.Blue40 : UIColor.Grey70
+    var background: UIColor { return UIColor.clear }
+    var tabBackgroundSelected: UIColor {
+        return self.background
     }
-    var buttonTint: UIColor { return UIColor.Grey40 }
+    var tabBackgroundUnselected: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray3.withAlphaComponent(0.5)
+        } else {
+            return UIColor.CloudySky.withAlphaComponent(0.5)
+        }
+    }
+    var tabForegroundSelected: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            return UIColor.Grey90
+        }
+    }
+    var tabForegroundUnselected: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray
+        } else {
+            return UIColor.DarkRain
+        }
+    }
+
+    var buttonTint: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.label
+        } else {
+            return UIColor.Grey90
+        }
+    }
     var privateModeButtonOffTint: UIColor { return buttonTint }
     var privateModeButtonOnTint: UIColor { return UIColor.Grey10 }
-    var closeButtonSelectedTab: UIColor { return tabBackgroundUnselected }
-    var closeButtonUnselectedTab: UIColor { return tabBackgroundSelected }
-    var separator: UIColor { return UIColor.Grey70 }
+    var closeButtonSelectedTab: UIColor { return tabForegroundSelected }
+    var closeButtonUnselectedTab: UIColor { return tabForegroundUnselected }
+    var separator: UIColor {
+        return background
+    }
 }
 
 class TextFieldColor {
@@ -200,6 +228,10 @@ class TextFieldColor {
             return .white
         }
     }
+
+    var placeholder: UIColor {
+        return .systemGray
+    }
 }
 
 class HomePanelColor {
@@ -207,9 +239,24 @@ class HomePanelColor {
     var toolbarHighlight: UIColor { return UIColor.Blue40 }
     var toolbarTint: UIColor { return UIColor.Grey50 }
 
-    var panelBackground: UIColor { return UIColor.White }
+    var panelBackground: UIColor { return defaultBackground }
+    var separatorColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray5
+        } else {
+            // Fallback on earlier versions
+            return defaultSeparator
+        }
+    }
+    var separator: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray4
+        } else {
+            // Fallback on earlier versions
+            return defaultSeparator
+        }
+    }
 
-    var separator: UIColor { return defaultSeparator }
     var border: UIColor { return UIColor.Grey60 }
     var buttonContainerBorder: UIColor { return separator }
 

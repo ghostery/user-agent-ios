@@ -48,29 +48,17 @@ class BrowserViewController: UIViewController {
     var clipboardBarDisplayHandler: ClipboardBarDisplayHandler?
     var readerModeBar: ReaderModeBarView?
     var readerModeCache: ReaderModeCache
-    var statusBarOverlay: UIView = UIView()
     fileprivate(set) var toolbar: TabToolbar?
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
     fileprivate var homePanelIsInline = false
-    var notchAreaCover: UIView = {
-        let view = UIView()
-        let effectView = UIVisualEffectView()
-        if #available(iOS 13.0, *) {
-            effectView.effect = UIBlurEffect(style: .systemMaterial)
-        } else {
-            // Fallback on earlier versions
-            effectView.effect = UIBlurEffect(style: .light)
-        }
-        view.addSubview(effectView)
-        effectView.snp.makeConstraints { make in
-            make.top.bottom.trailing.leading.equalTo(view)
-        }
-        return view
+    var notchAreaCover: UIVisualEffectView = {
+        return UIVisualEffectView()
     }()
+
     private let overlayBackground: UIVisualEffectView = {
         let effectView = UIVisualEffectView()
-        effectView.effect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
+        effectView.effect = UIBlurEffect(style: .light)
         return effectView
     }()
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
@@ -292,7 +280,6 @@ class BrowserViewController: UIViewController {
         coordinator.animate(alongsideTransition: { context in
             self.scrollController.showToolbars(animated: false)
             if self.isViewLoaded {
-                self.statusBarOverlay.backgroundColor = self.shouldShowTopTabsForTraitCollection(self.traitCollection) ? UIColor.Grey80 : self.urlBar.backgroundColor
                 self.setNeedsStatusBarAppearanceUpdate()
             }
             }, completion: nil)
@@ -370,11 +357,8 @@ class BrowserViewController: UIViewController {
         webViewContainer = UIView()
         view.addSubview(webViewContainer)
 
+        self.setupURLBarBlurEffect()
         view.addSubview(self.notchAreaCover)
-
-        // Temporary work around for covering the non-clipped web view content
-        statusBarOverlay = UIView()
-        view.addSubview(statusBarOverlay)
 
         topTouchArea = UIButton()
         topTouchArea.isAccessibilityElement = false
@@ -389,7 +373,7 @@ class BrowserViewController: UIViewController {
         header = urlBarTopTabsContainer
         urlBarTopTabsContainer.addSubview(urlBar)
         urlBarTopTabsContainer.addSubview(topTabsContainer)
-        view.addSubview(header)
+        notchAreaCover.contentView.addSubview(header)
 
         // UIAccessibilityCustomAction subclass holding an AccessibleAction instance does not work, thus unable to generate AccessibleActions and UIAccessibilityCustomActions "on-demand" and need to make them "persistent" e.g. by being stored in BVC
         pasteGoAction = AccessibleAction(name: Strings.PasteAndGoTitle, handler: { () -> Bool in
@@ -471,14 +455,6 @@ class BrowserViewController: UIViewController {
             make.topMargin.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
             make.left.right.equalTo(self.view)
             make.bottom.equalTo(self.header.snp.bottom)
-        }
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        statusBarOverlay.snp.remakeConstraints { make in
-            make.top.left.right.equalTo(self.view)
-            make.height.equalTo(self.view.safeAreaInsets.top)
         }
     }
 
@@ -626,7 +602,6 @@ class BrowserViewController: UIViewController {
         [header, footer, readerModeBar].forEach { view in
                 view?.transform = .identity
         }
-        statusBarOverlay.isHidden = false
     }
 
     override func updateViewConstraints() {
@@ -797,7 +772,7 @@ class BrowserViewController: UIViewController {
             make.bottom.equalToSuperview()
         }
 
-        view.bringSubviewToFront(urlBarTopTabsContainer)
+        view.bringSubviewToFront(notchAreaCover)
 
         homeViewController?.view?.isHidden = true
 
@@ -817,10 +792,22 @@ class BrowserViewController: UIViewController {
 
     fileprivate func hideOverlayBackground() {
         self.overlayBackground.isHidden = true
+        self.topTabsViewController?.view.isHidden = false
+        self.setupURLBarBlurEffect()
     }
 
     fileprivate func showOverlayBackground() {
+        self.topTabsViewController?.view.isHidden = true
         self.overlayBackground.isHidden = false
+        self.notchAreaCover.effect = nil
+    }
+
+    fileprivate func setupURLBarBlurEffect() {
+        if #available(iOS 13.0, *) {
+            self.notchAreaCover.effect = UIBlurEffect(style: .systemMaterial)
+        } else {
+            self.notchAreaCover.effect = UIBlurEffect(style: .light)
+        }
     }
 
     fileprivate func destroySearchController() {
@@ -1035,7 +1022,7 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    fileprivate func presentActivityViewController(_ url: URL, tab: Tab? = nil, sourceView: UIView?, sourceRect: CGRect, arrowDirection: UIPopoverArrowDirection) {
+    public func presentActivityViewController(_ url: URL, tab: Tab? = nil, sourceView: UIView?, sourceRect: CGRect, arrowDirection: UIPopoverArrowDirection) {
         let helper = ShareExtensionHelper(url: url, tab: tab)
 
         let controller = helper.createActivityViewController({ [unowned self] completed, _ in
@@ -1342,46 +1329,7 @@ extension BrowserViewController: URLBarDelegate {
             return
         }
 
-        // TO DO : We need a `getURLForKeywordSearch` API in RustPlaces to
-        // handle the keyword search.
-        submitSearchText(text, forTab: currentTab)
-        /*
-        // We couldn't build a URL, so check for a matching search keyword.
-        let trimmedText = text.trimmingCharacters(in: .whitespaces)
-        guard let possibleKeywordQuerySeparatorSpace = trimmedText.index(of: " ") else {
-            submitSearchText(text, forTab: currentTab)
-            return
-        }
-
-        let possibleKeyword = String(trimmedText[..<possibleKeywordQuerySeparatorSpace])
-        let possibleQuery = String(trimmedText[trimmedText.index(after: possibleKeywordQuerySeparatorSpace)...])
-
-        let deferred = profile.bookmarks.getURLForKeywordSearch(possibleKeyword)
-        currentBookmarksKeywordQuery = deferred as? Cancellable
-
-        deferred.uponQueue(.main) { result in
-            defer {
-                self.currentBookmarksKeywordQuery = nil
-            }
-
-            guard let deferred = deferred as? Cancellable, !deferred.cancelled else {
-                return
-            }
-
-            if var urlString = result.successValue,
-                let escapedQuery = possibleQuery.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed),
-                let range = urlString.range(of: "%s") {
-                urlString.replaceSubrange(range, with: escapedQuery)
-
-                if let url = URL(string: urlString) {
-                    self.finishEditingAndSubmit(url, visitType: VisitType.typed, forTab: currentTab)
-                    return
-                }
-            }
-
-            self.submitSearchText(text, forTab: currentTab)
-        }
-        */
+        self.urlBar.closeKeyboard()
     }
 
     fileprivate func submitSearchText(_ text: String, forTab tab: Tab) {
@@ -2189,7 +2137,6 @@ extension BrowserViewController: Themeable {
         guard self.isViewLoaded else { return }
         let ui: [Themeable?] = [urlBar, toolbar, readerModeBar, topTabsViewController, tabTrayController, homeViewController, searchController]
         ui.forEach { $0?.applyTheme() }
-        statusBarOverlay.backgroundColor = shouldShowTopTabsForTraitCollection(traitCollection) ? UIColor.Grey80 : urlBar.backgroundColor
         setNeedsStatusBarAppearanceUpdate()
 
         (presentedViewController as? Themeable)?.applyTheme()

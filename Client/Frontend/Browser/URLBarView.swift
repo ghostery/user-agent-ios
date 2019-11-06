@@ -52,6 +52,8 @@ protocol URLBarDelegate: AnyObject {
     func urlBarDidBeginDragInteraction(_ urlBar: URLBarView)
 }
 
+typealias CancelAction = () -> Void
+
 class URLBarView: UIView {
     // Additional UIAppearance-configurable properties
     @objc dynamic var locationBorderColor: UIColor = URLBarViewUX.TextFieldBorderColor {
@@ -84,6 +86,8 @@ class URLBarView: UIView {
 
     var toolbarIsShowing = false
     var topTabsIsShowing = false
+
+    var onCancelAction: CancelAction?
 
     fileprivate var locationTextField: ToolbarTextField?
 
@@ -138,7 +142,7 @@ class URLBarView: UIView {
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.BackTitle
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
-        cancelButton.setTitleColor(UIColor.systemBlue, for: .normal)
+        cancelButton.setTitleColor(UIColor.theme.general.controlTint, for: .normal)
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
@@ -304,11 +308,11 @@ class URLBarView: UIView {
         self.locationContainer.snp.remakeConstraints { make in
             if self.toolbarIsShowing {
                 make.leading.equalTo(self.stopReloadButton.snp.trailing).offset(URLBarViewUX.Padding)
-                make.trailing.equalTo(self.tabsButton.snp.leading).offset(-URLBarViewUX.Padding)
+                make.trailing.equalTo(self.tabsButton.snp.leading).offset(-15)
             } else {
                 // Otherwise, left align the location view
                 make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0,
-                                                                       right: URLBarViewUX.LocationLeftPadding))
+                                                                       right: 15))
             }
 
             make.centerY.equalTo(self)
@@ -323,7 +327,7 @@ class URLBarView: UIView {
                 make.edges.equalTo(self.locationContainer).inset(UIEdgeInsets(equalInset: URLBarViewUX.TextFieldBorderWidthSelected))
             }
             self.locationTextField?.snp.remakeConstraints { make in
-                make.leading.equalTo(self.locationView.snp.leading).offset(URLBarViewUX.LocationLeftPadding)
+                make.leading.equalTo(self.locationView.snp.leading).offset(15)
                 make.trailing.equalTo(self.cancelButton.snp.leading).offset(-URLBarViewUX.Padding)
                 make.top.equalTo(self.locationView.snp.top)
                 make.bottom.equalTo(self.locationView.snp.bottom)
@@ -336,7 +340,7 @@ class URLBarView: UIView {
         updateShadow()
     }
 
-    func updateShadow() {
+    private func updateShadow() {
         let opacity: Double = inOverlayMode ? URLBarViewUX.LocationContainerShadowOpacity : 0.0
         let offset: CGSize = inOverlayMode ? URLBarViewUX.LocationContainerShadowOffset : .zero
         let duration: TimeInterval = inOverlayMode ? 0.3 : 0.1
@@ -364,7 +368,7 @@ class URLBarView: UIView {
         CATransaction.commit()
     }
 
-    func createLocationTextField() {
+    private func createLocationTextField() {
         guard locationTextField == nil else { return }
 
         locationTextField = ToolbarTextField()
@@ -396,14 +400,13 @@ class URLBarView: UIView {
         locationTextField.applyTheme()
         locationTextField.backgroundColor = .clear
         locationTextField.inputAccessoryView = querySuggestionsInputAccessoryView
-//        locationTextField.layer.cornerRadius = self.locationView.layer.cornerRadius
     }
 
     override func becomeFirstResponder() -> Bool {
         return self.locationTextField?.becomeFirstResponder() ?? false
     }
 
-    func removeLocationTextField() {
+    private func removeLocationTextField() {
         locationTextField?.removeFromSuperview()
         locationTextField = nil
     }
@@ -495,6 +498,10 @@ class URLBarView: UIView {
     }
 
     func leaveOverlayMode(didCancel cancel: Bool = false) {
+        if self.onCancelAction != nil {
+            self.onCancelAction?()
+            self.onCancelAction = nil
+        }
         locationTextField?.resignFirstResponder()
         animateToOverlayState(overlayMode: false, didCancel: cancel)
         delegate?.urlBarDidLeaveOverlayMode(self)
@@ -577,13 +584,10 @@ class URLBarView: UIView {
             removeLocationTextField()
         }
 
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.85, initialSpringVelocity: 0.0, options: [], animations: {
-            self.transitionToOverlay(cancel)
-            self.setNeedsUpdateConstraints()
-            self.layoutIfNeeded()
-        }, completion: { _ in
-            self.updateViewsForOverlayModeAndToolbarChanges()
-        })
+        self.transitionToOverlay(cancel)
+        self.setNeedsUpdateConstraints()
+        self.layoutIfNeeded()
+        self.updateViewsForOverlayModeAndToolbarChanges()
     }
 
     func didClickAddTab() {
@@ -596,6 +600,10 @@ class URLBarView: UIView {
 
     @objc func tappedScrollToTopArea() {
         delegate?.urlBarDidPressScrollToTop(self)
+    }
+
+    func closeKeyboard() {
+        self.locationTextField?.resignFirstResponder()
     }
 }
 
@@ -729,15 +737,6 @@ extension URLBarView: AutocompleteTextFieldDelegate {
     }
 }
 
-// MARK: UIAppearance
-extension URLBarView {
-
-    @objc dynamic var cancelTintColor: UIColor? {
-        get { return cancelButton.tintColor }
-        set { return cancelButton.tintColor = newValue }
-    }
-}
-
 extension URLBarView: Themeable {
     func applyTheme() {
         locationView.applyTheme()
@@ -745,8 +744,6 @@ extension URLBarView: Themeable {
 
         actionButtons.forEach { $0.applyTheme() }
         tabsButton.applyTheme()
-
-        cancelTintColor = UIColor.theme.browser.tint
         backgroundColor = .clear
         line.backgroundColor = UIColor.theme.browser.urlBarDivider
 
@@ -755,12 +752,13 @@ extension URLBarView: Themeable {
         if inOverlayMode {
             locationView.backgroundColor = UIColor.theme.textField.backgroundInOverlay
         } else {
-            locationView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.25)
+            locationView.backgroundColor = UIColor.theme.urlbar.background
         }
 
         locationContainer.backgroundColor = .clear
 
         privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
+        cancelButton.setTitleColor(UIColor.theme.general.controlTint, for: .normal)
     }
 }
 

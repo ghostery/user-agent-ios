@@ -5,7 +5,7 @@ import {
   FlatList,
   StyleSheet,
   Image,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import ListItem from '../../../components/ListItem';
 import ThemeContext from '../../../contexts/theme';
@@ -14,15 +14,22 @@ const getStyles = (theme) => StyleSheet.create({
   container: {
     borderTopWidth: 1,
     borderTopColor: theme.separatorColor,
-    paddingTop: 20,
+    paddingTop: 30,
   },
   image: {
     height: 200,
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
   item: {
     marginBottom: 20,
+  },
+  separator: {
+    marginTop: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    backgroundColor: theme.separatorColor,
+    height: 1,
   },
 });
 
@@ -60,19 +67,20 @@ export default function News({ newsModule }) {
         keyExtractor={(item) => item.url}
         renderItem={({ item }) =>
           <View style={styles.item}>
-            <TouchableOpacity
+            <TouchableWithoutFeedback
               onPress={() => openLink(item.url)}
             >
               <Image
                 style={styles.image}
                 source={{uri: item.imageUrl}}
               />
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
             <ListItem
               url={item.url}
               title={item.title}
               onPress={() => openLink(item.url)}
             />
+            <View style={styles.separator} />
           </View>
         }
       />

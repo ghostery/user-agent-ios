@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { parse } from 'tldts';
 import Logo from './Logo';
@@ -10,7 +10,10 @@ import { useStyles } from '../contexts/theme';
 
 const getStyle = (theme) => ({
   row: {
-    padding: 10,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    paddingBottom: 10,
     flexDirection: 'row',
   },
   rowText: {
@@ -25,7 +28,7 @@ const getStyle = (theme) => ({
     fontWeight: 'bold',
   },
   rowDescription: {
-    color: theme.textColor,
+    color: theme.textColor + '99',
   },
 });
 
@@ -35,18 +38,19 @@ export default function ListItem({ url, title, onPress }) {
   const name = parse(url).domain;
 
   return (
-    <TouchableOpacity
-      style={styles.row}
+    <TouchableWithoutFeedback
       onPress={onPress}
     >
-      <Logo url={url} />
-      <View style={styles.rowText}>
-        <Text style={styles.rowTitle}>{name}</Text>
-        <Text
-          numberOfLines={2}
-          style={styles.rowDescription}
-        >{title}</Text>
+      <View style={styles.row}>
+        <Logo url={url} size={48} />
+        <View style={styles.rowText}>
+          <Text style={styles.rowTitle}>{name}</Text>
+          <Text
+            numberOfLines={2}
+            style={styles.rowDescription}
+          >{title}</Text>
+        </View>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 }

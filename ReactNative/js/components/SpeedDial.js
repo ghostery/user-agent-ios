@@ -6,6 +6,7 @@ import {
   Text,
 } from 'react-native';
 import { parse } from 'tldts';
+import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 import Logo from './Logo';
 import { withTheme } from '../contexts/theme';
 
@@ -19,16 +20,15 @@ const getStyles = (theme) => ({
     backgroundColor: theme.separatorColor,
     padding: 20,
     borderRadius: 60,
-
   },
   label: {
-    marginTop: 10,
+    marginTop: 5,
     color: theme.textColor,
     fontSize: 12,
   },
   pin: {
     position: 'absolute',
-    top: 2,
+    top: 1,
     zIndex: 10,
     alignSelf: 'center',
     width: 20,
@@ -37,9 +37,14 @@ const getStyles = (theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  pinIcon: {
+    width: 12,
+    height: 12,
+    color: theme.textColor,
+  },
 });
 
-const SpeedDial = ({ speedDial, onPress, theme}) => {
+const SpeedDial = ({ speedDial, onPress, theme, style = {} }) => {
   const styles = getStyles(theme)
   const url = speedDial.url;
   const name = parse(url).domain;
@@ -47,11 +52,20 @@ const SpeedDial = ({ speedDial, onPress, theme}) => {
     <TouchableWithoutFeedback
       onPress={() => onPress(speedDial)}
     >
-      <View style={styles.container}>
+      <View
+        style={{
+          ...styles.container,
+          ...style,
+        }}
+      >
         <View style={styles.circle}>
           {speedDial.pinned &&
             <View style={styles.pin}>
-              <Text style={{ color: 'white' }}>P</Text>
+              <NativeDrawable
+                style={styles.pinIcon}
+                color={styles.pinIcon.color}
+                source={normalizeUrl('pin.svg')}
+              />
             </View>
           }
           <Logo
