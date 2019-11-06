@@ -5779,7 +5779,6 @@
 			baseConfigurationReference = E856F0CC31F0A2760F95EEF6 /* Pods-Ghostery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
-				CLIQZ_URL_SCHEME = ghostery;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -5832,7 +5831,6 @@
 			baseConfigurationReference = D45B6D4541A6B664D8744B18 /* Pods-Ghostery.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
-				CLIQZ_URL_SCHEME = ghostery;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -5885,7 +5883,6 @@
 			baseConfigurationReference = E2BCFD3D477938E531ED275F /* Pods-Ghostery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLIQZ_URL_SCHEME = ghostery;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
