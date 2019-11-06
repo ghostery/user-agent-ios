@@ -11,8 +11,7 @@ import Shared
 import Storage
 
 private struct DownloadsViewUX {
-    static let WelcomeScreenPadding: CGFloat = 15
-    static let WelcomeScreenItemWidth = 170
+    static let EmptyScreenItemWidth = 170
 }
 
 struct DownloadedFile: Equatable {
@@ -55,8 +54,6 @@ class DownloadsView: LibraryView {
 
     private let cellIdentifier = "cellIdentifier"
 
-    private lazy var emptyStateOverlayView: UIView = self.createEmptyStateOverlayView()
-
     private var groupedDownloadedFiles = DateGroupedTableData<DownloadedFile>()
     private var fileExtensionIcons: [String: UIImage] = [:]
 
@@ -78,12 +75,8 @@ class DownloadsView: LibraryView {
         self.updateEmptyPanelState()
     }
 
-    override func applyTheme() {
-        super.applyTheme()
-        self.emptyStateOverlayView.removeFromSuperview()
-        self.emptyStateOverlayView = createEmptyStateOverlayView()
-        self.updateEmptyPanelState()
-        self.tableView.reloadData()
+    override func emptyMessage() -> String? {
+        return Strings.DownloadsPanelEmptyStateTitle
     }
 
 }
@@ -93,14 +86,9 @@ extension DownloadsView {
 
     @objc private func notificationReceived(_ notification: Notification) {
         DispatchQueue.main.async {
-            self.reloadData()
             switch notification.name {
-            case .FileDidDownload, .PrivateDataClearedDownloadedFiles: break
-            case .DynamicFontChanged:
-                if self.emptyStateOverlayView.superview != nil {
-                    self.emptyStateOverlayView.removeFromSuperview()
-                }
-                self.emptyStateOverlayView = self.createEmptyStateOverlayView()
+            case .FileDidDownload, .PrivateDataClearedDownloadedFiles:
+                self.reloadData()
             default:
                 print("Error: Received unexpected notification \(notification.name)")
             }
@@ -113,7 +101,7 @@ extension DownloadsView {
 extension DownloadsView {
 
     private func registerNotification() {
-        [Notification.Name.FileDidDownload, Notification.Name.PrivateDataClearedDownloadedFiles, Notification.Name.DynamicFontChanged].forEach {
+        [Notification.Name.FileDidDownload, Notification.Name.PrivateDataClearedDownloadedFiles].forEach {
             NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: $0, object: nil)
         }
     }
@@ -195,14 +183,11 @@ extension DownloadsView {
     private func updateEmptyPanelState() {
         if self.groupedDownloadedFiles.isEmpty {
             if self.emptyStateOverlayView.superview == nil {
-                self.addSubview(self.emptyStateOverlayView)
-                self.bringSubviewToFront(self.emptyStateOverlayView)
-                self.emptyStateOverlayView.snp.makeConstraints { make in
-                    make.edges.equalTo(self.tableView)
-                }
+                self.tableView.tableFooterView = self.emptyStateOverlayView
             }
         } else {
-            self.emptyStateOverlayView.removeFromSuperview()
+            self.tableView.alwaysBounceVertical = true
+            self.tableView.tableFooterView = UIView()
         }
     }
 
@@ -217,36 +202,6 @@ extension DownloadsView {
             cell.imageView?.image = self.iconForFileExtension(downloadedFile.fileExtension)
         }
         return cell
-    }
-
-    private func createEmptyStateOverlayView() -> UIView {
-        let overlayView = UIView()
-        overlayView.backgroundColor = UIColor.theme.homePanel.panelBackground
-        let logoImageView = UIImageView(image: UIImage.templateImageNamed("emptyDownloads"))
-        logoImageView.tintColor = UIColor.Grey60
-        overlayView.addSubview(logoImageView)
-        logoImageView.snp.makeConstraints { make in
-            make.centerX.equalTo(overlayView)
-            make.size.equalTo(60)
-            // Sets proper top constraint for iPhone 6 in portait and for iPad.
-            make.centerY.equalTo(overlayView).offset(LibraryPanelUX.EmptyTabContentOffset).priority(100)
-            // Sets proper top constraint for iPhone 4, 5 in portrait.
-            make.top.greaterThanOrEqualTo(overlayView).offset(50)
-        }
-        let emptyLabel = UILabel()
-        overlayView.addSubview(emptyLabel)
-        emptyLabel.text = Strings.DownloadsPanelEmptyStateTitle
-        emptyLabel.textAlignment = .center
-        emptyLabel.font = DynamicFontHelper.defaultHelper.DeviceFontLight
-        emptyLabel.textColor = UIColor.theme.homePanel.welcomeScreenText
-        emptyLabel.numberOfLines = 0
-        emptyLabel.adjustsFontSizeToFitWidth = true
-        emptyLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(overlayView)
-            make.top.equalTo(logoImageView.snp.bottom).offset(DownloadsViewUX.WelcomeScreenPadding)
-            make.width.equalTo(DownloadsViewUX.WelcomeScreenItemWidth)
-        }
-        return overlayView
     }
 
 }

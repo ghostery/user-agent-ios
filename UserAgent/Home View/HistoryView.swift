@@ -12,10 +12,6 @@ import Storage
 
 private struct HistoryViewUX {
     static let EmptyScreenItemWidth = 170
-    static let IconSize = 23
-    static let IconBorderColor = UIColor.Grey30
-    static let IconBorderWidth: CGFloat = 0.5
-    static let actionIconColor = UIColor.Grey40
 }
 
 private class FetchInProgressError: MaybeErrorType {
@@ -35,8 +31,6 @@ class HistoryView: LibraryView {
     private var currentFetchOffset = 0
     private var isFetchInProgress = false
 
-    private lazy var emptyStateOverlayView: UIView = createEmptyStateOverlayView()
-
     override func setup() {
         super.setup()
         self.tableView.prefetchDataSource = self
@@ -44,13 +38,6 @@ class HistoryView: LibraryView {
         self.tableView.addGestureRecognizer(self.longPressRecognizer)
         self.registerNotification()
     }
-
-    override func applyTheme() {
-       super.applyTheme()
-       self.emptyStateOverlayView.removeFromSuperview()
-       self.emptyStateOverlayView = self.createEmptyStateOverlayView()
-       self.updateEmptyPanelState()
-   }
 
     override func siteForIndexPath(_ indexPath: IndexPath) -> Site? {
         let sitesInSection = self.groupedSites.itemsForSection(indexPath.section)
@@ -83,13 +70,17 @@ class HistoryView: LibraryView {
         }
     }
 
+    override func emptyMessage() -> String? {
+        return Strings.HistoryPanelEmptyStateTitle
+    }
+
 }
 
 // MARK: - Private Implementation
 private extension HistoryView {
 
     private func registerNotification() {
-        [Notification.Name.PrivateDataClearedHistory, Notification.Name.DynamicFontChanged, Notification.Name.DatabaseWasReopened].forEach {
+        [Notification.Name.PrivateDataClearedHistory, Notification.Name.DatabaseWasReopened].forEach {
             NotificationCenter.default.addObserver(self, selector: #selector(onNotificationReceived), name: $0, object: nil)
         }
     }
@@ -98,12 +89,6 @@ private extension HistoryView {
         switch notification.name {
         case .PrivateDataClearedHistory:
             self.reloadData()
-        case .DynamicFontChanged:
-            self.reloadData()
-            if self.emptyStateOverlayView.superview != nil {
-                self.emptyStateOverlayView.removeFromSuperview()
-            }
-            self.emptyStateOverlayView = self.createEmptyStateOverlayView()
         case .DatabaseWasReopened:
             if let dbName = notification.object as? String, dbName == "browser.db" {
                 self.reloadData()
@@ -112,28 +97,6 @@ private extension HistoryView {
             // no need to do anything at all
             print("Error: Received unexpected notification \(notification.name)")
         }
-    }
-
-    private func createEmptyStateOverlayView() -> UIView {
-        let overlayView = UIView()
-        let emptyLabel = UILabel()
-        overlayView.addSubview(emptyLabel)
-        emptyLabel.text = Strings.HistoryPanelEmptyStateTitle
-        emptyLabel.textAlignment = .center
-        emptyLabel.font = DynamicFontHelper.defaultHelper.DeviceFontLight
-        emptyLabel.textColor = UIColor.theme.homePanel.welcomeScreenText
-        emptyLabel.numberOfLines = 0
-        emptyLabel.adjustsFontSizeToFitWidth = true
-
-        emptyLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(overlayView)
-            // Sets proper top constraint for iPhone 6 in portait and for iPad.
-            make.centerY.equalTo(overlayView).offset(LibraryPanelUX.EmptyTabContentOffset).priority(100)
-            // Sets proper top constraint for iPhone 4, 5 in portrait.
-            make.top.greaterThanOrEqualTo(overlayView).offset(50)
-            make.width.equalTo(HistoryViewUX.EmptyScreenItemWidth)
-        }
-        return overlayView
     }
 
     private func fetchData() -> Deferred<Maybe<Cursor<Site>>> {

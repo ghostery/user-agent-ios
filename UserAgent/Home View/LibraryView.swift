@@ -12,6 +12,7 @@ import Shared
 
 struct LibraryPanelUX {
     static let EmptyTabContentOffset = -180
+    static let EmptyScreenItemWidth = 170
 }
 
 enum LibrarySection: Int, CaseIterable {
@@ -48,7 +49,10 @@ class LibraryView: UIView, Themeable {
     private let cellIdentifier = "cellIdentifier"
     private let headerIdentifier = "headerIdentifier"
 
+    private var emptyStateLabel: UILabel?
+
     private (set) var tableView = UITableView()
+    private (set) lazy var emptyStateOverlayView: UIView = self.createEmptyStateOverlayView()
 
     lazy var longPressRecognizer: UILongPressGestureRecognizer = {
         return UILongPressGestureRecognizer(target: self, action: #selector(onLongPressGestureRecognized))
@@ -69,6 +73,10 @@ class LibraryView: UIView, Themeable {
         fatalError("Use init(profile:) to initialize")
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         self.reloadData()
@@ -77,15 +85,21 @@ class LibraryView: UIView, Themeable {
     func setup() {
         self.configureTableView()
         self.applyTheme()
+        self.registerNotification()
     }
 
     func applyTheme() {
         self.tableView.backgroundColor = UIColor.theme.tableView.rowBackground
         self.tableView.separatorColor = UIColor.theme.tableView.separator
+        self.emptyStateLabel?.textColor = UIColor.theme.homePanel.welcomeScreenText
         self.tableView.reloadData()
     }
 
     func siteForIndexPath(_ indexPath: IndexPath) -> Site? {
+        return nil
+    }
+
+    func emptyMessage() -> String? {
         return nil
     }
 
@@ -127,6 +141,33 @@ extension LibraryView {
         self.tableView.tableFooterView = UIView()
     }
 
+    private func createEmptyStateOverlayView() -> UIView {
+        let overlayView = UIView()
+        let emptyLabel = UILabel()
+        overlayView.addSubview(emptyLabel)
+        emptyLabel.text = self.emptyMessage()
+        emptyLabel.textAlignment = .center
+        emptyLabel.font = DynamicFontHelper.defaultHelper.DeviceFontLight
+        emptyLabel.textColor = UIColor.theme.homePanel.welcomeScreenText
+        emptyLabel.numberOfLines = 0
+        emptyLabel.adjustsFontSizeToFitWidth = true
+
+        emptyLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(overlayView)
+            // Sets proper top constraint for iPhone 6 in portait and for iPad.
+            make.centerY.equalTo(overlayView).offset(LibraryPanelUX.EmptyTabContentOffset).priority(100)
+            // Sets proper top constraint for iPhone 4, 5 in portrait.
+            make.top.greaterThanOrEqualTo(overlayView).offset(50)
+            make.width.equalTo(LibraryPanelUX.EmptyScreenItemWidth)
+        }
+        self.emptyStateLabel = emptyLabel
+        return overlayView
+    }
+
+    private func registerNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dynamicFontChangedNotificationReceived), name: Notification.Name.DynamicFontChanged, object: nil)
+    }
+
 }
 
 // MARK: - Actions
@@ -137,6 +178,18 @@ extension LibraryView {
         let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
         guard let indexPath = self.tableView.indexPathForRow(at: touchPoint) else { return }
         self.presentContextMenu(for: indexPath)
+    }
+
+    @objc private func dynamicFontChangedNotificationReceived(_ notification: Notification) {
+        DispatchQueue.main.async {
+            switch notification.name {
+            case .DynamicFontChanged:
+                self.reloadData()
+                self.emptyStateLabel?.font = DynamicFontHelper.defaultHelper.DeviceFontLight
+            default:
+                print("Error: Received unexpected notification \(notification.name)")
+            }
+        }
     }
 
 }
