@@ -55,9 +55,8 @@ class TabLocationView: UIView {
             }
             updateTextWithURL()
             pageOptionsButton.isHidden = (url == nil)
-            if url == nil {
-                privacyIndicator.isHidden = true
-            }
+            privacyIndicator.isHidden = url == nil
+            
             setNeedsUpdateConstraints()
         }
     }
@@ -350,7 +349,6 @@ extension TabLocationView: TabEventHandler {
         guard let blocker = tab.contentBlocker else { return }
         privacyIndicator.update(with: blocker.stats)
         privacyIndicator.status = blocker.status
-        privacyIndicator.isHidden = false
     }
 
     func tabDidGainFocus(_ tab: Tab) {
