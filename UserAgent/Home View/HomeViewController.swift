@@ -164,7 +164,7 @@ private extension HomeViewController {
 extension HomeViewController: HomeViewControllerProtocol {
     func applyTheme() {
         view.backgroundColor = UIColor.theme.browser.background
-        self.topSitesView.applyTheme()
+        self.allViews.forEach({ ($0 as? Themeable)?.applyTheme() })
     }
 
     func scrollToTop() {

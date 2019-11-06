@@ -82,6 +82,7 @@ class LibraryView: UIView, Themeable {
     func applyTheme() {
         self.tableView.backgroundColor = UIColor.theme.tableView.rowBackground
         self.tableView.separatorColor = UIColor.theme.tableView.separator
+        self.tableView.reloadData()
     }
 
     func siteForIndexPath(_ indexPath: IndexPath) -> Site? {
