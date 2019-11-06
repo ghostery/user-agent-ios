@@ -2,3 +2,6 @@ BUNDLE_DISPLAY_NAME = $(TARGET_NAME) β
 
 // Bundle Identifier
 APP_BUNDLE_ID = $(PRODUCT_BUNDLE_IDENTIFIER).nightly
+
+// URL Scheme
+CLIQZ_URL_SCHEME = $(TARGET_NAME)Nightly
