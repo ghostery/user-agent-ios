@@ -13,15 +13,9 @@ import UIKit
 class BookmarksView: LibraryView {
     // MARK: - UX constants.
     private struct BookmarksPanelUX {
-        static let BookmarkFolderHeaderViewChevronInset: CGFloat = 10
-        static let BookmarkFolderChevronSize: CGFloat = 20
-        static let BookmarkFolderChevronLineWidth: CGFloat = 2.0
-        static let WelcomeScreenPadding: CGFloat = 15
-        static let WelcomeScreenItemWidth = 170
-        static let SeparatorRowHeight: CGFloat = 0.5
-        static let IconSize: CGFloat = 23
         static let IconBorderWidth: CGFloat = 0.5
         static let IconBorderColor = UIColor.Grey30
+        static let EmptyScreenItemWidth = 170
     }
 
     // MARK: - Properties
@@ -29,8 +23,6 @@ class BookmarksView: LibraryView {
     var parentFolders = [BookmarkFolder]()
     var bookmarkFolder: BookmarkFolder?
     var refreshControl: UIRefreshControl?
-
-    private lazy var emptyStateOverlayView: UIView = self.createEmptyStateOverlayView()
 
     private let BookmarkFolderCellIdentifier = "BookmarkFolderIdentifier"
     private let BookmarkSeparatorCellIdentifier = "BookmarkSeparatorIdentifier"
@@ -105,6 +97,10 @@ class BookmarksView: LibraryView {
         self.source?.reloadData().upon(onModelFetched)
     }
 
+    override func emptyMessage() -> String? {
+        return Strings.BookmarksPanelEmptyStateTitle
+    }
+
     func loadData() {
         // If we've not already set a source for this panel, fetch a new model from
         // the root; otherwise, just use the existing source to select a folder.
@@ -155,55 +151,19 @@ class BookmarksView: LibraryView {
 
 // MARK: - Private API
 private extension BookmarksView {
+
     private func updateEmptyPanelState() {
         // swiftlint:disable:next empty_count
         if source?.current.count == 0 && source?.current.guid == BookmarkRoots.MobileFolderGUID {
             if self.emptyStateOverlayView.superview == nil {
-                self.addSubview(self.emptyStateOverlayView)
-                self.bringSubviewToFront(self.emptyStateOverlayView)
-                self.emptyStateOverlayView.snp.makeConstraints { make -> Void in
-                    make.edges.equalTo(self.tableView)
-                }
+                self.tableView.tableFooterView = self.emptyStateOverlayView
             }
         } else {
-            self.emptyStateOverlayView.removeFromSuperview()
+            self.tableView.alwaysBounceVertical = true
+            self.tableView.tableFooterView = UIView()
         }
     }
 
-    private func createEmptyStateOverlayView() -> UIView {
-        let overlayView = UIView()
-
-        let logoImageView = UIImageView(image: UIImage.templateImageNamed("emptyBookmarks"))
-        //        logoImageView.tintColor = UIColor.Photon.Grey60
-        overlayView.addSubview(logoImageView)
-        logoImageView.snp.makeConstraints { make in
-            make.centerX.equalTo(overlayView)
-            make.size.equalTo(60)
-            // Sets proper top constraint for iPhone 6 in portait and for iPad.
-            //            make.centerY.equalTo(overlayView).offset(HomePanelUX.EmptyTabContentOffset).priority(100)
-            // Sets proper top constraint for iPhone 4, 5 in portrait.
-            make.top.greaterThanOrEqualTo(overlayView).offset(50)
-        }
-
-        let welcomeLabel = UILabel()
-        overlayView.addSubview(welcomeLabel)
-        welcomeLabel.text = Strings.emptyBookmarksText
-        welcomeLabel.textAlignment = .center
-        welcomeLabel.font = DynamicFontHelper.defaultHelper.DeviceFontLight
-        welcomeLabel.numberOfLines = 0
-        welcomeLabel.adjustsFontSizeToFitWidth = true
-
-        welcomeLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(overlayView)
-            make.top.equalTo(logoImageView.snp.bottom).offset(BookmarksPanelUX.WelcomeScreenPadding)
-            make.width.equalTo(BookmarksPanelUX.WelcomeScreenItemWidth)
-        }
-
-        overlayView.backgroundColor = UIColor.theme.homePanel.panelBackground
-        welcomeLabel.textColor = UIColor.theme.homePanel.welcomeScreenText
-
-        return overlayView
-    }
 }
 
 // MARK: - Table View Data Source
