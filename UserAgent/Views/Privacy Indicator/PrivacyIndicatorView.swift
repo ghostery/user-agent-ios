@@ -24,18 +24,19 @@ class PrivacyIndicatorView: UIView {
     /// - Blocking: The Privacy Indicator is filling up with color representations of various trackers found on the page
     public var status: BlockerStatus = .Blocking { didSet { updateStatus() }}
 
+    override var bounds: CGRect { didSet { relayout() }}
+
     private var cachedStats: [WTMCategory: Int] = [:]
     private lazy var canvasView = UIView()
     private var cachedSliceLayers: [CGColor: CAShapeLayer] = [:]
     private var backgroundTrackLayer: CAShapeLayer?
+    private var greenLayer: CAShapeLayer?
     private var strikeThroughLayer: CAShapeLayer?
     private lazy var button: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(didPressButton(_:)), for: .touchUpInside)
         return button
     }()
-
-    override var frame: CGRect { didSet { relayout() }}
 
     // MARK: - Initialization
     override init(frame: CGRect) {
@@ -50,7 +51,6 @@ class PrivacyIndicatorView: UIView {
 
     private func setupView() {
         setupSubViews()
-        setupBackgroundTrack()
     }
 
     // MARK: - API
@@ -64,11 +64,6 @@ class PrivacyIndicatorView: UIView {
             self.addTrackersToChart()
         }
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        relayout()
-    }
 }
 
 // MARK: - Private API
@@ -79,16 +74,16 @@ private extension PrivacyIndicatorView {
     }
 
     private func relayout() {
-        // TODO: Fix darkness bug
         backgroundTrackLayer?.removeFromSuperlayer()
-        backgroundTrackLayer = layer(for: UIColor(named: "PrivacyIndicatorBackground")!.cgColor, cache: false)
+        backgroundTrackLayer = circleLayer(for: UIColor(named: "PrivacyIndicatorBackground")!.cgColor, cache: false)
         canvasView.layer.addSublayer(backgroundTrackLayer!)
 
-        // TODO: Re-add all tracker layers
+        greenLayer?.removeFromSuperlayer()
+        greenLayer = nil
+
         cachedSliceLayers.values.forEach { $0.removeFromSuperlayer() }
         cachedSliceLayers = [:]
 
-        // TODO: Re-Add Strikethrough layer
         strikeThroughLayer?.removeFromSuperlayer()
         strikeThroughLayer = nil
     }
@@ -107,7 +102,7 @@ private extension PrivacyIndicatorView {
             // let value = cachedStats[statsType, default: 0]
             let color = statsType.color
             toPercent = fromPercent + CGFloat(value) / CGFloat(numberOfitems)
-            let slice = layer(for: color.cgColor)
+            let slice = circleLayer(for: color.cgColor)
             slice.strokeStart = fromPercent
             slice.strokeEnd = toPercent
             canvasView.layer.addSublayer(slice)
@@ -118,7 +113,7 @@ private extension PrivacyIndicatorView {
     private func removeTrackersFromChart() {
         for (statsType, _) in cachedStats {
             let color = statsType.color
-            let slice = layer(for: color.cgColor)
+            let slice = circleLayer(for: color.cgColor)
             slice.strokeStart = 0
             slice.strokeEnd = 0
         }
@@ -127,11 +122,16 @@ private extension PrivacyIndicatorView {
     private func addStrikeThroughToChart() {
         if strikeThroughLayer == nil {
             let canvasWidth = canvasView.frame.width
+
+            // GEOMETRY!
             let radius = canvasWidth * 3 / 8
-            let canvasCenter = CGPoint(x: canvasView.bounds.width / 2, y: canvasView.bounds.height / 2)
+            let diagonalLength = sqrt(canvasWidth * canvasWidth + canvasWidth * canvasWidth)
+            let distanceFromCorner = (diagonalLength / 2) - radius
+            let verticalDistanceFromCorner = sqrt( (distanceFromCorner * distanceFromCorner) / 2 )
+
             let path = UIBezierPath()
-            path.move(to: CGPoint(x: canvasView.frame.minX, y: canvasView.frame.minY))
-            path.move(to: CGPoint(x: canvasView.frame.maxX, y: canvasView.frame.maxY))
+            path.move(to: CGPoint(x: verticalDistanceFromCorner, y: verticalDistanceFromCorner))
+            path.addLine(to: CGPoint(x: canvasView.bounds.maxX - verticalDistanceFromCorner, y: canvasView.bounds.maxY - verticalDistanceFromCorner))
 
             strikeThroughLayer = CAShapeLayer()
             strikeThroughLayer?.path = path.cgPath
@@ -153,11 +153,19 @@ private extension PrivacyIndicatorView {
     }
 
     private func addGreenIndicatorToChart() {
-        // TODO
+        if greenLayer == nil {
+            let newGreenLayer = circleLayer(for: UIColor(named: "NoTrackersSeen")!.cgColor, cache: false)
+            canvasView.layer.addSublayer(newGreenLayer)
+            greenLayer = newGreenLayer
+        }
+
+        greenLayer?.strokeStart = 0
+        greenLayer?.strokeEnd = 1
     }
 
     private func removeGreenIndicatorFromChart() {
-        // TODO
+        greenLayer?.strokeStart = 1
+        greenLayer?.strokeEnd = 1
     }
 
     private func updateStatus() {
@@ -203,12 +211,7 @@ private extension PrivacyIndicatorView {
         }
     }
 
-    private func setupBackgroundTrack() {
-        backgroundTrackLayer = layer(for: UIColor(named: "PrivacyIndicatorBackground")!.cgColor, cache: false)
-        canvasView.layer.addSublayer(backgroundTrackLayer!)
-    }
-
-    private func layer(for color: CGColor, cache: Bool = true) -> CAShapeLayer {
+    private func circleLayer(for color: CGColor, cache: Bool = true) -> CAShapeLayer {
         guard cachedSliceLayers[color] == nil || !cache else {
             return cachedSliceLayers[color]!
         }
@@ -228,7 +231,9 @@ private extension PrivacyIndicatorView {
         newPathLayer.strokeStart = 0
         newPathLayer.strokeEnd = 1
 
-        cachedSliceLayers[color] = newPathLayer
+        if cache {
+            cachedSliceLayers[color] = newPathLayer
+        }
 
         return newPathLayer
     }
