@@ -5489,7 +5489,6 @@
 			baseConfigurationReference = 8EF4515D84F7B934A5318AEC /* Pods-Cliqz.adhoc.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
-				CLIQZ_URL_SCHEME = cliqz;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -6002,7 +6001,6 @@
 			baseConfigurationReference = 3B59430F5B45D4B4809786C3 /* Pods-Cliqz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLIQZ_URL_SCHEME = cliqz;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -6283,7 +6281,6 @@
 			baseConfigurationReference = F80048466CE6947783A54A4E /* Pods-Cliqz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
-				CLIQZ_URL_SCHEME = cliqz;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
