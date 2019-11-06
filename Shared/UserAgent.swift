@@ -47,7 +47,7 @@ open class UserAgent {
     }
 
     public static func mobileUserAgent() -> String {
-        return "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16C101"
+        return "Mozilla/5.0 (\(UIDevice.current.model); CPU OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/\(AppInfo.appVersion) Mobile/15E148 Safari/605.1.15"
     }
 
     public static func oppositeUserAgent() -> String {
