@@ -237,6 +237,9 @@ class TabLocationView: UIView {
         menuBadge.add(toParent: contentView)
         menuBadge.layout(onButton: pageOptionsButton)
         menuBadge.show(false)
+
+        // Make Privacy Indicator the frontmost to capture a large tap area
+        self.bringSubviewToFront(privacyIndicator)
     }
 
     required init(coder: NSCoder) {

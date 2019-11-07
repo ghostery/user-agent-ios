@@ -74,6 +74,24 @@ class PrivacyIndicatorView: UIView {
             self.addTrackersToChart()
         }
     }
+
+    // MARK: - UIView
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        // This view includes a UIButton that is larger than self. Make sure that it is tapped.
+
+        if clipsToBounds || isHidden || alpha == 0 {
+            return nil
+        }
+
+        for subview in subviews.reversed() {
+            let subPoint = subview.convert(point, from: self)
+            if let result = subview.hitTest(subPoint, with: event) {
+                return result
+            }
+        }
+
+        return nil
+    }
 }
 
 // MARK: - Private API
@@ -215,8 +233,12 @@ private extension PrivacyIndicatorView {
             $0.isActive = true
         }
 
+        self.clipsToBounds = false
         button.snp.makeConstraints { make in
-            make.bottom.top.leading.trailing.equalTo(self)
+            // make the button BIGGER than ourselves to have a large tap target
+            make.top.bottom.equalTo(self)
+            make.leading.equalTo(self).offset(-10)
+            make.trailing.equalTo(self).offset(10)
         }
     }
 
