@@ -47,7 +47,7 @@ export const ThemeWrapperComponentProvider = (bridgeManager) => ({ initialProps 
 
 export const useStyles = (getStyle) => {
   const theme = useContext(ThemeContext);
-  const styles = useMemo(() => StyleSheet.create(getStyle(theme)), [theme]);
+  const styles = useMemo(() => StyleSheet.create(getStyle(theme)), [theme.mode]);
   return styles;
 }
 
