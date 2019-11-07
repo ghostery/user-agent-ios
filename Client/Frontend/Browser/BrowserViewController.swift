@@ -836,12 +836,6 @@ class BrowserViewController: UIViewController {
         self.profile.bookmarks.shareItem(shareItem).uponQueue(.main) { success in
             print(success)
         }
-
-        var userData = [QuickActions.TabURLKey: shareItem.url]
-        if let title = shareItem.title {
-            userData[QuickActions.TabTitleKey] = title
-        }
-        QuickActions.sharedInstance.addDynamicApplicationShortcutItemOfType(.openLastBookmark, withUserData: userData, toApplication: .shared)
     }
 
     override func accessibilityPerformEscape() -> Bool {
