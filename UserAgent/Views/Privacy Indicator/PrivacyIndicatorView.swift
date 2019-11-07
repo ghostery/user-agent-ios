@@ -16,15 +16,25 @@ class PrivacyIndicatorView: UIView {
     /// Call this block whenever the user taps the Privacy Indicator
     public var onTapBlock: (() -> Void)?
 
-    /// Set the status to configure the Privacy Indicator
+    /// The Blocker instance to take data from.
+    ///
+    /// Setting this will update the privacy indicator's status status
+    public var blocker: FirefoxTabContentBlocker? {
+        didSet {
+            status = blocker?.status ?? .Disabled
+            update(with: blocker?.stats ?? TPPageStats())
+        }
+    }
+
+    override var bounds: CGRect { didSet { DispatchQueue.main.async { self.relayout() }}}
+
+    /// The `blocker`'s status.
     ///
     /// - Disabled: The Privacy Indicator is seen as strike through
+    /// - Whitelisted: The Privacy Indicator is seen as strike through
     /// - NoBlockedURLs: The Privacy Indicator is green
-    /// - Whitelisted: The Privacy Indicator is gray
     /// - Blocking: The Privacy Indicator is filling up with color representations of various trackers found on the page
-    public var status: BlockerStatus = .Blocking { didSet { updateStatus() }}
-
-    override var bounds: CGRect { didSet { relayout() }}
+    private var status: BlockerStatus = .Disabled { didSet { DispatchQueue.main.async { self.updateStatus() }}}
 
     private var cachedStats: [WTMCategory: Int] = [:]
     private lazy var canvasView = UIView()
@@ -86,6 +96,8 @@ private extension PrivacyIndicatorView {
 
         strikeThroughLayer?.removeFromSuperlayer()
         strikeThroughLayer = nil
+
+        updateStatus()
     }
 
     private func addTrackersToChart() {
@@ -174,15 +186,12 @@ private extension PrivacyIndicatorView {
         removeGreenIndicatorFromChart()
 
         switch status {
-        case .Disabled:
+        case .Disabled, .Whitelisted:
             // The Privacy Indicator is seen as strike through
             addStrikeThroughToChart()
         case .NoBlockedURLs:
             // The Privacy Indicator is green
             addGreenIndicatorToChart()
-        case .Whitelisted:
-            // The Privacy Indicator is gray
-            break
         case .Blocking:
             // The Privacy Indicator is filling up with color representations of various trackers found on the page
             addTrackersToChart()

@@ -11,16 +11,56 @@ import Shared
 
 class PrivacyDashboardView: UIView {
     // MARK: - Properties
-    var pageStats: TPPageStats? { didSet { self.updateStats() }}
-    var domainURL: URL?
+    var blocker: FirefoxTabContentBlocker? {
+        didSet {
+            guard let blocker = blocker else { return }
+            domainURL = blocker.tab?.currentURL()
+            privacyIndicator.blocker = blocker
+            updateLegend()
+        }
+    }
+
+    private var domainURL: URL?
 
     private var cachedLabelsForStats: [WTMCategory: UILabel] = [:]
     private var cachedNumberLabelsForStats: [WTMCategory: UILabel] = [:]
     private var cachedStackViewsForStats: [WTMCategory: UIStackView] = [:]
 
+    private lazy var stackViewForTrackingDisabled: UIStackView = {
+        let dotView = circleView(withColor: UIColor(named: "PrivacyIndicatorBackground")!)
+        let label = statLabel(labelled: Strings.PrivacyDashboard.Legend.TrackingDisabled)
+
+        let stackView = UIStackView(arrangedSubviews: [dotView, label])
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.isHidden = true
+        return stackView
+    }()
+
+    private lazy var stackViewForNoTrackersSeen: UIStackView = {
+        let dotView = circleView(withColor: UIColor(named: "NoTrackersSeen")!)
+        let label = statLabel(labelled: Strings.PrivacyDashboard.Legend.NoTrackersSeen)
+
+        let stackView = UIStackView(arrangedSubviews: [dotView, label])
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.isHidden = true
+        return stackView
+    }()
+
+    private lazy var stackViewForWhiteListed: UIStackView = {
+        let dotView = circleView(withColor: UIColor(named: "PrivacyIndicatorBackground")!)
+        let label = statLabel(labelled: Strings.PrivacyDashboard.Legend.Whitelisted)
+
+        let stackView = UIStackView(arrangedSubviews: [dotView, label])
+        stackView.spacing = 5
+        stackView.alignment = .center
+        stackView.isHidden = true
+        return stackView
+    }()
+
     private let allTrackersSeenOnLabel: UILabel = {
         let label = UILabel()
-        label.text = Strings.PrivacyDashboard.AllTrackersSeenOn
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.adjustsFontForContentSizeCategory = true
         return label
@@ -62,16 +102,22 @@ class PrivacyDashboardView: UIView {
     }
 
     // MARK: - API
-    func updateStats() {
-        guard let pageStats = pageStats else { return }
+    private func updateLegend() {
+        guard let pageStats = blocker?.stats else { return }
 
         DispatchQueue.main.async {
-            self.privacyIndicator.update(with: pageStats)
+            self.updateTitlelabel()
+
             self.domainLabel.text = self.domainURL?.baseDomain
             self.numberOfTrackersLabel.text = "\(pageStats.total)"
-        }
+            self.numberOfTrackersLabel.isHidden = self.blocker?.status == .Disabled || self.blocker?.status == .Whitelisted
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.stackViewForTrackingDisabled.isHidden = self.blocker?.status == .Disabled ? false : true
+            self.stackViewForNoTrackersSeen.isHidden = self.blocker?.status == .NoBlockedURLs ? false : true
+            self.stackViewForWhiteListed.isHidden = self.blocker?.status == .Whitelisted ? false : true
+
+            self.privacyIndicator.update(with: pageStats)
+
             let statsDict = WTMCategory.statsDict(from: pageStats)
 
             for statType in WTMCategory.all() {
@@ -80,6 +126,21 @@ class PrivacyDashboardView: UIView {
                 self.cachedStackViewsForStats[statType]?.isHidden = value <= 0
                 self.cachedStackViewsForStats[statType]?.alpha = value <= 0 ? 0 : 1
             }
+        }
+    }
+
+    private func updateTitlelabel() {
+        guard let blocker = self.blocker else { return }
+
+        switch blocker.status {
+        case .Disabled:
+            allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.TrackingDisabled
+        case .NoBlockedURLs:
+            allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.NoTrackersSeen
+        case .Whitelisted:
+            allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.Whitelisted
+        case .Blocking:
+            allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.BlockingEnabled
         }
     }
 }
@@ -115,6 +176,10 @@ private extension PrivacyDashboardView {
 
             pageStatsListStackView.addArrangedSubview(stackView)
         }
+
+        pageStatsListStackView.addArrangedSubview(stackViewForTrackingDisabled)
+        pageStatsListStackView.addArrangedSubview(stackViewForNoTrackersSeen)
+        pageStatsListStackView.addArrangedSubview(stackViewForWhiteListed)
 
         titleStackView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()

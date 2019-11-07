@@ -273,12 +273,10 @@ extension PhotonActionSheetProtocol {
 
         // Tracker Info
         let trackerInfoView = PrivacyDashboardView()
-        trackerInfoView.domainURL = blocker.tab?.currentURL()
-        trackerInfoView.pageStats = blocker.stats
+        trackerInfoView.blocker = blocker
         let trackerInfo = PhotonActionSheetItem(title: "", customView: trackerInfoView)
 
         // Whotracks.me link
-
         guard let baseDomain = blocker.tab?.currentURL()?.baseDomain, let appDel = UIApplication.shared.delegate as? AppDelegate else {
             return [menuActions, [trackerInfo], ]
         }
@@ -354,16 +352,8 @@ extension PhotonActionSheetProtocol {
         guard let blocker = tab.contentBlocker else {
             return []
         }
-        switch blocker.status {
-        case .NoBlockedURLs:
-            return []
-        case .Blocking:
-            return menuActionsForTrackingProtectionEnabled(for: tab)
-        case .Disabled:
-            return menuActionsForTrackingProtectionDisabled(for: tab)
-        case .Whitelisted:
-            return menuActionsForWhitelistedSite(for: tab)
-        }
+
+        return menuActionsForTrackingProtectionEnabled(for: tab)
     }
 
     // MARK: - Private methods

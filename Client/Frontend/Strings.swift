@@ -638,7 +638,19 @@ extension Strings {
 // Privacy Dashboard
 extension Strings {
     public struct PrivacyDashboard {
-        public static let AllTrackersSeenOn = NSLocalizedString("PrivacyDashboard.AllTrackersSeenOn", tableName: "UserAgent", comment: "")
-        public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFulLReport", tableName: "UserAgent", comment: "")
+        public struct Title {
+            public static let BlockingEnabled = NSLocalizedString("PrivacyDashboard.Title.BlockingEnabled", tableName: "UserAgent", comment: "")
+            public static let TrackingDisabled = NSLocalizedString("PrivacyDashboard.Title.TrackingDisabled", tableName: "UserAgent", comment: "")
+            public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Title.NoTrackersSeen", tableName: "UserAgent", comment: "")
+            public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Title.Whitelisted", tableName: "UserAgent", comment: "")
+        }
+
+        public struct Legend {
+            public static let TrackingDisabled = NSLocalizedString("PrivacyDashboard.Legend.TrackingDisabled", tableName: "UserAgent", comment: "")
+            public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Legend.NoTrackersSeen", tableName: "UserAgent", comment: "")
+            public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Legend.Whitelisted", tableName: "UserAgent", comment: "")
+        }
+
+        public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
     }
 }
