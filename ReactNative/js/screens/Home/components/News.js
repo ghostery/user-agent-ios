@@ -54,7 +54,7 @@ export default function News({ newsModule }) {
   const theme = useContext(ThemeContext);
   const news = useNews(newsModule);
 
-  const styles = useMemo(() => getStyles(theme), theme);
+  const styles = useMemo(() => getStyles(theme), [theme.mode]);
 
   if (news.length === 0) {
     return null;
