@@ -17,5 +17,13 @@
 "HomeView.SegmentedControl.Downloads.Title" = "Downloads";
 
 /* Privacy Dashboard */
-"PrivacyDashboard.AllTrackersSeenOn" = "Alle Tracker auf";
-"PrivacyDashboard.ViewFulLReport" = "Kompletten Bericht anzeigen";
+"PrivacyDashboard.ViewFullReport" = "Kompletten Bericht anzeigen";
+
+"PrivacyDashboard.Title.BlockingEnabled" = "Alle Tracker auf";
+"PrivacyDashboard.Title.TrackingDisabled" = "Anti-Tracking Deaktiviert";
+"PrivacyDashboard.Title.NoTrackersSeen" = "Keine Tracker auf";
+"PrivacyDashboard.Title.Whitelisted" = "Anti-Tracking ist AUS auf";
+
+"PrivacyDashboard.Legend.TrackingDisabled" = "Anti-tracking ist für den gesamten Browser ausgeschaltet. Dies wird nicht empfohlen.";
+"PrivacyDashboard.Legend.NoTrackersSeen" = "Wunderbar, diese Domain enthält keine Tracker!";
+"PrivacyDashboard.Legend.Whitelisted" = "Dieser Modus kann dir helfen, wenn einige der Funktionen der Webseite mit eingeschaltetem Anti-Tracking nicht richtig funktionieren.";

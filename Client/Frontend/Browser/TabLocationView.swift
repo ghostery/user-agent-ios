@@ -237,6 +237,9 @@ class TabLocationView: UIView {
         menuBadge.add(toParent: contentView)
         menuBadge.layout(onButton: pageOptionsButton)
         menuBadge.show(false)
+
+        // Make Privacy Indicator the frontmost to capture a large tap area
+        self.bringSubviewToFront(privacyIndicator)
     }
 
     required init(coder: NSCoder) {
@@ -373,7 +376,7 @@ extension TabLocationView: TabEventHandler {
         assertIsMainThread("UI changes must be on the main thread")
         guard let blocker = tab.contentBlocker else { return }
         privacyIndicator.update(with: blocker.stats)
-        privacyIndicator.status = blocker.status
+        privacyIndicator.blocker = blocker
     }
 
     func tabDidGainFocus(_ tab: Tab) {

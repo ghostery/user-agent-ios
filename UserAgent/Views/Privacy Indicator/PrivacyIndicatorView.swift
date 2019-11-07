@@ -16,15 +16,25 @@ class PrivacyIndicatorView: UIView {
     /// Call this block whenever the user taps the Privacy Indicator
     public var onTapBlock: (() -> Void)?
 
-    /// Set the status to configure the Privacy Indicator
+    /// The Blocker instance to take data from.
+    ///
+    /// Setting this will update the privacy indicator's status status
+    public var blocker: FirefoxTabContentBlocker? {
+        didSet {
+            status = blocker?.status ?? .Disabled
+            update(with: blocker?.stats ?? TPPageStats())
+        }
+    }
+
+    override var bounds: CGRect { didSet { DispatchQueue.main.async { self.relayout() }}}
+
+    /// The `blocker`'s status.
     ///
     /// - Disabled: The Privacy Indicator is seen as strike through
+    /// - Whitelisted: The Privacy Indicator is seen as strike through
     /// - NoBlockedURLs: The Privacy Indicator is green
-    /// - Whitelisted: The Privacy Indicator is gray
     /// - Blocking: The Privacy Indicator is filling up with color representations of various trackers found on the page
-    public var status: BlockerStatus = .Blocking { didSet { updateStatus() }}
-
-    override var bounds: CGRect { didSet { relayout() }}
+    private var status: BlockerStatus = .Disabled { didSet { DispatchQueue.main.async { self.updateStatus() }}}
 
     private var cachedStats: [WTMCategory: Int] = [:]
     private lazy var canvasView = UIView()
@@ -64,6 +74,24 @@ class PrivacyIndicatorView: UIView {
             self.addTrackersToChart()
         }
     }
+
+    // MARK: - UIView
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        // This view includes a UIButton that is larger than self. Make sure that it is tapped.
+
+        if clipsToBounds || isHidden || alpha == 0 {
+            return nil
+        }
+
+        for subview in subviews.reversed() {
+            let subPoint = subview.convert(point, from: self)
+            if let result = subview.hitTest(subPoint, with: event) {
+                return result
+            }
+        }
+
+        return nil
+    }
 }
 
 // MARK: - Private API
@@ -86,6 +114,8 @@ private extension PrivacyIndicatorView {
 
         strikeThroughLayer?.removeFromSuperlayer()
         strikeThroughLayer = nil
+
+        updateStatus()
     }
 
     private func addTrackersToChart() {
@@ -174,15 +204,12 @@ private extension PrivacyIndicatorView {
         removeGreenIndicatorFromChart()
 
         switch status {
-        case .Disabled:
+        case .Disabled, .Whitelisted:
             // The Privacy Indicator is seen as strike through
             addStrikeThroughToChart()
         case .NoBlockedURLs:
             // The Privacy Indicator is green
             addGreenIndicatorToChart()
-        case .Whitelisted:
-            // The Privacy Indicator is gray
-            break
         case .Blocking:
             // The Privacy Indicator is filling up with color representations of various trackers found on the page
             addTrackersToChart()
@@ -206,8 +233,12 @@ private extension PrivacyIndicatorView {
             $0.isActive = true
         }
 
+        self.clipsToBounds = false
         button.snp.makeConstraints { make in
-            make.bottom.top.leading.trailing.equalTo(self)
+            // make the button BIGGER than ourselves to have a large tap target
+            make.top.bottom.equalTo(self)
+            make.leading.equalTo(self).offset(-10)
+            make.trailing.equalTo(self).offset(10)
         }
     }
 
