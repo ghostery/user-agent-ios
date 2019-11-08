@@ -54,6 +54,8 @@
 
 "ActivityStream.PinnedSites.SectionTitle" = "Pinned Sites";
 
+"ActivityStream.News.BreakingLabel" = "BREAKING";
+
 /* Accessibility label for the Add Tab button in the Tab Tray. */
 "Add Tab" = "Add Tab";
 

@@ -40,6 +40,15 @@ extension Strings {
 }
 
 // Activity Stream.
+
+extension Strings {
+    public struct ActivityStream {
+        public struct News {
+            public static let BreakingLabel = NSLocalizedString("ActivityStream.News.BreakingLabel", comment: "")
+        }
+    }
+}
+
 extension Strings {
     public static let ASPocketTitle = NSLocalizedString("ActivityStream.Pocket.SectionTitle", comment: "Section title label for Recommended by Pocket section")
     public static let ASTopSitesTitle =  NSLocalizedString("ActivityStream.TopSites.SectionTitle", comment: "Section title label for Top Sites")
