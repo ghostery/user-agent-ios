@@ -27,6 +27,7 @@ extension ReactViewTheme {
             "separatorColor": UIColor.theme.homePanel.separatorColor.hexString,
             "urlColor": mode == "dark" ? "#6BA573" : "#579D61",
             "linkColor": mode == "dark" ? "#FFFFFF" : "#003172",
+            "redColor": "#E64C68",
         ]
     }
 }
