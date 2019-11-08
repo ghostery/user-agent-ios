@@ -524,9 +524,6 @@ class SettingsTableViewController: ThemedTableViewController {
         super.viewWillAppear(animated)
 
         settings = generateSettings()
-        NotificationCenter.default.addObserver(self, selector: #selector(syncDidChangeState), name: .ProfileDidStartSyncing, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(syncDidChangeState), name: .ProfileDidFinishSyncing, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(firefoxAccountDidChange), name: .FirefoxAccountChanged, object: nil)
 
         applyTheme()
     }
@@ -541,14 +538,6 @@ class SettingsTableViewController: ThemedTableViewController {
         refresh()
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-        [Notification.Name.ProfileDidStartSyncing, Notification.Name.ProfileDidFinishSyncing, Notification.Name.FirefoxAccountChanged].forEach { name in
-            NotificationCenter.default.removeObserver(self, name: name, object: nil)
-        }
-    }
-
     // Override to provide settings in subclasses
     func generateSettings() -> [SettingSection] {
         return []
@@ -561,10 +550,6 @@ class SettingsTableViewController: ThemedTableViewController {
     }
 
     @objc fileprivate func refresh() {
-        self.tableView.reloadData()
-    }
-
-    @objc func firefoxAccountDidChange() {
         self.tableView.reloadData()
     }
 

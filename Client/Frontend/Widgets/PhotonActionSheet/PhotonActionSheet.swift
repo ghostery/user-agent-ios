@@ -119,9 +119,6 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
                 make.width.equalTo(width)
             }
         }
-
-        NotificationCenter.default.addObserver(self, selector: #selector(stopRotateSyncIcon), name: .ProfileDidFinishSyncing, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(stopRotateSyncIcon), name: .ProfileDidStartSyncing, object: nil)
     }
 
     func applyTheme() {
