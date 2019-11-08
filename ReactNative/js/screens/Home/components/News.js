@@ -59,6 +59,7 @@ export default function News({ newsModule }) {
   if (news.length === 0) {
     return null;
   }
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -78,6 +79,7 @@ export default function News({ newsModule }) {
             <ListItem
               url={item.url}
               title={item.title}
+              label={item.breaking_label ? NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel'] : null}
               onPress={() => openLink(item.url)}
             />
             <View style={styles.separator} />

@@ -16,6 +16,16 @@ const getStyle = (theme) => ({
     paddingBottom: 10,
     flexDirection: 'row',
   },
+  firstRow: {
+    flexDirection: 'row',
+
+  },
+  label: {
+    color: theme.redColor,
+    fontSize: 12,
+    top: 1,
+    left: 5,
+  },
   rowText: {
     color: theme.textColor,
     marginLeft: 10,
@@ -32,7 +42,7 @@ const getStyle = (theme) => ({
   },
 });
 
-export default function ListItem({ url, title, onPress }) {
+export default function ListItem({ url, title, onPress, label }) {
   const styles = useStyles(getStyle);
 
   const name = parse(url).domain;
@@ -44,7 +54,12 @@ export default function ListItem({ url, title, onPress }) {
       <View style={styles.row}>
         <Logo url={url} size={48} />
         <View style={styles.rowText}>
-          <Text style={styles.rowTitle}>{name}</Text>
+          <View style={styles.firstRow}>
+            <Text style={styles.rowTitle}>{name}</Text>
+            {label &&
+              <Text style={styles.label}>{label}</Text>
+            }
+          </View>
           <Text
             numberOfLines={2}
             style={styles.rowDescription}
