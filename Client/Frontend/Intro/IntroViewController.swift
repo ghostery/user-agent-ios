@@ -21,6 +21,7 @@ struct IntroUX {
     static let PageControlHeight = 40
     static let FadeDuration = 0.25
     static let LogoImageSize = 30.0
+    static let StartBrowsingBottomOffset = -50.0
 }
 
 protocol IntroViewControllerDelegate: AnyObject {
@@ -367,7 +368,7 @@ class CardView: UIView {
             button.setTitle(buttonText, for: .normal)
             addSubview(button)
             button.snp.makeConstraints { make in
-                make.bottom.equalTo(self).offset(-50)
+                make.bottom.equalTo(self).offset(IntroUX.StartBrowsingBottomOffset)
                 make.centerX.equalTo(self)
             }
             // When there is a button reduce the spacing to make more room for text
