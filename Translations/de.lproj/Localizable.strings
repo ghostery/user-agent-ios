@@ -847,7 +847,7 @@
 /* "Enable/Disable adult filter setting" */
 "Settings.AdultFilterMode" = "18+ Seiten blockieren";
 
-"Settings.AdBlocking" = "Adblocker";
+"Settings.AdBlocking" = "Werbeblocker";
 "Settings.TrackingProtection" = "Tracking Protection";
 
 /* Localized String for German region */
