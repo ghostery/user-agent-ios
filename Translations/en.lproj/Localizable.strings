@@ -847,6 +847,9 @@
 /* "Block explicit content" */
 "Settings.AdultFilterMode" = "Block Explicit Content";
 
+"Settings.AdBlocking" = "Adblocker";
+"Settings.TrackingProtection" = "Tracking Protection";
+
 /* Localized String for German region */
 "region-DE" = "Germany";
 
