@@ -20,7 +20,7 @@ private let defaultTextAndTint = UIColor.Grey10
 private class DarkTableViewColor: TableViewColor {
     override var rowText: UIColor { return defaultTextAndTint }
     override var rowDetailText: UIColor { return UIColor.Grey30 }
-    override var disabledRowText: UIColor { return UIColor.Grey40 }
+    override var disabledRowText: UIColor { return UIColor.Grey80 }
     override var headerTextLight: UIColor { return UIColor.Grey30 }
     override var headerTextDark: UIColor { return UIColor.Grey30 }
     override var syncText: UIColor { return defaultTextAndTint }
