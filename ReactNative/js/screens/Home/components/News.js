@@ -54,11 +54,12 @@ export default function News({ newsModule }) {
   const theme = useContext(ThemeContext);
   const news = useNews(newsModule);
 
-  const styles = useMemo(() => getStyles(theme), theme);
+  const styles = useMemo(() => getStyles(theme), [theme.mode]);
 
   if (news.length === 0) {
     return null;
   }
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -78,6 +79,7 @@ export default function News({ newsModule }) {
             <ListItem
               url={item.url}
               title={item.title}
+              label={item.breaking_label ? NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel'] : null}
               onPress={() => openLink(item.url)}
             />
             <View style={styles.separator} />

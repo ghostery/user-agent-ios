@@ -54,6 +54,8 @@
 
 "ActivityStream.PinnedSites.SectionTitle" = "Angeheftete Seiten";
 
+"ActivityStream.News.BreakingLabel" = "EILMENDUNG";
+
 /* Accessibility label for the Add Tab button in the Tab Tray. */
 "Add Tab" = "Tab hinzufügen";
 

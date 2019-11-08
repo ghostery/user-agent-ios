@@ -24,12 +24,23 @@ class BrowserCliqz: RCTEventEmitter {
         "toolkit.telemetry.enabled": AppConstants.PrefSendUsageData,
     ]
 
+    private let OtherPrefMapping = [
+        "distribution.version": { AppInfo.appVersion },
+    ]
+
     @objc(getPref:resolve:reject:)
     public func getPref(key: NSString, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
+
+        if let valueGetter = OtherPrefMapping[key as String] {
+            resolve(valueGetter())
+            return
+        }
+
         guard let pref = PrefMapping[key as String] else {
             resolve(nil)
             return
         }
+
         self.withAppDelegate { appDel in
             guard let profile = appDel.profile else {
                 resolve(nil)

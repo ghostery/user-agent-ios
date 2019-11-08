@@ -18,6 +18,7 @@ class LocaleConstants: NSObject {
             "locale": Locale.current.identifier,
             "ActivityStream.TopSites.SectionTitle": Strings.ASTopSitesTitle,
             "ActivityStream.PinnedSites.SectionTitle": Strings.ASPinnedSitesTitle,
+            "ActivityStream.News.BreakingLabel": Strings.ActivityStream.News.BreakingLabel,
         ]
     }
 
