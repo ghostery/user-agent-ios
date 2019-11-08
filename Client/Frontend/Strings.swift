@@ -420,6 +420,14 @@ extension Strings {
     public static let SettingsAdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
 }
 
+// Ad Blocking and Tracking Protection
+extension Strings {
+    public struct Settings {
+        public static let AdBlocking = NSLocalizedString("Settings.AdBlocking", comment: "Block ads")
+        public static let TrackingProtection = NSLocalizedString("Settings.TrackingProtection", comment: "Block ads")
+    }
+}
+
 // Context menu ButtonToast instances.
 extension Strings {
     public static let ContextMenuButtonToastNewTabOpenedLabelText = NSLocalizedString("ContextMenu.ButtonToast.NewTabOpened.LabelText", comment: "The label text in the Button Toast for switching to a fresh New Tab.")
