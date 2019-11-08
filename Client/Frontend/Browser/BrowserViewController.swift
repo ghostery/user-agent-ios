@@ -39,6 +39,7 @@ protocol HomeViewControllerProtocol: Themeable {
     func scrollToTop(animated: Bool)
     func willMove(toParent parent: UIViewController?)
     func removeFromParent()
+    func switchView(segment: HomeViewController.Segment)
 }
 
 class BrowserViewController: UIViewController {

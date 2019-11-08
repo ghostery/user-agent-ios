@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
 
     fileprivate let profile: Profile
 
-    private enum Segment {
+    enum Segment {
         case topSites
         case bookmarks
         case history
@@ -165,6 +165,11 @@ extension HomeViewController: HomeViewControllerProtocol {
     func applyTheme() {
         view.backgroundColor = UIColor.theme.browser.background
         self.allViews.forEach({ ($0 as? Themeable)?.applyTheme() })
+    }
+
+    func switchView(segment: HomeViewController.Segment) {
+        self.showView(segment: segment)
+        self.segmentedControl.selectedSegmentIndex = self.segments.firstIndex(of: segment) ?? 0
     }
 
     func scrollToTop() {
