@@ -148,6 +148,7 @@ private extension HistoryView {
             self.tableView.deleteRows(at: [indexPath], with: .right)
             self.tableView.endUpdates()
             self.updateEmptyPanelState()
+            self.profile.history.setTopSitesNeedsInvalidation()
         }
     }
 
