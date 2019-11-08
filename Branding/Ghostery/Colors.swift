@@ -20,6 +20,7 @@ extension UIColor {
     static let LightSky = UIColor(named: "LightSky")!
     static let BrightBlue = UIColor(named: "BrightBlue")!
     static let DarkBlue = UIColor(named: "DarkBlue")!
+    static let LightBlue = UIColor(named: "LightBlue")!
 
     // Functional Colors
     static let Purple = UIColor(named: "Purple")!
