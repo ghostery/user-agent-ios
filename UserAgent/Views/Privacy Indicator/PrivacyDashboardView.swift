@@ -215,7 +215,7 @@ private extension PrivacyDashboardView {
 
     func statLabel(labelled text: String) -> UILabel {
         let label = UILabel()
-        label.textColor = UIColor.Grey90
+        label.textColor = UIColor.theme.textField.textAndTint
         label.text = text
         label.numberOfLines = 0
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
