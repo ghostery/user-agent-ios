@@ -44,8 +44,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         var actions: [[PhotonActionSheetItem]] = []
 
-        actions.append(getLibraryActions(vcDelegate: self))
-        actions.append(getOtherPanelActions(vcDelegate: self))
+        actions.append(getLibraryActions(vcDelegate: self) + getOtherPanelActions(vcDelegate: self))
         // force a modal if the menu is being displayed in compact split screen
         let shouldSuppress = !topTabsVisible && UIDevice.current.isPad
         presentSheetWith(actions: actions, on: self, from: button, suppressPopover: shouldSuppress)

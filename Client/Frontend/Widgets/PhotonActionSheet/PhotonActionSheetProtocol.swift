@@ -57,14 +57,9 @@ extension PhotonActionSheetProtocol {
     typealias PageOptionsVC = SettingsDelegate & PresentingModalViewControllerDelegate & UIViewController
 
     func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
-        var items: [PhotonActionSheetItem] = []
-
-        let trackingProtectionItems = self.trackingProtectionItems()
-        items.append(contentsOf: trackingProtectionItems)
-        let openSettingsItem = self.openSettingsItem(vcDelegate: vcDelegate)
-        items.append(openSettingsItem)
-
-        return items
+        return [
+            self.openSettingsItem(vcDelegate: vcDelegate),
+        ]
     }
 
     fileprivate func shareFileURL(url: URL, file: URL?, buttonView: UIView, presentableVC: PresentableVC) {
@@ -357,7 +352,6 @@ extension PhotonActionSheetProtocol {
     }
 
     // MARK: - Private methods
-
     private func trackingProtectionItems() -> [PhotonActionSheetItem] {
         let trackingProtectionEnabled = FirefoxTabContentBlocker.isTrackingProtectionEnabled(tabManager: self.tabManager)
         let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: trackingProtectionEnabled, accessory: .Switch) { action in
