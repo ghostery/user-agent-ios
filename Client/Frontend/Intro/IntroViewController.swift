@@ -41,7 +41,7 @@ class IntroViewController: UIViewController {
         button.setTitle(Strings.CardSkipButtonTitle, for: UIControl.State())
         button.setTitleColor(IntroUX.SkipButtonColor, for: UIControl.State())
         button.addTarget(self, action: #selector(IntroViewController.startBrowsing), for: UIControl.Event.touchUpInside)
-        button.accessibilityIdentifier = "IntroViewController.skipButton"
+        button.accessibilityIdentifier = "IntroViewController.startBrowsingButton"
         return button
     }()
 

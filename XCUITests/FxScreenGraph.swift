@@ -307,7 +307,7 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
             }
 
             if i > 0 {
-                let startBrowsingButton = app.buttons["IntroViewController.skipButton"]
+                let startBrowsingButton = app.buttons["IntroViewController.startBrowsingButton"]
                 screenState.tap(startBrowsingButton, to: BrowserTab)
             }
         }
@@ -760,7 +760,7 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
         }
         screenState.backAction = {
             introScrollView.swipeLeft()
-            let startBrowsingButton = app.buttons["IntroViewController.skipButton"]
+            let startBrowsingButton = app.buttons["IntroViewController.startBrowsingButton"]
             startBrowsingButton.tap()
         }
     }
