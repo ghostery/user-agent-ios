@@ -161,14 +161,20 @@ class TrackingProtectionClearable: Clearable {
     }
 
     func clear() -> Success {
-        let result = Success()
+        let result1 = Success()
         ContentBlocker.shared.clearAdsWhitelist() {
-            result.fill(Maybe(success: ()))
+            result1.fill(Maybe(success: ()))
         }
+        let result2 = Success()
         ContentBlocker.shared.clearTrackingWhitelist() {
-            result.fill(Maybe(success: ()))
+            result2.fill(Maybe(success: ()))
         }
-        return result
+        return all([
+            result1,
+            result2,
+        ]).bind() { (_) -> Success in
+            return succeed()
+        }
     }
 }
 
