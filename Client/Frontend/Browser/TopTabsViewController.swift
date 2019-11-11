@@ -65,6 +65,7 @@ class TopTabsViewController: UIViewController {
 
     lazy var privateModeButton: PrivateModeButton = {
         let privateModeButton = PrivateModeButton()
+        privateModeButton.imageEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         privateModeButton.semanticContentAttribute = .forceLeftToRight
         privateModeButton.accessibilityIdentifier = "TopTabsViewController.privateModeButton"
         privateModeButton.addTarget(self, action: #selector(TopTabsViewController.togglePrivateModeTapped), for: .touchUpInside)
@@ -137,7 +138,7 @@ class TopTabsViewController: UIViewController {
         privateModeButton.snp.makeConstraints { make in
             make.centerY.equalTo(view)
             make.leading.equalTo(view).offset(10)
-            make.height.equalTo(view.snp.height)
+            make.size.equalTo(view.snp.height)
         }
         topTabFader.snp.makeConstraints { make in
             make.top.bottom.equalTo(view)

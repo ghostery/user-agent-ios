@@ -17,7 +17,8 @@ const getStyles = (theme) => ({
     alignItems: 'center',
   },
   circle: {
-    backgroundColor: theme.separatorColor,
+    borderColor: theme.separatorColor,
+    borderWidth: 1,
     padding: 20,
     borderRadius: 60,
   },

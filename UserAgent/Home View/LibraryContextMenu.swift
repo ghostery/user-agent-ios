@@ -43,7 +43,7 @@ extension LibraryContextMenu {
         let openInNewTabAction = PhotonActionSheetItem(title: Strings.OpenInNewTabContextMenuTitle, iconString: "quick_action_new_tab") { action in
             libraryViewDelegate?.libraryDidRequestToOpenInNewTab(siteURL, isPrivate: false)
         }
-        let openInNewPrivateTabAction = PhotonActionSheetItem(title: Strings.OpenInNewPrivateTabContextMenuTitle, iconString: "quick_action_new_private_tab") { action in
+        let openInNewPrivateTabAction = PhotonActionSheetItem(title: Strings.OpenInNewPrivateTabContextMenuTitle, iconString: "forgetMode") { action in
             libraryViewDelegate?.libraryDidRequestToOpenInNewTab(siteURL, isPrivate: true)
         }
         return [openInNewTabAction, openInNewPrivateTabAction]
