@@ -686,8 +686,8 @@ private class EmptyPrivateTabsView: UIView {
     }()
 
     fileprivate var iconImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage.templateImageNamed("largePrivateMask"))
-        imageView.tintColor = UIColor.Grey60
+        let imageView = UIImageView(image: UIImage.templateImageNamed("forgetMode"))
+        imageView.tintColor = UIColor.white
         return imageView
     }()
 
@@ -751,7 +751,11 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
         return button
     }()
 
-    lazy var maskButton = PrivateModeButton()
+    lazy var maskButton: PrivateModeButton = {
+        let button = PrivateModeButton()
+        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return button
+    }()
     fileprivate let sideOffset: CGFloat = 32
 
     fileprivate override init(frame: CGRect) {
@@ -780,7 +784,7 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
         maskButton.snp.makeConstraints { make in
             make.top.equalTo(self)
             make.leading.equalTo(self).offset(sideOffset)
-            make.height.equalTo(toolbarButtonSize.height)
+            make.size.equalTo(toolbarButtonSize)
         }
 
         applyTheme()

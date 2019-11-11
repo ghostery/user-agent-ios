@@ -13,7 +13,8 @@ class PrivateModeButton: ToggleButton, PrivateModeUI {
         super.init(frame: frame)
         accessibilityLabel = Strings.PrivateBrowsingToggleAccessibilityLabel
         accessibilityHint = Strings.PrivateBrowsingToggleAccessibilityHint
-        self.setTitle(Strings.PrivateTabsViewButtonTitle, for: [])
+        let maskImage = UIImage(named: "forgetMode")?.withRenderingMode(.alwaysTemplate)
+        setImage(maskImage, for: [])
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -49,3 +50,26 @@ extension TabsButton {
         return tabsButton
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct PrivateModeButtonRepresentable: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let button = PrivateModeButton()
+        button.setSelected(false)
+        return button
+    }
+
+    func updateUIView(_ view: UIView, context: Context) {
+
+    }
+}
+
+@available(iOS 13.0, *)
+struct PrivateModeButton_Preview: PreviewProvider {
+    static var previews: some View {
+        PrivateModeButtonRepresentable()
+    }
+}
+#endif

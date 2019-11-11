@@ -8,7 +8,7 @@
 "Menu.FindInPageAction.Title" = "In Seite suchen";
 
 /* Label for the button, displayed in the menu, used to open a new private tab. */
-"Menu.NewPrivateTabAction.Title" = "Neuen privaten Tab öffnen";
+"Menu.NewPrivateTabAction.Title" = "Neuen Vergessen-Modus Tab öffnen";
 
 /* Label for the button, displayed in the menu, used to open a new tab */
 "Menu.NewTabAction.Title" = "Neuen Tab öffnen";
