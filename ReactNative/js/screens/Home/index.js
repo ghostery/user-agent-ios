@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { parse } from 'tldts';
 import SpeedDial from '../../components/SpeedDial';
 import News from './components/News';
 import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
@@ -61,9 +62,10 @@ const styles = StyleSheet.create({
 });
 
 export default function Home({ speedDials, pinnedSites, newsModule }) {
+  const pinnedDomains = new Set([...pinnedSites.map(s => parse(s.url).domain)]);
   const dials = [
     ...pinnedSites.map(dial => ({ ...dial, pinned: true })),
-    ...speedDials,
+    ...speedDials.filter(dial => !pinnedDomains.has(parse(dial.url).domain)),
   ].slice(0, 8)
 
   return (
