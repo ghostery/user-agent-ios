@@ -1,9 +1,20 @@
 /* Description for the 'Welcome' panel in the First Run tour. */
-"Intro.Slides.Welcome.Description" = "Ein moderner Browser für Mobilgeräte von Mozilla, der gemeinnützigen Organisation, die sich für ein freies und offenes Web einsetzt.";
+"Intro.Slides.Welcome.Description" = "Wir schaffen eine unabhängige europäische Alternative zu den marktbeherrschenden US-Plattformen. Vielen Dank für dein Vertrauen und dass du den Weg in die digitale Ära mit uns gehst.";
 
-/* See http://mzl.la/1T8gxwo */
-"Start Browsing" = "Lossurfen";
+/* Title for the 'Search' panel in the First Run tour. */
+"Intro.Slides.Search.Title" = "Anonyme Schnellsuche";
 
-/* The button that opens the sign in page for sync. See http://mzl.la/1T8gxwo */
-"Turn on Sync…" = "Sync aktivieren…";
+/* Description for the 'Search' panel in the First Run tour. */
+"Intro.Slides.Search.Description" = "Unsere anonyme Suchmaschine liefert dir noch während der Eingabe Ergebnisse in Echtzeit. Keine Werbung. Keine Datensammlung.";
 
+/* Title for the 'AntiTracking' panel in the First Run tour. */
+"Intro.Slides.AntiTracking.Title" = "Höchster Datenschutz";
+
+/* Description for the 'AntiTracking' panel in the First Run tour. */
+"Intro.Slides.AntiTracking.Description" = "Unser intelligentes Anti-Tracking verhindert, dass Datensammler dich quer durchs Netz verfolgen. Unser Werbeblocker hält dir aufdringliche Anzeigen vom Hals.";
+
+/* Button title for starting browsing. */
+"Intro.Slides.Welcome.Button.Title" = "Los Geht's";
+
+/* Button title for skipping tour. */
+"Intro.Slides.Skip.Title" = "Überspringen";

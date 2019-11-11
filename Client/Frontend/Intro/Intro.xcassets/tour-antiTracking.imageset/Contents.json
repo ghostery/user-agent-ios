@@ -1,0 +1,25 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "filename" : "antiTracking-1.png"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "antiTracking.png",
+      "locale" : "de"
+    },
+    {
+      "idiom" : "universal",
+      "filename" : "antiTracking-2.png",
+      "locale" : "en"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "properties" : {
+    "localizable" : true
+  }
+}

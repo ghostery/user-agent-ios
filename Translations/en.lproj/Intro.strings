@@ -1,9 +1,20 @@
 /* Description for the 'Welcome' panel in the First Run tour. */
-"Intro.Slides.Welcome.Description" = "A modern mobile browser from Mozilla, the non-profit committed to a free and open web.";
+"Intro.Slides.Welcome.Description" = "We create a European independent alternative to the market-dominating US platforms. Thank you for your trust and for taking the path into the digital era with us.";
 
-/* See http://mzl.la/1T8gxwo */
-"Start Browsing" = "Start Browsing";
+/* Title for the 'Search' panel in the First Run tour. */
+"Intro.Slides.Search.Title" = "Anonymous Quick Search";
 
-/* The button that opens the sign in page for sync. See http://mzl.la/1T8gxwo */
-"Turn on Sync…" = "Turn on Sync…";
+/* Description for the 'Search' panel in the First Run tour. */
+"Intro.Slides.Search.Description" = "Our anonymous search engine provides you with real-time results as you type. No ads. No data collection.";
 
+/* Title for the 'AntiTracking' panel in the First Run tour. */
+"Intro.Slides.AntiTracking.Title" = "Maximum Privacy";
+
+/* Description for the 'AntiTracking' panel in the First Run tour. */
+"Intro.Slides.AntiTracking.Description" = "Our intelligent Anti-Tracking prevents data collectors from tracking you across the web. Our ad blocker keeps obtrusive ads at bay.";
+
+/* Button title for starting browsing. */
+"Intro.Slides.Welcome.Button.Title" = "Enjoy Cliqz";
+
+/* Button title for skipping tour. */
+"Intro.Slides.Skip.Title" = "Skip";

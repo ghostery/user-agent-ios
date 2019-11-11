@@ -579,9 +579,13 @@ extension Strings {
 
 // Intro Onboarding slides
 extension Strings {
-    public static let CardTextWelcome = NSLocalizedString("Intro.Slides.Welcome.Description", tableName: "Intro", comment: "Description for the 'Welcome' panel in the First Run tour.")
-    public static let SignInButtonTitle = NSLocalizedString("Turn on Sync…", tableName: "Intro", comment: "The button that opens the sign in page for sync. See http://mzl.la/1T8gxwo")
-    public static let StartBrowsingButtonTitle = NSLocalizedString("Start Browsing", tableName: "Intro", comment: "See http://mzl.la/1T8gxwo")
+    public static let SearchCardTitle = NSLocalizedString("Intro.Slides.Search.Title", tableName: "Intro", comment: "Title for the 'Search' panel in the First Run tour.")
+    public static let SearchCardDescription = NSLocalizedString("Intro.Slides.Search.Description", tableName: "Intro", comment: "Description for the 'Search' panel in the First Run tour.")
+    public static let AntiTrackingCardTitle = NSLocalizedString("Intro.Slides.AntiTracking.Title", tableName: "Intro", comment: "Title for the 'AntiTracking' panel in the First Run tour.")
+    public static let AntiTrackingCardDescription = NSLocalizedString("Intro.Slides.AntiTracking.Description", tableName: "Intro", comment: "Description for the 'AntiTracking' panel in the First Run tour.")
+    public static let WelcomeCardDescription = NSLocalizedString("Intro.Slides.Welcome.Description", tableName: "Intro", comment: "Description for the 'Welcome' panel in the First Run tour.")
+    public static let WelcomeCardButtonTitle = NSLocalizedString("Intro.Slides.Welcome.Button.Title", tableName: "Intro", comment: "Button title for starting browsing.")
+    public static let CardSkipButtonTitle = NSLocalizedString("Intro.Slides.Skip.Title", tableName: "Intro", comment: "Button title for skipping tour.")
 }
 
 // Keyboard short cuts
