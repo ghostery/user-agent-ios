@@ -17,13 +17,16 @@
 "HomeView.SegmentedControl.Downloads.Title" = "Downloads";
 
 /* Privacy Dashboard */
-"PrivacyDashboard.ViewFullReport" = "View full Report";
+"PrivacyDashboard.ViewFullReport" = "Statistical Report";
 
-"PrivacyDashboard.Title.BlockingEnabled" = "All Trackers seen on";
-"PrivacyDashboard.Title.TrackingDisabled" = "Anti-Tracking Disabled";
+"PrivacyDashboard.Switch.AntiTracking" = "Anti-Tracking on this page";
+"PrivacyDashboard.Switch.AdBlock" = "Ad-Block on this page";
+
+"PrivacyDashboard.Title.BlockingEnabled" = "Trackers & Ads blocked";
 "PrivacyDashboard.Title.NoTrackersSeen" = "No trackers seen on";
-"PrivacyDashboard.Title.Whitelisted" = "Anti-Tracking is OFF on";
+"PrivacyDashboard.Title.AdBlockWhitelisted" = "Trackers blocked";
+"PrivacyDashboard.Title.AntiTrackingWhitelisted" = "Ads blocked";
+"PrivacyDashboard.Title.Whitelisted" = "Disabled on this page";
 
-"PrivacyDashboard.Legend.TrackingDisabled" = "Anti-Tracking is disabled for all websites you visit. This is not recommended.";
 "PrivacyDashboard.Legend.NoTrackersSeen" = "This domain does not contain any trackers, which is great!";
-"PrivacyDashboard.Legend.Whitelisted" = "This mode might be helpful in case some functions of the website interfere with anti-tracking.";
+"PrivacyDashboard.Legend.Whitelisted" = "This mode might be helpful in case Anti-tracking or Ad-Block interfere with some website functions.";

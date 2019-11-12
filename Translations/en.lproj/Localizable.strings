@@ -849,8 +849,8 @@
 /* "Block explicit content" */
 "Settings.AdultFilterMode" = "Block Explicit Content";
 
-"Settings.AdBlocking" = "Adblocker";
-"Settings.TrackingProtection" = "Tracking Protection";
+"Settings.PrivacyDashboard.Title" = "Privacy Dashboard";
+"Settings.PrivacyDashboard.Description" = "Anti-Tracking and Ad-Blocker protect your privacy";
 
 /* Localized String for German region */
 "region-DE" = "Germany";

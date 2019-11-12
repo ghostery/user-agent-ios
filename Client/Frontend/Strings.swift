@@ -423,8 +423,10 @@ extension Strings {
 // Ad Blocking and Tracking Protection
 extension Strings {
     public struct Settings {
-        public static let AdBlocking = NSLocalizedString("Settings.AdBlocking", comment: "Block ads")
-        public static let TrackingProtection = NSLocalizedString("Settings.TrackingProtection", comment: "Block ads")
+        public struct PrivacyDashboard {
+            public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
+            public static let Description = NSLocalizedString("Settings.PrivacyDashboard.Description", comment: "Privacy Dashboard Description")
+        }
     }
 }
 
@@ -661,17 +663,22 @@ extension Strings {
     public struct PrivacyDashboard {
         public struct Title {
             public static let BlockingEnabled = NSLocalizedString("PrivacyDashboard.Title.BlockingEnabled", tableName: "UserAgent", comment: "")
-            public static let TrackingDisabled = NSLocalizedString("PrivacyDashboard.Title.TrackingDisabled", tableName: "UserAgent", comment: "")
             public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Title.NoTrackersSeen", tableName: "UserAgent", comment: "")
+            public static let AdBlockWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AdBlockWhitelisted", tableName: "UserAgent", comment: "")
+            public static let AntiTrackingWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AntiTrackingWhitelisted", tableName: "UserAgent", comment: "")
             public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Title.Whitelisted", tableName: "UserAgent", comment: "")
         }
 
         public struct Legend {
-            public static let TrackingDisabled = NSLocalizedString("PrivacyDashboard.Legend.TrackingDisabled", tableName: "UserAgent", comment: "")
             public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Legend.NoTrackersSeen", tableName: "UserAgent", comment: "")
             public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Legend.Whitelisted", tableName: "UserAgent", comment: "")
         }
 
         public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
+
+        public struct Switch {
+             public static let AntiTracking = NSLocalizedString("PrivacyDashboard.Switch.AntiTracking", tableName: "UserAgent", comment: "")
+            public static let AdBlock = NSLocalizedString("PrivacyDashboard.Switch.AdBlock", tableName: "UserAgent", comment: "")
+        }
     }
 }

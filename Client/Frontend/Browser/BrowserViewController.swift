@@ -1274,12 +1274,7 @@ extension BrowserViewController: URLBarDelegate {
         let urlActions = self.getLongPressLocationBarActions(with: urlBar)
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
-        if let tab = self.tabManager.selectedTab {
-            let trackingProtectionMenu = self.getTrackingMenu(for: tab, presentingOn: urlBar)
-            self.presentSheetWith(actions: [urlActions, trackingProtectionMenu], on: self, from: urlBar)
-        } else {
-            self.presentSheetWith(actions: [urlActions], on: self, from: urlBar)
-        }
+        self.presentSheetWith(actions: [urlActions], on: self, from: urlBar)
     }
 
     func urlBarDidPressScrollToTop(_ urlBar: URLBarView) {
