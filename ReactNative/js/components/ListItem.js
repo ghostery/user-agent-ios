@@ -10,15 +10,10 @@ import { useStyles } from '../contexts/theme';
 
 const getStyle = (theme) => ({
   row: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
     flexDirection: 'row',
   },
   firstRow: {
     flexDirection: 'row',
-
   },
   label: {
     color: theme.redColor,

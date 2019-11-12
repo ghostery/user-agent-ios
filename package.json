@@ -18,7 +18,7 @@
   "dependencies": {
     "@cliqz/component-ui-logo": "^0.4.4",
     "@cliqz/indexeddbshim": "^4.1.2",
-    "browser-core-user-agent-ios": "https://s3.amazonaws.com/cdncliqz/update/edge/user-agent-ios/master/3.41.0.c4a9f05.tgz",
+    "browser-core-user-agent-ios": "https://s3.amazonaws.com/cdncliqz/update/edge/user-agent-ios/master/3.41.0.e4cc6e1.tgz",
     "cliqz-logo-database": "^0.4.3",
     "html-entities": "^1.2.1",
     "page-metadata-parser": "1.1.4",
