@@ -26,17 +26,6 @@ class PrivacyDashboardView: UIView {
     private var cachedNumberLabelsForStats: [WTMCategory: UILabel] = [:]
     private var cachedStackViewsForStats: [WTMCategory: UIStackView] = [:]
 
-    private lazy var stackViewForTrackingDisabled: UIStackView = {
-        let dotView = circleView(withColor: UIColor(named: "PrivacyIndicatorBackground")!)
-        let label = statLabel(labelled: Strings.PrivacyDashboard.Legend.TrackingDisabled)
-
-        let stackView = UIStackView(arrangedSubviews: [dotView, label])
-        stackView.spacing = 5
-        stackView.alignment = .center
-        stackView.isHidden = true
-        return stackView
-    }()
-
     private lazy var stackViewForNoTrackersSeen: UIStackView = {
         let dotView = circleView(withColor: UIColor(named: "NoTrackersSeen")!)
         let label = statLabel(labelled: Strings.PrivacyDashboard.Legend.NoTrackersSeen)
@@ -63,6 +52,8 @@ class PrivacyDashboardView: UIView {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 3
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
 
@@ -112,7 +103,6 @@ class PrivacyDashboardView: UIView {
             self.numberOfTrackersLabel.text = "\(pageStats.total)"
             self.numberOfTrackersLabel.isHidden = self.blocker?.status == .Disabled || self.blocker?.status == .Whitelisted
 
-            self.stackViewForTrackingDisabled.isHidden = self.blocker?.status == .Disabled ? false : true
             self.stackViewForNoTrackersSeen.isHidden = self.blocker?.status == .NoBlockedURLs ? false : true
             self.stackViewForWhiteListed.isHidden = self.blocker?.status == .Whitelisted ? false : true
 
@@ -133,10 +123,13 @@ class PrivacyDashboardView: UIView {
         guard let blocker = self.blocker else { return }
 
         switch blocker.status {
-        case .Disabled:
-            allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.TrackingDisabled
+        case .Disabled: break
         case .NoBlockedURLs:
             allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.NoTrackersSeen
+        case .AdBlockWhitelisted:
+            allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.AdBlockWhitelisted
+        case .AntiTrackingWhitelisted:
+            allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.AntiTrackingWhitelisted
         case .Whitelisted:
             allTrackersSeenOnLabel.text = Strings.PrivacyDashboard.Title.Whitelisted
         case .Blocking:
@@ -177,7 +170,6 @@ private extension PrivacyDashboardView {
             pageStatsListStackView.addArrangedSubview(stackView)
         }
 
-        pageStatsListStackView.addArrangedSubview(stackViewForTrackingDisabled)
         pageStatsListStackView.addArrangedSubview(stackViewForNoTrackersSeen)
         pageStatsListStackView.addArrangedSubview(stackViewForWhiteListed)
 

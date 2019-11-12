@@ -30,6 +30,8 @@ enum BlocklistName: String {
 enum BlockerStatus: String {
     case Disabled
     case NoBlockedURLs // When TP is enabled but nothing is being blocked
+    case AdBlockWhitelisted
+    case AntiTrackingWhitelisted
     case Whitelisted
     case Blocking
 }

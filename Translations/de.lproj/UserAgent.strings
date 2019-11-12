@@ -17,13 +17,16 @@
 "HomeView.SegmentedControl.Downloads.Title" = "Downloads";
 
 /* Privacy Dashboard */
-"PrivacyDashboard.ViewFullReport" = "Kompletten Bericht anzeigen";
+"PrivacyDashboard.ViewFullReport" = "Statistikbericht";
 
-"PrivacyDashboard.Title.BlockingEnabled" = "Alle Tracker auf";
-"PrivacyDashboard.Title.TrackingDisabled" = "Anti-Tracking Deaktiviert";
+"PrivacyDashboard.Switch.AntiTracking" = "Anti-Tracking auf dieser Seite";
+"PrivacyDashboard.Switch.AdBlock" = "Werbeblocker auf dieser Seite";
+
+"PrivacyDashboard.Title.BlockingEnabled" = "Blockierte Tracker und Werbungen";
 "PrivacyDashboard.Title.NoTrackersSeen" = "Keine Tracker auf";
-"PrivacyDashboard.Title.Whitelisted" = "Anti-Tracking ist AUS auf";
+"PrivacyDashboard.Title.AdBlockWhitelisted" = "Blockierte Tracker";
+"PrivacyDashboard.Title.AntiTrackingWhitelisted" = "Blockierte Werbungen";
+"PrivacyDashboard.Title.Whitelisted" = "Deaktiviert auf dieser Seite";
 
-"PrivacyDashboard.Legend.TrackingDisabled" = "Anti-tracking ist für den gesamten Browser ausgeschaltet. Dies wird nicht empfohlen.";
-"PrivacyDashboard.Legend.NoTrackersSeen" = "Wunderbar, diese Domain enthält keine Tracker!";
-"PrivacyDashboard.Legend.Whitelisted" = "Dieser Modus kann dir helfen, wenn einige der Funktionen der Webseite mit eingeschaltetem Anti-Tracking nicht richtig funktionieren.";
+"PrivacyDashboard.Legend.NoTrackersSeen" = "Wunderbar, diese Website enthält keine Tracker!";
+"PrivacyDashboard.Legend.Whitelisted" = "Dieser Modus kann hilfreich sein, wenn einige Website-Funktionen mit eingeschaltetem Anti-Tracking oder Werbeblocker nicht richtig funktionieren.";

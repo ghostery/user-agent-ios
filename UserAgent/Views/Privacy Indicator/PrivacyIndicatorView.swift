@@ -119,7 +119,10 @@ private extension PrivacyIndicatorView {
     }
 
     private func addTrackersToChart() {
-        guard status == .Blocking else { return }
+        guard status == .Blocking
+            || status == .AdBlockWhitelisted
+            || status == .AntiTrackingWhitelisted
+        else { return }
 
         var numberOfitems: Int = 0
         cachedStats.values.forEach { numberOfitems += $0 }
@@ -210,7 +213,7 @@ private extension PrivacyIndicatorView {
         case .NoBlockedURLs:
             // The Privacy Indicator is green
             addGreenIndicatorToChart()
-        case .Blocking:
+        case .Blocking, .AdBlockWhitelisted, .AntiTrackingWhitelisted:
             // The Privacy Indicator is filling up with color representations of various trackers found on the page
             addTrackersToChart()
         }

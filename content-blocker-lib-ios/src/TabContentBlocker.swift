@@ -37,17 +37,23 @@ class TabContentBlocker {
         guard self.isEnabledAdBlocking || self.isEnabledTrackingProtection else {
             return .Disabled
         }
+        guard let url = tab?.currentURL() else {
+            return .NoBlockedURLs
+        }
+        let isAdBlockWhitelisted = self.isEnabledAdBlocking && ContentBlocker.shared.isAdsWhitelisted(url: url)
+        let isAntiTrackingWhitelisted = self.isEnabledTrackingProtection && ContentBlocker.shared.isTrackingWhitelisted(url: url)
+
         if stats.total == 0 {
-            guard let url = tab?.currentURL() else {
-                return .NoBlockedURLs
-            }
-            if self.isEnabledAdBlocking && ContentBlocker.shared.isAdsWhitelisted(url: url) {
-                return .Whitelisted
-            } else if self.isEnabledTrackingProtection && ContentBlocker.shared.isTrackingWhitelisted(url: url) {
+            if isAdBlockWhitelisted && isAntiTrackingWhitelisted {
                 return .Whitelisted
             }
             return .NoBlockedURLs
         } else {
+            if isAdBlockWhitelisted {
+                return .AdBlockWhitelisted
+            } else if isAntiTrackingWhitelisted {
+                return .AntiTrackingWhitelisted
+            }
             return .Blocking
         }
     }
