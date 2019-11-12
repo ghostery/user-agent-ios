@@ -18,16 +18,16 @@ const getStyles = (theme) => StyleSheet.create({
   },
   image: {
     height: 200,
-    marginLeft: 20,
-    marginRight: 20,
+    marginBottom: 10,
   },
   item: {
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 0,
     marginBottom: 20,
   },
   separator: {
-    marginTop: 10,
-    marginLeft: 20,
-    marginRight: 20,
+    marginTop: 20,
     backgroundColor: theme.separatorColor,
     height: 1,
   },
@@ -68,14 +68,17 @@ export default function News({ newsModule }) {
         keyExtractor={(item) => item.url}
         renderItem={({ item }) =>
           <View style={styles.item}>
-            <TouchableWithoutFeedback
-              onPress={() => openLink(item.url)}
-            >
-              <Image
-                style={styles.image}
-                source={{uri: item.imageUrl}}
-              />
-            </TouchableWithoutFeedback>
+            {item.imageUrl &&
+              <TouchableWithoutFeedback
+                onPress={() => openLink(item.url)}
+              >
+
+                <Image
+                  style={styles.image}
+                  source={{uri: item.imageUrl}}
+                />
+              </TouchableWithoutFeedback>
+            }
             <ListItem
               url={item.url}
               title={item.title}
