@@ -670,9 +670,6 @@
 /* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
 "Privacy Policy" = "Privacy Policy";
 
-/* Title for quick-search engines settings section. */
-"Quick-Search Engines" = "Quick-Search Engines";
-
 /* Accessibility label for the Reader View button */
 "Reader View" = "Reader View";
 

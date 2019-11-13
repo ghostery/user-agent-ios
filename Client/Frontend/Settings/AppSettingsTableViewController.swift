@@ -41,7 +41,8 @@ class AppSettingsTableViewController: SettingsTableViewController {
             BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
                 Search.setAdultFilter(filter: value ? .conservative : .liberal)
             },
-            SearchSetting(settings: self),
+            // Temporarily disabling additional search engines setting.
+//            SearchSetting(settings: self),
         ]
         settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsSearchSectionTitle), children: searchSettings)]
 
