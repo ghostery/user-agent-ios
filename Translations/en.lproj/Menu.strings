@@ -28,6 +28,9 @@
 /* Label for the button, displayed in the menu, used to open the Settings menu. */
 "Menu.OpenSettingsAction.Title" = "Settings";
 
+/* Label for the button, displayed in the menu, used to open the What's new page. */
+"Menu.OpenWhatsNewAction.Title" = "What's new";
+
 /* Accessibility label for the button, displayed in the menu, used to open the Top Sites home panel. */
 "Menu.OpenTopSitesAction.AccessibilityLabel" = "Top Sites";
 

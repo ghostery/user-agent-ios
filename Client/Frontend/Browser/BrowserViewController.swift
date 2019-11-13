@@ -1708,6 +1708,10 @@ extension BrowserViewController: IntroViewControllerDelegate {
     }
 
     func introViewControllerDidFinish(_ introViewController: IntroViewController) {
+        if self.profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil, let url = URL(string: Strings.WhatsNewWebsite) {
+            let newTab = self.tabManager.addTab(URLRequest(url: url))
+            self.tabManager.selectTab(newTab)
+        }
         self.profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
 
         introViewController.dismiss(animated: true) {
