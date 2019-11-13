@@ -165,7 +165,7 @@ class IntroViewController: UIViewController {
         }
         let imageContentView = UIView()
         imageContentView.backgroundColor = .clear
-        let imageView = UIImageView(image: image)
+        let imageView = UIImageView(image: image.withAlignmentRectInsets(card.imageEdgeInsets))
         imageView.contentMode = card.imageContentMode
         imageContentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -406,9 +406,10 @@ struct IntroCard {
     let buttonSelector: String? // Selector is a string that is synthisized into a Selector via NSSelectorFromString (for LeanPlum's sake)
     let imageName: String
     let imageContentMode: UIView.ContentMode
+    let imageEdgeInsets: UIEdgeInsets
     let imageBackgroundColor: UIColor
 
-    init(title: String, text: String, imageName: String, imageContentMode: UIView.ContentMode = .center, imageBackgroundColor: UIColor = UIColor.White, buttonText: String? = nil, buttonSelector: String? = nil) {
+    init(title: String, text: String, imageName: String, imageContentMode: UIView.ContentMode = .center, imageEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), imageBackgroundColor: UIColor = UIColor.White, buttonText: String? = nil, buttonSelector: String? = nil) {
         self.title = title
         self.text = text
         self.imageName = imageName
@@ -416,12 +417,13 @@ struct IntroCard {
         self.buttonSelector = buttonSelector
         self.imageBackgroundColor = imageBackgroundColor
         self.imageContentMode = imageContentMode
+        self.imageEdgeInsets = imageEdgeInsets
     }
 
     static func defaultCards() -> [IntroCard] {
         let search = IntroCard(title: Strings.SearchCardTitle, text: Strings.SearchCardDescription, imageName: "tour-Search", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
         let antiTracking = IntroCard(title: Strings.AntiTrackingCardTitle, text: Strings.AntiTrackingCardDescription, imageName: "tour-antiTracking", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
-        let welcome = IntroCard(title: "", text: Strings.WelcomeCardDescription, imageName: "tour-Logo", buttonText: Strings.WelcomeCardButtonTitle, buttonSelector: #selector(IntroViewController.startBrowsing).description)
+        let welcome = IntroCard(title: "", text: Strings.WelcomeCardDescription, imageName: "tour-LogoFull", imageContentMode: .scaleAspectFit, imageEdgeInsets: UIEdgeInsets(top: 0, left: 0, bottom: -40, right: 0), buttonText: Strings.WelcomeCardButtonTitle, buttonSelector: #selector(IntroViewController.startBrowsing).description)
         return [search, antiTracking, welcome]
     }
 
