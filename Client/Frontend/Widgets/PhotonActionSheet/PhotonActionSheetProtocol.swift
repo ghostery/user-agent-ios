@@ -265,7 +265,7 @@ extension PhotonActionSheetProtocol {
             return [menuActions, [trackerInfo], ]
         }
 
-        let whoTracksMeLink = PhotonActionSheetItem(title: Strings.PrivacyDashboard.ViewFullReport) { action in
+        let whoTracksMeLink = PhotonActionSheetItem(title: Strings.PrivacyDashboard.ViewFullReport + " ›") { action in
             let url = URL(string: "https://whotracks.me/websites/\(baseDomain).html")!
             appDel.browserViewController.homePanel(didSelectURL: url, visitType: VisitType.link)
         }
