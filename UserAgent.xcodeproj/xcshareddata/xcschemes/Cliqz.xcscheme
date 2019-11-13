@@ -234,7 +234,13 @@
                   Identifier = "SearchSettingsUITests/testCustomSearchEngineAsDefaultIsNotEditable()">
                </Test>
                <Test
+                  Identifier = "SearchSettingsUITests/testCustomSearchEngineIsEditable()">
+               </Test>
+               <Test
                   Identifier = "SearchSettingsUITests/testDefaultSearchEngine()">
+               </Test>
+               <Test
+                  Identifier = "SearchSettingsUITests/testDeletingLastCustomEngineExitsEditing()">
                </Test>
                <Test
                   Identifier = "SearchSettingsUITests/testNavigateToSearchPickerTurnsOffEditing()">
