@@ -58,6 +58,7 @@ extension PhotonActionSheetProtocol {
 
     func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         return [
+            self.openWhatsNewItem(),
             self.openSettingsItem(vcDelegate: vcDelegate),
         ]
     }
@@ -326,6 +327,17 @@ extension PhotonActionSheetProtocol {
     @available(iOS 11.0, *)
     func getTrackingSubMenu(for tab: Tab) -> [[PhotonActionSheetItem]] {
         return menuActionsForTrackingProtectionEnabled(for: tab)
+    }
+
+    private func openWhatsNewItem() -> PhotonActionSheetItem {
+        let openSettings = PhotonActionSheetItem(title: Strings.AppMenuWhatsNewTitleString, iconString: "menu-whatsNew") { action in
+            guard let url = URL(string: Strings.WhatsNewWebsite) else {
+                return
+            }
+            let newTab = self.tabManager.addTab(URLRequest(url: url))
+            self.tabManager.selectTab(newTab)
+        }
+        return openSettings
     }
 
     private func openSettingsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {

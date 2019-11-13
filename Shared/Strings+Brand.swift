@@ -11,4 +11,5 @@ import Foundation
 // Brand
 extension Strings {
     public static let BrandWebsite = NSLocalizedString("website", tableName: "brand", comment: "brand website url")
+    public static let WhatsNewWebsite = NSLocalizedString("whatsNewWebsite", tableName: "brand", comment: "brand what's new url")
 }
