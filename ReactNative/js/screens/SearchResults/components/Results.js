@@ -185,7 +185,7 @@ class Results extends React.Component {
                 </View>
                 <View style={styles.searchEnginesContainer}>
                   <TouchableWithoutFeedback
-                      onPress={() => this.openSearchEngineLink(`https://serp.cliqz.com/search?q=${encodeURIComponent(query)}`, 2)}
+                      onPress={() => this.openSearchEngineLink(`https://beta.cliqz.com/search?q=${encodeURIComponent(query)}`, 2)}
                     >
                     <View>
                       <NativeDrawable
