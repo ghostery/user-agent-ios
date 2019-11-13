@@ -177,10 +177,10 @@ class DynamicFontHelper: NSObject {
      * Intro mode
      */
     var IntroStandardFontSize: CGFloat {
-        return 13
+        return 16
     }
     var IntroBigFontSize: CGFloat {
-        return 18
+        return 24
     }
 
     func refreshFonts() {
