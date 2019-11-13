@@ -32,7 +32,7 @@ class PrivacyDashboardView: UIView {
 
         let stackView = UIStackView(arrangedSubviews: [dotView, label])
         stackView.spacing = 5
-        stackView.alignment = .center
+        stackView.alignment = .top
         stackView.isHidden = true
         return stackView
     }()
@@ -43,7 +43,7 @@ class PrivacyDashboardView: UIView {
 
         let stackView = UIStackView(arrangedSubviews: [dotView, label])
         stackView.spacing = 5
-        stackView.alignment = .center
+        stackView.alignment = .top
         stackView.isHidden = true
         return stackView
     }()
@@ -65,7 +65,7 @@ class PrivacyDashboardView: UIView {
 
     private let numberOfTrackersLabel: UILabel = {
         let label = UILabel()
-        label.text = "-"
+        label.text = ""
         let pointSize = UIFont.preferredFont(forTextStyle: .largeTitle).pointSize
         label.font = UIFont.monospacedDigitSystemFont(ofSize: pointSize, weight: .medium)
         return label
@@ -147,7 +147,7 @@ private extension PrivacyDashboardView {
 
         let mainStackView = UIStackView(arrangedSubviews: [privacyIndicator, pageStatsListStackView])
         mainStackView.spacing = 10
-        mainStackView.alignment = .center
+        mainStackView.alignment = .top
 
         [titleStackView, mainStackView, numberOfTrackersLabel].forEach { addSubview($0) }
 
@@ -160,7 +160,7 @@ private extension PrivacyDashboardView {
 
             let stackView = UIStackView(arrangedSubviews: [dotView, label, numberLabel])
             stackView.spacing = 5
-            stackView.alignment = .center
+            stackView.alignment = .top
             stackView.isHidden = true
 
             cachedLabelsForStats[statType] = label
@@ -170,6 +170,7 @@ private extension PrivacyDashboardView {
             pageStatsListStackView.addArrangedSubview(stackView)
         }
 
+        pageStatsListStackView.addArrangedSubview(spacerView())
         pageStatsListStackView.addArrangedSubview(stackViewForNoTrackersSeen)
         pageStatsListStackView.addArrangedSubview(stackViewForWhiteListed)
 
@@ -193,16 +194,26 @@ private extension PrivacyDashboardView {
 
     func circleView(withColor: UIColor) -> UIView {
         let radius = 5
+        let topMargin = 4
 
-        let view = UIView()
-        view.snp.makeConstraints { make in
-            make.width.equalTo(view.snp.height)
-            make.height.equalTo(radius * 2)
+        let containerView = UIView()
+        containerView.snp.makeConstraints { make in
+            make.width.equalTo(radius * 2)
+            make.height.equalTo((radius * 2) + (topMargin * 2))
         }
 
-        view.backgroundColor = withColor
-        view.layer.cornerRadius = CGFloat(radius)
-        return view
+        let circleView = UIView()
+        containerView.addSubview(circleView)
+        circleView.snp.makeConstraints { make in
+            make.width.equalTo(circleView.snp.height)
+            make.height.equalTo(radius * 2)
+            make.center.equalTo(containerView)
+        }
+
+        circleView.backgroundColor = withColor
+        circleView.layer.cornerRadius = CGFloat(radius)
+
+        return containerView
     }
 
     func statLabel(labelled text: String) -> UILabel {
@@ -213,5 +224,17 @@ private extension PrivacyDashboardView {
         label.setContentCompressionResistancePriority(.required, for: .horizontal)
         label.font = UIFont.preferredFont(forTextStyle: .footnote)
         return label
+    }
+
+    func spacerView() -> UIView {
+        let margin = 5
+
+        let view = UIView()
+        view.snp.makeConstraints { make in
+            make.width.equalTo(margin)
+            make.height.equalTo(margin)
+        }
+
+        return view
     }
 }
