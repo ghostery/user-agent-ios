@@ -84,7 +84,7 @@ class IntroViewController: UIViewController {
     // Because a stackview cannot have a background color
     fileprivate var imagesBackgroundView = UIView()
 
-    fileprivate var logoImageView = UIImageView(image: UIImage(named: "splash"))
+    fileprivate var logoImageView = UIImageView(image: UIImage(named: "tour-Logo"))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -410,8 +410,8 @@ struct IntroCard {
     }
 
     static func defaultCards() -> [IntroCard] {
-        let search = IntroCard(title: Strings.SearchCardTitle, text: Strings.SearchCardDescription, imageName: "tour-Search", imageContentMode: .scaleAspectFill, imageBackgroundColor: UIColor.LightBlue)
-        let antiTracking = IntroCard(title: Strings.AntiTrackingCardTitle, text: Strings.AntiTrackingCardDescription, imageName: "tour-antiTracking", imageContentMode: .scaleAspectFill, imageBackgroundColor: UIColor.LightBlue)
+        let search = IntroCard(title: Strings.SearchCardTitle, text: Strings.SearchCardDescription, imageName: "tour-Search", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
+        let antiTracking = IntroCard(title: Strings.AntiTrackingCardTitle, text: Strings.AntiTrackingCardDescription, imageName: "tour-antiTracking", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
         let welcome = IntroCard(title: "", text: Strings.WelcomeCardDescription, imageName: "tour-Logo", buttonText: Strings.WelcomeCardButtonTitle, buttonSelector: #selector(IntroViewController.startBrowsing).description)
         return [search, antiTracking, welcome]
     }
