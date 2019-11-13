@@ -47,8 +47,8 @@
   "detox": {
     "configurations": {
       "sim": {
-        "binaryPath": "builds/Build/Products/Release-iphonesimulator/UserAgent.app",
-        "build": "xcodebuild -workspace UserAgent.xcworkspace -scheme 'Cliqz' -configuration Release -sdk iphonesimulator -derivedDataPath builds",
+        "binaryPath": "builds/Build/Products/CI-iphonesimulator/UserAgent.app",
+        "build": "xcodebuild -workspace UserAgent.xcworkspace -scheme 'Cliqz' -configuration CI -sdk iphonesimulator -derivedDataPath builds",
         "type": "ios.simulator",
         "name": "iPhone 11"
       }
