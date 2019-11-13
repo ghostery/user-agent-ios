@@ -33,7 +33,7 @@ private var defaultBackground: UIColor {
     }
 }
 
-private let defaultSeparator = UIColor.Grey30
+private let defaultSeparator = UIColor.Grey40
 private let defaultTextAndTint = UIColor.Grey80
 
 class TableViewColor {

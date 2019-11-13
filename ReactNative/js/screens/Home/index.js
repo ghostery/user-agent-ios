@@ -43,12 +43,13 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     alignSelf: 'center',
-    width: (70+10+10)*4,
+    width: '100%',
+    justifyContent: 'space-evenly',
   },
   speedDial: {
     flex: 0,
-    marginHorizontal: 5,
     marginVertical: 10,
+    marginRight: 'auto',
     width: 80,
   },
   logoWrapper: {
@@ -60,6 +61,10 @@ const styles = StyleSheet.create({
     height: 65,
   },
 });
+
+const SpeedDialRow = ({ dials }) => {
+
+}
 
 export default function Home({ speedDials, pinnedSites, newsModule }) {
   const pinnedDomains = new Set([...pinnedSites.map(s => parse(s.url).domain)]);
