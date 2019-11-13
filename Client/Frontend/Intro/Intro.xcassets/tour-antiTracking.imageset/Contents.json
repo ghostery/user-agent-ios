@@ -2,16 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "antiTracking-1.png"
+      "filename" : "2C DE-1.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "antiTracking.png",
+      "filename" : "2C DE.png",
       "locale" : "de"
     },
     {
       "idiom" : "universal",
-      "filename" : "antiTracking-2.png",
+      "filename" : "2C EN.png",
       "locale" : "en"
     }
   ],

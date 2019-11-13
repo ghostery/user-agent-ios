@@ -108,10 +108,11 @@ class IntroViewController: UIViewController {
         }
 
         imagesBackgroundView.snp.makeConstraints { make in
-            make.edges.equalTo(imageViewContainer)
+            make.top.equalTo(self.view)
+            make.left.bottom.right.equalTo(imageViewContainer)
         }
         imageViewContainer.snp.makeConstraints { make in
-            make.top.equalTo(self.view)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
             make.height.equalTo(self.view.snp.height).multipliedBy(0.5)
         }
         skipButton.snp.makeConstraints { make in
