@@ -22,7 +22,7 @@ export class BrowserCore extends App {
   }
 }
 
-prefs.set('developer', NativeModules.Constants.isDebug);
+prefs.set('developer', NativeModules.Constants.isDebug || NativeModules.Constants.isCI);
 
 const app = new BrowserCore(global.browser);
 const appReady = app.start();

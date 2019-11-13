@@ -12,11 +12,20 @@ class Constants: NSObject {
     func constantsToExport() -> [String: Any]! {
         return [
             "isDebug": self.isDebug,
+            "isCI": self.isCI,
         ]
     }
 
     private var isDebug: Bool {
         #if DEBUG
+            return true
+        #else
+            return false
+        #endif
+    }
+
+    private var isCI: Bool {
+        #if CI
             return true
         #else
             return false
