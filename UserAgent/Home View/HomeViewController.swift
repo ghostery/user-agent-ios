@@ -92,6 +92,7 @@ private extension HomeViewController {
         showView(segment: .topSites)
         guard let segmentIndex = segments.firstIndex(of: .topSites) else { return }
         segmentedControl.selectedSegmentIndex = segmentIndex
+        segmentedControl.tintColor = UIColor.BrightBlue
     }
 
     func setupConstraints() {
