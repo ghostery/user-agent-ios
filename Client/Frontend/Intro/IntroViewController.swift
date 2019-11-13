@@ -21,7 +21,7 @@ struct IntroUX {
     static let PageControlHeight = 40
     static let FadeDuration = 0.25
     static let LogoImageSize = 42.0
-    static let StartBrowsingBottomOffset = UIScreen.main.bounds.width <= 320 ? -30 : -40
+    static let StartBrowsingBottomOffset = UIScreen.main.bounds.width <= 320 ? -30 : -20
     static let ContainerImageTopOffes = -40.0
 }
 
@@ -343,7 +343,7 @@ class CardView: UIView {
 
     lazy var button: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: DynamicFontHelper.defaultHelper.IntroBigFontSize)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.layer.cornerRadius = CGFloat(IntroUX.StartBrowsingButtonHeight) / 2
         button.backgroundColor = IntroUX.StartBrowsingButtonColor
         button.setTitle(Strings.WelcomeCardButtonTitle, for: [])
