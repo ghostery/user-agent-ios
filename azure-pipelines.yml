@@ -60,6 +60,7 @@ steps:
     xcWorkspacePath: 'UserAgent.xcworkspace'
     scheme: '$(scheme)'
     packageApp: true
+    configuration: 'CI'
     destinationPlatformOption: 'iOS'
     destinationSimulators: 'iPhone 11'
     publishJUnitResults: true
