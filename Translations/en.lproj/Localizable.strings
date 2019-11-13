@@ -581,7 +581,7 @@
 "Menu.TrackingProtectionListTitle" = "Blocked %@";
 
 /* more info about what tracking protection is about */
-"Menu.TrackingProtectionMoreInfo.Description" = "Learn more about how Tracking Protection blocks online trackers that collect your browsing data across multiple websites.";
+"Menu.TrackingProtectionMoreInfo.Description" = "Privacy Dashboard is disabled";
 
 /* The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled. */
 "Menu.TrackingProtectionNoBlocking.Description" = "No tracking elements detected on this page.";

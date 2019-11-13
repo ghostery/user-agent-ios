@@ -240,21 +240,9 @@ extension PhotonActionSheetProtocol {
     }
 
     @available(iOS 11.0, *)
-    private func menuActionsForTrackingProtectionDisabled(for tab: Tab) -> [[PhotonActionSheetItem]] {
-        let trackingProtection = PhotonActionSheetItem(title: Strings.TPMenuTitle, iconString: "menu-TrackingProtection", isEnabled: false, accessory: .Switch) { action in
-            FirefoxTabContentBlocker.toggleTrackingProtectionEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
-            tab.reload()
-        }
-        let adBlocking = PhotonActionSheetItem(title: Strings.ABMenuTitle, iconString: "menu-AdBlocking", isEnabled: false, accessory: .Switch) { action in
-            FirefoxTabContentBlocker.toggleAdBlockingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
-            tab.reload()
-        }
-
-        let moreInfo = PhotonActionSheetItem(title: Strings.TPBlockingMoreInfo, iconString: "menu-Info") { _ in
-            let url = SupportUtils.URLForTopic("tracking-protection-ios")!
-            tab.loadRequest(PrivilegedRequest(url: url) as URLRequest)
-        }
-        return [[moreInfo], [trackingProtection, adBlocking]]
+    private func menuActionsForTrackingProtectionDisabled(for tab: Tab, vcDelegate: PageOptionsVC) -> [[PhotonActionSheetItem]] {
+        let moreInfo = PhotonActionSheetItem(title: Strings.TPBlockingMoreInfo)
+        return [[moreInfo], [openSettingsItem(vcDelegate: vcDelegate)]]
     }
 
     @available(iOS 11.0, *)
@@ -324,8 +312,17 @@ extension PhotonActionSheetProtocol {
     }
 
     @available(iOS 11.0, *)
-    func getTrackingSubMenu(for tab: Tab) -> [[PhotonActionSheetItem]] {
-        return menuActionsForTrackingProtectionEnabled(for: tab)
+    func getTrackingSubMenu(for tab: Tab, vcDelegate: PageOptionsVC) -> [[PhotonActionSheetItem]] {
+        guard let blocker = tab.contentBlocker else {
+            return []
+        }
+
+        switch blocker.status {
+        case .Disabled:
+            return menuActionsForTrackingProtectionDisabled(for: tab, vcDelegate: vcDelegate)
+        default:
+            return menuActionsForTrackingProtectionEnabled(for: tab)
+        }
     }
 
     private func openSettingsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
