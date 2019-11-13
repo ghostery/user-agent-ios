@@ -20,7 +20,7 @@ struct IntroUX {
     static let StartBrowsingButtonWidth = UIScreen.main.bounds.width <= 320 ? 200 : 240
     static let PageControlHeight = 40
     static let FadeDuration = 0.25
-    static let LogoImageSize = 30.0
+    static let LogoImageSize = 42.0
     static let StartBrowsingBottomOffset = -50.0
 }
 
