@@ -1217,7 +1217,7 @@ extension BrowserViewController: URLBarDelegate {
 
     func urlBarDidTapShield(_ urlBar: URLBarView) {
         if let tab = self.tabManager.selectedTab {
-            let trackingProtectionMenu = self.getTrackingSubMenu(for: tab)
+            let trackingProtectionMenu = self.getTrackingSubMenu(for: tab, vcDelegate: self)
             guard !trackingProtectionMenu.isEmpty else { return }
             self.presentSheetWith(actions: trackingProtectionMenu, on: self, from: urlBar)
         }

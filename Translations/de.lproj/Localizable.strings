@@ -581,7 +581,7 @@
 "Menu.TrackingProtectionListTitle" = "%@ blockiert";
 
 /* more info about what tracking protection is about */
-"Menu.TrackingProtectionMoreInfo.Description" = "Erfahren Sie mehr darüber, wie der Schutz vor Aktivitätenverfolgung Systeme blockiert, welche Ihr Surfverhalten über mehrere Websites verteilt aufzeichnen.";
+"Menu.TrackingProtectionMoreInfo.Description" = "Datenschutz-Dashboard ist deaktiviert";
 
 /* The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled. */
 "Menu.TrackingProtectionNoBlocking.Description" = "Keine Inhalte zur Aktivitätenverfolgung auf dieser Seite gefunden.";
