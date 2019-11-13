@@ -16,12 +16,13 @@ struct IntroUX {
     static let SkipButtonColor = UIColor(hexString: "#97A4AE")
     static let SkipButtonHeight = 50
     static let StartBrowsingButtonColor = UIColor.CliqzBlue
-    static let StartBrowsingButtonHeight = 60
+    static let StartBrowsingButtonHeight = UIScreen.main.bounds.width <= 320 ? 40 : 50
     static let StartBrowsingButtonWidth = UIScreen.main.bounds.width <= 320 ? 200 : 240
     static let PageControlHeight = 40
     static let FadeDuration = 0.25
-    static let LogoImageSize = 30.0
-    static let StartBrowsingBottomOffset = -50.0
+    static let LogoImageSize = 42.0
+    static let StartBrowsingBottomOffset = UIScreen.main.bounds.width <= 320 ? -30 : -40
+    static let ContainerImageTopOffes = -40.0
 }
 
 protocol IntroViewControllerDelegate: AnyObject {
@@ -71,7 +72,7 @@ class IntroViewController: UIViewController {
     }
 
     var verticalPadding: CGFloat {
-        return self.view.frame.width <= 320 ? 10 : 38
+        return self.view.frame.width <= 320 ? 20 : 40
     }
 
     lazy fileprivate var imageViewContainer: UIStackView = {
@@ -84,7 +85,7 @@ class IntroViewController: UIViewController {
     // Because a stackview cannot have a background color
     fileprivate var imagesBackgroundView = UIView()
 
-    fileprivate var logoImageView = UIImageView(image: UIImage(named: "splash"))
+    fileprivate var logoImageView = UIImageView(image: UIImage(named: "tour-Logo"))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,10 +109,11 @@ class IntroViewController: UIViewController {
         }
 
         imagesBackgroundView.snp.makeConstraints { make in
-            make.edges.equalTo(imageViewContainer)
+            make.top.left.right.equalTo(self.view)
+            make.bottom.equalTo(imageViewContainer)
         }
         imageViewContainer.snp.makeConstraints { make in
-            make.top.equalTo(self.view)
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
             make.height.equalTo(self.view.snp.height).multipliedBy(0.5)
         }
         skipButton.snp.makeConstraints { make in
@@ -161,11 +163,19 @@ class IntroViewController: UIViewController {
         guard let image = UIImage(named: card.imageName) else {
             return nil
         }
+        let imageContentView = UIView()
+        imageContentView.backgroundColor = .clear
         let imageView = UIImageView(image: image)
         imageView.contentMode = card.imageContentMode
-        imageView.clipsToBounds = true
-        imageViewContainer.addArrangedSubview(imageView)
+        imageContentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
+            make.bottom.equalTo(imageContentView)
+            make.height.equalTo(imageContentView.snp.height).offset(IntroUX.ContainerImageTopOffes)
+            make.centerX.equalTo(imageContentView.snp.centerX)
+            make.height.equalTo(imageView.snp.width).multipliedBy(975.0/879.0)
+        }
+        imageViewContainer.addArrangedSubview(imageContentView)
+        imageContentView.snp.makeConstraints { make in
             make.height.equalTo(imageViewContainer.snp.height)
             make.width.equalTo(self.view.snp.width)
         }
@@ -409,8 +419,8 @@ struct IntroCard {
     }
 
     static func defaultCards() -> [IntroCard] {
-        let search = IntroCard(title: Strings.SearchCardTitle, text: Strings.SearchCardDescription, imageName: "tour-Search", imageContentMode: .scaleAspectFill, imageBackgroundColor: UIColor.LightBlue)
-        let antiTracking = IntroCard(title: Strings.AntiTrackingCardTitle, text: Strings.AntiTrackingCardDescription, imageName: "tour-antiTracking", imageContentMode: .scaleAspectFill, imageBackgroundColor: UIColor.LightBlue)
+        let search = IntroCard(title: Strings.SearchCardTitle, text: Strings.SearchCardDescription, imageName: "tour-Search", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
+        let antiTracking = IntroCard(title: Strings.AntiTrackingCardTitle, text: Strings.AntiTrackingCardDescription, imageName: "tour-antiTracking", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
         let welcome = IntroCard(title: "", text: Strings.WelcomeCardDescription, imageName: "tour-Logo", buttonText: Strings.WelcomeCardButtonTitle, buttonSelector: #selector(IntroViewController.startBrowsing).description)
         return [search, antiTracking, welcome]
     }

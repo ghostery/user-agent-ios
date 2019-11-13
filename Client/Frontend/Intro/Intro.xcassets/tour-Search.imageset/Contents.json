@@ -2,16 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "search-1.png"
+      "filename" : "1C DE.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "search.png",
+      "filename" : "1C DE-1.png",
       "locale" : "de"
     },
     {
       "idiom" : "universal",
-      "filename" : "search-2.png",
+      "filename" : "1C EN.png",
       "locale" : "en"
     }
   ],
