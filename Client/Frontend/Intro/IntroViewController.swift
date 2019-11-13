@@ -16,12 +16,13 @@ struct IntroUX {
     static let SkipButtonColor = UIColor(hexString: "#97A4AE")
     static let SkipButtonHeight = 50
     static let StartBrowsingButtonColor = UIColor.CliqzBlue
-    static let StartBrowsingButtonHeight = 60
+    static let StartBrowsingButtonHeight = UIScreen.main.bounds.width <= 320 ? 40 : 50
     static let StartBrowsingButtonWidth = UIScreen.main.bounds.width <= 320 ? 200 : 240
     static let PageControlHeight = 40
     static let FadeDuration = 0.25
     static let LogoImageSize = 42.0
-    static let StartBrowsingBottomOffset = -50.0
+    static let StartBrowsingBottomOffset = UIScreen.main.bounds.width <= 320 ? -30 : -40
+    static let ContainerImageTopOffes = -40.0
 }
 
 protocol IntroViewControllerDelegate: AnyObject {
@@ -71,7 +72,7 @@ class IntroViewController: UIViewController {
     }
 
     var verticalPadding: CGFloat {
-        return self.view.frame.width <= 320 ? 10 : 38
+        return self.view.frame.width <= 320 ? 20 : 40
     }
 
     lazy fileprivate var imageViewContainer: UIStackView = {
@@ -108,8 +109,8 @@ class IntroViewController: UIViewController {
         }
 
         imagesBackgroundView.snp.makeConstraints { make in
-            make.top.equalTo(self.view)
-            make.left.bottom.right.equalTo(imageViewContainer)
+            make.top.left.right.equalTo(self.view)
+            make.bottom.equalTo(imageViewContainer)
         }
         imageViewContainer.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
@@ -162,11 +163,19 @@ class IntroViewController: UIViewController {
         guard let image = UIImage(named: card.imageName) else {
             return nil
         }
+        let imageContentView = UIView()
+        imageContentView.backgroundColor = .clear
         let imageView = UIImageView(image: image)
         imageView.contentMode = card.imageContentMode
-        imageView.clipsToBounds = true
-        imageViewContainer.addArrangedSubview(imageView)
+        imageContentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
+            make.bottom.equalTo(imageContentView)
+            make.height.equalTo(imageContentView.snp.height).offset(IntroUX.ContainerImageTopOffes)
+            make.centerX.equalTo(imageContentView.snp.centerX)
+            make.height.equalTo(imageView.snp.width).multipliedBy(975.0/879.0)
+        }
+        imageViewContainer.addArrangedSubview(imageContentView)
+        imageContentView.snp.makeConstraints { make in
             make.height.equalTo(imageViewContainer.snp.height)
             make.width.equalTo(self.view.snp.width)
         }
