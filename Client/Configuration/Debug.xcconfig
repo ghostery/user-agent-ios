@@ -1,3 +1,4 @@
+// Bundle display name
 BUNDLE_DISPLAY_NAME = $(TARGET_NAME) α
 
 // Bundle Identifier
@@ -5,3 +6,6 @@ APP_BUNDLE_ID = $(PRODUCT_BUNDLE_IDENTIFIER).debug
 
 // URL Scheme
 CLIQZ_URL_SCHEME = $(TARGET_NAME)
+
+// Bundle short version
+CLIQZ_BUNDLE_SHORT_VERSION = 3.1.0
