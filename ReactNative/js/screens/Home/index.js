@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
   speedDial: {
     flex: 0,
     marginVertical: 10,
-    marginRight: 'auto',
     width: 80,
   },
   logoWrapper: {
@@ -62,8 +61,29 @@ const styles = StyleSheet.create({
   },
 });
 
-const SpeedDialRow = ({ dials }) => {
+const EmptySpeedDial = () => <View style={styles.speedDial}></View>;
 
+const SpeedDialRow = ({ dials, limit = 4 }) => {
+  if (dials.length === 0) {
+    return null;
+  }
+  const emptyCount = limit - dials.length < 0 ? 0 : limit - dials.length;
+  const allDials = [
+    ...(dials.map(dial =>
+      <SpeedDial
+        key={dial.url}
+        style={styles.speedDial}
+        speedDial={dial}
+        onPress={openSpeedDialLink}
+      />
+    )),
+    Array(emptyCount).fill(null).map((_, i) => <EmptySpeedDial key={i}/>),
+  ];
+  return (
+    <View style={styles.speedDials}>
+      {allDials}
+    </View>
+  );
 }
 
 export default function Home({ speedDials, pinnedSites, newsModule }) {
@@ -72,6 +92,8 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
     ...pinnedSites.map(dial => ({ ...dial, pinned: true })),
     ...speedDials.filter(dial => !pinnedDomains.has(parse(dial.url).domain)),
   ].slice(0, 8)
+  const firstRow = dials.slice(0, 4);
+  const secondRow = dials.slice(5, 8);
 
   return (
     <SafeAreaView>
@@ -87,23 +109,11 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
               source={normalizeUrl('logo.svg')}
             />
           </View>
-          {dials.length > 0 && (
-            <View
-              style={styles.speedDials}
-            >
-              {dials.map(dial =>
-                <SpeedDial
-                  key={dial.url}
-                  style={styles.speedDial}
-                  speedDial={dial}
-                  onPress={openSpeedDialLink}
-                />
-              )}
-            </View>
-          )}
+          <SpeedDialRow dials={firstRow}/>
+          <SpeedDialRow dials={secondRow}/>
           <News newsModule={newsModule} />
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
