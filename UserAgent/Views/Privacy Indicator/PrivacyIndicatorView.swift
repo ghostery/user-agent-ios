@@ -14,7 +14,7 @@ import Foundation
 class PrivacyIndicatorView: UIView {
     // MARK: - Properties
     /// Call this block whenever the user taps the Privacy Indicator
-    public var onTapBlock: (() -> Void)?
+    public var onTapBlock: (() -> Void)? { didSet {  button.isHidden = onTapBlock == nil }}
 
     /// The Blocker instance to take data from.
     ///
@@ -45,6 +45,7 @@ class PrivacyIndicatorView: UIView {
     private lazy var button: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(didPressButton(_:)), for: .touchUpInside)
+        button.isHidden = onTapBlock == nil
         return button
     }()
 
