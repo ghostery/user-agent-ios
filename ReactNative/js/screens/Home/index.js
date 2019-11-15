@@ -93,7 +93,7 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
     ...speedDials.filter(dial => !pinnedDomains.has(parse(dial.url).domain)),
   ].slice(0, 8)
   const firstRow = dials.slice(0, 4);
-  const secondRow = dials.slice(5, 8);
+  const secondRow = dials.slice(4, 8);
 
   return (
     <SafeAreaView>
