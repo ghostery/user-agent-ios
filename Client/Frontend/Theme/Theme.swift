@@ -210,10 +210,10 @@ class TextFieldColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemGray4
         } else {
-            return UIColor.CloudySky
+            return UIColor.Grey60
         }
     }
-    var backgroundInOverlay: UIColor { return UIColor.white }
+    var backgroundInOverlay: UIColor { return UIColor.defaultBackground }
     var textAndTint: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.label

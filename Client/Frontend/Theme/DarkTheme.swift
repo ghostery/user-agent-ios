@@ -7,35 +7,6 @@ import Foundation
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
-private class DarkTextFieldColor: TextFieldColor {
-    override var background: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.systemGray4
-        } else {
-            return UIColor.Grey60
-        }
-    }
-
-    override var backgroundInOverlay: UIColor { return self.background }
-
-    override var textAndTint: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.label
-        } else {
-            // Fallback on earlier versions
-            return defaultTextAndTint
-        }
-    }
-    override var separator: UIColor {
-        if #available(iOS 13.0, *) {
-            return UIColor.systemGray2
-        } else {
-            // Fallback on earlier versions
-            return super.separator.withAlphaComponent(0.3)
-        }
-    }
-}
-
 private class DarkHomePanelColor: HomePanelColor {
     override var toolbarBackground: UIColor { return UIColor.defaultBackground }
     override var toolbarHighlight: UIColor { return UIColor.Blue40 }
@@ -91,7 +62,7 @@ class DarkTheme: Theme {
     override var toolbarButton: ToolbarButtonColor { return ToolbarButtonColor() }
     override var tabTray: TabTrayColor { return TabTrayColor() }
     override var topTabs: TopTabsColor { return TopTabsColor() }
-    override var textField: TextFieldColor { return DarkTextFieldColor() }
+    override var textField: TextFieldColor { return TextFieldColor() }
     override var homePanel: HomePanelColor { return DarkHomePanelColor() }
     override var snackbar: SnackBarColor { return DarkSnackBarColor() }
     override var general: GeneralColor { return DarkGeneralColor() }
