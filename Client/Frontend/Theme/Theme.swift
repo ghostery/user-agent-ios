@@ -140,9 +140,15 @@ class LoadingBarColor {
 }
 
 class TabTrayColor {
-    var tabTitleText: UIColor { return UIColor.black }
-    var tabTitleBlur: UIBlurEffect.Style { return UIBlurEffect.Style.extraLight }
-    var background: UIColor { return UIColor.Grey80 }
+    var tabTitleText: UIColor { return defaultTextAndTint }
+    var tabTitleBlur: UIBlurEffect.Style {
+        if #available(iOS 13.0, *) {
+            return UIBlurEffect.Style.systemUltraThinMaterial
+        } else {
+            return UIBlurEffect.Style.extraLight
+        }
+    }
+    var background: UIColor { return UIColor.DarkGrey }
     var cellBackground: UIColor { return UIColor.defaultBackground }
     var toolbar: UIColor { return UIColor.defaultBackground }
     var toolbarButtonTint: UIColor { return defaultTextAndTint }
@@ -151,8 +157,8 @@ class TabTrayColor {
     var privateModeButtonOffTint: UIColor { return toolbarButtonTint }
     var privateModeButtonOnTint: UIColor { return UIColor.Grey10 }
     var cellCloseButton: UIColor { return UIColor.Grey50 }
-    var cellTitleBackground: UIColor { return UIColor.clear }
-    var faviconTint: UIColor { return UIColor.White }
+    var cellTitleBackground: UIColor { return UIColor.Grey30 }
+    var faviconTint: UIColor { return UIColor.defaultBackground }
     var searchBackground: UIColor { return UIColor.Grey30 }
 }
 

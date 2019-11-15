@@ -32,6 +32,9 @@ extension UIColor {
     static let NeutralGrey = UIColor(named: "NeutralGrey")!
 
     static let defaultBackground = UIColor(named: "Background")!
+
+    static let DarkGrey = UIColor(named: "DarkGrey")!
+
     static let Grey10 = UIColor(named: "Grey10")!
     static let Grey20 = UIColor(named: "Grey20")!
     static let Grey30 = UIColor(named: "Grey30")!

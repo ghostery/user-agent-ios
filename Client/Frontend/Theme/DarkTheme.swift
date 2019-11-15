@@ -7,18 +7,6 @@ import Foundation
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
-private class DarkTabTrayColor: TabTrayColor {
-    override var tabTitleText: UIColor { return defaultTextAndTint }
-    override var tabTitleBlur: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
-    override var background: UIColor { return UIColor.defaultBackground }
-    override var cellBackground: UIColor { return UIColor.defaultBackground }
-    override var toolbar: UIColor { return UIColor.black.withAlphaComponent(0.8) }
-    override var toolbarButtonTint: UIColor { return defaultTextAndTint }
-    override var cellCloseButton: UIColor { return defaultTextAndTint }
-    override var cellTitleBackground: UIColor { return UIColor.Grey70 }
-    override var searchBackground: UIColor { return UIColor.Grey60 }
-}
-
 private class DarkTextFieldColor: TextFieldColor {
     override var background: UIColor {
         if #available(iOS 13.0, *) {
@@ -101,7 +89,7 @@ class DarkTheme: Theme {
     override var urlbar: URLBarColor { return URLBarColor() }
     override var browser: BrowserColor { return BrowserColor() }
     override var toolbarButton: ToolbarButtonColor { return ToolbarButtonColor() }
-    override var tabTray: TabTrayColor { return DarkTabTrayColor() }
+    override var tabTray: TabTrayColor { return TabTrayColor() }
     override var topTabs: TopTabsColor { return TopTabsColor() }
     override var textField: TextFieldColor { return DarkTextFieldColor() }
     override var homePanel: HomePanelColor { return DarkHomePanelColor() }
