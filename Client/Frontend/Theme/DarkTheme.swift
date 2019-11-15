@@ -4,16 +4,6 @@
 
 import Foundation
 
-// Convenience reference to these normal mode colors which are used in a few color classes.
-private var defaultBackground: UIColor {
-    if #available(iOS 13.0, *) {
-        return UIColor.systemGray6
-    } else {
-        // Fallback on earlier versions
-        return UIColor.Grey80
-    }
-}
-
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
@@ -29,7 +19,7 @@ private class DarkTableViewColor: TableViewColor {
 private class DarkActionMenuColor: ActionMenuColor {
     override var foreground: UIColor { return defaultTextAndTint }
     override var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
-    override var closeButtonBackground: UIColor { return defaultBackground }
+    override var closeButtonBackground: UIColor { return UIColor.defaultBackground }
     override var closeButtonTitleColor: UIColor { return UIColor.CliqzBlue }
 }
 
@@ -45,7 +35,7 @@ private class DarkURLBarColor: URLBarColor {
 }
 
 private class DarkBrowserColor: BrowserColor {
-    override var background: UIColor { return defaultBackground }
+    override var background: UIColor { return UIColor.defaultBackground }
     override var tint: UIColor { return defaultTextAndTint }
 }
 
@@ -57,8 +47,8 @@ private class DarkToolbarButtonColor: ToolbarButtonColor {
 private class DarkTabTrayColor: TabTrayColor {
     override var tabTitleText: UIColor { return defaultTextAndTint }
     override var tabTitleBlur: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
-    override var background: UIColor { return defaultBackground }
-    override var cellBackground: UIColor { return defaultBackground }
+    override var background: UIColor { return UIColor.defaultBackground }
+    override var cellBackground: UIColor { return UIColor.defaultBackground }
     override var toolbar: UIColor { return UIColor.black.withAlphaComponent(0.8) }
     override var toolbarButtonTint: UIColor { return defaultTextAndTint }
     override var cellCloseButton: UIColor { return defaultTextAndTint }
@@ -96,10 +86,10 @@ private class DarkTextFieldColor: TextFieldColor {
 }
 
 private class DarkHomePanelColor: HomePanelColor {
-    override var toolbarBackground: UIColor { return defaultBackground }
+    override var toolbarBackground: UIColor { return UIColor.defaultBackground }
     override var toolbarHighlight: UIColor { return UIColor.Blue40 }
     override var toolbarTint: UIColor { return UIColor.Grey30 }
-    override var panelBackground: UIColor { return defaultBackground }
+    override var panelBackground: UIColor { return UIColor.defaultBackground }
     override var separator: UIColor { return defaultSeparator }
     override var border: UIColor { return UIColor.Grey60 }
     override var buttonContainerBorder: UIColor { return separator }

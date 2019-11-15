@@ -9,6 +9,17 @@
 import UIKit
 
 extension UIColor {
+    /// Default background for views. Uses Dark Mode enabled colors on iOS 13, Gray in earlier iOSes.
+    public static var defaultBackground: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray6
+        } else {
+            return UIColor.Grey80
+        }
+    }
+}
+
+extension UIColor {
     // Primary Colors
     static let CliqzBlue = UIColor(named: "CliqzBlue")!
     static let CliqzBlack = UIColor(named: "CliqzBlack")!
@@ -51,5 +62,4 @@ extension UIColor {
 
     static let Orange50 = BrightRed * 0.4 + UIColor.yellow * 0.4 + CliqzBlack * 0.2
     static let Orange60 = BrightRed * 0.3 + UIColor.yellow * 0.3 + CliqzBlack * 0.4
-
 }
