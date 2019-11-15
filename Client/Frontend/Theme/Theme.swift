@@ -60,8 +60,8 @@ class TableViewColor {
     var rowActionAccessory: UIColor { return UIColor.CliqzBlue }
     var controlTint: UIColor { return rowActionAccessory }
     var syncText: UIColor { return defaultTextAndTint }
-    var errorText: UIColor { return UIColor.Red50 }
-    var warningText: UIColor { return UIColor.Orange50 }
+    var errorText: UIColor { return UIColor.BrightRed }
+    var warningText: UIColor { return UIColor.Orange }
 }
 
 class ActionMenuColor {
@@ -289,7 +289,7 @@ class GeneralColor {
     var faviconBackground: UIColor { return UIColor.clear }
     var passcodeDot: UIColor { return UIColor.Grey60 }
     var highlightBlue: UIColor { return UIColor.Blue40 }
-    var destructiveRed: UIColor { return UIColor.Red50 }
+    var destructiveRed: UIColor { return UIColor.BrightRed }
     var separator: UIColor { return defaultSeparator }
     var settingsTextPlaceholder: UIColor? { return nil }
     var controlTint: UIColor { return UIColor.BrightBlue }
