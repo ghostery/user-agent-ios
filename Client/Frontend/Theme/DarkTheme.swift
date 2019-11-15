@@ -132,7 +132,7 @@ private class DarkGeneralColor: GeneralColor {
     override var controlTint: UIColor { return UIColor.CliqzBlue }
 }
 
-class DarkTheme: NormalTheme {
+class DarkTheme: Theme {
     override var name: String { return BuiltinThemeName.dark.rawValue }
     override var tableView: TableViewColor { return DarkTableViewColor() }
     override var urlbar: URLBarColor { return DarkURLBarColor() }

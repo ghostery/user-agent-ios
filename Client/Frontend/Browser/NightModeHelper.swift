@@ -6,6 +6,8 @@ import Foundation
 import WebKit
 import Shared
 
+// TODO: Remove this file
+
 struct NightModePrefsKey {
     static let NightModeButtonIsInMenu = PrefsKeys.KeyNightModeButtonIsInMenu
     static let NightModeStatus = PrefsKeys.KeyNightModeStatus
@@ -49,7 +51,7 @@ class NightModeHelper: TabContentScript {
     }
 
     private static func setEnabledDarkTheme(_ prefs: Prefs, darkTheme enabled: Bool) {
-        ThemeManager.instance.current = enabled ? DarkTheme() : NormalTheme()
+        ThemeManager.instance.current = enabled ? DarkTheme() : Theme()
         prefs.setBool(enabled, forKey: NightModePrefsKey.NightModeEnabledDarkTheme)
     }
 

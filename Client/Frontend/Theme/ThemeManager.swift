@@ -10,15 +10,16 @@ enum ThemeManagerPrefs: String {
 class ThemeManager {
     static let instance = ThemeManager()
 
-    var current: Theme = themeFrom(name: UserDefaults.standard.string(forKey: ThemeManagerPrefs.themeName.rawValue)) {
+    var current: Theme = Theme() {
         didSet {
+            // TODO: Remove
             UserDefaults.standard.set(current.name, forKey: ThemeManagerPrefs.themeName.rawValue)
             NotificationCenter.default.post(name: .DisplayThemeChanged, object: nil)
         }
     }
 
     var currentName: BuiltinThemeName {
-        return BuiltinThemeName(rawValue: ThemeManager.instance.current.name) ?? .normal
+        return .normal
     }
 
     // UIViewControllers / UINavigationControllers need to have `preferredStatusBarStyle` and call this.
@@ -29,11 +30,5 @@ class ThemeManager {
 }
 
 private func themeFrom(name: String?) -> Theme {
-    guard let name = name, let theme = BuiltinThemeName(rawValue: name) else { return NormalTheme() }
-    switch theme {
-    case .dark:
-        return DarkTheme()
-    default:
-        return NormalTheme()
-    }
+    return Theme()
 }

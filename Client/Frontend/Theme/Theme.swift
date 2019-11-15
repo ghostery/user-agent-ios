@@ -12,7 +12,7 @@ protocol PrivateModeUI {
 }
 
 extension UIColor {
-    static var theme: Theme {
+    static var theme: Themeprotocol {
         return ThemeManager.instance.current
     }
 }
@@ -295,7 +295,7 @@ class GeneralColor {
     var controlTint: UIColor { return UIColor.BrightBlue }
 }
 
-protocol Theme {
+protocol Themeprotocol {
     var name: String { get }
     var tableView: TableViewColor { get }
     var urlbar: URLBarColor { get }
@@ -311,7 +311,7 @@ protocol Theme {
     var actionMenu: ActionMenuColor { get }
 }
 
-class NormalTheme: Theme {
+class Theme: Themeprotocol {
     var name: String { return BuiltinThemeName.normal.rawValue }
     var tableView: TableViewColor { return TableViewColor() }
     var urlbar: URLBarColor { return URLBarColor() }
