@@ -7,16 +7,6 @@ import Foundation
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
-private class DarkBrowserColor: BrowserColor {
-    override var background: UIColor { return UIColor.defaultBackground }
-    override var tint: UIColor { return defaultTextAndTint }
-}
-
-// The back/forward/refresh/menu button (bottom toolbar)
-private class DarkToolbarButtonColor: ToolbarButtonColor {
-
-}
-
 private class DarkTabTrayColor: TabTrayColor {
     override var tabTitleText: UIColor { return defaultTextAndTint }
     override var tabTitleBlur: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
@@ -109,8 +99,8 @@ class DarkTheme: Theme {
     override var name: String { return BuiltinThemeName.dark.rawValue }
     override var tableView: TableViewColor { return TableViewColor() }
     override var urlbar: URLBarColor { return URLBarColor() }
-    override var browser: BrowserColor { return DarkBrowserColor() }
-    override var toolbarButton: ToolbarButtonColor { return DarkToolbarButtonColor() }
+    override var browser: BrowserColor { return BrowserColor() }
+    override var toolbarButton: ToolbarButtonColor { return ToolbarButtonColor() }
     override var tabTray: TabTrayColor { return DarkTabTrayColor() }
     override var topTabs: TopTabsColor { return TopTabsColor() }
     override var textField: TextFieldColor { return DarkTextFieldColor() }
