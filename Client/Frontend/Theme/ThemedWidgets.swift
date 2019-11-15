@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 import UIKit
 
+// TODO
 class ThemedTableViewCell: UITableViewCell, Themeable {
     var detailTextColor = UIColor.theme.tableView.rowDetailText
 
