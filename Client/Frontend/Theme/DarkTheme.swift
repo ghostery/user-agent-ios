@@ -43,10 +43,6 @@ private class DarkHomePanelColor: HomePanelColor {
     override var searchSuggestionPillForeground: UIColor { return defaultTextAndTint }
 }
 
-private class DarkSnackBarColor: SnackBarColor {
-// Use defaults
-}
-
 private class DarkGeneralColor: GeneralColor {
     override var settingsTextPlaceholder: UIColor? { return UIColor.black }
     override var faviconBackground: UIColor { return UIColor.White }
