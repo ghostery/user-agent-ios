@@ -7,13 +7,6 @@ import Foundation
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
-private class DarkGeneralColor: GeneralColor {
-    override var settingsTextPlaceholder: UIColor? { return UIColor.black }
-    override var faviconBackground: UIColor { return UIColor.White }
-    override var passcodeDot: UIColor { return UIColor.Grey40 }
-    override var controlTint: UIColor { return UIColor.CliqzBlue }
-}
-
 class DarkTheme: Theme {
     override var name: String { return BuiltinThemeName.dark.rawValue }
     override var tableView: TableViewColor { return TableViewColor() }
@@ -25,6 +18,6 @@ class DarkTheme: Theme {
     override var textField: TextFieldColor { return TextFieldColor() }
     override var homePanel: HomePanelColor { return HomePanelColor() }
     override var snackbar: SnackBarColor { return SnackBarColor() }
-    override var general: GeneralColor { return DarkGeneralColor() }
+    override var general: GeneralColor { return GeneralColor() }
     override var actionMenu: ActionMenuColor { return ActionMenuColor() }
 }

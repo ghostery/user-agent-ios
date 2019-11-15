@@ -299,12 +299,18 @@ class SnackBarColor {
 }
 
 class GeneralColor {
-    var faviconBackground: UIColor { return UIColor.clear }
+    var faviconBackground: UIColor { return UIColor.Grey20 }
     var passcodeDot: UIColor { return UIColor.Grey60 }
     var highlightBlue: UIColor { return UIColor.Blue40 }
     var destructiveRed: UIColor { return UIColor.BrightRed }
     var separator: UIColor { return defaultSeparator }
-    var settingsTextPlaceholder: UIColor? { return nil }
+    var settingsTextPlaceholder: UIColor? {
+    if #available(iOS 13.0, *) {
+        return UIColor.systemBackground
+    } else {
+        return nil
+        }
+    }
     var controlTint: UIColor { return UIColor.BrightBlue }
 }
 
