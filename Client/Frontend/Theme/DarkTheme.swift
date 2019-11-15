@@ -7,15 +7,6 @@ import Foundation
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
-private class DarkTableViewColor: TableViewColor {
-    override var rowText: UIColor { return defaultTextAndTint }
-    override var rowDetailText: UIColor { return UIColor.Grey30 }
-    override var disabledRowText: UIColor { return UIColor.Grey80 }
-    override var headerTextLight: UIColor { return UIColor.Grey30 }
-    override var headerTextDark: UIColor { return UIColor.Grey30 }
-    override var syncText: UIColor { return defaultTextAndTint }
-}
-
 private class DarkActionMenuColor: ActionMenuColor {
     override var foreground: UIColor { return defaultTextAndTint }
     override var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
@@ -134,7 +125,7 @@ private class DarkGeneralColor: GeneralColor {
 
 class DarkTheme: Theme {
     override var name: String { return BuiltinThemeName.dark.rawValue }
-    override var tableView: TableViewColor { return DarkTableViewColor() }
+    override var tableView: TableViewColor { return TableViewColor() }
     override var urlbar: URLBarColor { return DarkURLBarColor() }
     override var browser: BrowserColor { return DarkBrowserColor() }
     override var toolbarButton: ToolbarButtonColor { return DarkToolbarButtonColor() }
