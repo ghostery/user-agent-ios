@@ -267,17 +267,17 @@ class HomePanelColor {
     var bookmarkFolderBackground: UIColor { return UIColor.Grey10.withAlphaComponent(0.3) }
     var bookmarkFolderText: UIColor { return UIColor.Grey80 }
     var bookmarkCurrentFolderText: UIColor { return UIColor.Blue40 }
-    var bookmarkBackNavCellBackground: UIColor { return UIColor.clear }
+    var bookmarkBackNavCellBackground: UIColor { return UIColor.Grey30 }
 
     var siteTableHeaderBorder: UIColor { return UIColor.Grey30.withAlphaComponent(0.8) }
 
     var topSiteDomain: UIColor { return UIColor.black }
-    var topSitesGradientStart: UIColor { return UIColor.white }
-    var topSitesGradientEnd: UIColor { return UIColor(rgb: 0xf8f8f8) }
-    var topSitesBackground: UIColor { return UIColor.white }
+    var topSitesGradientStart: UIColor { return UIColor.Grey10 }
+    var topSitesGradientEnd: UIColor { return UIColor.Grey30 }
+    var topSitesBackground: UIColor { return UIColor.Grey10 }
 
     var activityStreamHeaderText: UIColor { return UIColor.Grey50 }
-    var activityStreamCellTitle: UIColor { return UIColor.black }
+    var activityStreamCellTitle: UIColor { return UIColor.Grey80 }
     var activityStreamCellDescription: UIColor { return UIColor.Grey60 }
 
     var readingListActive: UIColor { return defaultTextAndTint }
@@ -285,9 +285,9 @@ class HomePanelColor {
 
     var downloadedFileIcon: UIColor { return UIColor.Grey60 }
 
-    var historyHeaderIconsBackground: UIColor { return UIColor.White }
+    var historyHeaderIconsBackground: UIColor { return UIColor.clear }
 
-    var searchSuggestionPillBackground: UIColor { return UIColor.White }
+    var searchSuggestionPillBackground: UIColor { return UIColor.Grey30 }
     var searchSuggestionPillForeground: UIColor { return UIColor.Blue40 }
 }
 
