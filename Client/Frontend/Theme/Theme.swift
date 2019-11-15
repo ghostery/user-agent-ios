@@ -22,17 +22,6 @@ enum BuiltinThemeName: String {
     case dark
 }
 
-// Convenience reference to these normal mode colors which are used in a few color classes.
-
-private var defaultBackground: UIColor {
-    if #available(iOS 13.0, *) {
-        return UIColor.systemBackground
-    } else {
-        // Fallback on earlier versions
-        return UIColor.LightSky
-    }
-}
-
 private let defaultSeparator = UIColor.Grey40
 private let defaultTextAndTint = UIColor.Grey80
 
@@ -61,7 +50,7 @@ class TableViewColor {
             return UIColor.systemGroupedBackground
         } else {
             // Fallback on earlier versions
-            return defaultBackground
+            return UIColor.defaultBackground
         }
     }
     // Used for table headers in Settings and Photon menus
@@ -87,7 +76,7 @@ class ActionMenuColor {
     var foreground: UIColor { return defaultTextAndTint }
     var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.light }
     var iPhoneBackground: UIColor { return UIColor.theme.browser.background.withAlphaComponent(0.9) }
-    var closeButtonBackground: UIColor { return defaultBackground }
+    var closeButtonBackground: UIColor { return UIColor.defaultBackground }
     var closeButtonTitleColor: UIColor { return UIColor.BrightBlue }
 }
 
@@ -122,7 +111,7 @@ class URLBarColor {
 }
 
 class BrowserColor {
-    var background: UIColor { return defaultBackground }
+    var background: UIColor { return UIColor.defaultBackground }
     var urlBarDivider: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
     var tint: UIColor { return defaultTextAndTint }
 }
@@ -147,8 +136,8 @@ class TabTrayColor {
     var tabTitleText: UIColor { return UIColor.black }
     var tabTitleBlur: UIBlurEffect.Style { return UIBlurEffect.Style.extraLight }
     var background: UIColor { return UIColor.Grey80 }
-    var cellBackground: UIColor { return defaultBackground }
-    var toolbar: UIColor { return defaultBackground }
+    var cellBackground: UIColor { return UIColor.defaultBackground }
+    var toolbar: UIColor { return UIColor.defaultBackground }
     var toolbarButtonTint: UIColor { return defaultTextAndTint }
     var privateModeLearnMore: UIColor { return UIColor.Grey70 }
     var privateModePurple: UIColor { return UIColor.Grey70 }
@@ -235,11 +224,11 @@ class TextFieldColor {
 }
 
 class HomePanelColor {
-    var toolbarBackground: UIColor { return defaultBackground }
+    var toolbarBackground: UIColor { return UIColor.defaultBackground }
     var toolbarHighlight: UIColor { return UIColor.Blue40 }
     var toolbarTint: UIColor { return UIColor.Grey50 }
 
-    var panelBackground: UIColor { return defaultBackground }
+    var panelBackground: UIColor { return UIColor.defaultBackground }
     var separatorColor: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemGray5
