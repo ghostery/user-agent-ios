@@ -46,4 +46,6 @@ extension UIColor {
     static let Blue50 = UIColor(named: "Blue50")!
     static let Blue60 = UIColor(named: "Blue60")!
 
+    static let TextHighlightBlue = UIColor(named: "TextHighlightBlue")!
+
 }

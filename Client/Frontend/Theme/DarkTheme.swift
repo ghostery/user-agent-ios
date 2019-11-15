@@ -7,17 +7,6 @@ import Foundation
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
-private class DarkURLBarColor: URLBarColor {
-    override func textSelectionHighlight(_ isPrivate: Bool) -> TextSelectionHighlight {
-        let color = isPrivate ? UIColor.Defaults.MobilePrivatePurple : UIColor(rgb: 0x3d89cc)
-        return (labelMode: color.withAlphaComponent(0.25), textFieldMode: color)
-
-    }
-    override var background: UIColor {
-        return UIColor.LightSky.withAlphaComponent(0.2)
-    }
-}
-
 private class DarkBrowserColor: BrowserColor {
     override var background: UIColor { return UIColor.defaultBackground }
     override var tint: UIColor { return defaultTextAndTint }
@@ -119,7 +108,7 @@ private class DarkGeneralColor: GeneralColor {
 class DarkTheme: Theme {
     override var name: String { return BuiltinThemeName.dark.rawValue }
     override var tableView: TableViewColor { return TableViewColor() }
-    override var urlbar: URLBarColor { return DarkURLBarColor() }
+    override var urlbar: URLBarColor { return URLBarColor() }
     override var browser: BrowserColor { return DarkBrowserColor() }
     override var toolbarButton: ToolbarButtonColor { return DarkToolbarButtonColor() }
     override var tabTray: TabTrayColor { return DarkTabTrayColor() }

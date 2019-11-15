@@ -94,7 +94,7 @@ class URLBarColor {
     }
     var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
     var background: UIColor {
-        return UIColor.systemGray.withAlphaComponent(0.15)
+        return UIColor.Grey10.withAlphaComponent(0.2)
     }
     // This text selection color is used in two ways:
     // 1) <UILabel>.background = textSelectionHighlight.withAlphaComponent(textSelectionHighlightAlpha)
@@ -104,10 +104,10 @@ class URLBarColor {
     typealias TextSelectionHighlight = (labelMode: UIColor, textFieldMode: UIColor?)
     func textSelectionHighlight(_ isPrivate: Bool) -> TextSelectionHighlight {
         if isPrivate {
-            let color = UIColor.Defaults.MobilePrivatePurple
+            let color = UIColor.Grey70
             return (labelMode: color.withAlphaComponent(0.25), textFieldMode: color)
         } else {
-            return (labelMode: UIColor.Defaults.iOSTextHighlightBlue, textFieldMode: nil)
+            return (labelMode: UIColor.TextHighlightBlue, textFieldMode: nil)
         }
     }
 

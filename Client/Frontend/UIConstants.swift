@@ -5,6 +5,7 @@
 import Foundation
 import Shared
 
+// TODO: Remove
 extension UIColor {
     // These are defaults from http://design.firefox.com/photon/visuals/color.html
     struct Defaults {
