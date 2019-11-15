@@ -7,13 +7,6 @@ import Foundation
 private let defaultSeparator = UIColor.Grey60
 private let defaultTextAndTint = UIColor.Grey10
 
-private class DarkActionMenuColor: ActionMenuColor {
-    override var foreground: UIColor { return defaultTextAndTint }
-    override var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.dark }
-    override var closeButtonBackground: UIColor { return UIColor.defaultBackground }
-    override var closeButtonTitleColor: UIColor { return UIColor.CliqzBlue }
-}
-
 private class DarkURLBarColor: URLBarColor {
     override func textSelectionHighlight(_ isPrivate: Bool) -> TextSelectionHighlight {
         let color = isPrivate ? UIColor.Defaults.MobilePrivatePurple : UIColor(rgb: 0x3d89cc)
@@ -135,5 +128,5 @@ class DarkTheme: Theme {
     override var homePanel: HomePanelColor { return DarkHomePanelColor() }
     override var snackbar: SnackBarColor { return DarkSnackBarColor() }
     override var general: GeneralColor { return DarkGeneralColor() }
-    override var actionMenu: ActionMenuColor { return DarkActionMenuColor() }
+    override var actionMenu: ActionMenuColor { return ActionMenuColor() }
 }

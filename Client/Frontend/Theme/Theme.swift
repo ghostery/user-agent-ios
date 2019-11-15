@@ -74,7 +74,14 @@ class ActionMenuColor {
         }
     }
     var foreground: UIColor { return defaultTextAndTint }
-    var iPhoneBackgroundBlurStyle: UIBlurEffect.Style { return UIBlurEffect.Style.light }
+    var iPhoneBackgroundBlurStyle: UIBlurEffect.Style {
+        if #available(iOS 13.0, *) {
+            return UIBlurEffect.Style.systemChromeMaterial
+        } else {
+            return UIBlurEffect.Style.prominent
+        }
+
+    }
     var iPhoneBackground: UIColor { return UIColor.theme.browser.background.withAlphaComponent(0.9) }
     var closeButtonBackground: UIColor { return UIColor.defaultBackground }
     var closeButtonTitleColor: UIColor { return UIColor.BrightBlue }
