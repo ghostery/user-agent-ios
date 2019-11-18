@@ -62,33 +62,31 @@ export default function News({ newsModule }) {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        scrollEnabled={false}
-        data={news}
-        keyExtractor={(item) => item.url}
-        renderItem={({ item }) =>
-          <View style={styles.item}>
-            {item.imageUrl &&
-              <TouchableWithoutFeedback
-                onPress={() => openLink(item.url)}
-              >
-
-                <Image
-                  style={styles.image}
-                  source={{uri: item.imageUrl}}
-                />
-              </TouchableWithoutFeedback>
-            }
-            <ListItem
-              url={item.url}
-              title={item.title}
-              label={item.breaking_label ? NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel'] : null}
+      {news.map(item =>
+        <View
+          style={styles.item}
+          key={item.url}
+        >
+          {item.imageUrl &&
+            <TouchableWithoutFeedback
               onPress={() => openLink(item.url)}
-            />
-            <View style={styles.separator} />
-          </View>
-        }
-      />
+            >
+
+              <Image
+                style={styles.image}
+                source={{uri: item.imageUrl}}
+              />
+            </TouchableWithoutFeedback>
+          }
+          <ListItem
+            url={item.url}
+            title={item.title}
+            label={item.breaking_label ? NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel'] : null}
+            onPress={() => openLink(item.url)}
+          />
+          <View style={styles.separator} />
+        </View>
+      )}
     </View>
   );
 }

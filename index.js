@@ -3,8 +3,6 @@ import { AppRegistry, YellowBox, NativeModules } from 'react-native';
 import './ReactNative/js/setup-globals';
 import App from 'browser-core-user-agent-ios/build/modules/core/app';
 import inject from 'browser-core-user-agent-ios/build/modules/core/kord/inject';
-import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
-import { addConnectionChangeListener } from 'browser-core-user-agent-ios/build/modules/platform/network';
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
 import SearchResults from './ReactNative/js/screens/SearchResults';
@@ -13,7 +11,9 @@ import Logo from './ReactNative/js/components/Logo';
 import { ThemeWrapperComponentProvider } from './ReactNative/js/contexts/theme';
 
 YellowBox.ignoreWarnings([
-  'Warning: NetInfo', // TODO: use netinfo from community package
+  'Warning: componentWillMount',
+  'Warning: componentWillReceiveProps',
+  'VirtualizedLists',
 ]);
 
 const app = new App({
@@ -25,8 +25,6 @@ const appReady = app.start();
 global.CLIQZ = {
   app,
 };
-
-addConnectionChangeListener();
 
 const bridgeManager = new BridgeManager(NativeModules.JSBridge, inject, appReady);
 

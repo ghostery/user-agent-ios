@@ -1,6 +1,9 @@
 import { NativeEventEmitter, NativeModules } from 'react-native';
+import networkStatus from './globals/browser/networkStatus';
+import './globals/navigator/userAgent';
 
 global.browser = global.chrome = {
+  networkStatus,
   webRequest: {
     onHeadersReceived: {
       addListener() {},
@@ -77,6 +80,3 @@ global.browser = global.chrome = {
     })(),
   },
 };
-
-// TODO: investigate who is using it
-global.navigator.userAgent = 'Cliqz';
