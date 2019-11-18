@@ -10,6 +10,8 @@ set -e
 
 brew bundle
 
+brew bootstrap-nodenv-node
+
 brew bundle exec npm ci
 brew bundle exec npm run build-user-scripts
 
