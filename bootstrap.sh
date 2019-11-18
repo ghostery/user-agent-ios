@@ -10,9 +10,8 @@ set -e
 
 brew bundle
 
-
-npm ci
-npm run build-user-scripts
+brew bundle exec npm ci
+brew bundle exec npm run build-user-scripts
 
 bundle install
 bundle exec pod install --repo-update
