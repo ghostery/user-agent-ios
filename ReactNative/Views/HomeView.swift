@@ -29,7 +29,7 @@ class HomeView: UIView, ReactViewTheme {
                 "speedDials": self.speedDials!.map(toDial),
                 "pinnedSites": self.pinnedSites!.map(toDial),
             ]
-        )!
+        )
 
         reactView.backgroundColor = .clear
         return reactView
