@@ -1205,7 +1205,9 @@ extension BrowserViewController: URLBarDelegate {
             let isReaderModeEnabled = self.readerModeState == .unavailable ? nil : self.readerModeState == .active
             let pageActions = self.getTabActions(tab: tab, buttonView: button, presentShareMenu: actionMenuPresenter,
                                                  findInPage: findInPageAction, presentableVC: self, isBookmarked: isBookmarked,
-                                                 isPinned: isPinned, isReaderModeEnabled: isReaderModeEnabled, readerModeChanged: readerModeChanged, success: successCallback)
+                                                 isPinned: isPinned,
+                                                 isReaderModeEnabled: isReaderModeEnabled, readerModeChanged: readerModeChanged,
+                                                 success: successCallback)
             self.presentSheetWith(title: Strings.PageActionMenuTitle, actions: pageActions, on: self, from: button)
         }
     }
