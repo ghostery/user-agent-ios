@@ -10,6 +10,12 @@ import BridgeManager from './ReactNative/js/bridge-manager';
 import Logo from './ReactNative/js/components/Logo';
 import { ThemeWrapperComponentProvider } from './ReactNative/js/contexts/theme';
 
+YellowBox.ignoreWarnings([
+  'Warning: componentWillMount',
+  'Warning: componentWillReceiveProps',
+  'VirtualizedLists',
+]);
+
 const app = new App({
   browser: global.browser,
   debug: NativeModules.Constants.isDebug || NativeModules.Constants.isCI
