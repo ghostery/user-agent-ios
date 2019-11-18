@@ -84,6 +84,8 @@ extension PhotonActionSheetProtocol {
                        presentableVC: PresentableVC,
                        isBookmarked: Bool,
                        isPinned: Bool,
+                       isReaderModeEnabled: Bool?,
+                       readerModeChanged: ((Bool) -> Void)?,
                        success: @escaping (String) -> Void) -> [[PhotonActionSheetItem]] {
         if tab.url?.isFileURL ?? false {
             let shareFile = PhotonActionSheetItem(title: Strings.AppMenuSharePageTitleString, iconString: "action_share") { action in
@@ -186,7 +188,17 @@ extension PhotonActionSheetProtocol {
 
         let refreshPage = self.refreshPageItem()
 
-        var commonActions = [toggleDesktopSite, refreshPage]
+        var domainActions = [toggleDesktopSite]
+
+        if let isReaderModeEnabled = isReaderModeEnabled {
+            let readerModeAction = PhotonActionSheetItem(title: Strings.AppMenuReaderModeTitleString, iconString: "reader", isEnabled: isReaderModeEnabled, accessory: .Switch, badgeIconNamed: "menuBadge") { (item) in
+                tab.toggleChangeReaderMode()
+                readerModeChanged?(item.isEnabled)
+            }
+            domainActions.append(readerModeAction)
+        }
+
+        var commonActions = [refreshPage]
 
         // Disable find in page if document is pdf.
         if tab.mimeType != MIMEType.PDF {
@@ -196,7 +208,7 @@ extension PhotonActionSheetProtocol {
             commonActions.insert(findInPageAction, at: 0)
         }
 
-        return [mainActions, commonActions]
+        return [mainActions, domainActions, commonActions]
     }
 
     func fetchBookmarkStatus(for url: String) -> Deferred<Maybe<Bool>> {
