@@ -34,9 +34,12 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginRight: 12,
   },
+  speedDialsContainer: {
+    marginBottom: 25,
+  },
   speedDials: {
     marginTop: 0,
-    marginBottom: 25,
+    marginBottom: 0,
     padding: 0,
     flexDirection: 'row',
     flex: 1,
@@ -109,8 +112,10 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
               source={normalizeUrl('logo.svg')}
             />
           </View>
-          <SpeedDialRow dials={firstRow}/>
-          <SpeedDialRow dials={secondRow}/>
+          <View style={styles.speedDialsContainer}>
+            <SpeedDialRow dials={firstRow}/>
+            <SpeedDialRow dials={secondRow}/>
+          </View>
           <News newsModule={newsModule} />
         </View>
       </ScrollView>
