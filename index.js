@@ -16,15 +16,10 @@ YellowBox.ignoreWarnings([
   'Warning: NetInfo', // TODO: use netinfo from community package
 ]);
 
-export class BrowserCore extends App {
-  constructor(browser) {
-    super({ browser });
-  }
-}
-
-prefs.set('developer', NativeModules.Constants.isDebug || NativeModules.Constants.isCI);
-
-const app = new BrowserCore(global.browser);
+const app = new App({
+  browser: global.browser,
+  debug: NativeModules.Constants.isDebug || NativeModules.Constants.isCI
+});
 const appReady = app.start();
 
 global.CLIQZ = {
