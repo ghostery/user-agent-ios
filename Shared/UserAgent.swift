@@ -12,14 +12,6 @@ open class UserAgent {
         return "\(prefix)/\(AppInfo.appVersion)b\(AppInfo.buildNumber) (\(DeviceInfo.deviceModel()); iPhone OS \(UIDevice.current.systemVersion)) (\(AppInfo.displayName))"
     }
 
-    public static var syncUserAgent: String {
-        return clientUserAgent(prefix: "Firefox-iOS-Sync")
-    }
-
-    public static var tokenServerClientUserAgent: String {
-        return clientUserAgent(prefix: "Firefox-iOS-Token")
-    }
-
     public static var fxaUserAgent: String {
         return clientUserAgent(prefix: "Firefox-iOS-FxA")
     }
