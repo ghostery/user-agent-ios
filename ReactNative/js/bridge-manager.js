@@ -18,17 +18,20 @@ export default class BridgeManager {
   }
 
   async onAction({ module, action, args, id }) {
-    [...this.actionListeners].some(listener => {
+    const handled = [...this.actionListeners].some(listener => {
       try {
-        const handled = listener({ module, action, args, id });
-        if (handled) {
-          return false;
+        if (listener({ module, action, args, id })) {
+          return true;
         }
       } catch (e) {
         //
       }
-      return true;
+      return false;
     });
+
+    if (handled) {
+      return;
+    }
 
     if (module === 'core' && action === 'setPref') {
       prefs.set(...args);
