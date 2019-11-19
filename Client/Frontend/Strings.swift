@@ -50,13 +50,10 @@ extension Strings {
 }
 
 extension Strings {
-    public static let ASPocketTitle = NSLocalizedString("ActivityStream.Pocket.SectionTitle", comment: "Section title label for Recommended by Pocket section")
     public static let ASTopSitesTitle =  NSLocalizedString("ActivityStream.TopSites.SectionTitle", comment: "Section title label for Top Sites")
     public static let ASPinnedSitesTitle =  NSLocalizedString("ActivityStream.PinnedSites.SectionTitle", comment: "Section title label for Pinned Sites")
     public static let HighlightVistedText = NSLocalizedString("ActivityStream.Highlights.Visited", comment: "The description of a highlight if it is a site the user has visited")
     public static let HighlightBookmarkText = NSLocalizedString("ActivityStream.Highlights.Bookmark", comment: "The description of a highlight if it is a site the user has bookmarked")
-    public static let PocketTrendingText = NSLocalizedString("ActivityStream.Pocket.Trending", comment: "The description of a Pocket Story")
-    public static let PocketMoreStoriesText = NSLocalizedString("ActivityStream.Pocket.MoreLink", comment: "The link that shows more Pocket trending stories")
     public static let TopSitesRowSettingFooter = NSLocalizedString("ActivityStream.TopSites.RowSettingFooter", comment: "The title for the setting page which lets you select the number of top site rows")
     public static let TopSitesRowCount = NSLocalizedString("ActivityStream.TopSites.RowCount", comment: "label showing how many rows of topsites are shown. %d represents a number")
     public static let RecentlyBookmarkedTitle = NSLocalizedString("ActivityStream.NewRecentBookmarks.Title", comment: "Section title label for recently bookmarked websites")
@@ -239,8 +236,6 @@ extension Strings {
     public static let SettingsNewTabDescription = NSLocalizedString("Settings.NewTab.Description", comment: "A description in settings of what the new tab choice means")
     // AS Panel settings
     public static let SettingsNewTabASTitle = NSLocalizedString("Settings.NewTab.Option.ASTitle", comment: "The title of the section in newtab that lets you modify the topsites panel")
-    public static let SettingsNewTabPocket = NSLocalizedString("Settings.NewTab.Option.Pocket", comment: "Option in settings to turn on off pocket recommendations")
-    public static let SettingsNewTabPocketFooter = NSLocalizedString("Settings.NewTab.Option.PocketFooter", comment: "Footer caption for pocket settings")
     public static let SettingsNewTabHiglightsHistory = NSLocalizedString("Settings.NewTab.Option.HighlightsHistory", comment: "Option in settings to turn off history in the highlights section")
     public static let SettingsNewTabHighlightsBookmarks = NSLocalizedString("Settings.NewTab.Option.HighlightsBookmarks", comment: "Option in the settings to turn off recent bookmarks in the Highlights section")
     public static let SettingsTopSitesCustomizeTitle = String(format: NSLocalizedString("Settings.NewTab.Option.CustomizeTitle", comment: "The title for the section to customize top sites in the new tab settings page."), AppInfo.displayName)

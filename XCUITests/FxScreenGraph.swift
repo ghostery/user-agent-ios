@@ -139,7 +139,6 @@ class Action {
     static let UnlockLoginsSettings = "UnlockLoginsSettings"
     static let DisablePasscodeTypeIncorrectPasscode = "DisablePasscodeTypeIncorrectPasscode"
 
-    static let TogglePocketInNewTab = "TogglePocketInNewTab"
     static let ToggleHistoryInNewTab = "ToggleHistoryInNewTab"
 
     static let SelectNewTabAsBlankPage = "SelectNewTabAsBlankPage"
@@ -230,7 +229,6 @@ class FxUserState: MMUserState {
 
     var nightMode = false
 
-    var pocketInNewTab = false
     var bookmarksInNewTab = true
     var historyInNewTab = true
 
@@ -624,11 +622,6 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
 
         screenState.gesture(forAction: Action.SelectHomeAsCustomURL) { UserState in
             app.cells["HomeAsCustomURL"].tap()
-        }
-
-        screenState.gesture(forAction: Action.TogglePocketInNewTab) { userState in
-            userState.pocketInNewTab = !userState.pocketInNewTab
-            app.switches["ASPocketStoriesVisible"].tap()
         }
 
         screenState.gesture(forAction: Action.SelectTopSitesRows) { userState in
