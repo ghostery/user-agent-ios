@@ -72,6 +72,12 @@ public struct PhotonActionSheetItem {
     public fileprivate(set) var badgeIconName: String?
     public private(set) var customView: UIView?
 
+    // Enable title customization beyond what the interface provides,
+    public var customRender: ((_ title: UILabel, _ contentView: UIView) -> Void)?
+
+    // Enable height customization
+    public var customHeight: ((PhotonActionSheetItem) -> CGFloat)?
+
     init(title: String, text: String? = nil, iconString: String? = nil, iconURL: URL? = nil, iconType: PhotonActionSheetIconType = .Image,
          iconAlignment: IconAlignment = .left, isEnabled: Bool = false, accessory: PhotonActionSheetCellAccessoryType = .None,
          accessoryText: String? = nil, badgeIconNamed: String? = nil, bold: Bool? = false, tabCount: String? = nil,

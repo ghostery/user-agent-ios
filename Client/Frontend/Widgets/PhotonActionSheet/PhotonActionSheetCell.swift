@@ -258,5 +258,6 @@ class PhotonActionSheetCell: UITableViewCell {
         default:
             break // Do nothing. The rest are not supported yet.
         }
+        action.customRender?(titleLabel, contentView)
     }
 }
