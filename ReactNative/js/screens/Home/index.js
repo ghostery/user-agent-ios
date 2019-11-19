@@ -9,6 +9,7 @@ import {
 import { parse } from 'tldts';
 import SpeedDial from '../../components/SpeedDial';
 import News from './components/News';
+import { Test } from './components/Test';
 import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 
 const openSpeedDialLink = speedDial => NativeModules.BrowserActions.openLink(speedDial.url, "", false);
@@ -105,6 +106,7 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
         onScroll={hideKeyboard}
         contentContainerStyle={styles.contentContainer}
       >
+        <Test />
         <View style={styles.wrapper}>
           <View style={styles.logoWrapper}>
             <NativeDrawable
