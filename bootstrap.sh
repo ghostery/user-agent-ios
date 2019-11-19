@@ -8,12 +8,13 @@
 set -x
 set -e
 
+brew update
 brew bundle
 
-brew bootstrap-nodenv-node
+nodenv install -s
+nodenv exec npm ci
+nodenv exec npm run build-user-scripts
 
-brew bundle exec npm ci
-brew bundle exec npm run build-user-scripts
-
-bundle install
-bundle exec pod install --repo-update
+rbenv install -s
+rbenv exec bundle install
+rbenv exec bundle exec pod install --repo-update
