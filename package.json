@@ -41,7 +41,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
-    "detox": "^14.3.4",
+    "detox": "^14.8.1",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-typescript": "^6.3.0",
     "eslint-config-prettier": "^6.7.0",

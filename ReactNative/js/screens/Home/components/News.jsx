@@ -1,5 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect, useMemo, useContext } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useContext,
+  useCallback,
+} from 'react';
 import {
   NativeModules,
   View,
@@ -39,14 +45,14 @@ const openLink = url => NativeModules.BrowserActions.openLink(url, '', false);
 const useNews = newsModule => {
   const [data, setData] = useState([]);
 
-  async function getNews() {
+  const getNews = useCallback(async () => {
     const { news } = await newsModule.action('getNews');
     setData(news);
-  }
+  }, [newsModule]);
 
   useEffect(() => {
     getNews();
-  });
+  }, [getNews]);
 
   return data;
 };
