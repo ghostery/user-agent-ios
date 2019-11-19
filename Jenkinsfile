@@ -147,9 +147,9 @@ node('gideon') {
 
                                 export MATCH_KEYCHAIN_NAME=ios-build.keychain
 
-                                npm run update-content-blocker
+                                nodenv exec npm run update-content-blocker
 
-                                bundle exec fastlane Build app:${app.name}
+                                rbenv exec bundle exec fastlane Build app:${app.name}
                             """
                         }
                     }
@@ -183,7 +183,7 @@ ${newChangelog}"""
                                 export LANG=en_US.UTF-8
                                 export FASTLANE_HIDE_CHANGELOG=true
 
-                                bundle exec fastlane Upload app:${app.name}
+                                rbenv exec bundle exec fastlane Upload app:${app.name}
                             """
                         }
                     }
