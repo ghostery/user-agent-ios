@@ -107,12 +107,7 @@ class URLBarColor {
     // When the text is in edit mode (tapping URL bar second time), this is assigned to the to set the selection (and cursor) color. The color is assigned directly to the tintColor.
     typealias TextSelectionHighlight = (labelMode: UIColor, textFieldMode: UIColor?)
     func textSelectionHighlight(_ isPrivate: Bool) -> TextSelectionHighlight {
-        if isPrivate {
-            let color = UIColor.Defaults.MobilePrivatePurple
-            return (labelMode: color.withAlphaComponent(0.25), textFieldMode: color)
-        } else {
-            return (labelMode: UIColor.Defaults.iOSTextHighlightBlue, textFieldMode: nil)
-        }
+        return (labelMode: UIColor.Defaults.iOSTextHighlightBlue, textFieldMode: nil)
     }
 
     var readerModeButtonSelected: UIColor { return UIColor.Blue40 }
