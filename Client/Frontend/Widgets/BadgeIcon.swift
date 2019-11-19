@@ -6,7 +6,7 @@ import UIKit
 
 class ToolbarBadge: UIView {
     private let badgeSize: CGFloat
-    private let badgeOffset = CGFloat(10)
+    private let badgeOffset = CGFloat(12)
     private let background: UIImageView
     private let badge: UIImageView
 
@@ -58,7 +58,7 @@ class BadgeWithBackdrop {
         if let c = color {
             circle.backgroundColor = c
         } else {
-            circle.backgroundColor = .black
+            circle.backgroundColor = .clear
         }
         return circle
     }
