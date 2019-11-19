@@ -661,9 +661,6 @@
 /* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
 "Privacy Policy" = "Datenschutzerklärung";
 
-/* Accessibility label for the Reader View button */
-"Reader View" = "Leseansicht";
-
 /* Accessibility message e.g. spoken by VoiceOver when Reader Mode becomes available. */
 "ReaderMode.Available.VoiceOverAnnouncement" = "Lesemodus verfügbar";
 
