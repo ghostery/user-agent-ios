@@ -49,7 +49,11 @@ class BrowserViewController: UIViewController {
     var clipboardBarDisplayHandler: ClipboardBarDisplayHandler?
     var readerModeBar: ReaderModeBarView?
     var readerModeCache: ReaderModeCache
-    var readerModeState: ReaderModeState = .unavailable
+    var readerModeState: ReaderModeState = .unavailable {
+        didSet {
+            self.tabManager.selectedTab?.changedReaderMode = self.readerModeState == .active
+        }
+    }
     fileprivate(set) var toolbar: TabToolbar?
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
