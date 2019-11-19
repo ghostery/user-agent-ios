@@ -16,5 +16,6 @@ nodenv exec npm ci
 nodenv exec npm run build-user-scripts
 
 rbenv install -s
+rbenv exec gem install bundler
 rbenv exec bundle install
 rbenv exec bundle exec pod install --repo-update
