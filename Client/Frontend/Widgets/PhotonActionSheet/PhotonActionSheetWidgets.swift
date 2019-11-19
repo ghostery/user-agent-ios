@@ -95,7 +95,7 @@ public struct PhotonActionSheetItem {
 }
 
 class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView, Themeable {
-    static let Padding: CGFloat = 16
+    static let Padding: CGFloat = 18
 
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
