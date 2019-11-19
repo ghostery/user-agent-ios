@@ -1,14 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { parse } from 'tldts';
 import Logo from './Logo';
 import { useStyles } from '../contexts/theme';
 
-const getStyle = (theme) => ({
+const getStyle = theme => ({
   row: {
     flexDirection: 'row',
   },
@@ -33,7 +30,7 @@ const getStyle = (theme) => ({
     fontWeight: 'bold',
   },
   rowDescription: {
-    color: theme.textColor + '99',
+    color: `${theme.textColor}99`,
   },
 });
 
@@ -42,6 +39,7 @@ export default function ListItem({ url, title, onPress, label }) {
 
   const name = parse(url).domain;
 
+  /* eslint-disable prettier/prettier */
   return (
     <TouchableWithoutFeedback
       onPress={onPress}
@@ -63,4 +61,5 @@ export default function ListItem({ url, title, onPress, label }) {
       </View>
     </TouchableWithoutFeedback>
   );
+  /* eslint-enable prettier/prettier */
 }

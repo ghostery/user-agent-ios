@@ -1,4 +1,5 @@
 import { NativeEventEmitter } from 'react-native';
+import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
 
 export default class BridgeManager {
   constructor(bridge, inject, appReady) {
@@ -7,7 +8,7 @@ export default class BridgeManager {
     this.inject = inject;
     this.isAppReady = false;
     this.appReady = appReady;
-    this._bridge = bridge;
+    this.bridge = bridge;
     appReady.then(() => {
       this.isAppReady = true;
     });
@@ -17,16 +18,17 @@ export default class BridgeManager {
   }
 
   async onAction({ module, action, args, id }) {
-    for(const listener of this.actionListeners) {
+    [...this.actionListeners].some(listener => {
       try {
         const handled = listener({ module, action, args, id });
         if (handled) {
-          return;
+          return false;
         }
       } catch (e) {
         //
       }
-    }
+      return true;
+    });
 
     if (module === 'core' && action === 'setPref') {
       prefs.set(...args);
@@ -34,23 +36,23 @@ export default class BridgeManager {
     }
 
     if (!this.isAppReady) {
-      await this.appReady
+      await this.appReady;
     }
 
     try {
       const response = await this.inject.module(module).action(action, ...args);
       if (typeof id !== 'undefined') {
-        this._bridge.replyToAction(id, { result: response });
+        this.bridge.replyToAction(id, { result: response });
       }
     } catch (e) {
       if (typeof id !== 'undefined') {
-        this._bridge.replyToAction(id, { error: e });
+        this.bridge.replyToAction(id, { error: e });
       }
     }
   }
 
   addActionListener(listener) {
-    this.actionListeners.add(listener)
+    this.actionListeners.add(listener);
   }
 
   removeActionListener(listener) {
