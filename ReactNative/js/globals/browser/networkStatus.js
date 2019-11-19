@@ -13,5 +13,5 @@ NetInfo.addEventListener(state => {
 export default {
   async getLinkInfo() {
     return connectionType;
-  }
+  },
 };

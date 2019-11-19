@@ -2,7 +2,7 @@ import { NativeEventEmitter, NativeModules } from 'react-native';
 import networkStatus from './globals/browser/networkStatus';
 import './globals/navigator/userAgent';
 
-global.browser = global.chrome = {
+const browser = {
   networkStatus,
   webRequest: {
     onHeadersReceived: {
@@ -40,22 +40,25 @@ global.browser = global.chrome = {
     query: () => Promise.resolve([]),
   },
   cliqz: {
-    async setPref(key, value) {
+    async setPref(/* key, value */) {
+      return Promise.resolve();
     },
     async getPref(key) {
       return NativeModules.BrowserCliqz.getPref(key);
     },
-    async hasPref(key) {
+    async hasPref(/* key */) {
+      return Promise.resolve(false);
     },
-    async clearPref(key) {
+    async clearPref(/* key */) {
+      return Promise.resolve();
     },
-    onPrefChange: (function () {
+    onPrefChange: (function setupPrefs() {
       const prefs = NativeModules.BrowserCliqz;
       const listeners = new Map();
       const eventEmitter = new NativeEventEmitter(prefs);
 
-      eventEmitter.addListener('prefChange', (pref) => {
-        for (const [listener, prefName] of listeners.entries()) {
+      eventEmitter.addListener('prefChange', pref => {
+        listeners.entries().forEach(([listener, prefName]) => {
           if (pref === prefName) {
             try {
               listener();
@@ -63,16 +66,17 @@ global.browser = global.chrome = {
               // one failing listener should not prevent other from being called
             }
           }
-        }
+        });
       });
 
       return {
         addListener(listener, prefix, key) {
-          const pref = `${prefix || ''}${key || ''}`
+          const pref = `${prefix || ''}${key || ''}`;
           listeners.set(listener, pref);
           prefs.addPrefListener(pref);
         },
         removeListener(listener) {
+          const pref = listeners.get(listener);
           listeners.delete(listener);
           prefs.removePrefListener(pref);
         },
@@ -80,3 +84,6 @@ global.browser = global.chrome = {
     })(),
   },
 };
+
+global.browser = browser;
+global.chrome = browser;
