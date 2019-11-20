@@ -22,7 +22,7 @@ describe('Search', function () {
     const urlbar$ = element(by.id('url'));
     await expect(urlbar$).toBeVisible();
     await urlbar$.tap();
-    await element(by.id('address')).typeText('cliqz');
-    await waitFor(element(by.text('en.m.wikipedia.org/wiki/Cliqz')).atIndex(1)).toBeVisible().withTimeout(5000);
+    await element(by.id('address')).typeText('www.amazon.de');
+    await waitFor(element(by.text('www.amazon.de')).atIndex(1)).toBeVisible().withTimeout(5000);
   });
 });
