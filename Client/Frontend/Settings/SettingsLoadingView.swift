@@ -13,8 +13,7 @@ class SettingsLoadingView: UIView {
     }
 
     lazy var indicator: UIActivityIndicatorView = {
-        let isDarkTheme = ThemeManager.instance.currentName == .dark
-        let indicator = UIActivityIndicatorView(style: isDarkTheme ? .white : .gray)
+        let indicator = UIActivityIndicatorView(style: .white)
         indicator.hidesWhenStopped = false
         return indicator
     }()

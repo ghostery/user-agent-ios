@@ -323,4 +323,6 @@ struct Theme {
     static var snackbar: SnackBarColor { return SnackBarColor() }
     static var general: GeneralColor { return GeneralColor() }
     static var actionMenu: ActionMenuColor { return ActionMenuColor() }
+
+    static var statusBarStyle: UIStatusBarStyle { return .default }
 }

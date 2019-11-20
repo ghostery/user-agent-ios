@@ -16,7 +16,7 @@ class ThemedNavigationController: UINavigationController {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return ThemeManager.instance.statusBarStyle
+        return Theme.statusBarStyle
     }
 
     override func viewDidLoad() {

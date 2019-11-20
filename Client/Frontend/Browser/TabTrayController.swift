@@ -164,10 +164,10 @@ class TabTrayController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         //special case for iPad
-        if UIDevice.current.isPad && ThemeManager.instance.currentName == .normal {
+        if UIDevice.current.isPad {
             return .default
         }
-        return ThemeManager.instance.statusBarStyle
+        return Theme.statusBarStyle
     }
 
     fileprivate func makeConstraints() {
