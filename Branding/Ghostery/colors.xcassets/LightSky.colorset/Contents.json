@@ -9,10 +9,10 @@
       "color" : {
         "color-space" : "display-p3",
         "components" : {
-          "red" : "0.965",
+          "red" : "0.973",
           "alpha" : "1.000",
-          "blue" : "0.965",
-          "green" : "0.965"
+          "blue" : "0.973",
+          "green" : "0.973"
         }
       }
     }

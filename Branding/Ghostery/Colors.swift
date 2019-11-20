@@ -21,35 +21,34 @@ extension UIColor {
     static let BrightBlue = UIColor(named: "BrightBlue")!
     static let DarkBlue = UIColor(named: "DarkBlue")!
     static let LightBlue = UIColor(named: "LightBlue")!
+    static let Orange = UIColor(named: "Orange")!
+
+    /// System Colors
+    static let defaultBackground = UIColor(named: "Background")!
+    static let DarkGrey = UIColor(named: "DarkGrey")!
+    static let TextHighlightBlue = UIColor(named: "TextHighlightBlue")!
+    static let MobilePrivatePurple = UIColor(named: "MobilePrivatePurple")!
+    static let ReaderModeSepia = UIColor(named: "ReaderModeSepia")!
 
     // Functional Colors
     static let Purple = UIColor(named: "Purple")!
     static let LightGreen = UIColor(named: "LightGreen")!
     static let DarkGreen = UIColor(named: "DarkGreen")!
     static let BrightRed = UIColor(named: "BrightRed")!
+    static let DarkRed = UIColor(named: "DarkRed")!
     static let NeutralGrey = UIColor(named: "NeutralGrey")!
-}
 
-extension UIColor {
-    static let Blue40 = CliqzBlue * 0.4 + White * 0.6
-    static let Blue50 = CliqzBlue * 0.5 + White * 0.5
-    static let Blue60 = CliqzBlue * 0.6 + White * 0.4
+    static let Grey10 = UIColor(named: "Grey10")!
+    static let Grey20 = UIColor(named: "Grey20")!
+    static let Grey30 = UIColor(named: "Grey30")!
+    static let Grey40 = UIColor(named: "Grey40")!
+    static let Grey50 = UIColor(named: "Grey50")!
+    static let Grey60 = UIColor(named: "Grey60")!
+    static let Grey70 = UIColor(named: "Grey70")!
+    static let Grey80 = UIColor(named: "Grey80")!
+    static let Grey90 = UIColor(named: "Grey90")!
 
-    static let Grey10 = LightSky * 0.5 + White * 0.5
-    static let Grey20 = LightSky
-    static let Grey25 = CloudySky * 0.5 + White * 0.5
-    static let Grey30 = CloudySky * 0.75 + White * 0.25
-    static let Grey40 = CloudySky
-    static let Grey50 = DarkRain * 0.5 + White * 0.5
-    static let Grey60 = DarkRain * 0.75 + White * 0.25
-    static let Grey70 = CloudySky
-    static let Grey80 = CliqzBlack * 0.8 + White * 0.2
-    static let Grey90 = CliqzBlack * 0.9 + White * 0.1
-
-    static let Red50 = BrightRed
-    static let Red70 = BrightRed * 0.6 + CliqzBlack * 0.4
-
-    static let Orange50 = BrightRed * 0.4 + UIColor.yellow * 0.4 + CliqzBlack * 0.2
-    static let Orange60 = BrightRed * 0.3 + UIColor.yellow * 0.3 + CliqzBlack * 0.4
-
+    static let Blue40 = UIColor(named: "Blue40")!
+    static let Blue50 = UIColor(named: "Blue50")!
+    static let Blue60 = UIColor(named: "Blue60")!
 }
