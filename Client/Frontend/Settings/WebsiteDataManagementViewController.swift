@@ -24,7 +24,6 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
     var tableView: UITableView!
     var searchController: UISearchController?
     var showMoreButtonEnabled = true
-    let theme = BuiltinThemeName(rawValue: Theme.name) ?? .normal
 
     private var siteRecords: [WKWebsiteDataRecord]?
 
@@ -72,9 +71,6 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
         searchController.searchBar.placeholder = Strings.SettingsFilterSitesSearchLabel
         searchController.searchBar.delegate = self
 
-        if theme == .dark {
-            searchController.searchBar.barStyle = .black
-        }
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         self.searchController = searchController

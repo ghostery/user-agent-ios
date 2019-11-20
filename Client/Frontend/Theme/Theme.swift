@@ -11,13 +11,25 @@ protocol PrivateModeUI {
     func applyUIMode(isPrivate: Bool)
 }
 
-enum BuiltinThemeName: String {
-    case normal
-    case dark
-}
+struct Theme {
+    static var tableView: TableViewColor { return TableViewColor() }
+    static var urlbar: URLBarColor { return URLBarColor() }
+    static var browser: BrowserColor { return BrowserColor() }
+    static var toolbarButton: ToolbarButtonColor { return ToolbarButtonColor() }
+    static var loadingBar: LoadingBarColor { return LoadingBarColor() }
+    static var tabTray: TabTrayColor { return TabTrayColor() }
+    static var topTabs: TopTabsColor { return TopTabsColor() }
+    static var textField: TextFieldColor { return TextFieldColor() }
+    static var homePanel: HomePanelColor { return HomePanelColor() }
+    static var snackbar: SnackBarColor { return SnackBarColor() }
+    static var general: GeneralColor { return GeneralColor() }
+    static var actionMenu: ActionMenuColor { return ActionMenuColor() }
 
-private let defaultSeparator = UIColor.Grey40
-private let defaultTextAndTint = UIColor.Grey80
+    static var statusBarStyle: UIStatusBarStyle { return .default }
+
+    static let defaultSeparator = UIColor.Grey40
+    static let defaultTextAndTint = UIColor.Grey80
+}
 
 class TableViewColor {
     var rowBackground: UIColor {
@@ -36,7 +48,7 @@ class TableViewColor {
             return UIColor.opaqueSeparator
         } else {
             // Fallback on earlier versions
-            return defaultSeparator
+            return Theme.defaultSeparator
         }
     }
     var headerBackground: UIColor {
@@ -53,7 +65,7 @@ class TableViewColor {
     var headerTextDark: UIColor { return UIColor.Grey90 }
     var rowActionAccessory: UIColor { return UIColor.CliqzBlue }
     var controlTint: UIColor { return rowActionAccessory }
-    var syncText: UIColor { return defaultTextAndTint }
+    var syncText: UIColor { return Theme.defaultTextAndTint }
     var errorText: UIColor { return UIColor.BrightRed }
     var warningText: UIColor { return UIColor.Orange }
 }
@@ -64,10 +76,10 @@ class ActionMenuColor {
             return UIColor.systemGray2
         } else {
             // Fallback on earlier versions
-            return defaultTextAndTint
+            return Theme.defaultTextAndTint
         }
     }
-    var foreground: UIColor { return defaultTextAndTint }
+    var foreground: UIColor { return Theme.defaultTextAndTint }
     var iPhoneBackgroundBlurStyle: UIBlurEffect.Style {
         if #available(iOS 13.0, *) {
             return UIBlurEffect.Style.systemChromeMaterial
@@ -114,7 +126,7 @@ class URLBarColor {
 class BrowserColor {
     var background: UIColor { return UIColor.defaultBackground }
     var urlBarDivider: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
-    var tint: UIColor { return defaultTextAndTint }
+    var tint: UIColor { return Theme.defaultTextAndTint }
 }
 
 // The back/forward/refresh/menu button (bottom toolbar)
@@ -134,7 +146,7 @@ class LoadingBarColor {
 }
 
 class TabTrayColor {
-    var tabTitleText: UIColor { return defaultTextAndTint }
+    var tabTitleText: UIColor { return Theme.defaultTextAndTint }
     var tabTitleBlur: UIBlurEffect.Style {
         if #available(iOS 13.0, *) {
             return UIBlurEffect.Style.systemUltraThinMaterial
@@ -145,7 +157,7 @@ class TabTrayColor {
     var background: UIColor { return UIColor.DarkGrey }
     var cellBackground: UIColor { return UIColor.defaultBackground }
     var toolbar: UIColor { return UIColor.defaultBackground }
-    var toolbarButtonTint: UIColor { return defaultTextAndTint }
+    var toolbarButtonTint: UIColor { return Theme.defaultTextAndTint }
     var privateModeLearnMore: UIColor { return UIColor.Grey70 }
     var privateModePurple: UIColor { return UIColor.Grey70 }
     var privateModeButtonOffTint: UIColor { return toolbarButtonTint }
@@ -213,7 +225,7 @@ class TextFieldColor {
             return UIColor.label
         } else {
             // Fallback on earlier versions
-            return defaultTextAndTint
+            return Theme.defaultTextAndTint
         }
     }
     var separator: UIColor {
@@ -241,7 +253,7 @@ class HomePanelColor {
             return UIColor.systemGray5
         } else {
             // Fallback on earlier versions
-            return defaultSeparator
+            return Theme.defaultSeparator
         }
     }
     var separator: UIColor {
@@ -249,7 +261,7 @@ class HomePanelColor {
             return UIColor.systemGray4
         } else {
             // Fallback on earlier versions
-            return defaultSeparator
+            return Theme.defaultSeparator
         }
     }
 
@@ -274,7 +286,7 @@ class HomePanelColor {
     var activityStreamCellTitle: UIColor { return UIColor.Grey80 }
     var activityStreamCellDescription: UIColor { return UIColor.Grey60 }
 
-    var readingListActive: UIColor { return defaultTextAndTint }
+    var readingListActive: UIColor { return Theme.defaultTextAndTint }
     var readingListDimmed: UIColor { return UIColor.Grey40 }
 
     var downloadedFileIcon: UIColor { return UIColor.Grey60 }
@@ -298,7 +310,7 @@ class GeneralColor {
     var passcodeDot: UIColor { return UIColor.Grey60 }
     var highlightBlue: UIColor { return UIColor.Blue40 }
     var destructiveRed: UIColor { return UIColor.BrightRed }
-    var separator: UIColor { return defaultSeparator }
+    var separator: UIColor { return Theme.defaultSeparator }
     var settingsTextPlaceholder: UIColor? {
     if #available(iOS 13.0, *) {
         return UIColor.systemBackground
@@ -307,22 +319,4 @@ class GeneralColor {
         }
     }
     var controlTint: UIColor { return UIColor.BrightBlue }
-}
-
-struct Theme {
-    static var name: String { return BuiltinThemeName.normal.rawValue }
-    static var tableView: TableViewColor { return TableViewColor() }
-    static var urlbar: URLBarColor { return URLBarColor() }
-    static var browser: BrowserColor { return BrowserColor() }
-    static var toolbarButton: ToolbarButtonColor { return ToolbarButtonColor() }
-    static var loadingBar: LoadingBarColor { return LoadingBarColor() }
-    static var tabTray: TabTrayColor { return TabTrayColor() }
-    static var topTabs: TopTabsColor { return TopTabsColor() }
-    static var textField: TextFieldColor { return TextFieldColor() }
-    static var homePanel: HomePanelColor { return HomePanelColor() }
-    static var snackbar: SnackBarColor { return SnackBarColor() }
-    static var general: GeneralColor { return GeneralColor() }
-    static var actionMenu: ActionMenuColor { return ActionMenuColor() }
-
-    static var statusBarStyle: UIStatusBarStyle { return .default }
 }
