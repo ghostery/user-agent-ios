@@ -8,7 +8,6 @@
 
 import UIKit
 
-// TODO: Massage the colors so dark mode looks good again
 extension UIColor {
     // Primary Colors
     static let CliqzBlue = UIColor(named: "CliqzBlue")!

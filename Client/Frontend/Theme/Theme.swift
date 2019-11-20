@@ -82,13 +82,13 @@ class ActionMenuColor {
     var foreground: UIColor { return Theme.defaultTextAndTint }
     var iPhoneBackgroundBlurStyle: UIBlurEffect.Style {
         if #available(iOS 13.0, *) {
-            return UIBlurEffect.Style.systemChromeMaterial
+            return UIBlurEffect.Style.systemThickMaterial
         } else {
             return UIBlurEffect.Style.prominent
         }
 
     }
-    var iPhoneBackground: UIColor { return Theme.browser.background.withAlphaComponent(0.9) }
+    var iPhoneBackground: UIColor { return Theme.browser.background.withAlphaComponent(0.7) }
     var closeButtonBackground: UIColor { return UIColor.defaultBackground }
     var closeButtonTitleColor: UIColor { return UIColor.BrightBlue }
 }
@@ -100,7 +100,7 @@ class URLBarColor {
     }
     var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
     var background: UIColor {
-        return UIColor.Grey10.withAlphaComponent(0.2)
+        return UIColor.Grey60.withAlphaComponent(0.2)
     }
     // This text selection color is used in two ways:
     // 1) <UILabel>.background = textSelectionHighlight.withAlphaComponent(textSelectionHighlightAlpha)
