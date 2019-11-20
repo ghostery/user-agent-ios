@@ -90,7 +90,7 @@ class ActionMenuColor {
 class URLBarColor {
     var border: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
     func activeBorder(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.CliqzBlue.with(alpha: .eightyPercent) : UIColor.Defaults.MobilePrivatePurple
+        return !isPrivate ? UIColor.CliqzBlue.with(alpha: .eightyPercent) : UIColor.MobilePrivatePurple
     }
     var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
     var background: UIColor {
@@ -292,13 +292,14 @@ class HomePanelColor {
 }
 
 class SnackBarColor {
-    var highlight: UIColor { return UIColor.Defaults.iOSTextHighlightBlue.withAlphaComponent(0.9) }
+    var highlight: UIColor { return UIColor.TextHighlightBlue.withAlphaComponent(0.9) }
     var highlightText: UIColor { return UIColor.Blue40 }
     var border: UIColor { return UIColor.Grey30 }
     var title: UIColor { return UIColor.Blue40 }
 }
 
 class GeneralColor {
+    var MobilePrivatePurple: UIColor { return UIColor.Grey70 }
     var faviconBackground: UIColor { return UIColor.Grey20 }
     var passcodeDot: UIColor { return UIColor.Grey60 }
     var highlightBlue: UIColor { return UIColor.Blue40 }

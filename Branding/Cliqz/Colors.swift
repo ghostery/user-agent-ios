@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: Massage the colors so dark mode looks good again
 extension UIColor {
     // Primary Colors
     static let CliqzBlue = UIColor(named: "CliqzBlue")!
@@ -50,5 +51,7 @@ extension UIColor {
     static let Blue60 = UIColor(named: "Blue60")!
 
     static let TextHighlightBlue = UIColor(named: "TextHighlightBlue")!
+    static let MobilePrivatePurple = UIColor(named: "MobilePrivatePurple")!
+    static let ReaderModeSepia = UIColor(named: "ReaderModeSepia")!
 
 }
