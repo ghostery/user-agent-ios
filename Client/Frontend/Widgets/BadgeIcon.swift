@@ -6,7 +6,7 @@ import UIKit
 
 class ToolbarBadge: UIView {
     private let badgeSize: CGFloat
-    private let badgeOffset = CGFloat(10)
+    private let badgeOffset = CGFloat(12)
     private let background: UIImageView
     private let badge: UIImageView
 
@@ -17,9 +17,9 @@ class ToolbarBadge: UIView {
         super.init(frame: CGRect(width: badgeSize, height: badgeSize))
         addSubview(background)
         addSubview(badge)
+        isUserInteractionEnabled = false
 
         [background, badge].forEach {
-            $0.isUserInteractionEnabled = false
             $0.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
             }
@@ -58,7 +58,7 @@ class BadgeWithBackdrop {
         if let c = color {
             circle.backgroundColor = c
         } else {
-            circle.backgroundColor = .black
+            circle.backgroundColor = .clear
         }
         return circle
     }

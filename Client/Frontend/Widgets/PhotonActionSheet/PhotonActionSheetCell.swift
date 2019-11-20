@@ -105,7 +105,8 @@ class PhotonActionSheetCell: UITableViewCell {
 
     lazy var disclosureIndicator: UIImageView = {
         let disclosureIndicator = createIconImageView()
-        disclosureIndicator.image = UIImage(named: "menu-Disclosure")
+        disclosureIndicator.image = UIImage(named: "menu-Disclosure")?.withRenderingMode(.alwaysTemplate)
+        disclosureIndicator.tintColor = UIColor.theme.tableView.rowDetailText
         return disclosureIndicator
     }()
 
@@ -238,8 +239,7 @@ class PhotonActionSheetCell: UITableViewCell {
             badgeOverlay?.add(toParent: parent)
             badgeOverlay?.layout(onButton: statusIcon)
             badgeOverlay?.show(true)
-            let color = Theme.actionMenu.closeButtonBackground
-            badgeOverlay?.badge.tintBackground(color: color)
+            badgeOverlay?.badge.tintBackground(color: .clear)
         }
 
         switch action.accessory {

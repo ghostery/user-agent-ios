@@ -4,9 +4,8 @@ UserAgent is the internal name for the new Cliqz iOS browser. A diferent name wa
 
 ## Requirements
 
-- Xcode 10.3
+- Xcode 11
 - [HomeBrew](https://brew.sh/)
-- Ruby Bundler: `$ sudo gem install bundler`
 
 ## Building the Code
 

@@ -55,7 +55,7 @@ class LogoView: UIView {
                 "url": url,
                 "size": self.bounds.height,
             ]
-        )!
+        )
 
         reactView.backgroundColor = .clear
         return reactView

@@ -140,6 +140,11 @@ class PrivacyDashboardView: UIView {
 
 private extension PrivacyDashboardView {
     private func setup() {
+        snp.makeConstraints { make in
+            // This fixes a bug where the tableview would squash elements inside PrivacyDashboardView
+            make.height.greaterThanOrEqualTo(UIScreen.main.bounds.height * 0.3)
+        }
+
         backgroundColor = UIColor.clear
 
         let titleStackView = UIStackView(arrangedSubviews: [allTrackersSeenOnLabel, domainLabel])
@@ -148,6 +153,7 @@ private extension PrivacyDashboardView {
         let mainStackView = UIStackView(arrangedSubviews: [privacyIndicator, pageStatsListStackView])
         mainStackView.spacing = 10
         mainStackView.alignment = .top
+        mainStackView.distribution = .fillProportionally
 
         [titleStackView, mainStackView, numberOfTrackersLabel].forEach { addSubview($0) }
 
@@ -170,7 +176,6 @@ private extension PrivacyDashboardView {
             pageStatsListStackView.addArrangedSubview(stackView)
         }
 
-        pageStatsListStackView.addArrangedSubview(spacerView())
         pageStatsListStackView.addArrangedSubview(stackViewForNoTrackersSeen)
         pageStatsListStackView.addArrangedSubview(stackViewForWhiteListed)
 
@@ -184,7 +189,7 @@ private extension PrivacyDashboardView {
         }
 
         privacyIndicator.snp.makeConstraints { make in
-            make.width.equalToSuperview().dividedBy(2.2)
+            make.width.equalTo(mainStackView).dividedBy(2.2)
         }
 
         numberOfTrackersLabel.snp.makeConstraints { make in

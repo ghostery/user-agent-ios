@@ -141,6 +141,14 @@ class Tab: NSObject {
         }
     }
 
+    var changedReaderMode: Bool = false {
+        didSet {
+            if self.changedReaderMode != oldValue {
+                TabEvent.post(.didToggleReaderMode, for: self)
+            }
+        }
+    }
+
     fileprivate(set) var screenshot: UIImage?
     var screenshotUUID: UUID?
 
@@ -344,6 +352,10 @@ class Tab: NSObject {
             return Strings.AppMenuOpenHomePageTitleString
         }
 
+        if let url = self.url, !InternalURL.isValid(url: url), let shownUrl = url.displayURL?.absoluteString {
+            return shownUrl
+        }
+
         guard let lastTitle = lastTitle, !lastTitle.isEmpty else {
             return self.url?.displayURL?.absoluteString ??  ""
         }
@@ -478,6 +490,10 @@ class Tab: NSObject {
         TabEvent.post(.didToggleDesktopMode, for: self)
     }
 
+    func toggleChangeReaderMode() {
+        self.changedReaderMode.toggle()
+    }
+
     func queueJavascriptAlertPrompt(_ alert: JSAlertInfo) {
         alertQueue.append(alert)
     }
@@ -530,6 +546,10 @@ class Tab: NSObject {
         if let existing = self.urlDidChangeDelegate, existing === delegate {
             self.urlDidChangeDelegate = nil
         }
+    }
+
+    func applyTheme() {
+        UITextField.appearance().keyboardAppearance = isPrivate ? .dark : (ThemeManager.instance.currentName == .dark ? .dark : .light)
     }
 }
 

@@ -4,15 +4,19 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 #
-
-set -x
 set -e
 
+brew update
 brew bundle
 
+nodenv install -s
+eval "$(nodenv init -)"
+nodenv exec npm i -g npm@6.5
+nodenv exec npm ci
+nodenv exec npm run build-user-scripts
 
-npm ci
-npm run build-user-scripts
-
-bundle install
-bundle exec pod install --repo-update
+rbenv install -s
+eval "$(rbenv init -)"
+rbenv exec gem install bundler
+rbenv exec bundle install
+rbenv exec bundle exec pod install --repo-update

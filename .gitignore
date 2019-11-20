@@ -66,3 +66,5 @@ fastlane/report.xml
 /Client/Assets/MainFrameAtDocumentStart.js
 
 artifacts
+
+Brewfile.lock.json

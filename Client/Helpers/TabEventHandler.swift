@@ -58,6 +58,7 @@ protocol TabEventHandler: AnyObject {
     func tabDidClose(_ tab: Tab)
     func tab(_ tab: Tab, didDeriveMetadata metadata: DerivedMetadata)
     func tabDidToggleDesktopMode(_ tab: Tab)
+    func tabDidToggleReaderMode(_ tab: Tab)
     func tabDidChangeContentBlocking(_ tab: Tab)
 }
 
@@ -72,6 +73,7 @@ extension TabEventHandler {
     func tabDidClose(_ tab: Tab) {}
     func tab(_ tab: Tab, didDeriveMetadata metadata: DerivedMetadata) {}
     func tabDidToggleDesktopMode(_ tab: Tab) {}
+    func tabDidToggleReaderMode(_ tab: Tab) {}
     func tabDidChangeContentBlocking(_ tab: Tab) {}
 }
 
@@ -84,6 +86,7 @@ enum TabEventLabel: String {
     case didClose
     case didDeriveMetadata
     case didToggleDesktopMode
+    case didToggleReaderMode
     case didChangeContentBlocking
 }
 
@@ -97,6 +100,7 @@ enum TabEvent {
     case didClose
     case didDeriveMetadata(DerivedMetadata)
     case didToggleDesktopMode
+    case didToggleReaderMode
     case didChangeContentBlocking
 
     var label: TabEventLabel {
@@ -125,6 +129,8 @@ enum TabEvent {
             handler.tab(tab, didDeriveMetadata: metadata)
         case .didToggleDesktopMode:
             handler.tabDidToggleDesktopMode(tab)
+        case .didToggleReaderMode:
+            handler.tabDidToggleReaderMode(tab)
         case .didChangeContentBlocking:
             handler.tabDidChangeContentBlocking(tab)
         }

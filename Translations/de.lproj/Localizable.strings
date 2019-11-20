@@ -31,15 +31,6 @@
 /* Section title label for recently bookmarked websites */
 "ActivityStream.NewRecentBookmarks.Title" = "Neue Lesezeichen";
 
-/* The link that shows more Pocket trending stories */
-"ActivityStream.Pocket.MoreLink" = "Mehr";
-
-/* Section title label for Recommended by Pocket section */
-"ActivityStream.Pocket.SectionTitle" = "Aktuell auf Pocket";
-
-/* The description of a Pocket Story */
-"ActivityStream.Pocket.Trending" = "Populär";
-
 /* Section title label for recently visited websites */
 "ActivityStream.RecentHistory.Title" = "Kürzlich besucht";
 
@@ -670,9 +661,6 @@
 /* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
 "Privacy Policy" = "Datenschutzerklärung";
 
-/* Accessibility label for the Reader View button */
-"Reader View" = "Leseansicht";
-
 /* Accessibility message e.g. spoken by VoiceOver when Reader Mode becomes available. */
 "ReaderMode.Available.VoiceOverAnnouncement" = "Lesemodus verfügbar";
 
@@ -974,12 +962,6 @@
 
 /* Option in settings to show your homepage when you open a new tab */
 "Settings.NewTab.Option.HomePage" = "Startseite";
-
-/* Option in settings to turn on off pocket recommendations */
-"Settings.NewTab.Option.Pocket" = "Aktuell auf Pocket";
-
-/* Footer caption for pocket settings */
-"Settings.NewTab.Option.PocketFooter" = "Tolle Inhalte aus dem Internet.";
 
 /* Label used as an item in Settings. When touched it will open a dialog to configure the new tab behaviour. */
 "Settings.NewTab.SectionName" = "Neuer Tab";
