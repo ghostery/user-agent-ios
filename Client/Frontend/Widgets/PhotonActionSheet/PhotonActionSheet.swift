@@ -14,7 +14,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
 
     private var site: Site?
     private let style: PresentationStyle
-    private var tintColor = UIColor.theme.actionMenu.foreground
+    private var tintColor = Theme.actionMenu.foreground
     private var heightConstraint: Constraint?
     var tableView = UITableView(frame: .zero, style: .grouped)
 
@@ -30,7 +30,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setTitle(Strings.CloseButtonTitle, for: .normal)
-        button.setTitleColor(UIColor.theme.actionMenu.closeButtonTitleColor, for: .normal)
+        button.setTitleColor(Theme.actionMenu.closeButtonTitleColor, for: .normal)
         button.layer.cornerRadius = PhotonActionSheetUX.CornerRadius
         button.titleLabel?.font = DynamicFontHelper.defaultHelper.DeviceFontExtraLargeBold
         button.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
@@ -85,7 +85,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         // In a popover the popover provides the blur background
         // Not using a background color allows the view to style correctly with the popover arrow
         if self.popoverPresentationController == nil {
-            let blurEffect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
+            let blurEffect = UIBlurEffect(style: Theme.actionMenu.iPhoneBackgroundBlurStyle)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             tableView.backgroundView = blurEffectView
         }
@@ -124,19 +124,19 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     func applyTheme() {
 
         if self.popoverPresentationController == nil {
-            let blurEffect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
+            let blurEffect = UIBlurEffect(style: Theme.actionMenu.iPhoneBackgroundBlurStyle)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             self.tableView.backgroundView = blurEffectView
         }
 
         if style == .popover {
-            view.backgroundColor = UIColor.theme.browser.background.withAlphaComponent(0.7)
+            view.backgroundColor = Theme.browser.background.withAlphaComponent(0.7)
         } else {
-            tableView.backgroundView?.backgroundColor = UIColor.theme.actionMenu.iPhoneBackground
+            tableView.backgroundView?.backgroundColor = Theme.actionMenu.iPhoneBackground
         }
 
-        tintColor = UIColor.theme.actionMenu.foreground
-        closeButton.backgroundColor = UIColor.theme.actionMenu.closeButtonBackground
+        tintColor = Theme.actionMenu.foreground
+        closeButton.backgroundColor = Theme.actionMenu.closeButtonBackground
 
         tableView.reloadData()
     }

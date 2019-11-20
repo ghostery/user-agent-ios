@@ -7,14 +7,12 @@ enum ThemeManagerPrefs: String {
     case themeName = "prefKeyThemeName"
 }
 
+// TODO: Remove
 class ThemeManager {
     static let instance = ThemeManager()
 
     var current: Theme = Theme() {
         didSet {
-            // TODO: Remove
-            UserDefaults.standard.set(current.name, forKey: ThemeManagerPrefs.themeName.rawValue)
-            NotificationCenter.default.post(name: .DisplayThemeChanged, object: nil)
         }
     }
 

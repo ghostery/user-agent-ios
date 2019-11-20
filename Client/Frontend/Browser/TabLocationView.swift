@@ -86,7 +86,7 @@ class TabLocationView: UIView {
 
     lazy var placeholder: NSAttributedString = {
         let placeholderText = NSLocalizedString("Search or enter address", comment: "The text shown in the URL bar on about:home")
-        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.textField.placeholder])
+        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: Theme.textField.placeholder])
     }()
 
     lazy var urlTextField: UITextField = {
@@ -111,7 +111,7 @@ class TabLocationView: UIView {
 
     fileprivate lazy var lockImageView: UIImageView = {
         let lockImageView = UIImageView(image: UIImage.templateImageNamed("lock_not_verified"))
-        lockImageView.tintColor = UIColor.theme.textField.textAndTint
+        lockImageView.tintColor = Theme.textField.textAndTint
         lockImageView.isAccessibilityElement = true
         lockImageView.contentMode = .center
         lockImageView.accessibilityLabel = NSLocalizedString("Secure connection", comment: "Accessibility label for the lock icon, which is only present if the connection is secure")
@@ -352,17 +352,17 @@ extension TabLocationView: AccessibilityActionsSource {
 
 extension TabLocationView: Themeable {
     func applyTheme() {
-        backgroundColor = UIColor.theme.textField.background
-        urlTextField.textColor = UIColor.theme.textField.textAndTint
-        readerModeButton.selectedTintColor = UIColor.theme.urlbar.readerModeButtonSelected
-        readerModeButton.unselectedTintColor = UIColor.theme.textField.textAndTint
+        backgroundColor = Theme.textField.background
+        urlTextField.textColor = Theme.textField.textAndTint
+        readerModeButton.selectedTintColor = Theme.urlbar.readerModeButtonSelected
+        readerModeButton.unselectedTintColor = Theme.textField.textAndTint
 
-        pageOptionsButton.selectedTintColor = UIColor.theme.urlbar.pageOptionsSelected
-        pageOptionsButton.unselectedTintColor = UIColor.theme.urlbar.pageOptionsUnselected
+        pageOptionsButton.selectedTintColor = Theme.urlbar.pageOptionsSelected
+        pageOptionsButton.unselectedTintColor = Theme.urlbar.pageOptionsUnselected
         pageOptionsButton.tintColor = pageOptionsButton.unselectedTintColor
-        separatorLine.backgroundColor = UIColor.theme.textField.separator
+        separatorLine.backgroundColor = Theme.textField.separator
 
-        let color = ThemeManager.instance.currentName == .dark ? UIColor(white: 0.3, alpha: 0.6): UIColor.theme.textField.background
+        let color = ThemeManager.instance.currentName == .dark ? UIColor(white: 0.3, alpha: 0.6): Theme.textField.background
         menuBadge.badge.tintBackground(color: color)
     }
 }

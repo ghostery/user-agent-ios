@@ -163,7 +163,7 @@ extension DownloadsView {
         return icon
     }
 
-    private func roundRectImageWithLabel(_ label: String, width: CGFloat, height: CGFloat, radius: CGFloat = 5.0, strokeWidth: CGFloat = 1.0, strokeColor: UIColor = UIColor.theme.homePanel.downloadedFileIcon, fontSize: CGFloat = 9.0) -> UIImage? {
+    private func roundRectImageWithLabel(_ label: String, width: CGFloat, height: CGFloat, radius: CGFloat = 5.0, strokeWidth: CGFloat = 1.0, strokeColor: UIColor = Theme.homePanel.downloadedFileIcon, fontSize: CGFloat = 9.0) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), false, 0.0)
         let context = UIGraphicsGetCurrentContext()
         context?.setStrokeColor(strokeColor.cgColor)

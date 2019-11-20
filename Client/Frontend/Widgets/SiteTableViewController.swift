@@ -65,10 +65,10 @@ class SiteTableViewHeader: UITableViewHeaderFooterView, Themeable {
     }
 
     func applyTheme() {
-        titleLabel.textColor = UIColor.theme.tableView.headerTextDark
-        topBorder.backgroundColor = UIColor.theme.homePanel.siteTableHeaderBorder
-        bottomBorder.backgroundColor = UIColor.theme.homePanel.siteTableHeaderBorder
-        contentView.backgroundColor = UIColor.theme.tableView.headerBackground
+        titleLabel.textColor = Theme.tableView.headerTextDark
+        topBorder.backgroundColor = Theme.homePanel.siteTableHeaderBorder
+        bottomBorder.backgroundColor = Theme.homePanel.siteTableHeaderBorder
+        contentView.backgroundColor = Theme.tableView.headerBackground
     }
 }
 
@@ -166,7 +166,7 @@ class SiteTableViewController: UIViewController, UITableViewDelegate, UITableVie
         if self.tableView(tableView, hasFullWidthSeparatorForRowAtIndexPath: indexPath) {
             cell.separatorInset = .zero
         }
-        cell.textLabel?.textColor = UIColor.theme.tableView.rowText
+        cell.textLabel?.textColor = Theme.tableView.rowText
         return cell
     }
 
@@ -176,8 +176,8 @@ class SiteTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = UIColor.theme.tableView.headerTextDark
-            header.contentView.backgroundColor = UIColor.theme.tableView.headerBackground
+            header.textLabel?.textColor = Theme.tableView.headerTextDark
+            header.contentView.backgroundColor = Theme.tableView.headerBackground
         }
     }
 
@@ -194,13 +194,13 @@ class SiteTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func applyTheme() {
-        navigationController?.navigationBar.barTintColor = UIColor.theme.tableView.headerBackground
-        navigationController?.navigationBar.tintColor = UIColor.theme.general.controlTint
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextDark]
+        navigationController?.navigationBar.barTintColor = Theme.tableView.headerBackground
+        navigationController?.navigationBar.tintColor = Theme.general.controlTint
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextDark]
         setNeedsStatusBarAppearanceUpdate()
 
-        tableView.backgroundColor = UIColor.theme.tableView.rowBackground
-        tableView.separatorColor = UIColor.theme.tableView.separator
+        tableView.backgroundColor = Theme.tableView.rowBackground
+        tableView.separatorColor = Theme.tableView.separator
         if let rows = tableView.indexPathsForVisibleRows {
             tableView.reloadRows(at: rows, with: .none)
             tableView.reloadSections(IndexSet(rows.map { $0.section }), with: .none)

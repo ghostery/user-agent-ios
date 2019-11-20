@@ -33,7 +33,7 @@ class TranslationSettingsController: ThemedTableViewController {
         super.viewDidLoad()
         title = Strings.SettingTranslateSnackBarTitle
         tableView.accessibilityIdentifier = "Translate.Setting.Options"
-        tableView.backgroundColor = UIColor.theme.tableView.headerBackground
+        tableView.backgroundColor = Theme.tableView.headerBackground
 
         let headerFooterFrame = CGRect(width: self.view.frame.width, height: SettingsUX.TableViewHeaderFooterHeight)
         let headerView = ThemedTableSectionHeaderFooterView(frame: headerFooterFrame)
@@ -56,7 +56,7 @@ class TranslationSettingsController: ThemedTableViewController {
             make.left.right.equalToSuperview().inset(16)
         }
         label.font = UIFont.systemFont(ofSize: UX.footerFontSize)
-        label.textColor = UIColor.theme.tableView.headerTextLight
+        label.textColor = Theme.tableView.headerTextLight
         return footer
     }
 
@@ -84,7 +84,7 @@ class TranslationSettingsController: ThemedTableViewController {
 
                 let control = UISwitchThemed()
                 control.accessibilityIdentifier = "TranslateSwitchValue"
-                control.onTintColor = UIColor.theme.tableView.controlTint
+                control.onTintColor = Theme.tableView.controlTint
                 control.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
                 control.isOn = setting.translateOnOff
 

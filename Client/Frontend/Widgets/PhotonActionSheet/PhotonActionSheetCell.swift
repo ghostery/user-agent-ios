@@ -90,7 +90,7 @@ class PhotonActionSheetCell: UITableViewCell {
         func setOn(_ on: Bool) {
             foreground.image = on ? UIImage(named: "menu-customswitch-on") : UIImage(named: "menu-customswitch-off")
             mainView.accessibilityIdentifier = on ? "enabled" : "disabled"
-            mainView.tintColor = on ? UIColor.theme.general.controlTint : UIColor.Grey90.with(alpha: .fortyPercent)
+            mainView.tintColor = on ? Theme.general.controlTint : UIColor.Grey90.with(alpha: .fortyPercent)
         }
     }
 
@@ -206,7 +206,7 @@ class PhotonActionSheetCell: UITableViewCell {
                 let label = UILabel(frame: CGRect())
                 label.text = action.tabCount
                 label.font = UIFont.boldSystemFont(ofSize: UIConstants.DefaultChromeSmallSize)
-                label.textColor = UIColor.theme.textField.textAndTint
+                label.textColor = Theme.textField.textAndTint
                 let image = UIImage(named: iconName)?.withRenderingMode(.alwaysTemplate)
                 statusIcon.image = image
                 statusIcon.addSubview(label)
@@ -239,7 +239,7 @@ class PhotonActionSheetCell: UITableViewCell {
             badgeOverlay?.layout(onButton: statusIcon)
             badgeOverlay?.show(true)
             // Custom dark theme tint needed here, it is overkill to create a '.theme' color just for this.
-            let color = ThemeManager.instance.currentName == .dark ? UIColor(white: 0.3, alpha: 1): UIColor.theme.actionMenu.closeButtonBackground
+            let color = ThemeManager.instance.currentName == .dark ? UIColor(white: 0.3, alpha: 1): Theme.actionMenu.closeButtonBackground
             badgeOverlay?.badge.tintBackground(color: color)
         }
 

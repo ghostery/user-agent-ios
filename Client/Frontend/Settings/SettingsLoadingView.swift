@@ -26,7 +26,7 @@ class SettingsLoadingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(indicator)
-        backgroundColor = UIColor.theme.tableView.headerBackground
+        backgroundColor = Theme.tableView.headerBackground
         indicator.startAnimating()
     }
 

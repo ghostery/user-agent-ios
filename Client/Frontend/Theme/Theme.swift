@@ -11,12 +11,6 @@ protocol PrivateModeUI {
     func applyUIMode(isPrivate: Bool)
 }
 
-extension UIColor {
-    static var theme: Themeprotocol {
-        return ThemeManager.instance.current
-    }
-}
-
 enum BuiltinThemeName: String {
     case normal
     case dark
@@ -82,7 +76,7 @@ class ActionMenuColor {
         }
 
     }
-    var iPhoneBackground: UIColor { return UIColor.theme.browser.background.withAlphaComponent(0.9) }
+    var iPhoneBackground: UIColor { return Theme.browser.background.withAlphaComponent(0.9) }
     var closeButtonBackground: UIColor { return UIColor.defaultBackground }
     var closeButtonTitleColor: UIColor { return UIColor.BrightBlue }
 }
@@ -114,7 +108,7 @@ class URLBarColor {
     var readerModeButtonSelected: UIColor { return UIColor.Blue40 }
     var readerModeButtonUnselected: UIColor { return UIColor.Grey50 }
     var pageOptionsSelected: UIColor { return readerModeButtonSelected }
-    var pageOptionsUnselected: UIColor { return UIColor.theme.browser.tint }
+    var pageOptionsUnselected: UIColor { return Theme.browser.tint }
 }
 
 class BrowserColor {
@@ -315,34 +309,18 @@ class GeneralColor {
     var controlTint: UIColor { return UIColor.BrightBlue }
 }
 
-protocol Themeprotocol {
-    var name: String { get }
-    var tableView: TableViewColor { get }
-    var urlbar: URLBarColor { get }
-    var browser: BrowserColor { get }
-    var toolbarButton: ToolbarButtonColor { get }
-    var loadingBar: LoadingBarColor { get }
-    var tabTray: TabTrayColor { get }
-    var topTabs: TopTabsColor { get }
-    var textField: TextFieldColor { get }
-    var homePanel: HomePanelColor { get }
-    var snackbar: SnackBarColor { get }
-    var general: GeneralColor { get }
-    var actionMenu: ActionMenuColor { get }
-}
-
-class Theme: Themeprotocol {
-    var name: String { return BuiltinThemeName.normal.rawValue }
-    var tableView: TableViewColor { return TableViewColor() }
-    var urlbar: URLBarColor { return URLBarColor() }
-    var browser: BrowserColor { return BrowserColor() }
-    var toolbarButton: ToolbarButtonColor { return ToolbarButtonColor() }
-    var loadingBar: LoadingBarColor { return LoadingBarColor() }
-    var tabTray: TabTrayColor { return TabTrayColor() }
-    var topTabs: TopTabsColor { return TopTabsColor() }
-    var textField: TextFieldColor { return TextFieldColor() }
-    var homePanel: HomePanelColor { return HomePanelColor() }
-    var snackbar: SnackBarColor { return SnackBarColor() }
-    var general: GeneralColor { return GeneralColor() }
-    var actionMenu: ActionMenuColor { return ActionMenuColor() }
+struct Theme {
+    static var name: String { return BuiltinThemeName.normal.rawValue }
+    static var tableView: TableViewColor { return TableViewColor() }
+    static var urlbar: URLBarColor { return URLBarColor() }
+    static var browser: BrowserColor { return BrowserColor() }
+    static var toolbarButton: ToolbarButtonColor { return ToolbarButtonColor() }
+    static var loadingBar: LoadingBarColor { return LoadingBarColor() }
+    static var tabTray: TabTrayColor { return TabTrayColor() }
+    static var topTabs: TopTabsColor { return TopTabsColor() }
+    static var textField: TextFieldColor { return TextFieldColor() }
+    static var homePanel: HomePanelColor { return HomePanelColor() }
+    static var snackbar: SnackBarColor { return SnackBarColor() }
+    static var general: GeneralColor { return GeneralColor() }
+    static var actionMenu: ActionMenuColor { return ActionMenuColor() }
 }

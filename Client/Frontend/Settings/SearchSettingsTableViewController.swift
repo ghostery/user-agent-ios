@@ -81,7 +81,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
         cell.showsReorderControl = true
         let toggle = UISwitchThemed()
-        toggle.onTintColor = UIColor.theme.tableView.controlTint
+        toggle.onTintColor = Theme.tableView.controlTint
         toggle.tag = index
         toggle.addTarget(self, action: #selector(didToggleEngine), for: .valueChanged)
         toggle.isOn = model.isEngineEnabled(engine)

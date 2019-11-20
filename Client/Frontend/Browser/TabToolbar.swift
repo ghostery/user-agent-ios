@@ -74,7 +74,7 @@ open class TabToolbarHelper: NSObject {
         toolbar.tabsButton.addGestureRecognizer(longPressGestureTabsButton)
 
         toolbar.menuButton.contentMode = .center
-        toolbar.menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: UIColor.theme.general.controlTint), for: .normal)
+        toolbar.menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
         toolbar.menuButton.accessibilityLabel = Strings.AppMenuButtonAccessibilityLabel
         toolbar.menuButton.addTarget(self, action: #selector(didClickMenu), for: .touchUpInside)
         toolbar.menuButton.accessibilityIdentifier = "TabToolbar.menuButton"
@@ -167,8 +167,8 @@ class ToolbarButton: UIButton {
 
 extension ToolbarButton: Themeable {
     func applyTheme() {
-        selectedTintColor = UIColor.theme.toolbarButton.selectedTint
-        unselectedTintColor = UIColor.theme.browser.tint
+        selectedTintColor = Theme.toolbarButton.selectedTint
+        unselectedTintColor = Theme.browser.tint
         tintColor = isEnabled ? unselectedTintColor : disabledTintColor
         imageView?.tintColor = tintColor
     }
@@ -305,9 +305,9 @@ extension TabToolbar: Themeable, PrivateModeUI {
         backgroundColor = UIColor.clear
         helper?.setTheme(forButtons: actionButtons)
 
-        privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
-        hideImagesBadge.badge.tintBackground(color: UIColor.theme.browser.background)
-        menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: UIColor.theme.general.controlTint), for: .normal)
+        privateModeBadge.badge.tintBackground(color: Theme.browser.background)
+        hideImagesBadge.badge.tintBackground(color: Theme.browser.background)
+        menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
     }
 
     func applyUIMode(isPrivate: Bool) {

@@ -142,7 +142,7 @@ class URLBarView: UIView {
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.BackTitle
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
-        cancelButton.setTitleColor(UIColor.theme.general.controlTint, for: .normal)
+        cancelButton.setTitleColor(Theme.general.controlTint, for: .normal)
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
         cancelButton.alpha = 0
@@ -154,7 +154,7 @@ class URLBarView: UIView {
 
     fileprivate lazy var separator: UIView = {
         let separator = UIView()
-        separator.backgroundColor = UIColor.theme.textField.separator
+        separator.backgroundColor = Theme.textField.separator
         return separator
     }()
 
@@ -745,20 +745,20 @@ extension URLBarView: Themeable {
         actionButtons.forEach { $0.applyTheme() }
         tabsButton.applyTheme()
         backgroundColor = .clear
-        line.backgroundColor = UIColor.theme.browser.urlBarDivider
+        line.backgroundColor = Theme.browser.urlBarDivider
 
-        locationBorderColor = UIColor.theme.urlbar.border
+        locationBorderColor = Theme.urlbar.border
 
         if inOverlayMode {
-            locationView.backgroundColor = UIColor.theme.textField.backgroundInOverlay
+            locationView.backgroundColor = Theme.textField.backgroundInOverlay
         } else {
-            locationView.backgroundColor = UIColor.theme.urlbar.background
+            locationView.backgroundColor = Theme.urlbar.background
         }
 
         locationContainer.backgroundColor = .clear
 
-        privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
-        cancelButton.setTitleColor(UIColor.theme.general.controlTint, for: .normal)
+        privateModeBadge.badge.tintBackground(color: Theme.browser.background)
+        cancelButton.setTitleColor(Theme.general.controlTint, for: .normal)
     }
 }
 
@@ -768,9 +768,9 @@ extension URLBarView: PrivateModeUI {
             privateModeBadge.show(isPrivate)
         }
 
-        locationActiveBorderColor = UIColor.theme.urlbar.activeBorder(isPrivate)
-        progressBar.setGradientColors(startColor: UIColor.theme.loadingBar.start(isPrivate),
-                                      endColor: UIColor.theme.loadingBar.end(isPrivate))
+        locationActiveBorderColor = Theme.urlbar.activeBorder(isPrivate)
+        progressBar.setGradientColors(startColor: Theme.loadingBar.start(isPrivate),
+                                      endColor: Theme.loadingBar.end(isPrivate))
         ToolbarTextField.applyUIMode(isPrivate: isPrivate)
 
         applyTheme()
@@ -810,11 +810,11 @@ class ToolbarTextField: AutocompleteTextField {
 
 extension ToolbarTextField: Themeable {
     func applyTheme() {
-        textColor = UIColor.theme.textField.textAndTint
+        textColor = Theme.textField.textAndTint
     }
 
     // ToolbarTextField is created on-demand, so the textSelectionColor is a static prop for use when created
     static func applyUIMode(isPrivate: Bool) {
-       textSelectionColor = UIColor.theme.urlbar.textSelectionHighlight(isPrivate)
+       textSelectionColor = Theme.urlbar.textSelectionHighlight(isPrivate)
     }
 }

@@ -604,7 +604,7 @@ class TabWebView: WKWebView, MenuHelperInterface {
     // the theme if the webview is showing "about:blank" (nil).
     func applyTheme() {
         if url == nil {
-            let backgroundColor = ThemeManager.instance.current.browser.background.hexString
+            let backgroundColor = Theme.browser.background.hexString
             evaluateJavaScript("document.documentElement.style.backgroundColor = '\(backgroundColor)';")
         }
     }
