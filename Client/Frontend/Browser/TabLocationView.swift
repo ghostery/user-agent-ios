@@ -282,7 +282,6 @@ extension TabLocationView: Themeable {
         backgroundColor = Theme.textField.background
         urlTextField.textColor = Theme.textField.textAndTint
 
-
         pageOptionsButton.selectedTintColor = Theme.urlbar.pageOptionsSelected
         pageOptionsButton.unselectedTintColor = Theme.urlbar.pageOptionsUnselected
         pageOptionsButton.tintColor = pageOptionsButton.unselectedTintColor

@@ -3,14 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 import Foundation
 
-protocol Themeable: AnyObject {
-    func applyTheme()
-}
-
-protocol PrivateModeUI {
-    func applyUIMode(isPrivate: Bool)
-}
-
 struct Theme {
     static var tableView: TableViewColor { return TableViewColor() }
     static var urlbar: URLBarColor { return URLBarColor() }
@@ -29,6 +21,14 @@ struct Theme {
 
     static let defaultSeparator = UIColor.Grey40
     static let defaultTextAndTint = UIColor.Grey80
+}
+
+protocol Themeable: AnyObject {
+    func applyTheme()
+}
+
+protocol PrivateModeUI {
+    func applyUIMode(isPrivate: Bool)
 }
 
 class TableViewColor {
