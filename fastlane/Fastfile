@@ -176,7 +176,6 @@ platform :ios do
       demo_account_required: "false",
       skip_waiting_for_build_processing: "false",
       app_identifier: app.app_identifier,
-      groups: ['Internal'],
     )
 
     download_dsyms(app_identifier: app.app_identifier)
