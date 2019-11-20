@@ -225,7 +225,6 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         self.descriptionLabel.text = site.tileURL.baseDomain
         self.titleLabel.textColor = ThemeManager.instance.current.actionMenu.foreground
         self.descriptionLabel.textColor = ThemeManager.instance.current.actionMenu.foreground
-        
     }
 }
 
