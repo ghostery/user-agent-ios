@@ -24,6 +24,13 @@ extension UIColor {
     static let LightBlue = UIColor(named: "LightBlue")!
     static let Orange = UIColor(named: "Orange")!
 
+    /// System Colors
+    static let defaultBackground = UIColor(named: "Background")!
+    static let DarkGrey = UIColor(named: "DarkGrey")!
+    static let TextHighlightBlue = UIColor(named: "TextHighlightBlue")!
+    static let MobilePrivatePurple = UIColor(named: "MobilePrivatePurple")!
+    static let ReaderModeSepia = UIColor(named: "ReaderModeSepia")!
+
     // Functional Colors
     static let Purple = UIColor(named: "Purple")!
     static let LightGreen = UIColor(named: "LightGreen")!
@@ -31,10 +38,6 @@ extension UIColor {
     static let BrightRed = UIColor(named: "BrightRed")!
     static let DarkRed = UIColor(named: "DarkRed")!
     static let NeutralGrey = UIColor(named: "NeutralGrey")!
-
-    static let defaultBackground = UIColor(named: "Background")!
-
-    static let DarkGrey = UIColor(named: "DarkGrey")!
 
     static let Grey10 = UIColor(named: "Grey10")!
     static let Grey20 = UIColor(named: "Grey20")!
@@ -49,9 +52,4 @@ extension UIColor {
     static let Blue40 = UIColor(named: "Blue40")!
     static let Blue50 = UIColor(named: "Blue50")!
     static let Blue60 = UIColor(named: "Blue60")!
-
-    static let TextHighlightBlue = UIColor(named: "TextHighlightBlue")!
-    static let MobilePrivatePurple = UIColor(named: "MobilePrivatePurple")!
-    static let ReaderModeSepia = UIColor(named: "ReaderModeSepia")!
-
 }
