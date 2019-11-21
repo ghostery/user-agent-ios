@@ -33,21 +33,22 @@ extension Strings {
 
 // Table date section titles.
 extension Strings {
-    public static let TableDateSectionTitleToday = NSLocalizedString("Today", comment: "History tableview section header")
-    public static let TableDateSectionTitleYesterday = NSLocalizedString("Yesterday", comment: "History tableview section header")
-    public static let TableDateSectionTitleLastWeek = NSLocalizedString("Last week", comment: "History tableview section header")
-    public static let TableDateSectionTitleLastMonth = NSLocalizedString("Last month", comment: "History tableview section header")
+    public struct TableDateSection {
+        public static let TitleToday = NSLocalizedString("Today", comment: "History tableview section header")
+        public static let TitleYesterday = NSLocalizedString("Yesterday", comment: "History tableview section header")
+        public static let TitleLastWeek = NSLocalizedString("Last week", comment: "History tableview section header")
+        public static let TitleLastMonth = NSLocalizedString("Last month", comment: "History tableview section header")
+    }
 }
 
 // Top Sites.
 extension Strings {
-    public static let TopSitesEmptyStateDescription = NSLocalizedString("TopSites.EmptyState.Description", comment: "Description label for the empty Top Sites state.")
-    public static let TopSitesEmptyStateTitle = NSLocalizedString("TopSites.EmptyState.Title", comment: "The title for the empty Top Sites state")
-    public static let TopSitesRemoveButtonAccessibilityLabel = NSLocalizedString("TopSites.RemovePage.Button", comment: "Button shown in editing mode to remove this site from the top sites panel.")
+    public struct TopSites {
+        public static let RemoveButtonAccessibilityLabel = NSLocalizedString("TopSites.RemovePage.Button", comment: "Button shown in editing mode to remove this site from the top sites panel.")
+    }
 }
 
 // Activity Stream.
-
 extension Strings {
     public struct ActivityStream {
         public struct News {

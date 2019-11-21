@@ -24,13 +24,13 @@ enum LibrarySection: Int, CaseIterable {
     var title: String {
         switch self {
         case .today:
-            return Strings.TableDateSectionTitleToday
+            return Strings.TableDateSection.TitleToday
         case .yesterday:
-            return Strings.TableDateSectionTitleYesterday
+            return Strings.TableDateSection.TitleYesterday
         case .lastWeek:
-            return Strings.TableDateSectionTitleLastWeek
+            return Strings.TableDateSection.TitleLastWeek
         case .lastMonth:
-            return Strings.TableDateSectionTitleLastMonth
+            return Strings.TableDateSection.TitleLastMonth
         }
     }
 }

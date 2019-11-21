@@ -1170,9 +1170,6 @@
 /* Accessibility label for the Close All Tabs menu button. */
 "Toolbar.Menu.CloseAllTabs" = "Close All Tabs";
 
-/* Description label for the empty Top Sites state. */
-"TopSites.EmptyState.Description" = "Your most visited sites will show up here.";
-
 /* The title for the empty Top Sites state */
 "TopSites.EmptyState.Title" = "Welcome to Top Sites";
 
