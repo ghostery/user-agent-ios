@@ -1,3 +1,4 @@
+
 /* Settings item for clearing browsing history */
 "Browsing History" = "Browsing History";
 
@@ -15,4 +16,3 @@
 
 /* Settings item for clearing passwords and login data */
 "Saved Logins" = "Saved Logins";
-

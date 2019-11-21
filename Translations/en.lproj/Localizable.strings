@@ -1,3 +1,4 @@
+
 /* Button for larger reader font size. Keep this extremely short! This is shown in the reader mode toolbar. */
 "+" = "+";
 
@@ -31,6 +32,10 @@
 /* Section title label for recently bookmarked websites */
 "ActivityStream.NewRecentBookmarks.Title" = "Recent Bookmarks";
 
+"ActivityStream.News.BreakingLabel" = "BREAKING";
+
+"ActivityStream.PinnedSites.SectionTitle" = "Pinned Sites";
+
 /* Section title label for recently visited websites */
 "ActivityStream.RecentHistory.Title" = "Recently Visited";
 
@@ -42,10 +47,6 @@
 
 /* Section title label for Top Sites */
 "ActivityStream.TopSites.SectionTitle" = "Top Sites";
-
-"ActivityStream.PinnedSites.SectionTitle" = "Pinned Sites";
-
-"ActivityStream.News.BreakingLabel" = "BREAKING";
 
 /* Accessibility label for the Add Tab button in the Tab Tray. */
 "Add Tab" = "Add Tab";
@@ -67,6 +68,9 @@
 
 /* Tile title for Amazon */
 "Amazon" = "Amazon";
+
+/* Title for prompt displayed to user after the app crashes */
+"App.Crashed" = "Oops! %@ crashed";
 
 /* Authentication prompt title */
 "Authentication required" = "Authentication required";
@@ -148,6 +152,9 @@
 
 /* Accessibility label (used by assistive technology) notifying the user that the tab is being closed. */
 "Closing tab" = "Closing tab";
+
+/* Accessibility label for Desktop Computer (PC) image in remote tabs list */
+"computer" = "computer";
 
 /* Context menu item for bookmarking a link URL */
 "ContextMenu.BookmarkLinkButtonTitle" = "Bookmark Link";
@@ -298,8 +305,8 @@
 /* Tile title for Facebook */
 "Facebook" = "Facebook";
 
-/* Title for UserAgent about:home page in tab history list */
-"UserAgent.HomePage.Title" = "%@ Home Page";
+/* Menu item in settings used to open input.mozilla.org where people can submit feedback */
+"FAQ & Support" = "FAQ & Support";
 
 /* Accessibility Label for the tab toolbar Forward button */
 "Forward" = "Forward";
@@ -406,6 +413,9 @@
 /* Accessibility label for the introduction tour carousel */
 "Intro Tour Carousel" = "Intro Tour Carousel";
 
+/* Relative time for a tab that was visited within the last few moments. */
+"just now" = "just now";
+
 /* History tableview section header */
 "Last month" = "Last month";
 
@@ -469,8 +479,8 @@
 /* Title for the list of logins */
 "LoginsList.Title" = "SAVED LOGINS";
 
-/* Restore Tabs Prompt Description */
-"Restore.Tabs.After.Crash" = "Looks like %@ crashed previously. Would you like to restore your tabs?";
+/* Label for the button, displayed in the menu, used to get more info about Ad blocking */
+"Menu.AdBlocking.Title" = "Ad-blocking";
 
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Bookmark Added";
@@ -490,11 +500,11 @@
 /* The title for the button that lets you paste and go to a URL */
 "Menu.PasteAndGo.Title" = "Paste & Go";
 
-/* Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled */
-"Menu.ReloadWithTrackingProtection.Title" = "Reload With Tracking Protection";
-
 /* Label for the button, displayed in the menu, used to reload the current website without Tracking Protection */
 "Menu.ReloadWithoutTrackingProtection.Title" = "Reload Without Tracking Protection";
+
+/* Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled */
+"Menu.ReloadWithTrackingProtection.Title" = "Reload With Tracking Protection";
 
 /* Toast displayed to the user after a bookmark has been removed. */
 "Menu.RemoveBookmark.Confirm" = "Bookmark Removed";
@@ -508,14 +518,11 @@
 /* The title for tracking protection settings */
 "Menu.TrackingProtection.ProtectionSettings.Title" = "Protection Settings";
 
-/* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
-"Menu.TrackingProtection.TitlePrefix" = "Protections for %@";
-
 /* Label for the button, displayed in the menu, used to get more info about Tracking Protection */
 "Menu.TrackingProtection.Title" = "Tracking Protection";
 
-/* Label for the button, displayed in the menu, used to get more info about Ad blocking */
-"Menu.AdBlocking.Title" = "Ad-blocking";
+/* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
+"Menu.TrackingProtection.TitlePrefix" = "Protections for %@";
 
 /* The title that shows the number of content cookies blocked */
 "Menu.TrackingProtectionBlockedContent.Title" = "Tracking content";
@@ -592,6 +599,15 @@
 /* Error for a missing remote error message */
 "Missing message" = "Missing message";
 
+/* Accessibility label for Mobile Device image in remote tabs list */
+"mobile device" = "mobile device";
+
+/* Relative date for dates older than a month and less than two months. */
+"more than a month ago" = "more than a month ago";
+
+/* Description for a date more than a week ago, but less than a month ago. */
+"more than a week ago" = "more than a week ago";
+
 /* Accessibility label for the navigation toolbar displayed at the bottom of the screen. */
 "Navigation Toolbar" = "Navigation Toolbar";
 
@@ -610,17 +626,14 @@
 /* Restore Tabs Affirmative Action */
 "Okay" = "Okay";
 
-/* Title for prompt displayed to user after the app crashes */
-"App.Crashed" = "Oops! %@ crashed";
+/* See http://mzl.la/1LXbDOL */
+"Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Open articles in Reader View by tapping the book icon when it appears in the title bar.";
 
 /* See http://mzl.la/1G7uHo7 */
 "Open Settings" = "Open Settings";
 
 /* Toggle tabs syncing setting */
 "Open Tabs" = "Open Tabs";
-
-/* See http://mzl.la/1LXbDOL */
-"Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Open articles in Reader View by tapping the book icon when it appears in the title bar.";
 
 /* The message displayed to a user when they try to open a URL that cannot be handled by UserAgent, or any external app. */
 "OpenURL.Error.Message" = "%@ cannot open the page because it has an invalid address.";
@@ -661,11 +674,17 @@
 /* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
 "Privacy Policy" = "Privacy Policy";
 
+/* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
+"read" = "read";
+
 /* Accessibility message e.g. spoken by VoiceOver when Reader Mode becomes available. */
 "ReaderMode.Available.VoiceOverAnnouncement" = "Reader Mode available";
 
 /* Title for the Recently Closed Tabs Panel */
 "RecentlyClosedTabsPanel.Title" = "Recently Closed";
+
+/* Localized String for German region */
+"region-DE" = "Germany";
 
 /* Accessibility Label for the tab toolbar Reload button */
 "Reload" = "Reload";
@@ -687,6 +706,9 @@
 
 /* Accessibility label for button resetting font size in display settings of reader mode */
 "Reset text size" = "Reset text size";
+
+/* Restore Tabs Prompt Description */
+"Restore.Tabs.After.Crash" = "Looks like %@ crashed previously. Would you like to restore your tabs?";
 
 /* Font type setting in the reading view settings */
 "Sans-serif" = "Sans-serif";
@@ -755,14 +777,11 @@
 /* Accessibility label for the lock icon, which is only present if the connection is secure */
 "Secure connection" = "Secure connection";
 
-/* Menu item in settings used to open input.mozilla.org where people can submit feedback */
-"FAQ & Support" = "FAQ & Support";
+/* Message displayed in the crash dialog above the buttons used to select when sending reports */
+"Send a crash report so we can fix the problem?" = "Send a crash report so we can fix the problem?";
 
 /* Used as a button label for crash dialog prompt */
 "Send Report" = "Send Report";
-
-/* Message displayed in the crash dialog above the buttons used to select when sending reports */
-"Send a crash report so we can fix the problem?" = "Send a crash report so we can fix the problem?";
 
 /* Button title for cancelling share screen
    Close button in top navigation bar */
@@ -828,17 +847,11 @@
 /* The placeholder for URL Field when saving a custom search engine */
 "Settings.AddCustomEngine.URLPlaceholder" = "URL (Replace Query with %s)";
 
-/* The button text in Search Settings that opens the list of supported search languages. */
-"Settings.SearchResultForLanguage" = "Search language";
+/* The button text in Search Settings that opens the Additional Search Engines view. */
+"Settings.AdditionalSearchEngines.SectionName" = "Additional search engines";
 
 /* "Block explicit content" */
 "Settings.AdultFilterMode" = "Block Explicit Content";
-
-"Settings.PrivacyDashboard.Title" = "Privacy Dashboard";
-"Settings.PrivacyDashboard.Description" = "Anti-Tracking and Ad-Blocker protect your privacy";
-
-/* Localized String for German region */
-"region-DE" = "Germany";
 
 /* Button in Data Management that clears private data for the selected items. */
 "Settings.ClearAllWebsiteData.Clear.Button" = "Clear All Website Data";
@@ -854,15 +867,6 @@
 
 /* Copy app version alert shown in settings. */
 "Settings.CopyAppVersion.Title" = "Copied to clipboard";
-
-/* DNT Settings option for always on */
-"Settings.DNT.OptionAlwaysOn" = "Always";
-
-/* DNT Settings option for only turning on when Tracking Protection is also on */
-"Settings.DNT.OptionOnWithTP" = "Only when using Tracking Protection";
-
-/* DNT Settings title */
-"Settings.DNT.Title" = "Send websites a Do Not Track signal that you don’t want to be tracked";
 
 /* Default text in search bar for Data Management */
 "Settings.DataManagement.SearchLabel" = "Filter Sites";
@@ -891,14 +895,17 @@
 /* Title in main app settings for Display (theme) settings */
 "Settings.DisplayTheme.Title" = "Display";
 
+/* DNT Settings option for always on */
+"Settings.DNT.OptionAlwaysOn" = "Always";
+
+/* DNT Settings option for only turning on when Tracking Protection is also on */
+"Settings.DNT.OptionOnWithTP" = "Only when using Tracking Protection";
+
+/* DNT Settings title */
+"Settings.DNT.Title" = "Send websites a Do Not Track signal that you don’t want to be tracked";
+
 /* General settings section title */
 "Settings.General.SectionName" = "General";
-
-/* Search settings seciton title */
-"Settings.Search.SectionName" = "Search";
-
-/* The button text in Search Settings that opens the Additional Search Engines view. */
-"Settings.AdditionalSearchEngines.SectionName" = "Additional search engines";
 
 /* Button in settings to clear the home page. */
 "Settings.HomePage.Clear.Button" = "Clear";
@@ -948,9 +955,6 @@
 /* The title for the section to customize top sites in the new tab settings page. */
 "Settings.NewTab.Option.CustomizeTitle" = "Customize %@ Home";
 
-/* Option in settings to show UserAgent Home when you open a new tab */
-"Settings.NewTab.Option.Home" = "%@ Home";
-
 /* Option in the settings to turn off recent bookmarks in the Highlights section */
 "Settings.NewTab.Option.HighlightsBookmarks" = "Recent Bookmarks";
 
@@ -959,6 +963,9 @@
 
 /* Option in settings to show history when you open a new tab */
 "Settings.NewTab.Option.History" = "History";
+
+/* Option in settings to show UserAgent Home when you open a new tab */
+"Settings.NewTab.Option.Home" = "%@ Home";
 
 /* Option in settings to show your homepage when you open a new tab */
 "Settings.NewTab.Option.HomePage" = "Homepage";
@@ -987,6 +994,10 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour. */
 "Settings.OpenWith.SectionName" = "Mail App";
 
+"Settings.PrivacyDashboard.Description" = "Anti-Tracking and Ad-Blocker protect your privacy";
+
+"Settings.PrivacyDashboard.Title" = "Privacy Dashboard";
+
 /* Setting to enable the built-in password manager */
 "Settings.SaveLogins.Title" = "Save Logins";
 
@@ -995,6 +1006,12 @@
 
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Edit.Button" = "Edit";
+
+/* Search settings seciton title */
+"Settings.Search.SectionName" = "Search";
+
+/* The button text in Search Settings that opens the list of supported search languages. */
+"Settings.SearchResultForLanguage" = "Search language";
 
 /* A short description that explains why mozilla collects usage data. */
 "Settings.SendUsage.Message" = "%@ strives to only collect what we need to provide and improve %@ for everyone.";
@@ -1099,18 +1116,6 @@
 /* Hardware shortcut to open the tab tray from a tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "Tab.ShowTabTray.KeyCodeTitle" = "Show All Tabs";
 
-/* Hardware shortcut to close all tabs from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.CloseAllTabs.KeyCodeTitle" = "Close All Tabs";
-
-/* Hardware shortcut to close the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.CloseTab.KeyCodeTitle" = "Close Selected Tab";
-
-/* Hardware shortcut to open a new tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.OpenNewTab.KeyCodeTitle" = "Open New Tab";
-
-/* Hardware shortcut open the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.OpenSelectedTab.KeyCodeTitle" = "Open Selected Tab";
-
 /* Message spoken by VoiceOver saying the range of tabs that are currently visible in Tabs Tray, along with the total number of tabs. E.g. \"Tabs 8 to 10 of 15\" says tabs 8, 9 and 10 are visible, out of 15 tabs total. */
 "Tabs %@ to %@ of %@" = "Tabs %1$@ to %2$@ of %3$@";
 
@@ -1123,6 +1128,18 @@
 /* The label indicating that all the tabs were closed */
 "Tabs.DeleteAllUndo.Title" = "%d tab(s) closed";
 
+/* Hardware shortcut to close all tabs from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"TabTray.CloseAllTabs.KeyCodeTitle" = "Close All Tabs";
+
+/* Hardware shortcut to close the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"TabTray.CloseTab.KeyCodeTitle" = "Close Selected Tab";
+
+/* Hardware shortcut to open a new tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"TabTray.OpenNewTab.KeyCodeTitle" = "Open New Tab";
+
+/* Hardware shortcut open the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"TabTray.OpenSelectedTab.KeyCodeTitle" = "Open Selected Tab";
+
 /* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
 "The page could not be displayed in Reader View." = "The page could not be displayed in Reader View.";
 
@@ -1132,6 +1149,9 @@
 /* Error displayed when reader mode cannot be enabled */
 "There was an error converting the page" = "There was an error converting the page";
 
+/* Relative date for date in past week. */
+"this week" = "this week";
+
 /* label for Not Now button */
 "Toasts.NotNow" = "Not Now";
 
@@ -1140,6 +1160,9 @@
 
 /* History tableview section header */
 "Today" = "Today";
+
+/* Relative date for date older than a minute. */
+"today at %@" = "today at %@";
 
 /* Accessibility label for the Menu button. */
 "Toolbar.Menu.AccessibilityLabel" = "Menu";
@@ -1165,6 +1188,12 @@
 /* Search in New Tab Text selection menu item */
 "UIMenuItem.SearchWithUserAgent" = "Search with %@";
 
+/* Accessibility label for unread article in reading list. It's a past participle - functions as an adjective. */
+"unread" = "unread";
+
+/* Title for UserAgent about:home page in tab history list */
+"UserAgent.HomePage.Title" = "%@ Home Page";
+
 /* Username textbox in Authentication prompt */
 "Username" = "Username";
 
@@ -1186,36 +1215,8 @@
 /* History tableview section header */
 "Yesterday" = "Yesterday";
 
-/* Tile title for YouTube */
-"YouTube" = "YouTube";
-
-/* Accessibility label for Desktop Computer (PC) image in remote tabs list */
-"computer" = "computer";
-
-/* Relative time for a tab that was visited within the last few moments. */
-"just now" = "just now";
-
-/* Accessibility label for Mobile Device image in remote tabs list */
-"mobile device" = "mobile device";
-
-/* Relative date for dates older than a month and less than two months. */
-"more than a month ago" = "more than a month ago";
-
-/* Description for a date more than a week ago, but less than a month ago. */
-"more than a week ago" = "more than a week ago";
-
-/* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
-"read" = "read";
-
-/* Relative date for date in past week. */
-"this week" = "this week";
-
-/* Relative date for date older than a minute. */
-"today at %@" = "today at %@";
-
-/* Accessibility label for unread article in reading list. It's a past participle - functions as an adjective. */
-"unread" = "unread";
-
 /* Relative date for yesterday. */
 "yesterday" = "yesterday";
 
+/* Tile title for YouTube */
+"YouTube" = "YouTube";

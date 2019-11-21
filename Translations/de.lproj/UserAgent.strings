@@ -1,3 +1,19 @@
+
+"HomeView.SegmentedControl.Bookmarks.Title" = "Lesezeichen";
+
+"HomeView.SegmentedControl.Downloads.Title" = "Downloads";
+
+"HomeView.SegmentedControl.History.Title" = "Verlauf";
+
+/* Home View */
+"HomeView.SegmentedControl.TopSites.Title" = "Übersicht";
+
+"Interceptor.AntiPhishing.UI.BackButtonLabel" = "Zurück zu sicherer Webseite";
+
+"Interceptor.AntiPhishing.UI.ContinueButtonLabel" = "Trotz der Warnung fortfahren";
+
+"Interceptor.AntiPhishing.UI.Message" = "%1$@ hat den Zugang zu %2$@ blockiert, weil sie als Phishing-Seite gemeldet wurde. Phishing-Seiten tarnen sich als vertrauenswürdige Websites, um dich dazu zu bringen, deinen Benutzernamen, dein Passwort oder andere vertrauliche Informationen preiszugeben.";
+
 /* 
   UserAgent.strings
   UserAgent
@@ -6,27 +22,24 @@
   Copyright © 2019 Cliqz. All rights reserved.
 */
 "Interceptor.AntiPhishing.UI.Title" = "Warnung: betrügerische Website!";
-"Interceptor.AntiPhishing.UI.Message" = "%1$@ hat den Zugang zu %2$@ blockiert, weil sie als Phishing-Seite gemeldet wurde. Phishing-Seiten tarnen sich als vertrauenswürdige Websites, um dich dazu zu bringen, deinen Benutzernamen, dein Passwort oder andere vertrauliche Informationen preiszugeben.";
-"Interceptor.AntiPhishing.UI.BackButtonLabel" = "Zurück zu sicherer Webseite";
-"Interceptor.AntiPhishing.UI.ContinueButtonLabel" = "Trotz der Warnung fortfahren";
 
-/* Home View */
-"HomeView.SegmentedControl.TopSites.Title" = "Übersicht";
-"HomeView.SegmentedControl.Bookmarks.Title" = "Lesezeichen";
-"HomeView.SegmentedControl.History.Title" = "Verlauf";
-"HomeView.SegmentedControl.Downloads.Title" = "Downloads";
+"PrivacyDashboard.Legend.NoTrackersSeen" = "Wunderbar, diese Website enthält keine Tracker!";
+
+"PrivacyDashboard.Legend.Whitelisted" = "Dieser Modus kann hilfreich sein, wenn einige Website-Funktionen mit eingeschaltetem Anti-Tracking oder Werbeblocker nicht richtig funktionieren.";
+
+"PrivacyDashboard.Switch.AdBlock" = "Werbeblocker auf dieser Seite";
+
+"PrivacyDashboard.Switch.AntiTracking" = "Anti-Tracking auf dieser Seite";
+
+"PrivacyDashboard.Title.AdBlockWhitelisted" = "Blockierte Tracker";
+
+"PrivacyDashboard.Title.AntiTrackingWhitelisted" = "Blockierte Werbungen";
+
+"PrivacyDashboard.Title.BlockingEnabled" = "Blockierte Tracker und Werbungen";
+
+"PrivacyDashboard.Title.NoTrackersSeen" = "Keine Tracker auf";
+
+"PrivacyDashboard.Title.Whitelisted" = "Deaktiviert auf dieser Seite";
 
 /* Privacy Dashboard */
 "PrivacyDashboard.ViewFullReport" = "Statistikbericht";
-
-"PrivacyDashboard.Switch.AntiTracking" = "Anti-Tracking auf dieser Seite";
-"PrivacyDashboard.Switch.AdBlock" = "Werbeblocker auf dieser Seite";
-
-"PrivacyDashboard.Title.BlockingEnabled" = "Blockierte Tracker und Werbungen";
-"PrivacyDashboard.Title.NoTrackersSeen" = "Keine Tracker auf";
-"PrivacyDashboard.Title.AdBlockWhitelisted" = "Blockierte Tracker";
-"PrivacyDashboard.Title.AntiTrackingWhitelisted" = "Blockierte Werbungen";
-"PrivacyDashboard.Title.Whitelisted" = "Deaktiviert auf dieser Seite";
-
-"PrivacyDashboard.Legend.NoTrackersSeen" = "Wunderbar, diese Website enthält keine Tracker!";
-"PrivacyDashboard.Legend.Whitelisted" = "Dieser Modus kann hilfreich sein, wenn einige Website-Funktionen mit eingeschaltetem Anti-Tracking oder Werbeblocker nicht richtig funktionieren.";

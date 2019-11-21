@@ -1,20 +1,21 @@
-/* Description for the 'Welcome' panel in the First Run tour. */
-"Intro.Slides.Welcome.Description" = "We create a European independent alternative to the market-dominating US platforms. Thank you for your trust and for taking the path into the digital era with us.";
-
-/* Title for the 'Search' panel in the First Run tour. */
-"Intro.Slides.Search.Title" = "Anonymous Quick Search";
-
-/* Description for the 'Search' panel in the First Run tour. */
-"Intro.Slides.Search.Description" = "Our anonymous search engine provides you with real-time results as you type. No ads. No data collection.";
-
-/* Title for the 'AntiTracking' panel in the First Run tour. */
-"Intro.Slides.AntiTracking.Title" = "Maximum Privacy";
 
 /* Description for the 'AntiTracking' panel in the First Run tour. */
 "Intro.Slides.AntiTracking.Description" = "Our intelligent Anti-Tracking prevents data collectors from tracking you across the web. Our ad blocker keeps obtrusive ads at bay.";
 
-/* Button title for starting browsing. */
-"Intro.Slides.Welcome.Button.Title" = "Enjoy Cliqz";
+/* Title for the 'AntiTracking' panel in the First Run tour. */
+"Intro.Slides.AntiTracking.Title" = "Maximum Privacy";
+
+/* Description for the 'Search' panel in the First Run tour. */
+"Intro.Slides.Search.Description" = "Our anonymous search engine provides you with real-time results as you type. No ads. No data collection.";
+
+/* Title for the 'Search' panel in the First Run tour. */
+"Intro.Slides.Search.Title" = "Anonymous Quick Search";
 
 /* Button title for skipping tour. */
 "Intro.Slides.Skip.Title" = "Skip";
+
+/* Button title for starting browsing. */
+"Intro.Slides.Welcome.Button.Title" = "Enjoy Cliqz";
+
+/* Description for the 'Welcome' panel in the First Run tour. */
+"Intro.Slides.Welcome.Description" = "We create a European independent alternative to the market-dominating US platforms. Thank you for your trust and for taking the path into the digital era with us.";

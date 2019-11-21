@@ -1,3 +1,19 @@
+
+"HomeView.SegmentedControl.Bookmarks.Title" = "Bookmarks";
+
+"HomeView.SegmentedControl.Downloads.Title" = "Downloads";
+
+"HomeView.SegmentedControl.History.Title" = "History";
+
+/* Home View */
+"HomeView.SegmentedControl.TopSites.Title" = "Top Sites";
+
+"Interceptor.AntiPhishing.UI.BackButtonLabel" = "Back to safe site";
+
+"Interceptor.AntiPhishing.UI.ContinueButtonLabel" = "Continue despite warning";
+
+"Interceptor.AntiPhishing.UI.Message" = "%1$@ has blocked access to %2$@ because it has been reported as a phishing website. Phishing websites disguise as other sites you may trust in order to trick you into disclosing your login, password or other sensitive information";
+
 /* 
   UserAgent.strings
   UserAgent
@@ -6,27 +22,24 @@
   Copyright © 2019 Cliqz. All rights reserved.
 */
 "Interceptor.AntiPhishing.UI.Title" = "Warning: deceptive website!";
-"Interceptor.AntiPhishing.UI.Message" = "%1$@ has blocked access to %2$@ because it has been reported as a phishing website. Phishing websites disguise as other sites you may trust in order to trick you into disclosing your login, password or other sensitive information";
-"Interceptor.AntiPhishing.UI.BackButtonLabel" = "Back to safe site";
-"Interceptor.AntiPhishing.UI.ContinueButtonLabel" = "Continue despite warning";
 
-/* Home View */
-"HomeView.SegmentedControl.TopSites.Title" = "Top Sites";
-"HomeView.SegmentedControl.Bookmarks.Title" = "Bookmarks";
-"HomeView.SegmentedControl.History.Title" = "History";
-"HomeView.SegmentedControl.Downloads.Title" = "Downloads";
+"PrivacyDashboard.Legend.NoTrackersSeen" = "This domain does not contain any trackers, which is great!";
+
+"PrivacyDashboard.Legend.Whitelisted" = "This mode might be helpful in case Anti-tracking or Ad-Block interfere with some website functions.";
+
+"PrivacyDashboard.Switch.AdBlock" = "Ad-Block on this page";
+
+"PrivacyDashboard.Switch.AntiTracking" = "Anti-Tracking on this page";
+
+"PrivacyDashboard.Title.AdBlockWhitelisted" = "Trackers blocked";
+
+"PrivacyDashboard.Title.AntiTrackingWhitelisted" = "Ads blocked";
+
+"PrivacyDashboard.Title.BlockingEnabled" = "Trackers & Ads blocked";
+
+"PrivacyDashboard.Title.NoTrackersSeen" = "No trackers seen on";
+
+"PrivacyDashboard.Title.Whitelisted" = "Disabled on this page";
 
 /* Privacy Dashboard */
 "PrivacyDashboard.ViewFullReport" = "Statistical Report";
-
-"PrivacyDashboard.Switch.AntiTracking" = "Anti-Tracking on this page";
-"PrivacyDashboard.Switch.AdBlock" = "Ad-Block on this page";
-
-"PrivacyDashboard.Title.BlockingEnabled" = "Trackers & Ads blocked";
-"PrivacyDashboard.Title.NoTrackersSeen" = "No trackers seen on";
-"PrivacyDashboard.Title.AdBlockWhitelisted" = "Trackers blocked";
-"PrivacyDashboard.Title.AntiTrackingWhitelisted" = "Ads blocked";
-"PrivacyDashboard.Title.Whitelisted" = "Disabled on this page";
-
-"PrivacyDashboard.Legend.NoTrackersSeen" = "This domain does not contain any trackers, which is great!";
-"PrivacyDashboard.Legend.Whitelisted" = "This mode might be helpful in case Anti-tracking or Ad-Block interfere with some website functions.";

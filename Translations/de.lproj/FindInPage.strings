@@ -1,3 +1,4 @@
+
 /* Done button in Find in Page Toolbar. */
 "Done" = "Fertig";
 
@@ -9,4 +10,3 @@
 
 /* Accessibility label for previous result button in Find in Page Toolbar. */
 "Previous in-page result" = "Vorheriges Suchergebnis auf dieser Seite";
-
