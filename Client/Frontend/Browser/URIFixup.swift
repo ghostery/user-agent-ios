@@ -12,9 +12,10 @@ class URIFixup {
         }
 
         let trimmed = entry.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let escaped = trimmed.addingPercentEncoding(withAllowedCharacters: .URLAllowed) else {
+        guard var escaped = trimmed.addingPercentEncoding(withAllowedCharacters: .URLAllowed) else {
             return nil
         }
+        escaped = replaceBrackets(url: escaped)
 
         // Then check if the URL includes a scheme. This will handle
         // all valid requests starting with "http://", "about:", etc.
@@ -44,5 +45,9 @@ class URIFixup {
         }
 
         return nil
+    }
+
+    static func replaceBrackets(url: String) -> String {
+        return url.replacingOccurrences(of: "[", with: "%5B").replacingOccurrences(of: "]", with: "%5D")
     }
 }

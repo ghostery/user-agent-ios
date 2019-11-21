@@ -24,6 +24,9 @@ struct PhotonActionSheetUX {
     static let CellName = "PhotonActionSheetCell"
     static let CloseButtonHeight: CGFloat  = 56
     static let TablePadding: CGFloat = 6
+    static let SeparatorRowHeight: CGFloat = 13
+    static let TitleHeaderSectionHeight: CGFloat = 40
+    static let TitleHeaderSectionHeightWithSite: CGFloat = 70
 }
 
 public enum PresentationStyle {
@@ -69,6 +72,12 @@ public struct PhotonActionSheetItem {
     public fileprivate(set) var badgeIconName: String?
     public private(set) var customView: UIView?
 
+    // Enable title customization beyond what the interface provides,
+    public var customRender: ((_ title: UILabel, _ contentView: UIView) -> Void)?
+
+    // Enable height customization
+    public var customHeight: ((PhotonActionSheetItem) -> CGFloat)?
+
     init(title: String, text: String? = nil, iconString: String? = nil, iconURL: URL? = nil, iconType: PhotonActionSheetIconType = .Image,
          iconAlignment: IconAlignment = .left, isEnabled: Bool = false, accessory: PhotonActionSheetCellAccessoryType = .None,
          accessoryText: String? = nil, badgeIconNamed: String? = nil, bold: Bool? = false, tabCount: String? = nil,
@@ -92,7 +101,7 @@ public struct PhotonActionSheetItem {
 }
 
 class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView, Themeable {
-    static let Padding: CGFloat = 12
+    static let Padding: CGFloat = 18
 
     lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -214,6 +223,8 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         self.logoView.url = site.url
         self.titleLabel.text = site.title.isEmpty ? site.url : site.title
         self.descriptionLabel.text = site.tileURL.baseDomain
+        self.titleLabel.textColor = Theme.actionMenu.foreground
+        self.descriptionLabel.textColor = Theme.actionMenu.foreground
     }
 }
 
