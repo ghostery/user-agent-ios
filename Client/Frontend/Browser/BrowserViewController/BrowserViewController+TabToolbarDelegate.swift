@@ -64,10 +64,10 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         let infinity = "\u{221E}"
         let tabCount = (count < 100) ? count.description : infinity
 
-        let privateBrowsingMode = PhotonActionSheetItem(title: Strings.privateBrowsingModeTitle, iconString: "nav-tabcounter", iconType: .TabsButton, tabCount: tabCount) { _ in
+        let privateBrowsingMode = PhotonActionSheetItem(title: Strings.Hotkeys.privateBrowsingModeTitle, iconString: "nav-tabcounter", iconType: .TabsButton, tabCount: tabCount) { _ in
             self.tabManager.switchPrivacyMode()
         }
-        let normalBrowsingMode = PhotonActionSheetItem(title: Strings.normalBrowsingModeTitle, iconString: "nav-tabcounter", iconType: .TabsButton, tabCount: tabCount) { _ in
+        let normalBrowsingMode = PhotonActionSheetItem(title: Strings.Hotkeys.normalBrowsingModeTitle, iconString: "nav-tabcounter", iconType: .TabsButton, tabCount: tabCount) { _ in
             self.tabManager.switchPrivacyMode()
         }
 
@@ -78,11 +78,11 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     }
 
     func getMoreTabToolbarLongPressActions() -> [PhotonActionSheetItem] {
-        let newTab = PhotonActionSheetItem(title: Strings.NewTabTitle, iconString: "quick_action_new_tab", iconType: .Image) { action in
+        let newTab = PhotonActionSheetItem(title: Strings.Hotkeys.NewTabTitle, iconString: "quick_action_new_tab", iconType: .Image) { action in
             self.openBlankNewTab(focusLocationField: false, isPrivate: false)}
-        let newPrivateTab = PhotonActionSheetItem(title: Strings.NewPrivateTabTitle, iconString: "quick_action_new_tab", iconType: .Image) { action in
+        let newPrivateTab = PhotonActionSheetItem(title: Strings.Hotkeys.NewPrivateTabTitle, iconString: "quick_action_new_tab", iconType: .Image) { action in
             self.openBlankNewTab(focusLocationField: false, isPrivate: true)}
-        let closeTab = PhotonActionSheetItem(title: Strings.CloseTabTitle, iconString: "tab_close", iconType: .Image) { action in
+        let closeTab = PhotonActionSheetItem(title: Strings.Hotkeys.CloseTabTitle, iconString: "tab_close", iconType: .Image) { action in
             if let tab = self.tabManager.selectedTab {
                 self.tabManager.removeTabAndUpdateSelectedIndex(tab)
                 self.updateTabCountUsingTabManager(self.tabManager)
