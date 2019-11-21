@@ -235,15 +235,15 @@ extension TopTabsViewController: Themeable, PrivateModeUI {
     func applyUIMode(isPrivate: Bool) {
         tabDisplayManager.togglePrivateMode(isOn: isPrivate, createTabOnEmptyPrivateMode: true)
 
-        privateModeButton.onTint = UIColor.theme.topTabs.privateModeButtonOnTint
-        privateModeButton.offTint = UIColor.theme.topTabs.privateModeButtonOffTint
+        privateModeButton.onTint = Theme.topTabs.privateModeButtonOnTint
+        privateModeButton.offTint = Theme.topTabs.privateModeButtonOffTint
         privateModeButton.applyUIMode(isPrivate: tabDisplayManager.isPrivate)
     }
 
     func applyTheme() {
         tabsButton.applyTheme()
-        newTab.tintColor = UIColor.theme.topTabs.buttonTint
-        view.backgroundColor = UIColor.theme.topTabs.background
+        newTab.tintColor = Theme.topTabs.buttonTint
+        view.backgroundColor = Theme.topTabs.background
         collectionView.backgroundColor = view.backgroundColor
         tabDisplayManager.refreshStore()
     }

@@ -228,9 +228,9 @@ class TabsButton: UIButton {
 extension TabsButton: Themeable {
     func applyTheme() {
         if inTopTabs {
-            textColor = UIColor.theme.topTabs.buttonTint
+            textColor = Theme.topTabs.buttonTint
         } else {
-            textColor = UIColor.theme.browser.tint
+            textColor = Theme.browser.tint
         }
     }
 }

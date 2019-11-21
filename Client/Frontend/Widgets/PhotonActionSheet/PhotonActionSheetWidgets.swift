@@ -107,7 +107,7 @@ class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView, Themeable {
         let titleLabel = UILabel()
         titleLabel.font = DynamicFontHelper.defaultHelper.SmallSizeRegularWeightAS
         titleLabel.numberOfLines = 1
-        titleLabel.textColor = UIColor.theme.tableView.headerTextLight
+        titleLabel.textColor = Theme.tableView.headerTextLight
         return titleLabel
     }()
 
@@ -149,7 +149,7 @@ class PhotonActionSheetTitleHeaderView: UITableViewHeaderFooterView, Themeable {
     }
 
     func applyTheme() {
-        self.titleLabel.textColor = UIColor.theme.tableView.headerTextLight
+        self.titleLabel.textColor = Theme.tableView.headerTextLight
     }
 
     override func prepareForReuse() {
@@ -223,8 +223,8 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         self.logoView.url = site.url
         self.titleLabel.text = site.title.isEmpty ? site.url : site.title
         self.descriptionLabel.text = site.tileURL.baseDomain
-        self.titleLabel.textColor = ThemeManager.instance.current.actionMenu.foreground
-        self.descriptionLabel.textColor = ThemeManager.instance.current.actionMenu.foreground
+        self.titleLabel.textColor = Theme.actionMenu.foreground
+        self.descriptionLabel.textColor = Theme.actionMenu.foreground
     }
 }
 
@@ -236,7 +236,7 @@ class PhotonActionSheetSeparator: UITableViewHeaderFooterView, Themeable {
         super.init(reuseIdentifier: reuseIdentifier)
         self.backgroundView = UIView()
         self.backgroundView?.backgroundColor = .clear
-        separatorLineView.backgroundColor = UIColor.theme.actionMenu.separatorColor
+        separatorLineView.backgroundColor = Theme.actionMenu.separatorColor
         self.contentView.addSubview(separatorLineView)
         separatorLineView.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self)
@@ -250,7 +250,7 @@ class PhotonActionSheetSeparator: UITableViewHeaderFooterView, Themeable {
     }
 
     func applyTheme() {
-        self.separatorLineView.backgroundColor = UIColor.theme.actionMenu.separatorColor
+        self.separatorLineView.backgroundColor = Theme.actionMenu.separatorColor
     }
 
 }

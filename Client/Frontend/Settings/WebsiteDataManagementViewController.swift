@@ -24,7 +24,6 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
     var tableView: UITableView!
     var searchController: UISearchController?
     var showMoreButtonEnabled = true
-    let theme = BuiltinThemeName(rawValue: ThemeManager.instance.current.name) ?? .normal
 
     private var siteRecords: [WKWebsiteDataRecord]?
 
@@ -36,8 +35,8 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
         tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorColor = UIColor.theme.tableView.separator
-        tableView.backgroundColor = UIColor.theme.tableView.headerBackground
+        tableView.separatorColor = Theme.tableView.separator
+        tableView.backgroundColor = Theme.tableView.headerBackground
         tableView.isEditing = true
         tableView.allowsSelectionDuringEditing = true
         tableView.register(ThemedTableSectionHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SectionHeaderFooterIdentifier)
@@ -72,9 +71,6 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
         searchController.searchBar.placeholder = Strings.SettingsFilterSitesSearchLabel
         searchController.searchBar.delegate = self
 
-        if theme == .dark {
-            searchController.searchBar.barStyle = .black
-        }
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         self.searchController = searchController
@@ -99,14 +95,14 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
             }
         case .showMore:
             cell.textLabel?.text = Strings.SettingsWebsiteDataShowMoreButton
-            cell.textLabel?.textColor = showMoreButtonEnabled ? UIColor.theme.general.highlightBlue : UIColor.gray
+            cell.textLabel?.textColor = showMoreButtonEnabled ? Theme.general.highlightBlue : UIColor.gray
             cell.accessibilityTraits = UIAccessibilityTraits.button
             cell.accessibilityIdentifier = "ShowMoreWebsiteData"
             showMoreButton = cell
         case .clearAllButton:
             cell.textLabel?.text = Strings.SettingsClearAllWebsiteDataButton
             cell.textLabel?.textAlignment = .center
-            cell.textLabel?.textColor = UIColor.theme.general.destructiveRed
+            cell.textLabel?.textColor = Theme.general.destructiveRed
             cell.accessibilityTraits = UIAccessibilityTraits.button
             cell.accessibilityIdentifier = "ClearAllWebsiteData"
             clearButton = cell

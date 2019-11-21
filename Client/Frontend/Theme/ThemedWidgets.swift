@@ -4,7 +4,7 @@
 import UIKit
 
 class ThemedTableViewCell: UITableViewCell, Themeable {
-    var detailTextColor = UIColor.theme.tableView.rowDetailText
+    var detailTextColor = Theme.tableView.rowDetailText
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,7 +21,7 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
              needToChangeTextColor = textLabel?.attributedText?.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) == nil
         }
         if needToChangeTextColor {
-            textLabel?.textColor = UIColor.theme.tableView.rowText
+            textLabel?.textColor = Theme.tableView.rowText
         }
         var needToChangeDetailTextColor = true
         if detailTextLabel?.attributedText?.length ?? 0 > 0 {
@@ -30,8 +30,8 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
         if needToChangeDetailTextColor {
             detailTextLabel?.textColor = detailTextColor
         }
-        backgroundColor = UIColor.theme.tableView.rowBackground
-        tintColor = UIColor.theme.general.controlTint
+        backgroundColor = Theme.tableView.rowBackground
+        tintColor = Theme.general.controlTint
     }
 }
 
@@ -59,8 +59,8 @@ class ThemedTableViewController: UITableViewController, Themeable {
     }
 
     func applyTheme() {
-        tableView.separatorColor = UIColor.theme.tableView.separator
-        tableView.backgroundColor = UIColor.theme.tableView.headerBackground
+        tableView.separatorColor = Theme.tableView.separator
+        tableView.backgroundColor = Theme.tableView.headerBackground
         tableView.reloadData()
 
         (tableView.tableHeaderView as? Themeable)?.applyTheme()
@@ -128,10 +128,10 @@ class ThemedTableSectionHeaderFooterView: UITableViewHeaderFooterView, Themeable
     }
 
     func applyTheme() {
-        topBorder.backgroundColor = UIColor.theme.tableView.separator
-        bottomBorder.backgroundColor = UIColor.theme.tableView.separator
-        contentView.backgroundColor = UIColor.theme.tableView.headerBackground
-        titleLabel.textColor = UIColor.theme.tableView.headerTextLight
+        topBorder.backgroundColor = Theme.tableView.separator
+        bottomBorder.backgroundColor = Theme.tableView.separator
+        contentView.backgroundColor = Theme.tableView.headerBackground
+        titleLabel.textColor = Theme.tableView.headerTextLight
     }
 
     func setupInitialConstraints() {
@@ -179,6 +179,6 @@ class ThemedTableSectionHeaderFooterView: UITableViewHeaderFooterView, Themeable
 class UISwitchThemed: UISwitch {
     override func layoutSubviews() {
         super.layoutSubviews()
-        onTintColor = UIColor.theme.general.controlTint
+        onTintColor = Theme.general.controlTint
     }
 }

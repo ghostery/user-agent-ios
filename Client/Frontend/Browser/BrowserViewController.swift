@@ -194,14 +194,14 @@ class BrowserViewController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         guard urlBar != nil else {
-            return ThemeManager.instance.statusBarStyle
+            return Theme.statusBarStyle
         }
 
         // top-tabs are always dark, so special-case this to light
         if urlBar.topTabsIsShowing {
             return .lightContent
         } else {
-            return ThemeManager.instance.statusBarStyle
+            return Theme.statusBarStyle
         }
     }
 

@@ -56,7 +56,7 @@ class OneLineTableViewCell: UITableViewCell, Themeable {
     }
 
     func applyTheme() {
-        backgroundColor = UIColor.theme.tableView.rowBackground
-        textLabel?.textColor = UIColor.theme.tableView.rowText
+        backgroundColor = Theme.tableView.rowBackground
+        textLabel?.textColor = Theme.tableView.rowText
     }
 }

@@ -20,11 +20,11 @@ extension ReactViewTheme {
         }
         return [
             "mode": mode,
-            "backgroundColor": UIColor.theme.textField.backgroundInOverlay.hexString,
-            "textColor": UIColor.theme.browser.tint.hexString,
+            "backgroundColor": Theme.textField.backgroundInOverlay.hexString,
+            "textColor": Theme.browser.tint.hexString,
             "descriptionColor": mode == "dark" ? "rgba(255, 255, 255, 0.61)" : "rgba(0, 0, 0, 0.61)",
             "visitedColor": mode == "dark" ? "#BDB6FF" : "#610072",
-            "separatorColor": UIColor.theme.homePanel.separatorColor.hexString,
+            "separatorColor": Theme.homePanel.separatorColor.hexString,
             "urlColor": mode == "dark" ? "#6BA573" : "#579D61",
             "linkColor": mode == "dark" ? "#FFFFFF" : "#003172",
             "redColor": "#E64C68",

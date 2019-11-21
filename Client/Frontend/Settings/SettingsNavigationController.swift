@@ -16,7 +16,7 @@ class ThemedNavigationController: UINavigationController {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return ThemeManager.instance.statusBarStyle
+        return Theme.statusBarStyle
     }
 
     override func viewDidLoad() {
@@ -28,9 +28,9 @@ class ThemedNavigationController: UINavigationController {
 
 extension ThemedNavigationController: Themeable {
     func applyTheme() {
-        navigationBar.barTintColor = UIColor.theme.tableView.headerBackground
-        navigationBar.tintColor = UIColor.theme.general.controlTint
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextDark]
+        navigationBar.barTintColor = Theme.tableView.headerBackground
+        navigationBar.tintColor = Theme.general.controlTint
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextDark]
         setNeedsStatusBarAppearanceUpdate()
         viewControllers.forEach {
             ($0 as? Themeable)?.applyTheme()

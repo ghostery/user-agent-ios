@@ -7,7 +7,7 @@ import SnapKit
 
 private struct ErrorToastDefaultUX {
     static let cornerRadius: CGFloat = 40
-    static let fillColor = UIColor.Red70
+    static let fillColor = UIColor.DarkRed
     static let margins = UIEdgeInsets(top: 10, left: 12, bottom: 10, right: 12)
     static let textColor = UIColor.White
 }

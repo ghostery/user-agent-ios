@@ -129,7 +129,7 @@ class SettingsContentViewController: UIViewController, WKNavigationDelegate {
         let error = UILabel()
         if let _ = settingsTitle {
             error.text = TODOPageLoadErrorString
-            error.textColor = UIColor.theme.tableView.errorText
+            error.textColor = Theme.tableView.errorText
             error.textAlignment = .center
         }
         error.isHidden = true

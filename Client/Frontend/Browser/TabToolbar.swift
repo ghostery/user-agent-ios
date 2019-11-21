@@ -74,7 +74,7 @@ open class TabToolbarHelper: NSObject {
         toolbar.tabsButton.addGestureRecognizer(longPressGestureTabsButton)
 
         toolbar.menuButton.contentMode = .center
-        toolbar.menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: UIColor.theme.general.controlTint), for: .normal)
+        toolbar.menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
         toolbar.menuButton.accessibilityLabel = Strings.AppMenuButtonAccessibilityLabel
         toolbar.menuButton.addTarget(self, action: #selector(didClickMenu), for: .touchUpInside)
         toolbar.menuButton.accessibilityIdentifier = "TabToolbar.menuButton"
@@ -167,8 +167,8 @@ class ToolbarButton: UIButton {
 
 extension ToolbarButton: Themeable {
     func applyTheme() {
-        selectedTintColor = UIColor.theme.toolbarButton.selectedTint
-        unselectedTintColor = UIColor.theme.browser.tint
+        selectedTintColor = Theme.toolbarButton.selectedTint
+        unselectedTintColor = Theme.browser.tint
         tintColor = isEnabled ? unselectedTintColor : disabledTintColor
         imageView?.tintColor = tintColor
     }
@@ -188,8 +188,7 @@ class TabToolbar: UIView {
         return ToolbarButton()
     }()
 
-    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.Defaults.MobilePrivatePurple)
-    fileprivate let hideImagesBadge = BadgeWithBackdrop(imageName: "menuBadge")
+    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.ForgetMode)
 
     var helper: TabToolbarHelper?
     private let contentView = UIStackView()
@@ -216,7 +215,6 @@ class TabToolbar: UIView {
         addButtons(actionButtons)
 
         privateModeBadge.add(toParent: contentView)
-        hideImagesBadge.add(toParent: contentView)
 
         contentView.axis = .horizontal
         contentView.distribution = .fillEqually
@@ -224,7 +222,6 @@ class TabToolbar: UIView {
 
     override func updateConstraints() {
         privateModeBadge.layout(onButton: tabsButton)
-        hideImagesBadge.layout(onButton: menuButton)
 
         contentView.snp.makeConstraints { make in
             make.leading.trailing.top.equalTo(self)
@@ -276,10 +273,6 @@ extension TabToolbar: TabToolbarProtocol {
         privateModeBadge.show(visible)
     }
 
-    func hideImagesBadge(visible: Bool) {
-        hideImagesBadge.show(visible)
-    }
-
     func updateBackStatus(_ canGoBack: Bool) {
         backButton.isEnabled = canGoBack
     }
@@ -305,9 +298,8 @@ extension TabToolbar: Themeable, PrivateModeUI {
         backgroundColor = UIColor.clear
         helper?.setTheme(forButtons: actionButtons)
 
-        privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
-        hideImagesBadge.badge.tintBackground(color: UIColor.theme.browser.background)
-        menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: UIColor.theme.general.controlTint), for: .normal)
+        privateModeBadge.badge.tintBackground(color: Theme.browser.background)
+        menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
     }
 
     func applyUIMode(isPrivate: Bool) {

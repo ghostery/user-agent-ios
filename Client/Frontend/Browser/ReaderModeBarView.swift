@@ -94,7 +94,7 @@ class ReaderModeBarView: UIView {
 extension ReaderModeBarView: Themeable {
 
     func applyTheme() {
-        backgroundColor = UIColor.theme.browser.background
-        buttonTintColor = UIColor.theme.browser.tint
+        backgroundColor = Theme.browser.background
+        buttonTintColor = Theme.browser.tint
     }
 }
