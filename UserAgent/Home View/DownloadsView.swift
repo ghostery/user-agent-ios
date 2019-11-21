@@ -76,7 +76,7 @@ class DownloadsView: LibraryView {
     }
 
     override func emptyMessage() -> String? {
-        return Strings.DownloadsPanelEmptyStateTitle
+        return Strings.DownloadsPanel.EmptyStateTitle
     }
 
 }

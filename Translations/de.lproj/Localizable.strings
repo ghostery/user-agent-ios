@@ -431,12 +431,6 @@
 /* Title for the login detail view */
 "LoginsDetailView.LoginTitle" = "Zugangsdaten";
 
-/* Button to not save the user's password */
-"LoginsHelper.DontSave.Button" = "Nicht speichern";
-
-/* Button to not update the user's password */
-"LoginsHelper.DontUpdate.Button" = "Nicht aktualisieren";
-
 /* Prompt for saving a login. The first parameter is the username being saved. The second parameter is the hostname of the site. */
 "LoginsHelper.PromptSaveLogin.Title" = "Zugangsdaten für %1$@ auf %2$@ speichern?";
 
@@ -445,12 +439,6 @@
 
 /* Prompt for updating a login. The first parameter is the username for which the password will be updated for. The second parameter is the hostname of the site. */
 "LoginsHelper.PromptUpdateLogin.Title" = "Zugangsdaten für %1$@ auf %2$@ aktualisieren?";
-
-/* Button to save the user's password */
-"LoginsHelper.SaveLogin.Button" = "Zugangsdaten speichern";
-
-/* Button to update the user's password */
-"LoginsHelper.Update.Button" = "Aktualisieren";
 
 /* For filtering the login list, search only the login names */
 "LoginsList.LoginsListFilterLogin" = "Zugangsdaten";

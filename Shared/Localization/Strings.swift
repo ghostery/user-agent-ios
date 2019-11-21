@@ -160,20 +160,17 @@ extension Strings {
         public static let GoBackButton = NSLocalizedString("ErrorPages.GoBack.Button", comment: "Label for button to go back from the error page")
         public static let VisitOnceButton = NSLocalizedString("ErrorPages.VisitOnce.Button", comment: "Button label to temporarily continue to the site from the certificate error page")
     }
+
+    // MARK: - Downloads Panel
+    public struct DownloadsPanel {
+        public static let EmptyStateTitle = NSLocalizedString("DownloadsPanel.EmptyState.Title", comment: "Title for the Downloads Panel empty state.")
+    }
 }
 
-// Logins Helper.
-extension Strings {
-    public static let LoginsHelperSaveLoginButtonTitle = NSLocalizedString("LoginsHelper.SaveLogin.Button", comment: "Button to save the user's password")
-    public static let LoginsHelperDontSaveButtonTitle = NSLocalizedString("LoginsHelper.DontSave.Button", comment: "Button to not save the user's password")
-    public static let LoginsHelperUpdateButtonTitle = NSLocalizedString("LoginsHelper.Update.Button", comment: "Button to update the user's password")
-    public static let LoginsHelperDontUpdateButtonTitle = NSLocalizedString("LoginsHelper.DontUpdate.Button", comment: "Button to not update the user's password")
-}
 
-// Downloads Panel
-extension Strings {
-    public static let DownloadsPanelEmptyStateTitle = NSLocalizedString("DownloadsPanel.EmptyState.Title", comment: "Title for the Downloads Panel empty state.")
-}
+// MARK: - Non Updated Strings below here
+
+
 
 // History Panel
 extension Strings {
