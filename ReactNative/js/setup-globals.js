@@ -1,6 +1,7 @@
 import { NativeEventEmitter, NativeModules } from 'react-native';
 import networkStatus from './globals/browser/networkStatus';
 import './globals/navigator/userAgent';
+import './globals/window/DOMParser';
 
 const browser = {
   networkStatus,
