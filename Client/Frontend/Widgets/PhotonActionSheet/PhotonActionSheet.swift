@@ -103,7 +103,6 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         }
 
         if style == .popover {
-            self.actions = actions.map({ $0.reversed() }).reversed()
             tableView.snp.makeConstraints { make in
                 make.edges.equalTo(self.view)
             }
@@ -176,6 +175,12 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.tableFooterView = footer.clone()
 
         applyTheme()
+
+        DispatchQueue.main.async {
+            // Pick up the correct/final tableview.contentsize in order to set the height.
+            // Without async dispatch, the contentsize is wrong.
+            self.view.setNeedsLayout()
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -291,6 +296,19 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            if site != nil {
+                return PhotonActionSheetUX.TitleHeaderSectionHeightWithSite
+            } else if title != nil {
+                return PhotonActionSheetUX.TitleHeaderSectionHeight
+            }
+            return 6
+        }
+
+        return PhotonActionSheetUX.SeparatorRowHeight
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // If we have multiple sections show a separator for each one except the first.
         if section > 0 {
@@ -321,11 +339,16 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let action = actions[indexPath.section][indexPath.row]
+        guard let section = actions[safe: indexPath.section], let action = section[safe: indexPath.row] else {
+            return PhotonActionSheetUX.RowHeight
+        }
+        if let custom = action.customHeight {
+            return custom(action)
+        }
         if action.customView != nil {
             return UITableView.automaticDimension
         } else {
-            return tableView.estimatedRowHeight
+            return PhotonActionSheetUX.RowHeight
         }
     }
 

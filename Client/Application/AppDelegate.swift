@@ -56,13 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             self.applicationCleanlyBackgrounded = defaults.bool(forKey: "ApplicationCleanlyBackgrounded")
         }
         defaults.set(false, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         // Hold references to willFinishLaunching parameters for delayed app launch
         self.application = application
         self.launchOptions = launchOptions
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
+
         self.window!.backgroundColor = Theme.browser.background
 
         // If the 'Save logs to Files app on next launch' toggle
@@ -229,7 +229,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         let defaults = UserDefaults()
         defaults.set(false, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         if let profile = self.profile {
             profile._reopen()
@@ -265,7 +264,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         let defaults = UserDefaults()
         defaults.set(true, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         // Pause file downloads.
         browserViewController.downloadQueue.pauseAll()
@@ -291,7 +289,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         var taskId: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
         taskId = application.beginBackgroundTask(expirationHandler: {
             print("Running out of background time, but we have a profile shutdown pending.")
-            self.shutdownProfileWhenNotActive(application)
+            // Do not try to forceClose the db, it will lock the main thread and app will get killed
             application.endBackgroundTask(taskId)
         })
 
@@ -350,8 +348,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         // Set the UA for WKWebView (via defaults), the favicon fetcher, and the image loader.
         // This only needs to be done once per runtime. Note that we use defaults here that are
         // readable from extensions, so they can just use the cached identifier.
-        let defaults = UserDefaults(suiteName: AppInfo.sharedContainerIdentifier)!
-        defaults.register(defaults: ["UserAgent": firefoxUA])
 
         SDWebImageDownloader.shared.setValue(firefoxUA, forHTTPHeaderField: "User-Agent")
         //SDWebImage is setting accept headers that report we support webp. We don't
