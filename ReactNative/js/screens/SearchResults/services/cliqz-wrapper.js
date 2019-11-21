@@ -1,7 +1,13 @@
-const callAction = (inject, module, action, ...args) => inject.module(module).action(action, ...args);
+const callAction = (inject, module, action, ...args) =>
+  inject.module(module).action(action, ...args);
 const createModuleWrapper = (inject, module, actions) =>
-  actions.reduce((all, action) =>
-    ({ ...all, [action]: callAction.bind(null, inject, module, action) }), {});
+  actions.reduce(
+    (all, action) => ({
+      ...all,
+      [action]: callAction.bind(null, inject, module, action),
+    }),
+    {},
+  );
 
 export default class Cliqz {
   constructor(inject) {
@@ -17,7 +23,12 @@ export default class Cliqz {
     ]);
 
     this.core = createModuleWrapper(inject, 'core', []);
-    this.search = createModuleWrapper(inject, 'search', ['getSnippet', 'reportHighlight']);
-    this.geolocation = createModuleWrapper(inject, 'geolocation', ['updateGeoLocation']);
+    this.search = createModuleWrapper(inject, 'search', [
+      'getSnippet',
+      'reportHighlight',
+    ]);
+    this.geolocation = createModuleWrapper(inject, 'geolocation', [
+      'updateGeoLocation',
+    ]);
   }
 }

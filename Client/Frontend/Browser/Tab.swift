@@ -141,6 +141,14 @@ class Tab: NSObject {
         }
     }
 
+    var changedReaderMode: Bool = false {
+        didSet {
+            if self.changedReaderMode != oldValue {
+                TabEvent.post(.didToggleReaderMode, for: self)
+            }
+        }
+    }
+
     fileprivate(set) var screenshot: UIImage?
     var screenshotUUID: UUID?
 
@@ -480,6 +488,10 @@ class Tab: NSObject {
         changedUserAgent.toggle()
         reload()
         TabEvent.post(.didToggleDesktopMode, for: self)
+    }
+
+    func toggleChangeReaderMode() {
+        self.changedReaderMode.toggle()
     }
 
     func queueJavascriptAlertPrompt(_ alert: JSAlertInfo) {

@@ -49,6 +49,11 @@ class BrowserViewController: UIViewController {
     var clipboardBarDisplayHandler: ClipboardBarDisplayHandler?
     var readerModeBar: ReaderModeBarView?
     var readerModeCache: ReaderModeCache
+    var readerModeState: ReaderModeState = .unavailable {
+        didSet {
+            self.tabManager.selectedTab?.changedReaderMode = self.readerModeState == .active
+        }
+    }
     fileprivate(set) var toolbar: TabToolbar?
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
@@ -1199,6 +1204,10 @@ extension BrowserViewController: URLBarDelegate {
             SimpleToast().showAlertWithText(successMessage, bottomContainer: self.webViewContainer)
         }
 
+        let readerModeChanged: (Bool) -> Void = { (enabled) in
+            self.readerModeChanged(enabled)
+        }
+
         let deferredBookmarkStatus: Deferred<Maybe<Bool>> = fetchBookmarkStatus(for: urlString)
         let deferredPinnedTopSiteStatus: Deferred<Maybe<Bool>> = fetchPinnedTopSiteStatus(for: urlString)
 
@@ -1206,9 +1215,12 @@ extension BrowserViewController: URLBarDelegate {
         deferredBookmarkStatus.both(deferredPinnedTopSiteStatus).uponQueue(.main) {
             let isBookmarked = $0.successValue ?? false
             let isPinned = $1.successValue ?? false
+            let isReaderModeEnabled = self.readerModeState == .unavailable ? nil : self.readerModeState == .active
             let pageActions = self.getTabActions(tab: tab, buttonView: button, presentShareMenu: actionMenuPresenter,
                                                  findInPage: findInPageAction, presentableVC: self, isBookmarked: isBookmarked,
-                                                 isPinned: isPinned, success: successCallback)
+                                                 isPinned: isPinned,
+                                                 isReaderModeEnabled: isReaderModeEnabled, readerModeChanged: readerModeChanged,
+                                                 success: successCallback)
             self.presentSheetWith(title: Strings.PageActionMenuTitle, actions: pageActions, on: self, from: button)
         }
     }
@@ -1240,22 +1252,12 @@ extension BrowserViewController: URLBarDelegate {
         showTabTray()
     }
 
-    func urlBarDidPressReaderMode(_ urlBar: URLBarView) {
-        guard let tab = tabManager.selectedTab, let readerMode = tab.getContentScript(name: "ReaderMode") as? ReaderMode else {
-            return
+    func readerModeChanged(_ enabled: Bool) {
+        if enabled {
+            self.enableReaderMode()
+        } else {
+            self.disableReaderMode()
         }
-        switch readerMode.state {
-        case .available:
-            enableReaderMode()
-        case .active:
-            disableReaderMode()
-        case .unavailable:
-            break
-        }
-    }
-
-    func urlBarDidLongPressReaderMode(_ urlBar: URLBarView) -> Bool {
-        return true
     }
 
     func locationActionsForURLBar(_ urlBar: URLBarView) -> [AccessibleAction] {
@@ -1599,14 +1601,14 @@ extension BrowserViewController: TabManagerDelegate {
         }
 
         if let readerMode = selected?.getContentScript(name: ReaderMode.name()) as? ReaderMode {
-            urlBar.updateReaderModeState(readerMode.state)
+            self.readerModeState = readerMode.state
             if readerMode.state == .active {
                 showReaderModeBar(animated: false)
             } else {
                 hideReaderModeBar(animated: false)
             }
         } else {
-            urlBar.updateReaderModeState(ReaderModeState.unavailable)
+            self.readerModeState = .unavailable
         }
 
         if topTabsVisible {

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import {
   NativeModules,
@@ -7,11 +8,14 @@ import {
   View,
 } from 'react-native';
 import { parse } from 'tldts';
+import NativeDrawable, {
+  normalizeUrl,
+} from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 import SpeedDial from '../../components/SpeedDial';
 import News from './components/News';
-import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 
-const openSpeedDialLink = speedDial => NativeModules.BrowserActions.openLink(speedDial.url, "", false);
+const openSpeedDialLink = speedDial =>
+  NativeModules.BrowserActions.openLink(speedDial.url, '', false);
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
 const styles = StyleSheet.create({
@@ -19,15 +23,15 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   contentContainer: {
-    flexDirection:'row',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   wrapper: {
-    flex:1,
+    flex: 1,
     maxWidth: 414,
-    flexDirection:'column',
-    justifyContent:'space-between',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   header: {
     fontSize: 28,
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const EmptySpeedDial = () => <View style={styles.speedDial}></View>;
+const EmptySpeedDial = () => <View style={styles.speedDial} />;
 
 const SpeedDialRow = ({ dials, limit = 4 }) => {
   if (dials.length === 0) {
@@ -72,7 +76,7 @@ const SpeedDialRow = ({ dials, limit = 4 }) => {
   }
   const emptyCount = limit - dials.length < 0 ? 0 : limit - dials.length;
   const allDials = [
-    ...(dials.map(dial =>
+    ...dials.map(dial => (
       <SpeedDial
         key={dial.url}
         style={styles.speedDial}
@@ -80,21 +84,21 @@ const SpeedDialRow = ({ dials, limit = 4 }) => {
         onPress={openSpeedDialLink}
       />
     )),
-    Array(emptyCount).fill(null).map((_, i) => <EmptySpeedDial key={i}/>),
+    Array(emptyCount)
+      .fill(null)
+      // eslint-disable-next-line react/no-array-index-key
+      .map((_, i) => <EmptySpeedDial key={i} />),
   ];
-  return (
-    <View style={styles.speedDials}>
-      {allDials}
-    </View>
-  );
-}
+
+  return <View style={styles.speedDials}>{allDials}</View>;
+};
 
 export default function Home({ speedDials, pinnedSites, newsModule }) {
   const pinnedDomains = new Set([...pinnedSites.map(s => parse(s.url).domain)]);
   const dials = [
     ...pinnedSites.map(dial => ({ ...dial, pinned: true })),
     ...speedDials.filter(dial => !pinnedDomains.has(parse(dial.url).domain)),
-  ].slice(0, 8)
+  ].slice(0, 8);
   const firstRow = dials.slice(0, 4);
   const secondRow = dials.slice(4, 8);
 
@@ -113,8 +117,8 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
             />
           </View>
           <View style={styles.speedDialsContainer}>
-            <SpeedDialRow dials={firstRow}/>
-            <SpeedDialRow dials={secondRow}/>
+            <SpeedDialRow dials={firstRow} />
+            <SpeedDialRow dials={secondRow} />
           </View>
           <News newsModule={newsModule} />
         </View>

@@ -1,16 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  TouchableWithoutFeedback,
-  Text,
-} from 'react-native';
+import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { parse } from 'tldts';
-import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
+import NativeDrawable, {
+  normalizeUrl,
+} from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 import Logo from './Logo';
 import { withTheme } from '../contexts/theme';
 
-const getStyles = (theme) => ({
+const getStyles = theme => ({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -46,9 +44,10 @@ const getStyles = (theme) => ({
 });
 
 const SpeedDial = ({ speedDial, onPress, theme, style = {} }) => {
-  const styles = getStyles(theme)
-  const url = speedDial.url;
+  const styles = getStyles(theme);
+  const { url } = speedDial;
   const name = parse(url).domain;
+  /* eslint-disable prettier/prettier */
   return (
     <TouchableWithoutFeedback
       onPress={() => onPress(speedDial)}
@@ -82,6 +81,7 @@ const SpeedDial = ({ speedDial, onPress, theme, style = {} }) => {
       </View>
     </TouchableWithoutFeedback>
   );
+  /* eslint-enable prettier/prettier */
 };
 
 export default withTheme(SpeedDial);
