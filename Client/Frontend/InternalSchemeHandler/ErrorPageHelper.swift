@@ -191,16 +191,16 @@ class ErrorPageHandler: InternalSchemeResponse {
             }
 
             asset = Bundle.main.path(forResource: "CertError", ofType: "html")
-            actions = "<button onclick='history.back()'>\(Strings.ErrorPagesGoBackButton)</button>"
-            variables["error_title"] = Strings.ErrorPagesCertWarningTitle
+            actions = "<button onclick='history.back()'>\(Strings.ErrorPages.GoBackButton)</button>"
+            variables["error_title"] = Strings.ErrorPages.CertWarningTitle
             variables["cert_error"] = certError
-            variables["long_description"] = String(format: Strings.ErrorPagesCertWarningDescription, "<b>\(errURLDomain)</b>", AppInfo.displayName)
-            variables["advanced_button"] = Strings.ErrorPagesAdvancedButton
-            variables["warning_description"] = Strings.ErrorPagesCertWarningDescription
-            variables["warning_advanced1"] = Strings.ErrorPagesAdvancedWarning1
-            variables["warning_advanced2"] = Strings.ErrorPagesAdvancedWarning2
+            variables["long_description"] = String(format: Strings.ErrorPages.CertWarningDescription, "<b>\(errURLDomain)</b>", AppInfo.displayName)
+            variables["advanced_button"] = Strings.ErrorPages.AdvancedButton
+            variables["warning_description"] = Strings.ErrorPages.CertWarningDescription
+            variables["warning_advanced1"] = Strings.ErrorPages.AdvancedWarning1
+            variables["warning_advanced2"] = Strings.ErrorPages.AdvancedWarning2
             variables["warning_actions"] =
-            "<p><a href='javascript:webkit.messageHandlers.errorPageHelperMessageManager.postMessage({type: \"\(MessageCertVisitOnce)\"})'>\(Strings.ErrorPagesVisitOnceButton)</button></p>"
+            "<p><a href='javascript:webkit.messageHandlers.errorPageHelperMessageManager.postMessage({type: \"\(MessageCertVisitOnce)\"})'>\(Strings.ErrorPages.VisitOnceButton)</button></p>"
         }
 
         // If a reload is requested and this much time has expired since the page was shown, try to reload the original url. Alternatively, this could have been a boolean flag to indicate if a page has been shown to the user already (the code for that would be nearly identical).
