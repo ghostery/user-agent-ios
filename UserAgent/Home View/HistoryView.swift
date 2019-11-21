@@ -71,7 +71,7 @@ class HistoryView: LibraryView {
     }
 
     override func emptyMessage() -> String? {
-        return Strings.HistoryPanelEmptyStateTitle
+        return Strings.HistoryPanel.EmptyStateTitle
     }
 
 }
