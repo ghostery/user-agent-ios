@@ -306,12 +306,13 @@ class GeneralColor {
     var highlightBlue: UIColor { return UIColor.Blue40 }
     var destructiveRed: UIColor { return UIColor.BrightRed }
     var separator: UIColor { return Theme.defaultSeparator }
+    var controlTint: UIColor { return UIColor.BrightBlue }
+    
     var settingsTextPlaceholder: UIColor? {
-    if #available(iOS 13.0, *) {
-        return UIColor.systemBackground
-    } else {
-        return nil
+        if #available(iOS 13.0, *) {
+            return UIColor.systemBackground
+        } else {
+            return nil
         }
     }
-    var controlTint: UIColor { return UIColor.BrightBlue }
 }
