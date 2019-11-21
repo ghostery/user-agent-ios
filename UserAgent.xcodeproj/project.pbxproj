@@ -152,7 +152,7 @@
 		464F67782326AFB70090D0B5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
 		464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */; };
 		464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
-		464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -949,7 +949,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */,
+				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3236,7 +3236,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = Cliqz;
 				TargetAttributes = {
 					288A2D851AB8B3260023ABC3 = {
@@ -5124,7 +5124,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -5150,7 +5150,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -5667,7 +5667,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -5694,7 +5694,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -6035,7 +6035,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -6061,7 +6061,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -6553,7 +6553,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -6580,7 +6580,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
