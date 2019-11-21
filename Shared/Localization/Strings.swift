@@ -174,53 +174,19 @@ extension Strings {
         public static let RecentlyClosedTabsButtonTitle = NSLocalizedString("HistoryPanel.RecentlyClosedTabsButton.Title", comment: "Title for the Recently Closed button in the History Panel")
         public static let RecentlyClosedTabsPanelTitle = NSLocalizedString("RecentlyClosedTabsPanel.Title", comment: "Title for the Recently Closed Tabs Panel")
         public static let BrowserHomePage = String(format: NSLocalizedString("UserAgent.HomePage.Title", comment: "Title for firefox about:home page in tab history list"), AppInfo.displayName)
+
+        public struct ClearHistoryMenu {
+            public static let Title = NSLocalizedString("HistoryPanel.ClearHistoryMenuTitle", comment: "Title for popup action menu to clear recent history.")
+            public static let OptionTheLastHour = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionTheLastHour", comment: "Button to perform action to clear history for the last hour")
+            public static let OptionToday = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionToday", comment: "Button to perform action to clear history for today only")
+            public static let OptionTodayAndYesterday = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionTodayAndYesterday", comment: "Button to perform action to clear history for yesterday and today")
+        }
     }
 }
 
 
 // MARK: - Non Updated Strings below here
 
-
-
-// History Panel
-extension Strings {
-
-
-}
-
-// Clear recent history action menu
-extension Strings {
-    public static let ClearHistoryMenuTitle = NSLocalizedString("HistoryPanel.ClearHistoryMenuTitle", comment: "Title for popup action menu to clear recent history.")
-    public static let ClearHistoryMenuOptionTheLastHour = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionTheLastHour", comment: "Button to perform action to clear history for the last hour")
-    public static let ClearHistoryMenuOptionToday = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionToday", comment: "Button to perform action to clear history for today only")
-    public static let ClearHistoryMenuOptionTodayAndYesterday = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionTodayAndYesterday", comment: "Button to perform action to clear history for yesterday and today")
-}
-
-// Firefox Logins
-extension Strings {
-    public static let LoginsAndPasswordsTitle = NSLocalizedString("Settings.LoginsAndPasswordsTitle", comment: "Title for the logins and passwords screen. Translation could just use 'Logins' if the title is too long")
-
-    // Prompts
-    public static let SaveLoginUsernamePrompt = NSLocalizedString("LoginsHelper.PromptSaveLogin.Title", comment: "Prompt for saving a login. The first parameter is the username being saved. The second parameter is the hostname of the site.")
-    public static let SaveLoginPrompt = NSLocalizedString("LoginsHelper.PromptSavePassword.Title", comment: "Prompt for saving a password with no username. The parameter is the hostname of the site.")
-    public static let UpdateLoginUsernamePrompt = NSLocalizedString("LoginsHelper.PromptUpdateLogin.Title", comment: "Prompt for updating a login. The first parameter is the username for which the password will be updated for. The second parameter is the hostname of the site.")
-    public static let UpdateLoginPrompt = NSLocalizedString("LoginsHelper.PromptUpdateLogin.Title", comment: "Prompt for updating a login. The first parameter is the username for which the password will be updated for. The second parameter is the hostname of the site.")
-
-    // Setting
-    public static let SettingToSaveLogins = NSLocalizedString("Settings.SaveLogins.Title", comment: "Setting to enable the built-in password manager")
-    public static let SettingToShowLoginsInAppMenu = NSLocalizedString("Settings.ShowLoginsInAppMenu.Title", comment: "Setting to show Logins & Passwords quick access in the application menu")
-
-    // List view
-    public static let LoginsListTitle = NSLocalizedString("LoginsList.Title", comment: "Title for the list of logins")
-    public static let LoginsListSearchPlaceholder = NSLocalizedString("LoginsList.LoginsListSearchPlaceholder", comment: "Placeholder test for search box in logins list view.")
-    public static let LoginsFilterWebsite = NSLocalizedString("LoginsList.LoginsListFilterWebsite", comment: "For filtering the login list, search only the website names")
-    public static let LoginsFilterLogin = NSLocalizedString("LoginsList.LoginsListFilterLogin", comment: "For filtering the login list, search only the login names")
-    public static let LoginsFilterAll = NSLocalizedString("LoginsList.LoginsListFilterSearchAll", comment: "For filtering the login list, search both website and login names.")
-
-    // Detail view
-    public static let LoginsDetailViewLoginTitle = NSLocalizedString("LoginsDetailView.LoginTitle", comment: "Title for the login detail view")
-    public static let LoginsDetailViewLoginModified = NSLocalizedString("LoginsDetailView.LoginModified", comment: "Login detail view field name for the last modified date")
-}
 
 //Hotkey Titles
 extension Strings {

@@ -425,36 +425,6 @@
 /* Authentication prompt log in button */
 "Log in" = "Log in";
 
-/* Login detail view field name for the last modified date */
-"LoginsDetailView.LoginModified" = "Modified";
-
-/* Title for the login detail view */
-"LoginsDetailView.LoginTitle" = "Login";
-
-/* Prompt for saving a login. The first parameter is the username being saved. The second parameter is the hostname of the site. */
-"LoginsHelper.PromptSaveLogin.Title" = "Save login %1$@ for %2$@?";
-
-/* Prompt for saving a password with no username. The parameter is the hostname of the site. */
-"LoginsHelper.PromptSavePassword.Title" = "Save password for %@?";
-
-/* Prompt for updating a login. The first parameter is the username for which the password will be updated for. The second parameter is the hostname of the site. */
-"LoginsHelper.PromptUpdateLogin.Title" = "Update login %1$@ for %2$@?";
-
-/* For filtering the login list, search only the login names */
-"LoginsList.LoginsListFilterLogin" = "Login";
-
-/* For filtering the login list, search both website and login names. */
-"LoginsList.LoginsListFilterSearchAll" = "All";
-
-/* For filtering the login list, search only the website names */
-"LoginsList.LoginsListFilterWebsite" = "Website";
-
-/* Placeholder test for search box in logins list view. */
-"LoginsList.LoginsListSearchPlaceholder" = "Filter";
-
-/* Title for the list of logins */
-"LoginsList.Title" = "SAVED LOGINS";
-
 /* Label for the button, displayed in the menu, used to get more info about Ad blocking */
 "Menu.AdBlocking.Title" = "Ad-blocking";
 
@@ -877,9 +847,6 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the home page and its uses. */
 "Settings.HomePage.SectionName" = "Homepage";
 
-/* Title for the logins and passwords screen. Translation could just use 'Logins' if the title is too long */
-"Settings.LoginsAndPasswordsTitle" = "Logins & Passwords";
-
 /* Label used to set a custom url as the new tab option (homepage). */
 "Settings.NewTab.CustomURL" = "Custom URL";
 
@@ -944,9 +911,6 @@
 
 "Settings.PrivacyDashboard.Title" = "Privacy Dashboard";
 
-/* Setting to enable the built-in password manager */
-"Settings.SaveLogins.Title" = "Save Logins";
-
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Done.Button" = "Done";
 
@@ -964,9 +928,6 @@
 
 /* The title for the setting to send usage data. */
 "Settings.SendUsage.Title" = "Send Usage Data";
-
-/* Setting to show Logins & Passwords quick access in the application menu */
-"Settings.ShowLoginsInAppMenu.Title" = "Show in Application Menu";
 
 /* The description of the open new tab siri shortcut */
 "Settings.Siri.OpenTabShortcut" = "Open New Tab";
