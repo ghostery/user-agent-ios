@@ -90,15 +90,6 @@ extension Strings {
         public static let Close = NSLocalizedString("PhotonMenu.close", comment: "Button for closing the menu action sheet")
     }
 
-    // MARK: - Settings
-    public struct Settings {
-        // Ad Blocking and Tracking Protection
-        public struct PrivacyDashboard {
-            public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
-            public static let Description = NSLocalizedString("Settings.PrivacyDashboard.Description", comment: "Privacy Dashboard Description")
-        }
-    }
-
     // MARK: - Home View
     public struct HomeView {
         public struct SegmentedControl {
@@ -111,33 +102,55 @@ extension Strings {
         public static let emptyBookmarksText = NSLocalizedString("Bookmarks you save will show up here.", comment: "Status label for the empty Bookmarks state.")
         public static let deleteBookmark = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
     }
+
+    // MARK: - Settings
+    public struct Settings {
+        // Ad Blocking and Tracking Protection
+        public struct PrivacyDashboard {
+            public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
+            public static let Description = NSLocalizedString("Settings.PrivacyDashboard.Description", comment: "Privacy Dashboard Description")
+        }
+
+        // General
+        public struct General {
+            public static let SectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")
+        }
+
+        // Clear private data
+        public struct ClearPrivateData {
+            public static let Title = NSLocalizedString("Settings.ClearPrivateData.Title", comment: "Title displayed in header of the setting panel.")
+            public static let ClearButton = NSLocalizedString("Settings.ClearPrivateData.Clear.Button", comment: "Button in settings that clears private data for the selected items.")
+            public static let ClearAllWebsiteDataButton = NSLocalizedString("Settings.ClearAllWebsiteData.Clear.Button", comment: "Button in Data Management that clears private data for the selected items.")
+            public static let SectionName = NSLocalizedString("Settings.ClearPrivateData.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data.")
+        }
+
+        // Data Management
+        public struct DataManagement {
+            public static let SectionName = NSLocalizedString("Settings.DataManagement.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data.")
+            public static let SearchLabel = NSLocalizedString("Settings.DataManagement.SearchLabel", comment: "Default text in search bar for Data Management")
+            public static let Title = NSLocalizedString("Settings.DataManagement.Title", comment: "Title displayed in header of the setting panel.")
+        }
+
+        // Website Data
+        public struct WebsiteData {
+            public static let Title = NSLocalizedString("Settings.WebsiteData.Title", comment: "Title displayed in header of the Data Management panel.")
+            public static let ShowMoreButton = NSLocalizedString("Settings.WebsiteData.ButtonShowMore", comment: "Button shows all websites on website data tableview")
+            public static let ClearWebsiteDataMessage = NSLocalizedString("Settings.WebsiteData.ConfirmPrompt", comment: "Description of the confirmation dialog shown when a user tries to clear their private data.")
+            public static let EditWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonEdit", comment: "Button to edit website search results")
+            public static let DeleteWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDelete", comment: "Button to delete website in search results")
+            public static let DoneWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDone", comment: "Button to exit edit website search results")
+        }
+
+        // Search
+        public struct Search {
+            public static let DoneButton = NSLocalizedString("Settings.Search.Done.Button", comment: "Button displayed at the top of the search settings.")
+            public static let EditButton = NSLocalizedString("Settings.Search.Edit.Button", comment: "Button displayed at the top of the search settings.")
+        }
+
+        public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
+    }
 }
 
-// Settings.
-extension Strings {
-    public static let SettingsGeneralSectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")
-    public static let SettingsClearPrivateDataClearButton = NSLocalizedString("Settings.ClearPrivateData.Clear.Button", comment: "Button in settings that clears private data for the selected items.")
-    public static let SettingsClearAllWebsiteDataButton = NSLocalizedString("Settings.ClearAllWebsiteData.Clear.Button", comment: "Button in Data Management that clears private data for the selected items.")
-    public static let SettingsClearPrivateDataSectionName = NSLocalizedString("Settings.ClearPrivateData.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data.")
-    public static let SettingsDataManagementSectionName = NSLocalizedString("Settings.DataManagement.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data.")
-    public static let SettingsFilterSitesSearchLabel = NSLocalizedString("Settings.DataManagement.SearchLabel", comment: "Default text in search bar for Data Management")
-    public static let SettingsClearPrivateDataTitle = NSLocalizedString("Settings.ClearPrivateData.Title", comment: "Title displayed in header of the setting panel.")
-    public static let SettingsDataManagementTitle = NSLocalizedString("Settings.DataManagement.Title", comment: "Title displayed in header of the setting panel.")
-    public static let SettingsWebsiteDataTitle = NSLocalizedString("Settings.WebsiteData.Title", comment: "Title displayed in header of the Data Management panel.")
-    public static let SettingsWebsiteDataShowMoreButton = NSLocalizedString("Settings.WebsiteData.ButtonShowMore", comment: "Button shows all websites on website data tableview")
-    public static let SettingsClearWebsiteDataMessage = NSLocalizedString("Settings.WebsiteData.ConfirmPrompt", comment: "Description of the confirmation dialog shown when a user tries to clear their private data.")
-    public static let SettingsEditWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonEdit", comment: "Button to edit website search results")
-    public static let SettingsDeleteWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDelete", comment: "Button to delete website in search results")
-    public static let SettingsDoneWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDone", comment: "Button to exit edit website search results")
-    public static let SettingsDisconnectSyncButton = NSLocalizedString("Settings.Disconnect.Button", comment: "Button displayed at the bottom of settings page allowing users to Disconnect from FxA")
-    public static let SettingsDisconnectCancelAction = NSLocalizedString("Settings.Disconnect.CancelButton", comment: "Cancel action button in alert when user is prompted for disconnect")
-    public static let SettingsDisconnectDestructiveAction = NSLocalizedString("Settings.Disconnect.DestructiveButton", comment: "Destructive action button in alert when user is prompted for disconnect")
-    public static let SettingsSearchDoneButton = NSLocalizedString("Settings.Search.Done.Button", comment: "Button displayed at the top of the search settings.")
-    public static let SettingsSearchEditButton = NSLocalizedString("Settings.Search.Edit.Button", comment: "Button displayed at the top of the search settings.")
-    public static let UseTouchID = NSLocalizedString("Use Touch ID", tableName: "AuthenticationManager", comment: "List section title for when to use Touch ID")
-    public static let UseFaceID = NSLocalizedString("Use Face ID", tableName: "AuthenticationManager", comment: "List section title for when to use Face ID")
-    public static let SettingsCopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
-}
 
 // Error pages.
 extension Strings {

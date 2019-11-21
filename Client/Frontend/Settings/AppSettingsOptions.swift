@@ -110,7 +110,7 @@ class SentryIDSetting: HiddenSetting {
     }
 
     func copyAppDeviceIDAndPresentAlert(by navigationController: UINavigationController?) {
-        let alertTitle = Strings.SettingsCopyAppVersionAlertTitle
+        let alertTitle = Strings.Settings.CopyAppVersionAlertTitle
         let alert = AlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         getSelectedCell(by: navigationController)?.setSelected(false, animated: true)
         UIPasteboard.general.string = deviceAppHash
@@ -164,7 +164,7 @@ class VersionSetting: Setting {
     }
 
     func copyAppVersionAndPresentAlert(by navigationController: UINavigationController?) {
-        let alertTitle = Strings.SettingsCopyAppVersionAlertTitle
+        let alertTitle = Strings.Settings.CopyAppVersionAlertTitle
         let alert = AlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         getSelectedCell(by: navigationController)?.setSelected(false, animated: true)
         UIPasteboard.general.string = self.title?.string
@@ -296,7 +296,7 @@ class ClearPrivateDataSetting: Setting {
         self.profile = settings.profile
         self.tabManager = settings.tabManager
 
-        let clearTitle = Strings.SettingsDataManagementSectionName
+        let clearTitle = Strings.Settings.DataManagement.SectionName
         super.init(title: NSAttributedString(string: clearTitle, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
     }
 

@@ -865,15 +865,6 @@
 /* Title displayed in header of the setting panel. */
 "Settings.DataManagement.Title" = "Datenverwaltung";
 
-/* Button displayed at the bottom of settings page allowing users to Disconnect from FxA */
-"Settings.Disconnect.Button" = "Sync trennen";
-
-/* Cancel action button in alert when user is prompted for disconnect */
-"Settings.Disconnect.CancelButton" = "Abbrechen";
-
-/* Destructive action button in alert when user is prompted for disconnect */
-"Settings.Disconnect.DestructiveButton" = "Verbindung trennen";
-
 /* Display (theme) settings footer describing how the brightness slider works. */
 "Settings.DisplayTheme.SectionFooter" = "Das Theme ändert sich automatisch und passt sich an Ihre Display-Helligkeit an. Sie können die Schwelle festlegen, bei der sich das Theme ändert. Der Kreis zeigt Ihre aktuelle Display-Helligkeit.";
 

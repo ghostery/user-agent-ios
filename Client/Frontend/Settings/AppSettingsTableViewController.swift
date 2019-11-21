@@ -95,7 +95,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
                         titleText: Strings.SettingsOfferClipboardBarTitle,
                         statusText: Strings.SettingsOfferClipboardBarStatus),
         ]
-        settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsGeneralSectionTitle), children: generalSettings)]
+        settings += [ SettingSection(title: NSAttributedString(string: Strings.Settings.General.SectionTitle), children: generalSettings)]
 
         settings += [
             SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: [
