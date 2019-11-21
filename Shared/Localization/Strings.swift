@@ -17,39 +17,32 @@ private func applicationBundle() -> Bundle {
 }
 
 extension Strings {
+    // MARK: - General
     public struct General {
         public static let OKString = NSLocalizedString("OK", comment: "OK button")
         public static let CancelString = NSLocalizedString("Cancel", comment: "Label for Cancel button")
         public static let OpenSettingsString = NSLocalizedString("Open Settings", comment: "See http://mzl.la/1G7uHo7")
     }
-}
 
-extension Strings {
     public struct Toasts {
         public static let NotNowString = NSLocalizedString("Toasts.NotNow", comment: "label for Not Now button")
         public static let AppStoreString = NSLocalizedString("Toasts.OpenAppStore", comment: "Open App Store button")
     }
-}
 
-// Table date section titles.
-extension Strings {
+    // MARK: - Table date section titles
     public struct TableDateSection {
         public static let TitleToday = NSLocalizedString("Today", comment: "History tableview section header")
         public static let TitleYesterday = NSLocalizedString("Yesterday", comment: "History tableview section header")
         public static let TitleLastWeek = NSLocalizedString("Last week", comment: "History tableview section header")
         public static let TitleLastMonth = NSLocalizedString("Last month", comment: "History tableview section header")
     }
-}
 
-// Top Sites.
-extension Strings {
+    // MARK: - Top Sites
     public struct TopSites {
         public static let RemoveButtonAccessibilityLabel = NSLocalizedString("TopSites.RemovePage.Button", comment: "Button shown in editing mode to remove this site from the top sites panel.")
     }
-}
 
-// Activity Stream.
-extension Strings {
+    // MARK: - Activity Stream.
     public struct ActivityStream {
         public struct News {
             public static let BreakingLabel = NSLocalizedString("ActivityStream.News.BreakingLabel", comment: "")
@@ -72,10 +65,8 @@ extension Strings {
         public static let RecentlyBookmarkedTitle = NSLocalizedString("ActivityStream.NewRecentBookmarks.Title", comment: "Section title label for recently bookmarked websites")
         public static let RecentlyVisitedTitle = NSLocalizedString("ActivityStream.RecentHistory.Title", comment: "Section title label for recently visited websites")
     }
-}
 
-// Home Panel Context Menu.
-extension Strings {
+    // MARK: - Home Panel Context Menu
     public struct HomePanel {
         public struct ContextMenu {
             public static let OpenInNewTab = NSLocalizedString("HomePanel.ContextMenu.OpenInNewTab", comment: "The title for the Open in New Tab context menu action for sites in Home Panels")
@@ -86,33 +77,27 @@ extension Strings {
             public static let Share = NSLocalizedString("HomePanel.ContextMenu.Share", comment: "The title for the Share context menu action for sites in Home Panels")
             public static let Remove = NSLocalizedString("HomePanel.ContextMenu.Remove", comment: "The title for the Remove context menu action for sites in Home Panels")
         }
-    }
-}
 
-//  PhotonActionSheet Strings
-extension Strings {
+        public struct ReopenAlert {
+            public static let Title = NSLocalizedString("ReopenAlert.Title", comment: "Reopen alert title shown at home page.")
+            public static let ActionsReopen = NSLocalizedString("ReopenAlert.Actions.Reopen", comment: "Reopen button text shown in reopen-alert at home page.")
+            public static let ActionsCancel = NSLocalizedString("ReopenAlert.Actions.Cancel", comment: "Cancel button text shown in reopen-alert at home page.")
+        }
+    }
+
+    // MARK: - PhotonActionSheet Strings
     public struct PhotonMenu {
         public static let Close = NSLocalizedString("PhotonMenu.close", comment: "Button for closing the menu action sheet")
     }
-}
 
-// Home page.
-extension Strings {
-    public static let SettingsHomePageSectionName = NSLocalizedString("Settings.HomePage.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog to configure the home page and its uses.")
-    public static let SettingsHomePageTitle = NSLocalizedString("Settings.HomePage.Title", comment: "Title displayed in header of the setting panel.")
-    public static let SettingsHomePageURLSectionTitle = NSLocalizedString("Settings.HomePage.URL.Title", comment: "Title of the setting section containing the URL of the current home page.")
-    public static let SettingsHomePageUseCurrentPage = NSLocalizedString("Settings.HomePage.UseCurrent.Button", comment: "Button in settings to use the current page as home page.")
-    public static let SettingsHomePagePlaceholder = NSLocalizedString("Settings.HomePage.URL.Placeholder", comment: "Placeholder text in the homepage setting when no homepage has been set.")
-    public static let SettingsHomePageUseCopiedLink = NSLocalizedString("Settings.HomePage.UseCopiedLink.Button", comment: "Button in settings to use the current link on the clipboard as home page.")
-    public static let SettingsHomePageUseDefault = NSLocalizedString("Settings.HomePage.UseDefault.Button", comment: "Button in settings to use the default home page. If no default is set, then this button isn't shown.")
-    public static let SettingsHomePageClear = NSLocalizedString("Settings.HomePage.Clear.Button", comment: "Button in settings to clear the home page.")
-    public static let SetHomePageDialogTitle = NSLocalizedString("HomePage.Set.Dialog.Title", comment: "Alert dialog title when the user opens the home page for the first time.")
-    public static let SetHomePageDialogMessage = NSLocalizedString("HomePage.Set.Dialog.Message", comment: "Alert dialog body when the user opens the home page for the first time.")
-    public static let SetHomePageDialogYes = NSLocalizedString("HomePage.Set.Dialog.OK", comment: "Button accepting changes setting the home page for the first time.")
-    public static let SetHomePageDialogNo = NSLocalizedString("HomePage.Set.Dialog.Cancel", comment: "Button cancelling changes setting the home page for the first time.")
-    public static let ReopenLastTabAlertTitle = NSLocalizedString("ReopenAlert.Title", comment: "Reopen alert title shown at home page.")
-    public static let ReopenLastTabButtonText = NSLocalizedString("ReopenAlert.Actions.Reopen", comment: "Reopen button text shown in reopen-alert at home page.")
-    public static let ReopenLastTabCancelText = NSLocalizedString("ReopenAlert.Actions.Cancel", comment: "Cancel button text shown in reopen-alert at home page.")
+    // MARK: - Settings
+    public struct Settings {
+        // Ad Blocking and Tracking Protection
+        public struct PrivacyDashboard {
+            public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
+            public static let Description = NSLocalizedString("Settings.PrivacyDashboard.Description", comment: "Privacy Dashboard Description")
+        }
+    }
 }
 
 // Home View
@@ -430,16 +415,6 @@ extension Strings {
 // Adult Filter Mode
 extension Strings {
     public static let SettingsAdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
-}
-
-// Ad Blocking and Tracking Protection
-extension Strings {
-    public struct Settings {
-        public struct PrivacyDashboard {
-            public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
-            public static let Description = NSLocalizedString("Settings.PrivacyDashboard.Description", comment: "Privacy Dashboard Description")
-        }
-    }
 }
 
 // Context menu ButtonToast instances.

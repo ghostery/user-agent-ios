@@ -338,18 +338,6 @@
 /* Title for the Recently Closed button in the History Panel */
 "HistoryPanel.RecentlyClosedTabsButton.Title" = "Recently Closed";
 
-/* Button cancelling changes setting the home page for the first time. */
-"HomePage.Set.Dialog.Cancel" = "Cancel";
-
-/* Alert dialog body when the user opens the home page for the first time. */
-"HomePage.Set.Dialog.Message" = "You can change this at any time in Settings";
-
-/* Button accepting changes setting the home page for the first time. */
-"HomePage.Set.Dialog.OK" = "Set Homepage";
-
-/* Alert dialog title when the user opens the home page for the first time. */
-"HomePage.Set.Dialog.Title" = "Do you want to use this web page as your home page?";
-
 /* The title for the Bookmark context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.Bookmark" = "Bookmark";
 
@@ -907,29 +895,8 @@
 /* General settings section title */
 "Settings.General.SectionName" = "General";
 
-/* Button in settings to clear the home page. */
-"Settings.HomePage.Clear.Button" = "Clear";
-
 /* Label used as an item in Settings. When touched it will open a dialog to configure the home page and its uses. */
 "Settings.HomePage.SectionName" = "Homepage";
-
-/* Title displayed in header of the setting panel. */
-"Settings.HomePage.Title" = "Homepage Settings";
-
-/* Placeholder text in the homepage setting when no homepage has been set. */
-"Settings.HomePage.URL.Placeholder" = "Enter a webpage";
-
-/* Title of the setting section containing the URL of the current home page. */
-"Settings.HomePage.URL.Title" = "Current Homepage";
-
-/* Button in settings to use the current link on the clipboard as home page. */
-"Settings.HomePage.UseCopiedLink.Button" = "Use Copied Link";
-
-/* Button in settings to use the current page as home page. */
-"Settings.HomePage.UseCurrent.Button" = "Use Current Page";
-
-/* Button in settings to use the default home page. If no default is set, then this button isn't shown. */
-"Settings.HomePage.UseDefault.Button" = "Use Default";
 
 /* Title for the logins and passwords screen. Translation could just use 'Logins' if the title is too long */
 "Settings.LoginsAndPasswordsTitle" = "Logins & Passwords";

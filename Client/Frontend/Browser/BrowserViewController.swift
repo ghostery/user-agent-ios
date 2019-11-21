@@ -2189,9 +2189,9 @@ extension BrowserViewController {
             let lastClosedURL = profile.recentlyClosedTabs.tabs.first?.url,
             let selectedTab = tabManager.selectedTab else { return }
 
-        let alertTitleText = Strings.ReopenLastTabAlertTitle
-        let reopenButtonText = Strings.ReopenLastTabButtonText
-        let cancelButtonText = Strings.ReopenLastTabCancelText
+        let alertTitleText = Strings.HomePanel.ReopenAlert.Title
+        let reopenButtonText = Strings.HomePanel.ReopenAlert.ActionsReopen
+        let cancelButtonText = Strings.HomePanel.ReopenAlert.ActionsCancel
 
         func reopenLastTab(_ action: UIAlertAction) {
             let request = PrivilegedRequest(url: lastClosedURL) as URLRequest
