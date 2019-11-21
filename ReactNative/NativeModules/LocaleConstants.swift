@@ -16,8 +16,8 @@ class LocaleConstants: NSObject {
         return [
             "lang": Locale.current.languageCode ?? "en",
             "locale": Locale.current.identifier,
-            "ActivityStream.TopSites.SectionTitle": Strings.ASTopSitesTitle,
-            "ActivityStream.PinnedSites.SectionTitle": Strings.ASPinnedSitesTitle,
+            "ActivityStream.TopSites.SectionTitle": Strings.ActivityStream.TopSites.Title,
+            "ActivityStream.PinnedSites.SectionTitle": Strings.ActivityStream.PinnedSitesTitle,
             "ActivityStream.News.BreakingLabel": Strings.ActivityStream.News.BreakingLabel,
         ]
     }

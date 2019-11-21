@@ -19,7 +19,7 @@ extension PhotonActionSheetProtocol {
     typealias IsPrivateTab = Bool
     typealias URLOpenAction = (URL?, IsPrivateTab) -> Void
 
-    func presentSheetWith(title: String? = nil, actions: [[PhotonActionSheetItem]], on viewController: PresentableVC, from view: UIView, closeButtonTitle: String = Strings.CloseButtonTitle, suppressPopover: Bool = false) {
+    func presentSheetWith(title: String? = nil, actions: [[PhotonActionSheetItem]], on viewController: PresentableVC, from view: UIView, closeButtonTitle: String = Strings.PhotonMenu.Close, suppressPopover: Bool = false) {
         let style: UIModalPresentationStyle = (UIDevice.current.isPad && !suppressPopover) ? .popover : .overCurrentContext
         let sheet = PhotonActionSheet(title: title, actions: actions, closeButtonTitle: closeButtonTitle, style: style)
         sheet.modalPresentationStyle = style
@@ -134,7 +134,7 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        let pinToTopSites = PhotonActionSheetItem(title: Strings.PinTopsiteActionTitle, iconString: "action_pin") { action in
+        let pinToTopSites = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.PinTopsite, iconString: "action_pin") { action in
             guard let url = tab.url?.displayURL, let sql = self.profile.history as? SQLiteHistory else { return }
 
             sql.getSites(forURLs: [url.absoluteString]).bind { val -> Success in
@@ -146,7 +146,7 @@ extension PhotonActionSheetProtocol {
             }.uponQueue(.main) { _ in }
         }
 
-        let removeTopSitesPin = PhotonActionSheetItem(title: Strings.RemovePinTopsiteActionTitle, iconString: "action_unpin") { action in
+        let removeTopSitesPin = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.RemovePinTopsite, iconString: "action_unpin") { action in
             guard let url = tab.url?.displayURL, let sql = self.profile.history as? SQLiteHistory else { return }
 
             sql.getSites(forURLs: [url.absoluteString]).bind { val -> Success in

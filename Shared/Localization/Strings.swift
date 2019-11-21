@@ -54,37 +54,46 @@ extension Strings {
         public struct News {
             public static let BreakingLabel = NSLocalizedString("ActivityStream.News.BreakingLabel", comment: "")
         }
-    }
-}
 
-extension Strings {
-    public static let ASTopSitesTitle =  NSLocalizedString("ActivityStream.TopSites.SectionTitle", comment: "Section title label for Top Sites")
-    public static let ASPinnedSitesTitle =  NSLocalizedString("ActivityStream.PinnedSites.SectionTitle", comment: "Section title label for Pinned Sites")
-    public static let HighlightVistedText = NSLocalizedString("ActivityStream.Highlights.Visited", comment: "The description of a highlight if it is a site the user has visited")
-    public static let HighlightBookmarkText = NSLocalizedString("ActivityStream.Highlights.Bookmark", comment: "The description of a highlight if it is a site the user has bookmarked")
-    public static let TopSitesRowSettingFooter = NSLocalizedString("ActivityStream.TopSites.RowSettingFooter", comment: "The title for the setting page which lets you select the number of top site rows")
-    public static let TopSitesRowCount = NSLocalizedString("ActivityStream.TopSites.RowCount", comment: "label showing how many rows of topsites are shown. %d represents a number")
-    public static let RecentlyBookmarkedTitle = NSLocalizedString("ActivityStream.NewRecentBookmarks.Title", comment: "Section title label for recently bookmarked websites")
-    public static let RecentlyVisitedTitle = NSLocalizedString("ActivityStream.RecentHistory.Title", comment: "Section title label for recently visited websites")
+        public struct TopSites {
+            public static let Title =  NSLocalizedString("ActivityStream.TopSites.SectionTitle", comment: "Section title label for Top Sites")
+            public static let RowSettingFooter = NSLocalizedString("ActivityStream.TopSites.RowSettingFooter", comment: "The title for the setting page which lets you select the number of top site rows")
+            public static let RowCount = NSLocalizedString("ActivityStream.TopSites.RowCount", comment: "label showing how many rows of topsites are shown. %d represents a number")
+        }
+
+        public struct ContextMenu {
+            public static let PinTopsite = NSLocalizedString("ActivityStream.ContextMenu.PinTopsite", comment: "The title for the pinning a topsite action")
+            public static let RemovePinTopsite = NSLocalizedString("ActivityStream.ContextMenu.RemovePinTopsite", comment: "The title for removing a pinned topsite action")
+        }
+
+        public static let PinnedSitesTitle =  NSLocalizedString("ActivityStream.PinnedSites.SectionTitle", comment: "Section title label for Pinned Sites")
+        public static let HighlightVistedText = NSLocalizedString("ActivityStream.Highlights.Visited", comment: "The description of a highlight if it is a site the user has visited")
+        public static let HighlightBookmarkText = NSLocalizedString("ActivityStream.Highlights.Bookmark", comment: "The description of a highlight if it is a site the user has bookmarked")
+        public static let RecentlyBookmarkedTitle = NSLocalizedString("ActivityStream.NewRecentBookmarks.Title", comment: "Section title label for recently bookmarked websites")
+        public static let RecentlyVisitedTitle = NSLocalizedString("ActivityStream.RecentHistory.Title", comment: "Section title label for recently visited websites")
+    }
 }
 
 // Home Panel Context Menu.
 extension Strings {
-    public static let OpenInNewTabContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.OpenInNewTab", comment: "The title for the Open in New Tab context menu action for sites in Home Panels")
-    public static let OpenInNewPrivateTabContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.OpenInNewPrivateTab", comment: "The title for the Open in New Private Tab context menu action for sites in Home Panels")
-    public static let BookmarkContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.Bookmark", comment: "The title for the Bookmark context menu action for sites in Home Panels")
-    public static let RemoveBookmarkContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.RemoveBookmark", comment: "The title for the Remove Bookmark context menu action for sites in Home Panels")
-    public static let DeleteFromHistoryContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.DeleteFromHistory", comment: "The title for the Delete from History context menu action for sites in Home Panels")
-    public static let ShareContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.Share", comment: "The title for the Share context menu action for sites in Home Panels")
-    public static let RemoveContextMenuTitle = NSLocalizedString("HomePanel.ContextMenu.Remove", comment: "The title for the Remove context menu action for sites in Home Panels")
-    public static let PinTopsiteActionTitle = NSLocalizedString("ActivityStream.ContextMenu.PinTopsite", comment: "The title for the pinning a topsite action")
-    public static let RemovePinTopsiteActionTitle = NSLocalizedString("ActivityStream.ContextMenu.RemovePinTopsite", comment: "The title for removing a pinned topsite action")
+    public struct HomePanel {
+        public struct ContextMenu {
+            public static let OpenInNewTab = NSLocalizedString("HomePanel.ContextMenu.OpenInNewTab", comment: "The title for the Open in New Tab context menu action for sites in Home Panels")
+            public static let OpenInNewPrivateTab = NSLocalizedString("HomePanel.ContextMenu.OpenInNewPrivateTab", comment: "The title for the Open in New Private Tab context menu action for sites in Home Panels")
+            public static let Bookmark = NSLocalizedString("HomePanel.ContextMenu.Bookmark", comment: "The title for the Bookmark context menu action for sites in Home Panels")
+            public static let RemoveBookmark = NSLocalizedString("HomePanel.ContextMenu.RemoveBookmark", comment: "The title for the Remove Bookmark context menu action for sites in Home Panels")
+            public static let DeleteFromHistory = NSLocalizedString("HomePanel.ContextMenu.DeleteFromHistory", comment: "The title for the Delete from History context menu action for sites in Home Panels")
+            public static let Share = NSLocalizedString("HomePanel.ContextMenu.Share", comment: "The title for the Share context menu action for sites in Home Panels")
+            public static let Remove = NSLocalizedString("HomePanel.ContextMenu.Remove", comment: "The title for the Remove context menu action for sites in Home Panels")
+        }
+    }
 }
 
 //  PhotonActionSheet Strings
 extension Strings {
-    public static let CloseButtonTitle = NSLocalizedString("PhotonMenu.close", comment: "Button for closing the menu action sheet")
-
+    public struct PhotonMenu {
+        public static let Close = NSLocalizedString("PhotonMenu.close", comment: "Button for closing the menu action sheet")
+    }
 }
 
 // Home page.
