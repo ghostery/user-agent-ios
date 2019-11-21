@@ -152,7 +152,7 @@
 		464F67782326AFB70090D0B5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
 		464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */; };
 		464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
-		464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -259,6 +259,7 @@
 		A83E5B1D1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5B1C1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift */; };
 		A83E5B1E1C1DAAAA0026D912 /* UIPasteboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */; };
 		A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */; };
+		AC3357962386C60700693969 /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3357952386C60700693969 /* BartyCrouch.swift */; };
 		AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
 		AC65328E23476CDF00FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
 		AC6DB603234F399600A9C397 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DB602234F399600A9C397 /* BookmarksView.swift */; };
@@ -949,7 +950,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */,
+				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1233,6 +1234,7 @@
 		A93067E71D0FE18E00C49C6E /* NightModeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NightModeHelper.swift; sourceTree = "<group>"; };
 		AB6FF2698BCC5B9E5E6A685C /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBF3643A363A265DF18EC61 /* Pods-Lumen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.release.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.release.xcconfig"; sourceTree = "<group>"; };
+		AC3357952386C60700693969 /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		AC65328A2344E3D000FC7ADB /* TopSitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSitesView.swift; sourceTree = "<group>"; };
 		AC6DB602234F399600A9C397 /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		ACB6D4332306ACE3002D64E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1368,7 +1370,7 @@
 		D31F95E81AC226CB005C9F3B /* ScreenshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotHelper.swift; sourceTree = "<group>"; };
 		D32CACEC1AE04DA1000658EB /* TestSwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftData.swift; sourceTree = "<group>"; };
 		D34DC84D1A16C40C00D49B7B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Profile.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D35210E01CB2F16600FC5DCB /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strings.swift; path = ../Client/Frontend/Strings.swift; sourceTree = "<group>"; };
+		D35210E01CB2F16600FC5DCB /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D36998881AD70A0A00650C6C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		D3724439B5DDE5DF3E9B16EF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/FindInPage.strings; sourceTree = "<group>"; };
 		D37524861C6E8B5A00A5F6C2 /* topdomains.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = topdomains.txt; sourceTree = "<group>"; };
@@ -2153,6 +2155,17 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		AC3357942386C5F800693969 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				D35210E01CB2F16600FC5DCB /* Strings.swift */,
+				46BBFA6123575B0000283594 /* Strings+Brand.swift */,
+				46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */,
+				AC3357952386C60700693969 /* BartyCrouch.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		AC65328C2347674D00FC7ADB /* Home View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2566,9 +2579,7 @@
 		E4E0BB141AFBC9E4008D6260 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D35210E01CB2F16600FC5DCB /* Strings.swift */,
-				46BBFA6123575B0000283594 /* Strings+Brand.swift */,
-				46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */,
+				AC3357942386C5F800693969 /* Localization */,
 				E650756F1E37F7AB006961AC /* Extensions */,
 				E4E0BB161AFBC9E4008D6260 /* Supporting Files */,
 				E65075621E37F7AB006961AC /* Accessibility.swift */,
@@ -3163,8 +3174,9 @@
 			buildConfigurationList = F84B21DD1A090F8100AAB793 /* Build configuration list for PBXNativeTarget "Cliqz" */;
 			buildPhases = (
 				49B9EA8147132B7D671C4F39 /* [CP] Check Pods Manifest.lock */,
-				46C41EDB230EC92000CE54D2 /* Start React Native Server */,
 				ACB6D4302306A77D002D64E6 /* Lint with SwiftLint */,
+				AC3357972386C63300693969 /* Update Localizations */,
+				46C41EDB230EC92000CE54D2 /* Start React Native Server */,
 				F84B21BA1A090F8100AAB793 /* Sources */,
 				F84B21BC1A090F8100AAB793 /* Resources */,
 				28CE83DE1A1D1E7C00576538 /* Frameworks */,
@@ -3803,6 +3815,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AC3357972386C63300693969 /* Update Localizations */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Localizations";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
 		ACB6D4302306A77D002D64E6 /* Lint with SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4181,6 +4211,7 @@
 				E65075A71E37F7AB006961AC /* ScannerExtensions.swift in Sources */,
 				E65075A21E37F7AB006961AC /* HexExtensions.swift in Sources */,
 				288A2DB61AB8B38D0023ABC3 /* Result.swift in Sources */,
+				AC3357962386C60700693969 /* BartyCrouch.swift in Sources */,
 				EB912B9B22722B6300DF585A /* ReadWriteLock.swift in Sources */,
 				E65075AD1E37F7AB006961AC /* UIColorExtensions.swift in Sources */,
 				EB912B9C22722B6800DF585A /* LockProtected.swift in Sources */,
