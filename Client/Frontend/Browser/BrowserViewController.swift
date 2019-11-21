@@ -1817,9 +1817,9 @@ extension BrowserViewController: ContextMenuHelperDelegate {
 
                 let handlePhotoLibraryDenied = {
                     let accessDenied = UIAlertController(title: Strings.PhotoLibraryFirefoxWouldLikeAccessTitle, message: Strings.PhotoLibraryFirefoxWouldLikeAccessMessage, preferredStyle: .alert)
-                    let dismissAction = UIAlertAction(title: Strings.CancelString, style: .default, handler: nil)
+                    let dismissAction = UIAlertAction(title: Strings.General.CancelString, style: .default, handler: nil)
                     accessDenied.addAction(dismissAction)
-                    let settingsAction = UIAlertAction(title: Strings.OpenSettingsString, style: .default ) { _ in
+                    let settingsAction = UIAlertAction(title: Strings.General.OpenSettingsString, style: .default ) { _ in
                         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:])
                     }
                     accessDenied.addAction(settingsAction)
@@ -1904,7 +1904,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             }
         }
 
-        let cancelAction = UIAlertAction(title: Strings.CancelString, style: UIAlertAction.Style.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: Strings.General.CancelString, style: UIAlertAction.Style.cancel, handler: nil)
         actionSheetController.addAction(cancelAction)
         self.present(actionSheetController, animated: true, completion: nil)
     }

@@ -17,11 +17,18 @@ private func applicationBundle() -> Bundle {
 }
 
 extension Strings {
-    public static let OKString = NSLocalizedString("OK", comment: "OK button")
-    public static let CancelString = NSLocalizedString("Cancel", comment: "Label for Cancel button")
-    public static let NotNowString = NSLocalizedString("Toasts.NotNow", comment: "label for Not Now button")
-    public static let AppStoreString = NSLocalizedString("Toasts.OpenAppStore", comment: "Open App Store button")
-    public static let OpenSettingsString = NSLocalizedString("Open Settings", comment: "See http://mzl.la/1G7uHo7")
+    public struct General {
+        public static let OKString = NSLocalizedString("OK", comment: "OK button")
+        public static let CancelString = NSLocalizedString("Cancel", comment: "Label for Cancel button")
+        public static let OpenSettingsString = NSLocalizedString("Open Settings", comment: "See http://mzl.la/1G7uHo7")
+    }
+}
+
+extension Strings {
+    public struct Toasts {
+        public static let NotNowString = NSLocalizedString("Toasts.NotNow", comment: "label for Not Now button")
+        public static let AppStoreString = NSLocalizedString("Toasts.OpenAppStore", comment: "Open App Store button")
+    }
 }
 
 // Table date section titles.

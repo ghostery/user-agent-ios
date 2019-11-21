@@ -177,9 +177,9 @@ extension BrowserViewController: WKUIDelegate {
 
                     let handlePhotoLibraryDenied = {
                         let accessDenied = UIAlertController(title: Strings.PhotoLibraryFirefoxWouldLikeAccessTitle, message: Strings.PhotoLibraryFirefoxWouldLikeAccessMessage, preferredStyle: .alert)
-                        let dismissAction = UIAlertAction(title: Strings.CancelString, style: .default, handler: nil)
+                        let dismissAction = UIAlertAction(title: Strings.General.CancelString, style: .default, handler: nil)
                         accessDenied.addAction(dismissAction)
-                        let settingsAction = UIAlertAction(title: Strings.OpenSettingsString, style: .default ) { _ in
+                        let settingsAction = UIAlertAction(title: Strings.General.OpenSettingsString, style: .default ) { _ in
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:])
                         }
                         accessDenied.addAction(settingsAction)
@@ -302,11 +302,11 @@ extension BrowserViewController: WKNavigationDelegate {
     // Use for sms and mailto links, which do not show a confirmation before opening.
     fileprivate func showSnackbar(forExternalUrl url: URL, tab: Tab, completion: @escaping (Bool) -> Void) {
         let snackBar = TimerSnackBar(text: Strings.ExternalLinkGenericConfirmation + "\n\(url.absoluteString)", img: nil)
-        let ok = SnackButton(title: Strings.OKString, accessibilityIdentifier: "AppOpenExternal.button.ok") { bar in
+        let ok = SnackButton(title: Strings.General.OKString, accessibilityIdentifier: "AppOpenExternal.button.ok") { bar in
             tab.removeSnackbar(bar)
             completion(true)
         }
-        let cancel = SnackButton(title: Strings.CancelString, accessibilityIdentifier: "AppOpenExternal.button.cancel") { bar in
+        let cancel = SnackButton(title: Strings.General.CancelString, accessibilityIdentifier: "AppOpenExternal.button.cancel") { bar in
             tab.removeSnackbar(bar)
             completion(false)
         }
@@ -428,7 +428,7 @@ extension BrowserViewController: WKNavigationDelegate {
                 // Do not show error message for JS navigated links or redirect as it's not the result of a user action.
                 if !openedURL, navigationAction.navigationType == .linkActivated {
                     let alert = UIAlertController(title: Strings.UnableToOpenURLErrorTitle, message: Strings.UnableToOpenURLError, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: Strings.OKString, style: .default, handler: nil))
+                    alert.addAction(UIAlertAction(title: Strings.General.OKString, style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
             }

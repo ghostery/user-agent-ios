@@ -87,7 +87,7 @@ class AdvancedAccountSettingViewController: SettingsTableViewController {
 
     func displaySuccessAlert() {
         let alertController = UIAlertController(title: "", message: Strings.SettingsAdvancedAccountUrlUpdatedAlertMessage, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: Strings.OKString, style: .default, handler: nil)
+        let defaultAction = UIAlertAction(title: Strings.General.OKString, style: .default, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true)
     }
@@ -98,7 +98,7 @@ class AdvancedAccountSettingViewController: SettingsTableViewController {
             self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         }
         let alertController = UIAlertController(title: Strings.SettingsAdvancedAccountUrlErrorAlertTitle, message: Strings.SettingsAdvancedAccountUrlErrorAlertMessage, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: Strings.OKString, style: .default, handler: nil)
+        let defaultAction = UIAlertAction(title: Strings.General.OKString, style: .default, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true)
     }
@@ -109,7 +109,7 @@ class AdvancedAccountSettingViewController: SettingsTableViewController {
             self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         }
         let alertController = UIAlertController(title: Strings.SettingsAdvancedAccountUrlErrorAlertTitle, message: Strings.SettingsAdvancedAccountEmptyAutoconfigURIErrorAlertMessage, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: Strings.OKString, style: .default, handler: nil)
+        let defaultAction = UIAlertAction(title: Strings.General.OKString, style: .default, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true)
     }
@@ -120,7 +120,7 @@ class AdvancedAccountSettingViewController: SettingsTableViewController {
             self.tableView.reloadRows(at: [IndexPath(row: 0, section: 2)], with: .automatic)
         }
         let alertController = UIAlertController(title: Strings.SettingsAdvancedAccountUrlErrorAlertTitle, message: Strings.SettingsAdvancedAccountEmptyTokenServerURIErrorAlertMessage, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: Strings.OKString, style: .default, handler: nil)
+        let defaultAction = UIAlertAction(title: Strings.General.OKString, style: .default, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true)
     }
