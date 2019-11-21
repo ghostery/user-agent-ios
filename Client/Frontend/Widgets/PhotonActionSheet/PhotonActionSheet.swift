@@ -339,13 +339,17 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let section = actions[safe: indexPath.section], let action = section[safe: indexPath.row] {
-            if let custom = action.customHeight {
-                return custom(action)
-            }
+        guard let section = actions[safe: indexPath.section], let action = section[safe: indexPath.row] else {
+            return PhotonActionSheetUX.RowHeight
         }
-
-        return PhotonActionSheetUX.RowHeight
+        if let custom = action.customHeight {
+            return custom(action)
+        }
+        if action.customView != nil {
+            return UITableView.automaticDimension
+        } else {
+            return PhotonActionSheetUX.RowHeight
+        }
     }
 
     // A footer height of at least 1 is required to make sure the default footer size isnt used when laying out with AutoLayout
