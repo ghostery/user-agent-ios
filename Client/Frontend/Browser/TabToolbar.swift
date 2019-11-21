@@ -44,7 +44,17 @@ open class TabToolbarHelper: NSObject {
     let ImageReload = UIImage.templateImageNamed("nav-refresh")
     let ImageStop = UIImage.templateImageNamed("nav-stop")
 
-    var loading: Bool = false
+    var loading: Bool = false {
+        didSet {
+            if loading {
+                toolbar.stopReloadButton.setImage(ImageStop, for: .normal)
+                toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Stop", comment: "Accessibility Label for the tab toolbar Stop button")
+            } else {
+                toolbar.stopReloadButton.setImage(ImageReload, for: .normal)
+                toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Reload", comment: "Accessibility Label for the tab toolbar Reload button")
+            }
+        }
+    }
 
     fileprivate func setTheme(forButtons buttons: [Themeable]) {
         buttons.forEach { $0.applyTheme() }
@@ -65,6 +75,10 @@ open class TabToolbarHelper: NSObject {
         let longPressGestureForwardButton = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressForward))
         toolbar.forwardButton.addGestureRecognizer(longPressGestureForwardButton)
         toolbar.forwardButton.addTarget(self, action: #selector(didClickForward), for: .touchUpInside)
+
+        toolbar.stopReloadButton.setImage(UIImage.templateImageNamed("nav-refresh"), for: .normal)
+        toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Reload", comment: "Accessibility Label for the tab toolbar Reload button")
+        toolbar.stopReloadButton.addTarget(self, action: #selector(didClickStopReload), for: .touchUpInside)
 
         toolbar.searchButton.setImage(UIImage.templateImageNamed("search"), for: .normal)
         toolbar.searchButton.addTarget(self, action: #selector(didClickSearch), for: .touchUpInside)
@@ -114,6 +128,14 @@ open class TabToolbarHelper: NSObject {
 
     func didClickSearch() {
         toolbar.tabToolbarDelegate?.tabToolbarDidPressSearch(toolbar, button: toolbar.searchButton)
+    }
+
+    func didClickStopReload() {
+        if loading {
+            toolbar.tabToolbarDelegate?.tabToolbarDidPressStop(toolbar, button: toolbar.stopReloadButton)
+        } else {
+            toolbar.tabToolbarDelegate?.tabToolbarDidPressReload(toolbar, button: toolbar.stopReloadButton)
+        }
     }
 
     func updateReloadStatus(_ isLoading: Bool) {
@@ -184,9 +206,7 @@ class TabToolbar: UIView {
     let searchButton = ToolbarButton()
     let actionButtons: [Themeable & UIButton]
 
-    lazy var stopReloadButton: ToolbarButton = {
-        return ToolbarButton()
-    }()
+    lazy var stopReloadButton = ToolbarButton()
 
     fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.ForgetMode)
 
