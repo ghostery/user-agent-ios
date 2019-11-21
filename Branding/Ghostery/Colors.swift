@@ -27,7 +27,7 @@ extension UIColor {
     static let defaultBackground = UIColor(named: "Background")!
     static let DarkGrey = UIColor(named: "DarkGrey")!
     static let TextHighlightBlue = UIColor(named: "TextHighlightBlue")!
-    static let MobilePrivatePurple = UIColor(named: "MobilePrivatePurple")!
+    static let ForgetMode = UIColor(named: "ForgetMode")!
     static let ReaderModeSepia = UIColor(named: "ReaderModeSepia")!
 
     // Functional Colors

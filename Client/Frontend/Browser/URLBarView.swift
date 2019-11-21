@@ -193,7 +193,7 @@ class URLBarView: UIView {
     }
 
     fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge",
-                                                         backdropCircleColor: UIColor.MobilePrivatePurple)
+                                                         backdropCircleColor: UIColor.ForgetMode)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

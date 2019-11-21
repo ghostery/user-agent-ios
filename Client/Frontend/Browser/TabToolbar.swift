@@ -188,8 +188,7 @@ class TabToolbar: UIView {
         return ToolbarButton()
     }()
 
-    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.MobilePrivatePurple)
-    fileprivate let hideImagesBadge = BadgeWithBackdrop(imageName: "menuBadge")
+    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.ForgetMode)
 
     var helper: TabToolbarHelper?
     private let contentView = UIStackView()
@@ -216,7 +215,6 @@ class TabToolbar: UIView {
         addButtons(actionButtons)
 
         privateModeBadge.add(toParent: contentView)
-        hideImagesBadge.add(toParent: contentView)
 
         contentView.axis = .horizontal
         contentView.distribution = .fillEqually
@@ -224,7 +222,6 @@ class TabToolbar: UIView {
 
     override func updateConstraints() {
         privateModeBadge.layout(onButton: tabsButton)
-        hideImagesBadge.layout(onButton: menuButton)
 
         contentView.snp.makeConstraints { make in
             make.leading.trailing.top.equalTo(self)
@@ -276,10 +273,6 @@ extension TabToolbar: TabToolbarProtocol {
         privateModeBadge.show(visible)
     }
 
-    func hideImagesBadge(visible: Bool) {
-        hideImagesBadge.show(visible)
-    }
-
     func updateBackStatus(_ canGoBack: Bool) {
         backButton.isEnabled = canGoBack
     }
@@ -306,7 +299,6 @@ extension TabToolbar: Themeable, PrivateModeUI {
         helper?.setTheme(forButtons: actionButtons)
 
         privateModeBadge.badge.tintBackground(color: Theme.browser.background)
-        hideImagesBadge.badge.tintBackground(color: Theme.browser.background)
         menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
     }
 
