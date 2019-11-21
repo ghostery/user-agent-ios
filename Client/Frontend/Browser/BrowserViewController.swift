@@ -193,7 +193,7 @@ class BrowserViewController: UIViewController {
   }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return ThemeManager.instance.statusBarStyle
+        return Theme.statusBarStyle
     }
 
     @objc func displayThemeChanged(notification: Notification) {

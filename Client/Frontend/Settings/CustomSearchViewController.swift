@@ -195,7 +195,7 @@ class CustomSearchEngineTextView: Setting, UITextViewDelegate {
         }
 
         placeholderLabel.adjustsFontSizeToFitWidth = true
-        placeholderLabel.textColor = UIColor.theme.general.settingsTextPlaceholder ?? UIColor(red: 0.0, green: 0.0, blue: 0.0980392, alpha: 0.22)
+        placeholderLabel.textColor = Theme.general.settingsTextPlaceholder ?? UIColor(red: 0.0, green: 0.0, blue: 0.0980392, alpha: 0.22)
         placeholderLabel.text = placeholder
         placeholderLabel.frame = CGRect(width: textField.frame.width, height: TextLabelHeight)
         textField.font = placeholderLabel.font
@@ -204,8 +204,8 @@ class CustomSearchEngineTextView: Setting, UITextViewDelegate {
         textField.keyboardType = .URL
         textField.autocorrectionType = .no
         textField.delegate = self
-        textField.backgroundColor = UIColor.theme.tableView.rowBackground
-        textField.textColor = UIColor.theme.tableView.rowText
+        textField.backgroundColor = Theme.tableView.rowBackground
+        textField.textColor = Theme.tableView.rowText
         cell.isUserInteractionEnabled = true
         cell.accessibilityTraits = UIAccessibilityTraits.none
         cell.contentView.addSubview(textField)
@@ -239,7 +239,7 @@ class CustomSearchEngineTextView: Setting, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = textField.text.isEmpty == false
         settingDidChange?(textView.text)
-        let color = isValid(textField.text) ? UIColor.theme.tableView.rowText : UIColor.theme.general.destructiveRed
+        let color = isValid(textField.text) ? Theme.tableView.rowText : Theme.general.destructiveRed
         textField.textColor = color
     }
 

@@ -549,7 +549,7 @@ class Tab: NSObject {
     }
 
     func applyTheme() {
-        UITextField.appearance().keyboardAppearance = isPrivate ? .dark : (ThemeManager.instance.currentName == .dark ? .dark : .light)
+        UITextField.appearance().keyboardAppearance = isPrivate ? .dark : .light
     }
 }
 
@@ -624,7 +624,7 @@ class TabWebView: WKWebView, MenuHelperInterface {
     // the theme if the webview is showing "about:blank" (nil).
     func applyTheme() {
         if url == nil {
-            let backgroundColor = ThemeManager.instance.current.browser.background.hexString
+            let backgroundColor = Theme.browser.background.hexString
             evaluateJavaScript("document.documentElement.style.backgroundColor = '\(backgroundColor)';")
         }
     }

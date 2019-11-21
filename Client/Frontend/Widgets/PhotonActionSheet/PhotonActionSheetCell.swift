@@ -90,7 +90,7 @@ class PhotonActionSheetCell: UITableViewCell {
         func setOn(_ on: Bool) {
             foreground.image = on ? UIImage(named: "menu-customswitch-on") : UIImage(named: "menu-customswitch-off")
             mainView.accessibilityIdentifier = on ? "enabled" : "disabled"
-            mainView.tintColor = on ? UIColor.theme.general.controlTint : UIColor.Grey90.with(alpha: .fortyPercent)
+            mainView.tintColor = on ? Theme.general.controlTint : UIColor.Grey90.with(alpha: .fortyPercent)
         }
     }
 
@@ -106,7 +106,7 @@ class PhotonActionSheetCell: UITableViewCell {
     lazy var disclosureIndicator: UIImageView = {
         let disclosureIndicator = createIconImageView()
         disclosureIndicator.image = UIImage(named: "menu-Disclosure")?.withRenderingMode(.alwaysTemplate)
-        disclosureIndicator.tintColor = UIColor.theme.tableView.rowDetailText
+        disclosureIndicator.tintColor = Theme.tableView.rowDetailText
         return disclosureIndicator
     }()
 
@@ -207,7 +207,7 @@ class PhotonActionSheetCell: UITableViewCell {
                 let label = UILabel(frame: CGRect())
                 label.text = action.tabCount
                 label.font = UIFont.boldSystemFont(ofSize: UIConstants.DefaultChromeSmallSize)
-                label.textColor = UIColor.theme.textField.textAndTint
+                label.textColor = Theme.textField.textAndTint
                 let image = UIImage(named: iconName)?.withRenderingMode(.alwaysTemplate)
                 statusIcon.image = image
                 statusIcon.addSubview(label)

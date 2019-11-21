@@ -17,7 +17,7 @@ extension UILabel {
         let attribs = attributed.attributes(at: 0, effectiveRange: nil)
         if attribs[NSAttributedString.Key.foregroundColor] == nil {
             // If the text color attribute isn't set, use the table view row text color.
-            textColor = UIColor.theme.tableView.rowText
+            textColor = Theme.tableView.rowText
         } else {
             textColor = nil
         }
@@ -187,9 +187,9 @@ class BoolSetting: Setting {
     convenience init(prefs: Prefs, prefKey: String? = nil, defaultValue: Bool, titleText: String, statusText: String? = nil, enabled: Bool = true, settingDidChange: ((Bool) -> Void)? = nil) {
         var statusTextAttributedString: NSAttributedString?
         if let statusTextString = statusText {
-            statusTextAttributedString = NSAttributedString(string: statusTextString, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.headerTextLight])
+            statusTextAttributedString = NSAttributedString(string: statusTextString, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])
         }
-        self.init(prefs: prefs, prefKey: prefKey, defaultValue: defaultValue, attributedTitleText: NSAttributedString(string: titleText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]), attributedStatusText: statusTextAttributedString, enabled: enabled, settingDidChange: settingDidChange)
+        self.init(prefs: prefs, prefKey: prefKey, defaultValue: defaultValue, attributedTitleText: NSAttributedString(string: titleText, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]), attributedStatusText: statusTextAttributedString, enabled: enabled, settingDidChange: settingDidChange)
     }
 
     override var status: NSAttributedString? {
@@ -338,16 +338,16 @@ class StringSetting: Setting, UITextFieldDelegate {
         if let id = accessibilityIdentifier {
             textField.accessibilityIdentifier = id + "TextField"
         }
-        if let placeholderColor = UIColor.theme.general.settingsTextPlaceholder {
+        if let placeholderColor = Theme.general.settingsTextPlaceholder {
             textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
         } else {
             textField.placeholder = placeholder
         }
 
-        cell.tintColor = self.persister.readPersistedValue() != nil ? UIColor.theme.tableView.rowActionAccessory : UIColor.clear
+        cell.tintColor = self.persister.readPersistedValue() != nil ? Theme.tableView.rowActionAccessory : UIColor.clear
         textField.textAlignment = .center
         textField.delegate = self
-        textField.tintColor = UIColor.theme.tableView.rowActionAccessory
+        textField.tintColor = Theme.tableView.rowActionAccessory
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         cell.isUserInteractionEnabled = true
         cell.accessibilityTraits = UIAccessibilityTraits.none
@@ -381,7 +381,7 @@ class StringSetting: Setting, UITextFieldDelegate {
     }
 
     @objc func textFieldDidChange(_ textField: UITextField) {
-        let color = isValid(textField.text) ? UIColor.theme.tableView.rowText : UIColor.theme.general.destructiveRed
+        let color = isValid(textField.text) ? Theme.tableView.rowText : Theme.general.destructiveRed
         textField.textColor = color
     }
 
@@ -421,7 +421,7 @@ class CheckmarkSetting: Setting {
     override func onConfigureCell(_ cell: UITableViewCell) {
         super.onConfigureCell(cell)
         cell.accessoryType = .checkmark
-        cell.tintColor = isEnabled() ? UIColor.theme.tableView.rowActionAccessory : UIColor.clear
+        cell.tintColor = isEnabled() ? Theme.tableView.rowActionAccessory : UIColor.clear
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -456,9 +456,9 @@ class ButtonSetting: Setting {
         super.onConfigureCell(cell)
 
         if isEnabled?() ?? true {
-            cell.textLabel?.textColor = destructive ? UIColor.theme.general.destructiveRed : UIColor.theme.general.highlightBlue
+            cell.textLabel?.textColor = destructive ? Theme.general.destructiveRed : Theme.general.highlightBlue
         } else {
-            cell.textLabel?.textColor = UIColor.theme.tableView.disabledRowText
+            cell.textLabel?.textColor = Theme.tableView.disabledRowText
         }
         cell.textLabel?.snp.makeConstraints({ make in
             make.height.equalTo(44)
@@ -570,7 +570,7 @@ class SettingsTableViewController: ThemedTableViewController {
         if let setting = section[indexPath.row] {
             let cell = ThemedTableViewCell(style: setting.style, reuseIdentifier: nil)
             setting.onConfigureCell(cell)
-            cell.backgroundColor = UIColor.theme.tableView.rowBackground
+            cell.backgroundColor = Theme.tableView.rowBackground
             return cell
         }
         return super.tableView(tableView, cellForRowAt: indexPath)

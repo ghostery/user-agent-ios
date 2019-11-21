@@ -193,8 +193,8 @@ private class TwoLineCellHelper {
             self.container?.backgroundColor = UIColor.clear
         }
 
-        textLabel.textColor = UIColor.theme.tableView.rowText
-        detailTextLabel.textColor = UIColor.theme.tableView.rowDetailText
+        textLabel.textColor = Theme.tableView.rowText
+        detailTextLabel.textColor = Theme.tableView.rowDetailText
     }
 
     func setupDynamicFonts() {

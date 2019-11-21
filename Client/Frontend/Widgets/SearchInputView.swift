@@ -164,9 +164,9 @@ class SearchInputView: UIView, Themeable {
     }
 
     func applyTheme() {
-        backgroundColor = UIColor.theme.tableView.rowBackground
+        backgroundColor = Theme.tableView.rowBackground
         overlay.backgroundColor = backgroundColor
-        titleLabel.textColor = UIColor.theme.tableView.rowText
+        titleLabel.textColor = Theme.tableView.rowText
         inputField.textColor = titleLabel.textColor
     }
 }

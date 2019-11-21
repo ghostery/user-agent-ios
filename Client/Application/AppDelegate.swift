@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         self.launchOptions = launchOptions
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window!.backgroundColor = UIColor.theme.browser.background
+        self.window!.backgroundColor = Theme.browser.background
 
         // If the 'Save logs to Files app on next launch' toggle
         // is turned on in the Settings app, copy over old logs.
@@ -216,38 +216,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         return true
     }
 
-    @available(iOS 13.0, *)
-    private func matchInterfaceStyleWithSystemStyle() {
-        guard let prefs = self.profile?.prefs else {
-            return
-        }
-        switch UITraitCollection.current.userInterfaceStyle {
-        case .dark:
-            if ThemeManager.instance.currentName != .dark {
-                NightModeHelper.toggle(prefs, tabManager: self.tabManager)
-            }
-        case .light:
-            if ThemeManager.instance.currentName != .normal {
-                NightModeHelper.toggle(prefs, tabManager: self.tabManager)
-            }
-        case .unspecified: break
-        @unknown default: break
-        }
-    }
-
     // We sync in the foreground only, to avoid the possibility of runaway resource usage.
     // Eventually we'll sync in response to notifications.
     func applicationDidBecomeActive(_ application: UIApplication) {
         shutdownWebServer?.cancel()
         shutdownWebServer = nil
-
-        if #available(iOS 13.0, *) {
-            // Matching interface style in dispatch block because of iOS 13 bug.
-            // UITraitCollection.current.userInterfaceStyle value is beeing updated with delay.
-            DispatchQueue.main.async {
-                self.matchInterfaceStyleWithSystemStyle()
-            }
-        }
 
         //
         // We are back in the foreground, so set CleanlyBackgrounded to false so that we can detect that

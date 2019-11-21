@@ -21,8 +21,8 @@ class WebsiteDataSearchResultsViewController: UIViewController, UITableViewDataS
         tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorColor = UIColor.theme.tableView.separator
-        tableView.backgroundColor = UIColor.theme.tableView.headerBackground
+        tableView.separatorColor = Theme.tableView.separator
+        tableView.backgroundColor = Theme.tableView.headerBackground
         tableView.isEditing = true
         tableView.register(ThemedTableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.register(ThemedTableSectionHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SectionHeaderFooterIdentifier)

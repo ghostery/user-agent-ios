@@ -56,7 +56,7 @@ class TabLocationView: UIView {
 
     lazy var placeholder: NSAttributedString = {
         let placeholderText = NSLocalizedString("Search or enter address", comment: "The text shown in the URL bar on about:home")
-        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.textField.placeholder])
+        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: Theme.textField.placeholder])
     }()
 
     lazy var urlTextField: UITextField = {
@@ -81,7 +81,7 @@ class TabLocationView: UIView {
 
     fileprivate lazy var lockImageView: UIImageView = {
         let lockImageView = UIImageView(image: UIImage.templateImageNamed("lock_not_verified"))
-        lockImageView.tintColor = UIColor.theme.textField.textAndTint
+        lockImageView.tintColor = Theme.textField.textAndTint
         lockImageView.isAccessibilityElement = true
         lockImageView.contentMode = .center
         lockImageView.accessibilityLabel = NSLocalizedString("Secure connection", comment: "Accessibility label for the lock icon, which is only present if the connection is secure")
@@ -279,13 +279,12 @@ extension TabLocationView: AccessibilityActionsSource {
 
 extension TabLocationView: Themeable {
     func applyTheme() {
-        backgroundColor = UIColor.theme.textField.background
-        urlTextField.textColor = UIColor.theme.textField.textAndTint
+        backgroundColor = Theme.textField.background
+        urlTextField.textColor = Theme.textField.textAndTint
 
-        pageOptionsButton.selectedTintColor = UIColor.theme.urlbar.pageOptionsSelected
-        pageOptionsButton.unselectedTintColor = UIColor.theme.urlbar.pageOptionsUnselected
+        pageOptionsButton.selectedTintColor = Theme.urlbar.pageOptionsSelected
+        pageOptionsButton.unselectedTintColor = Theme.urlbar.pageOptionsUnselected
         pageOptionsButton.tintColor = pageOptionsButton.unselectedTintColor
-
         menuBadge.badge.tintBackground(color: .clear)
     }
 }
