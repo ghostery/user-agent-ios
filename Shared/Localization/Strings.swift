@@ -233,6 +233,13 @@ extension Strings {
         public static let Title = NSLocalizedString("Bookmarks.Title.Label", comment: "The label for the title of a bookmark")
         public static let PanelEmptyStateTitle = NSLocalizedString("BookmarksPanel.EmptyState.Title", comment: "Status label for the empty Bookmarks state.")
     }
+
+    // MARK: - Tabs
+    public struct Tabs {
+        public static let DeleteAllUndoTitle = NSLocalizedString("Tabs.DeleteAllUndo.Title", comment: "The label indicating that all the tabs were closed")
+        public static let DeleteAllUndoAction = NSLocalizedString("Tabs.DeleteAllUndo.Button", comment: "The button to undo the delete all tabs")
+
+    }
 }
 
 
@@ -241,12 +248,6 @@ extension Strings {
 
 
 
-
-// Tabs Delete All Undo Toast
-extension Strings {
-    public static let TabsDeleteAllUndoTitle = NSLocalizedString("Tabs.DeleteAllUndo.Title", comment: "The label indicating that all the tabs were closed")
-    public static let TabsDeleteAllUndoAction = NSLocalizedString("Tabs.DeleteAllUndo.Button", comment: "The button to undo the delete all tabs")
-}
 
 //Clipboard Toast
 extension Strings {
