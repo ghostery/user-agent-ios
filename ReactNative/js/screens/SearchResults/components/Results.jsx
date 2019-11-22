@@ -8,7 +8,6 @@ import {
   TouchableWithoutFeedback,
   NativeModules,
 } from 'react-native';
-import CardList from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/components/CardList';
 import { Provider as CliqzProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards/cliqz';
 import { Provider as ThemeProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
 import {
@@ -19,6 +18,7 @@ import NativeDrawable, {
   normalizeUrl,
 } from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 
+import CardList from './CardList';
 import { withTheme } from '../../../contexts/theme';
 import t from '../../../services/i18n';
 
@@ -123,6 +123,7 @@ function isResultAllowed({ template, provider, type }) {
     !BLOCKED_TEMPLATES.includes(template) &&
     type !== 'navigate-to' &&
     Boolean(provider) &&
+    provider !== 'instant' &&
     provider !== 'rich-header' // promises sometimes arrive to ui
   );
 }
