@@ -51,9 +51,7 @@ extension BrowserViewController: DownloadQueueDelegate {
             if error == nil {
                 let downloadCompleteToast = ButtonToast(labelText: download.filename, imageName: "check", buttonText: Strings.DownloadsButtonTitle, completion: { buttonPressed in
                     guard buttonPressed else { return }
-                    let newTab = self.tabManager.addTab()
-                    self.tabManager.selectTab(newTab)
-                    self.homeViewController?.switchView(segment: .downloads)
+                    self.showDownloads()
                 })
 
                 self.show(toast: downloadCompleteToast, duration: DispatchTimeInterval.seconds(8))

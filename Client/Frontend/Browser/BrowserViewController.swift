@@ -209,6 +209,17 @@ class BrowserViewController: UIViewController {
         applyTheme()
     }
 
+    func showDownloads() {
+        self.presentedViewController?.dismiss(animated: true)
+
+        let downloadsViewContrller = DownloadsViewController()
+        downloadsViewContrller.delegate = self
+        downloadsViewContrller.profile = self.profile
+        let navigationController = UINavigationController(rootViewController: downloadsViewContrller)
+
+        self.present(navigationController, animated: true)
+    }
+
     func shouldShowFooterForTraitCollection(_ previousTraitCollection: UITraitCollection) -> Bool {
         return previousTraitCollection.verticalSizeClass != .compact && previousTraitCollection.horizontalSizeClass != .regular
     }
@@ -828,6 +839,27 @@ class BrowserViewController: UIViewController {
     fileprivate func destroySearchController() {
         hideSearchController()
         searchController = nil
+    }
+
+    private func openURL(url: URL, visitType: VisitType) {
+        guard let tab = tabManager.selectedTab else { return }
+        finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
+    }
+
+    private func openURLInNewTab(url: URL, isPrivate: Bool) {
+        let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
+        // If we are showing toptabs a user can just use the top tab bar
+        // If in overlay mode switching doesnt correctly dismiss the homepanels
+        guard !topTabsVisible, !self.urlBar.inOverlayMode else {
+            return
+        }
+        // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
+        let toast = ButtonToast(labelText: Strings.ContextMenuButtonToastNewTabOpenedLabelText, buttonText: Strings.ContextMenuButtonToastNewTabOpenedButtonText, completion: { buttonPressed in
+            if buttonPressed {
+                self.tabManager.selectTab(tab)
+            }
+        })
+        self.show(toast: toast)
     }
 
     func finishEditingAndSubmit(_ url: URL, visitType: VisitType, forTab tab: Tab) {
@@ -1483,25 +1515,24 @@ extension BrowserViewController: TabDelegate {
 
 extension BrowserViewController: HomePanelDelegate {
     func homePanel(didSelectURL url: URL, visitType: VisitType) {
-        guard let tab = tabManager.selectedTab else { return }
-        finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
+        self.openURL(url: url, visitType: visitType)
     }
 
     func homePanelDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
-        let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
-        // If we are showing toptabs a user can just use the top tab bar
-        // If in overlay mode switching doesnt correctly dismiss the homepanels
-        guard !topTabsVisible, !self.urlBar.inOverlayMode else {
-            return
-        }
-        // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
-        let toast = ButtonToast(labelText: Strings.ContextMenuButtonToastNewTabOpenedLabelText, buttonText: Strings.ContextMenuButtonToastNewTabOpenedButtonText, completion: { buttonPressed in
-            if buttonPressed {
-                self.tabManager.selectTab(tab)
-            }
-        })
-        self.show(toast: toast)
+        self.openURLInNewTab(url: url, isPrivate: isPrivate)
     }
+}
+
+extension BrowserViewController: DownloadsDelegate {
+
+    func downloads(didSelectURL url: URL, visitType: VisitType) {
+        self.openURL(url: url, visitType: visitType)
+    }
+
+    func downloadsDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
+        self.openURLInNewTab(url: url, isPrivate: isPrivate)
+    }
+
 }
 
 extension BrowserViewController: TabManagerDelegate {

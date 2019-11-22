@@ -13,15 +13,6 @@
 /* Label for the button, displayed in the menu, used to open a new tab */
 "Menu.NewTabAction.Title" = "Neuen Tab öffnen";
 
-/* Accessibility label for the button, displayed in the menu, used to open the Bbookmarks home panel. */
-"Menu.OpenBookmarksAction.AccessibilityLabel" = "Lesezeichen";
-
-/* Accessibility label for the button, displayed in the menu, used to open the Downloads home panel. */
-"Menu.OpenDownloadsAction.AccessibilityLabel" = "Downloads";
-
-/* Accessibility label for the button, displayed in the menu, used to open the History home panel. */
-"Menu.OpenHistoryAction.AccessibilityLabel" = "Chronik";
-
 /* Label for the button, displayed in the menu, used to navigate to the home page. */
 "Menu.OpenHomePageAction.Title" = "Startseite";
 
@@ -30,6 +21,9 @@
 
 /* Label for the button, displayed in the menu, used to open the What's new page. */
 "Menu.OpenWhatsNewAction.Title" = "Was ist neu";
+
+/* Label for the button, displayed in the menu, used to open Downloads. */
+"Menu.Downloads.Title" = "Downloads";
 
 /* Accessibility label for the button, displayed in the menu, used to open the Top Sites home panel. */
 "Menu.OpenTopSitesAction.AccessibilityLabel" = "Meistbesuchte Seiten";
