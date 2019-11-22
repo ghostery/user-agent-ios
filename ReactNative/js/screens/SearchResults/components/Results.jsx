@@ -8,7 +8,6 @@ import {
   TouchableWithoutFeedback,
   NativeModules,
 } from 'react-native';
-import { Provider as CliqzProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards/cliqz';
 import { Provider as ThemeProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
 import {
   baseTheme,
@@ -17,6 +16,7 @@ import {
 import NativeDrawable from '../../../components/NativeDrawable';
 import CardList from './CardList';
 import { withTheme } from '../../../contexts/theme';
+import CliqzProvider from '../../../contexts/cliqz';
 import t from '../../../services/i18n';
 
 const getTheme = theme =>
@@ -180,7 +180,7 @@ class Results extends React.Component {
 
     return (
       <View style={styles.container}>
-        <CliqzProvider value={cliqz}>
+        <CliqzProvider.Provider value={cliqz}>
           <ThemeProvider value={theme}>
             <ScrollView
               bounces
@@ -280,7 +280,7 @@ class Results extends React.Component {
               </>
             </ScrollView>
           </ThemeProvider>
-        </CliqzProvider>
+        </CliqzProvider.Provider>
       </View>
     );
   }

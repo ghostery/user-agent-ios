@@ -9,7 +9,7 @@
 import React from 'react';
 import { FlatList, View } from 'react-native';
 import Card from './Card';
-import { withCliqz } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/cliqz';
+import { withCliqz } from '../../../contexts/cliqz';
 
 class CardList extends React.PureComponent {
   constructor(props) {
