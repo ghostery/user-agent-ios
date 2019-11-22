@@ -8,9 +8,10 @@
 
 import React from 'react';
 import { FlatList, View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
-import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/components/custom/NativeDrawable';
 import { getMessage } from 'browser-core-user-agent-ios/build/modules/core/i18n';
 import { withStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
+
+import NativeDrawable from '../../../components/NativeDrawable';
 
 const styles = theme => StyleSheet.create({
   list: {
@@ -62,7 +63,6 @@ class SnippetList extends React.PureComponent {
       return null;
     }
     const footerText = getMessage(isCollapsed ? 'expand' : 'collapse');
-    const arrowImage = normalizeUrl('arrow-down.svg');
     const arrowAngle = { transform: [{ rotateX: isCollapsed ? '0deg' : '180deg' }] };
     return (
       <TouchableWithoutFeedback
@@ -71,7 +71,7 @@ class SnippetList extends React.PureComponent {
         <View style={classes.footer}>
           <Text style={classes.footerText}>{footerText.toUpperCase()}</Text>
           <NativeDrawable
-            source={arrowImage}
+            source="ic_ez_arrow-down"
             style={[classes.arrow, arrowAngle]}
             color="#9c9c9c"
           />

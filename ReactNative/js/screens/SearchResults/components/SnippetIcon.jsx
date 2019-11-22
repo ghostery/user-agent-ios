@@ -8,9 +8,9 @@
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/components/custom/NativeDrawable';
 import { withStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
 
+import NativeDrawable from '../../../components/NativeDrawable';
 import Logo from '../../../components/Logo';
 
 const styles = theme => StyleSheet.create({
@@ -43,33 +43,30 @@ function getHistorySymbol(props) {
   return (
     <NativeDrawable
       style={props.classes.history}
-      source={normalizeUrl('ic_history_white.svg', { isNative: true })}
+      source="ic_ez_ic_history_white"
       color={props.classes.iconARGB.color}
     />
   );
 }
 
-function getIcon(logo) {
+function getIcon(url) {
   return (
     <Logo
-      width={28}
-      height={28}
-      logoDetails={logo}
+      size={28}
+      url={url}
     />
   );
 }
 
 const SnippetIcon = (props) => {
-  const provider = props.provider;
-  const type = props.type;
-  const logo = props.logo;
+  const { logo, type, url, provider } = props;
   let symbol;
   if (type !== 'main' && provider === 'history') {
     symbol = getHistorySymbol(props);
   } else {
     switch (type) {
       case 'main':
-        symbol = getIcon(logo);
+        symbol = getIcon(url);
         break;
       default:
         symbol = <View style={props.classes.bullet} />;

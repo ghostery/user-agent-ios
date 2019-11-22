@@ -8,10 +8,10 @@
 
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import SnippetIcon from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/components/partials/SnippetIcon';
-import Link from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/components/Link';
+import SnippetIcon from './SnippetIcon';
+import Link from './Link';
 import { withStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
-import NativeDrawable, { normalizeUrl } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/components/custom/NativeDrawable';
+import NativeDrawable from '../../../components/NativeDrawable';
 
 const httpsLockWidth = 9;
 const httpsLockMarginRight = 5;
@@ -89,7 +89,7 @@ const Snippet = (props) => {
     // eslint-disable-next-line jsx-a11y/anchor-is-valid
     <Link onPress={() => props.openLink(url, type)}>
       <View style={props.classes.container}>
-        <SnippetIcon type={type} logo={logo} provider={provider} />
+        <SnippetIcon type={type} logo={logo} provider={provider} url={url} />
         <View style={props.classes.rightContainer}>
           <Text numberOfLines={titleLines} style={titleStyle}>{title}</Text>
           <View
@@ -100,7 +100,7 @@ const Snippet = (props) => {
             <NativeDrawable
               style={props.classes.lock}
               color={props.classes.lockColor.color}
-              source={normalizeUrl('https_lock.svg')}
+              source="ic_ez_https_lock"
             />
             <Text numberOfLines={1} style={props.classes.url}>{friendlyUrl}</Text>
           </View>

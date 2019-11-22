@@ -14,10 +14,7 @@ import {
   baseTheme,
   mergeStyles,
 } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/themes';
-import NativeDrawable, {
-  normalizeUrl,
-} from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
-
+import NativeDrawable from '../../../components/NativeDrawable';
 import CardList from './CardList';
 import { withTheme } from '../../../contexts/theme';
 import t from '../../../services/i18n';
@@ -236,7 +233,7 @@ class Results extends React.Component {
                       <NativeDrawable
                         style={styles.searchEngineIcon}
                         color="#ffffff"
-                        source={normalizeUrl('cliqz.svg')}
+                        source="ic_ez_cliqz"
                       />
                       <Text style={styles.searchEngineText}>Cliqz</Text>
                     </View>
@@ -255,7 +252,7 @@ class Results extends React.Component {
                       <NativeDrawable
                         style={styles.searchEngineIcon}
                         color="#ffffff"
-                        source={normalizeUrl('google.svg')}
+                        source="ic_ez_google"
                       />
                       <Text style={styles.searchEngineText}>Google</Text>
                     </View>
@@ -274,7 +271,7 @@ class Results extends React.Component {
                       <NativeDrawable
                         style={styles.searchEngineIcon}
                         color="#ffffff"
-                        source={normalizeUrl('ddg.svg')}
+                        source="ic_ez_ddg"
                       />
                       <Text style={styles.searchEngineText}>DuckDuckGo</Text>
                     </View>
