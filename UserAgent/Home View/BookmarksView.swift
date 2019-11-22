@@ -31,7 +31,7 @@ class BookmarksView: LibraryView {
     // MARK: - Initialization
     override func setup() {
         super.setup()
-        self.tableView.accessibilityIdentifier = Strings.BookmarksTitle
+        self.tableView.accessibilityIdentifier = Strings.Bookmarks.Title
         self.tableView.addGestureRecognizer(self.longPressRecognizer)
         self.loadData()
     }
@@ -98,7 +98,7 @@ class BookmarksView: LibraryView {
     }
 
     override func emptyMessage() -> String? {
-        return Strings.BookmarksPanelEmptyStateTitle
+        return Strings.Bookmarks.PanelEmptyStateTitle
     }
 
     func loadData() {

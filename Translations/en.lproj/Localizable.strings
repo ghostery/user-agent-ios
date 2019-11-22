@@ -81,50 +81,8 @@
 /* Block pop-up windows setting */
 "Block Pop-up Windows" = "Block Pop-up Windows";
 
-/* The header title for the fields when editing a Bookmark */
-"Bookmark.BookmarkDetail.FieldsHeader.Bookmark.Title" = "Bookmark";
-
-/* The header title for the fields when editing a Folder */
-"Bookmark.BookmarkDetail.FieldsHeader.Folder.Title" = "Folder";
-
-/* The label for the Title field when editing a bookmark */
-"Bookmark.DetailFieldTitle.Label" = "Title";
-
-/* The label for the URL field when editing a bookmark */
-"Bookmark.DetailFieldURL.Label" = "URL";
-
-/* Toggle bookmarks syncing setting */
-"Bookmarks" = "Bookmarks";
-
-/* The button to edit a bookmark */
-"Bookmarks.EditBookmark.Label" = "Edit Bookmark";
-
-/* The button to edit a folder */
-"Bookmarks.EditFolder.Label" = "Edit Folder";
-
-/* The label to show the location of the folder where the bookmark is located */
-"Bookmarks.Folder.Label" = "Folder";
-
-/* The label for the location of the new folder */
-"Bookmarks.FolderLocation.Label" = "Location";
-
-/* The label for the title of the new folder */
-"Bookmarks.FolderName.Label" = "Folder Name";
-
-/* The button to create a new bookmark */
-"Bookmarks.NewBookmark.Label" = "New Bookmark";
-
-/* The button to create a new folder */
-"Bookmarks.NewFolder.Label" = "New Folder";
-
-/* The button to create a new separator */
-"Bookmarks.NewSeparator.Label" = "New Separator";
-
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Title";
-
-/* The label for the URL of a bookmark */
-"Bookmarks.URL.Label" = "URL";
 
 /* Status label for the empty Bookmarks state. */
 "BookmarksPanel.EmptyState.Title" = "Bookmarks you save will show up here.";
