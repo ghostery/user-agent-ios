@@ -152,6 +152,12 @@ extension Strings {
             public static let TopSites = String(format: NSLocalizedString("Settings.NewTab.Option.Home", comment: "Option in settings to show Firefox Home when you open a new tab"), AppInfo.displayName)
         }
 
+        // Open With
+        public struct OpenWith {
+            public static let SectionName = NSLocalizedString("Settings.OpenWith.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour.")
+            public static let PageTitle = NSLocalizedString("Settings.OpenWith.PageTitle", comment: "Title for Open With Settings")
+        }
+
         public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
     }
 
@@ -209,11 +215,6 @@ extension Strings {
 
 // MARK: - Non Updated Strings below here
 
-// Open With Settings
-extension Strings {
-    public static let SettingsOpenWithSectionName = NSLocalizedString("Settings.OpenWith.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour.")
-    public static let SettingsOpenWithPageTitle = NSLocalizedString("Settings.OpenWith.PageTitle", comment: "Title for Open With Settings")
-}
 
 // Third Party Search Engines
 extension Strings {
