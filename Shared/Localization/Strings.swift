@@ -245,11 +245,9 @@ extension Strings {
     }
 }
 
-
 // MARK: - Non Updated Strings below here
-
-
-
+// Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
+// See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
 
 // errors
 extension Strings {
