@@ -783,6 +783,7 @@ class BrowserViewController: UIViewController {
         guard let searchController = self.searchController else {
             return
         }
+        self.view.bringSubviewToFront(self.overlayBackground)
 
         addChild(searchController)
         view.addSubview(searchController.view)
