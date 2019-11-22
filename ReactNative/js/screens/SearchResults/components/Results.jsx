@@ -8,7 +8,7 @@ import {
   TouchableWithoutFeedback,
   NativeModules,
 } from 'react-native';
-import SearchUIVertical from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/SearchUI';
+import CardList from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/components/CardList';
 import { Provider as CliqzProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards/cliqz';
 import { Provider as ThemeProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
 import {
@@ -116,6 +116,17 @@ const getStyles = theme =>
     },
   });
 
+const BLOCKED_TEMPLATES = ['calculator', 'currency', 'flight'];
+
+function isResultAllowed({ template, provider, type }) {
+  return (
+    !BLOCKED_TEMPLATES.includes(template) &&
+    type !== 'navigate-to' &&
+    Boolean(provider) &&
+    provider !== 'rich-header' // promises sometimes arrive to ui
+  );
+}
+
 class Results extends React.Component {
   constructor(props) {
     super(props);
@@ -160,7 +171,7 @@ class Results extends React.Component {
       meta,
       query: resultsQuery,
     } = _results;
-    const results = (allResults || []).filter(r => r.provider !== 'instant');
+    const results = (allResults || []).filter(isResultAllowed);
     const styles = getStyles(_theme);
     const theme = getTheme(_theme);
 
@@ -179,15 +190,20 @@ class Results extends React.Component {
               showsVerticalScrollIndicator={false}
             >
               <View style={styles.bouncer} />
-              <SearchUIVertical
-                results={results}
-                meta={meta}
+              <View
+                accessible={false}
+                accessibilityLabel="search-results"
                 style={styles.searchUI}
-                cardListStyle={styles.cardListStyle}
-                header={<View />}
-                separator={<View style={styles.separator} />}
-                footer={<View />}
-              />
+              >
+                <CardList
+                  results={results}
+                  meta={meta}
+                  style={styles.cardListStyle}
+                  header={<View />}
+                  separator={<View style={styles.separator} />}
+                  footer={<View />}
+                />
+              </View>
               <>
                 {results.length === 0 && (
                   <View style={styles.noResults}>
