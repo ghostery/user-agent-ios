@@ -2043,7 +2043,7 @@ extension BrowserViewController {
 
             self.profile.searchEngines.addSearchEngine(OpenSearchEngine(engineID: nil, shortName: shortName, searchTemplate: searchQuery, suggestTemplate: nil, isCustomEngine: true))
             let Toast = SimpleToast()
-            Toast.showAlertWithText(Strings.ThirdPartySearchEngineAdded, bottomContainer: self.webViewContainer)
+            Toast.showAlertWithText(Strings.Search.ThirdPartyEngines.EngineAdded, bottomContainer: self.webViewContainer)
         }
 
         self.present(alert, animated: true, completion: {})
