@@ -147,6 +147,11 @@ extension Strings {
             public static let EditButton = NSLocalizedString("Settings.Search.Edit.Button", comment: "Button displayed at the top of the search settings.")
         }
 
+        // New Tab
+        public struct NewTab {
+            public static let TopSites = String(format: NSLocalizedString("Settings.NewTab.Option.Home", comment: "Option in settings to show Firefox Home when you open a new tab"), AppInfo.displayName)
+        }
+
         public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
     }
 
@@ -203,84 +208,6 @@ extension Strings {
 
 
 // MARK: - Non Updated Strings below here
-
-
-
-// New tab choice settings
-extension Strings {
-    public static let CustomNewPageURL = NSLocalizedString("Settings.NewTab.CustomURL", comment: "Label used to set a custom url as the new tab option (homepage).")
-    public static let SettingsNewTabSectionName = NSLocalizedString("Settings.NewTab.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog to configure the new tab behaviour.")
-    public static let NewTabSectionName =
-        NSLocalizedString("Settings.NewTab.TopSectionName", comment: "Label at the top of the New Tab screen after entering New Tab in settings")
-    public static let SettingsNewTabTitle = NSLocalizedString("Settings.NewTab.Title", comment: "Title displayed in header of the setting panel.")
-    public static let NewTabSectionNameFooter =
-        NSLocalizedString("Settings.NewTab.TopSectionNameFooter", comment: "Footer at the bottom of the New Tab screen after entering New Tab in settings")
-    public static let SettingsNewTabTopSites = String(format: NSLocalizedString("Settings.NewTab.Option.Home", comment: "Option in settings to show Firefox Home when you open a new tab"), AppInfo.displayName)
-    public static let SettingsNewTabBookmarks = NSLocalizedString("Settings.NewTab.Option.Bookmarks", comment: "Option in settings to show bookmarks when you open a new tab")
-    public static let SettingsNewTabHistory = NSLocalizedString("Settings.NewTab.Option.History", comment: "Option in settings to show history when you open a new tab")
-    public static let SettingsNewTabBlankPage = NSLocalizedString("Settings.NewTab.Option.BlankPage", comment: "Option in settings to show a blank page when you open a new tab")
-    public static let SettingsNewTabHomePage = NSLocalizedString("Settings.NewTab.Option.HomePage", comment: "Option in settings to show your homepage when you open a new tab")
-    public static let SettingsNewTabDescription = NSLocalizedString("Settings.NewTab.Description", comment: "A description in settings of what the new tab choice means")
-    // AS Panel settings
-    public static let SettingsNewTabASTitle = NSLocalizedString("Settings.NewTab.Option.ASTitle", comment: "The title of the section in newtab that lets you modify the topsites panel")
-    public static let SettingsNewTabHiglightsHistory = NSLocalizedString("Settings.NewTab.Option.HighlightsHistory", comment: "Option in settings to turn off history in the highlights section")
-    public static let SettingsNewTabHighlightsBookmarks = NSLocalizedString("Settings.NewTab.Option.HighlightsBookmarks", comment: "Option in the settings to turn off recent bookmarks in the Highlights section")
-    public static let SettingsTopSitesCustomizeTitle = String(format: NSLocalizedString("Settings.NewTab.Option.CustomizeTitle", comment: "The title for the section to customize top sites in the new tab settings page."), AppInfo.displayName)
-    public static let SettingsTopSitesCustomizeFooter = NSLocalizedString("Settings.NewTab.Option.CustomizeFooter", comment: "The footer for the section to customize top sites in the new tab settings page.")
-
-}
-
-// Custom account settings - These strings did not make it for the v10 l10n deadline so we have turned them into regular strings. These strings will come back localized in a next version.
-
-extension Strings {
-    // Settings.AdvancedAccount.AutoconfigSectionFooter
-    // Details for using custom Firefox Account service.
-    public static let SettingsAdvancedAccountAutoconfigSectionFooter = "To use custom Firefox Account/Sync servers via autoconfig, specify the root URL of the custom Firefox Account site. This will download the configuration and setup this device to use the new service. After the new service has been set, you will need to create a new Firefox Account or login with an existing one."
-
-    // Settings.AdvancedAccount.TokenServerSectionFooter
-    // Details for using custom Firefox Account service.
-    public static let SettingsAdvancedAccountTokenServerSectionFooter = "To override a custom Firefox Sync server, specify the URL of the custom Firefox Sync server. After the new server has been set, you will need to log-out and login again for the changes to take effect."
-
-    // Settings.AdvancedAccount.SectionName
-    // Title displayed in header of the setting panel.
-    public static let SettingsAdvancedAccountTitle = "Advanced Sync Settings"
-
-    // Settings.AdvancedAccount.CustomAutoconfigURIPlaceholder
-    // Title displayed in header of the setting panel.
-    public static let SettingsAdvancedAccountCustomAutoconfigURIPlaceholder = "Custom Autoconfig URI"
-
-    // Settings.AdvancedAccount.ustomSyncTokenServerURIPlaceholder
-    // Title displayed in header of the setting panel.
-    public static let SettingsAdvancedAccountCustomSyncTokenServerURIPlaceholder = "Custom Sync Token Server URI"
-
-    // Settings.AdvancedAccount.UpdatedAlertMessage
-    // Messaged displayed when sync service has been successfully set.
-    public static let SettingsAdvancedAccountUrlUpdatedAlertMessage = "Firefox Account service updated. To begin using custom server, please log out and re-login."
-
-    // Settings.AdvancedAccount.ErrorAlertTitle
-    // Error alert message title.
-    public static let SettingsAdvancedAccountUrlErrorAlertTitle = "Error"
-
-    // Settings.AdvancedAccount.ErrorAlertMessage
-    // Messaged displayed when sync service has an error setting a custom sync url.
-    public static let SettingsAdvancedAccountUrlErrorAlertMessage = "There was an error while attempting to fetch the autoconfig. Please make sure that it is a valid Firefox Account root URL."
-
-    // Settings.AdvancedAccount.UseCustomAccountsServiceTitle
-    // Toggle switch to use custom FxA server
-    public static let SettingsAdvancedAccountUseCustomAccountsServiceTitle = "Use Custom Autoconfig"
-
-    // Settings.AdvancedAccount.EmptyAutoconfigURIErrorAlertMessage
-    // No custom service set.
-    public static let SettingsAdvancedAccountEmptyAutoconfigURIErrorAlertMessage = "Please enter a custom autoconfig URI before enabling."
-
-    // Settings.AdvancedAccount.UseCustomSyncTokenServerTitle
-    // Toggle switch to use custom FxA server
-    public static let SettingsAdvancedAccountUseCustomSyncTokenServerTitle = "Use Custom Sync Token Server"
-
-    // Settings.AdvancedAccount.EmptyTokenServerURIErrorAlertMessage
-    // No custom service set.
-    public static let SettingsAdvancedAccountEmptyTokenServerURIErrorAlertMessage = "Please enter a custom token server URI before enabling."
-}
 
 // Open With Settings
 extension Strings {

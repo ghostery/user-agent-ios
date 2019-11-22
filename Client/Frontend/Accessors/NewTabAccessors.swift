@@ -13,7 +13,7 @@ enum NewTabPage: String {
     var settingTitle: String {
         switch self {
         case .topSites:
-            return Strings.SettingsNewTabTopSites
+            return Strings.Settings.NewTab.TopSites
         }
     }
 

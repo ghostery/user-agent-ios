@@ -249,7 +249,6 @@
 		7BF5A1EA1B41640500EA9DD8 /* SyncQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */; };
 		7E4146FFA3D6BD8126BB5EB9 /* Menu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 187C48DAA7ADAA94202B7F33 /* Menu.strings */; };
 		834A40198503DEA0CC1E7FBA /* Shared.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D5C457AA78148172BE8231E /* Shared.strings */; };
-		8D8251811F4DE67F00780643 /* AdvancedAccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8251721F4DE67E00780643 /* AdvancedAccountSettingViewController.swift */; };
 		9BDB47EAA0D99EA1732D3E3F /* ClearPrivateDataConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */; };
 		A3C9447C9B26E53049AC9503 /* 3DTouchActions.strings in Resources */ = {isa = PBXBuildFile; fileRef = C69A4445A044D7F52824B948 /* 3DTouchActions.strings */; };
 		A835425991BEA33554CC85C2 /* Storage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87334596ACEFC08E1CEC3543 /* Storage.strings */; };
@@ -410,7 +409,6 @@
 		ACB737D523042BAB00FA5626 /* WebPagesForTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A651020699BD200B52A5F /* WebPagesForTesting.swift */; };
 		ACB737D623042BAB00FA5626 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A994951A3686BD008AD1AC /* BrowserViewController.swift */; };
 		ACB737DB23042BAB00FA5626 /* DownloadQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0625C97208E87F10081F3B2 /* DownloadQueue.swift */; };
-		ACB737DC23042BAB00FA5626 /* AdvancedAccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8251721F4DE67E00780643 /* AdvancedAccountSettingViewController.swift */; };
 		ACB737E023042BAB00FA5626 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		ACB737E123042BAB00FA5626 /* ShareExtensionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3972BF11C22412B00035B87 /* ShareExtensionHelper.swift */; };
 		ACB737E223042BAB00FA5626 /* SessionRestoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35B8D2C1D6383E9008E3D61 /* SessionRestoreHelper.swift */; };
@@ -1217,7 +1215,6 @@
 		84ABA3E805A19707DE49E5EB /* Pods-ShareTo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTo.debug.xcconfig"; path = "Target Support Files/Pods-ShareTo/Pods-ShareTo.debug.xcconfig"; sourceTree = "<group>"; };
 		88B2443E98359B04EE78C80E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intro.strings; sourceTree = "<group>"; };
 		8A71479FAA8317AA24627B04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginManager.strings; sourceTree = "<group>"; };
-		8D8251721F4DE67E00780643 /* AdvancedAccountSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedAccountSettingViewController.swift; sourceTree = "<group>"; };
 		8EF4515D84F7B934A5318AEC /* Pods-Cliqz.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cliqz.adhoc.xcconfig"; path = "Target Support Files/Pods-Cliqz/Pods-Cliqz.adhoc.xcconfig"; sourceTree = "<group>"; };
 		8F87D0B7200D772460EF6953 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 		8FF740D990F24FAF82BA095A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/3DTouchActions.strings; sourceTree = "<group>"; };
@@ -1825,7 +1822,6 @@
 			isa = PBXGroup;
 			children = (
 				7B4980A71CE363ED0017547C /* Settings.xcassets */,
-				8D8251721F4DE67E00780643 /* AdvancedAccountSettingViewController.swift */,
 				E692E3361C46E86A009D1240 /* AppSettingsOptions.swift */,
 				E68E39BD1C46F42000B85F42 /* AppSettingsTableViewController.swift */,
 				0B62EFD11AD63CD100ACB9CD /* Clearables.swift */,
@@ -4525,7 +4521,6 @@
 				B3854B04234B6866003E9D4A /* LibraryContextMenu.swift in Sources */,
 				46CA60E32316D4A80010CE6B /* History.swift in Sources */,
 				ACB737DB23042BAB00FA5626 /* DownloadQueue.swift in Sources */,
-				ACB737DC23042BAB00FA5626 /* AdvancedAccountSettingViewController.swift in Sources */,
 				ACB737E023042BAB00FA5626 /* BackForwardListViewController.swift in Sources */,
 				ACB737E123042BAB00FA5626 /* ShareExtensionHelper.swift in Sources */,
 				46CA60E92317E0DC0010CE6B /* LocaleConstants.m in Sources */,
@@ -4769,7 +4764,6 @@
 				46CA60DC2316CED70010CE6B /* BrowserActions.swift in Sources */,
 				D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */,
 				46CA60EE2317E1390010CE6B /* NativeDrawable.m in Sources */,
-				8D8251811F4DE67F00780643 /* AdvancedAccountSettingViewController.swift in Sources */,
 				C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */,
 				46BE36A62344D34800DADCB6 /* SuggestionsView.swift in Sources */,
 				D3972BF31C22412B00035B87 /* ShareExtensionHelper.swift in Sources */,

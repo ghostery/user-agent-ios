@@ -844,53 +844,8 @@
 /* General settings section title */
 "Settings.General.SectionName" = "Allgemein";
 
-/* Label used to set a custom url as the new tab option (homepage). */
-"Settings.NewTab.CustomURL" = "Benutzerdefinierte Adresse";
-
-/* A description in settings of what the new tab choice means */
-"Settings.NewTab.Description" = "Beim Öffnen eines neuen Tabs:";
-
-/* The title of the section in newtab that lets you modify the topsites panel */
-"Settings.NewTab.Option.ASTitle" = "Meistbesuchte Seiten anpassen";
-
-/* Option in settings to show a blank page when you open a new tab */
-"Settings.NewTab.Option.BlankPage" = "Leere Seite";
-
-/* Option in settings to show bookmarks when you open a new tab */
-"Settings.NewTab.Option.Bookmarks" = "Lesezeichen";
-
-/* The footer for the section to customize top sites in the new tab settings page. */
-"Settings.NewTab.Option.CustomizeFooter" = "Die von die Ihnen am meisten besuchten Websites";
-
-/* The title for the section to customize top sites in the new tab settings page. */
-"Settings.NewTab.Option.CustomizeTitle" = "%@ Home anpassen";
-
-/* Option in the settings to turn off recent bookmarks in the Highlights section */
-"Settings.NewTab.Option.HighlightsBookmarks" = "Neue Lesezeichen";
-
-/* Option in settings to turn off history in the highlights section */
-"Settings.NewTab.Option.HighlightsHistory" = "Besucht";
-
-/* Option in settings to show history when you open a new tab */
-"Settings.NewTab.Option.History" = "Chronik";
-
 /* Option in settings to show UserAgent Home when you open a new tab */
 "Settings.NewTab.Option.Home" = "%@ Home";
-
-/* Option in settings to show your homepage when you open a new tab */
-"Settings.NewTab.Option.HomePage" = "Startseite";
-
-/* Label used as an item in Settings. When touched it will open a dialog to configure the new tab behaviour. */
-"Settings.NewTab.SectionName" = "Neuer Tab";
-
-/* Title displayed in header of the setting panel. */
-"Settings.NewTab.Title" = "Neuer Tab";
-
-/* Label at the top of the New Tab screen after entering New Tab in settings */
-"Settings.NewTab.TopSectionName" = "Anzeigen";
-
-/* Footer at the bottom of the New Tab screen after entering New Tab in settings */
-"Settings.NewTab.TopSectionNameFooter" = "Entscheiden Sie, was in einem neuen Tab angezeigt wird";
 
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
 "Settings.OfferClipboardBar.Status" = "Wenn %@ geöffnet wird";
