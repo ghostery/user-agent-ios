@@ -211,9 +211,7 @@ class ShowIntroductionSetting: Setting {
 
     override func onClick(_ navigationController: UINavigationController?) {
         navigationController?.dismiss(animated: true, completion: {
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                appDelegate.browserViewController.presentIntroViewController(true)
-            }
+            BrowserViewController.foregroundBVC().presentIntroViewController(true)
         })
     }
 }
