@@ -30,11 +30,6 @@ class DownloadsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            self.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
-        } else {
-            self.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
-        }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Done", comment: "Done button on right side of the Downloads view controller title bar"), style: .done, target: self, action: #selector(closeButtonAction))
         self.title = Strings.AppMenuDownloadsTitleString
         self.view.addSubview(self.downloadsView)

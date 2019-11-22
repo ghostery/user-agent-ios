@@ -216,7 +216,11 @@ class BrowserViewController: UIViewController {
         downloadsViewContrller.delegate = self
         downloadsViewContrller.profile = self.profile
         let navigationController = UINavigationController(rootViewController: downloadsViewContrller)
-
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+        }
         self.present(navigationController, animated: true)
     }
 
