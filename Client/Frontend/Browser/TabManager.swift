@@ -466,7 +466,7 @@ class TabManager: NSObject {
         var toast: ButtonToast?
         let numberOfTabs = recentlyClosedForUndo.count
         if numberOfTabs > 0 {
-            toast = ButtonToast(labelText: String.localizedStringWithFormat(Strings.Tabs.DeleteAllUndoTitle, numberOfTabs), buttonText: Strings.Tabs.DeleteAllUndoAction, completion: { buttonPressed in
+            toast = ButtonToast(labelText: String.localizedStringWithFormat(Strings.Toast.DeleteAllUndoTitle, numberOfTabs), buttonText: Strings.Toast.DeleteAllUndoAction, completion: { buttonPressed in
                 if buttonPressed {
                     self.undoCloseTabs()
                     self.storeChanges()
