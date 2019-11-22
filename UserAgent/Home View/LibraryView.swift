@@ -89,9 +89,9 @@ class LibraryView: UIView, Themeable {
     }
 
     func applyTheme() {
-        self.tableView.backgroundColor = UIColor.theme.tableView.rowBackground
-        self.tableView.separatorColor = UIColor.theme.tableView.separator
-        self.emptyStateLabel?.textColor = UIColor.theme.homePanel.welcomeScreenText
+        self.tableView.backgroundColor = Theme.tableView.rowBackground
+        self.tableView.separatorColor = Theme.tableView.separator
+        self.emptyStateLabel?.textColor = Theme.homePanel.welcomeScreenText
         self.tableView.reloadData()
     }
 
@@ -148,7 +148,7 @@ extension LibraryView {
         emptyLabel.text = self.emptyMessage()
         emptyLabel.textAlignment = .center
         emptyLabel.font = DynamicFontHelper.defaultHelper.DeviceFontLight
-        emptyLabel.textColor = UIColor.theme.homePanel.welcomeScreenText
+        emptyLabel.textColor = Theme.homePanel.welcomeScreenText
         emptyLabel.numberOfLines = 0
         emptyLabel.adjustsFontSizeToFitWidth = true
 
@@ -206,7 +206,7 @@ extension LibraryView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
-        cell.textLabel?.textColor = UIColor.theme.tableView.rowText
+        cell.textLabel?.textColor = Theme.tableView.rowText
         return cell
     }
 
@@ -228,7 +228,7 @@ extension LibraryView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = UIColor.theme.tableView.headerTextDark
+            header.textLabel?.textColor = Theme.tableView.headerTextDark
             if #available(iOS 13.0, *) {
                 header.contentView.backgroundColor = UIColor.systemGray5
             } else {

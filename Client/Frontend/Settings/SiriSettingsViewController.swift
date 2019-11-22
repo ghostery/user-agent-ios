@@ -37,7 +37,7 @@ class SiriOpenURLSetting: Setting {
     override var accessibilityIdentifier: String? { return "SiriSettings" }
 
     init(settings: SettingsTableViewController) {
-        super.init(title: NSAttributedString(string: Strings.SettingsSiriOpenURL, attributes: [NSAttributedString.Key.foregroundColor: UIColor.theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.SettingsSiriOpenURL, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {

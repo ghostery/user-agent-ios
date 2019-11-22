@@ -56,14 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             self.applicationCleanlyBackgrounded = defaults.bool(forKey: "ApplicationCleanlyBackgrounded")
         }
         defaults.set(false, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         // Hold references to willFinishLaunching parameters for delayed app launch
         self.application = application
         self.launchOptions = launchOptions
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window!.backgroundColor = UIColor.theme.browser.background
+
+        self.window!.backgroundColor = Theme.browser.background
 
         // If the 'Save logs to Files app on next launch' toggle
         // is turned on in the Settings app, copy over old logs.
@@ -132,8 +132,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         self.window!.rootViewController = rootViewController
 
         SystemUtils.onFirstRun()
-
-        profile.cleanupHistoryIfNeeded()
 
         log.info("startApplication end")
         return true
@@ -216,38 +214,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         return true
     }
 
-    @available(iOS 13.0, *)
-    private func matchInterfaceStyleWithSystemStyle() {
-        guard let prefs = self.profile?.prefs else {
-            return
-        }
-        switch UITraitCollection.current.userInterfaceStyle {
-        case .dark:
-            if ThemeManager.instance.currentName != .dark {
-                NightModeHelper.toggle(prefs, tabManager: self.tabManager)
-            }
-        case .light:
-            if ThemeManager.instance.currentName != .normal {
-                NightModeHelper.toggle(prefs, tabManager: self.tabManager)
-            }
-        case .unspecified: break
-        @unknown default: break
-        }
-    }
-
     // We sync in the foreground only, to avoid the possibility of runaway resource usage.
     // Eventually we'll sync in response to notifications.
     func applicationDidBecomeActive(_ application: UIApplication) {
         shutdownWebServer?.cancel()
         shutdownWebServer = nil
-
-        if #available(iOS 13.0, *) {
-            // Matching interface style in dispatch block because of iOS 13 bug.
-            // UITraitCollection.current.userInterfaceStyle value is beeing updated with delay.
-            DispatchQueue.main.async {
-                self.matchInterfaceStyleWithSystemStyle()
-            }
-        }
 
         //
         // We are back in the foreground, so set CleanlyBackgrounded to false so that we can detect that
@@ -256,7 +227,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         let defaults = UserDefaults()
         defaults.set(false, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         if let profile = self.profile {
             profile._reopen()
@@ -281,6 +251,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             quickActions.handleShortCutItem(shortcut, withBrowserViewController: browserViewController)
             quickActions.launchedShortcutItem = nil
         }
+
+        // Delay these operations until after UIKit/UIApp init is complete
+        // - LeanPlum does heavy disk access during init, delay this
+        // - loadQueuedTabs accesses the DB and shows up as a hot path in profiling
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            // We could load these here, but then we have to futz with the tab counter
+            // and making NSURLRequests.
+            self.browserViewController.loadQueuedTabs(receivedURLs: self.receivedURLs)
+            self.receivedURLs.removeAll()
+            application.applicationIconBadgeNumber = 0
+        }
+
+        // Cleanup can be a heavy operation, take it out of the startup path. Instead check after a few seconds.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.profile?.cleanupHistoryIfNeeded()
+        }
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -292,7 +278,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         let defaults = UserDefaults()
         defaults.set(true, forKey: "ApplicationCleanlyBackgrounded")
-        defaults.synchronize()
 
         // Pause file downloads.
         browserViewController.downloadQueue.pauseAll()
@@ -318,7 +303,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         var taskId: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
         taskId = application.beginBackgroundTask(expirationHandler: {
             print("Running out of background time, but we have a profile shutdown pending.")
-            self.shutdownProfileWhenNotActive(application)
+            // Do not try to forceClose the db, it will lock the main thread and app will get killed
             application.endBackgroundTask(taskId)
         })
 
@@ -377,8 +362,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         // Set the UA for WKWebView (via defaults), the favicon fetcher, and the image loader.
         // This only needs to be done once per runtime. Note that we use defaults here that are
         // readable from extensions, so they can just use the cached identifier.
-        let defaults = UserDefaults(suiteName: AppInfo.sharedContainerIdentifier)!
-        defaults.register(defaults: ["UserAgent": firefoxUA])
 
         SDWebImageDownloader.shared.setValue(firefoxUA, forHTTPHeaderField: "User-Agent")
         //SDWebImage is setting accept headers that report we support webp. We don't

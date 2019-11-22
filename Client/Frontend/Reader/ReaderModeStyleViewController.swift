@@ -13,24 +13,24 @@ private struct ReaderModeStyleViewControllerUX {
 
     static let FontTypeRowBackground = UIColor.Grey10
 
-    static let FontTypeTitleSelectedColor = UIColor.Grey70
-    static let FontTypeTitleNormalColor = UIColor.Grey40
+    static let FontTypeTitleSelectedColor = UIColor.Grey90
+    static let FontTypeTitleNormalColor = UIColor.Grey60
 
     static let FontSizeRowBackground = UIColor.Grey20
-    static let FontSizeLabelColor = UIColor.Grey70
-    static let FontSizeButtonTextColorEnabled = UIColor.Grey70
-    static let FontSizeButtonTextColorDisabled = UIColor.Grey40
+    static let FontSizeLabelColor = UIColor.Grey80
+    static let FontSizeButtonTextColorEnabled = Theme.textField.textAndTint
+    static let FontSizeButtonTextColorDisabled = UIColor.Grey60
 
     static let ThemeRowBackgroundColor = UIColor.White
-    static let ThemeTitleColorLight = UIColor.Grey70
+    static let ThemeTitleColorLight = UIColor.darkGray
     static let ThemeTitleColorDark = UIColor.White
-    static let ThemeTitleColorSepia = UIColor.Grey70
+    static let ThemeTitleColorSepia = UIColor.darkGray
     static let ThemeBackgroundColorLight = UIColor.White
-    static let ThemeBackgroundColorDark = UIColor.Grey70
-    static let ThemeBackgroundColorSepia = UIColor.Defaults.LightBeige
+    static let ThemeBackgroundColorDark = UIColor.darkGray
+    static let ThemeBackgroundColorSepia = UIColor.ReaderModeSepia
 
     static let BrightnessRowBackground = UIColor.Grey20
-    static let BrightnessSliderTintColor = UIColor.Orange60
+    static let BrightnessSliderTintColor = UIColor.Orange
     static let BrightnessSliderWidth = 140
     static let BrightnessIconOffset = 10
 }

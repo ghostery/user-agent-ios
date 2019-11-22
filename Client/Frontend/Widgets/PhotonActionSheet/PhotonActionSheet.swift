@@ -14,7 +14,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
 
     private var site: Site?
     private let style: PresentationStyle
-    private var tintColor = UIColor.theme.actionMenu.foreground
+    private var tintColor = Theme.actionMenu.foreground
     private var heightConstraint: Constraint?
     var tableView = UITableView(frame: .zero, style: .grouped)
 
@@ -30,7 +30,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setTitle(Strings.PhotonMenu.Close, for: .normal)
-        button.setTitleColor(UIColor.theme.actionMenu.closeButtonTitleColor, for: .normal)
+        button.setTitleColor(Theme.actionMenu.closeButtonTitleColor, for: .normal)
         button.layer.cornerRadius = PhotonActionSheetUX.CornerRadius
         button.titleLabel?.font = DynamicFontHelper.defaultHelper.DeviceFontExtraLargeBold
         button.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
@@ -85,7 +85,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         // In a popover the popover provides the blur background
         // Not using a background color allows the view to style correctly with the popover arrow
         if self.popoverPresentationController == nil {
-            let blurEffect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
+            let blurEffect = UIBlurEffect(style: Theme.actionMenu.iPhoneBackgroundBlurStyle)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             tableView.backgroundView = blurEffectView
         }
@@ -103,7 +103,6 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         }
 
         if style == .popover {
-            self.actions = actions.map({ $0.reversed() }).reversed()
             tableView.snp.makeConstraints { make in
                 make.edges.equalTo(self.view)
             }
@@ -124,19 +123,19 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     func applyTheme() {
 
         if self.popoverPresentationController == nil {
-            let blurEffect = UIBlurEffect(style: UIColor.theme.actionMenu.iPhoneBackgroundBlurStyle)
+            let blurEffect = UIBlurEffect(style: Theme.actionMenu.iPhoneBackgroundBlurStyle)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             self.tableView.backgroundView = blurEffectView
         }
 
         if style == .popover {
-            view.backgroundColor = UIColor.theme.browser.background.withAlphaComponent(0.7)
+            view.backgroundColor = Theme.browser.background.withAlphaComponent(0.7)
         } else {
-            tableView.backgroundView?.backgroundColor = UIColor.theme.actionMenu.iPhoneBackground
+            tableView.backgroundView?.backgroundColor = Theme.actionMenu.iPhoneBackground
         }
 
-        tintColor = UIColor.theme.actionMenu.foreground
-        closeButton.backgroundColor = UIColor.theme.actionMenu.closeButtonBackground
+        tintColor = Theme.actionMenu.foreground
+        closeButton.backgroundColor = Theme.actionMenu.closeButtonBackground
 
         tableView.reloadData()
     }
@@ -176,6 +175,12 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.tableFooterView = footer.clone()
 
         applyTheme()
+
+        DispatchQueue.main.async {
+            // Pick up the correct/final tableview.contentsize in order to set the height.
+            // Without async dispatch, the contentsize is wrong.
+            self.view.setNeedsLayout()
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -291,6 +296,19 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            if site != nil {
+                return PhotonActionSheetUX.TitleHeaderSectionHeightWithSite
+            } else if title != nil {
+                return PhotonActionSheetUX.TitleHeaderSectionHeight
+            }
+            return 6
+        }
+
+        return PhotonActionSheetUX.SeparatorRowHeight
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // If we have multiple sections show a separator for each one except the first.
         if section > 0 {
@@ -321,11 +339,16 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let action = actions[indexPath.section][indexPath.row]
+        guard let section = actions[safe: indexPath.section], let action = section[safe: indexPath.row] else {
+            return PhotonActionSheetUX.RowHeight
+        }
+        if let custom = action.customHeight {
+            return custom(action)
+        }
         if action.customView != nil {
             return UITableView.automaticDimension
         } else {
-            return tableView.estimatedRowHeight
+            return PhotonActionSheetUX.RowHeight
         }
     }
 

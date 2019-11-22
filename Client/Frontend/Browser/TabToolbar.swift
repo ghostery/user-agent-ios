@@ -44,7 +44,17 @@ open class TabToolbarHelper: NSObject {
     let ImageReload = UIImage.templateImageNamed("nav-refresh")
     let ImageStop = UIImage.templateImageNamed("nav-stop")
 
-    var loading: Bool = false
+    var loading: Bool = false {
+        didSet {
+            if loading {
+                toolbar.stopReloadButton.setImage(ImageStop, for: .normal)
+                toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Stop", comment: "Accessibility Label for the tab toolbar Stop button")
+            } else {
+                toolbar.stopReloadButton.setImage(ImageReload, for: .normal)
+                toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Reload", comment: "Accessibility Label for the tab toolbar Reload button")
+            }
+        }
+    }
 
     fileprivate func setTheme(forButtons buttons: [Themeable]) {
         buttons.forEach { $0.applyTheme() }
@@ -66,6 +76,10 @@ open class TabToolbarHelper: NSObject {
         toolbar.forwardButton.addGestureRecognizer(longPressGestureForwardButton)
         toolbar.forwardButton.addTarget(self, action: #selector(didClickForward), for: .touchUpInside)
 
+        toolbar.stopReloadButton.setImage(UIImage.templateImageNamed("nav-refresh"), for: .normal)
+        toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Reload", comment: "Accessibility Label for the tab toolbar Reload button")
+        toolbar.stopReloadButton.addTarget(self, action: #selector(didClickStopReload), for: .touchUpInside)
+
         toolbar.searchButton.setImage(UIImage.templateImageNamed("search"), for: .normal)
         toolbar.searchButton.addTarget(self, action: #selector(didClickSearch), for: .touchUpInside)
 
@@ -74,7 +88,7 @@ open class TabToolbarHelper: NSObject {
         toolbar.tabsButton.addGestureRecognizer(longPressGestureTabsButton)
 
         toolbar.menuButton.contentMode = .center
-        toolbar.menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: UIColor.theme.general.controlTint), for: .normal)
+        toolbar.menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
         toolbar.menuButton.accessibilityLabel = Strings.AppMenuButtonAccessibilityLabel
         toolbar.menuButton.addTarget(self, action: #selector(didClickMenu), for: .touchUpInside)
         toolbar.menuButton.accessibilityIdentifier = "TabToolbar.menuButton"
@@ -114,6 +128,14 @@ open class TabToolbarHelper: NSObject {
 
     func didClickSearch() {
         toolbar.tabToolbarDelegate?.tabToolbarDidPressSearch(toolbar, button: toolbar.searchButton)
+    }
+
+    func didClickStopReload() {
+        if loading {
+            toolbar.tabToolbarDelegate?.tabToolbarDidPressStop(toolbar, button: toolbar.stopReloadButton)
+        } else {
+            toolbar.tabToolbarDelegate?.tabToolbarDidPressReload(toolbar, button: toolbar.stopReloadButton)
+        }
     }
 
     func updateReloadStatus(_ isLoading: Bool) {
@@ -167,8 +189,8 @@ class ToolbarButton: UIButton {
 
 extension ToolbarButton: Themeable {
     func applyTheme() {
-        selectedTintColor = UIColor.theme.toolbarButton.selectedTint
-        unselectedTintColor = UIColor.theme.browser.tint
+        selectedTintColor = Theme.toolbarButton.selectedTint
+        unselectedTintColor = Theme.browser.tint
         tintColor = isEnabled ? unselectedTintColor : disabledTintColor
         imageView?.tintColor = tintColor
     }
@@ -184,12 +206,9 @@ class TabToolbar: UIView {
     let searchButton = ToolbarButton()
     let actionButtons: [Themeable & UIButton]
 
-    lazy var stopReloadButton: ToolbarButton = {
-        return ToolbarButton()
-    }()
+    lazy var stopReloadButton = ToolbarButton()
 
-    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.Defaults.MobilePrivatePurple)
-    fileprivate let hideImagesBadge = BadgeWithBackdrop(imageName: "menuBadge")
+    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.ForgetMode)
 
     var helper: TabToolbarHelper?
     private let contentView = UIStackView()
@@ -216,7 +235,6 @@ class TabToolbar: UIView {
         addButtons(actionButtons)
 
         privateModeBadge.add(toParent: contentView)
-        hideImagesBadge.add(toParent: contentView)
 
         contentView.axis = .horizontal
         contentView.distribution = .fillEqually
@@ -224,7 +242,6 @@ class TabToolbar: UIView {
 
     override func updateConstraints() {
         privateModeBadge.layout(onButton: tabsButton)
-        hideImagesBadge.layout(onButton: menuButton)
 
         contentView.snp.makeConstraints { make in
             make.leading.trailing.top.equalTo(self)
@@ -276,10 +293,6 @@ extension TabToolbar: TabToolbarProtocol {
         privateModeBadge.show(visible)
     }
 
-    func hideImagesBadge(visible: Bool) {
-        hideImagesBadge.show(visible)
-    }
-
     func updateBackStatus(_ canGoBack: Bool) {
         backButton.isEnabled = canGoBack
     }
@@ -305,9 +318,8 @@ extension TabToolbar: Themeable, PrivateModeUI {
         backgroundColor = UIColor.clear
         helper?.setTheme(forButtons: actionButtons)
 
-        privateModeBadge.badge.tintBackground(color: UIColor.theme.browser.background)
-        hideImagesBadge.badge.tintBackground(color: UIColor.theme.browser.background)
-        menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: UIColor.theme.general.controlTint), for: .normal)
+        privateModeBadge.badge.tintBackground(color: Theme.browser.background)
+        menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
     }
 
     func applyUIMode(isPrivate: Bool) {
