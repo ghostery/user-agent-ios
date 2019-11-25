@@ -21,7 +21,7 @@ class HumanWebFeature: NSObject {
         self.tabManager.addNavigationDelegate(self)
     }
 
-    private func scheduleProcessPrendingJobs() {
+    private func scheduleProcessPendingJobs() {
         self.processPendingJobsWorkItem?.cancel()
 
         let workItem = DispatchWorkItem { [weak self] in
@@ -46,13 +46,16 @@ extension HumanWebFeature: WKNavigationDelegate {
             return
         }
 
-        if InternalURL.isValid(url: url) || !url.isWebPage(includeDataURIs: false) {
+        if
+            self.tabManager[webView]?.isPrivate ?? false ||
+            !url.isWebPage(includeDataURIs: false)
+        {
             return
         }
 
         self.notifyLocationChange(url)
 
-        self.scheduleProcessPrendingJobs()
+        self.scheduleProcessPendingJobs()
     }
 }
 
