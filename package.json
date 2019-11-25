@@ -21,7 +21,7 @@
     "@cliqz/component-ui-logo": "^0.4.4",
     "@cliqz/indexeddbshim": "^4.1.2",
     "@react-native-community/netinfo": "^4.6.1",
-    "browser-core-user-agent-ios": "https://s3.amazonaws.com/cdncliqz/update/edge/user-agent-ios/master/3.42.0.bc132b4.tgz",
+    "browser-core-user-agent-ios": "https://s3.amazonaws.com/cdncliqz/update/edge/user-agent-ios/master/3.42.0.87812a7.tgz",
     "cliqz-logo-database": "^0.4.3",
     "jsdom-jscore-rn": "^0.1.7",
     "page-metadata-parser": "1.1.4",
