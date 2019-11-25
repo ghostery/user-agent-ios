@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/prop-types */
 /*!
  * Copyright (c) 2014-present Cliqz GmbH. All rights reserved.
@@ -9,9 +8,8 @@
  */
 
 import React from 'react';
-import { FlatList, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Card from './Card';
-import { withCliqz } from '../../../contexts/cliqz';
 
 const styles = StyleSheet.create({
   defaultSeparator: {
@@ -19,40 +17,12 @@ const styles = StyleSheet.create({
   },
 });
 
-class CardList extends React.PureComponent {
+export default class CardList extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.viewabilityConfig = {
-      itemVisiblePercentThreshold: 50, // TODO: to be configured
-    };
     this.lastText = '';
     this.lastUrl = '';
   }
-
-  componentDidUpdate() {
-    if (!this._cardsList) {
-      return;
-    }
-    this._cardsList.scrollToIndex({ index: 0 });
-  }
-
-  componentWillUnmount() {
-    this._cardsList = null;
-  }
-
-  onViewableItemsChanged = ({ viewableItems: [{ item } = {}] }) => {
-    const { cliqz } = this.props;
-    if (!item) {
-      // TODO: check logic when no items viewed
-      return;
-    }
-    const { friendlyUrl, text } = item;
-    if (friendlyUrl !== this.lastUrl || text !== this.lastText) {
-      cliqz.mobileCards.handleAutocompletion(friendlyUrl, text);
-      this.lastUrl = friendlyUrl;
-      this.lastText = text;
-    }
-  };
 
   getSelection = (result, url, elementName) => {
     const { meta, index } = this.props;
@@ -97,7 +67,7 @@ class CardList extends React.PureComponent {
   };
 
   render() {
-    const { results, cliqz, style, separator, header, footer } = this.props;
+    const { results, style, separator, header, footer } = this.props;
     if (!results.length) {
       return null;
     }
@@ -108,34 +78,16 @@ class CardList extends React.PureComponent {
     };
 
     return (
-      <FlatList
-        ref={cardsList => {
-          this._cardsList = cardsList;
-        }}
-        bounces={false}
-        data={results}
-        keyExtractor={item => item.url}
-        renderItem={this.getComponent}
-        keyboardDismissMode="on-drag"
-        keyboardShouldPersistTaps="handled"
-        ItemSeparatorComponent={() =>
-          separator || <View style={styles.defaultSeparator} />
-        }
-        ListHeaderComponent={() =>
-          header || <View style={styles.defaultSeparator} />
-        }
-        ListFooterComponent={() =>
-          footer || <View style={styles.defaultSeparator} />
-        }
-        onTouchStart={() => cliqz.mobileCards.hideKeyboard()}
-        onScrollEndDrag={() => cliqz.search.reportHighlight()}
-        viewabilityConfig={this.viewabilityConfig}
-        onViewableItemsChanged={this.onViewableItemsChanged}
-        listKey="cards"
-        style={listStyle}
-      />
+      <View style={listStyle}>
+        {header || <View style={styles.defaultSeparator} />}
+        {results.map(result => (
+          <View key={result.url}>
+            {this.getComponent({ item: result })}
+            {separator || <View style={styles.defaultSeparator} />}
+          </View>
+        ))}
+        {footer || <View style={styles.defaultSeparator} />}
+      </View>
     );
   }
 }
-
-export default withCliqz(CardList);

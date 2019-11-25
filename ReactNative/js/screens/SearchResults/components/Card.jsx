@@ -40,7 +40,6 @@ export default ({ result, openLink }) => {
       <Snippet openLink={openLink} data={result} type="main" logo={logo} />
       {urls.length > 0 && (
         <SnippetList
-          listKey={`${url}history`}
           limit={3}
           expandStep={5}
           list={urls.map(snippet => (
@@ -56,7 +55,6 @@ export default ({ result, openLink }) => {
       {deepResults.map(snippet => (
         <SnippetList
           key={url + snippet.type}
-          listKey={url + snippet.type}
           limit={3}
           expandStep={5}
           list={snippet.links.map(link => (

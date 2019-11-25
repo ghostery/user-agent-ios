@@ -158,6 +158,13 @@ class Results extends React.Component {
       suggestions,
     );
 
+    if (results[0]) {
+      const { friendlyUrl, text } = results[0];
+      if (friendlyUrl && text) {
+        cliqz.mobileCards.handleAutocompletion(friendlyUrl, text);
+      }
+    }
+
     return (
       <View style={styles.container}>
         <CliqzProvider.Provider value={cliqz}>
@@ -165,6 +172,10 @@ class Results extends React.Component {
             bounces
             ref={this.scrollRef}
             showsVerticalScrollIndicator={false}
+            keyboardDismissMode="on-drag"
+            keyboardShouldPersistTaps="handled"
+            onTouchStart={() => cliqz.mobileCards.hideKeyboard()}
+            onScrollEndDrag={() => cliqz.search.reportHighlight()}
           >
             <View style={styles.bouncer} />
             <View

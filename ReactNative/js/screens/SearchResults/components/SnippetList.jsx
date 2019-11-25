@@ -8,13 +8,7 @@
  */
 
 import React from 'react';
-import {
-  FlatList,
-  View,
-  Text,
-  TouchableWithoutFeedback,
-  StyleSheet,
-} from 'react-native';
+import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 import { getMessage } from 'browser-core-user-agent-ios/build/modules/core/i18n';
 
 import { withTheme } from '../../../contexts/theme';
@@ -96,22 +90,24 @@ class SnippetList extends React.PureComponent {
   };
 
   render() {
-    const { theme, list, listKey } = this.props;
+    const { theme, list } = this.props;
     const styles = getStyles(theme);
     const { limit } = this.state;
     const isCollapsed = list.length > limit;
     const data = list.slice(0, limit);
     return (
-      <FlatList
-        style={styles.list}
-        keyExtractor={item => item.key}
-        data={data}
-        renderItem={({ item }) => item}
-        ItemSeparatorComponent={() => <View style={styles.separatorStyle} />}
-        ListFooterComponent={this.getFooter(isCollapsed, styles)}
-        ListHeaderComponent={() => <View style={styles.separatorStyle} />}
-        listKey={listKey}
-      />
+      <View style={styles.list}>
+        <View style={styles.separatorStyle} />
+        <View>
+          {data.map((snippet, i) => (
+            <View key={snippet.key}>
+              {snippet}
+              {i !== data.length - 1 && <View style={styles.separatorStyle} />}
+            </View>
+          ))}
+        </View>
+        {this.getFooter(isCollapsed, styles)}
+      </View>
     );
   }
 }
