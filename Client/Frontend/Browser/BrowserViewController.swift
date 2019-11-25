@@ -2251,3 +2251,9 @@ extension BrowserViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
+extension BrowserViewController {
+    public static func foregroundBVC() -> BrowserViewController {
+        return (UIApplication.shared.delegate as! AppDelegate).browserViewController
+    }
+}
