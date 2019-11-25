@@ -2,8 +2,6 @@ import { NativeModules } from 'react-native';
 
 const { userAgent } = NativeModules.Constants;
 
-console.warn("XXXs", userAgent)
-
 // TODO: investigate who is using it
 global.navigator.userAgent = userAgent;
 

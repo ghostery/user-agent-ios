@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /*!
  * Copyright (c) 2014-present Cliqz GmbH. All rights reserved.
  *
@@ -8,75 +9,57 @@
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { withStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
 
+import { useStyles } from '../../../contexts/theme';
 import NativeDrawable from '../../../components/NativeDrawable';
 import Logo from '../../../components/Logo';
 
-const styles = theme => StyleSheet.create({
-  history: {
-    width: theme.snippet.historyIconSize,
-    height: theme.snippet.historyIconSize,
-    marginTop: (theme.snippet.titleLineHeight - theme.snippet.historyIconSize) / 2,
-  },
-  symbolContainer: {
-    width: theme.snippet.mainIconSize,
-    backgroundColor: 'transparent',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginRight: theme.snippet.iconMarginRight,
-  },
-  iconARGB: {
-    color: theme.snippet.iconColorARGB,
-  },
-  bullet: {
-    backgroundColor: theme.snippet.iconColor,
-    borderColor: theme.snippet.iconColor,
-    width: theme.snippet.bulletIconSize,
-    height: theme.snippet.bulletIconSize,
-    marginTop: (theme.snippet.titleLineHeight - theme.snippet.bulletIconSize) / 2,
-    borderRadius: 1,
-  },
-});
+const getStyles = () =>
+  StyleSheet.create({
+    history: {
+      width: 17,
+      height: 17,
+      marginTop: (20 - 17) / 2,
+    },
+    symbolContainer: {
+      width: 28,
+      backgroundColor: 'transparent',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      marginRight: 6,
+    },
+    iconARGB: {
+      color: '#9B000000',
+    },
+    bullet: {
+      backgroundColor: 'rgba(0, 0, 0, 0.61)',
+      borderColor: 'rgba(0, 0, 0, 0.61)',
+      width: 5,
+      height: 5,
+      marginTop: (20 - 5) / 2,
+      borderRadius: 1,
+    },
+  });
 
-function getHistorySymbol(props) {
-  return (
-    <NativeDrawable
-      style={props.classes.history}
-      source="ic_ez_ic_history_white"
-      color={props.classes.iconARGB.color}
-    />
-  );
-}
-
-function getIcon(url) {
-  return (
-    <Logo
-      size={28}
-      url={url}
-    />
-  );
-}
-
-const SnippetIcon = (props) => {
-  const { logo, type, url, provider } = props;
+export default ({ type, url, provider }) => {
+  const styles = useStyles(getStyles);
   let symbol;
   if (type !== 'main' && provider === 'history') {
-    symbol = getHistorySymbol(props);
+    symbol = (
+      <NativeDrawable
+        style={styles.history}
+        source="ic_ez_ic_history_white"
+        color={styles.iconARGB.color}
+      />
+    );
   } else {
     switch (type) {
       case 'main':
-        symbol = getIcon(url);
+        symbol = <Logo size={28} url={url} />;
         break;
       default:
-        symbol = <View style={props.classes.bullet} />;
+        symbol = <View style={styles.bullet} />;
     }
   }
-  return (
-    <View style={props.classes.symbolContainer}>
-      {symbol}
-    </View>
-  );
+  return <View style={styles.symbolContainer}>{symbol}</View>;
 };
-
-export default withStyles(styles)(SnippetIcon);

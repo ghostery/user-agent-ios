@@ -8,30 +8,11 @@ import {
   TouchableWithoutFeedback,
   NativeModules,
 } from 'react-native';
-import { Provider as ThemeProvider } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
-import {
-  baseTheme,
-  mergeStyles,
-} from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/themes';
 import NativeDrawable from '../../../components/NativeDrawable';
 import CardList from './CardList';
 import { withTheme } from '../../../contexts/theme';
 import CliqzProvider from '../../../contexts/cliqz';
 import t from '../../../services/i18n';
-
-const getTheme = theme =>
-  mergeStyles(baseTheme, {
-    card: {
-      bgColor: theme.backgroundColor,
-    },
-    snippet: {
-      titleColor: theme.linkColor,
-      urlColor: theme.urlColor,
-      descriptionColor: theme.descriptionColor,
-      visitedTitleColor: theme.visitedColor,
-      separatorColor: theme.separatorColor,
-    },
-  });
 
 const getStyles = theme =>
   StyleSheet.create({
@@ -171,7 +152,6 @@ class Results extends React.Component {
     } = _results;
     const results = (allResults || []).filter(isResultAllowed);
     const styles = getStyles(_theme);
-    const theme = getTheme(_theme);
 
     NativeModules.BrowserActions.showQuerySuggestions(
       resultsQuery,
@@ -181,105 +161,101 @@ class Results extends React.Component {
     return (
       <View style={styles.container}>
         <CliqzProvider.Provider value={cliqz}>
-          <ThemeProvider value={theme}>
-            <ScrollView
-              bounces
-              ref={this.scrollRef}
-              showsVerticalScrollIndicator={false}
+          <ScrollView
+            bounces
+            ref={this.scrollRef}
+            showsVerticalScrollIndicator={false}
+          >
+            <View style={styles.bouncer} />
+            <View
+              accessible={false}
+              accessibilityLabel="search-results"
+              style={styles.searchUI}
             >
-              <View style={styles.bouncer} />
-              <View
-                accessible={false}
-                accessibilityLabel="search-results"
-                style={styles.searchUI}
-              >
-                <CardList
-                  results={results}
-                  meta={meta}
-                  style={styles.cardListStyle}
-                  header={<View />}
-                  separator={<View style={styles.separator} />}
-                  footer={<View />}
-                />
-              </View>
-              <>
-                {results.length === 0 && (
-                  <View style={styles.noResults}>
-                    <Text style={styles.noResultsText}>
-                      {t('search_no_results')}
-                    </Text>
-                  </View>
-                )}
-                <View style={styles.footer}>
-                  <Text style={styles.footerText}>{t('search_footer')}</Text>
-                </View>
-                <View style={styles.searchEnginesHeader}>
-                  <Text style={styles.searchEnginesHeaderText}>
-                    {t('search_alternative_search_engines_info')}
+              <CardList
+                results={results}
+                meta={meta}
+                style={styles.cardListStyle}
+                header={<View />}
+                separator={<View style={styles.separator} />}
+                footer={<View />}
+              />
+            </View>
+            <>
+              {results.length === 0 && (
+                <View style={styles.noResults}>
+                  <Text style={styles.noResultsText}>
+                    {t('search_no_results')}
                   </Text>
                 </View>
-                <View style={styles.searchEnginesContainer}>
-                  <TouchableWithoutFeedback
-                    onPress={() =>
-                      this.openSearchEngineLink(
-                        `https://beta.cliqz.com/search?q=${encodeURIComponent(
-                          query,
-                        )}#channel=ios`,
-                        2,
-                      )
-                    }
-                  >
-                    <View>
-                      <NativeDrawable
-                        style={styles.searchEngineIcon}
-                        color="#ffffff"
-                        source="ic_ez_cliqz"
-                      />
-                      <Text style={styles.searchEngineText}>Cliqz</Text>
-                    </View>
-                  </TouchableWithoutFeedback>
-                  <TouchableWithoutFeedback
-                    onPress={() =>
-                      this.openSearchEngineLink(
-                        `https://google.com/search?q=${encodeURIComponent(
-                          query,
-                        )}`,
-                        0,
-                      )
-                    }
-                  >
-                    <View>
-                      <NativeDrawable
-                        style={styles.searchEngineIcon}
-                        color="#ffffff"
-                        source="ic_ez_google"
-                      />
-                      <Text style={styles.searchEngineText}>Google</Text>
-                    </View>
-                  </TouchableWithoutFeedback>
-                  <TouchableWithoutFeedback
-                    onPress={() =>
-                      this.openSearchEngineLink(
-                        `https://duckduckgo.com/?q=${encodeURIComponent(
-                          query,
-                        )}`,
-                        1,
-                      )
-                    }
-                  >
-                    <View>
-                      <NativeDrawable
-                        style={styles.searchEngineIcon}
-                        color="#ffffff"
-                        source="ic_ez_ddg"
-                      />
-                      <Text style={styles.searchEngineText}>DuckDuckGo</Text>
-                    </View>
-                  </TouchableWithoutFeedback>
-                </View>
-              </>
-            </ScrollView>
-          </ThemeProvider>
+              )}
+              <View style={styles.footer}>
+                <Text style={styles.footerText}>{t('search_footer')}</Text>
+              </View>
+              <View style={styles.searchEnginesHeader}>
+                <Text style={styles.searchEnginesHeaderText}>
+                  {t('search_alternative_search_engines_info')}
+                </Text>
+              </View>
+              <View style={styles.searchEnginesContainer}>
+                <TouchableWithoutFeedback
+                  onPress={() =>
+                    this.openSearchEngineLink(
+                      `https://beta.cliqz.com/search?q=${encodeURIComponent(
+                        query,
+                      )}#channel=ios`,
+                      2,
+                    )
+                  }
+                >
+                  <View>
+                    <NativeDrawable
+                      style={styles.searchEngineIcon}
+                      color="#ffffff"
+                      source="ic_ez_cliqz"
+                    />
+                    <Text style={styles.searchEngineText}>Cliqz</Text>
+                  </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                  onPress={() =>
+                    this.openSearchEngineLink(
+                      `https://google.com/search?q=${encodeURIComponent(
+                        query,
+                      )}`,
+                      0,
+                    )
+                  }
+                >
+                  <View>
+                    <NativeDrawable
+                      style={styles.searchEngineIcon}
+                      color="#ffffff"
+                      source="ic_ez_google"
+                    />
+                    <Text style={styles.searchEngineText}>Google</Text>
+                  </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                  onPress={() =>
+                    this.openSearchEngineLink(
+                      `https://duckduckgo.com/?q=${encodeURIComponent(query)}`,
+                      1,
+                    )
+                  }
+                >
+                  <View>
+                    <NativeDrawable
+                      style={styles.searchEngineIcon}
+                      color="#ffffff"
+                      source="ic_ez_ddg"
+                    />
+                    <Text style={styles.searchEngineText}>DuckDuckGo</Text>
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
+            </>
+          </ScrollView>
         </CliqzProvider.Provider>
       </View>
     );

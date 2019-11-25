@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /*!
  * Copyright (c) 2014-present Cliqz GmbH. All rights reserved.
  *
@@ -7,40 +8,47 @@
  */
 
 import React from 'react';
-import { FlatList, View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
+import {
+  FlatList,
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  StyleSheet,
+} from 'react-native';
 import { getMessage } from 'browser-core-user-agent-ios/build/modules/core/i18n';
-import { withStyles } from 'browser-core-user-agent-ios/build/modules/mobile-cards-vertical/withTheme';
 
+import { withTheme } from '../../../contexts/theme';
 import NativeDrawable from '../../../components/NativeDrawable';
 
-const styles = theme => StyleSheet.create({
-  list: {
-    marginTop: 4
-  },
-  footer: {
-    flexDirection: 'row',
-    paddingTop: 11,
-    paddingBottom: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  footerText: {
-    fontSize: 12.5,
-    color: theme.snippet.descriptionColor,
-  },
-  arrow: {
-    height: 8,
-    width: 12,
-    marginLeft: 5,
-  },
-  separatorStyle: {
-    marginTop: 0,
-    marginBottom: 0,
-    borderTopColor: theme.snippet.separatorColor,
-    borderTopWidth: 0.5,
-    marginLeft: 29,
-  }
-});
+const getStyles = theme =>
+  StyleSheet.create({
+    list: {
+      marginTop: 4,
+    },
+    footer: {
+      flexDirection: 'row',
+      paddingTop: 11,
+      paddingBottom: 8,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    footerText: {
+      fontSize: 12.5,
+      color: theme.descriptionColor,
+    },
+    arrow: {
+      height: 8,
+      width: 12,
+      marginLeft: 5,
+    },
+    separatorStyle: {
+      marginTop: 0,
+      marginBottom: 0,
+      borderTopColor: theme.separatorColor,
+      borderTopWidth: 0.5,
+      marginLeft: 29,
+    },
+  });
 
 class SnippetList extends React.PureComponent {
   constructor(props) {
@@ -50,53 +58,62 @@ class SnippetList extends React.PureComponent {
     };
   }
 
-  onFooterPressed = (isCollapsed) => {
+  onFooterPressed = isCollapsed => {
+    const { expandStep, limit } = this.props;
     if (isCollapsed) {
-      this.setState(({ limit }) => ({ limit: limit + this.props.expandStep }));
+      this.setState(({ limit: previousLimit }) => ({
+        limit: previousLimit + expandStep,
+      }));
     } else {
-      this.setState({ limit: this.props.limit });
+      this.setState({ limit });
     }
-  }
+  };
 
-  getFooter = (isCollapsed, classes) => {
-    if (this.props.list.length <= this.props.limit) {
+  getFooter = (isCollapsed, styles) => {
+    const { list, limit } = this.props;
+
+    if (list.length <= limit) {
       return null;
     }
     const footerText = getMessage(isCollapsed ? 'expand' : 'collapse');
-    const arrowAngle = { transform: [{ rotateX: isCollapsed ? '0deg' : '180deg' }] };
+    const arrowAngle = {
+      transform: [{ rotateX: isCollapsed ? '0deg' : '180deg' }],
+    };
     return (
       <TouchableWithoutFeedback
         onPress={() => this.onFooterPressed(isCollapsed)}
       >
-        <View style={classes.footer}>
-          <Text style={classes.footerText}>{footerText.toUpperCase()}</Text>
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>{footerText.toUpperCase()}</Text>
           <NativeDrawable
             source="ic_ez_arrow-down"
-            style={[classes.arrow, arrowAngle]}
+            style={[styles.arrow, arrowAngle]}
             color="#9c9c9c"
           />
         </View>
       </TouchableWithoutFeedback>
     );
-  }
+  };
 
   render() {
-    const limit = this.state.limit;
-    const isCollapsed = this.props.list.length > limit;
-    const data = this.props.list.slice(0, limit);
+    const { theme, list, listKey } = this.props;
+    const styles = getStyles(theme);
+    const { limit } = this.state;
+    const isCollapsed = list.length > limit;
+    const data = list.slice(0, limit);
     return (
       <FlatList
-        style={this.props.classes.list}
+        style={styles.list}
         keyExtractor={item => item.key}
         data={data}
         renderItem={({ item }) => item}
-        ItemSeparatorComponent={() => <View style={this.props.classes.separatorStyle} />}
-        ListFooterComponent={this.getFooter(isCollapsed, this.props.classes)}
-        ListHeaderComponent={() => <View style={this.props.classes.separatorStyle} />}
-        listKey={this.props.listKey}
+        ItemSeparatorComponent={() => <View style={styles.separatorStyle} />}
+        ListFooterComponent={this.getFooter(isCollapsed, styles)}
+        ListHeaderComponent={() => <View style={styles.separatorStyle} />}
+        listKey={listKey}
       />
     );
   }
 }
 
-export default withStyles(styles)(SnippetList);
+export default withTheme(SnippetList);

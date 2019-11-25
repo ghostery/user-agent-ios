@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/prop-types */
 /*!
  * Copyright (c) 2014-present Cliqz GmbH. All rights reserved.
  *
@@ -7,9 +9,15 @@
  */
 
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, StyleSheet } from 'react-native';
 import Card from './Card';
 import { withCliqz } from '../../../contexts/cliqz';
+
+const styles = StyleSheet.create({
+  defaultSeparator: {
+    marginTop: 16,
+  },
+});
 
 class CardList extends React.PureComponent {
   constructor(props) {
@@ -21,9 +29,33 @@ class CardList extends React.PureComponent {
     this.lastUrl = '';
   }
 
+  componentDidUpdate() {
+    if (!this._cardsList) {
+      return;
+    }
+    this._cardsList.scrollToIndex({ index: 0 });
+  }
+
+  componentWillUnmount() {
+    this._cardsList = null;
+  }
+
+  onViewableItemsChanged = ({ viewableItems: [{ item } = {}] }) => {
+    const { cliqz } = this.props;
+    if (!item) {
+      // TODO: check logic when no items viewed
+      return;
+    }
+    const { friendlyUrl, text } = item;
+    if (friendlyUrl !== this.lastUrl || text !== this.lastText) {
+      cliqz.mobileCards.handleAutocompletion(friendlyUrl, text);
+      this.lastUrl = friendlyUrl;
+      this.lastText = text;
+    }
+  };
+
   getSelection = (result, url, elementName) => {
-    const props = this.props;
-    const meta = props.meta;
+    const { meta, index } = this.props;
     const selection = {
       action: 'click',
       elementName,
@@ -33,19 +65,20 @@ class CardList extends React.PureComponent {
       isPrivateResult: meta.isPrivate,
       query: result.text,
       rawResult: {
-        index: props.index,
+        index,
         ...result,
       },
       resultOrder: meta.resultOrder,
       url,
     };
     return selection;
-  }
+  };
 
   openLink = (result, url, elementName = '') => {
+    const { cliqz } = this.props;
     const selection = this.getSelection(result, url, elementName);
-    this.props.cliqz.mobileCards.openLink(url, selection);
-  }
+    cliqz.mobileCards.openLink(url, selection);
+  };
 
   getComponent = ({ item, index }) => {
     let Component;
@@ -61,61 +94,39 @@ class CardList extends React.PureComponent {
         index={index}
       />
     );
-  }
-
-  onViewableItemsChanged = ({ viewableItems: [{ item } = {}] }) => {
-    if (!item) {
-      // TODO: check logic when no items viewed
-      return;
-    }
-    const { friendlyUrl, text } = item;
-    if (friendlyUrl !== this.lastUrl || text !== this.lastText) {
-      this.props.cliqz.mobileCards.handleAutocompletion(friendlyUrl, text);
-      this.lastUrl = friendlyUrl;
-      this.lastText = text;
-    }
-  }
-
-  componentDidUpdate() {
-    if (!this._cardsList) {
-      return;
-    }
-    this._cardsList.scrollToIndex({ index: 0 });
-  }
-
-  componentWillUnmount() {
-    this._cardsList = null;
-  }
-
-  getSeparator = () => (this.props.separator || <View style={{ marginTop: 16 }} />)
-
-  getFooter = () => (this.props.footer || <View style={{ marginTop: 16 }} />)
-
-  getHeader = () => (this.props.header || <View style={{ marginTop: 16 }} />)
+  };
 
   render() {
-    const { results, cliqz } = this.props;
+    const { results, cliqz, style, separator, header, footer } = this.props;
     if (!results.length) {
       return null;
     }
     const listStyle = {
       paddingLeft: 10,
       paddingRight: 10,
-      ...(this.props.style || {}),
+      ...(style || {}),
     };
 
     return (
       <FlatList
-        ref={(cardsList) => { this._cardsList = cardsList; }}
+        ref={cardsList => {
+          this._cardsList = cardsList;
+        }}
         bounces={false}
         data={results}
         keyExtractor={item => item.url}
         renderItem={this.getComponent}
         keyboardDismissMode="on-drag"
         keyboardShouldPersistTaps="handled"
-        ItemSeparatorComponent={this.getSeparator}
-        ListHeaderComponent={this.getHeader}
-        ListFooterComponent={this.getFooter}
+        ItemSeparatorComponent={() =>
+          separator || <View style={styles.defaultSeparator} />
+        }
+        ListHeaderComponent={() =>
+          header || <View style={styles.defaultSeparator} />
+        }
+        ListFooterComponent={() =>
+          footer || <View style={styles.defaultSeparator} />
+        }
         onTouchStart={() => cliqz.mobileCards.hideKeyboard()}
         onScrollEndDrag={() => cliqz.search.reportHighlight()}
         viewabilityConfig={this.viewabilityConfig}

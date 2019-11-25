@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/jsx-props-no-spreading */
 /*!
  * Copyright (c) 2014-present Cliqz GmbH. All rights reserved.
  *
@@ -11,22 +14,24 @@ import { TouchableWithoutFeedback, View, Platform } from 'react-native';
 import { withCliqz } from '../../../contexts/cliqz';
 
 class Link extends React.Component {
-  _onPress = (e) => {
+  _onPress = e => {
+    const { cliqz, url, onPress } = this.props;
+    let { action, param } = this.props;
     e.stopPropagation();
-    const mobileCards = this.props.cliqz.mobileCards;
-    const url = this.props.url;
-    const action = url ? 'openLink' : this.props.action;
-    const param = url || this.props.param;
+    const { mobileCards } = cliqz;
+    action = url ? 'openLink' : action;
+    param = url || param;
     if (action) {
       mobileCards[action](param);
     }
     // callback onPress
-    if (this.props.onPress) {
-      this.props.onPress(e);
+    if (onPress) {
+      onPress(e);
     }
-  }
+  };
 
   render() {
+    const { style, label, url, children } = this.props;
     return Platform.select({
       default: (
         <TouchableWithoutFeedback onPress={this._onPress}>
@@ -34,17 +39,17 @@ class Link extends React.Component {
         </TouchableWithoutFeedback>
       ),
       web: (
-        <View style={this.props.style}>
+        <View style={style}>
           <div
-            aria-label={this.props.label}
-            data-url={this.props.url}
+            aria-label={label}
+            data-url={url}
             onClick={this._onPress}
             role="presentation"
           >
-            {this.props.children}
+            {children}
           </div>
         </View>
-      )
+      ),
     });
   }
 }
