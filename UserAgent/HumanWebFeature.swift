@@ -7,16 +7,32 @@
 //
 
 import WebKit
+import Shared
 
 class HumanWebFeature: NSObject {
     private weak var tabManager: TabManager!
     private let queue = DispatchQueue(label: "human-web")
-    private let delayedInteraval = DispatchTimeInterval.seconds(30)
+    private let delayedInteraval = DispatchTimeInterval.seconds(15)
+    private var processPendingJobsWorkItem: DispatchWorkItem?
 
     init(tabManager: TabManager) {
         super.init()
         self.tabManager = tabManager
         self.tabManager.addNavigationDelegate(self)
+    }
+
+    private func scheduleProcessPrendingJobs() {
+        self.processPendingJobsWorkItem?.cancel()
+
+        let workItem = DispatchWorkItem { [weak self] in
+            self?.processPendingJobs()
+            self?.processPendingJobsWorkItem = nil
+        }
+        self.processPendingJobsWorkItem = workItem
+
+        self.queue.asyncAfter(
+            deadline: .now() + delayedInteraval,
+            execute: workItem)
     }
 }
 
@@ -30,11 +46,13 @@ extension HumanWebFeature: WKNavigationDelegate {
             return
         }
 
+        if InternalURL.isValid(url: url) || !url.isWebPage(includeDataURIs: false) {
+            return
+        }
+
         self.notifyLocationChange(url)
 
-        self.queue.asyncAfter(deadline: .now() + delayedInteraval) {
-            self.processPendingJobs()
-        }
+        self.scheduleProcessPrendingJobs()
     }
 }
 
