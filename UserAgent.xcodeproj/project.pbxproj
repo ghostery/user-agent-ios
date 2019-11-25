@@ -2026,23 +2026,15 @@
 		463432F6233251F70014A9F0 /* UserAgent */ = {
 			isa = PBXGroup;
 			children = (
-				46442CEC238BE601002E6D85 /* HumanWeb */,
 				AC65328C2347674D00FC7ADB /* Home View */,
 				C56ED494233B68C7006A63B1 /* Interceptor */,
 				2B516D27238BAC8B006D6B57 /* Library */,
 				46828D87233E213A00E7D8A3 /* Views */,
+				46442CED238BE61D002E6D85 /* HumanWebFeature.swift */,
 				4620EA482350ABF9004586CF /* Search.swift */,
 				463432F72332521F0014A9F0 /* Telemetry.swift */,
 			);
 			path = UserAgent;
-			sourceTree = "<group>";
-		};
-		46442CEC238BE601002E6D85 /* HumanWeb */ = {
-			isa = PBXGroup;
-			children = (
-				46442CED238BE61D002E6D85 /* HumanWebFeature.swift */,
-			);
-			path = HumanWeb;
 			sourceTree = "<group>";
 		};
 		464E6836234B75C800ABAC43 /* Views */ = {
