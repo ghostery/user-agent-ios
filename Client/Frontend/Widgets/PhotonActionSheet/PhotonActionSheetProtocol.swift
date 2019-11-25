@@ -45,7 +45,9 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        return [openHomePage]
+        let openDownloadsItem = self.openDownloadsItem(vcDelegate: vcDelegate)
+
+        return [openHomePage, openDownloadsItem]
     }
 
     /*
@@ -366,6 +368,13 @@ extension PhotonActionSheetProtocol {
             }
         }
         return openSettings
+    }
+
+    private func openDownloadsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
+        let openDownloads = PhotonActionSheetItem(title: Strings.AppMenuDownloadsTitleString, iconString: "menu-downloads") { action in
+            (vcDelegate as? BrowserViewController)?.showDownloads()
+        }
+        return openDownloads
     }
 
     private func refreshPageItem() -> PhotonActionSheetItem {
