@@ -115,6 +115,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         // Add restoration class, the factory that will return the ViewController we
         // will restore with.
 
+        setupRootViewController()
+
+        SystemUtils.onFirstRun()
+
+        log.info("startApplication end")
+        return true
+    }
+
+    private func setupRootViewController() {
         browserViewController = BrowserViewController(profile: self.profile!, tabManager: self.tabManager)
         browserViewController.edgesForExtendedLayout = []
 
@@ -130,11 +139,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         rootViewController = navigationController
 
         self.window!.rootViewController = rootViewController
-
-        SystemUtils.onFirstRun()
-
-        log.info("startApplication end")
-        return true
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -209,7 +213,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         }
 
         DispatchQueue.main.async {
-            NavigationPath.handle(nav: routerpath, with: self.browserViewController)
+            NavigationPath.handle(nav: routerpath, with: BrowserViewController.foregroundBVC())
         }
         return true
     }
@@ -241,14 +245,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         application.applicationIconBadgeNumber = 0
 
         // Resume file downloads.
-        browserViewController.downloadQueue.resumeAll()
+        BrowserViewController.foregroundBVC().downloadQueue.resumeAll()
 
         // handle quick actions is available
         let quickActions = QuickActions.sharedInstance
         if let shortcut = quickActions.launchedShortcutItem {
             // dispatch asynchronously so that BVC is all set up for handling new tabs
             // when we try and open them
-            quickActions.handleShortCutItem(shortcut, withBrowserViewController: browserViewController)
+            quickActions.handleShortCutItem(shortcut, withBrowserViewController: BrowserViewController.foregroundBVC())
             quickActions.launchedShortcutItem = nil
         }
 
@@ -280,7 +284,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         defaults.set(true, forKey: "ApplicationCleanlyBackgrounded")
 
         // Pause file downloads.
-        browserViewController.downloadQueue.pauseAll()
+        BrowserViewController.foregroundBVC().downloadQueue.pauseAll()
 
         syncOnDidEnterBackground(application: application)
 
@@ -369,9 +373,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     }
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        let bvc = BrowserViewController.foregroundBVC()
         if #available(iOS 12.0, *) {
             if userActivity.activityType == SiriShortcuts.activityType.openURL.rawValue {
-                browserViewController.openBlankNewTab(focusLocationField: false)
+                bvc.openBlankNewTab(focusLocationField: false)
                 return true
             }
         }
@@ -380,16 +385,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         // reached via a "Spotlight" search before we began indexing visited pages via CoreSpotlight.
         if let url = userActivity.webpageURL {
             let query = url.getQuery()
-
             // Per Adjust documenation, https://docs.adjust.com/en/universal-links/#running-campaigns-through-universal-links,
             // it is recommended that links contain the `deep_link` query parameter. This link will also
             // be url encoded.
             if let deepLink = query["deep_link"]?.removingPercentEncoding, let url = URL(string: deepLink) {
-                browserViewController.switchToTabForURLOrOpen(url, isPrivileged: true)
+                bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
                 return true
             }
 
-            browserViewController.switchToTabForURLOrOpen(url, isPrivileged: true)
+            bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
             return true
         }
 
@@ -399,7 +403,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             if let userInfo = userActivity.userInfo,
                 let urlString = userInfo[CSSearchableItemActivityIdentifier] as? String,
                 let url = URL(string: urlString) {
-                browserViewController.switchToTabForURLOrOpen(url, isPrivileged: true)
+                bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
                 return true
             }
         }
@@ -416,14 +420,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         }
 
         // Check if the app is foregrounded, _also_ verify the BVC is initialized. Most BVC functions depend on viewDidLoad() having run –if not, they will crash.
-        if UIApplication.shared.applicationState == .active && browserViewController.isViewLoaded {
-            browserViewController.loadQueuedTabs(receivedURLs: receivedURLs)
+        if UIApplication.shared.applicationState == .active && BrowserViewController.foregroundBVC().isViewLoaded {
+            BrowserViewController.foregroundBVC().loadQueuedTabs(receivedURLs: receivedURLs)
             receivedURLs.removeAll()
         }
     }
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        let handledShortCutItem = QuickActions.sharedInstance.handleShortCutItem(shortcutItem, withBrowserViewController: browserViewController)
+        let handledShortCutItem = QuickActions.sharedInstance.handleShortCutItem(shortcutItem, withBrowserViewController: BrowserViewController.foregroundBVC())
 
         completionHandler(handledShortCutItem)
     }
@@ -505,7 +509,7 @@ extension AppDelegate {
                 // If we're in the foreground, load the queued tabs now.
                 if application.applicationState == .active {
                     DispatchQueue.main.async {
-                        self.browserViewController.loadQueuedTabs(receivedURLs: self.receivedURLs)
+                        BrowserViewController.foregroundBVC().loadQueuedTabs(receivedURLs: self.receivedURLs)
                         self.receivedURLs.removeAll()
                     }
                 }
@@ -524,8 +528,7 @@ extension AppDelegate {
 extension UIApplication {
 
     static var isInPrivateMode: Bool {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        return appDelegate?.browserViewController.tabManager.selectedTab?.isPrivate ?? false
+        return BrowserViewController.foregroundBVC().tabManager.selectedTab?.isPrivate ?? false
     }
 }
 

@@ -209,6 +209,21 @@ class BrowserViewController: UIViewController {
         applyTheme()
     }
 
+    func showDownloads() {
+        self.presentedViewController?.dismiss(animated: true)
+
+        let downloadsViewContrller = DownloadsViewController()
+        downloadsViewContrller.delegate = self
+        downloadsViewContrller.profile = self.profile
+        let navigationController = UINavigationController(rootViewController: downloadsViewContrller)
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+        }
+        self.present(navigationController, animated: true)
+    }
+
     func shouldShowFooterForTraitCollection(_ previousTraitCollection: UITraitCollection) -> Bool {
         return previousTraitCollection.verticalSizeClass != .compact && previousTraitCollection.horizontalSizeClass != .regular
     }
@@ -829,6 +844,27 @@ class BrowserViewController: UIViewController {
     fileprivate func destroySearchController() {
         hideSearchController()
         searchController = nil
+    }
+
+    func openURL(url: URL, visitType: VisitType) {
+        guard let tab = tabManager.selectedTab else { return }
+        finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
+    }
+
+    func openURLInNewTab(url: URL, isPrivate: Bool) {
+        let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
+        // If we are showing toptabs a user can just use the top tab bar
+        // If in overlay mode switching doesnt correctly dismiss the homepanels
+        guard !topTabsVisible, !self.urlBar.inOverlayMode else {
+            return
+        }
+        // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
+        let toast = ButtonToast(labelText: Strings.ContextMenuButtonToastNewTabOpenedLabelText, buttonText: Strings.ContextMenuButtonToastNewTabOpenedButtonText, completion: { buttonPressed in
+            if buttonPressed {
+                self.tabManager.selectTab(tab)
+            }
+        })
+        self.show(toast: toast)
     }
 
     func finishEditingAndSubmit(_ url: URL, visitType: VisitType, forTab tab: Tab) {
@@ -1484,24 +1520,11 @@ extension BrowserViewController: TabDelegate {
 
 extension BrowserViewController: HomePanelDelegate {
     func homePanel(didSelectURL url: URL, visitType: VisitType) {
-        guard let tab = tabManager.selectedTab else { return }
-        finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
+        self.openURL(url: url, visitType: visitType)
     }
 
     func homePanelDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
-        let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
-        // If we are showing toptabs a user can just use the top tab bar
-        // If in overlay mode switching doesnt correctly dismiss the homepanels
-        guard !topTabsVisible, !self.urlBar.inOverlayMode else {
-            return
-        }
-        // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
-        let toast = ButtonToast(labelText: Strings.ContextMenuButtonToastNewTabOpenedLabelText, buttonText: Strings.ContextMenuButtonToastNewTabOpenedButtonText, completion: { buttonPressed in
-            if buttonPressed {
-                self.tabManager.selectTab(tab)
-            }
-        })
-        self.show(toast: toast)
+        self.openURLInNewTab(url: url, isPrivate: isPrivate)
     }
 }
 
@@ -2214,5 +2237,11 @@ extension BrowserViewController {
         alert.addAction(UIAlertAction(title: cancelButtonText, style: .cancel, handler: nil), accessibilityIdentifier: "BrowserViewController.ReopenLastTabAlert.CancelButton")
 
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension BrowserViewController {
+    public static func foregroundBVC() -> BrowserViewController {
+        return (UIApplication.shared.delegate as! AppDelegate).browserViewController
     }
 }

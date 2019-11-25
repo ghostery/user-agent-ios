@@ -22,10 +22,9 @@ class HomeViewController: UIViewController {
         case topSites
         case bookmarks
         case history
-        case downloads
     }
 
-    private let segments: [Segment] = [.topSites, .bookmarks, .history, .downloads]
+    private let segments: [Segment] = [.topSites, .bookmarks, .history]
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: self.segments.map({ self.title(for: $0) }))
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
@@ -38,7 +37,7 @@ class HomeViewController: UIViewController {
         return segmentedControl
     }()
 
-    private lazy var allViews: [UIView] = { return [topSitesView, bookmarksView, historyView, downloadsView] }()
+    private lazy var allViews: [UIView] = { return [topSitesView, bookmarksView, historyView] }()
 
     private lazy var topSitesView: TopSitesView = {
         let topSitesView = TopSitesView(profile: self.profile)
@@ -55,13 +54,6 @@ class HomeViewController: UIViewController {
         let historyView = HistoryView(profile: self.profile)
         historyView.delegate = self
         return historyView
-    }()
-
-    private lazy var downloadsView: UIView = {
-        let downloadsView = DownloadsView(profile: self.profile)
-        downloadsView.delegate = self
-        downloadsView.documentDelegate = self
-        return downloadsView
     }()
 
     // MARK: - Initialization
@@ -100,7 +92,6 @@ private extension HomeViewController {
         view.addSubview(topSitesView)
         view.addSubview(bookmarksView)
         view.addSubview(historyView)
-        view.addSubview(downloadsView)
 
         let margins = 8
 
@@ -126,10 +117,6 @@ private extension HomeViewController {
             make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
         }
 
-        downloadsView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
-            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
-        }
     }
 
     @objc
@@ -155,8 +142,6 @@ private extension HomeViewController {
             return Strings.HomeView.SegmentedControl.BookmarksTitle
         case .history:
             return Strings.HomeView.SegmentedControl.HistoryTitle
-        case .downloads:
-            return Strings.HomeView.SegmentedControl.DownloadsTitle
         }
     }
 }
@@ -194,16 +179,6 @@ extension HomeViewController: LibraryViewDelegate {
 
     func library(wantsToPresent viewController: UIViewController) {
         self.present(viewController, animated: true)
-    }
-
-}
-
-extension HomeViewController: DownloadsViewDocumentDelegate {
-
-    func downlaodsView(wantsToPresentDocument path: URL) {
-        let dc = UIDocumentInteractionController(url: path)
-        dc.delegate = self
-        dc.presentPreview(animated: true)
     }
 
 }
