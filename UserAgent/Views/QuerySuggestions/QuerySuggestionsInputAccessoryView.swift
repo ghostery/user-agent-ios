@@ -12,7 +12,7 @@ protocol QuerySuggestionDelegate: class {
     func querySuggestionTapped(_ suggestion: String)
 }
 
-class QuerySuggestionsInputAccessoryView: UIView {
+class QuerySuggestionsInputAccessoryView: UIInputView {
     static let ShowSuggestionsNotification = NSNotification.Name(rawValue: "ShowSuggestionsNotification")
 
     public weak var delegate: QuerySuggestionDelegate?
@@ -25,11 +25,10 @@ class QuerySuggestionsInputAccessoryView: UIView {
         let width = min(screenBounds.width, screenBounds.height)
         let frame = CGRect(x: 0.0, y: 0.0, width: width, height: 44)
 
-        super.init(frame: frame)
+        super.init(frame: frame, inputViewStyle: .keyboard)
 
         self.isHidden = true
         self.autoresizingMask = .flexibleWidth
-        self.backgroundColor = UIColor(rgb: 0xADB5BD)
 
         addSuggestionsView(frame: frame)
 
