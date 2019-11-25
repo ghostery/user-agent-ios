@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     var applicationCleanlyBackgrounded = true
     var shutdownWebServer: DispatchSourceTimer?
     var interceptorFeature: InterceptorFeature!
+    var humanWebFeature: HumanWebFeature!
 
     weak var application: UIApplication?
     var launchOptions: [AnyHashable: Any]?
@@ -131,6 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         browserViewController.restorationClass = AppDelegate.self
 
         self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, ui: self.browserViewController)
+        self.humanWebFeature = HumanWebFeature(tabManager: self.tabManager)
 
         let navigationController = UINavigationController(rootViewController: browserViewController)
         navigationController.delegate = self

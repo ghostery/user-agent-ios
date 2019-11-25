@@ -12,7 +12,7 @@ class ReactNativeBridge {
 
     lazy var bridge: RCTBridge = RCTBridge(delegate: ReactNativeBridgeDelegate(), launchOptions: nil)
 
-    var browserCore: JSBridge {
+    var browserCore: BrowserCore {
         return bridge.module(for: JSBridge.self) as! JSBridge
     }
 }
