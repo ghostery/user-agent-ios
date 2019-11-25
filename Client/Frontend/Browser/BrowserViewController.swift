@@ -846,12 +846,12 @@ class BrowserViewController: UIViewController {
         searchController = nil
     }
 
-    private func openURL(url: URL, visitType: VisitType) {
+    func openURL(url: URL, visitType: VisitType) {
         guard let tab = tabManager.selectedTab else { return }
         finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
     }
 
-    private func openURLInNewTab(url: URL, isPrivate: Bool) {
+    func openURLInNewTab(url: URL, isPrivate: Bool) {
         let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
         // If we are showing toptabs a user can just use the top tab bar
         // If in overlay mode switching doesnt correctly dismiss the homepanels
@@ -1526,18 +1526,6 @@ extension BrowserViewController: HomePanelDelegate {
     func homePanelDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
         self.openURLInNewTab(url: url, isPrivate: isPrivate)
     }
-}
-
-extension BrowserViewController: DownloadsDelegate {
-
-    func downloads(didSelectURL url: URL, visitType: VisitType) {
-        self.openURL(url: url, visitType: visitType)
-    }
-
-    func downloadsDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
-        self.openURLInNewTab(url: url, isPrivate: isPrivate)
-    }
-
 }
 
 extension BrowserViewController: TabManagerDelegate {

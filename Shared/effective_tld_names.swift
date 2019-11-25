@@ -7436,4 +7436,3 @@ let ETLD_NAMES_LIST = [
    "za.net",
    "za.org",
 ]
-
