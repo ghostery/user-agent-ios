@@ -6,6 +6,8 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
+import Shared
+
 @objc(Constants)
 class Constants: NSObject {
     @objc
@@ -13,6 +15,7 @@ class Constants: NSObject {
         return [
             "isDebug": self.isDebug,
             "isCI": self.isCI,
+            "userAgent": UserAgent.defaultUserAgent(),
         ]
     }
 

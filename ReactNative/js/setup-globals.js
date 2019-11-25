@@ -88,19 +88,3 @@ const browser = {
 
 global.browser = browser;
 global.chrome = browser;
-// eslint-disable-next-line no-underscore-dangle
-const _fetch = global.window.fetch;
-global.window.fetch = (u, o) => {
-  if (!o) {
-    return _fetch(u);
-  }
-
-  return _fetch(u, {
-    ...o,
-    headers: {
-      ...(o.headers || {}),
-      'user-agent':
-        'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/3.1.0 Mobile/15E148 Safari/605.1.15',
-    },
-  });
-};
