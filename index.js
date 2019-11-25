@@ -13,7 +13,6 @@ import { ThemeWrapperComponentProvider } from './ReactNative/js/contexts/theme';
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount',
   'Warning: componentWillReceiveProps',
-  'VirtualizedLists',
 ]);
 
 const app = new App({
