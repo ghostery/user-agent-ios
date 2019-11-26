@@ -10,6 +10,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Card from './Card';
+import WeatherSnippet from './snippets/WeatherSnippet';
 import { withCliqz } from '../../../contexts/cliqz';
 
 const styles = StyleSheet.create({
@@ -52,11 +53,16 @@ class CardList extends React.PureComponent {
   };
 
   getComponent = ({ item, index }) => {
-    let Component;
-    switch (item.type) {
+    let Component = Card;
+
+    switch (item.template) {
+      case 'weatherEZ':
+        Component = WeatherSnippet;
+        break;
       default:
-        Component = Card;
+        break;
     }
+
     return (
       <Component
         key={item.meta.domain}
