@@ -10,6 +10,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Card from './Card';
+import { withCliqz } from '../../../contexts/cliqz';
 
 const styles = StyleSheet.create({
   defaultSeparator: {
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class CardList extends React.PureComponent {
+class CardList extends React.PureComponent {
   constructor(props) {
     super(props);
     this.lastText = '';
@@ -91,3 +92,5 @@ export default class CardList extends React.PureComponent {
     );
   }
 }
+
+export default withCliqz(CardList);
