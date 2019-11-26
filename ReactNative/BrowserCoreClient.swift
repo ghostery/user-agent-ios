@@ -9,16 +9,16 @@
 import Foundation
 
 protocol BrowserCoreClient {
-    var browserCore: JSBridge { get }
-    static var browserCore: JSBridge { get }
+    var browserCore: BrowserCore { get }
+    static var browserCore: BrowserCore { get }
 }
 
 extension BrowserCoreClient {
-    var browserCore: JSBridge {
+    var browserCore: BrowserCore {
         return ReactNativeBridge.sharedInstance.browserCore
     }
 
-    static var browserCore: JSBridge {
+    static var browserCore: BrowserCore {
         return ReactNativeBridge.sharedInstance.browserCore
     }
 }

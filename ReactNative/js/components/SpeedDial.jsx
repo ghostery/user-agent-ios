@@ -2,10 +2,8 @@
 import React from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { parse } from 'tldts';
-import NativeDrawable, {
-  normalizeUrl,
-} from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 import Logo from './Logo';
+import NativeDrawable from './NativeDrawable';
 import { withTheme } from '../contexts/theme';
 
 const getStyles = theme => ({
@@ -64,7 +62,7 @@ const SpeedDial = ({ speedDial, onPress, theme, style = {} }) => {
               <NativeDrawable
                 style={styles.pinIcon}
                 color={styles.pinIcon.color}
-                source={normalizeUrl('pin.svg')}
+                source="ic_ez_pin"
               />
             </View>
           }
