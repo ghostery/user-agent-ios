@@ -230,6 +230,8 @@ PODS:
     - React
   - RNSqlite2 (1.0.0):
     - React
+  - RNSVG (9.13.3):
+    - React
   - SDWebImage (5.3.1):
     - SDWebImage/Core (= 5.3.1)
   - SDWebImage/Core (5.3.1)
@@ -286,6 +288,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `./node_modules/react-native/ReactCommon`)
   - RNFS (from `./node_modules/react-native-fs`)
   - RNSqlite2 (from `./node_modules/react-native-sqlite-2/ios/`)
+  - RNSVG (from `node_modules/react-native-svg`)
   - SDWebImage (~> 5.0)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
   - SnapKit (~> 5.0.0)
@@ -365,6 +368,8 @@ EXTERNAL SOURCES:
     :path: "./node_modules/react-native-fs"
   RNSqlite2:
     :path: "./node_modules/react-native-sqlite-2/ios/"
+  RNSVG:
+    :path: node_modules/react-native-svg
   Sentry:
     :git: https://github.com/getsentry/sentry-cocoa.git
     :tag: 4.3.1
@@ -408,6 +413,7 @@ SPEC CHECKSUMS:
   ReactCommon: a6a294e7028ed67b926d29551aa9394fd989c24c
   RNFS: a8fbe7060fa49157d819466404794ad9c58e58cf
   RNSqlite2: 038cbebb953f80432db480c5ac5fd8ae427f8446
+  RNSVG: f6177f8d7c095fada7cfee2e4bb7388ba426064c
   SDWebImage: 7137d57385fb632129838c1e6ab9528a22c666cc
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
