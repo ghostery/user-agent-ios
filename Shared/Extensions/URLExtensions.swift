@@ -360,6 +360,11 @@ public struct InternalURL {
     public static let uuid = UUID().uuidString
     public static let scheme = "internal"
     public static let baseUrl = "\(scheme)://local"
+
+    public static func createQueryItem(url: URL) -> URLQueryItem {
+        return URLQueryItem(name: InternalURL.Param.url.rawValue, value: url.absoluteString.toBase64())
+    }
+
     public enum Path: String {
         case errorpage = "errorpage"
         case sessionrestore = "sessionrestore"
