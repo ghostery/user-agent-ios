@@ -243,23 +243,32 @@ extension Strings {
         public static let NotNowString = NSLocalizedString("Toasts.NotNow", comment: "label for Not Now button")
         public static let AppStoreString = NSLocalizedString("Toasts.OpenAppStore", comment: "Open App Store button")
     }
+
+    // MARK: - Errors
+    public struct Errors {
+        public struct Downloads {
+            public static let Message = String(format: NSLocalizedString("Downloads.Error.Message", comment: "The message displayed to a user when they try and perform the download of an asset that Firefox cannot currently handle."), AppInfo.displayName)
+        }
+        public struct AddPass {
+            public static let Title = NSLocalizedString("AddPass.Error.Title", comment: "Title of the 'Add Pass Failed' alert. See https://support.apple.com/HT204003 for context on Wallet.")
+            public static let Message = NSLocalizedString("AddPass.Error.Message", comment: "Text of the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
+            public static let Dismiss = NSLocalizedString("AddPass.Error.Dismiss", comment: "Button to dismiss the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
+        }
+        public struct OpenURL {
+            public static let Title = NSLocalizedString("OpenURL.Error.Title", comment: "Title of the message shown when the user attempts to navigate to an invalid link.")
+            public static let Message = String(format: NSLocalizedString("OpenURL.Error.Message", comment: "The message displayed to a user when they try to open a URL that cannot be handled by Firefox, or any external app."), AppInfo.displayName)
+        }
+        public struct App {
+            public static let RestoreTabsAfterCrashMessage = String(format: NSLocalizedString("Restore.Tabs.After.Crash", comment: "Restore Tabs Prompt Description"), AppInfo.displayName)
+            public static let CrashedMessage = String(format: NSLocalizedString("App.Crashed", comment: "App crashed"), AppInfo.displayName)
+        }
+    }
+
 }
 
 // MARK: - Non Updated Strings below here
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
-
-// errors
-extension Strings {
-    public static let UnableToDownloadError = String(format: NSLocalizedString("Downloads.Error.Message", comment: "The message displayed to a user when they try and perform the download of an asset that Firefox cannot currently handle."), AppInfo.displayName)
-    public static let UnableToAddPassErrorTitle = NSLocalizedString("AddPass.Error.Title", comment: "Title of the 'Add Pass Failed' alert. See https://support.apple.com/HT204003 for context on Wallet.")
-    public static let UnableToAddPassErrorMessage = NSLocalizedString("AddPass.Error.Message", comment: "Text of the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
-    public static let UnableToAddPassErrorDismiss = NSLocalizedString("AddPass.Error.Dismiss", comment: "Button to dismiss the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
-    public static let UnableToOpenURLError = String(format: NSLocalizedString("OpenURL.Error.Message", comment: "The message displayed to a user when they try to open a URL that cannot be handled by Firefox, or any external app."), AppInfo.displayName)
-    public static let UnableToOpenURLErrorTitle = NSLocalizedString("OpenURL.Error.Title", comment: "Title of the message shown when the user attempts to navigate to an invalid link.")
-    public static let RestoreTabsAfterCrashMessage = String(format: NSLocalizedString("Restore.Tabs.After.Crash", comment: "Restore Tabs Prompt Description"), AppInfo.displayName)
-    public static let AppCrashedMessage = String(format: NSLocalizedString("App.Crashed", comment: "App crashed"), AppInfo.displayName)
-}
 
 // Download Helper
 extension Strings {

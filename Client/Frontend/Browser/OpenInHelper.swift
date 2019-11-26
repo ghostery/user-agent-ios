@@ -143,8 +143,8 @@ class OpenPassBookHelper: NSObject, OpenInHelper {
                 }
             }
         } catch {
-            let alertController = UIAlertController(title: Strings.UnableToAddPassErrorTitle, message: Strings.UnableToAddPassErrorMessage, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: Strings.UnableToAddPassErrorDismiss, style: .cancel) { (action) in
+            let alertController = UIAlertController(title: Strings.Errors.AddPass.Title, message: Strings.Errors.AddPass.Message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: Strings.Errors.AddPass.Dismiss, style: .cancel) { (action) in
                     // Do nothing.
             })
             browserViewController.present(alertController, animated: true, completion: nil)
