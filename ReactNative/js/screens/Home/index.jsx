@@ -6,11 +6,9 @@ import {
   ScrollView,
   StyleSheet,
   View,
+  Image,
 } from 'react-native';
 import { parse } from 'tldts';
-import NativeDrawable, {
-  normalizeUrl,
-} from 'browser-core-user-agent-ios/build/modules/mobile-cards/components/custom/NativeDrawable';
 import SpeedDial from '../../components/SpeedDial';
 import News from './components/News';
 
@@ -111,9 +109,10 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
       >
         <View style={styles.wrapper}>
           <View style={styles.logoWrapper}>
-            <NativeDrawable
+            <Image
               style={styles.logo}
-              source={normalizeUrl('logo.svg')}
+              source={{ uri: 'logo' }}
+              resizeMode="contain"
             />
           </View>
           <View style={styles.speedDialsContainer}>

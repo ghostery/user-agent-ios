@@ -13,7 +13,6 @@ import { ThemeWrapperComponentProvider } from './ReactNative/js/contexts/theme';
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount',
   'Warning: componentWillReceiveProps',
-  'VirtualizedLists',
 ]);
 
 const app = new App({
@@ -27,6 +26,16 @@ global.CLIQZ = {
 };
 
 const bridgeManager = new BridgeManager(NativeModules.JSBridge, inject, appReady);
+
+bridgeManager.addActionListener(({ module, action, args /* , id */ }) => {
+  // TODO: replace with browser.webNavigation listener
+  if (module === 'BrowserCore' && action === 'notifyLocationChange') {
+    const url = args[0];
+    events.pub('content:location-change', { url });
+    return true;
+  }
+  return false;
+});
 
 AppRegistry.setWrapperComponentProvider(ThemeWrapperComponentProvider(bridgeManager));
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component { render() { return null; }});

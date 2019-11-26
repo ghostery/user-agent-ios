@@ -276,7 +276,7 @@ extension PhotonActionSheetProtocol {
 
         // Whotracks.me link
         guard let baseDomain = blocker.tab?.currentURL()?.baseDomain, let appDel = UIApplication.shared.delegate as? AppDelegate else {
-            return [menuActions, [trackerInfo], ]
+            return [menuActions, [trackerInfo]]
         }
 
         let whoTracksMeLink = PhotonActionSheetItem(title: Strings.PrivacyDashboard.ViewFullReport + " ›") { action in
@@ -287,8 +287,11 @@ extension PhotonActionSheetProtocol {
         if blocker.status == .Disabled {
             return [[whoTracksMeLink]]
         }
-
-        return [menuActions, [trackerInfo], [whoTracksMeLink]]
+        if blocker.stats.total > 0 {
+            return [menuActions, [trackerInfo], [whoTracksMeLink]]
+        } else {
+            return [menuActions, [trackerInfo]]
+        }
     }
 
     @available(iOS 11.0, *)
