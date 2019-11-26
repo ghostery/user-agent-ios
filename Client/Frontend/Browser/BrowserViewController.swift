@@ -594,7 +594,6 @@ class BrowserViewController: UIViewController {
         showQueuedAlertIfAvailable()
     }
 
-
     fileprivate func showQueuedAlertIfAvailable() {
         if let queuedAlertInfo = tabManager.selectedTab?.dequeueJavascriptAlertPrompt() {
             let alertController = queuedAlertInfo.alertController()
