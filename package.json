@@ -19,6 +19,7 @@
   "dependencies": {
     "@babel/core": "^7.7.2",
     "@cliqz/component-ui-logo": "^0.4.4",
+    "@cliqz/component-ui-snippet-weather": "^0.4.5",
     "@cliqz/indexeddbshim": "^4.1.2",
     "@react-native-community/netinfo": "^4.6.1",
     "browser-core-user-agent-ios": "https://s3.amazonaws.com/cdncliqz/update/edge/user-agent-ios/master/3.42.0.87812a7.tgz",
@@ -30,6 +31,7 @@
     "react-native": "^0.61.4",
     "react-native-fs": "^2.14.1",
     "react-native-sqlite-2": "^2.0.3",
+    "react-native-svg": "^9.13.3",
     "readability": "mozilla/readability#b9f47bcc8d3c223cabe2dec6a42eeb3bd778d85c",
     "tldts": "^5.0.3",
     "ws": ">=3.3.1"
