@@ -9,7 +9,7 @@ import {
   NativeModules,
 } from 'react-native';
 import NativeDrawable from '../../../components/NativeDrawable';
-import CardList from './CardList';
+import ResultList from './ResultList';
 import { withTheme } from '../../../contexts/theme';
 import CliqzProvider from '../../../contexts/cliqz';
 import t from '../../../services/i18n';
@@ -183,7 +183,7 @@ class Results extends React.Component {
               accessibilityLabel="search-results"
               style={styles.searchUI}
             >
-              <CardList
+              <ResultList
                 results={results}
                 meta={meta}
                 style={styles.cardListStyle}
@@ -231,7 +231,7 @@ class Results extends React.Component {
                 <TouchableWithoutFeedback
                   onPress={() =>
                     this.openSearchEngineLink(
-                      `https://www.google.com/search?q=${encodeURIComponent(
+                      `https://google.com/search?q=${encodeURIComponent(
                         query,
                       )}`,
                       0,

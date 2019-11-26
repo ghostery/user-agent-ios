@@ -5,9 +5,6 @@ import { Weather } from '@cliqz/component-ui-snippet-weather';
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 10,
-    paddingLeft: 7,
-    paddingRight: 7,
   },
 });
 

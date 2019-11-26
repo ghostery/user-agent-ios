@@ -9,8 +9,8 @@
 
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Card from './Card';
-import WeatherSnippet from './snippets/WeatherSnippet';
+import Card from './results/GenericResult';
+import WeatherSnippet from './results/WeatherResult';
 import { withCliqz } from '../../../contexts/cliqz';
 
 const styles = StyleSheet.create({
@@ -54,8 +54,10 @@ class CardList extends React.PureComponent {
 
   getComponent = ({ item, index }) => {
     let Component = Card;
-
     switch (item.template) {
+      // case 'top-news-sc':
+      //   Component = NewsSnippet;
+      //   break;
       case 'weatherEZ':
         Component = WeatherSnippet;
         break;
