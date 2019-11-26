@@ -9,13 +9,16 @@
 import Storage
 
 extension BrowserViewController: DownloadsDelegate {
-
     func downloads(didSelectURL url: URL, visitType: VisitType) {
-        self.openURL(url: url, visitType: visitType)
+        let selectedTab = self.tabManager.selectedTab
+        if selectedTab?.isNewTabPage ?? false {
+            self.openURL(url: url, visitType: visitType)
+        } else {
+            self.openAndShowURLInNewTab(url: url, isPrivate: selectedTab?.isPrivate ?? false)
+        }
     }
 
     func downloadsDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
         self.openURLInNewTab(url: url, isPrivate: isPrivate)
     }
-
 }
