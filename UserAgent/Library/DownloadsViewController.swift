@@ -48,10 +48,12 @@ extension DownloadsViewController: LibraryViewDelegate {
 
     func libraryDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
         self.delegate?.downloadsDidRequestToOpenInNewTab(url, isPrivate: isPrivate)
+        self.dismiss(animated: true)
     }
 
     func library(didSelectURL url: URL, visitType: VisitType) {
         self.delegate?.downloads(didSelectURL: url, visitType: visitType)
+        self.dismiss(animated: true)
     }
 
     func library(wantsToPresent viewController: UIViewController) {

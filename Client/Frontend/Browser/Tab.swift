@@ -141,6 +141,13 @@ class Tab: NSObject {
         }
     }
 
+    var isNewTabPage: Bool {
+        guard let url = self.url else {
+            return true
+        }
+        return NewTabPage.fromAboutHomeURL(url: url) != nil
+    }
+
     var changedReaderMode: Bool = false {
         didSet {
             if self.changedReaderMode != oldValue {
