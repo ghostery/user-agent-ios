@@ -98,11 +98,11 @@ export default props => {
               {friendlyUrl}
             </Text>
           </View>
-          {description && (
+          {description ? (
             <Text numberOfLines={2} style={styles.description}>
               {description}
             </Text>
-          )}
+          ) : null}
         </View>
       </View>
     </Link>
