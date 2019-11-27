@@ -38,7 +38,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         let searchSettings: [Setting] = [
             SearchLanguageSetting(currentRegion: self.currentRegion, availableRegions: self.availableRegions),
-            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
+            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.Settings.AdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
                 Search.setAdultFilter(filter: value ? .conservative : .liberal)
             },
             // Temporarily disabling additional search engines setting.

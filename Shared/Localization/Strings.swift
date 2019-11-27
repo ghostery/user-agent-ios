@@ -141,22 +141,28 @@ extension Strings {
             public static let SectionTitle = NSLocalizedString("Settings.Search.SectionName", comment: "Search settings section title")
             public static let DoneButton = NSLocalizedString("Settings.Search.Done.Button", comment: "Button displayed at the top of the search settings.")
             public static let EditButton = NSLocalizedString("Settings.Search.Edit.Button", comment: "Button displayed at the top of the search settings.")
-            public struct AdditionalSearchEngines {
-                public static let SectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
-            }
-            public struct AddCustomEngine {
-                public static let ButtonTitle = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
-                public static let Title = NSLocalizedString("Settings.AddCustomEngine.Title", comment: "The title of the Custom Search Engine view.")
-                public static let TitleFieldSectionTitle = NSLocalizedString("Settings.AddCustomEngine.TitleLabel", comment: "The title for the field which sets the title for a custom search engine.")
-                public static let URLSectionTitle = NSLocalizedString("Settings.AddCustomEngine.URLLabel", comment: "The title for URL Field")
-                public static let TitlePlaceholder = NSLocalizedString("Settings.AddCustomEngine.TitlePlaceholder", comment: "The placeholder for Title Field when saving a custom search engine.")
-                public static let URLPlaceholder = NSLocalizedString("Settings.AddCustomEngine.URLPlaceholder", comment: "The placeholder for URL Field when saving a custom search engine")
-                public static let SaveButtonText = NSLocalizedString("Settings.AddCustomEngine.SaveButtonText", comment: "The text on the Save button when saving a custom search engine")
-            }
-            public struct ResultForLanguage {
-                public static let Title = NSLocalizedString("Settings.SearchResultForLanguage", comment: "The button text in Settings that opens the list of supported search languages.")
-                public static let German = NSLocalizedString("region-DE", comment: "Localized String for German region")
-            }
+        }
+
+        // Additional Search Engines
+        public struct AdditionalSearchEngines {
+            public static let SectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
+        }
+
+        // Add Custom Engine
+        public struct AddCustomEngine {
+            public static let ButtonTitle = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
+            public static let Title = NSLocalizedString("Settings.AddCustomEngine.Title", comment: "The title of the Custom Search Engine view.")
+            public static let TitleFieldSectionTitle = NSLocalizedString("Settings.AddCustomEngine.TitleLabel", comment: "The title for the field which sets the title for a custom search engine.")
+            public static let URLSectionTitle = NSLocalizedString("Settings.AddCustomEngine.URLLabel", comment: "The title for URL Field")
+            public static let TitlePlaceholder = NSLocalizedString("Settings.AddCustomEngine.TitlePlaceholder", comment: "The placeholder for Title Field when saving a custom search engine.")
+            public static let URLPlaceholder = NSLocalizedString("Settings.AddCustomEngine.URLPlaceholder", comment: "The placeholder for URL Field when saving a custom search engine")
+            public static let SaveButtonText = NSLocalizedString("Settings.AddCustomEngine.SaveButtonText", comment: "The text on the Save button when saving a custom search engine")
+        }
+
+        // Search Result For Language
+        public struct SearchResultForLanguage {
+            public static let Title = NSLocalizedString("Settings.SearchResultForLanguage", comment: "The button text in Settings that opens the list of supported search languages.")
+            public static let German = NSLocalizedString("region-DE", comment: "Localized String for German region")
         }
 
         // New Tab
@@ -171,6 +177,7 @@ extension Strings {
         }
 
         public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
+        public static let AdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
     }
 
     // MARK: - Error Pages
@@ -312,11 +319,6 @@ extension Strings {
 // MARK: - Non Updated Strings below here
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
-
-// Adult Filter Mode
-extension Strings {
-    public static let SettingsAdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
-}
 
 // Context menu ButtonToast instances.
 extension Strings {
