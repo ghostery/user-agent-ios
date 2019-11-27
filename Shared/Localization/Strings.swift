@@ -42,18 +42,15 @@ extension Strings {
         public struct News {
             public static let BreakingLabel = NSLocalizedString("ActivityStream.News.BreakingLabel", comment: "")
         }
-
         public struct TopSites {
             public static let Title =  NSLocalizedString("ActivityStream.TopSites.SectionTitle", comment: "Section title label for Top Sites")
             public static let RowSettingFooter = NSLocalizedString("ActivityStream.TopSites.RowSettingFooter", comment: "The title for the setting page which lets you select the number of top site rows")
             public static let RowCount = NSLocalizedString("ActivityStream.TopSites.RowCount", comment: "label showing how many rows of topsites are shown. %d represents a number")
         }
-
         public struct ContextMenu {
             public static let PinTopsite = NSLocalizedString("ActivityStream.ContextMenu.PinTopsite", comment: "The title for the pinning a topsite action")
             public static let RemovePinTopsite = NSLocalizedString("ActivityStream.ContextMenu.RemovePinTopsite", comment: "The title for removing a pinned topsite action")
         }
-
         public static let PinnedSitesTitle =  NSLocalizedString("ActivityStream.PinnedSites.SectionTitle", comment: "Section title label for Pinned Sites")
         public static let HighlightVistedText = NSLocalizedString("ActivityStream.Highlights.Visited", comment: "The description of a highlight if it is a site the user has visited")
         public static let HighlightBookmarkText = NSLocalizedString("ActivityStream.Highlights.Bookmark", comment: "The description of a highlight if it is a site the user has bookmarked")
@@ -72,7 +69,6 @@ extension Strings {
             public static let Share = NSLocalizedString("HomePanel.ContextMenu.Share", comment: "The title for the Share context menu action for sites in Home Panels")
             public static let Remove = NSLocalizedString("HomePanel.ContextMenu.Remove", comment: "The title for the Remove context menu action for sites in Home Panels")
         }
-
         public struct ReopenAlert {
             public static let Title = NSLocalizedString("ReopenAlert.Title", comment: "Reopen alert title shown at home page.")
             public static let ActionsReopen = NSLocalizedString("ReopenAlert.Actions.Reopen", comment: "Reopen button text shown in reopen-alert at home page.")
@@ -93,40 +89,30 @@ extension Strings {
             public static let HistoryTitle = NSLocalizedString("HomeView.SegmentedControl.History.Title", tableName: "UserAgent", comment: "")
             public static let DownloadsTitle = NSLocalizedString("HomeView.SegmentedControl.Downloads.Title", tableName: "UserAgent", comment: "")
         }
-
         public static let emptyBookmarksText = NSLocalizedString("Bookmarks you save will show up here.", comment: "Status label for the empty Bookmarks state.")
         public static let deleteBookmark = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
     }
 
     // MARK: - Settings
     public struct Settings {
-        // Ad Blocking and Tracking Protection
         public struct PrivacyDashboard {
             public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
             public static let Description = NSLocalizedString("Settings.PrivacyDashboard.Description", comment: "Privacy Dashboard Description")
         }
-
-        // General
         public struct General {
             public static let SectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")
         }
-
-        // Clear private data
         public struct ClearPrivateData {
             public static let Title = NSLocalizedString("Settings.ClearPrivateData.Title", comment: "Title displayed in header of the setting panel.")
             public static let ClearButton = NSLocalizedString("Settings.ClearPrivateData.Clear.Button", comment: "Button in settings that clears private data for the selected items.")
             public static let ClearAllWebsiteDataButton = NSLocalizedString("Settings.ClearAllWebsiteData.Clear.Button", comment: "Button in Data Management that clears private data for the selected items.")
             public static let SectionName = NSLocalizedString("Settings.ClearPrivateData.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data.")
         }
-
-        // Data Management
         public struct DataManagement {
             public static let SectionName = NSLocalizedString("Settings.DataManagement.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data.")
             public static let SearchLabel = NSLocalizedString("Settings.DataManagement.SearchLabel", comment: "Default text in search bar for Data Management")
             public static let Title = NSLocalizedString("Settings.DataManagement.Title", comment: "Title displayed in header of the setting panel.")
         }
-
-        // Website Data
         public struct WebsiteData {
             public static let Title = NSLocalizedString("Settings.WebsiteData.Title", comment: "Title displayed in header of the Data Management panel.")
             public static let ShowMoreButton = NSLocalizedString("Settings.WebsiteData.ButtonShowMore", comment: "Button shows all websites on website data tableview")
@@ -135,20 +121,14 @@ extension Strings {
             public static let DeleteWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDelete", comment: "Button to delete website in search results")
             public static let DoneWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDone", comment: "Button to exit edit website search results")
         }
-
-        // Search
         public struct Search {
             public static let SectionTitle = NSLocalizedString("Settings.Search.SectionName", comment: "Search settings section title")
             public static let DoneButton = NSLocalizedString("Settings.Search.Done.Button", comment: "Button displayed at the top of the search settings.")
             public static let EditButton = NSLocalizedString("Settings.Search.Edit.Button", comment: "Button displayed at the top of the search settings.")
         }
-
-        // Additional Search Engines
         public struct AdditionalSearchEngines {
             public static let SectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
         }
-
-        // Add Custom Engine
         public struct AddCustomEngine {
             public static let ButtonTitle = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
             public static let Title = NSLocalizedString("Settings.AddCustomEngine.Title", comment: "The title of the Custom Search Engine view.")
@@ -158,50 +138,34 @@ extension Strings {
             public static let URLPlaceholder = NSLocalizedString("Settings.AddCustomEngine.URLPlaceholder", comment: "The placeholder for URL Field when saving a custom search engine")
             public static let SaveButtonText = NSLocalizedString("Settings.AddCustomEngine.SaveButtonText", comment: "The text on the Save button when saving a custom search engine")
         }
-
-        // Search Result For Language
         public struct SearchResultForLanguage {
             public static let Title = NSLocalizedString("Settings.SearchResultForLanguage", comment: "The button text in Settings that opens the list of supported search languages.")
             public static let German = NSLocalizedString("region-DE", comment: "Localized String for German region")
         }
-
-        // New Tab
         public struct NewTab {
             public static let TopSites = String(format: NSLocalizedString("Settings.NewTab.Option.Home", comment: "Option in settings to show Firefox Home when you open a new tab"), AppInfo.displayName)
         }
-
-        // Open With
         public struct OpenWith {
             public static let SectionName = NSLocalizedString("Settings.OpenWith.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour.")
             public static let PageTitle = NSLocalizedString("Settings.OpenWith.PageTitle", comment: "Title for Open With Settings")
         }
-
-        // Tracking Protection
         public struct TrackingProtection {
             public static let SectionName = NSLocalizedString("Settings.TrackingProtection.SectionName", comment: "Row in top-level of settings that gets tapped to show the tracking protection settings detail view.")
         }
-
-        // Send Usage
         public struct SendUsage {
             public static let Title = NSLocalizedString("Settings.SendUsage.Title", comment: "The title for the setting to send usage data.")
             public static let Message = String(format: NSLocalizedString("Settings.SendUsage.Message", comment: "A short description that explains why mozilla collects usage data."), AppInfo.displayName, AppInfo.displayName)
         }
-
-        // Siri
         public struct Siri {
             public static let SectionName = NSLocalizedString("Settings.Siri.SectionName", comment: "The option that takes you to the siri shortcuts settings page")
             public static let SectionDescription = String(format: NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are"), AppInfo.displayName)
             public static let OpenURL = NSLocalizedString("Settings.Siri.OpenTabShortcut", comment: "The description of the open new tab siri shortcut")
         }
-
-        // DNT
         public struct DNT {
             public static let NotTrackTitle = NSLocalizedString("Settings.DNT.Title", comment: "DNT Settings title")
             public static let OptionOnWithTP = NSLocalizedString("Settings.DNT.OptionOnWithTP", comment: "DNT Settings option for only turning on when Tracking Protection is also on")
             public static let OptionAlwaysOn = NSLocalizedString("Settings.DNT.OptionAlwaysOn", comment: "DNT Settings option for always on")
         }
-
-        // Translate Snack Bar
         public struct TranslateSnackBar {
             public static let SectionHeader = NSLocalizedString("Settings.TranslateSnackBar.SectionHeader", comment: "Translation settings section title")
             public static let SectionFooter = NSLocalizedString("Settings.TranslateSnackBar.SectionFooter", comment: "Translation settings footer describing how language detection and translation happens.")
@@ -209,7 +173,6 @@ extension Strings {
             public static let SwitchTitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchTitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
             public static let SwitchSubtitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchSubtitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
         }
-
         public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
         public static let AdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
     }
@@ -235,6 +198,12 @@ extension Strings {
 
     // MARK: - History Panel
     public struct HistoryPanel {
+        public struct ClearHistoryMenu {
+            public static let Title = NSLocalizedString("HistoryPanel.ClearHistoryMenuTitle", comment: "Title for popup action menu to clear recent history.")
+            public static let OptionTheLastHour = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionTheLastHour", comment: "Button to perform action to clear history for the last hour")
+            public static let OptionToday = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionToday", comment: "Button to perform action to clear history for today only")
+            public static let OptionTodayAndYesterday = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionTodayAndYesterday", comment: "Button to perform action to clear history for yesterday and today")
+        }
         public static let BackButtonTitle = NSLocalizedString("HistoryPanel.HistoryBackButton.Title", comment: "Title for the Back to History button in the History Panel")
         public static let EmptyStateTitle = NSLocalizedString("HistoryPanel.EmptyState.Title", comment: "Title for the History Panel empty state.")
         public static let ClearHistoryButtonTitle = NSLocalizedString("HistoryPanel.ClearHistoryButtonTitle", comment: "Title for button in the history panel to clear recent history")
@@ -242,13 +211,6 @@ extension Strings {
         public static let RecentlyClosedTabsPanelTitle = NSLocalizedString("RecentlyClosedTabsPanel.Title", comment: "Title for the Recently Closed Tabs Panel")
         public static let BrowserHomePage = String(format: NSLocalizedString("UserAgent.HomePage.Title", comment: "Title for firefox about:home page in tab history list"), AppInfo.displayName)
         public static let DeleteTitle = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
-
-        public struct ClearHistoryMenu {
-            public static let Title = NSLocalizedString("HistoryPanel.ClearHistoryMenuTitle", comment: "Title for popup action menu to clear recent history.")
-            public static let OptionTheLastHour = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionTheLastHour", comment: "Button to perform action to clear history for the last hour")
-            public static let OptionToday = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionToday", comment: "Button to perform action to clear history for today only")
-            public static let OptionTodayAndYesterday = NSLocalizedString("HistoryPanel.ClearHistoryMenuOptionTodayAndYesterday", comment: "Button to perform action to clear history for yesterday and today")
-        }
     }
 
     // MARK: - Hotkeys
@@ -256,7 +218,6 @@ extension Strings {
         public static let ReloadPageTitle = NSLocalizedString("Hotkeys.Reload.DiscoveryTitle", comment: "Label to display in the Discoverability overlay for keyboard shortcuts")
         public static let BackTitle = NSLocalizedString("Hotkeys.Back.DiscoveryTitle", comment: "Label to display in the Discoverability overlay for keyboard shortcuts")
         public static let ForwardTitle = NSLocalizedString("Hotkeys.Forward.DiscoveryTitle", comment: "Label to display in the Discoverability overlay for keyboard shortcuts")
-
         public static let FindTitle = NSLocalizedString("Hotkeys.Find.DiscoveryTitle", comment: "Label to display in the Discoverability overlay for keyboard shortcuts")
         public static let SelectLocationBarTitle = NSLocalizedString("Hotkeys.SelectLocationBar.DiscoveryTitle", comment: "Label to display in the Discoverability overlay for keyboard shortcuts")
         public static let privateBrowsingModeTitle = NSLocalizedString("Hotkeys.PrivateMode.DiscoveryTitle", comment: "Label to switch to private browsing mode")
@@ -295,13 +256,10 @@ extension Strings {
     public struct Toast {
         public static let DeleteAllUndoTitle = NSLocalizedString("Tabs.DeleteAllUndo.Title", comment: "The label indicating that all the tabs were closed")
         public static let DeleteAllUndoAction = NSLocalizedString("Tabs.DeleteAllUndo.Button", comment: "The button to undo the delete all tabs")
-
         public static let GoToCopiedLink = NSLocalizedString("ClipboardToast.GoToCopiedLink.Title", comment: "Message displayed when the user has a copied link on the clipboard")
         public static let GoButtonTittle = NSLocalizedString("ClipboardToast.GoToCopiedLink.Button", comment: "The button to open a new tab with the copied link")
-
         public static let SettingsOfferClipboardBarTitle = NSLocalizedString("Settings.OfferClipboardBar.Title", comment: "Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
         public static let SettingsOfferClipboardBarStatus = String(format: NSLocalizedString("Settings.OfferClipboardBar.Status", comment: "Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349"), AppInfo.displayName)
-
         public static let NotNowString = NSLocalizedString("Toasts.NotNow", comment: "label for Not Now button")
         public static let AppStoreString = NSLocalizedString("Toasts.OpenAppStore", comment: "Open App Store button")
     }
@@ -400,18 +358,15 @@ extension Strings {
             public static let AntiTrackingWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AntiTrackingWhitelisted", tableName: "UserAgent", comment: "")
             public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Title.Whitelisted", tableName: "UserAgent", comment: "")
         }
-
         public struct Legend {
             public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Legend.NoTrackersSeen", tableName: "UserAgent", comment: "")
             public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Legend.Whitelisted", tableName: "UserAgent", comment: "")
         }
-
-        public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
-
         public struct Switch {
              public static let AntiTracking = NSLocalizedString("PrivacyDashboard.Switch.AntiTracking", tableName: "UserAgent", comment: "")
             public static let AdBlock = NSLocalizedString("PrivacyDashboard.Switch.AdBlock", tableName: "UserAgent", comment: "")
         }
+        public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
     }
 
     // MARK: - Menu
