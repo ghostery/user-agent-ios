@@ -44,9 +44,6 @@
 /* Label for the button, displayed in the menu, used to delete an existing bookmark for the current website. */
 "Menu.RemoveBookmarkAction.Title" = "Lesezeichen entfernen";
 
-/* Label for the button, displayed in the menu, used to open the QR code scanner. */
-"Menu.ScanQRCodeAction.Title" = "QR-Code scannen";
-
 /* Label for the button, displayed in the menu, used to open the share dialog. */
 "Menu.SharePageAction.Title" = "Seite teilen mit…";
 

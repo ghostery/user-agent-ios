@@ -161,7 +161,7 @@ extension BrowserViewController: WKUIDelegate {
 
             actions.append(UIAction(title: Strings.ContextMenu.BookmarkLink, image: UIImage.templateImageNamed("menu-Bookmark"), identifier: UIAction.Identifier("linkContextMenu.bookmarkLink")) { _ in
                 self.addBookmark(url: url.absoluteString, title: elements.title)
-                SimpleToast().showAlertWithText(Strings.AppMenuAddBookmarkConfirmMessage, bottomContainer: self.webViewContainer)
+                SimpleToast().showAlertWithText(Strings.Menu.AddBookmarkConfirmMessage, bottomContainer: self.webViewContainer)
             })
 
             actions.append(UIAction(title: Strings.ContextMenu.DownloadLink, image: UIImage.templateImageNamed("menu-panel-Downloads"), identifier: UIAction.Identifier("linkContextMenu.download")) {_ in

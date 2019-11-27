@@ -1250,7 +1250,7 @@ extension BrowserViewController: URLBarDelegate {
                                                  isPinned: isPinned,
                                                  isReaderModeEnabled: isReaderModeEnabled, readerModeChanged: readerModeChanged,
                                                  success: successCallback)
-            self.presentSheetWith(title: Strings.PageActionMenuTitle, actions: pageActions, on: self, from: button)
+            self.presentSheetWith(title: Strings.Menu.PageActionMenuTitle, actions: pageActions, on: self, from: button)
         }
     }
 
@@ -1804,7 +1804,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
 
             let bookmarkAction = UIAlertAction(title: Strings.ContextMenu.BookmarkLink, style: .default) { _ in
                 self.addBookmark(url: url.absoluteString, title: elements.title)
-                SimpleToast().showAlertWithText(Strings.AppMenuAddBookmarkConfirmMessage, bottomContainer: self.webViewContainer)
+                SimpleToast().showAlertWithText(Strings.Menu.AddBookmarkConfirmMessage, bottomContainer: self.webViewContainer)
             }
             actionSheetController.addAction(bookmarkAction, accessibilityIdentifier: "linkContextMenu.bookmarkLink")
 

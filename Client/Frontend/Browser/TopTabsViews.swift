@@ -145,7 +145,7 @@ class TopTabCell: UICollectionViewCell {
 
         if tab.displayTitle.isEmpty {
             if let url = tab.webView?.url, let internalScheme = InternalURL(url) {
-                self.titleText.text = Strings.AppMenuNewTabTitleString
+                self.titleText.text = Strings.Menu.NewTabTitleString
                 self.accessibilityLabel = internalScheme.aboutComponent
             } else {
                 self.titleText.text = tab.webView?.url?.absoluteDisplayString
