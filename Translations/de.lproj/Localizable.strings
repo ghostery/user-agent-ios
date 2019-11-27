@@ -596,9 +596,6 @@
 /* Reopen alert title shown at home page. */
 "ReopenAlert.Title" = "Zuletzt geschlossenen Tab wiederherstellen";
 
-/* Hardware shortcut to reopen the last closed tab, from the tab or the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"ReopenClosedTab.KeyCodeTitle" = "Geschlossenen Tab wiederherstellen";
-
 /* Accessibility label for button resetting font size in display settings of reader mode */
 "ReaderMode.ResetFontSizeAccessibilityLabel" = "Textgröße zurücksetzen";
 
@@ -895,16 +892,16 @@
 "Swipe right or left with three fingers to close the tab." = "Wischen Sie mit drei Fingern nach rechts oder links, um den Tab zu schließen.";
 
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"SwitchToNonPBM.KeyCodeTitle" = "Normaler Surf-Modus";
+"TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normaler Surf-Modus";
 
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"SwitchToPBM.KeyCodeTitle" = "Privater Modus";
+"TabTray.SwitchToPBM.KeyCodeTitle" = "Privater Modus";
 
 /* Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total. */
 "Tab %@ of %@" = "Tab %1$@ von %2$@";
 
 /* Hardware shortcut to open the tab tray from a tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"Tab.ShowTabTray.KeyCodeTitle" = "Alle Tabs anzeigen";
+"TabTray.ShowTabTray.KeyCodeTitle" = "Alle Tabs anzeigen";
 
 /* Message spoken by VoiceOver saying the range of tabs that are currently visible in Tabs Tray, along with the total number of tabs. E.g. \"Tabs 8 to 10 of 15\" says tabs 8, 9 and 10 are visible, out of 15 tabs total. */
 "Tabs %@ to %@ of %@" = "Tabs %1$@ bis %2$@ von insgesamt %3$@";
