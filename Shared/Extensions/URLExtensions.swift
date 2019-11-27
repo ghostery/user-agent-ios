@@ -122,7 +122,11 @@ extension URL {
             for pair in keyValues! {
                 let kv = pair.components(separatedBy: "=")
                 if kv.count > 1 {
-                    results[kv[0]] = kv[1]
+                    var value = kv[1]
+                    if kv.count > 2 {
+                        for _ in 2...(kv.count-1) { value += "=" }
+                    }
+                    results[kv[0]] = value
                 }
             }
         }
