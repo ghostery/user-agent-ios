@@ -505,6 +505,31 @@ extension Strings {
         }
     }
 
+    // MARK: - Send To
+    public struct SendTo {
+        public static let CancelButton = NSLocalizedString("SendTo.Cancel.Button", bundle: applicationBundle(), comment: "Button title for cancelling share screen")
+        public static let ErrorOKButton = NSLocalizedString("SendTo.Error.OK.Button", bundle: applicationBundle(), comment: "OK button to dismiss the error prompt.")
+        public static let ErrorTitle = NSLocalizedString("SendTo.Error.Title", bundle: applicationBundle(), comment: "Title of error prompt displayed when an invalid URL is shared.")
+        public static let ErrorMessage = NSLocalizedString("SendTo.Error.Message", bundle: applicationBundle(), comment: "Message in error prompt explaining why the URL is invalid.")
+        public static let CloseButton = NSLocalizedString("SendTo.Cancel.Button", bundle: applicationBundle(), comment: "Close button in top navigation bar")
+        public static let NotSignedInText = NSLocalizedString("SendTo.NotSignedIn.Title", bundle: applicationBundle(), comment: "See http://mzl.la/1ISlXnU")
+        public static let NotSignedInMessage = NSLocalizedString("SendTo.NotSignedIn.Message", bundle: applicationBundle(), comment: "See http://mzl.la/1ISlXnU")
+        public static let NoDevicesFound = NSLocalizedString("SendTo.NoDevicesFound.Message", bundle: applicationBundle(), comment: "Error message shown in the remote tabs panel")
+        public static let NavBarTitle = NSLocalizedString("SendTo.NavBar.Title", bundle: applicationBundle(), comment: "Title of the dialog that allows you to send a tab to a different device")
+        public static let SendButtonTitle = NSLocalizedString("SendTo.SendAction.Text", bundle: applicationBundle(), comment: "Navigation bar button to Send the current page to a device")
+        public static let DevicesListTitle = NSLocalizedString("SendTo.DeviceList.Text", bundle: applicationBundle(), comment: "Header for the list of devices table")
+    }
+    
+    // MARK: - Share Extension
+    public struct ShareExtension {
+        public static let BookmarkThisPage = NSLocalizedString("ShareExtension.BookmarkThisPageAction.Title", tableName: "ShareTo", comment: "Action label on share extension to bookmark the page in Firefox.")
+        public static let BookmarkThisPageDone = NSLocalizedString("ShareExtension.BookmarkThisPageActionDone.Title", comment: "Share extension label shown after user has performed 'Bookmark this Page' action.")
+        public static var OpenIn = String(format: NSLocalizedString("ShareExtension.OpenInAction.Title", tableName: "ShareTo", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName)."), AppInfo.displayName)
+        public static let SearchIn = String(format: NSLocalizedString("ShareExtension.SeachInUserAgentAction.Title", tableName: "ShareTo", comment: "Action label on share extension to search for the selected text in Firefox."), AppInfo.displayName)
+        public static let LoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", tableName: "ShareTo", comment: "Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground.")
+        public static let LoadInBackgroundDone = String(format: NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", tableName: "ShareTo", comment: "Share extension label shown after user has performed 'Load in Background' action."), AppInfo.displayName)
+    }
+
 }
 
 // MARK: - Non Updated Strings below here
@@ -521,37 +546,6 @@ extension Strings {
     public static let ReopenClosedTabKeyCodeTitle = NSLocalizedString("ReopenClosedTab.KeyCodeTitle", comment: "Hardware shortcut to reopen the last closed tab, from the tab or the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down.")
     public static let SwitchToPBMKeyCodeTitle = NSLocalizedString("SwitchToPBM.KeyCodeTitle", comment: "Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down.")
     public static let SwitchToNonPBMKeyCodeTitle = NSLocalizedString("SwitchToNonPBM.KeyCodeTitle", comment: "Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down.")
-}
-
-// Share extension
-extension Strings {
-    public static let SendToCancelButton = NSLocalizedString("SendTo.Cancel.Button", bundle: applicationBundle(), comment: "Button title for cancelling share screen")
-    public static let SendToErrorOKButton = NSLocalizedString("SendTo.Error.OK.Button", bundle: applicationBundle(), comment: "OK button to dismiss the error prompt.")
-    public static let SendToErrorTitle = NSLocalizedString("SendTo.Error.Title", bundle: applicationBundle(), comment: "Title of error prompt displayed when an invalid URL is shared.")
-    public static let SendToErrorMessage = NSLocalizedString("SendTo.Error.Message", bundle: applicationBundle(), comment: "Message in error prompt explaining why the URL is invalid.")
-    public static let SendToCloseButton = NSLocalizedString("SendTo.Cancel.Button", bundle: applicationBundle(), comment: "Close button in top navigation bar")
-    public static let SendToNotSignedInText = NSLocalizedString("SendTo.NotSignedIn.Title", bundle: applicationBundle(), comment: "See http://mzl.la/1ISlXnU")
-    public static let SendToNotSignedInMessage = NSLocalizedString("SendTo.NotSignedIn.Message", bundle: applicationBundle(), comment: "See http://mzl.la/1ISlXnU")
-    public static let SendToNoDevicesFound = NSLocalizedString("SendTo.NoDevicesFound.Message", bundle: applicationBundle(), comment: "Error message shown in the remote tabs panel")
-    public static let SendToTitle = NSLocalizedString("SendTo.NavBar.Title", bundle: applicationBundle(), comment: "Title of the dialog that allows you to send a tab to a different device")
-    public static let SendToSendButtonTitle = NSLocalizedString("SendTo.SendAction.Text", bundle: applicationBundle(), comment: "Navigation bar button to Send the current page to a device")
-    public static let SendToDevicesListTitle = NSLocalizedString("SendTo.DeviceList.Text", bundle: applicationBundle(), comment: "Header for the list of devices table")
-
-    // The above items are re-used strings from the old extension. New strings below.
-
-    public static let ShareBookmarkThisPage = NSLocalizedString("ShareExtension.BookmarkThisPageAction.Title", tableName: "ShareTo", comment: "Action label on share extension to bookmark the page in Firefox.")
-    public static let ShareBookmarkThisPageDone = NSLocalizedString("ShareExtension.BookmarkThisPageActionDone.Title", comment: "Share extension label shown after user has performed 'Bookmark this Page' action.")
-
-    public static var ShareOpenIn = String(
-        format: NSLocalizedString("ShareExtension.OpenInAction.Title", tableName: "ShareTo", comment: "Action label on share extension to immediately open page in \(AppInfo.displayName)."),
-        AppInfo.displayName
-    )
-    public static let ShareSearchIn = String(format: NSLocalizedString("ShareExtension.SeachInUserAgentAction.Title", tableName: "ShareTo", comment: "Action label on share extension to search for the selected text in Firefox."), AppInfo.displayName)
-
-    public static let ShareLoadInBackground = NSLocalizedString("ShareExtension.LoadInBackgroundAction.Title", tableName: "ShareTo", comment: "Action label on share extension to load the page in Firefox when user switches apps to bring it to foreground.")
-
-    public static let ShareLoadInBackgroundDone = String(format: NSLocalizedString("ShareExtension.LoadInBackgroundActionDone.Title", tableName: "ShareTo", comment: "Share extension label shown after user has performed 'Load in Background' action."), AppInfo.displayName)
-
 }
 
 //passwordAutofill extension

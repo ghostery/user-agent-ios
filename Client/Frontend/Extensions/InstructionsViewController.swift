@@ -78,12 +78,12 @@ class InstructionsViewController: UIViewController {
         edgesForExtendedLayout = []
         view.backgroundColor = UIColor.White
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.SendToCloseButton, style: .done, target: self, action: #selector(close))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.SendTo.CloseButton, style: .done, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem?.accessibilityIdentifier = "InstructionsViewController.navigationItem.leftBarButtonItem"
 
         setupHelpView(view,
-            introText: Strings.SendToNotSignedInText,
-                showMeText: Strings.SendToNotSignedInMessage)
+                      introText: Strings.SendTo.NotSignedInText,
+                      showMeText: Strings.SendTo.NotSignedInMessage)
     }
 
     @objc func close() {

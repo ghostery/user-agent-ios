@@ -107,12 +107,12 @@ class ShareViewController: UIViewController {
         makeSeparator(addTo: stackView)
 
         if shareItem?.isUrlType() ?? true {
-            makeActionRow(addTo: stackView, label: Strings.ShareOpenIn, imageName: "Icon-Small", action: #selector(actionOpenInFirefoxNow), hasNavigation: false)
-            makeActionRow(addTo: stackView, label: Strings.ShareLoadInBackground, imageName: "menu-Show-Tabs", action: #selector(actionLoadInBackground), hasNavigation: false)
-            makeActionRow(addTo: stackView, label: Strings.ShareBookmarkThisPage, imageName: "AddToBookmarks", action: #selector(actionBookmarkThisPage), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareExtension.OpenIn, imageName: "Icon-Small", action: #selector(actionOpenInFirefoxNow), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareExtension.LoadInBackground, imageName: "menu-Show-Tabs", action: #selector(actionLoadInBackground), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareExtension.BookmarkThisPage, imageName: "AddToBookmarks", action: #selector(actionBookmarkThisPage), hasNavigation: false)
         } else {
             pageInfoRowUrlLabel?.removeFromSuperview()
-            makeActionRow(addTo: stackView, label: Strings.ShareSearchIn, imageName: "quickSearch", action: #selector(actionSearchInFirefox), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareExtension.SearchIn, imageName: "quickSearch", action: #selector(actionSearchInFirefox), hasNavigation: false)
         }
 
         let footerSpaceRow = UIView()
@@ -284,7 +284,7 @@ class ShareViewController: UIViewController {
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow") // hide separator line
         navigationItem.titleView = UIImageView(image: UIImage(named: "Icon-Small"))
         navigationItem.titleView?.contentMode = .scaleAspectFit
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.SendToCancelButton, style: .plain, target: self, action: #selector(finish))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.SendTo.CancelButton, style: .plain, target: self, action: #selector(finish))
     }
 
     private func setupStackView() {
@@ -302,7 +302,7 @@ extension ShareViewController {
     @objc func actionLoadInBackground(gesture: UIGestureRecognizer) {
         // To avoid re-rentry from double tap, each action function disables the gesture
         gesture.isEnabled = false
-        animateToActionDoneView(withTitle: Strings.ShareLoadInBackgroundDone)
+        animateToActionDoneView(withTitle: Strings.ShareExtension.LoadInBackgroundDone)
 
         if let shareItem = shareItem, case .shareItem(let item) = shareItem {
             let profile = BrowserProfile(localName: "profile")
@@ -318,7 +318,7 @@ extension ShareViewController {
 
     @objc func actionBookmarkThisPage(gesture: UIGestureRecognizer) {
         gesture.isEnabled = false
-        animateToActionDoneView(withTitle: Strings.ShareBookmarkThisPageDone)
+        animateToActionDoneView(withTitle: Strings.ShareExtension.BookmarkThisPageDone)
 
         if let shareItem = shareItem, case .shareItem(let item) = shareItem {
             let profile = BrowserProfile(localName: "profile")
