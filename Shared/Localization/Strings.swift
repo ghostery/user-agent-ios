@@ -314,6 +314,7 @@ extension Strings {
         }
     }
 
+    // MARK: - Context Menu
     public struct ContextMenu {
         public struct ButtonToast {
             public struct NewTabOpened {
@@ -335,38 +336,55 @@ extension Strings {
         public static let CopyImageLink = NSLocalizedString("ContextMenu.CopyImageLinkButtonTitle", comment: "Context menu item for copying an image URL to the clipboard")
     }
 
+    // MARK: - Photo Library
+    public struct PhotoLibrary {
+        public static let AppWouldLikeAccessTitle = String(format: NSLocalizedString("PhotoLibrary.AppWouldLikeAccessTitle", comment: "See http://mzl.la/1G7uHo7"), AppInfo.displayName)
+        public static let AppWouldLikeAccessMessage = NSLocalizedString("PhotoLibrary.AppWouldLikeAccessMessage", comment: "See http://mzl.la/1G7uHo7")
+    }
+
+    // MARK: - Sent Tab
+    public struct SentTab {
+        public struct ViewAction {
+            public static let Title = NSLocalizedString("SentTab.ViewAction.title", comment: "Label for an action used to view one or more tabs from a notification.")
+        }
+    }
+
+    // MARK: - Reader Mode
+    public struct ReaderMode {
+        public struct Available {
+            public static let VoiceOverAnnouncement = NSLocalizedString("ReaderMode.Available.VoiceOverAnnouncement", comment: "Accessibility message e.g. spoken by VoiceOver when Reader Mode becomes available.")
+        }
+        public static let ResetFontSizeAccessibilityLabel = NSLocalizedString("ReaderMode.ResetFontSizeAccessibilityLabel", comment: "Accessibility label for button resetting font size in display settings of reader mode")
+    }
+
+    // MARK: - Privacy Dashboard
+    public struct PrivacyDashboard {
+        public struct Title {
+            public static let BlockingEnabled = NSLocalizedString("PrivacyDashboard.Title.BlockingEnabled", tableName: "UserAgent", comment: "")
+            public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Title.NoTrackersSeen", tableName: "UserAgent", comment: "")
+            public static let AdBlockWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AdBlockWhitelisted", tableName: "UserAgent", comment: "")
+            public static let AntiTrackingWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AntiTrackingWhitelisted", tableName: "UserAgent", comment: "")
+            public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Title.Whitelisted", tableName: "UserAgent", comment: "")
+        }
+
+        public struct Legend {
+            public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Legend.NoTrackersSeen", tableName: "UserAgent", comment: "")
+            public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Legend.Whitelisted", tableName: "UserAgent", comment: "")
+        }
+
+        public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
+
+        public struct Switch {
+             public static let AntiTracking = NSLocalizedString("PrivacyDashboard.Switch.AntiTracking", tableName: "UserAgent", comment: "")
+            public static let AdBlock = NSLocalizedString("PrivacyDashboard.Switch.AdBlock", tableName: "UserAgent", comment: "")
+        }
+    }
+
 }
 
 // MARK: - Non Updated Strings below here
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
-
-// Photo Library access.
-extension Strings {
-    public static let PhotoLibraryFirefoxWouldLikeAccessTitle = String(format: NSLocalizedString("PhotoLibrary.AppWouldLikeAccessTitle", comment: "See http://mzl.la/1G7uHo7"), AppInfo.displayName)
-    public static let PhotoLibraryFirefoxWouldLikeAccessMessage = NSLocalizedString("PhotoLibrary.AppWouldLikeAccessMessage", comment: "See http://mzl.la/1G7uHo7")
-}
-
-// Sent tabs notifications. These are displayed when the app is backgrounded or the device is locked.
-extension Strings {
-    // Notification Actions
-    public static let SentTabViewActionTitle = NSLocalizedString("SentTab.ViewAction.title", comment: "Label for an action used to view one or more tabs from a notification.")
-}
-
-// Reader Mode.
-extension Strings {
-    public static let ReaderModeAvailableVoiceOverAnnouncement = NSLocalizedString("ReaderMode.Available.VoiceOverAnnouncement", comment: "Accessibility message e.g. spoken by VoiceOver when Reader Mode becomes available.")
-    public static let ReaderModeResetFontSizeAccessibilityLabel = NSLocalizedString("Reset text size", comment: "Accessibility label for button resetting font size in display settings of reader mode")
-}
-
-// QR Code scanner.
-extension Strings {
-    public static let ScanQRCodeViewTitle = NSLocalizedString("ScanQRCode.View.Title", comment: "Title for the QR code scanner view.")
-    public static let ScanQRCodeInstructionsLabel = NSLocalizedString("ScanQRCode.Instructions.Label", comment: "Text for the instructions label, displayed in the QR scanner view")
-    public static let ScanQRCodeInvalidDataErrorMessage = NSLocalizedString("ScanQRCode.InvalidDataError.Message", comment: "Text of the prompt that is shown to the user when the data is invalid")
-    public static let ScanQRCodePermissionErrorMessage = String(format: NSLocalizedString("ScanQRCode.PermissionError.Message", comment: "Text of the prompt user to setup the camera authorization."), AppInfo.displayName)
-    public static let ScanQRCodeErrorOKButton = NSLocalizedString("ScanQRCode.Error.OK.Button", comment: "OK button to dismiss the error prompt.")
-}
 
 // App menu.
 extension Strings {
@@ -549,29 +567,4 @@ extension Strings {
     public static let InterceptorUIAntiPhishingMessage = String(format: NSLocalizedString("Interceptor.AntiPhishing.UI.Message", tableName: "UserAgent", comment: "Antiphishing alert message"), AppInfo.displayName, "%@")
     public static let InterceptorUIAntiPhishingBack = NSLocalizedString("Interceptor.AntiPhishing.UI.BackButtonLabel", tableName: "UserAgent", comment: "Back to safe site buttun title in antiphishing alert title")
     public static let InterceptorUIAntiPhishingContinue = NSLocalizedString("Interceptor.AntiPhishing.UI.ContinueButtonLabel", tableName: "UserAgent", comment: "Continue despite warning buttun title in antiphishing alert title")
-}
-
-// Privacy Dashboard
-extension Strings {
-    public struct PrivacyDashboard {
-        public struct Title {
-            public static let BlockingEnabled = NSLocalizedString("PrivacyDashboard.Title.BlockingEnabled", tableName: "UserAgent", comment: "")
-            public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Title.NoTrackersSeen", tableName: "UserAgent", comment: "")
-            public static let AdBlockWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AdBlockWhitelisted", tableName: "UserAgent", comment: "")
-            public static let AntiTrackingWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AntiTrackingWhitelisted", tableName: "UserAgent", comment: "")
-            public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Title.Whitelisted", tableName: "UserAgent", comment: "")
-        }
-
-        public struct Legend {
-            public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Legend.NoTrackersSeen", tableName: "UserAgent", comment: "")
-            public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Legend.Whitelisted", tableName: "UserAgent", comment: "")
-        }
-
-        public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
-
-        public struct Switch {
-             public static let AntiTracking = NSLocalizedString("PrivacyDashboard.Switch.AntiTracking", tableName: "UserAgent", comment: "")
-            public static let AdBlock = NSLocalizedString("PrivacyDashboard.Switch.AdBlock", tableName: "UserAgent", comment: "")
-        }
-    }
 }

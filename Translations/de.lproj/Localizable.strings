@@ -609,7 +609,7 @@
 "ReopenClosedTab.KeyCodeTitle" = "Geschlossenen Tab wiederherstellen";
 
 /* Accessibility label for button resetting font size in display settings of reader mode */
-"Reset text size" = "Textgröße zurücksetzen";
+"ReaderMode.ResetFontSizeAccessibilityLabel" = "Textgröße zurücksetzen";
 
 /* Restore Tabs Prompt Description */
 "Restore.Tabs.After.Crash" = "%@ scheint zuvor abgestürzt zu sein. Sollen Ihre Tabs wiederhergestellt werden?";
@@ -619,21 +619,6 @@
 
 /* See http://mzl.la/1LXbDOL */
 "Save pages to your Reading List by tapping the book plus icon in the Reader View controls." = "Speichern Sie Seiten in Ihrer Leseliste, indem Sie auf das Buch-Plus-Symbol in der Steuerung der Leseansicht tippen.";
-
-/* OK button to dismiss the error prompt. */
-"ScanQRCode.Error.OK.Button" = "OK";
-
-/* Text for the instructions label, displayed in the QR scanner view */
-"ScanQRCode.Instructions.Label" = "QR-Code zum Scannen am Rahmen ausrichten";
-
-/* Text of the prompt that is shown to the user when the data is invalid */
-"ScanQRCode.InvalidDataError.Message" = "Die Daten sind ungültig";
-
-/* Text of the prompt user to setup the camera authorization. */
-"ScanQRCode.PermissionError.Message" = "Bitte gestatten Sie %@ den Zugriff auf die Kamera Ihres Geräts über „Einstellungen → Datenschutz → Kamera“.";
-
-/* Title for the QR code scanner view. */
-"ScanQRCode.View.Title" = "QR-Code scannen";
 
 /* Navigation title for search settings.
    Open search section of settings */

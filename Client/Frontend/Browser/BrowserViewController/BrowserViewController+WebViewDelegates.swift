@@ -185,7 +185,7 @@ extension BrowserViewController: WKUIDelegate {
                     }
 
                     let handlePhotoLibraryDenied = {
-                        let accessDenied = UIAlertController(title: Strings.PhotoLibraryFirefoxWouldLikeAccessTitle, message: Strings.PhotoLibraryFirefoxWouldLikeAccessMessage, preferredStyle: .alert)
+                        let accessDenied = UIAlertController(title: Strings.PhotoLibrary.AppWouldLikeAccessTitle, message: Strings.PhotoLibrary.AppWouldLikeAccessMessage, preferredStyle: .alert)
                         let dismissAction = UIAlertAction(title: Strings.General.CancelString, style: .default, handler: nil)
                         accessDenied.addAction(dismissAction)
                         let settingsAction = UIAlertAction(title: Strings.General.OpenSettingsString, style: .default ) { _ in
