@@ -314,31 +314,32 @@ extension Strings {
         }
     }
 
+    public struct ContextMenu {
+        public struct ButtonToast {
+            public struct NewTabOpened {
+                public static let LabelText = NSLocalizedString("ContextMenu.ButtonToast.NewTabOpened.LabelText", comment: "The label text in the Button Toast for switching to a fresh New Tab.")
+                public static let ButtonText = NSLocalizedString("ContextMenu.ButtonToast.NewTabOpened.ButtonText", comment: "The button text in the Button Toast for switching to a fresh New Tab.")
+            }
+            public struct NewPrivateTabOpened {
+                public static let LabelText = NSLocalizedString("ContextMenu.ButtonToast.NewPrivateTabOpened.LabelText", comment: "The label text in the Button Toast for switching to a fresh New Private Tab.")
+                public static let ButtonText = NSLocalizedString("ContextMenu.ButtonToast.NewPrivateTabOpened.ButtonText", comment: "The button text in the Button Toast for switching to a fresh New Private Tab.")
+            }
+        }
+        public static let OpenInNewTab = NSLocalizedString("ContextMenu.OpenInNewTabButtonTitle", comment: "Context menu item for opening a link in a new tab")
+        public static let BookmarkLink = NSLocalizedString("ContextMenu.BookmarkLinkButtonTitle", comment: "Context menu item for bookmarking a link URL")
+        public static let DownloadLink = NSLocalizedString("ContextMenu.DownloadLinkButtonTitle", comment: "Context menu item for downloading a link URL")
+        public static let CopyLink = NSLocalizedString("ContextMenu.CopyLinkButtonTitle", comment: "Context menu item for copying a link URL to the clipboard")
+        public static let ShareLink = NSLocalizedString("ContextMenu.ShareLinkButtonTitle", comment: "Context menu item for sharing a link URL")
+        public static let SaveImage = NSLocalizedString("ContextMenu.SaveImageButtonTitle", comment: "Context menu item for saving an image")
+        public static let CopyImage = NSLocalizedString("ContextMenu.CopyImageButtonTitle", comment: "Context menu item for copying an image to the clipboard")
+        public static let CopyImageLink = NSLocalizedString("ContextMenu.CopyImageLinkButtonTitle", comment: "Context menu item for copying an image URL to the clipboard")
+    }
+
 }
 
 // MARK: - Non Updated Strings below here
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
-
-// Context menu ButtonToast instances.
-extension Strings {
-    public static let ContextMenuButtonToastNewTabOpenedLabelText = NSLocalizedString("ContextMenu.ButtonToast.NewTabOpened.LabelText", comment: "The label text in the Button Toast for switching to a fresh New Tab.")
-    public static let ContextMenuButtonToastNewTabOpenedButtonText = NSLocalizedString("ContextMenu.ButtonToast.NewTabOpened.ButtonText", comment: "The button text in the Button Toast for switching to a fresh New Tab.")
-    public static let ContextMenuButtonToastNewPrivateTabOpenedLabelText = NSLocalizedString("ContextMenu.ButtonToast.NewPrivateTabOpened.LabelText", comment: "The label text in the Button Toast for switching to a fresh New Private Tab.")
-    public static let ContextMenuButtonToastNewPrivateTabOpenedButtonText = NSLocalizedString("ContextMenu.ButtonToast.NewPrivateTabOpened.ButtonText", comment: "The button text in the Button Toast for switching to a fresh New Private Tab.")
-}
-
-// Page context menu items (i.e. links and images).
-extension Strings {
-    public static let ContextMenuOpenInNewTab = NSLocalizedString("ContextMenu.OpenInNewTabButtonTitle", comment: "Context menu item for opening a link in a new tab")
-    public static let ContextMenuBookmarkLink = NSLocalizedString("ContextMenu.BookmarkLinkButtonTitle", comment: "Context menu item for bookmarking a link URL")
-    public static let ContextMenuDownloadLink = NSLocalizedString("ContextMenu.DownloadLinkButtonTitle", comment: "Context menu item for downloading a link URL")
-    public static let ContextMenuCopyLink = NSLocalizedString("ContextMenu.CopyLinkButtonTitle", comment: "Context menu item for copying a link URL to the clipboard")
-    public static let ContextMenuShareLink = NSLocalizedString("ContextMenu.ShareLinkButtonTitle", comment: "Context menu item for sharing a link URL")
-    public static let ContextMenuSaveImage = NSLocalizedString("ContextMenu.SaveImageButtonTitle", comment: "Context menu item for saving an image")
-    public static let ContextMenuCopyImage = NSLocalizedString("ContextMenu.CopyImageButtonTitle", comment: "Context menu item for copying an image to the clipboard")
-    public static let ContextMenuCopyImageLink = NSLocalizedString("ContextMenu.CopyImageLinkButtonTitle", comment: "Context menu item for copying an image URL to the clipboard")
-}
 
 // Photo Library access.
 extension Strings {
