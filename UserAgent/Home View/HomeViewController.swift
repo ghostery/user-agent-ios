@@ -137,11 +137,11 @@ private extension HomeViewController {
     private func title(for segment: Segment) -> String {
         switch segment {
         case .topSites:
-            return Strings.SegmentedControlTopSitesTitle
+            return Strings.HomeView.SegmentedControl.TopSitesTitle
         case .bookmarks:
-            return Strings.SegmentedControlBookmarksTitle
+            return Strings.HomeView.SegmentedControl.BookmarksTitle
         case .history:
-            return Strings.SegmentedControlHistoryTitle
+            return Strings.HomeView.SegmentedControl.HistoryTitle
         }
     }
 }

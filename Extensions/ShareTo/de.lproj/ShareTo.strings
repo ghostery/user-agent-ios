@@ -1,10 +1,3 @@
-/* 
-  ShareTo.strings
-  Client
-
-  Created by Pavel Kirakosyan on 09.09.19.
-  Copyright © 2019 Mozilla. All rights reserved.
-*/
 
 /* Action label on share extension to bookmark the page in UserAgent. */
 "ShareExtension.BookmarkThisPageAction.Title" = "Lesezeichen für diese Seite hinzufügen";

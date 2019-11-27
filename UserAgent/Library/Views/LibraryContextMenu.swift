@@ -40,10 +40,10 @@ extension LibraryContextMenu {
 
     func getDefaultContextMenuActions(for site: Site, libraryViewDelegate: LibraryViewDelegate?) -> [PhotonActionSheetItem]? {
         guard let siteURL = URL(string: site.url) else { return nil }
-        let openInNewTabAction = PhotonActionSheetItem(title: Strings.OpenInNewTabContextMenuTitle, iconString: "quick_action_new_tab") { action in
+        let openInNewTabAction = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewTab, iconString: "quick_action_new_tab") { action in
             libraryViewDelegate?.libraryDidRequestToOpenInNewTab(siteURL, isPrivate: false)
         }
-        let openInNewPrivateTabAction = PhotonActionSheetItem(title: Strings.OpenInNewPrivateTabContextMenuTitle, iconString: "forgetMode") { action in
+        let openInNewPrivateTabAction = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewPrivateTab, iconString: "forgetMode") { action in
             libraryViewDelegate?.libraryDidRequestToOpenInNewTab(siteURL, isPrivate: true)
         }
         return [openInNewTabAction, openInNewPrivateTabAction]

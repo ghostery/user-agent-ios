@@ -1,3 +1,4 @@
+
 /* Setting for closing private tabs */
 "Close Private Tabs" = "Vergessen-Tabs schließen";
 
@@ -13,21 +14,20 @@
 /* Toggled ON accessibility value */
 "On" = "An";
 
-/* Will be displayed in Tabs view bottom bar. */
-"TabsView.Private.Title" = "Vergessen-Tabs";
-
-/* Button displayed at the bottom of the tabbar view. */
-"TabsView.Done.Title" = "Fertig";
-
 /* Title displayed for when there are no open tabs while in private mode */
 "Private Browsing" = "Vergessen-Modus Surfen";
 
 /* Accessibility label for toggling on/off private mode */
 "Private Mode" = "Vergessen-Modus";
 
+/* Button displayed at the bottom of the tabbar view. */
+"TabsView.Done.Title" = "Fertig";
+
+/* Will be displayed in Tabs view bottom bar. */
+"TabsView.Private.Title" = "Vergessen-Tabs";
+
 /* Accessiblity hint for toggling on/off private mode */
 "Turns private mode on or off" = "Schaltet den Vergessen-Modus an oder aus";
 
 /* Will be displayed in Settings under 'Close Private Tabs' */
 "When Leaving Private Browsing" = "Beim Verlassen des Vergessen-Modus";
-

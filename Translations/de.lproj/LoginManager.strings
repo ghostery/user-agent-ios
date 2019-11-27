@@ -1,3 +1,4 @@
+
 /* Prompt title when deleting logins */
 "Are you sure?" = "Sind Sie sicher?";
 
@@ -60,4 +61,3 @@
 
 /* Label displayed above the website row in Login Detail View. */
 "Website" = "Website";
-

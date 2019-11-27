@@ -38,13 +38,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         let searchSettings: [Setting] = [
             SearchLanguageSetting(currentRegion: self.currentRegion, availableRegions: self.availableRegions),
-            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.SettingsAdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
+            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.Settings.AdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
                 Search.setAdultFilter(filter: value ? .conservative : .liberal)
             },
             // Temporarily disabling additional search engines setting.
 //            SearchSetting(settings: self),
         ]
-        settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsSearchSectionTitle), children: searchSettings)]
+        settings += [ SettingSection(title: NSAttributedString(string: Strings.Settings.Search.SectionTitle), children: searchSettings)]
 
         let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
         var privacySettings = [Setting]()
@@ -92,16 +92,16 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         generalSettings += [
             BoolSetting(prefs: prefs, prefKey: "showClipboardBar", defaultValue: false,
-                        titleText: Strings.SettingsOfferClipboardBarTitle,
-                        statusText: Strings.SettingsOfferClipboardBarStatus),
+                        titleText: Strings.Toast.SettingsOfferClipboardBarTitle,
+                        statusText: Strings.Toast.SettingsOfferClipboardBarStatus),
         ]
-        settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsGeneralSectionTitle), children: generalSettings)]
+        settings += [ SettingSection(title: NSAttributedString(string: Strings.Settings.General.SectionTitle), children: generalSettings)]
 
         settings += [
             SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: [
                 ShowIntroductionSetting(settings: self),
                 SendFeedbackSetting(),
-                BoolSetting(prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true, attributedTitleText: NSAttributedString(string: Strings.SendUsageSettingTitle), attributedStatusText: NSAttributedString(string: Strings.SendUsageSettingMessage, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
+                BoolSetting(prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true, attributedTitleText: NSAttributedString(string: Strings.Settings.SendUsage.Title), attributedStatusText: NSAttributedString(string: Strings.Settings.SendUsage.Message, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
             ]),
             SettingSection(title: NSAttributedString(string: NSLocalizedString("About", comment: "About settings section title")), children: [
                 VersionSetting(settings: self),

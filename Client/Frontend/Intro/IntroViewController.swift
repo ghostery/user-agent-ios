@@ -39,7 +39,7 @@ class IntroViewController: UIViewController {
     lazy fileprivate var skipButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.clear
-        button.setTitle(Strings.CardSkipButtonTitle, for: UIControl.State())
+        button.setTitle(Strings.Intro.Slides.SkipButtonTitle, for: UIControl.State())
         button.setTitleColor(IntroUX.SkipButtonColor, for: UIControl.State())
         button.addTarget(self, action: #selector(IntroViewController.startBrowsing), for: UIControl.Event.touchUpInside)
         button.accessibilityIdentifier = "IntroViewController.startBrowsingButton"
@@ -346,7 +346,7 @@ class CardView: UIView {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.layer.cornerRadius = CGFloat(IntroUX.StartBrowsingButtonHeight) / 2
         button.backgroundColor = IntroUX.StartBrowsingButtonColor
-        button.setTitle(Strings.WelcomeCardButtonTitle, for: [])
+        button.setTitle(Strings.Intro.Slides.Welcome.ButtonTitle, for: [])
         button.setTitleColor(.white, for: [])
         button.setContentHuggingPriority(UILayoutPriority(rawValue: 1000), for: .vertical)
         button.clipsToBounds = true
@@ -419,9 +419,9 @@ struct IntroCard {
     }
 
     static func defaultCards() -> [IntroCard] {
-        let search = IntroCard(title: Strings.SearchCardTitle, text: Strings.SearchCardDescription, imageName: "tour-Search", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
-        let antiTracking = IntroCard(title: Strings.AntiTrackingCardTitle, text: Strings.AntiTrackingCardDescription, imageName: "tour-antiTracking", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
-        let welcome = IntroCard(title: "", text: Strings.WelcomeCardDescription, imageName: "tour-LogoFull", imageContentMode: .center, buttonText: Strings.WelcomeCardButtonTitle, buttonSelector: #selector(IntroViewController.startBrowsing).description)
+        let search = IntroCard(title: Strings.Intro.Slides.Search.Title, text: Strings.Intro.Slides.Search.Description, imageName: "tour-Search", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
+        let antiTracking = IntroCard(title: Strings.Intro.Slides.AntiTracking.Title, text: Strings.Intro.Slides.AntiTracking.Description, imageName: "tour-antiTracking", imageContentMode: .scaleAspectFit, imageBackgroundColor: UIColor.LightBlue)
+        let welcome = IntroCard(title: "", text: Strings.Intro.Slides.Welcome.Description, imageName: "tour-LogoFull", imageContentMode: .center, buttonText: Strings.Intro.Slides.Welcome.ButtonTitle, buttonSelector: #selector(IntroViewController.startBrowsing).description)
         return [search, antiTracking, welcome]
     }
 

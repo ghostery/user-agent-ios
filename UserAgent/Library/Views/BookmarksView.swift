@@ -31,7 +31,7 @@ class BookmarksView: LibraryView {
     // MARK: - Initialization
     override func setup() {
         super.setup()
-        self.tableView.accessibilityIdentifier = Strings.BookmarksTitle
+        self.tableView.accessibilityIdentifier = Strings.Bookmarks.Title
         self.tableView.addGestureRecognizer(self.longPressRecognizer)
         self.loadData()
     }
@@ -98,7 +98,7 @@ class BookmarksView: LibraryView {
     }
 
     override func emptyMessage() -> String? {
-        return Strings.BookmarksPanelEmptyStateTitle
+        return Strings.Bookmarks.PanelEmptyStateTitle
     }
 
     func loadData() {
@@ -212,7 +212,7 @@ extension BookmarksView {
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let title = Strings.deleteBookmark
+        let title = Strings.HomeView.deleteBookmark
         let delete = UITableViewRowAction(style: .default, title: title, handler: { (action, indexPath) in
             self.removeSiteForURLAtIndexPath(indexPath)
         })

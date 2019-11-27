@@ -110,7 +110,7 @@ class SentryIDSetting: HiddenSetting {
     }
 
     func copyAppDeviceIDAndPresentAlert(by navigationController: UINavigationController?) {
-        let alertTitle = Strings.SettingsCopyAppVersionAlertTitle
+        let alertTitle = Strings.Settings.CopyAppVersionAlertTitle
         let alert = AlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         getSelectedCell(by: navigationController)?.setSelected(false, animated: true)
         UIPasteboard.general.string = deviceAppHash
@@ -164,7 +164,7 @@ class VersionSetting: Setting {
     }
 
     func copyAppVersionAndPresentAlert(by navigationController: UINavigationController?) {
-        let alertTitle = Strings.SettingsCopyAppVersionAlertTitle
+        let alertTitle = Strings.Settings.CopyAppVersionAlertTitle
         let alert = AlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         getSelectedCell(by: navigationController)?.setSelected(false, animated: true)
         UIPasteboard.general.string = self.title?.string
@@ -242,7 +242,7 @@ class SearchSetting: Setting {
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
-        super.init(title: NSAttributedString(string: Strings.SettingsAdditionalSearchEnginesSectionTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.AdditionalSearchEngines.SectionTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -270,7 +270,7 @@ class SearchLanguageSetting: Setting {
     init(currentRegion: Search.Country?, availableRegions: [Search.Country]?) {
         self.currentRegion = currentRegion
         self.availableRegions = availableRegions
-        super.init(title: NSAttributedString(string: Strings.SettingsSearchResultForLanguage, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.SearchResultForLanguage.Title, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -294,7 +294,7 @@ class ClearPrivateDataSetting: Setting {
         self.profile = settings.profile
         self.tabManager = settings.tabManager
 
-        let clearTitle = Strings.SettingsDataManagementSectionName
+        let clearTitle = Strings.Settings.DataManagement.SectionName
         super.init(title: NSAttributedString(string: clearTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
@@ -331,7 +331,7 @@ class SiriPageSetting: Setting {
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
 
-        super.init(title: NSAttributedString(string: Strings.SettingsSiriSectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.Siri.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -366,7 +366,7 @@ class OpenWithSetting: Setting {
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
 
-        super.init(title: NSAttributedString(string: Strings.SettingsOpenWithSectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.OpenWith.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -383,7 +383,7 @@ class TranslationSetting: Setting {
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
-        super.init(title: NSAttributedString(string: Strings.SettingTranslateSnackBarTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.TranslateSnackBar.Title, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {

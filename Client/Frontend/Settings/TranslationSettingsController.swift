@@ -30,7 +30,7 @@ class TranslationSettingsController: ThemedTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Strings.SettingTranslateSnackBarTitle
+        title = Strings.Settings.TranslateSnackBar.Title
         tableView.accessibilityIdentifier = "Translate.Setting.Options"
         tableView.backgroundColor = Theme.tableView.headerBackground
 
@@ -39,7 +39,7 @@ class TranslationSettingsController: ThemedTableViewController {
         headerView.showTopBorder = false
         headerView.showBottomBorder = true
         tableView.tableHeaderView = headerView
-        headerView.titleLabel.text = Strings.SettingTranslateSnackBarSectionHeader
+        headerView.titleLabel.text = Strings.Settings.TranslateSnackBar.SectionHeader
     }
 
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -48,7 +48,7 @@ class TranslationSettingsController: ThemedTableViewController {
         let footer = UIView()
         let label = UILabel()
         footer.addSubview(label)
-        label.text = Strings.SettingTranslateSnackBarSectionFooter
+        label.text = Strings.Settings.TranslateSnackBar.SectionFooter
         label.numberOfLines = 0
         label.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(4)
@@ -75,8 +75,8 @@ class TranslationSettingsController: ThemedTableViewController {
         switch section {
         case .translationOnOff:
             if indexPath.row == 0 {
-                cell.textLabel?.text = Strings.SettingTranslateSnackBarSwitchTitle
-                cell.detailTextLabel?.text = Strings.SettingTranslateSnackBarSwitchSubtitle
+                cell.textLabel?.text = Strings.Settings.TranslateSnackBar.SwitchTitle
+                cell.detailTextLabel?.text = Strings.Settings.TranslateSnackBar.SwitchSubtitle
                 cell.detailTextLabel?.numberOfLines = 4
                 cell.detailTextLabel?.minimumScaleFactor = 0.5
                 cell.detailTextLabel?.adjustsFontSizeToFitWidth = true

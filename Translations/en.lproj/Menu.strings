@@ -1,3 +1,4 @@
+
 /* Label for the button, displayed in the menu, used to create a bookmark for the current website. */
 "Menu.AddBookmarkAction.Title" = "Bookmark This Page";
 
@@ -13,29 +14,35 @@
 /* Label for the button, displayed in the menu, used to open a new tab */
 "Menu.NewTabAction.Title" = "Open New Tab";
 
+/* Accessibility label for the button, displayed in the menu, used to open the Bbookmarks home panel. */
+"Menu.OpenBookmarksAction.AccessibilityLabel" = "Bookmarks";
+
+/* Accessibility label for the button, displayed in the menu, used to open the Downloads home panel. */
+"Menu.OpenDownloadsAction.AccessibilityLabel" = "Downloads";
+
+/* Accessibility label for the button, displayed in the menu, used to open the History home panel. */
+"Menu.OpenHistoryAction.AccessibilityLabel" = "History";
+
 /* Label for the button, displayed in the menu, used to navigate to the home page. */
 "Menu.OpenHomePageAction.Title" = "Home";
 
 /* Label for the button, displayed in the menu, used to open the Settings menu. */
 "Menu.OpenSettingsAction.Title" = "Settings";
 
-/* Label for the button, displayed in the menu, used to open the What's new page. */
-"Menu.OpenWhatsNewAction.Title" = "What's new";
-
-/* Label for the button, displayed in the menu, used to open Downloads. */
-"Menu.Downloads.Title" = "Downloads";
-
 /* Accessibility label for the button, displayed in the menu, used to open the Top Sites home panel. */
 "Menu.OpenTopSitesAction.AccessibilityLabel" = "Top Sites";
+
+/* Label for the button, displayed in the menu, used to open the What's new page. */
+"Menu.OpenWhatsNewAction.Title" = "What's new";
 
 /* Label for the button, displayed in the menu, used to show the html page source */
 "Menu.PageSourceAction.Title" = "View Page Source";
 
+/* Label for the button, displayed in the menu, used to request the reader mode version of the current website */
+"Menu.ReaderMode.Title" = "Reader Mode";
+
 /* Label for the button, displayed in the menu, used to delete an existing bookmark for the current website. */
 "Menu.RemoveBookmarkAction.Title" = "Remove Bookmark";
-
-/* Label for the button, displayed in the menu, used to open the QR code scanner. */
-"Menu.ScanQRCodeAction.Title" = "Scan QR Code";
 
 /* Label for the button, displayed in the menu, used to open the share dialog. */
 "Menu.SharePageAction.Title" = "Share Page With…";
@@ -43,27 +50,38 @@
 /* Label for the button, displayed in the menu, used to open the tabs tray */
 "Menu.ShowTabs.Title" = "Show Tabs";
 
+"Menu.TrackingProtectionAdsBlocked.Title" = "Ad trackers";
+
+"Menu.TrackingProtectionAnalyticsBlocked.Title" = "Analytic trackers";
+
+"Menu.TrackingProtectionAVPLayerBlocked.Title" = "Audio/Video Player";
+
+"Menu.TrackingProtectionCDNBlocked.Title" = "CDN";
+
+"Menu.TrackingProtectionCommentsBlocked.Title" = "Comments";
+
+"Menu.TrackingProtectionContentBlocked.Title" = "Content trackers";
+
+"Menu.TrackingProtectionCustomerInteractionBlocked.Title" = "Customer Interactions";
+
+"Menu.TrackingProtectionEssentialBlocked.Title" = "Essentials";
+
+"Menu.TrackingProtectionEssentialMisc.Title" = "Misc";
+
+"Menu.TrackingProtectionExtensionsBlocked.Title" = "Extensions";
+
+"Menu.TrackingProtectionHostingBlocked.Title" = "Hosting";
+
+"Menu.TrackingProtectionPornvertisingBlocked.Title" = "Pornvertising";
+
+"Menu.TrackingProtectionSocialBlocked.Title" = "Social trackers";
+
+"Menu.TrackingProtectionTotalBlocked.Title" = "Total trackers blocked";
+
+"Menu.TrackingProtectionUnknownBlocked.Title" = "Unknown";
+
 /* Label for the button, displayed in the menu, used to request the desktop version of the current website. */
 "Menu.ViewDekstopSiteAction.Title" = "Request Desktop Site";
 
 /* Label for the button, displayed in the menu, used to request the mobile version of the current website. */
 "Menu.ViewMobileSiteAction.Title" = "Request Mobile Site";
-
-/* Label for the button, displayed in the menu, used to request the reader mode version of the current website */
-"Menu.ReaderMode.Title" = "Reader Mode";
-
-"Menu.TrackingProtectionTotalBlocked.Title" = "Total trackers blocked";
-"Menu.TrackingProtectionAdsBlocked.Title" = "Ad trackers";
-"Menu.TrackingProtectionAnalyticsBlocked.Title" = "Analytic trackers";
-"Menu.TrackingProtectionSocialBlocked.Title" = "Social trackers";
-"Menu.TrackingProtectionContentBlocked.Title" = "Content trackers";
-"Menu.TrackingProtectionEssentialBlocked.Title" = "Essentials";
-"Menu.TrackingProtectionEssentialMisc.Title" = "Misc";
-"Menu.TrackingProtectionHostingBlocked.Title" = "Hosting";
-"Menu.TrackingProtectionPornvertisingBlocked.Title" = "Pornvertising";
-"Menu.TrackingProtectionAVPLayerBlocked.Title" = "Audio/Video Player";
-"Menu.TrackingProtectionExtensionsBlocked.Title" = "Extensions";
-"Menu.TrackingProtectionCustomerInteractionBlocked.Title" = "Customer Interactions";
-"Menu.TrackingProtectionCommentsBlocked.Title" = "Comments";
-"Menu.TrackingProtectionCDNBlocked.Title" = "CDN";
-"Menu.TrackingProtectionUnknownBlocked.Title" = "Unknown";

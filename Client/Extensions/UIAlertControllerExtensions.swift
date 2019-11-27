@@ -26,7 +26,7 @@ extension UIAlertController {
         dontSendCallback: @escaping UIAlertActionCallback) -> UIAlertController {
 
         let alert = UIAlertController(
-            title: Strings.AppCrashedMessage,
+            title: Strings.Errors.App.CrashedMessage,
             message: NSLocalizedString("Send a crash report so we can fix the problem?", comment: "Message displayed in the crash dialog above the buttons used to select when sending reports"),
             preferredStyle: .alert
         )
@@ -67,7 +67,7 @@ extension UIAlertController {
     class func restoreTabsAlert(okayCallback: @escaping UIAlertActionCallback, noCallback: @escaping UIAlertActionCallback) -> UIAlertController {
         let alert = UIAlertController(
             title: NSLocalizedString("Well, this is embarrassing.", comment: "Restore Tabs Prompt Title"),
-            message: Strings.RestoreTabsAfterCrashMessage,
+            message: Strings.Errors.App.RestoreTabsAfterCrashMessage,
             preferredStyle: .alert
         )
 
@@ -115,7 +115,7 @@ extension UIAlertController {
     class func clearWebsiteDataAlert(okayCallback: @escaping (UIAlertAction) -> Void) -> UIAlertController {
         let alert = UIAlertController(
             title: "",
-            message: Strings.SettingsClearWebsiteDataMessage,
+            message: Strings.Settings.ClearPrivateData.Title,
             preferredStyle: .alert
         )
 

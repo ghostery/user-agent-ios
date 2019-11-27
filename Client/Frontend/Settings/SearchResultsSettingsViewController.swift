@@ -18,7 +18,7 @@ class SearchResultsSettingsViewController: SettingsTableViewController {
         self.selectedRegion = selectedRegion
         self.availableRegions = availableRegions
         super.init(style: .grouped)
-        self.title = Strings.SettingsSearchResultForLanguage
+        self.title = Strings.Settings.SearchResultForLanguage.Title
         self.hasSectionSeparatorLine = false
     }
 

@@ -24,13 +24,13 @@ enum LibrarySection: Int, CaseIterable {
     var title: String {
         switch self {
         case .today:
-            return Strings.TableDateSectionTitleToday
+            return Strings.TableDateSection.TitleToday
         case .yesterday:
-            return Strings.TableDateSectionTitleYesterday
+            return Strings.TableDateSection.TitleYesterday
         case .lastWeek:
-            return Strings.TableDateSectionTitleLastWeek
+            return Strings.TableDateSection.TitleLastWeek
         case .lastMonth:
-            return Strings.TableDateSectionTitleLastMonth
+            return Strings.TableDateSection.TitleLastMonth
         }
     }
 }
@@ -253,11 +253,11 @@ extension LibraryView: LibraryContextMenu {
     func getContextMenuActions(for site: Site, with indexPath: IndexPath) -> [PhotonActionSheetItem]? {
         guard var actions = self.getDefaultContextMenuActions(for: site, libraryViewDelegate: self.delegate) else { return nil }
 
-        let removeAction = PhotonActionSheetItem(title: Strings.DeleteFromHistoryContextMenuTitle, iconString: "action_delete", handler: { action in
+        let removeAction = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.DeleteFromHistory, iconString: "action_delete", handler: { action in
             self.removeSiteForURLAtIndexPath(indexPath)
         })
 
-        let pinTopSite = PhotonActionSheetItem(title: Strings.PinTopsiteActionTitle, iconString: "action_pin", handler: { action in
+        let pinTopSite = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.PinTopsite, iconString: "action_pin", handler: { action in
             self.pinToTopSites(site)
         })
         actions.append(pinTopSite)

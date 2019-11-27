@@ -75,33 +75,33 @@ extension WTMCategory {
     var localizedName: String {
         switch self {
         case .advertising:
-            return Strings.TrackingProtectionAdsBlocked
+            return Strings.Menu.TrackingProtectionAdsBlocked
         case .analytics:
-            return Strings.TrackingProtectionAnalyticsBlocked
+            return Strings.Menu.TrackingProtectionAnalyticsBlocked
         case .content:
-            return Strings.TrackingProtectionContentBlocked
+            return Strings.Menu.TrackingProtectionContentBlocked
         case .social:
-            return Strings.TrackingProtectionSocialBlocked
+            return Strings.Menu.TrackingProtectionSocialBlocked
         case .essential:
-            return Strings.TrackingProtectionEssentialBlocked
+            return Strings.Menu.TrackingProtectionEssentialBlocked
         case .misc:
-            return Strings.TrackingProtectionMiscBlocked
+            return Strings.Menu.TrackingProtectionMiscBlocked
         case .hosting:
-            return Strings.TrackingProtectionHostingBlocked
+            return Strings.Menu.TrackingProtectionHostingBlocked
         case .pornvertising:
-            return Strings.TrackingProtectionPornvertisingBlocked
+            return Strings.Menu.TrackingProtectionPornvertisingBlocked
         case .audioVideoPlayer:
-            return Strings.TrackingProtectionAudioVideoPlayerBlocked
+            return Strings.Menu.TrackingProtectionAudioVideoPlayerBlocked
         case .extensions:
-            return Strings.TrackingProtectionExtensionsBlocked
+            return Strings.Menu.TrackingProtectionExtensionsBlocked
         case .customerInteraction:
-            return Strings.TrackingProtectionCustomerInteractionBlocked
+            return Strings.Menu.TrackingProtectionCustomerInteractionBlocked
         case .comments:
-            return Strings.TrackingProtectionCommentsBlocked
+            return Strings.Menu.TrackingProtectionCommentsBlocked
         case .cdn:
-            return Strings.TrackingProtectionCDNBlocked
+            return Strings.Menu.TrackingProtectionCDNBlocked
         default:
-            return Strings.TrackingProtectioUnknownBlocked
+            return Strings.Menu.TrackingProtectioUnknownBlocked
         }
     }
 }

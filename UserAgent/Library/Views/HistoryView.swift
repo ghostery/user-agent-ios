@@ -71,7 +71,7 @@ class HistoryView: LibraryView {
     }
 
     override func emptyMessage() -> String? {
-        return Strings.HistoryPanelEmptyStateTitle
+        return Strings.HistoryPanel.EmptyStateTitle
     }
 
 }
@@ -207,7 +207,7 @@ extension HistoryView {
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let title = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
+        let title = Strings.HistoryPanel.DeleteTitle
         let delete = UITableViewRowAction(style: .default, title: title, handler: { (action, indexPath) in
             self.removeHistoryForURLAtIndexPath(indexPath: indexPath)
         })

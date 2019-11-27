@@ -19,7 +19,7 @@ extension PhotonActionSheetProtocol {
     typealias IsPrivateTab = Bool
     typealias URLOpenAction = (URL?, IsPrivateTab) -> Void
 
-    func presentSheetWith(title: String? = nil, actions: [[PhotonActionSheetItem]], on viewController: PresentableVC, from view: UIView, closeButtonTitle: String = Strings.CloseButtonTitle, suppressPopover: Bool = false) {
+    func presentSheetWith(title: String? = nil, actions: [[PhotonActionSheetItem]], on viewController: PresentableVC, from view: UIView, closeButtonTitle: String = Strings.PhotonMenu.Close, suppressPopover: Bool = false) {
         let style: UIModalPresentationStyle = (UIDevice.current.isPad && !suppressPopover) ? .popover : .overCurrentContext
         let sheet = PhotonActionSheet(title: title, actions: actions, closeButtonTitle: closeButtonTitle, style: style)
         sheet.modalPresentationStyle = style
@@ -39,7 +39,7 @@ extension PhotonActionSheetProtocol {
     func getLibraryActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         guard let tab = self.tabManager.selectedTab else { return [] }
 
-        let openHomePage = PhotonActionSheetItem(title: Strings.AppMenuOpenHomePageTitleString, iconString: "menu-Home") { _ in
+        let openHomePage = PhotonActionSheetItem(title: Strings.Menu.OpenHomePageTitleString, iconString: "menu-Home") { _ in
             if let homePanelURL = NewTabPage.topSites.url {
                 tab.loadRequest(PrivilegedRequest(url: homePanelURL) as URLRequest)
             }
@@ -90,7 +90,7 @@ extension PhotonActionSheetProtocol {
                        readerModeChanged: ((Bool) -> Void)?,
                        success: @escaping (String) -> Void) -> [[PhotonActionSheetItem]] {
         if tab.url?.isFileURL ?? false {
-            let shareFile = PhotonActionSheetItem(title: Strings.AppMenuSharePageTitleString, iconString: "action_share") { action in
+            let shareFile = PhotonActionSheetItem(title: Strings.Menu.SharePageTitleString, iconString: "action_share") { action in
                 guard let url = tab.url else { return }
 
                 self.share(fileURL: url, buttonView: buttonView, presentableVC: presentableVC)
@@ -102,9 +102,9 @@ extension PhotonActionSheetProtocol {
         let defaultUAisDesktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
         let toggleActionTitle: String
         if defaultUAisDesktop {
-            toggleActionTitle = tab.changedUserAgent ? Strings.AppMenuViewDesktopSiteTitleString : Strings.AppMenuViewMobileSiteTitleString
+            toggleActionTitle = tab.changedUserAgent ? Strings.Menu.ViewDesktopSiteTitleString : Strings.Menu.ViewMobileSiteTitleString
         } else {
-            toggleActionTitle = tab.changedUserAgent ? Strings.AppMenuViewMobileSiteTitleString : Strings.AppMenuViewDesktopSiteTitleString
+            toggleActionTitle = tab.changedUserAgent ? Strings.Menu.ViewMobileSiteTitleString : Strings.Menu.ViewDesktopSiteTitleString
         }
 
         let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.changedUserAgent, badgeIconNamed: "menuBadge") { action in
@@ -114,29 +114,29 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        let bookmarkPage = PhotonActionSheetItem(title: Strings.AppMenuAddBookmarkTitleString, iconString: "menu-Bookmark") { action in
+        let bookmarkPage = PhotonActionSheetItem(title: Strings.Menu.AddBookmarkTitleString, iconString: "menu-Bookmark") { action in
             guard let url = tab.canonicalURL?.displayURL,
                 let bvc = presentableVC as? BrowserViewController else {
                 return
             }
             bvc.addBookmark(url: url.absoluteString, title: tab.title, favicon: tab.displayFavicon)
-            success(Strings.AppMenuAddBookmarkConfirmMessage)
+            success(Strings.Menu.AddBookmarkConfirmMessage)
         }
 
-        let removeBookmark = PhotonActionSheetItem(title: Strings.AppMenuRemoveBookmarkTitleString, iconString: "menu-Bookmark-Remove") { action in
+        let removeBookmark = PhotonActionSheetItem(title: Strings.Menu.RemoveBookmarkTitleString, iconString: "menu-Bookmark-Remove") { action in
             guard let url = tab.url?.displayURL else { return }
 
             let absoluteString = url.absoluteString
             self.profile.bookmarks.modelFactory >>== {
                 $0.removeByURL(absoluteString).uponQueue(.main) { res in
                     if res.isSuccess {
-                        success(Strings.AppMenuRemoveBookmarkConfirmMessage)
+                        success(Strings.Menu.RemoveBookmarkConfirmMessage)
                     }
                 }
             }
         }
 
-        let pinToTopSites = PhotonActionSheetItem(title: Strings.PinTopsiteActionTitle, iconString: "action_pin") { action in
+        let pinToTopSites = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.PinTopsite, iconString: "action_pin") { action in
             guard let url = tab.url?.displayURL, let sql = self.profile.history as? SQLiteHistory else { return }
 
             sql.getSites(forURLs: [url.absoluteString]).bind { val -> Success in
@@ -148,7 +148,7 @@ extension PhotonActionSheetProtocol {
             }.uponQueue(.main) { _ in }
         }
 
-        let removeTopSitesPin = PhotonActionSheetItem(title: Strings.RemovePinTopsiteActionTitle, iconString: "action_unpin") { action in
+        let removeTopSitesPin = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.RemovePinTopsite, iconString: "action_unpin") { action in
             guard let url = tab.url?.displayURL, let sql = self.profile.history as? SQLiteHistory else { return }
 
             sql.getSites(forURLs: [url.absoluteString]).bind { val -> Success in
@@ -160,7 +160,7 @@ extension PhotonActionSheetProtocol {
             }.uponQueue(.main) { _ in }
         }
 
-        let sharePage = PhotonActionSheetItem(title: Strings.AppMenuSharePageTitleString, iconString: "action_share") { action in
+        let sharePage = PhotonActionSheetItem(title: Strings.Menu.SharePageTitleString, iconString: "action_share") { action in
             guard let url = tab.canonicalURL?.displayURL else { return }
 
             if let temporaryDocument = tab.temporaryDocument {
@@ -193,7 +193,7 @@ extension PhotonActionSheetProtocol {
         var domainActions = [toggleDesktopSite]
 
         if let isReaderModeEnabled = isReaderModeEnabled {
-            let readerModeAction = PhotonActionSheetItem(title: Strings.AppMenuReaderModeTitleString, iconString: "reader", isEnabled: isReaderModeEnabled, accessory: .Switch, badgeIconNamed: "menuBadge") { (item) in
+            let readerModeAction = PhotonActionSheetItem(title: Strings.Menu.ReaderModeTitleString, iconString: "reader", isEnabled: isReaderModeEnabled, accessory: .Switch, badgeIconNamed: "menuBadge") { (item) in
                 tab.toggleChangeReaderMode()
                 readerModeChanged?(item.isEnabled)
             }
@@ -204,7 +204,7 @@ extension PhotonActionSheetProtocol {
 
         // Disable find in page if document is pdf.
         if tab.mimeType != MIMEType.PDF {
-            let findInPageAction = PhotonActionSheetItem(title: Strings.AppMenuFindInPageTitleString, iconString: "menu-FindInPage") { action in
+            let findInPageAction = PhotonActionSheetItem(title: Strings.Menu.FindInPageTitleString, iconString: "menu-FindInPage") { action in
                 findInPage()
             }
             commonActions.insert(findInPageAction, at: 0)
@@ -227,17 +227,17 @@ extension PhotonActionSheetProtocol {
     }
 
     func getLongPressLocationBarActions(with urlBar: URLBarView) -> [PhotonActionSheetItem] {
-        let pasteGoAction = PhotonActionSheetItem(title: Strings.PasteAndGoTitle, iconString: "menu-PasteAndGo") { action in
+        let pasteGoAction = PhotonActionSheetItem(title: Strings.Menu.PasteAndGoTitle, iconString: "menu-PasteAndGo") { action in
             if let pasteboardContents = UIPasteboard.general.string {
                 urlBar.delegate?.urlBar(urlBar, didSubmitText: pasteboardContents)
             }
         }
-        let pasteAction = PhotonActionSheetItem(title: Strings.PasteTitle, iconString: "menu-Paste") { action in
+        let pasteAction = PhotonActionSheetItem(title: Strings.Menu.PasteTitle, iconString: "menu-Paste") { action in
             if let pasteboardContents = UIPasteboard.general.string {
                 urlBar.enterOverlayMode(pasteboardContents, pasted: true, search: true)
             }
         }
-        let copyAddressAction = PhotonActionSheetItem(title: Strings.CopyAddressTitle, iconString: "menu-Copy-Link") { action in
+        let copyAddressAction = PhotonActionSheetItem(title: Strings.Menu.CopyAddressTitle, iconString: "menu-Copy-Link") { action in
             if let url = self.tabManager.selectedTab?.canonicalURL?.displayURL ?? urlBar.currentURL {
                 UIPasteboard.general.url = url
             }
@@ -251,12 +251,12 @@ extension PhotonActionSheetProtocol {
 
     @available(iOS 11.0, *)
     private func menuActionsForNotBlocking() -> [PhotonActionSheetItem] {
-        return [PhotonActionSheetItem(title: Strings.SettingsTrackingProtectionSectionName, text: Strings.TPNoBlockingDescription, iconString: "menu-TrackingProtection")]
+        return [PhotonActionSheetItem(title: Strings.Settings.TrackingProtection.SectionName, text: Strings.Menu.TPNoBlockingDescription, iconString: "menu-TrackingProtection")]
     }
 
     @available(iOS 11.0, *)
     private func menuActionsForTrackingProtectionDisabled(for tab: Tab, vcDelegate: PageOptionsVC) -> [[PhotonActionSheetItem]] {
-        let moreInfo = PhotonActionSheetItem(title: Strings.TPBlockingMoreInfo)
+        let moreInfo = PhotonActionSheetItem(title: Strings.Menu.TPBlockingMoreInfo)
         return [[moreInfo], [openSettingsItem(vcDelegate: vcDelegate)]]
     }
 
@@ -344,7 +344,7 @@ extension PhotonActionSheetProtocol {
     }
 
     private func openWhatsNewItem() -> PhotonActionSheetItem {
-        let openSettings = PhotonActionSheetItem(title: Strings.AppMenuWhatsNewTitleString, iconString: "menu-whatsNew") { action in
+        let openSettings = PhotonActionSheetItem(title: Strings.Menu.WhatsNewTitleString, iconString: "menu-whatsNew") { action in
             guard let url = URL(string: Strings.WhatsNewWebsite) else {
                 return
             }
@@ -355,7 +355,7 @@ extension PhotonActionSheetProtocol {
     }
 
     private func openSettingsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
-        let openSettings = PhotonActionSheetItem(title: Strings.AppMenuSettingsTitleString, iconString: "menu-Settings") { action in
+        let openSettings = PhotonActionSheetItem(title: Strings.Menu.SettingsTitleString, iconString: "menu-Settings") { action in
             let settingsTableViewController = AppSettingsTableViewController()
             settingsTableViewController.profile = self.profile
             settingsTableViewController.tabManager = self.tabManager
@@ -374,14 +374,14 @@ extension PhotonActionSheetProtocol {
     }
 
     private func openDownloadsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
-        let openDownloads = PhotonActionSheetItem(title: Strings.AppMenuDownloadsTitleString, iconString: "menu-downloads") { action in
+        let openDownloads = PhotonActionSheetItem(title: Strings.Menu.DownloadsTitleString, iconString: "menu-downloads") { action in
             (vcDelegate as? BrowserViewController)?.showDownloads()
         }
         return openDownloads
     }
 
     private func refreshPageItem() -> PhotonActionSheetItem {
-           let refreshPage = PhotonActionSheetItem(title: Strings.AppMenuReloadTitleString, iconString: "nav-refresh") { action in
+        let refreshPage = PhotonActionSheetItem(title: Strings.Menu.ReloadTitleString, iconString: "nav-refresh") { action in
                 self.tabManager.selectedTab?.reload()
            }
            return refreshPage

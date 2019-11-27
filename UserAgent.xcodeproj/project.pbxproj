@@ -264,7 +264,6 @@
 		7BF5A1EA1B41640500EA9DD8 /* SyncQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */; };
 		7E4146FFA3D6BD8126BB5EB9 /* Menu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 187C48DAA7ADAA94202B7F33 /* Menu.strings */; };
 		834A40198503DEA0CC1E7FBA /* Shared.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D5C457AA78148172BE8231E /* Shared.strings */; };
-		8D8251811F4DE67F00780643 /* AdvancedAccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8251721F4DE67E00780643 /* AdvancedAccountSettingViewController.swift */; };
 		9BDB47EAA0D99EA1732D3E3F /* ClearPrivateDataConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */; };
 		A3C9447C9B26E53049AC9503 /* 3DTouchActions.strings in Resources */ = {isa = PBXBuildFile; fileRef = C69A4445A044D7F52824B948 /* 3DTouchActions.strings */; };
 		A835425991BEA33554CC85C2 /* Storage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87334596ACEFC08E1CEC3543 /* Storage.strings */; };
@@ -273,6 +272,7 @@
 		A83E5B1B1C1DA8BF0026D912 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = A83E5B191C1DA8BF0026D912 /* image.png */; };
 		A83E5B1D1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5B1C1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift */; };
 		A83E5B1E1C1DAAAA0026D912 /* UIPasteboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */; };
+		AC33579D23882D2900693969 /* Strings+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33579B2387F2CC00693969 /* Strings+Storage.swift */; };
 		AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
 		AC65328E23476CDF00FC7ADB /* TopSitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65328A2344E3D000FC7ADB /* TopSitesView.swift */; };
 		ACB6D4322306AC35002D64E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */; };
@@ -419,7 +419,6 @@
 		ACB737D523042BAB00FA5626 /* WebPagesForTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A651020699BD200B52A5F /* WebPagesForTesting.swift */; };
 		ACB737D623042BAB00FA5626 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A994951A3686BD008AD1AC /* BrowserViewController.swift */; };
 		ACB737DB23042BAB00FA5626 /* DownloadQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0625C97208E87F10081F3B2 /* DownloadQueue.swift */; };
-		ACB737DC23042BAB00FA5626 /* AdvancedAccountSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8251721F4DE67E00780643 /* AdvancedAccountSettingViewController.swift */; };
 		ACB737E023042BAB00FA5626 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		ACB737E123042BAB00FA5626 /* ShareExtensionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3972BF11C22412B00035B87 /* ShareExtensionHelper.swift */; };
 		ACB737E223042BAB00FA5626 /* SessionRestoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35B8D2C1D6383E9008E3D61 /* SessionRestoreHelper.swift */; };
@@ -1225,7 +1224,6 @@
 		84ABA3E805A19707DE49E5EB /* Pods-ShareTo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTo.debug.xcconfig"; path = "Target Support Files/Pods-ShareTo/Pods-ShareTo.debug.xcconfig"; sourceTree = "<group>"; };
 		88B2443E98359B04EE78C80E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intro.strings; sourceTree = "<group>"; };
 		8A71479FAA8317AA24627B04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LoginManager.strings; sourceTree = "<group>"; };
-		8D8251721F4DE67E00780643 /* AdvancedAccountSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedAccountSettingViewController.swift; sourceTree = "<group>"; };
 		8EF4515D84F7B934A5318AEC /* Pods-Cliqz.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cliqz.adhoc.xcconfig"; path = "Target Support Files/Pods-Cliqz/Pods-Cliqz.adhoc.xcconfig"; sourceTree = "<group>"; };
 		8F87D0B7200D772460EF6953 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 		8FF740D990F24FAF82BA095A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/3DTouchActions.strings; sourceTree = "<group>"; };
@@ -1240,6 +1238,7 @@
 		A83E5B1C1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPasteboardExtensionsTests.swift; sourceTree = "<group>"; };
 		AB6FF2698BCC5B9E5E6A685C /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBF3643A363A265DF18EC61 /* Pods-Lumen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.release.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.release.xcconfig"; sourceTree = "<group>"; };
+		AC33579B2387F2CC00693969 /* Strings+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Storage.swift"; sourceTree = "<group>"; };
 		AC65328A2344E3D000FC7ADB /* TopSitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSitesView.swift; sourceTree = "<group>"; };
 		ACB6D4332306ACE3002D64E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACB6D4362306B29A002D64E6 /* azure-pipelines.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "azure-pipelines.yml"; sourceTree = "<group>"; };
@@ -1372,7 +1371,7 @@
 		D31F95E81AC226CB005C9F3B /* ScreenshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotHelper.swift; sourceTree = "<group>"; };
 		D32CACEC1AE04DA1000658EB /* TestSwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftData.swift; sourceTree = "<group>"; };
 		D34DC84D1A16C40C00D49B7B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Profile.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		D35210E01CB2F16600FC5DCB /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Strings.swift; path = ../Client/Frontend/Strings.swift; sourceTree = "<group>"; };
+		D35210E01CB2F16600FC5DCB /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D36998881AD70A0A00650C6C /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		D3724439B5DDE5DF3E9B16EF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/FindInPage.strings; sourceTree = "<group>"; };
 		D37524861C6E8B5A00A5F6C2 /* topdomains.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = topdomains.txt; sourceTree = "<group>"; };
@@ -1847,7 +1846,6 @@
 			isa = PBXGroup;
 			children = (
 				7B4980A71CE363ED0017547C /* Settings.xcassets */,
-				8D8251721F4DE67E00780643 /* AdvancedAccountSettingViewController.swift */,
 				E692E3361C46E86A009D1240 /* AppSettingsOptions.swift */,
 				E68E39BD1C46F42000B85F42 /* AppSettingsTableViewController.swift */,
 				0B62EFD11AD63CD100ACB9CD /* Clearables.swift */,
@@ -2175,6 +2173,17 @@
 				7B42406D1CA04CAC009B5C28 /* Menu.xcassets */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		AC3357942386C5F800693969 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				D35210E01CB2F16600FC5DCB /* Strings.swift */,
+				46BBFA6123575B0000283594 /* Strings+Brand.swift */,
+				46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */,
+				AC33579B2387F2CC00693969 /* Strings+Storage.swift */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 		AC65328C2347674D00FC7ADB /* Home View */ = {
@@ -2585,9 +2594,7 @@
 		E4E0BB141AFBC9E4008D6260 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D35210E01CB2F16600FC5DCB /* Strings.swift */,
-				46BBFA6123575B0000283594 /* Strings+Brand.swift */,
-				46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */,
+				AC3357942386C5F800693969 /* Localization */,
 				E650756F1E37F7AB006961AC /* Extensions */,
 				E4E0BB161AFBC9E4008D6260 /* Supporting Files */,
 				E65075621E37F7AB006961AC /* Accessibility.swift */,
@@ -3180,8 +3187,8 @@
 			buildConfigurationList = F84B21DD1A090F8100AAB793 /* Build configuration list for PBXNativeTarget "Cliqz" */;
 			buildPhases = (
 				49B9EA8147132B7D671C4F39 /* [CP] Check Pods Manifest.lock */,
-				46C41EDB230EC92000CE54D2 /* Start React Native Server */,
 				ACB6D4302306A77D002D64E6 /* Lint with SwiftLint */,
+				46C41EDB230EC92000CE54D2 /* Start React Native Server */,
 				F84B21BA1A090F8100AAB793 /* Sources */,
 				F84B21BC1A090F8100AAB793 /* Resources */,
 				28CE83DE1A1D1E7C00576538 /* Frameworks */,
@@ -4168,6 +4175,7 @@
 				D02818611EF056C800240CAA /* SentryIntegration.swift in Sources */,
 				C520FF5A2388218A0097BA0C /* effective_tld_names.swift in Sources */,
 				E693F0D91E9D64BD0086DC17 /* OptionalExtensions.swift in Sources */,
+				AC33579D23882D2900693969 /* Strings+Storage.swift in Sources */,
 				E65075A01E37F7AB006961AC /* ArrayExtensions.swift in Sources */,
 				E65075921E37F7AB006961AC /* Accessibility.swift in Sources */,
 				E65075B51E37F7AB006961AC /* LaunchArguments.swift in Sources */,
@@ -4538,7 +4546,6 @@
 				ACB737D623042BAB00FA5626 /* BrowserViewController.swift in Sources */,
 				46CA60E32316D4A80010CE6B /* History.swift in Sources */,
 				ACB737DB23042BAB00FA5626 /* DownloadQueue.swift in Sources */,
-				ACB737DC23042BAB00FA5626 /* AdvancedAccountSettingViewController.swift in Sources */,
 				ACB737E023042BAB00FA5626 /* BackForwardListViewController.swift in Sources */,
 				ACB737E123042BAB00FA5626 /* ShareExtensionHelper.swift in Sources */,
 				46CA60E92317E0DC0010CE6B /* LocaleConstants.m in Sources */,
@@ -4783,7 +4790,6 @@
 				46CA60DC2316CED70010CE6B /* BrowserActions.swift in Sources */,
 				D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */,
 				46CA60EE2317E1390010CE6B /* NativeDrawable.m in Sources */,
-				8D8251811F4DE67F00780643 /* AdvancedAccountSettingViewController.swift in Sources */,
 				C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */,
 				46BE36A62344D34800DADCB6 /* SuggestionsView.swift in Sources */,
 				D3972BF31C22412B00035B87 /* ShareExtensionHelper.swift in Sources */,

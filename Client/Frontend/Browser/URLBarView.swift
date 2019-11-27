@@ -136,7 +136,7 @@ class URLBarView: UIView {
     fileprivate lazy var cancelButton: UIButton = {
         let cancelButton = UIButton()
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
-        cancelButton.accessibilityLabel = Strings.BackTitle
+        cancelButton.accessibilityLabel = Strings.Hotkeys.BackTitle
         cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         cancelButton.setTitleColor(Theme.general.controlTint, for: .normal)
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)

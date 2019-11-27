@@ -547,7 +547,7 @@ extension TabTrayController {
         }
 
         let controller = AlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        controller.addAction(UIAlertAction(title: Strings.AppMenuCloseAllTabsTitleString, style: .default, handler: { _ in self.closeTabsForCurrentTray() }), accessibilityIdentifier: "TabTrayController.deleteButton.closeAll")
+        controller.addAction(UIAlertAction(title: Strings.Menu.CloseAllTabsTitleString, style: .default, handler: { _ in self.closeTabsForCurrentTray() }), accessibilityIdentifier: "TabTrayController.deleteButton.closeAll")
         controller.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Label for Cancel button"), style: .cancel, handler: nil), accessibilityIdentifier: "TabTrayController.deleteButton.cancel")
         controller.popoverPresentationController?.sourceView = self.toolbar.doneButton
         controller.popoverPresentationController?.sourceRect = self.toolbar.doneButton.bounds
@@ -744,7 +744,7 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
         let button = UIButton()
         button.setTitle(Strings.DoneTabsViewButtonTitle, for: [])
         button.setTitleColor(Theme.tabTray.toolbarButtonTint, for: [])
-        button.accessibilityLabel = Strings.TabTrayDeleteMenuButtonAccessibilityLabel
+        button.accessibilityLabel = Strings.Menu.TabTrayDeleteMenuButtonAccessibilityLabel
         button.accessibilityIdentifier = "TabTrayController.removeTabsButton"
         return button
     }()

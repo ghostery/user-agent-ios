@@ -14,7 +14,7 @@ private struct HistoryBackButtonUX {
 class HistoryBackButton: UIButton, Themeable {
     lazy var title: UILabel = {
         let label = UILabel()
-        label.text = Strings.HistoryBackButtonTitle
+        label.text = Strings.HistoryPanel.BackButtonTitle
         return label
     }()
 

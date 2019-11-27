@@ -76,7 +76,7 @@ class DownloadsView: LibraryView {
     }
 
     override func emptyMessage() -> String? {
-        return Strings.DownloadsPanelEmptyStateTitle
+        return Strings.DownloadsPanel.EmptyStateTitle
     }
 
 }
@@ -242,8 +242,8 @@ extension DownloadsView {
 extension DownloadsView {
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteTitle = NSLocalizedString("Delete", tableName: "DownloadsPanel", comment: "Action button for deleting downloaded files in the Downloads panel.")
-        let shareTitle = NSLocalizedString("Share", tableName: "DownloadsPanel", comment: "Action button for sharing downloaded files in the Downloads panel.")
+        let deleteTitle = Strings.DownloadsPanel.DeleteTitle
+        let shareTitle = Strings.DownloadsPanel.ShareTitle
         let delete = UITableViewRowAction(style: .destructive, title: deleteTitle, handler: { (action, indexPath) in
             if let downloadedFile = self.downloadedFileForIndexPath(indexPath) {
                 if self.deleteDownloadedFile(downloadedFile) {

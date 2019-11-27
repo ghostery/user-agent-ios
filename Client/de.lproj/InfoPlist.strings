@@ -1,3 +1,4 @@
+
 "NSCameraUsageDescription" = "Hiermit können Sie Fotos machen und hochladen.";
 
 "NSLocationWhenInUseUsageDescription" = "Von Ihnen besuchte Websites können Ihren Standort abfragen.";
@@ -11,4 +12,3 @@
 "ShortcutItemTitleNewPrivateTab" = "Neuer Vergessen-Modus Tab";
 
 "ShortcutItemTitleNewTab" = "Neuer Tab";
-

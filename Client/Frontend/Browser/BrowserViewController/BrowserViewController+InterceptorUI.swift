@@ -13,18 +13,18 @@ extension BrowserViewController: InterceptorUI {
         let domainName = url.normalizedHost ?? ""
 
         let alert = UIAlertController(
-            title: Strings.InterceptorUIAntiPhishingTitle,
-            message: String(format: Strings.InterceptorUIAntiPhishingMessage, domainName),
+            title: Strings.Interceptor.AntiPhishing.UI.Title,
+            message: String(format: Strings.Interceptor.AntiPhishing.UI.Message, domainName),
             preferredStyle: .alert
         )
 
-        alert.addAction(UIAlertAction(title: Strings.InterceptorUIAntiPhishingBack, style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: Strings.Interceptor.AntiPhishing.UI.BackButton, style: .default, handler: { (action) in
             if tab.url == url {
                 tab.goBack()
             }
         }))
 
-        alert.addAction(UIAlertAction(title: Strings.InterceptorUIAntiPhishingContinue, style: .destructive, handler: { (action) in
+        alert.addAction(UIAlertAction(title: Strings.Interceptor.AntiPhishing.UI.ContinueButton, style: .destructive, handler: { (action) in
             policy.whitelistUrl(url)
             // TO DO : reload works only after second try. Same bug we have in old Cliqz. We need to investigate.
             tab.loadRequest(PrivilegedRequest(url: url) as URLRequest)

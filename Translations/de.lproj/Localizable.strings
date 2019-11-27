@@ -1,3 +1,4 @@
+
 /* Button for larger reader font size. Keep this extremely short! This is shown in the reader mode toolbar. */
 "+" = "+";
 
@@ -31,6 +32,10 @@
 /* Section title label for recently bookmarked websites */
 "ActivityStream.NewRecentBookmarks.Title" = "Neue Lesezeichen";
 
+"ActivityStream.News.BreakingLabel" = "EILMENDUNG";
+
+"ActivityStream.PinnedSites.SectionTitle" = "Angeheftete Seiten";
+
 /* Section title label for recently visited websites */
 "ActivityStream.RecentHistory.Title" = "Kürzlich besucht";
 
@@ -42,10 +47,6 @@
 
 /* Section title label for Top Sites */
 "ActivityStream.TopSites.SectionTitle" = "Meistbesuchte Seiten";
-
-"ActivityStream.PinnedSites.SectionTitle" = "Angeheftete Seiten";
-
-"ActivityStream.News.BreakingLabel" = "EILMELDUNG";
 
 /* Accessibility label for the Add Tab button in the Tab Tray. */
 "Add Tab" = "Tab hinzufügen";
@@ -68,6 +69,9 @@
 /* Tile title for Amazon */
 "Amazon" = "Amazon";
 
+/* Title for prompt displayed to user after the app crashes */
+"App.Crashed" = "Hoppla! %@ ist abgestürzt";
+
 /* Authentication prompt title */
 "Authentication required" = "Authentifizierung erforderlich";
 
@@ -77,50 +81,8 @@
 /* Block pop-up windows setting */
 "Block Pop-up Windows" = "Pop-up-Fenster blockieren";
 
-/* The header title for the fields when editing a Bookmark */
-"Bookmark.BookmarkDetail.FieldsHeader.Bookmark.Title" = "Lesezeichen";
-
-/* The header title for the fields when editing a Folder */
-"Bookmark.BookmarkDetail.FieldsHeader.Folder.Title" = "Ordner";
-
-/* The label for the Title field when editing a bookmark */
-"Bookmark.DetailFieldTitle.Label" = "Titel";
-
-/* The label for the URL field when editing a bookmark */
-"Bookmark.DetailFieldURL.Label" = "URL";
-
-/* Toggle bookmarks syncing setting */
-"Bookmarks" = "Lesezeichen";
-
-/* The button to edit a bookmark */
-"Bookmarks.EditBookmark.Label" = "Lesezeichen bearbeiten";
-
-/* The button to edit a folder */
-"Bookmarks.EditFolder.Label" = "Ordner bearbeiten";
-
-/* The label to show the location of the folder where the bookmark is located */
-"Bookmarks.Folder.Label" = "Ordner";
-
-/* The label for the location of the new folder */
-"Bookmarks.FolderLocation.Label" = "Ort";
-
-/* The label for the title of the new folder */
-"Bookmarks.FolderName.Label" = "Ordnername";
-
-/* The button to create a new bookmark */
-"Bookmarks.NewBookmark.Label" = "Lesezeichen hinzufügen";
-
-/* The button to create a new folder */
-"Bookmarks.NewFolder.Label" = "Neuer Ordner";
-
-/* The button to create a new separator */
-"Bookmarks.NewSeparator.Label" = "Neue Trennlinie";
-
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Titel";
-
-/* The label for the URL of a bookmark */
-"Bookmarks.URL.Label" = "URL";
 
 /* Status label for the empty Bookmarks state. */
 "BookmarksPanel.EmptyState.Title" = "Gespeicherte Lesezeichen erscheinen hier.";
@@ -148,6 +110,9 @@
 
 /* Accessibility label (used by assistive technology) notifying the user that the tab is being closed. */
 "Closing tab" = "Tab wird geschlossen";
+
+/* Accessibility label for Desktop Computer (PC) image in remote tabs list */
+"computer" = "Computer";
 
 /* Context menu item for bookmarking a link URL */
 "ContextMenu.BookmarkLinkButtonTitle" = "Lesezeichen für Link setzen";
@@ -298,8 +263,8 @@
 /* Tile title for Facebook */
 "Facebook" = "Facebook";
 
-/* Title for UserAgent about:home page in tab history list */
-"UserAgent.HomePage.Title" = "%@-Startseite";
+/* Menu item in settings used to open input.mozilla.org where people can submit feedback */
+"FAQ & Support" = "FAQ & Support";
 
 /* Accessibility Label for the tab toolbar Forward button */
 "Forward" = "Vorwärts";
@@ -330,18 +295,6 @@
 
 /* Title for the Recently Closed button in the History Panel */
 "HistoryPanel.RecentlyClosedTabsButton.Title" = "Kürzlich geschlossen";
-
-/* Button cancelling changes setting the home page for the first time. */
-"HomePage.Set.Dialog.Cancel" = "Abbrechen";
-
-/* Alert dialog body when the user opens the home page for the first time. */
-"HomePage.Set.Dialog.Message" = "Dies können Sie in den Einstellungen jederzeit ändern.";
-
-/* Button accepting changes setting the home page for the first time. */
-"HomePage.Set.Dialog.OK" = "Startseite festlegen";
-
-/* Alert dialog title when the user opens the home page for the first time. */
-"HomePage.Set.Dialog.Title" = "Soll diese Webseite als Ihre Startseite verwendet werden?";
 
 /* The title for the Bookmark context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.Bookmark" = "Lesezeichen";
@@ -406,6 +359,9 @@
 /* Accessibility label for the introduction tour carousel */
 "Intro Tour Carousel" = "Rundgang zur Einführung";
 
+/* Relative time for a tab that was visited within the last few moments. */
+"just now" = "gerade eben";
+
 /* History tableview section header */
 "Last month" = "Letzter Monat";
 
@@ -427,50 +383,8 @@
 /* Authentication prompt log in button */
 "Log in" = "Anmelden";
 
-/* Login detail view field name for the last modified date */
-"LoginsDetailView.LoginModified" = "Verändert";
-
-/* Title for the login detail view */
-"LoginsDetailView.LoginTitle" = "Zugangsdaten";
-
-/* Button to not save the user's password */
-"LoginsHelper.DontSave.Button" = "Nicht speichern";
-
-/* Button to not update the user's password */
-"LoginsHelper.DontUpdate.Button" = "Nicht aktualisieren";
-
-/* Prompt for saving a login. The first parameter is the username being saved. The second parameter is the hostname of the site. */
-"LoginsHelper.PromptSaveLogin.Title" = "Zugangsdaten für %1$@ auf %2$@ speichern?";
-
-/* Prompt for saving a password with no username. The parameter is the hostname of the site. */
-"LoginsHelper.PromptSavePassword.Title" = "Passwort für %@ speichern?";
-
-/* Prompt for updating a login. The first parameter is the username for which the password will be updated for. The second parameter is the hostname of the site. */
-"LoginsHelper.PromptUpdateLogin.Title" = "Zugangsdaten für %1$@ auf %2$@ aktualisieren?";
-
-/* Button to save the user's password */
-"LoginsHelper.SaveLogin.Button" = "Zugangsdaten speichern";
-
-/* Button to update the user's password */
-"LoginsHelper.Update.Button" = "Aktualisieren";
-
-/* For filtering the login list, search only the login names */
-"LoginsList.LoginsListFilterLogin" = "Zugangsdaten";
-
-/* For filtering the login list, search both website and login names. */
-"LoginsList.LoginsListFilterSearchAll" = "Alle";
-
-/* For filtering the login list, search only the website names */
-"LoginsList.LoginsListFilterWebsite" = "Website";
-
-/* Placeholder test for search box in logins list view. */
-"LoginsList.LoginsListSearchPlaceholder" = "Filter";
-
-/* Title for the list of logins */
-"LoginsList.Title" = "GESPEICHERTE ZUGANGSDATEN";
-
-/* Restore Tabs Prompt Description */
-"Restore.Tabs.After.Crash" = "%@ scheint zuvor abgestürzt zu sein. Sollen Ihre Tabs wiederhergestellt werden?";
+/* Label for the button, displayed in the menu, used to get more info about Ad blocking */
+"Menu.AdBlocking.Title" = "Werbeblocker";
 
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Lesezeichen hinzugefügt";
@@ -490,11 +404,11 @@
 /* The title for the button that lets you paste and go to a URL */
 "Menu.PasteAndGo.Title" = "Einfügen & Los";
 
-/* Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled */
-"Menu.ReloadWithTrackingProtection.Title" = "Mit Schutz vor Aktivitätenverfolgung neu laden";
-
 /* Label for the button, displayed in the menu, used to reload the current website without Tracking Protection */
 "Menu.ReloadWithoutTrackingProtection.Title" = "Ohne Schutz vor Aktivitätenverfolgung neu laden";
+
+/* Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled */
+"Menu.ReloadWithTrackingProtection.Title" = "Mit Schutz vor Aktivitätenverfolgung neu laden";
 
 /* Toast displayed to the user after a bookmark has been removed. */
 "Menu.RemoveBookmark.Confirm" = "Lesezeichen entfernt";
@@ -508,14 +422,11 @@
 /* The title for tracking protection settings */
 "Menu.TrackingProtection.ProtectionSettings.Title" = "Schutzeinstellungen";
 
-/* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
-"Menu.TrackingProtection.TitlePrefix" = "Schutz für %@";
-
 /* Label for the button, displayed in the menu, used to get more info about Tracking Protection */
 "Menu.TrackingProtection.Title" = "Anti-Tracking";
 
-/* Label for the button, displayed in the menu, used to get more info about Ad blocking */
-"Menu.AdBlocking.Title" = "Werbeblocker";
+/* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
+"Menu.TrackingProtection.TitlePrefix" = "Schutz für %@";
 
 /* The title that shows the number of content cookies blocked */
 "Menu.TrackingProtectionBlockedContent.Title" = "Tracking-Inhalt";
@@ -592,6 +503,15 @@
 /* Error for a missing remote error message */
 "Missing message" = "Nachricht nicht angegeben";
 
+/* Accessibility label for Mobile Device image in remote tabs list */
+"mobile device" = "Mobilgerät";
+
+/* Relative date for dates older than a month and less than two months. */
+"more than a month ago" = "vor mehr als einem Monat";
+
+/* Description for a date more than a week ago, but less than a month ago. */
+"more than a week ago" = "vor mehr als einer Woche";
+
 /* Accessibility label for the navigation toolbar displayed at the bottom of the screen. */
 "Navigation Toolbar" = "Navigations-Symbolleiste";
 
@@ -610,17 +530,14 @@
 /* Restore Tabs Affirmative Action */
 "Okay" = "OK";
 
-/* Title for prompt displayed to user after the app crashes */
-"App.Crashed" = "Hoppla! %@ ist abgestürzt";
+/* See http://mzl.la/1LXbDOL */
+"Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Öffnen Sie Artikel in der Leseansicht, indem Sie auf das Buch-Symbol tippen, wenn es in der Titelleiste angezeigt wird.";
 
 /* See http://mzl.la/1G7uHo7 */
 "Open Settings" = "Einstellungen öffnen";
 
 /* Toggle tabs syncing setting */
 "Open Tabs" = "Offene Tabs";
-
-/* See http://mzl.la/1LXbDOL */
-"Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Öffnen Sie Artikel in der Leseansicht, indem Sie auf das Buch-Symbol tippen, wenn es in der Titelleiste angezeigt wird.";
 
 /* The message displayed to a user when they try to open a URL that cannot be handled by UserAgent, or any external app. */
 "OpenURL.Error.Message" = "%@ kann die Seite nicht öffnen, weil ihre Adresse ungültig ist.";
@@ -637,15 +554,6 @@
 /* Password textbox in Authentication prompt */
 "Password" = "Passwort";
 
-/* Error message shown in the remote tabs panel */
-"PasswordAutoFill.NoPasswordsFoundTitle" = "Sie haben keine Zugangsdaten, die von Ihrem %@-Konto synchronisiert werden";
-
-/* Header for the list of credentials table */
-"PasswordAutoFill.PasswordsListTitle" = "Verfügbare Zugangsdaten:";
-
-/* Title of the extension that shows UserAgent passwords */
-"PasswordAutoFill.SectionTitle" = "%@-Zugangsdaten";
-
 /* See http://mzl.la/1G7uHo7 */
 "PhotoLibrary.AppWouldLikeAccessMessage" = "Hiermit können Sie die Grafik in Ihren Aufnahmen speichern.";
 
@@ -661,11 +569,17 @@
 /* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
 "Privacy Policy" = "Datenschutzerklärung";
 
+/* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
+"read" = "gelesen";
+
 /* Accessibility message e.g. spoken by VoiceOver when Reader Mode becomes available. */
 "ReaderMode.Available.VoiceOverAnnouncement" = "Lesemodus verfügbar";
 
 /* Title for the Recently Closed Tabs Panel */
 "RecentlyClosedTabsPanel.Title" = "Kürzlich geschlossen";
+
+/* Localized String for German region */
+"region-DE" = "Deutschland";
 
 /* Accessibility Label for the tab toolbar Reload button */
 "Reload" = "Neu laden";
@@ -682,32 +596,17 @@
 /* Reopen alert title shown at home page. */
 "ReopenAlert.Title" = "Zuletzt geschlossenen Tab wiederherstellen";
 
-/* Hardware shortcut to reopen the last closed tab, from the tab or the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"ReopenClosedTab.KeyCodeTitle" = "Geschlossenen Tab wiederherstellen";
-
 /* Accessibility label for button resetting font size in display settings of reader mode */
-"Reset text size" = "Textgröße zurücksetzen";
+"ReaderMode.ResetFontSizeAccessibilityLabel" = "Textgröße zurücksetzen";
+
+/* Restore Tabs Prompt Description */
+"Restore.Tabs.After.Crash" = "%@ scheint zuvor abgestürzt zu sein. Sollen Ihre Tabs wiederhergestellt werden?";
 
 /* Font type setting in the reading view settings */
 "Sans-serif" = "Sans Serif";
 
 /* See http://mzl.la/1LXbDOL */
 "Save pages to your Reading List by tapping the book plus icon in the Reader View controls." = "Speichern Sie Seiten in Ihrer Leseliste, indem Sie auf das Buch-Plus-Symbol in der Steuerung der Leseansicht tippen.";
-
-/* OK button to dismiss the error prompt. */
-"ScanQRCode.Error.OK.Button" = "OK";
-
-/* Text for the instructions label, displayed in the QR scanner view */
-"ScanQRCode.Instructions.Label" = "QR-Code zum Scannen am Rahmen ausrichten";
-
-/* Text of the prompt that is shown to the user when the data is invalid */
-"ScanQRCode.InvalidDataError.Message" = "Die Daten sind ungültig";
-
-/* Text of the prompt user to setup the camera authorization. */
-"ScanQRCode.PermissionError.Message" = "Bitte gestatten Sie %@ den Zugriff auf die Kamera Ihres Geräts über „Einstellungen → Datenschutz → Kamera“.";
-
-/* Title for the QR code scanner view. */
-"ScanQRCode.View.Title" = "QR-Code scannen";
 
 /* Navigation title for search settings.
    Open search section of settings */
@@ -755,14 +654,11 @@
 /* Accessibility label for the lock icon, which is only present if the connection is secure */
 "Secure connection" = "Sichere Verbindung";
 
-/* Menu item in settings used to open input.mozilla.org where people can submit feedback */
-"FAQ & Support" = "FAQ & Support";
+/* Message displayed in the crash dialog above the buttons used to select when sending reports */
+"Send a crash report so we can fix the problem?" = "Einen Absturzbericht senden, damit wir das Problem beheben kann?";
 
 /* Used as a button label for crash dialog prompt */
 "Send Report" = "Bericht senden";
-
-/* Message displayed in the crash dialog above the buttons used to select when sending reports */
-"Send a crash report so we can fix the problem?" = "Einen Absturzbericht senden, damit wir das Problem beheben kann?";
 
 /* Button title for cancelling share screen
    Close button in top navigation bar */
@@ -828,17 +724,11 @@
 /* The placeholder for URL Field when saving a custom search engine */
 "Settings.AddCustomEngine.URLPlaceholder" = "URL (Anfrage durch %s ersetzen)";
 
-/* The button text in Search Settings that opens the list of supported search languages. */
-"Settings.SearchResultForLanguage" = "Suchsprache";
+/* The button text in Search Settings that opens the Additional Search Engines view. */
+"Settings.AdditionalSearchEngines.SectionName" = "Weitere Suchmaschinen";
 
 /* "Enable/Disable adult filter setting" */
 "Settings.AdultFilterMode" = "18+ Seiten blockieren";
-
-"Settings.PrivacyDashboard.Title" = "Datenschutz-Dashboard";
-"Settings.PrivacyDashboard.Description" = "Anti-Tracking und Werbeblocker schützen deine Privatsphäre";
-
-/* Localized String for German region */
-"region-DE" = "Deutschland";
 
 /* Button in Data Management that clears private data for the selected items. */
 "Settings.ClearAllWebsiteData.Clear.Button" = "Alle Website-Daten löschen";
@@ -855,15 +745,6 @@
 /* Copy app version alert shown in settings. */
 "Settings.CopyAppVersion.Title" = "In Zwischenablage kopiert";
 
-/* DNT Settings option for always on */
-"Settings.DNT.OptionAlwaysOn" = "Immer";
-
-/* DNT Settings option for only turning on when Tracking Protection is also on */
-"Settings.DNT.OptionOnWithTP" = "Nur bei gleichzeitiger Nutzung des Schutzes vor Aktivitätenverfolgung";
-
-/* DNT Settings title */
-"Settings.DNT.Title" = "Sendet Websites ein Do-Not-Track-Signal, um mitzuteilen, dass Sie nicht verfolgt werden möchten";
-
 /* Default text in search bar for Data Management */
 "Settings.DataManagement.SearchLabel" = "Websites filtern";
 
@@ -872,15 +753,6 @@
 
 /* Title displayed in header of the setting panel. */
 "Settings.DataManagement.Title" = "Datenverwaltung";
-
-/* Button displayed at the bottom of settings page allowing users to Disconnect from FxA */
-"Settings.Disconnect.Button" = "Sync trennen";
-
-/* Cancel action button in alert when user is prompted for disconnect */
-"Settings.Disconnect.CancelButton" = "Abbrechen";
-
-/* Destructive action button in alert when user is prompted for disconnect */
-"Settings.Disconnect.DestructiveButton" = "Verbindung trennen";
 
 /* Display (theme) settings footer describing how the brightness slider works. */
 "Settings.DisplayTheme.SectionFooter" = "Das Theme ändert sich automatisch und passt sich an Ihre Display-Helligkeit an. Sie können die Schwelle festlegen, bei der sich das Theme ändert. Der Kreis zeigt Ihre aktuelle Display-Helligkeit.";
@@ -891,89 +763,20 @@
 /* Title in main app settings for Display (theme) settings */
 "Settings.DisplayTheme.Title" = "Anzeige";
 
+/* DNT Settings option for always on */
+"Settings.DNT.OptionAlwaysOn" = "Immer";
+
+/* DNT Settings option for only turning on when Tracking Protection is also on */
+"Settings.DNT.OptionOnWithTP" = "Nur bei gleichzeitiger Nutzung des Schutzes vor Aktivitätenverfolgung";
+
+/* DNT Settings title */
+"Settings.DNT.Title" = "Sendet Websites ein Do-Not-Track-Signal, um mitzuteilen, dass Sie nicht verfolgt werden möchten";
+
 /* General settings section title */
 "Settings.General.SectionName" = "Allgemein";
 
-/* Search settings seciton title */
-"Settings.Search.SectionName" = "Suche";
-
-/* The button text in Search Settings that opens the Additional Search Engines view. */
-"Settings.AdditionalSearchEngines.SectionName" = "Weitere Suchmaschinen";
-
-/* Button in settings to clear the home page. */
-"Settings.HomePage.Clear.Button" = "Löschen";
-
-/* Label used as an item in Settings. When touched it will open a dialog to configure the home page and its uses. */
-"Settings.HomePage.SectionName" = "Startseite";
-
-/* Title displayed in header of the setting panel. */
-"Settings.HomePage.Title" = "Startseiten-Einstellungen";
-
-/* Placeholder text in the homepage setting when no homepage has been set. */
-"Settings.HomePage.URL.Placeholder" = "Webseite eingeben";
-
-/* Title of the setting section containing the URL of the current home page. */
-"Settings.HomePage.URL.Title" = "Aktuelle Startseite";
-
-/* Button in settings to use the current link on the clipboard as home page. */
-"Settings.HomePage.UseCopiedLink.Button" = "Link aus Zwischenablage verwenden";
-
-/* Button in settings to use the current page as home page. */
-"Settings.HomePage.UseCurrent.Button" = "Aktuelle Seite verwenden";
-
-/* Button in settings to use the default home page. If no default is set, then this button isn't shown. */
-"Settings.HomePage.UseDefault.Button" = "Standard verwenden";
-
-/* Title for the logins and passwords screen. Translation could just use 'Logins' if the title is too long */
-"Settings.LoginsAndPasswordsTitle" = "Zugangsdaten & Passwörter";
-
-/* Label used to set a custom url as the new tab option (homepage). */
-"Settings.NewTab.CustomURL" = "Benutzerdefinierte Adresse";
-
-/* A description in settings of what the new tab choice means */
-"Settings.NewTab.Description" = "Beim Öffnen eines neuen Tabs:";
-
-/* The title of the section in newtab that lets you modify the topsites panel */
-"Settings.NewTab.Option.ASTitle" = "Meistbesuchte Seiten anpassen";
-
-/* Option in settings to show a blank page when you open a new tab */
-"Settings.NewTab.Option.BlankPage" = "Leere Seite";
-
-/* Option in settings to show bookmarks when you open a new tab */
-"Settings.NewTab.Option.Bookmarks" = "Lesezeichen";
-
-/* The footer for the section to customize top sites in the new tab settings page. */
-"Settings.NewTab.Option.CustomizeFooter" = "Die von die Ihnen am meisten besuchten Websites";
-
-/* The title for the section to customize top sites in the new tab settings page. */
-"Settings.NewTab.Option.CustomizeTitle" = "%@ Home anpassen";
-
 /* Option in settings to show UserAgent Home when you open a new tab */
 "Settings.NewTab.Option.Home" = "%@ Home";
-
-/* Option in the settings to turn off recent bookmarks in the Highlights section */
-"Settings.NewTab.Option.HighlightsBookmarks" = "Neue Lesezeichen";
-
-/* Option in settings to turn off history in the highlights section */
-"Settings.NewTab.Option.HighlightsHistory" = "Besucht";
-
-/* Option in settings to show history when you open a new tab */
-"Settings.NewTab.Option.History" = "Chronik";
-
-/* Option in settings to show your homepage when you open a new tab */
-"Settings.NewTab.Option.HomePage" = "Startseite";
-
-/* Label used as an item in Settings. When touched it will open a dialog to configure the new tab behaviour. */
-"Settings.NewTab.SectionName" = "Neuer Tab";
-
-/* Title displayed in header of the setting panel. */
-"Settings.NewTab.Title" = "Neuer Tab";
-
-/* Label at the top of the New Tab screen after entering New Tab in settings */
-"Settings.NewTab.TopSectionName" = "Anzeigen";
-
-/* Footer at the bottom of the New Tab screen after entering New Tab in settings */
-"Settings.NewTab.TopSectionNameFooter" = "Entscheiden Sie, was in einem neuen Tab angezeigt wird";
 
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
 "Settings.OfferClipboardBar.Status" = "Wenn %@ geöffnet wird";
@@ -987,8 +790,9 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour. */
 "Settings.OpenWith.SectionName" = "Mail-App";
 
-/* Setting to enable the built-in password manager */
-"Settings.SaveLogins.Title" = "Zugangsdaten speichern";
+"Settings.PrivacyDashboard.Description" = "Anti-Tracking und Werbeblocker schützen deine Privatsphäre";
+
+"Settings.PrivacyDashboard.Title" = "Datenschutz-Dashboard";
 
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Done.Button" = "Fertig";
@@ -996,14 +800,17 @@
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Edit.Button" = "Bearbeiten";
 
+/* Search settings seciton title */
+"Settings.Search.SectionName" = "Suche";
+
+/* The button text in Search Settings that opens the list of supported search languages. */
+"Settings.SearchResultForLanguage" = "Suchsprache";
+
 /* A short description that explains why mozilla collects usage data. */
 "Settings.SendUsage.Message" = "%@ ist bestrebt, nur die Informationen zu sammeln, mit denen wir %@ anbieten und für alle Nutzer verbessern können.";
 
 /* The title for the setting to send usage data. */
 "Settings.SendUsage.Title" = "Nutzungsdaten senden";
-
-/* Setting to show Logins & Passwords quick access in the application menu */
-"Settings.ShowLoginsInAppMenu.Title" = "Im Anwendungsmenü anzeigen";
 
 /* The description of the open new tab siri shortcut */
 "Settings.Siri.OpenTabShortcut" = "Neuen Tab öffnen";
@@ -1028,9 +835,6 @@
 
 /* Tracking protection settings option for using the basic blocklist. */
 "Settings.TrackingProtectionOption.BasicBlockList" = "Standard";
-
-/* Description label shown on tracking protection options screen. */
-"Settings.TrackingProtectionOption.EnabledStateFooterLabel" = "Aktivitätenverfolgung („Tracking“) bezeichnet das Sammeln Ihrer Surf-Daten über mehrere Websites hinweg.";
 
 /* Settings option to specify that Tracking Protection is on */
 "Settings.TrackingProtectionOption.NormalBrowsingLabelOn" = "Verbesserter Tracking-Schutz";
@@ -1088,29 +892,16 @@
 "Swipe right or left with three fingers to close the tab." = "Wischen Sie mit drei Fingern nach rechts oder links, um den Tab zu schließen.";
 
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"SwitchToNonPBM.KeyCodeTitle" = "Normaler Surf-Modus";
+"TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normaler Surf-Modus";
 
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"SwitchToPBM.KeyCodeTitle" = "Privater Modus";
-
+"TabTray.SwitchToPBM.KeyCodeTitle" = "Privater Modus";
 
 /* Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total. */
 "Tab %@ of %@" = "Tab %1$@ von %2$@";
 
 /* Hardware shortcut to open the tab tray from a tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"Tab.ShowTabTray.KeyCodeTitle" = "Alle Tabs anzeigen";
-
-/* Hardware shortcut to close all tabs from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.CloseAllTabs.KeyCodeTitle" = "Alle Tabs schließen";
-
-/* Hardware shortcut to close the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.CloseTab.KeyCodeTitle" = "Ausgewählten Tab schließen";
-
-/* Hardware shortcut to open a new tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.OpenNewTab.KeyCodeTitle" = "Neuen Tab öffnen";
-
-/* Hardware shortcut open the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.OpenSelectedTab.KeyCodeTitle" = "Ausgewählten Tab öffnen";
+"TabTray.ShowTabTray.KeyCodeTitle" = "Alle Tabs anzeigen";
 
 /* Message spoken by VoiceOver saying the range of tabs that are currently visible in Tabs Tray, along with the total number of tabs. E.g. \"Tabs 8 to 10 of 15\" says tabs 8, 9 and 10 are visible, out of 15 tabs total. */
 "Tabs %@ to %@ of %@" = "Tabs %1$@ bis %2$@ von insgesamt %3$@";
@@ -1124,6 +915,18 @@
 /* The label indicating that all the tabs were closed */
 "Tabs.DeleteAllUndo.Title" = "%d Tab(s) geschlossen";
 
+/* Hardware shortcut to close all tabs from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"TabTray.CloseAllTabs.KeyCodeTitle" = "Alle Tabs schließen";
+
+/* Hardware shortcut to close the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"TabTray.CloseTab.KeyCodeTitle" = "Ausgewählten Tab schließen";
+
+/* Hardware shortcut to open a new tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"TabTray.OpenNewTab.KeyCodeTitle" = "Neuen Tab öffnen";
+
+/* Hardware shortcut open the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"TabTray.OpenSelectedTab.KeyCodeTitle" = "Ausgewählten Tab öffnen";
+
 /* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
 "The page could not be displayed in Reader View." = "Die Seite konnte nicht in der Leseansicht dargestellt werden.";
 
@@ -1132,6 +935,9 @@
 
 /* Error displayed when reader mode cannot be enabled */
 "There was an error converting the page" = "Fehler beim Umwandeln der Seite";
+
+/* Relative date for date in past week. */
+"this week" = "diese Woche";
 
 /* label for Not Now button */
 "Toasts.NotNow" = "Nicht jetzt";
@@ -1142,14 +948,14 @@
 /* History tableview section header */
 "Today" = "Heute";
 
+/* Relative date for date older than a minute. */
+"today at %@" = "heute um %@";
+
 /* Accessibility label for the Menu button. */
 "Toolbar.Menu.AccessibilityLabel" = "Menü";
 
 /* Accessibility label for the Close All Tabs menu button. */
 "Toolbar.Menu.CloseAllTabs" = "Alle Tabs schließen";
-
-/* Description label for the empty Top Sites state. */
-"TopSites.EmptyState.Description" = "Ihre meistbesuchten Websites erscheinen hier.";
 
 /* The title for the empty Top Sites state */
 "TopSites.EmptyState.Title" = "Willkommen bei den meistbesuchten Websites";
@@ -1165,6 +971,12 @@
 
 /* Search in New Tab Text selection menu item */
 "UIMenuItem.SearchWithUserAgent" = "Mit %@ suchen";
+
+/* Accessibility label for unread article in reading list. It's a past participle - functions as an adjective. */
+"unread" = "ungelesen";
+
+/* Title for UserAgent about:home page in tab history list */
+"UserAgent.HomePage.Title" = "%@-Startseite";
 
 /* Username textbox in Authentication prompt */
 "Username" = "Benutzername";
@@ -1187,36 +999,8 @@
 /* History tableview section header */
 "Yesterday" = "Gestern";
 
-/* Tile title for YouTube */
-"YouTube" = "YouTube";
-
-/* Accessibility label for Desktop Computer (PC) image in remote tabs list */
-"computer" = "Computer";
-
-/* Relative time for a tab that was visited within the last few moments. */
-"just now" = "gerade eben";
-
-/* Accessibility label for Mobile Device image in remote tabs list */
-"mobile device" = "Mobilgerät";
-
-/* Relative date for dates older than a month and less than two months. */
-"more than a month ago" = "vor mehr als einem Monat";
-
-/* Description for a date more than a week ago, but less than a month ago. */
-"more than a week ago" = "vor mehr als einer Woche";
-
-/* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
-"read" = "gelesen";
-
-/* Relative date for date in past week. */
-"this week" = "diese Woche";
-
-/* Relative date for date older than a minute. */
-"today at %@" = "heute um %@";
-
-/* Accessibility label for unread article in reading list. It's a past participle - functions as an adjective. */
-"unread" = "ungelesen";
-
 /* Relative date for yesterday. */
 "yesterday" = "gestern";
 
+/* Tile title for YouTube */
+"YouTube" = "YouTube";

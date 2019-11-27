@@ -31,7 +31,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = Strings.SettingsAdditionalSearchEnginesSectionTitle
+        navigationItem.title = Strings.Settings.AdditionalSearchEngines.SectionTitle
 
         // To allow re-ordering the list of search engines at all times.
         tableView.isEditing = true
@@ -42,10 +42,10 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
         // Insert Done button if being presented outside of the Settings Nav stack
         if !(self.navigationController is ThemedNavigationController) {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.SettingsSearchDoneButton, style: .done, target: self, action: #selector(self.dismissAnimated))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.Settings.Search.DoneButton, style: .done, target: self, action: #selector(self.dismissAnimated))
         }
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.SettingsSearchEditButton, style: .plain, target: self,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.Settings.Search.EditButton, style: .plain, target: self,
                                                                  action: #selector(beginEditing))
     }
 
@@ -104,9 +104,9 @@ class SearchSettingsTableViewController: ThemedTableViewController {
         }
 
         cell.editingAccessoryType = .disclosureIndicator
-        cell.accessibilityLabel = Strings.SettingsAddCustomEngineTitle
+        cell.accessibilityLabel = Strings.Settings.AddCustomEngine.Title
         cell.accessibilityIdentifier = "customEngineViewButton"
-        cell.textLabel?.text = Strings.SettingsAddCustomEngine
+        cell.textLabel?.text = Strings.Settings.AddCustomEngine.ButtonTitle
         cell.separatorInset = .zero
         return cell
     }
@@ -125,7 +125,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
             customSearchEngineForm.profile = self.profile
             customSearchEngineForm.successCallback = {
                 guard let window = self.view.window else { return }
-                SimpleToast().showAlertWithText(Strings.ThirdPartySearchEngineAdded, bottomContainer: window)
+                SimpleToast().showAlertWithText(Strings.Search.ThirdPartyEngines.EngineAdded, bottomContainer: window)
             }
             navigationController?.pushViewController(customSearchEngineForm, animated: true)
         }
@@ -243,7 +243,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
         tableView.isEditing = true
         showDeletion = editing
         UIView.performWithoutAnimation {
-            self.navigationItem.rightBarButtonItem?.title = editing ? Strings.SettingsSearchDoneButton : Strings.SettingsSearchEditButton
+            self.navigationItem.rightBarButtonItem?.title = editing ? Strings.Settings.Search.DoneButton : Strings.Settings.Search.EditButton
         }
         navigationItem.rightBarButtonItem?.isEnabled = isEditable
         navigationItem.rightBarButtonItem?.action = editing ?

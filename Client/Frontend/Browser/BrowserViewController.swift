@@ -406,14 +406,14 @@ class BrowserViewController: UIViewController {
         notchAreaCover.contentView.addSubview(header)
 
         // UIAccessibilityCustomAction subclass holding an AccessibleAction instance does not work, thus unable to generate AccessibleActions and UIAccessibilityCustomActions "on-demand" and need to make them "persistent" e.g. by being stored in BVC
-        pasteGoAction = AccessibleAction(name: Strings.PasteAndGoTitle, handler: { () -> Bool in
+        pasteGoAction = AccessibleAction(name: Strings.Menu.PasteAndGoTitle, handler: { () -> Bool in
             if let pasteboardContents = UIPasteboard.general.string {
                 self.urlBar(self.urlBar, didSubmitText: pasteboardContents)
                 return true
             }
             return false
         })
-        pasteAction = AccessibleAction(name: Strings.PasteTitle, handler: { () -> Bool in
+        pasteAction = AccessibleAction(name: Strings.Menu.PasteTitle, handler: { () -> Bool in
             if let pasteboardContents = UIPasteboard.general.string {
                 // Enter overlay mode and make the search controller appear.
                 self.urlBar.enterOverlayMode(pasteboardContents, pasted: true, search: true)
@@ -422,7 +422,7 @@ class BrowserViewController: UIViewController {
             }
             return false
         })
-        copyAddressAction = AccessibleAction(name: Strings.CopyAddressTitle, handler: { () -> Bool in
+        copyAddressAction = AccessibleAction(name: Strings.Menu.CopyAddressTitle, handler: { () -> Bool in
             if let url = self.tabManager.selectedTab?.canonicalURL?.displayURL ?? self.urlBar.currentURL {
                 UIPasteboard.general.url = url
             }
@@ -846,7 +846,7 @@ class BrowserViewController: UIViewController {
             return
         }
         // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
-        let toast = ButtonToast(labelText: Strings.ContextMenuButtonToastNewTabOpenedLabelText, buttonText: Strings.ContextMenuButtonToastNewTabOpenedButtonText, completion: { buttonPressed in
+        let toast = ButtonToast(labelText: Strings.ContextMenu.ButtonToast.NewTabOpened.LabelText, buttonText: Strings.ContextMenu.ButtonToast.NewTabOpened.ButtonText, completion: { buttonPressed in
             if buttonPressed {
                 self.tabManager.selectTab(tab)
             }
@@ -1250,7 +1250,7 @@ extension BrowserViewController: URLBarDelegate {
                                                  isPinned: isPinned,
                                                  isReaderModeEnabled: isReaderModeEnabled, readerModeChanged: readerModeChanged,
                                                  success: successCallback)
-            self.presentSheetWith(title: Strings.PageActionMenuTitle, actions: pageActions, on: self, from: button)
+            self.presentSheetWith(title: Strings.Menu.PageActionMenuTitle, actions: pageActions, on: self, from: button)
         }
     }
 
@@ -1782,7 +1782,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
                         return
                     }
                     // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
-                    let toast = ButtonToast(labelText: Strings.ContextMenuButtonToastNewTabOpenedLabelText, buttonText: Strings.ContextMenuButtonToastNewTabOpenedButtonText, completion: { buttonPressed in
+                let toast = ButtonToast(labelText: Strings.ContextMenu.ButtonToast.NewTabOpened.LabelText, buttonText: Strings.ContextMenu.ButtonToast.NewTabOpened.ButtonText, completion: { buttonPressed in
                         if buttonPressed {
                             self.tabManager.selectTab(tab)
                         }
@@ -1791,7 +1791,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             }
 
             if !isPrivate {
-                let openNewTabAction =  UIAlertAction(title: Strings.ContextMenuOpenInNewTab, style: .default) { _ in
+                let openNewTabAction =  UIAlertAction(title: Strings.ContextMenu.OpenInNewTab, style: .default) { _ in
                     addTab(url, false)
                 }
                 actionSheetController.addAction(openNewTabAction, accessibilityIdentifier: "linkContextMenu.openInNewTab")
@@ -1802,24 +1802,24 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             }
             actionSheetController.addAction(openNewPrivateTabAction, accessibilityIdentifier: "linkContextMenu.openInNewPrivateTab")
 
-            let bookmarkAction = UIAlertAction(title: Strings.ContextMenuBookmarkLink, style: .default) { _ in
+            let bookmarkAction = UIAlertAction(title: Strings.ContextMenu.BookmarkLink, style: .default) { _ in
                 self.addBookmark(url: url.absoluteString, title: elements.title)
-                SimpleToast().showAlertWithText(Strings.AppMenuAddBookmarkConfirmMessage, bottomContainer: self.webViewContainer)
+                SimpleToast().showAlertWithText(Strings.Menu.AddBookmarkConfirmMessage, bottomContainer: self.webViewContainer)
             }
             actionSheetController.addAction(bookmarkAction, accessibilityIdentifier: "linkContextMenu.bookmarkLink")
 
-            let downloadAction = UIAlertAction(title: Strings.ContextMenuDownloadLink, style: .default) { _ in
+            let downloadAction = UIAlertAction(title: Strings.ContextMenu.DownloadLink, style: .default) { _ in
                 self.pendingDownloadWebView = currentTab.webView
                 currentTab.webView?.evaluateJavaScript("window.__firefox__.download('\(url.absoluteString)', '\(UserScriptManager.securityToken)')")
             }
             actionSheetController.addAction(downloadAction, accessibilityIdentifier: "linkContextMenu.download")
 
-            let copyAction = UIAlertAction(title: Strings.ContextMenuCopyLink, style: .default) { _ in
+            let copyAction = UIAlertAction(title: Strings.ContextMenu.CopyLink, style: .default) { _ in
                 UIPasteboard.general.url = url as URL
             }
             actionSheetController.addAction(copyAction, accessibilityIdentifier: "linkContextMenu.copyLink")
 
-            let shareAction = UIAlertAction(title: Strings.ContextMenuShareLink, style: .default) { _ in
+            let shareAction = UIAlertAction(title: Strings.ContextMenu.ShareLink, style: .default) { _ in
                 self.presentActivityViewController(url as URL, sourceView: self.view, sourceRect: CGRect(origin: touchPoint, size: touchSize), arrowDirection: .any)
             }
             actionSheetController.addAction(shareAction, accessibilityIdentifier: "linkContextMenu.share")
@@ -1831,7 +1831,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             }
 
             let photoAuthorizeStatus = PHPhotoLibrary.authorizationStatus()
-            let saveImageAction = UIAlertAction(title: Strings.ContextMenuSaveImage, style: .default) { _ in
+            let saveImageAction = UIAlertAction(title: Strings.ContextMenu.SaveImage, style: .default) { _ in
                 let handlePhotoLibraryAuthorized = {
                     self.getImageData(url) { data in
                         PHPhotoLibrary.shared().performChanges({
@@ -1841,10 +1841,10 @@ extension BrowserViewController: ContextMenuHelperDelegate {
                 }
 
                 let handlePhotoLibraryDenied = {
-                    let accessDenied = UIAlertController(title: Strings.PhotoLibraryFirefoxWouldLikeAccessTitle, message: Strings.PhotoLibraryFirefoxWouldLikeAccessMessage, preferredStyle: .alert)
-                    let dismissAction = UIAlertAction(title: Strings.CancelString, style: .default, handler: nil)
+                    let accessDenied = UIAlertController(title: Strings.PhotoLibrary.AppWouldLikeAccessTitle, message: Strings.PhotoLibrary.AppWouldLikeAccessMessage, preferredStyle: .alert)
+                    let dismissAction = UIAlertAction(title: Strings.General.CancelString, style: .default, handler: nil)
                     accessDenied.addAction(dismissAction)
-                    let settingsAction = UIAlertAction(title: Strings.OpenSettingsString, style: .default ) { _ in
+                    let settingsAction = UIAlertAction(title: Strings.General.OpenSettingsString, style: .default ) { _ in
                         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:])
                     }
                     accessDenied.addAction(settingsAction)
@@ -1868,7 +1868,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             }
             actionSheetController.addAction(saveImageAction, accessibilityIdentifier: "linkContextMenu.saveImage")
 
-            let copyAction = UIAlertAction(title: Strings.ContextMenuCopyImage, style: .default) { _ in
+            let copyAction = UIAlertAction(title: Strings.ContextMenu.CopyImage, style: .default) { _ in
                 // put the actual image on the clipboard
                 // do this asynchronously just in case we're in a low bandwidth situation
                 let pasteboard = UIPasteboard.general
@@ -1899,7 +1899,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             }
             actionSheetController.addAction(copyAction, accessibilityIdentifier: "linkContextMenu.copyImage")
 
-            let copyImageLinkAction = UIAlertAction(title: Strings.ContextMenuCopyImageLink, style: .default) { _ in
+            let copyImageLinkAction = UIAlertAction(title: Strings.ContextMenu.CopyImageLink, style: .default) { _ in
                 UIPasteboard.general.url = url as URL
             }
             actionSheetController.addAction(copyImageLinkAction, accessibilityIdentifier: "linkContextMenu.copyImageLink")
@@ -1929,7 +1929,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             }
         }
 
-        let cancelAction = UIAlertAction(title: Strings.CancelString, style: UIAlertAction.Style.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: Strings.General.CancelString, style: UIAlertAction.Style.cancel, handler: nil)
         actionSheetController.addAction(cancelAction)
         self.present(actionSheetController, animated: true, completion: nil)
     }
@@ -2068,7 +2068,7 @@ extension BrowserViewController {
 
             self.profile.searchEngines.addSearchEngine(OpenSearchEngine(engineID: nil, shortName: shortName, searchTemplate: searchQuery, suggestTemplate: nil, isCustomEngine: true))
             let Toast = SimpleToast()
-            Toast.showAlertWithText(Strings.ThirdPartySearchEngineAdded, bottomContainer: self.webViewContainer)
+            Toast.showAlertWithText(Strings.Search.ThirdPartyEngines.EngineAdded, bottomContainer: self.webViewContainer)
         }
 
         self.present(alert, animated: true, completion: {})
@@ -2214,9 +2214,9 @@ extension BrowserViewController {
             let lastClosedURL = profile.recentlyClosedTabs.tabs.first?.url,
             let selectedTab = tabManager.selectedTab else { return }
 
-        let alertTitleText = Strings.ReopenLastTabAlertTitle
-        let reopenButtonText = Strings.ReopenLastTabButtonText
-        let cancelButtonText = Strings.ReopenLastTabCancelText
+        let alertTitleText = Strings.HomePanel.ReopenAlert.Title
+        let reopenButtonText = Strings.HomePanel.ReopenAlert.ActionsReopen
+        let cancelButtonText = Strings.HomePanel.ReopenAlert.ActionsCancel
 
         func reopenLastTab(_ action: UIAlertAction) {
             let request = PrivilegedRequest(url: lastClosedURL) as URLRequest
