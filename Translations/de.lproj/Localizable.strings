@@ -848,9 +848,6 @@
 /* Tracking protection settings option for using the basic blocklist. */
 "Settings.TrackingProtectionOption.BasicBlockList" = "Standard";
 
-/* Description label shown on tracking protection options screen. */
-"Settings.TrackingProtectionOption.EnabledStateFooterLabel" = "Aktivitätenverfolgung („Tracking“) bezeichnet das Sammeln Ihrer Surf-Daten über mehrere Websites hinweg.";
-
 /* Settings option to specify that Tracking Protection is on */
 "Settings.TrackingProtectionOption.NormalBrowsingLabelOn" = "Verbesserter Tracking-Schutz";
 

@@ -412,28 +412,24 @@ extension Strings {
         public static let ShowPageSourceString = NSLocalizedString("Menu.PageSourceAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to show the html page source")
     }
 
+    // MARK: - External Link
+    public struct ExternalLink {
+        public struct AppStore {
+            public static let ConfirmationTitle = NSLocalizedString("ExternalLink.AppStore.ConfirmationTitle", comment: "Question shown to user when tapping a link that opens the App Store app")
+            public static let GenericConfirmation = NSLocalizedString("ExternalLink.AppStore.GenericConfirmationTitle", comment: "Question shown to user when tapping an SMS or MailTo link that opens the external app for those.")
+        }
+    }
+
+    // MARK: - Tracking Protection
+    public struct TrackingProtection {
+        public static let SectionName = NSLocalizedString("Settings.TrackingProtection.SectionName", comment: "Row in top-level of settings that gets tapped to show the tracking protection settings detail view.")
+    }
+
 }
 
 // MARK: - Non Updated Strings below here
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
-
-// Snackbar shown when tapping app store link
-extension Strings {
-    public static let ExternalLinkAppStoreConfirmationTitle = NSLocalizedString("ExternalLink.AppStore.ConfirmationTitle", comment: "Question shown to user when tapping a link that opens the App Store app")
-    public static let ExternalLinkGenericConfirmation = NSLocalizedString("ExternalLink.AppStore.GenericConfirmationTitle", comment: "Question shown to user when tapping an SMS or MailTo link that opens the external app for those.")
-}
-
-// ContentBlocker/TrackingProtection strings
-extension Strings {
-    public static let SettingsTrackingProtectionSectionName = NSLocalizedString("Settings.TrackingProtection.SectionName", comment: "Row in top-level of settings that gets tapped to show the tracking protection settings detail view.")
-    public static let TrackingProtectionOptionOnInPrivateBrowsing = NSLocalizedString("Settings.TrackingProtectionOption.OnInPrivateBrowsingLabel", comment: "Settings option to specify that Tracking Protection is on only in Private Browsing mode.")
-    public static let TrackingProtectionOptionOnInNormalBrowsing = NSLocalizedString("Settings.TrackingProtectionOption.OnInNormalBrowsingLabel", comment: "Settings option to specify that Tracking Protection is on only in Private Browsing mode.")
-    public static let TrackingProtectionOptionOnOffHeader = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateHeaderLabel", comment: "Description label shown at the top of tracking protection options screen.")
-    public static let TrackingProtectionOptionOnOffFooter = NSLocalizedString("Settings.TrackingProtectionOption.EnabledStateFooterLabel", comment: "Description label shown on tracking protection options screen.")
-    public static let TrackingProtectionReloadWithout = NSLocalizedString("Menu.ReloadWithoutTrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to reload the current website without Tracking Protection")
-    public static let TrackingProtectionReloadWith = NSLocalizedString("Menu.ReloadWithTrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled")
-}
 
 // Tracking Protection menu
 extension Strings {
@@ -464,6 +460,8 @@ extension Strings {
     public static let TrackingProtectionCommentsBlocked = NSLocalizedString("Menu.TrackingProtectionCommentsBlocked.Title", tableName: "Menu", comment: "")
     public static let TrackingProtectionCDNBlocked = NSLocalizedString("Menu.TrackingProtectionCDNBlocked.Title", tableName: "Menu", comment: "")
     public static let TrackingProtectioUnknownBlocked = NSLocalizedString("Menu.TrackingProtectionUnknownBlocked.Title", tableName: "Menu", comment: "")
+    public static let TrackingProtectionReloadWithout = NSLocalizedString("Menu.ReloadWithoutTrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to reload the current website without Tracking Protection")
+    public static let TrackingProtectionReloadWith = NSLocalizedString("Menu.ReloadWithTrackingProtection.Title", comment: "Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled")
 }
 
 // Location bar long press menu

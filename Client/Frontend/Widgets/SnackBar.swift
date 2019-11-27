@@ -222,7 +222,7 @@ class TimerSnackBar: SnackBar {
     }
 
     static func showAppStoreConfirmationBar(forTab tab: Tab, appStoreURL: URL, completion: @escaping (Bool) -> Void) {
-        let bar = TimerSnackBar(text: Strings.ExternalLinkAppStoreConfirmationTitle, img: UIImage(named: "nav-menu"))
+        let bar = TimerSnackBar(text: Strings.ExternalLink.AppStore.ConfirmationTitle, img: UIImage(named: "nav-menu"))
         let openAppStore = SnackButton(title: Strings.Toast.AppStoreString, accessibilityIdentifier: "ConfirmOpenInAppStore", bold: true) { bar in
             tab.removeSnackbar(bar)
             UIApplication.shared.open(appStoreURL, options: [:])
