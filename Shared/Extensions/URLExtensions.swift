@@ -450,7 +450,7 @@ public struct InternalURL {
     }
 
     public var extractedUrlParam: URL? {
-        if let nestedUrl = url.getQuery()[InternalURL.Param.url.rawValue]?.unescape()?.fromBase64() {
+        if let nestedUrl = url.getQuery()[InternalURL.Param.url.rawValue]?.fromBase64()?.unescape() {
             return URL(string: nestedUrl)
         }
         return nil
