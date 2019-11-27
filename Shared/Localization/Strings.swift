@@ -181,6 +181,35 @@ extension Strings {
             public static let SectionName = NSLocalizedString("Settings.TrackingProtection.SectionName", comment: "Row in top-level of settings that gets tapped to show the tracking protection settings detail view.")
         }
 
+        // Send Usage
+        public struct SendUsage {
+            public static let Title = NSLocalizedString("Settings.SendUsage.Title", comment: "The title for the setting to send usage data.")
+            public static let Message = String(format: NSLocalizedString("Settings.SendUsage.Message", comment: "A short description that explains why mozilla collects usage data."), AppInfo.displayName, AppInfo.displayName)
+        }
+
+        // Siri
+        public struct Siri {
+            public static let SectionName = NSLocalizedString("Settings.Siri.SectionName", comment: "The option that takes you to the siri shortcuts settings page")
+            public static let SectionDescription = String(format: NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are"), AppInfo.displayName)
+            public static let OpenURL = NSLocalizedString("Settings.Siri.OpenTabShortcut", comment: "The description of the open new tab siri shortcut")
+        }
+
+        // DNT
+        public struct DNT {
+            public static let NotTrackTitle = NSLocalizedString("Settings.DNT.Title", comment: "DNT Settings title")
+            public static let OptionOnWithTP = NSLocalizedString("Settings.DNT.OptionOnWithTP", comment: "DNT Settings option for only turning on when Tracking Protection is also on")
+            public static let OptionAlwaysOn = NSLocalizedString("Settings.DNT.OptionAlwaysOn", comment: "DNT Settings option for always on")
+        }
+
+        // Translate Snack Bar
+        public struct TranslateSnackBar {
+            public static let SectionHeader = NSLocalizedString("Settings.TranslateSnackBar.SectionHeader", comment: "Translation settings section title")
+            public static let SectionFooter = NSLocalizedString("Settings.TranslateSnackBar.SectionFooter", comment: "Translation settings footer describing how language detection and translation happens.")
+            public static let Title = NSLocalizedString("Settings.TranslateSnackBar.Title", comment: "Title in main app settings for Translation toast settings")
+            public static let SwitchTitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchTitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
+            public static let SwitchSubtitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchSubtitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
+        }
+
         public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
         public static let AdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
     }
@@ -463,22 +492,6 @@ extension Strings {
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
 
-// Settings Home
-extension Strings {
-    public static let SendUsageSettingTitle = NSLocalizedString("Settings.SendUsage.Title", comment: "The title for the setting to send usage data.")
-    public static let SendUsageSettingMessage = String(format: NSLocalizedString("Settings.SendUsage.Message", comment: "A short description that explains why mozilla collects usage data."), AppInfo.displayName, AppInfo.displayName)
-    public static let SettingsSiriSectionName = NSLocalizedString("Settings.Siri.SectionName", comment: "The option that takes you to the siri shortcuts settings page")
-    public static let SettingsSiriSectionDescription = String(format: NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are"), AppInfo.displayName)
-    public static let SettingsSiriOpenURL = NSLocalizedString("Settings.Siri.OpenTabShortcut", comment: "The description of the open new tab siri shortcut")
-}
-
-// Do not track
-extension Strings {
-    public static let SettingsDoNotTrackTitle = NSLocalizedString("Settings.DNT.Title", comment: "DNT Settings title")
-    public static let SettingsDoNotTrackOptionOnWithTP = NSLocalizedString("Settings.DNT.OptionOnWithTP", comment: "DNT Settings option for only turning on when Tracking Protection is also on")
-    public static let SettingsDoNotTrackOptionAlwaysOn = NSLocalizedString("Settings.DNT.OptionAlwaysOn", comment: "DNT Settings option for always on")
-}
-
 // Intro Onboarding slides
 extension Strings {
     public static let SearchCardTitle = NSLocalizedString("Intro.Slides.Search.Title", tableName: "Intro", comment: "Title for the 'Search' panel in the First Run tour.")
@@ -538,15 +551,6 @@ extension Strings {
     public static let PasswordAutofillTitle = String(format: NSLocalizedString("PasswordAutoFill.SectionTitle", comment: "Title of the extension that shows firefox passwords"), AppInfo.displayName)
     public static let CredentialProviderNoCredentialError = String(format: NSLocalizedString("PasswordAutoFill.NoPasswordsFoundTitle", comment: "Error message shown in the remote tabs panel"), AppInfo.displayName)
     public static let AvailableCredentialsHeader = NSLocalizedString("PasswordAutoFill.PasswordsListTitle", comment: "Header for the list of credentials table")
-}
-
-// translation bar
-extension Strings {
-    public static let SettingTranslateSnackBarSectionHeader = NSLocalizedString("Settings.TranslateSnackBar.SectionHeader", comment: "Translation settings section title")
-    public static let SettingTranslateSnackBarSectionFooter = NSLocalizedString("Settings.TranslateSnackBar.SectionFooter", comment: "Translation settings footer describing how language detection and translation happens.")
-    public static let SettingTranslateSnackBarTitle = NSLocalizedString("Settings.TranslateSnackBar.Title", comment: "Title in main app settings for Translation toast settings")
-    public static let SettingTranslateSnackBarSwitchTitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchTitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
-    public static let SettingTranslateSnackBarSwitchSubtitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchSubtitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
 }
 
 // InterceptorUI

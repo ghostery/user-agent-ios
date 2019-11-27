@@ -331,7 +331,7 @@ class SiriPageSetting: Setting {
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
 
-        super.init(title: NSAttributedString(string: Strings.SettingsSiriSectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.Siri.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -383,7 +383,7 @@ class TranslationSetting: Setting {
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
-        super.init(title: NSAttributedString(string: Strings.SettingTranslateSnackBarTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.TranslateSnackBar.Title, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {

@@ -15,7 +15,7 @@ class SiriSettingsViewController: SettingsTableViewController {
         self.prefs = prefs
         super.init(style: .grouped)
 
-        self.title = Strings.SettingsSiriSectionName
+        self.title = Strings.Settings.Siri.SectionName
         hasSectionSeparatorLine = false
     }
 
@@ -25,7 +25,7 @@ class SiriSettingsViewController: SettingsTableViewController {
 
     override func generateSettings() -> [SettingSection] {
         let setting = SiriOpenURLSetting(settings: self)
-        let firstSection = SettingSection(title: nil, footerTitle: NSAttributedString(string: Strings.SettingsSiriSectionDescription), children: [setting])
+        let firstSection = SettingSection(title: nil, footerTitle: NSAttributedString(string: Strings.Settings.Siri.SectionDescription), children: [setting])
         return [firstSection]
     }
 }
@@ -37,7 +37,7 @@ class SiriOpenURLSetting: Setting {
     override var accessibilityIdentifier: String? { return "SiriSettings" }
 
     init(settings: SettingsTableViewController) {
-        super.init(title: NSAttributedString(string: Strings.SettingsSiriOpenURL, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.Siri.OpenURL, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
