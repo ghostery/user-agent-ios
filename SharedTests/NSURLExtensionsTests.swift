@@ -192,8 +192,9 @@ class NSURLExtensionsTests: XCTestCase {
     }
 
     func testisAboutHomeURL() {
+        let localURL = "\(InternalURL.baseUrl)/about/home#panel=1".toBase64()
         let goodurls = [
-            "\(InternalURL.baseUrl)/sessionrestore?url=\(InternalURL.baseUrl)/about/home%23panel%3D1",
+            "\(InternalURL.baseUrl)/sessionrestore?url=\(localURL)",
             "\(InternalURL.baseUrl)/about/home#panel=0"
             ]
         let badurls = [
