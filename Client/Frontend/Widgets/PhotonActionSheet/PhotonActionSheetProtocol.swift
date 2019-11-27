@@ -227,17 +227,17 @@ extension PhotonActionSheetProtocol {
     }
 
     func getLongPressLocationBarActions(with urlBar: URLBarView) -> [PhotonActionSheetItem] {
-        let pasteGoAction = PhotonActionSheetItem(title: Strings.PasteAndGoTitle, iconString: "menu-PasteAndGo") { action in
+        let pasteGoAction = PhotonActionSheetItem(title: Strings.Menu.PasteAndGoTitle, iconString: "menu-PasteAndGo") { action in
             if let pasteboardContents = UIPasteboard.general.string {
                 urlBar.delegate?.urlBar(urlBar, didSubmitText: pasteboardContents)
             }
         }
-        let pasteAction = PhotonActionSheetItem(title: Strings.PasteTitle, iconString: "menu-Paste") { action in
+        let pasteAction = PhotonActionSheetItem(title: Strings.Menu.PasteTitle, iconString: "menu-Paste") { action in
             if let pasteboardContents = UIPasteboard.general.string {
                 urlBar.enterOverlayMode(pasteboardContents, pasted: true, search: true)
             }
         }
-        let copyAddressAction = PhotonActionSheetItem(title: Strings.CopyAddressTitle, iconString: "menu-Copy-Link") { action in
+        let copyAddressAction = PhotonActionSheetItem(title: Strings.Menu.CopyAddressTitle, iconString: "menu-Copy-Link") { action in
             if let url = self.tabManager.selectedTab?.canonicalURL?.displayURL ?? urlBar.currentURL {
                 UIPasteboard.general.url = url
             }
@@ -251,12 +251,12 @@ extension PhotonActionSheetProtocol {
 
     @available(iOS 11.0, *)
     private func menuActionsForNotBlocking() -> [PhotonActionSheetItem] {
-        return [PhotonActionSheetItem(title: Strings.TrackingProtection.SectionName, text: Strings.TPNoBlockingDescription, iconString: "menu-TrackingProtection")]
+        return [PhotonActionSheetItem(title: Strings.Settings.TrackingProtection.SectionName, text: Strings.Menu.TPNoBlockingDescription, iconString: "menu-TrackingProtection")]
     }
 
     @available(iOS 11.0, *)
     private func menuActionsForTrackingProtectionDisabled(for tab: Tab, vcDelegate: PageOptionsVC) -> [[PhotonActionSheetItem]] {
-        let moreInfo = PhotonActionSheetItem(title: Strings.TPBlockingMoreInfo)
+        let moreInfo = PhotonActionSheetItem(title: Strings.Menu.TPBlockingMoreInfo)
         return [[moreInfo], [openSettingsItem(vcDelegate: vcDelegate)]]
     }
 
