@@ -30,7 +30,7 @@ class DownloadsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Done", comment: "Done button on right side of the Downloads view controller title bar"), style: .done, target: self, action: #selector(closeButtonAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.DownloadsPanel.DoneTitle, style: .done, target: self, action: #selector(closeButtonAction))
         self.title = Strings.AppMenuDownloadsTitleString
         self.view.addSubview(self.downloadsView)
         self.downloadsView.snp.makeConstraints { make in

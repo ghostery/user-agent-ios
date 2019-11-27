@@ -170,6 +170,9 @@ extension Strings {
     // MARK: - Downloads Panel
     public struct DownloadsPanel {
         public static let EmptyStateTitle = NSLocalizedString("DownloadsPanel.EmptyState.Title", comment: "Title for the Downloads Panel empty state.")
+        public static let DeleteTitle = NSLocalizedString("Delete", comment: "Action button for deleting downloaded files in the Downloads panel.")
+        public static let ShareTitle = NSLocalizedString("Share", comment: "Action button for sharing downloaded files in the Downloads panel.")
+        public static let DoneTitle = NSLocalizedString("Done", comment: "Done button on right side of the Downloads view controller title bar")
     }
 
     // MARK: - History Panel
@@ -180,6 +183,7 @@ extension Strings {
         public static let RecentlyClosedTabsButtonTitle = NSLocalizedString("HistoryPanel.RecentlyClosedTabsButton.Title", comment: "Title for the Recently Closed button in the History Panel")
         public static let RecentlyClosedTabsPanelTitle = NSLocalizedString("RecentlyClosedTabsPanel.Title", comment: "Title for the Recently Closed Tabs Panel")
         public static let BrowserHomePage = String(format: NSLocalizedString("UserAgent.HomePage.Title", comment: "Title for firefox about:home page in tab history list"), AppInfo.displayName)
+        public static let DeleteTitle = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
 
         public struct ClearHistoryMenu {
             public static let Title = NSLocalizedString("HistoryPanel.ClearHistoryMenuTitle", comment: "Title for popup action menu to clear recent history.")
@@ -264,27 +268,33 @@ extension Strings {
         }
     }
 
+    // MARK: - Download Helper
+    public struct Downloads {
+        public struct Alert {
+            public static let DownloadNowButtonTitle = NSLocalizedString("Downloads.Alert.DownloadNow", comment: "The label of the button the user will press to start downloading a file")
+        }
+        public struct Toast {
+            public static let GoToDownloadsButtonTitle = NSLocalizedString("Downloads.Toast.GoToDownloads.Button", comment: "The button to open a new tab with the Downloads home panel")
+            public static let Cancelled = NSLocalizedString("Downloads.Toast.Cancelled.LabelText", comment: "The label text in the Download Cancelled toast for showing confirmation that the download was cancelled.")
+            public static let Failed = NSLocalizedString("Downloads.Toast.Failed.LabelText", comment: "The label text in the Download Failed toast for showing confirmation that the download has failed.")
+            public static let FailedRetryButton = NSLocalizedString("Downloads.Toast.Failed.RetryButton", comment: "The button to retry a failed download from the Download Failed toast.")
+            public static let MultipleFilesDescription = NSLocalizedString("Downloads.Toast.MultipleFiles.DescriptionText", comment: "The description text in the Download progress toast for showing the number of files when multiple files are downloading.")
+            public static let ProgressDescription = NSLocalizedString("Downloads.Toast.Progress.DescriptionText", comment: "The description text in the Download progress toast for showing the downloaded file size (1$) out of the total expected file size (2$).")
+            public static let MultipleFilesAndProgressDescription = NSLocalizedString("Downloads.Toast.MultipleFilesAndProgress.DescriptionText", comment: "The description text in the Download progress toast for showing the number of files (1$) and download progress (2$). This string only consists of two placeholders for purposes of displaying two other strings side-by-side where 1$ is Downloads.Toast.MultipleFiles.DescriptionText and 2$ is Downloads.Toast.Progress.DescriptionText. This string should only consist of the two placeholders side-by-side separated by a single space and 1$ should come before 2$ everywhere except for right-to-left locales.")
+        }
+        public struct CancelDialog {
+            public static let Title = NSLocalizedString("Downloads.CancelDialog.Title", comment: "Alert dialog title when the user taps the cancel download icon.")
+            public static let Message = NSLocalizedString("Downloads.CancelDialog.Message", comment: "Alert dialog body when the user taps the cancel download icon.")
+            public static let Resume = NSLocalizedString("Downloads.CancelDialog.Resume", comment: "Button declining the cancellation of the download.")
+            public static let Cancel = NSLocalizedString("Downloads.CancelDialog.Cancel", comment: "Button confirming the cancellation of the download.")
+        }
+    }
+
 }
 
 // MARK: - Non Updated Strings below here
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
-
-// Download Helper
-extension Strings {
-    public static let OpenInDownloadHelperAlertDownloadNow = NSLocalizedString("Downloads.Alert.DownloadNow", comment: "The label of the button the user will press to start downloading a file")
-    public static let DownloadsButtonTitle = NSLocalizedString("Downloads.Toast.GoToDownloads.Button", comment: "The button to open a new tab with the Downloads home panel")
-    public static let CancelDownloadDialogTitle = NSLocalizedString("Downloads.CancelDialog.Title", comment: "Alert dialog title when the user taps the cancel download icon.")
-    public static let CancelDownloadDialogMessage = NSLocalizedString("Downloads.CancelDialog.Message", comment: "Alert dialog body when the user taps the cancel download icon.")
-    public static let CancelDownloadDialogResume = NSLocalizedString("Downloads.CancelDialog.Resume", comment: "Button declining the cancellation of the download.")
-    public static let CancelDownloadDialogCancel = NSLocalizedString("Downloads.CancelDialog.Cancel", comment: "Button confirming the cancellation of the download.")
-    public static let DownloadCancelledToastLabelText = NSLocalizedString("Downloads.Toast.Cancelled.LabelText", comment: "The label text in the Download Cancelled toast for showing confirmation that the download was cancelled.")
-    public static let DownloadFailedToastLabelText = NSLocalizedString("Downloads.Toast.Failed.LabelText", comment: "The label text in the Download Failed toast for showing confirmation that the download has failed.")
-    public static let DownloadFailedToastButtonTitled = NSLocalizedString("Downloads.Toast.Failed.RetryButton", comment: "The button to retry a failed download from the Download Failed toast.")
-    public static let DownloadMultipleFilesToastDescriptionText = NSLocalizedString("Downloads.Toast.MultipleFiles.DescriptionText", comment: "The description text in the Download progress toast for showing the number of files when multiple files are downloading.")
-    public static let DownloadProgressToastDescriptionText = NSLocalizedString("Downloads.Toast.Progress.DescriptionText", comment: "The description text in the Download progress toast for showing the downloaded file size (1$) out of the total expected file size (2$).")
-    public static let DownloadMultipleFilesAndProgressToastDescriptionText = NSLocalizedString("Downloads.Toast.MultipleFilesAndProgress.DescriptionText", comment: "The description text in the Download progress toast for showing the number of files (1$) and download progress (2$). This string only consists of two placeholders for purposes of displaying two other strings side-by-side where 1$ is Downloads.Toast.MultipleFiles.DescriptionText and 2$ is Downloads.Toast.Progress.DescriptionText. This string should only consist of the two placeholders side-by-side separated by a single space and 1$ should come before 2$ everywhere except for right-to-left locales.")
-}
 
 // Add Custom Search Engine
 extension Strings {

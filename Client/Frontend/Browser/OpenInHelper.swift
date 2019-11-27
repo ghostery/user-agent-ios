@@ -105,7 +105,7 @@ class DownloadHelper: NSObject, OpenInHelper {
             label.lineBreakMode = .byCharWrapping
         }
 
-        let downloadFileItem = PhotonActionSheetItem(title: Strings.OpenInDownloadHelperAlertDownloadNow, iconString: "download") { _ in
+        let downloadFileItem = PhotonActionSheetItem(title: Strings.Downloads.Alert.DownloadNowButtonTitle, iconString: "download") { _ in
             self.browserViewController.downloadQueue.enqueue(download)
         }
 

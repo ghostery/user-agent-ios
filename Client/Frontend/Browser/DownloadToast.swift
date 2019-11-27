@@ -43,15 +43,15 @@ class DownloadToast: Toast {
     var descriptionText: String {
         let downloadedSize = ByteCountFormatter.string(fromByteCount: combinedBytesDownloaded, countStyle: .file)
         let expectedSize = combinedTotalBytesExpected != nil ? ByteCountFormatter.string(fromByteCount: combinedTotalBytesExpected!, countStyle: .file) : nil
-        let descriptionText = expectedSize != nil ? String(format: Strings.DownloadProgressToastDescriptionText, downloadedSize, expectedSize!) : downloadedSize
+        let descriptionText = expectedSize != nil ? String(format: Strings.Downloads.Toast.ProgressDescription, downloadedSize, expectedSize!) : downloadedSize
 
         guard downloads.count > 1 else {
             return descriptionText
         }
 
-        let fileCountDescription = String(format: Strings.DownloadMultipleFilesToastDescriptionText, downloads.count)
+        let fileCountDescription = String(format: Strings.Downloads.Toast.MultipleFilesDescription, downloads.count)
 
-        return String(format: Strings.DownloadMultipleFilesAndProgressToastDescriptionText, fileCountDescription, descriptionText)
+        return String(format: Strings.Downloads.Toast.MultipleFilesAndProgressDescription, fileCountDescription, descriptionText)
     }
 
     var downloads: [Download] = []
@@ -167,9 +167,9 @@ class DownloadToast: Toast {
     }
 
     @objc func buttonPressed(_ gestureRecognizer: UIGestureRecognizer) {
-        let alert = AlertController(title: Strings.CancelDownloadDialogTitle, message: Strings.CancelDownloadDialogMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Strings.CancelDownloadDialogResume, style: .cancel, handler: nil), accessibilityIdentifier: "cancelDownloadAlert.resume")
-        alert.addAction(UIAlertAction(title: Strings.CancelDownloadDialogCancel, style: .default, handler: { action in
+        let alert = AlertController(title: Strings.Downloads.CancelDialog.Title, message: Strings.Downloads.CancelDialog.Message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Strings.Downloads.CancelDialog.Resume, style: .cancel, handler: nil), accessibilityIdentifier: "cancelDownloadAlert.resume")
+        alert.addAction(UIAlertAction(title: Strings.Downloads.CancelDialog.Cancel, style: .default, handler: { action in
             self.completionHandler?(true)
             self.dismiss(true)
         }), accessibilityIdentifier: "cancelDownloadAlert.cancel")
