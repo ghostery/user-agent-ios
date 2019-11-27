@@ -554,15 +554,6 @@
 /* Password textbox in Authentication prompt */
 "Password" = "Passwort";
 
-/* Error message shown in the remote tabs panel */
-"PasswordAutoFill.NoPasswordsFoundTitle" = "Sie haben keine Zugangsdaten, die von Ihrem %@-Konto synchronisiert werden";
-
-/* Header for the list of credentials table */
-"PasswordAutoFill.PasswordsListTitle" = "Verfügbare Zugangsdaten:";
-
-/* Title of the extension that shows UserAgent passwords */
-"PasswordAutoFill.SectionTitle" = "%@-Zugangsdaten";
-
 /* See http://mzl.la/1G7uHo7 */
 "PhotoLibrary.AppWouldLikeAccessMessage" = "Hiermit können Sie die Grafik in Ihren Aufnahmen speichern.";
 

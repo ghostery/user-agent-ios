@@ -554,15 +554,6 @@
 /* Password textbox in Authentication prompt */
 "Password" = "Password";
 
-/* Error message shown in the remote tabs panel */
-"PasswordAutoFill.NoPasswordsFoundTitle" = "You don’t have any credentials synced from your %@ Account";
-
-/* Header for the list of credentials table */
-"PasswordAutoFill.PasswordsListTitle" = "Available Credentials:";
-
-/* Title of the extension that shows UserAgent passwords */
-"PasswordAutoFill.SectionTitle" = "%@ Credentials";
-
 /* See http://mzl.la/1G7uHo7 */
 "PhotoLibrary.AppWouldLikeAccessMessage" = "This allows you to save the image to your Camera Roll.";
 
