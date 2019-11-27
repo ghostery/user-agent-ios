@@ -153,6 +153,10 @@ extension Strings {
                 public static let URLPlaceholder = NSLocalizedString("Settings.AddCustomEngine.URLPlaceholder", comment: "The placeholder for URL Field when saving a custom search engine")
                 public static let SaveButtonText = NSLocalizedString("Settings.AddCustomEngine.SaveButtonText", comment: "The text on the Save button when saving a custom search engine")
             }
+            public struct ResultForLanguage {
+                public static let Title = NSLocalizedString("Settings.SearchResultForLanguage", comment: "The button text in Settings that opens the list of supported search languages.")
+                public static let German = NSLocalizedString("region-DE", comment: "Localized String for German region")
+            }
         }
 
         // New Tab
@@ -308,12 +312,6 @@ extension Strings {
 // MARK: - Non Updated Strings below here
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
-
-// Search Results For Language
-extension Strings {
-    public static let SettingsSearchResultForLanguage = NSLocalizedString("Settings.SearchResultForLanguage", comment: "The button text in Settings that opens the list of supported search languages.")
-    public static let SettingsSearchResultForGerman = NSLocalizedString("region-DE", comment: "Localized String for German region")
-}
 
 // Adult Filter Mode
 extension Strings {
