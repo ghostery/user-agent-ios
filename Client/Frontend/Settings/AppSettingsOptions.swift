@@ -242,7 +242,7 @@ class SearchSetting: Setting {
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
-        super.init(title: NSAttributedString(string: Strings.SettingsAdditionalSearchEnginesSectionTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.Search.AdditionalSearchEngines.SectionTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {

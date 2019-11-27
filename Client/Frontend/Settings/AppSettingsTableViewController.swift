@@ -44,7 +44,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             // Temporarily disabling additional search engines setting.
 //            SearchSetting(settings: self),
         ]
-        settings += [ SettingSection(title: NSAttributedString(string: Strings.SettingsSearchSectionTitle), children: searchSettings)]
+        settings += [ SettingSection(title: NSAttributedString(string: Strings.Settings.Search.SectionTitle), children: searchSettings)]
 
         let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
         var privacySettings = [Setting]()

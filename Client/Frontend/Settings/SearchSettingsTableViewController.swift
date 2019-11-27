@@ -31,7 +31,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = Strings.SettingsAdditionalSearchEnginesSectionTitle
+        navigationItem.title = Strings.Settings.Search.AdditionalSearchEngines.SectionTitle
 
         // To allow re-ordering the list of search engines at all times.
         tableView.isEditing = true
@@ -104,9 +104,9 @@ class SearchSettingsTableViewController: ThemedTableViewController {
         }
 
         cell.editingAccessoryType = .disclosureIndicator
-        cell.accessibilityLabel = Strings.SettingsAddCustomEngineTitle
+        cell.accessibilityLabel = Strings.Settings.Search.AddCustomEngine.Title
         cell.accessibilityIdentifier = "customEngineViewButton"
-        cell.textLabel?.text = Strings.SettingsAddCustomEngine
+        cell.textLabel?.text = Strings.Settings.Search.AddCustomEngine.ButtonTitle
         cell.separatorInset = .zero
         return cell
     }

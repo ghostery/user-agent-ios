@@ -138,8 +138,21 @@ extension Strings {
 
         // Search
         public struct Search {
+            public static let SectionTitle = NSLocalizedString("Settings.Search.SectionName", comment: "Search settings section title")
             public static let DoneButton = NSLocalizedString("Settings.Search.Done.Button", comment: "Button displayed at the top of the search settings.")
             public static let EditButton = NSLocalizedString("Settings.Search.Edit.Button", comment: "Button displayed at the top of the search settings.")
+            public struct AdditionalSearchEngines {
+                public static let SectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
+            }
+            public struct AddCustomEngine {
+                public static let ButtonTitle = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
+                public static let Title = NSLocalizedString("Settings.AddCustomEngine.Title", comment: "The title of the Custom Search Engine view.")
+                public static let TitleFieldSectionTitle = NSLocalizedString("Settings.AddCustomEngine.TitleLabel", comment: "The title for the field which sets the title for a custom search engine.")
+                public static let URLSectionTitle = NSLocalizedString("Settings.AddCustomEngine.URLLabel", comment: "The title for URL Field")
+                public static let TitlePlaceholder = NSLocalizedString("Settings.AddCustomEngine.TitlePlaceholder", comment: "The placeholder for Title Field when saving a custom search engine.")
+                public static let URLPlaceholder = NSLocalizedString("Settings.AddCustomEngine.URLPlaceholder", comment: "The placeholder for URL Field when saving a custom search engine")
+                public static let SaveButtonText = NSLocalizedString("Settings.AddCustomEngine.SaveButtonText", comment: "The text on the Save button when saving a custom search engine")
+            }
         }
 
         // New Tab
@@ -295,19 +308,6 @@ extension Strings {
 // MARK: - Non Updated Strings below here
 // Whenever you see this, take a bit of time to pick a few lines below and put them in the semantic struct order above.
 // See https://github.com/cliqz/user-agent-ios/wiki/Localization for more inspiration
-
-// Add Custom Search Engine
-extension Strings {
-    public static let SettingsSearchSectionTitle = NSLocalizedString("Settings.Search.SectionName", comment: "Search settings section title")
-    public static let SettingsAdditionalSearchEnginesSectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
-    public static let SettingsAddCustomEngine = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
-    public static let SettingsAddCustomEngineTitle = NSLocalizedString("Settings.AddCustomEngine.Title", comment: "The title of the  Custom Search Engine view.")
-    public static let SettingsAddCustomEngineTitleLabel = NSLocalizedString("Settings.AddCustomEngine.TitleLabel", comment: "The title for the field which sets the title for a custom search engine.")
-    public static let SettingsAddCustomEngineURLLabel = NSLocalizedString("Settings.AddCustomEngine.URLLabel", comment: "The title for URL Field")
-    public static let SettingsAddCustomEngineTitlePlaceholder = NSLocalizedString("Settings.AddCustomEngine.TitlePlaceholder", comment: "The placeholder for Title Field when saving a custom search engine.")
-    public static let SettingsAddCustomEngineURLPlaceholder = NSLocalizedString("Settings.AddCustomEngine.URLPlaceholder", comment: "The placeholder for URL Field when saving a custom search engine")
-    public static let SettingsAddCustomEngineSaveButtonText = NSLocalizedString("Settings.AddCustomEngine.SaveButtonText", comment: "The text on the Save button when saving a custom search engine")
-}
 
 // Search Results For Language
 extension Strings {
