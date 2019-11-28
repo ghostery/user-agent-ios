@@ -11,7 +11,7 @@
 
 import React from 'react';
 import { TouchableWithoutFeedback, View, Platform } from 'react-native';
-import { withCliqz } from '../../../contexts/cliqz';
+import { withCliqz } from '../../../../../../contexts/cliqz';
 
 class Link extends React.Component {
   _onPress = e => {

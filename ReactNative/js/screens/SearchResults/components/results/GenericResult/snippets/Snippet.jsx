@@ -11,8 +11,8 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import SnippetIcon from './SnippetIcon';
 import Link from './Link';
-import NativeDrawable from '../../../components/NativeDrawable';
-import { useStyles } from '../../../contexts/theme';
+import NativeDrawable from '../../../../../../components/NativeDrawable';
+import { useStyles } from '../../../../../../contexts/theme';
 
 const httpsLockWidth = 9;
 const httpsLockMarginRight = 5;
