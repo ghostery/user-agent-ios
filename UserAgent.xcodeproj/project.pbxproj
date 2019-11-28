@@ -71,6 +71,10 @@
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
+		2BFB7C36238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
+		2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
+		2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */; };
+		2BFB7C3A238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */; };
 		2C28F96C201B2D4C00ABA8A5 /* MailAppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28F96B201B2D4C00ABA8A5 /* MailAppSettingsTests.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C32EA442100C4BF00A25912 /* TabTraySearchTabsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C32EA432100C4BF00A25912 /* TabTraySearchTabsTests.swift */; };
@@ -167,7 +171,7 @@
 		464F67782326AFB70090D0B5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
 		464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */; };
 		464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
-		464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -949,7 +953,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */,
+				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1043,6 +1047,8 @@
 		2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+DownloadsDelegate.swift"; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
+		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
+		2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModeDetector.swift; sourceTree = "<group>"; };
 		2C28F96B201B2D4C00ABA8A5 /* MailAppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAppSettingsTests.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C32EA432100C4BF00A25912 /* TabTraySearchTabsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTraySearchTabsTests.swift; sourceTree = "<group>"; };
@@ -1842,6 +1848,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2BFB7C34238FA99600CE2E69 /* AutomaticForgetMode */ = {
+			isa = PBXGroup;
+			children = (
+				2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */,
+				2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */,
+			);
+			path = AutomaticForgetMode;
+			sourceTree = "<group>";
+		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -2308,6 +2323,7 @@
 		C56ED494233B68C7006A63B1 /* Interceptor */ = {
 			isa = PBXGroup;
 			children = (
+				2BFB7C34238FA99600CE2E69 /* AutomaticForgetMode */,
 				C56ED495233B68F1006A63B1 /* AntiPhishing */,
 				C56ED496233B692B006A63B1 /* Interceptor.swift */,
 				C56ED49D233B712F006A63B1 /* InterceptorFeature.swift */,
@@ -4371,6 +4387,7 @@
 				ACB7372A23042BAB00FA5626 /* ReaderModeStyleViewController.swift in Sources */,
 				2B516D38238BAC8B006D6B57 /* HistoryView.swift in Sources */,
 				ACB7372B23042BAB00FA5626 /* UserScriptManager.swift in Sources */,
+				2BFB7C3A238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
 				ACB7372C23042BAB00FA5626 /* ReaderModeUtils.swift in Sources */,
 				ACB7372E23042BAB00FA5626 /* PanelDataObservers.swift in Sources */,
 				ACB7372F23042BAB00FA5626 /* ClipboardBarDisplayHandler.swift in Sources */,
@@ -4403,6 +4420,7 @@
 				ACB7374623042BAB00FA5626 /* BrowserViewController+FindInPage.swift in Sources */,
 				ACB7374723042BAB00FA5626 /* TabContentBlocker+ContentScript.swift in Sources */,
 				2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */,
+				2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */,
 				463432F92332521F0014A9F0 /* Telemetry.swift in Sources */,
 				ACB7374823042BAB00FA5626 /* TestAppDelegate.swift in Sources */,
 				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
@@ -4611,6 +4629,7 @@
 				D029A04920A62DB0001DB72F /* TemporaryDocument.swift in Sources */,
 				2B516D37238BAC8B006D6B57 /* HistoryView.swift in Sources */,
 				E692E3371C46E86A009D1240 /* AppSettingsOptions.swift in Sources */,
+				2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
 				E4CD9F6D1A77DD2800318571 /* ReaderModeStyleViewController.swift in Sources */,
 				D0FCF7F51FE45842004A7995 /* UserScriptManager.swift in Sources */,
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
@@ -4643,6 +4662,7 @@
 				46B68D31231420DE0091156C /* HomeViewController.swift in Sources */,
 				D301AAEE1A3A55B70078DD1D /* TabTrayController.swift in Sources */,
 				EBFDB790211C83A5005CCA2F /* BrowserViewController+FindInPage.swift in Sources */,
+				2BFB7C36238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */,
 				EBB89509219398E500EB91A0 /* TabContentBlocker+ContentScript.swift in Sources */,
 				2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */,
 				D3BE7B461B054F8600641031 /* TestAppDelegate.swift in Sources */,

@@ -32,4 +32,11 @@ extension BrowserViewController: InterceptorUI {
 
         self.present(alert, animated: true, completion: nil)
     }
+
+    func openInPrivateMode(tab: Tab, url: URL, policy: InterceptorPolicy) {
+        policy.whitelistUrl(url)
+        let tab = self.tabManager.addTab(URLRequest(url: url), afterTab: tab, isPrivate: true)
+        self.tabManager.selectTab(tab)
+    }
+
 }

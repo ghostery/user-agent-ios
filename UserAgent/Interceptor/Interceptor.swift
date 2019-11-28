@@ -12,6 +12,7 @@ import WebKit
 enum InterceptorType {
     case phishing
     case tracking
+    case automaticForgetMode
 }
 
 typealias PostFactumCallback = (URL, InterceptorPolicy) -> Void

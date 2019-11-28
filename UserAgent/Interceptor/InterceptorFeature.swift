@@ -11,6 +11,7 @@ import WebKit
 
 protocol InterceptorUI: class {
     func showAntiPhishingAlert(tab: Tab, url: URL, policy: InterceptorPolicy)
+    func openInPrivateMode(tab: Tab, url: URL, policy: InterceptorPolicy)
 }
 
 class InterceptorFeature {
@@ -29,6 +30,7 @@ class InterceptorFeature {
     // MARK: Private methods
     private func registerInterceptors() {
         self.interceptor.register(policy: AntiPhishingPolicy())
+        self.interceptor.register(policy: AutomaticForgetModePolicy())
     }
 }
 
@@ -37,10 +39,15 @@ extension InterceptorFeature: InterceptorDelegate {
         guard let tab = tabManager[webView] else {
             return
         }
-        tab.stop()
         switch policy.type {
         case .phishing:
+            tab.stop()
             ui.showAntiPhishingAlert(tab: tab, url: url, policy: policy)
+        case .automaticForgetMode:
+            if !tab.isPrivate {
+                tab.stop()
+                ui.openInPrivateMode(tab: tab, url: url, policy: policy)
+            }
         default:
             break
         }
