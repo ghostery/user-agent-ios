@@ -231,7 +231,7 @@ class Results extends React.Component {
                 <TouchableWithoutFeedback
                   onPress={() =>
                     this.openSearchEngineLink(
-                      `https://google.com/search?q=${encodeURIComponent(
+                      `https://www.google.com/search?q=${encodeURIComponent(
                         query,
                       )}`,
                       0,

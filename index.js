@@ -9,11 +9,14 @@ import SearchResults from './ReactNative/js/screens/SearchResults';
 import BridgeManager from './ReactNative/js/bridge-manager';
 import Logo from './ReactNative/js/components/Logo';
 import { ThemeWrapperComponentProvider } from './ReactNative/js/contexts/theme';
+import moment from './ReactNative/js/services/moment';
 
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount',
   'Warning: componentWillReceiveProps',
 ]);
+
+moment.locale(NativeModules.LocaleConstants.lang);
 
 const app = new App({
   browser: global.browser,

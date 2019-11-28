@@ -24,7 +24,7 @@ const getStyles = theme =>
       backgroundColor: theme.backgroundColor,
       borderRadius: 9,
     },
-    wrapper:  {
+    wrapper: {
       paddingLeft: 7,
       paddingRight: 7,
     },
@@ -61,7 +61,7 @@ export default ({ result, openLink }) => {
           />
         )}
       </View>
-      {news.links.length > 0 && <NewsSnippet news={news} />}
+      {news.links.length > 0 && <NewsSnippet news={news} openLink={openLink} />}
       <View style={styles.wrapper}>
         {snippets.map(snippet => (
           <SnippetList
