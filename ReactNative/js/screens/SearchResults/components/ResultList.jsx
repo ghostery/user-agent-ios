@@ -55,9 +55,6 @@ class CardList extends React.PureComponent {
   getComponent = ({ item, index }) => {
     let Component = Card;
     switch (item.template) {
-      // case 'top-news-sc':
-      //   Component = NewsSnippet;
-      //   break;
       case 'weatherEZ':
         Component = WeatherSnippet;
         break;
