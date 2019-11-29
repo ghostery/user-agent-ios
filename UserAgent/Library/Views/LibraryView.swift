@@ -103,6 +103,10 @@ class LibraryView: UIView, Themeable {
         return nil
     }
 
+    var deleteActionTitle: String {
+        fatalError("Subclass must overide this method")
+    }
+
     func removeSiteForURLAtIndexPath(_ indexPath: IndexPath) {
         fatalError("Subclass must overide this method")
     }
@@ -253,7 +257,7 @@ extension LibraryView: LibraryContextMenu {
     func getContextMenuActions(for site: Site, with indexPath: IndexPath) -> [PhotonActionSheetItem]? {
         guard var actions = self.getDefaultContextMenuActions(for: site, libraryViewDelegate: self.delegate) else { return nil }
 
-        let removeAction = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.DeleteFromHistory, iconString: "action_delete", handler: { action in
+        let removeAction = PhotonActionSheetItem(title: self.deleteActionTitle, iconString: "action_delete", handler: { action in
             self.removeSiteForURLAtIndexPath(indexPath)
         })
 

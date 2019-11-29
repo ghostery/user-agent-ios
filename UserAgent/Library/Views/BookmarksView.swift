@@ -59,6 +59,10 @@ class BookmarksView: LibraryView {
         return nil
     }
 
+    override var deleteActionTitle: String {
+        return Strings.HomePanel.ContextMenu.RemoveBookmark
+    }
+
     override func removeSiteForURLAtIndexPath(_ indexPath: IndexPath) {
         guard let source = source, let bookmark = source.current[indexPath.row] else {
             print("Source not set, aborting.")
