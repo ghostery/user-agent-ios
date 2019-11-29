@@ -20,8 +20,7 @@ public struct PrefsKeys {
     public static let LoginsSaveEnabled = "saveLogins"
     public static let LoginsShowShortcutMenuItem = "showLoginsInAppMenu"
 
-    public static let TrackingProtectionEnabledKey = "prefkey.trackingprotection.browsing"
-    public static let AdBlockingEnabledKey = "prefkey.adBlocking.browsing"
+    public static let PrivacyDashboardEnabledKey = "prefkey.privacy.dashboard"
 
     public static let NewTabCustomUrlPrefKey = "HomePageURLPref"
     //Activity Stream
