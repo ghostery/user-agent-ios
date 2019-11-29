@@ -268,7 +268,7 @@ class ErrorPageHelper {
         }
 
         var queryItems = [
-            URLQueryItem(name: InternalURL.Param.url.rawValue, value: url.absoluteString),
+            InternalURL.createQueryItem(url: url),
             URLQueryItem(name: "code", value: String(error.code)),
             URLQueryItem(name: "domain", value: error.domain),
             URLQueryItem(name: "description", value: error.localizedDescription),
