@@ -192,9 +192,8 @@ class NSURLExtensionsTests: XCTestCase {
     }
 
     func testisAboutHomeURL() {
-        let localURL = "\(InternalURL.baseUrl)/about/home#panel=1".toBase64()
         let goodurls = [
-            "\(InternalURL.baseUrl)/sessionrestore?url=\(localURL)",
+            "\(InternalURL.baseUrl)/sessionrestore?url=\(InternalURL.baseUrl)/about/home%23panel%3D1",
             "\(InternalURL.baseUrl)/about/home#panel=0"
             ]
         let badurls = [
@@ -242,8 +241,8 @@ class NSURLExtensionsTests: XCTestCase {
     }
 
     func testoriginalURLFromErrorURL() {
-        let testURL1 = "http://mozilla.com".toBase64()
-        let testURL2 = "http://localhost:\(AppInfo.webserverPort)/about/home/#panel=1".toBase64()
+        let testURL1 = "http://mozilla.com".toBase64().escape() ?? ""
+        let testURL2 = "http://localhost:\(AppInfo.webserverPort)/about/home/#panel=1".toBase64().escape() ?? ""
         let goodurls = [
             ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=\(testURL1)", URL(string: "http://mozilla.com")),
             ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=\(testURL2)", URL(string: "http://localhost:\(AppInfo.webserverPort)/about/home/#panel=1")),
@@ -368,8 +367,8 @@ class NSURLExtensionsTests: XCTestCase {
     }
 
     func testdisplayURL() {
-        let url = "http://mozilla.com".toBase64()
-        let localUrl = "http://localhost:\(AppInfo.webserverPort)/reader-mode/page?url=https%3A%2F%2Fen%2Em%2Ewikipedia%2Eorg%2Fwiki%2F".toBase64()
+        let url = "http://mozilla.com".toBase64().escape() ?? ""
+        let localUrl = "http://localhost:\(AppInfo.webserverPort)/reader-mode/page?url=https%3A%2F%2Fen%2Em%2Ewikipedia%2Eorg%2Fwiki%2F".toBase64().escape() ?? ""
         let goodurls = [
             ("http://localhost:\(AppInfo.webserverPort)/reader-mode/page?url=https%3A%2F%2Fen%2Em%2Ewikipedia%2Eorg%2Fwiki%2F", "https://en.m.wikipedia.org/wiki/"),
             ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=\(url)", "http://mozilla.com"),

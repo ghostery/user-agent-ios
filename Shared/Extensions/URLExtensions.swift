@@ -122,11 +122,7 @@ extension URL {
             for pair in keyValues! {
                 let kv = pair.components(separatedBy: "=")
                 if kv.count > 1 {
-                    var value = kv[1]
-                    if kv.count > 2 {
-                        for _ in 2...(kv.count-1) { value += "=" }
-                    }
-                    results[kv[0]] = value
+                    results[kv[0]] = kv[1]
                 }
             }
         }
@@ -366,7 +362,7 @@ public struct InternalURL {
     public static let baseUrl = "\(scheme)://local"
 
     public static func createQueryItem(url: URL) -> URLQueryItem {
-        return URLQueryItem(name: InternalURL.Param.url.rawValue, value: url.absoluteString.toBase64())
+        return URLQueryItem(name: InternalURL.Param.url.rawValue, value: url.absoluteString.toBase64().escape())
     }
 
     public enum Path: String {
@@ -439,22 +435,29 @@ public struct InternalURL {
 
     public var isErrorPage: Bool {
         // Error pages can be nested in session restore URLs, and session restore handler will forward them to the error page handler
-        let path = url.absoluteString.hasPrefix(sessionRestoreHistoryItemBaseUrl) ? extractedUrlParam?.path : url.path
+        let path = url.absoluteString.hasPrefix(sessionRestoreHistoryItemBaseUrl) ? extractedErrorPageUrlParam?.path : url.path
         return InternalURL.Path.errorpage.matches(path ?? "")
     }
 
     public var originalURLFromErrorPage: URL? {
         if !url.absoluteString.hasPrefix(sessionRestoreHistoryItemBaseUrl) {
-            return isErrorPage ? extractedUrlParam : nil
+            return isErrorPage ? extractedErrorPageUrlParam : nil
         }
-        if let urlParam = extractedUrlParam, let nested = InternalURL(urlParam), nested.isErrorPage {
-            return nested.extractedUrlParam
+        if let urlParam = extractedErrorPageUrlParam, let nested = InternalURL(urlParam), nested.isErrorPage {
+            return nested.extractedErrorPageUrlParam
+        }
+        return nil
+    }
+
+    public var extractedErrorPageUrlParam: URL? {
+        if let nestedUrl = url.getQuery()[InternalURL.Param.url.rawValue]?.unescape()?.fromBase64() {
+            return URL(string: nestedUrl)
         }
         return nil
     }
 
     public var extractedUrlParam: URL? {
-        if let nestedUrl = url.getQuery()[InternalURL.Param.url.rawValue]?.fromBase64()?.unescape() {
+        if let nestedUrl = url.getQuery()[InternalURL.Param.url.rawValue]?.unescape() {
             return URL(string: nestedUrl)
         }
         return nil
