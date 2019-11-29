@@ -22,9 +22,6 @@ enum BlocklistName: String {
     }
 
     static var all: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic, .trackingNetwork] }
-    static var ads: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic] }
-    static var tracking: [BlocklistName] { return [.trackingNetwork] }
-
 }
 
 enum BlockerStatus: String {

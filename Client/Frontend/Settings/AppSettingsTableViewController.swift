@@ -60,14 +60,11 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 statusText: Strings.ClosePrivateTabsDescription),
             BoolSetting(
                 prefs: prefs,
-                defaultValue:
-                    FirefoxTabContentBlocker.isTrackingProtectionEnabled(tabManager: self.tabManager)
-                    && FirefoxTabContentBlocker.isAdBlockingEnabled(tabManager: self.tabManager),
+                defaultValue: FirefoxTabContentBlocker.isPrivacyDashboardEnabled(tabManager: self.tabManager),
                 titleText: Strings.Settings.PrivacyDashboard.Title,
                 statusText: Strings.Settings.PrivacyDashboard.Description,
                 enabled: true) { _ in
-                    FirefoxTabContentBlocker.toggleTrackingProtectionEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
-                    FirefoxTabContentBlocker.toggleAdBlockingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+                    FirefoxTabContentBlocker.togglePrivacyDashboardEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
                 },
         ]
 
