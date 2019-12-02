@@ -16,7 +16,7 @@ class AutomaticForgetModePolicy: NSObject, InterceptorPolicy {
     private var whitelistedURL: URL?
 
     override init() {
-        self.detector = AutomaticForgetModeDetector(queue: queue)
+        self.detector = AutomaticForgetModeDetector()
     }
 
     func canLoad(url: URL, onPostFactumCheck: PostFactumCallback?) -> Bool {
@@ -24,15 +24,8 @@ class AutomaticForgetModePolicy: NSObject, InterceptorPolicy {
             self.whitelistedURL = nil
             return true
         }
-        let postFactumCheck: AntiPhishingCheck = { (shouldBlock) in
-            if shouldBlock {
-                DispatchQueue.main.async(execute: {
-                    onPostFactumCheck?(url, self)
-                })
-            }
-        }
 
-        if self.detector.isAutomaticForgetURL(url, completion: postFactumCheck) {
+        if self.detector.isAutomaticForgetURL(url) {
             onPostFactumCheck?(url, self)
             return false
         }

@@ -12,48 +12,26 @@ typealias AutomaticForgetModeCheck = (Bool) -> Void
 
 class AutomaticForgetModeDetector {
 
-    private let queue: DispatchQueue
     private var bloomFilter: BloomFilter!
 
-    private var domains = [String]()
-
-    init(queue: DispatchQueue) {
-        self.queue = queue
-        self.queue.async {
-            self.load()
-        }
+    init() {
+        self.load()
     }
 
-    func isAutomaticForgetURL(_ url: URL, completion:@escaping AutomaticForgetModeCheck) -> Bool {
-        guard url.host != "localhost" && url.host != "local" else {
-            completion(false)
+    func isAutomaticForgetURL(_ url: URL) -> Bool {
+        guard url.host != "localhost" && url.host != "local", let domain = url.baseDomain else {
             return false
         }
-
-        self.queue.async {
-            self.scanURL(url, completion: completion)
-        }
-
-        return false
+        return self.bloomFilter?.contains(domain) ?? false
     }
 
     // MARK: - Private methods
 
     private func load() {
-        guard self.domains.isEmpty, let path = Bundle.main.path(forResource: "adult-domains", ofType: "bin") else {
+        guard let path = Bundle.main.path(forResource: "adult-domains", ofType: "bin") else {
             return
         }
         self.bloomFilter = BloomFilter(filePath: path)
-    }
-
-    private func scanURL(_ url: URL, completion:@escaping (Bool) -> Void) {
-        guard let domain = url.baseDomain, !self.domains.contains(domain), self.bloomFilter != nil else {
-            completion(true)
-            return
-        }
-        self.queue.async {
-            completion(self.bloomFilter.contains(domain))
-        }
     }
 
 }
