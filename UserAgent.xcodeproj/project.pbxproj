@@ -52,6 +52,8 @@
 		2B184F45BDED21008E6376E1 /* ClearHistoryConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */; };
 		2B2EA06A235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B2EA06B235F087100FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
+		2B473CED23952A2700442059 /* BloomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CEC23952A2700442059 /* BloomFilter.swift */; };
+		2B473CEE23952A2700442059 /* BloomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CEC23952A2700442059 /* BloomFilter.swift */; };
 		2B516D2F238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D28238BAC8B006D6B57 /* DownloadsViewController.swift */; };
 		2B516D30238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D28238BAC8B006D6B57 /* DownloadsViewController.swift */; };
 		2B516D31238BAC8B006D6B57 /* DownloadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2A238BAC8B006D6B57 /* DownloadsView.swift */; };
@@ -1040,6 +1042,7 @@
 		29FDDD173651239132A7DE8D /* Pods-GhosteryShareTo.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhosteryShareTo.adhoc.xcconfig"; path = "Target Support Files/Pods-GhosteryShareTo/Pods-GhosteryShareTo.adhoc.xcconfig"; sourceTree = "<group>"; };
 		2B03608F2350B07200273A24 /* tracker_db_v2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tracker_db_v2.json; sourceTree = "<group>"; };
 		2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Tracking+Whitelist.swift"; sourceTree = "<group>"; };
+		2B473CEC23952A2700442059 /* BloomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomFilter.swift; sourceTree = "<group>"; };
 		2B516D28238BAC8B006D6B57 /* DownloadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		2B516D2A238BAC8B006D6B57 /* DownloadsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadsView.swift; sourceTree = "<group>"; };
 		2B516D2B238BAC8B006D6B57 /* LibraryContextMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryContextMenu.swift; sourceTree = "<group>"; };
@@ -1856,6 +1859,7 @@
 			children = (
 				2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */,
 				2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */,
+				2B473CEC23952A2700442059 /* BloomFilter.swift */,
 				2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */,
 			);
 			path = AutomaticForgetMode;
@@ -4522,6 +4526,7 @@
 				46CA60E12316CF300010CE6B /* BrowserActions.m in Sources */,
 				ACB737AA23042BAB00FA5626 /* NSURLExtensionsMailTo.swift in Sources */,
 				C59DC482234CB255005CA848 /* HomePanel.swift in Sources */,
+				2B473CEE23952A2700442059 /* BloomFilter.swift in Sources */,
 				ACB737AB23042BAB00FA5626 /* TabManagerStore.swift in Sources */,
 				ACB737AC23042BAB00FA5626 /* DispatchQueueExtensions.swift in Sources */,
 				ACB737AD23042BAB00FA5626 /* FaviconHandler.swift in Sources */,
@@ -4764,6 +4769,7 @@
 				D88FDA9F1F4E2B9200FD9709 /* PhotonActionSheetProtocol.swift in Sources */,
 				E65075511E37F6D1006961AC /* NSURLExtensionsMailTo.swift in Sources */,
 				C59DC481234CB255005CA848 /* HomePanel.swift in Sources */,
+				2B473CED23952A2700442059 /* BloomFilter.swift in Sources */,
 				63306D432110B3CD00F25400 /* TabManagerStore.swift in Sources */,
 				D83822001FC7961D00303C12 /* DispatchQueueExtensions.swift in Sources */,
 				D03F8EB22004014E003C2224 /* FaviconHandler.swift in Sources */,

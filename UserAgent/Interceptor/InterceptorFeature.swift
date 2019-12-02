@@ -15,11 +15,12 @@ protocol InterceptorUI: class {
 }
 
 class InterceptorFeature {
-    private let interceptor = Interceptor()
+    private let interceptor: Interceptor!
     private weak var tabManager: TabManager!
     private weak var ui: InterceptorUI!
 
     init(tabManager: TabManager, ui: InterceptorUI) {
+        self.interceptor = Interceptor(tabManager: tabManager)
         self.interceptor.delegate = self
         self.tabManager = tabManager
         self.tabManager.addNavigationDelegate(self.interceptor)
@@ -39,15 +40,12 @@ extension InterceptorFeature: InterceptorDelegate {
         guard let tab = tabManager[webView] else {
             return
         }
+        tab.stop()
         switch policy.type {
         case .phishing:
-            tab.stop()
             ui.showAntiPhishingAlert(tab: tab, url: url, policy: policy)
         case .automaticForgetMode:
-            if !tab.isPrivate {
-                tab.stop()
-                ui.openInPrivateMode(tab: tab, url: url, policy: policy)
-            }
+            self.ui.openInPrivateMode(tab: tab, url: url, policy: policy)
         default:
             break
         }

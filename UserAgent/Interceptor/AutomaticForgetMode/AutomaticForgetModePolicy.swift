@@ -32,7 +32,7 @@ class AutomaticForgetModePolicy: NSObject, InterceptorPolicy {
             }
         }
 
-        if self.detector.shouldBlockURL(url, completion: postFactumCheck) {
+        if self.detector.isAutomaticForgetURL(url, completion: postFactumCheck) {
             onPostFactumCheck?(url, self)
             return false
         }
