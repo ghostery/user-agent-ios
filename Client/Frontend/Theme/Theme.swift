@@ -21,6 +21,21 @@ struct Theme {
 
     static let defaultSeparator = UIColor.Grey40
     static let defaultTextAndTint = UIColor.Grey80
+
+    @available(iOS 13.0, *)
+    private static var currentTheme: UIUserInterfaceStyle?
+    @available(iOS 13.0, *)
+    static func updateTheme(_ theme: UIUserInterfaceStyle) {
+        if self.currentTheme == nil {
+            self.currentTheme = theme
+            return
+        }
+
+        if self.currentTheme != theme {
+            NotificationCenter.default.post(name: .DisplayThemeChanged, object: nil)
+            self.currentTheme = theme
+        }
+    }
 }
 
 protocol Themeable: AnyObject {

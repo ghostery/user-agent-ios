@@ -241,14 +241,18 @@ class NSURLExtensionsTests: XCTestCase {
     }
 
     func testoriginalURLFromErrorURL() {
+        let testURL1 = "http://mozilla.com".toBase64().escape() ?? ""
+        let testURL2 = "http://localhost:\(AppInfo.webserverPort)/about/home/#panel=1".toBase64().escape() ?? ""
         let goodurls = [
-            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=http%3A//mozilla.com", URL(string: "http://mozilla.com")),
-            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=http%3A//localhost%3A\(AppInfo.webserverPort)/about/home/%23panel%3D1", URL(string: "http://localhost:\(AppInfo.webserverPort)/about/home/#panel=1")),
+            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=\(testURL1)", URL(string: "http://mozilla.com")),
+            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=\(testURL2)", URL(string: "http://localhost:\(AppInfo.webserverPort)/about/home/#panel=1")),
             ]
 
         goodurls.forEach {
             var result = false
-            if let url = InternalURL(URL(string:$0.0)!) { result = (url.originalURLFromErrorPage == $0.1) }
+            if let url = InternalURL(URL(string:$0.0)!) {
+                result = (url.originalURLFromErrorPage == $0.1)
+            }
             XCTAssertTrue(result)
         }
     }
@@ -363,11 +367,13 @@ class NSURLExtensionsTests: XCTestCase {
     }
 
     func testdisplayURL() {
+        let url = "http://mozilla.com".toBase64().escape() ?? ""
+        let localUrl = "http://localhost:\(AppInfo.webserverPort)/reader-mode/page?url=https%3A%2F%2Fen%2Em%2Ewikipedia%2Eorg%2Fwiki%2F".toBase64().escape() ?? ""
         let goodurls = [
             ("http://localhost:\(AppInfo.webserverPort)/reader-mode/page?url=https%3A%2F%2Fen%2Em%2Ewikipedia%2Eorg%2Fwiki%2F", "https://en.m.wikipedia.org/wiki/"),
-            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=http%3A//mozilla.com", "http://mozilla.com"),
-            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=http%3A//mozilla.com", "http://mozilla.com"),
-            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=http%3A%2F%2Flocalhost%3A\(AppInfo.webserverPort)%2Freader-mode%2Fpage%3Furl%3Dhttps%253A%252F%252Fen%252Em%252Ewikipedia%252Eorg%252Fwiki%252F", "https://en.m.wikipedia.org/wiki/"),
+            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=\(url)", "http://mozilla.com"),
+            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=\(url)", "http://mozilla.com"),
+            ("\(InternalURL.baseUrl)/\(InternalURL.Path.errorpage)?url=\(localUrl)", "https://en.m.wikipedia.org/wiki/"),
             ("https://mail.example.co.uk/index.html", "https://mail.example.co.uk/index.html"),
         ]
         let badurls = [

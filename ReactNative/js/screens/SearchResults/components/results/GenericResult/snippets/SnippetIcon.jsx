@@ -10,9 +10,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { useStyles } from '../../../contexts/theme';
-import NativeDrawable from '../../../components/NativeDrawable';
-import Logo from '../../../components/Logo';
+import { useStyles } from '../../../../../../contexts/theme';
+import NativeDrawable from '../../../../../../components/NativeDrawable';
+import Logo from '../../../../../../components/Logo';
 
 const getStyles = () =>
   StyleSheet.create({

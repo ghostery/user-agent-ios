@@ -226,6 +226,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         shutdownWebServer?.cancel()
         shutdownWebServer = nil
 
+        if #available(iOS 13.0, *) {
+            // Matching interface style in dispatch block because of iOS 13 bug.
+            // UITraitCollection.current.userInterfaceStyle value is beeing updated with delay.
+            DispatchQueue.main.async {
+                Theme.updateTheme(UITraitCollection.current.userInterfaceStyle)
+            }
+        }
+
         //
         // We are back in the foreground, so set CleanlyBackgrounded to false so that we can detect that
         // the application was cleanly backgrounded later.

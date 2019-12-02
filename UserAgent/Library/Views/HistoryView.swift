@@ -52,6 +52,10 @@ class HistoryView: LibraryView {
         self.removeHistoryForURLAtIndexPath(indexPath: indexPath)
     }
 
+    override var deleteActionTitle: String {
+        return Strings.HomePanel.ContextMenu.DeleteFromHistory
+    }
+
     override func reloadData() {
         guard !self.isFetchInProgress else { return }
         self.groupedSites = DateGroupedTableData<Site>()
