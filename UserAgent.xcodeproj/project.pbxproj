@@ -75,6 +75,8 @@
 		2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */; };
 		2BFB7C3A238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */; };
+		2BFB7C3F239001CB00CE2E69 /* adult-domains.bin in Resources */ = {isa = PBXBuildFile; fileRef = 2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */; };
+		2BFB7C40239001CB00CE2E69 /* adult-domains.bin in Resources */ = {isa = PBXBuildFile; fileRef = 2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */; };
 		2C28F96C201B2D4C00ABA8A5 /* MailAppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28F96B201B2D4C00ABA8A5 /* MailAppSettingsTests.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C32EA442100C4BF00A25912 /* TabTraySearchTabsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C32EA432100C4BF00A25912 /* TabTraySearchTabsTests.swift */; };
@@ -1049,6 +1051,7 @@
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
 		2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModeDetector.swift; sourceTree = "<group>"; };
+		2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "adult-domains.bin"; sourceTree = "<group>"; };
 		2C28F96B201B2D4C00ABA8A5 /* MailAppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAppSettingsTests.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C32EA432100C4BF00A25912 /* TabTraySearchTabsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTraySearchTabsTests.swift; sourceTree = "<group>"; };
@@ -1853,6 +1856,7 @@
 			children = (
 				2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */,
 				2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */,
+				2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */,
 			);
 			path = AutomaticForgetMode;
 			sourceTree = "<group>";
@@ -3488,6 +3492,7 @@
 				ACB7381323042BAB00FA5626 /* MainFrameAtDocumentStart.js in Resources */,
 				ACB7381423042BAB00FA5626 /* SearchPlugins in Resources */,
 				ACB7381523042BAB00FA5626 /* MailSchemes.plist in Resources */,
+				2BFB7C40239001CB00CE2E69 /* adult-domains.bin in Resources */,
 				ACB7381723042BAB00FA5626 /* CertError.css in Resources */,
 				4620EA542354C59F004586CF /* safari-tracking-network.json in Resources */,
 				ACB7381B23042BAB00FA5626 /* NetError.html in Resources */,
@@ -3542,6 +3547,7 @@
 				D0E17FB6201F847600F1FCB5 /* FxASignIn.js in Resources */,
 				39A35AED1C0662A3006B9E87 /* SpotlightHelper.js in Resources */,
 				D0FCF8071FE4772D004A7995 /* MainFrameAtDocumentEnd.js in Resources */,
+				2BFB7C3F239001CB00CE2E69 /* adult-domains.bin in Resources */,
 				46828D8E2341F23300E7D8A3 /* UserAgent.strings in Resources */,
 				ACB6D4322306AC35002D64E6 /* InfoPlist.strings in Resources */,
 				E4D6BEB91A0930EC00F538BD /* LaunchScreen.xib in Resources */,
