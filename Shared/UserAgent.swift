@@ -41,11 +41,11 @@ open class UserAgent {
     }
 
     public static func desktopUserAgent() -> String {
-        return "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/\(AppInfo.appVersion) \(uaBitSafari) \(AppInfo.displayName)/\(AppInfo.appVersion)"
+        return "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/\(AppInfo.appVersion) \(uaBitSafari) \(AppInfo.displayName)"
     }
 
     public static func mobileUserAgent() -> String {
-        return "Mozilla/5.0 (\(UIDevice.current.model); CPU OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/\(AppInfo.appVersion)  \(uaBitMobile) \(uaBitSafari) \(AppInfo.displayName)/\(AppInfo.appVersion)"
+        return "Mozilla/5.0 (\(UIDevice.current.model); CPU OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/\(AppInfo.appVersion)  \(uaBitMobile) \(uaBitSafari) \(AppInfo.displayName)"
     }
 
     public static func oppositeUserAgent() -> String {
