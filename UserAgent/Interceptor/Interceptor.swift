@@ -12,6 +12,7 @@ import WebKit
 enum InterceptorType {
     case phishing
     case tracking
+    case automaticForgetMode
 }
 
 typealias PostFactumCallback = (URL, InterceptorPolicy) -> Void
@@ -29,7 +30,14 @@ protocol InterceptorDelegate: AnyObject {
 class Interceptor: NSObject {
     weak var delegate: InterceptorDelegate?
 
+    private weak var tabManager: TabManager!
+
     private var interceptorPolicies: [InterceptorPolicy] = []
+
+    init(tabManager: TabManager) {
+        super.init()
+        self.tabManager = tabManager
+    }
 
     func register(policy: InterceptorPolicy) {
         interceptorPolicies.append(policy)
@@ -52,6 +60,14 @@ extension Interceptor: WKNavigationDelegate {
         }
 
         for policy in self.interceptorPolicies {
+            switch policy.type {
+            case .automaticForgetMode:
+                guard let tab = tabManager[webView], !tab.isPrivate else {
+                    decisionHandler(.allow)
+                    return
+                }
+            default: break
+            }
             if !policy.canLoad(url: url, onPostFactumCheck: onPostFactumCheck) {
                 blocked = true
                 decisionHandler(.cancel)

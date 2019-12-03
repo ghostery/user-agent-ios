@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     var shutdownWebServer: DispatchSourceTimer?
     var interceptorFeature: InterceptorFeature!
     var humanWebFeature: HumanWebFeature!
+    var useCases: UseCases!
 
     weak var application: UIApplication?
     var launchOptions: [AnyHashable: Any]?
@@ -113,6 +114,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         self.tabManager = TabManager(profile: profile, imageStore: imageStore)
 
+        self.useCases = UseCases(tabManager: self.tabManager)
+
         // Add restoration class, the factory that will return the ViewController we
         // will restore with.
 
@@ -131,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         browserViewController.restorationIdentifier = NSStringFromClass(BrowserViewController.self)
         browserViewController.restorationClass = AppDelegate.self
 
-        self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, ui: self.browserViewController)
+        self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, ui: self.browserViewController, useCases: self.useCases)
         self.humanWebFeature = HumanWebFeature(tabManager: self.tabManager)
 
         let navigationController = UINavigationController(rootViewController: browserViewController)

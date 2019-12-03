@@ -14,11 +14,14 @@ protocol InterceptorUI: class {
 }
 
 class InterceptorFeature {
-    private let interceptor = Interceptor()
+    private let interceptor: Interceptor!
     private weak var tabManager: TabManager!
     private weak var ui: InterceptorUI!
+    private var useCases: UseCases
 
-    init(tabManager: TabManager, ui: InterceptorUI) {
+    init(tabManager: TabManager, ui: InterceptorUI, useCases: UseCases) {
+        self.useCases = useCases
+        self.interceptor = Interceptor(tabManager: tabManager)
         self.interceptor.delegate = self
         self.tabManager = tabManager
         self.tabManager.addNavigationDelegate(self.interceptor)
@@ -29,6 +32,7 @@ class InterceptorFeature {
     // MARK: Private methods
     private func registerInterceptors() {
         self.interceptor.register(policy: AntiPhishingPolicy())
+        self.interceptor.register(policy: AutomaticForgetModePolicy())
     }
 }
 
@@ -41,6 +45,9 @@ extension InterceptorFeature: InterceptorDelegate {
         switch policy.type {
         case .phishing:
             ui.showAntiPhishingAlert(tab: tab, url: url, policy: policy)
+        case .automaticForgetMode:
+            policy.whitelistUrl(url)
+            self.useCases.tabUseCases.openNewPrivateTab(url: url)
         default:
             break
         }

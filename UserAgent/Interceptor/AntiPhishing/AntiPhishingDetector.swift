@@ -24,7 +24,7 @@ class AntiPhishingDetector: NSObject {
 
     // MARK: - public APIs
     func isPhishingURL(_ url: URL, completion:@escaping AntiPhishingCheck) -> Bool {
-        guard url.host != "localhost" else {
+        guard url.host != "localhost" && url.host != "local" else {
             completion(false)
             return false
         }
