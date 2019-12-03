@@ -54,6 +54,10 @@
 		2B2EA06B235F087100FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B473CED23952A2700442059 /* BloomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CEC23952A2700442059 /* BloomFilter.swift */; };
 		2B473CEE23952A2700442059 /* BloomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CEC23952A2700442059 /* BloomFilter.swift */; };
+		2B473CF1239637DE00442059 /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF0239637DE00442059 /* UseCases.swift */; };
+		2B473CF2239637DE00442059 /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF0239637DE00442059 /* UseCases.swift */; };
+		2B473CF42396387B00442059 /* TabBarUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF32396387B00442059 /* TabBarUseCases.swift */; };
+		2B473CF52396387B00442059 /* TabBarUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF32396387B00442059 /* TabBarUseCases.swift */; };
 		2B516D2F238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D28238BAC8B006D6B57 /* DownloadsViewController.swift */; };
 		2B516D30238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D28238BAC8B006D6B57 /* DownloadsViewController.swift */; };
 		2B516D31238BAC8B006D6B57 /* DownloadsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2A238BAC8B006D6B57 /* DownloadsView.swift */; };
@@ -1043,6 +1047,8 @@
 		2B03608F2350B07200273A24 /* tracker_db_v2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tracker_db_v2.json; sourceTree = "<group>"; };
 		2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Tracking+Whitelist.swift"; sourceTree = "<group>"; };
 		2B473CEC23952A2700442059 /* BloomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomFilter.swift; sourceTree = "<group>"; };
+		2B473CF0239637DE00442059 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
+		2B473CF32396387B00442059 /* TabBarUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUseCases.swift; sourceTree = "<group>"; };
 		2B516D28238BAC8B006D6B57 /* DownloadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		2B516D2A238BAC8B006D6B57 /* DownloadsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadsView.swift; sourceTree = "<group>"; };
 		2B516D2B238BAC8B006D6B57 /* LibraryContextMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryContextMenu.swift; sourceTree = "<group>"; };
@@ -1833,6 +1839,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		2B473CEF239637D000442059 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2B473CF0239637DE00442059 /* UseCases.swift */,
+				2B473CF32396387B00442059 /* TabBarUseCases.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		2B516D27238BAC8B006D6B57 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -2049,6 +2064,7 @@
 			children = (
 				AC65328C2347674D00FC7ADB /* Home View */,
 				C56ED494233B68C7006A63B1 /* Interceptor */,
+				2B473CEF239637D000442059 /* UseCases */,
 				2B516D27238BAC8B006D6B57 /* Library */,
 				46828D87233E213A00E7D8A3 /* Views */,
 				46442CED238BE61D002E6D85 /* HumanWebFeature.swift */,
@@ -4405,6 +4421,7 @@
 				ACB7373123042BAB00FA5626 /* Theme.swift in Sources */,
 				ACB7373223042BAB00FA5626 /* OneLineCell.swift in Sources */,
 				ACB7373323042BAB00FA5626 /* FindInPageHelper.swift in Sources */,
+				2B473CF2239637DE00442059 /* UseCases.swift in Sources */,
 				46CA610B231909EF0010CE6B /* ReactNativeBridge.swift in Sources */,
 				2B516D32238BAC8B006D6B57 /* DownloadsView.swift in Sources */,
 				46CA60F32317E4780010CE6B /* JSBridge.swift in Sources */,
@@ -4567,6 +4584,7 @@
 				ACB737CB23042BAB00FA5626 /* NewTabAccessors.swift in Sources */,
 				ACB737CC23042BAB00FA5626 /* Tab.swift in Sources */,
 				ACB737CE23042BAB00FA5626 /* CustomSearchViewController.swift in Sources */,
+				2B473CF52396387B00442059 /* TabBarUseCases.swift in Sources */,
 				ACB737D023042BAB00FA5626 /* GradientProgressBar.swift in Sources */,
 				ACB737D223042BAB00FA5626 /* URIFixup.swift in Sources */,
 				ACB737D323042BAB00FA5626 /* ReadabilityService.swift in Sources */,
@@ -4648,6 +4666,7 @@
 				E68F36981EA694000048CF44 /* PanelDataObservers.swift in Sources */,
 				31ADB5DA1E58CEC300E87909 /* ClipboardBarDisplayHandler.swift in Sources */,
 				745DAB3F1CDAB09E00D44181 /* HistoryBackButton.swift in Sources */,
+				2B473CF1239637DE00442059 /* UseCases.swift in Sources */,
 				EB9A179D20E69A7F00B12184 /* Theme.swift in Sources */,
 				2B516D31238BAC8B006D6B57 /* DownloadsView.swift in Sources */,
 				D0152245229855A8009DE753 /* OneLineCell.swift in Sources */,
@@ -4810,6 +4829,7 @@
 				46CA60D1231554980010CE6B /* SearchResultsViewController.swift in Sources */,
 				3B6889C51D66950E002AC85E /* UIImageColors.swift in Sources */,
 				392ED7E41D0AEF56009D9B62 /* NewTabAccessors.swift in Sources */,
+				2B473CF42396387B00442059 /* TabBarUseCases.swift in Sources */,
 				D3A9949D1A3686BD008AD1AC /* Tab.swift in Sources */,
 				3B39EDCB1E16E1AA00EF029F /* CustomSearchViewController.swift in Sources */,
 				D863C8F21F68BFC20058D95F /* GradientProgressBar.swift in Sources */,

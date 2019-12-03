@@ -11,15 +11,16 @@ import WebKit
 
 protocol InterceptorUI: class {
     func showAntiPhishingAlert(tab: Tab, url: URL, policy: InterceptorPolicy)
-    func openInPrivateMode(tab: Tab, url: URL, policy: InterceptorPolicy)
 }
 
 class InterceptorFeature {
     private let interceptor: Interceptor!
     private weak var tabManager: TabManager!
     private weak var ui: InterceptorUI!
+    private var useCases: UseCases
 
-    init(tabManager: TabManager, ui: InterceptorUI) {
+    init(tabManager: TabManager, ui: InterceptorUI, useCases: UseCases) {
+        self.useCases = useCases
         self.interceptor = Interceptor(tabManager: tabManager)
         self.interceptor.delegate = self
         self.tabManager = tabManager
@@ -45,7 +46,8 @@ extension InterceptorFeature: InterceptorDelegate {
         case .phishing:
             ui.showAntiPhishingAlert(tab: tab, url: url, policy: policy)
         case .automaticForgetMode:
-            self.ui.openInPrivateMode(tab: tab, url: url, policy: policy)
+            policy.whitelistUrl(url)
+            self.useCases.tabUseCases.openNewPrivateTab(url: url)
         default:
             break
         }
