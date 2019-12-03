@@ -59,7 +59,7 @@ const browser = {
       const eventEmitter = new NativeEventEmitter(prefs);
 
       eventEmitter.addListener('prefChange', pref => {
-        listeners.entries().forEach(([listener, prefName]) => {
+        [...listeners].forEach(([listener, prefName]) => {
           if (pref === prefName) {
             try {
               listener();
