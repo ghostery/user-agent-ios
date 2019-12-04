@@ -1,11 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {
-  useState,
-  useEffect,
-  useMemo,
-  useContext,
-  useCallback,
-} from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import {
   NativeModules,
   View,
@@ -42,17 +36,23 @@ const getStyles = theme =>
 
 const openLink = url => NativeModules.BrowserActions.openLink(url, '', false);
 
+const deepEqualNews = (oldNews, news) => {
+  return oldNews.every((_, index) => {
+    try {
+      return oldNews[index].url === news[index].url;
+    } catch (e) {
+      return false;
+    }
+  });
+};
+
 const useNews = newsModule => {
   const [data, setData] = useState([]);
-
-  const getNews = useCallback(async () => {
-    const { news } = await newsModule.action('getNews');
-    setData(news);
-  }, [newsModule]);
-
-  useEffect(() => {
-    getNews();
-  }, [getNews]);
+  newsModule.action('getNews').then(({ news }) => {
+    if (data.length === 0 || !deepEqualNews(data, news)) {
+      setData(news);
+    }
+  });
 
   return data;
 };
