@@ -30,7 +30,7 @@
     "page-metadata-parser": "1.1.4",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
-    "react-native": "^0.61.4",
+    "react-native": "^0.61.5",
     "react-native-fs": "^2.14.1",
     "react-native-sqlite-2": "^2.0.3",
     "react-native-svg": "^9.13.3",
