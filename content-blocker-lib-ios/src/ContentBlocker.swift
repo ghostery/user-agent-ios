@@ -43,6 +43,19 @@ struct WhitelistedDomains {
     private(set) var domainRegex = [String]()
 }
 
+private let PREVENT_TOP_LEVEL_BLOCKS_RULE = """
+{
+  "trigger": {
+    "url-filter": ".*",
+    "load-type": ["first-party"],
+    "resource-type": ["document"]
+  },
+  "action": {
+    "type": "ignore-previous-rules"
+  }
+}
+"""
+
 class ContentBlocker {
     var adsWhitelistedDomains = WhitelistedDomains()
     var trackingWhitelistedDomains = WhitelistedDomains()
@@ -250,9 +263,9 @@ extension ContentBlocker {
                     guard let range = str.range(of: "]", options: String.CompareOptions.backwards) else { return }
                     switch item {
                     case .advertisingNetwork, .advertisingCosmetic:
-                        str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "]")
+                        str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "," + PREVENT_TOP_LEVEL_BLOCKS_RULE + "]")
                     case .trackingNetwork:
-                        str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "]")
+                        str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "," + PREVENT_TOP_LEVEL_BLOCKS_RULE + "]")
                     }
                     self.ruleStore.compileContentRuleList(forIdentifier: item.filename, encodedContentRuleList: str) { rule, error in
                         if let error = error {
