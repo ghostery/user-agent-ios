@@ -41,7 +41,7 @@ protocol URLBarDelegate: AnyObject {
     func urlBarDidPressScrollToTop(_ urlBar: URLBarView)
     func urlBar(_ urlBar: URLBarView, didRestoreText text: String)
     func urlBar(_ urlBar: URLBarView, didEnterText text: String)
-    func urlBar(_ urlBar: URLBarView, didSubmitText text: String)
+    func urlBar(_ urlBar: URLBarView, didSubmitText text: String, completion: String?)
     // Returns either (search query, true) or (url, false).
     func urlBarDisplayTextForURL(_ url: URL?) -> (String?, Bool)
     func urlBarDidLongPressPageOptions(_ urlBar: URLBarView, from button: UIButton)
@@ -692,10 +692,10 @@ extension URLBarView: TabLocationViewDelegate {
 }
 
 extension URLBarView: AutocompleteTextFieldDelegate {
-    func autocompleteTextFieldShouldReturn(_ autocompleteTextField: AutocompleteTextField) -> Bool {
+    func autocompleteTextFieldShouldReturn(_ autocompleteTextField: AutocompleteTextField, completion: String?) -> Bool {
         guard let text = locationTextField?.text else { return true }
         if !text.trimmingCharacters(in: .whitespaces).isEmpty {
-            delegate?.urlBar(self, didSubmitText: text)
+            delegate?.urlBar(self, didSubmitText: text, completion: completion)
             return true
         } else {
             return false
@@ -717,7 +717,7 @@ extension URLBarView: AutocompleteTextFieldDelegate {
 
     func autocompletePasteAndGo(_ autocompleteTextField: AutocompleteTextField) {
         if let pasteboardContents = UIPasteboard.general.string {
-            self.delegate?.urlBar(self, didSubmitText: pasteboardContents)
+            self.delegate?.urlBar(self, didSubmitText: pasteboardContents, completion: nil)
         }
     }
 }

@@ -229,7 +229,7 @@ extension PhotonActionSheetProtocol {
     func getLongPressLocationBarActions(with urlBar: URLBarView) -> [PhotonActionSheetItem] {
         let pasteGoAction = PhotonActionSheetItem(title: Strings.Menu.PasteAndGoTitle, iconString: "menu-PasteAndGo") { action in
             if let pasteboardContents = UIPasteboard.general.string {
-                urlBar.delegate?.urlBar(urlBar, didSubmitText: pasteboardContents)
+                urlBar.delegate?.urlBar(urlBar, didSubmitText: pasteboardContents, completion: nil)
             }
         }
         let pasteAction = PhotonActionSheetItem(title: Strings.Menu.PasteTitle, iconString: "menu-Paste") { action in

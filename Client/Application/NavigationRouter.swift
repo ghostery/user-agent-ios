@@ -138,7 +138,7 @@ enum NavigationPath {
 
     private static func handleText(text: String, with bvc: BrowserViewController) {
         bvc.openBlankNewTab(focusLocationField: false)
-        bvc.urlBar(bvc.urlBar, didSubmitText: text)
+        bvc.urlBar(bvc.urlBar, didSubmitText: text, completion: nil)
     }
 
     private static func handleSettings(settings: SettingsPage, with rootNav: UINavigationController, baseSettingsVC: AppSettingsTableViewController, and bvc: BrowserViewController) {

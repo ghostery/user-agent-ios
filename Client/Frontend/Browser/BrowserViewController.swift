@@ -399,7 +399,7 @@ class BrowserViewController: UIViewController {
         // UIAccessibilityCustomAction subclass holding an AccessibleAction instance does not work, thus unable to generate AccessibleActions and UIAccessibilityCustomActions "on-demand" and need to make them "persistent" e.g. by being stored in BVC
         pasteGoAction = AccessibleAction(name: Strings.Menu.PasteAndGoTitle, handler: { () -> Bool in
             if let pasteboardContents = UIPasteboard.general.string {
-                self.urlBar(self.urlBar, didSubmitText: pasteboardContents)
+                self.urlBar(self.urlBar, didSubmitText: pasteboardContents, completion: nil)
                 return true
             }
             return false
@@ -1339,12 +1339,17 @@ extension BrowserViewController: URLBarDelegate {
         searchController?.searchQuery = text
     }
 
-    func urlBar(_ urlBar: URLBarView, didSubmitText text: String) {
+    func urlBar(_ urlBar: URLBarView, didSubmitText text: String, completion: String?) {
         guard let currentTab = tabManager.selectedTab else { return }
 
         currentBookmarksKeywordQuery?.cancel()
 
         if let fixupURL = URIFixup.getURL(text) {
+            self.searchController?.reportSelection(
+                query: text,
+                url: fixupURL,
+                completion: completion,
+                isForgetMode: currentTab.isPrivate)
             // The user entered a URL, so use it.
             finishEditingAndSubmit(fixupURL, visitType: VisitType.typed, forTab: currentTab)
             return
