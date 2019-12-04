@@ -2072,6 +2072,9 @@ extension BrowserViewController: KeyboardHelperDelegate {
             self.alertStackView.layoutIfNeeded()
         }
 
+        // Temporarily disabling add custom search engine button from keyboard input view, as additional search engines setting is disabled.
+        // Also there are crashes related to that button: https://sentry.io/organizations/cliqz/issues/1357579323/?referrer=github_integration
+        /*
         guard let webView = tabManager.selectedTab?.webView else {
             return
         }
@@ -2081,6 +2084,7 @@ extension BrowserViewController: KeyboardHelperDelegate {
             }
             self.addCustomSearchButtonToWebView(webView)
         }
+        */
     }
 
     func keyboardHelper(_ keyboardHelper: KeyboardHelper, keyboardDidShowWithState state: KeyboardState) {
