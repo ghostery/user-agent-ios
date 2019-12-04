@@ -35,7 +35,11 @@ export const ThemeWrapperComponentProvider = bridgeManager => ({
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [theme, setData] = useState(initialProps.theme, [initialProps.theme]);
-  updateTheme = setData;
+  updateTheme = newTheme => {
+    if (newTheme.mode !== theme.mode) {
+      setData(newTheme);
+    }
+  };
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
