@@ -119,7 +119,7 @@ class Results extends React.Component {
     }
   }
 
-  openSearchEngineLink = async (url, index) => {
+  openSearchEngineLink = async (url, index, name) => {
     const { results = {}, query, cliqz } = this.props;
     const meta = results.meta || {};
     await cliqz.mobileCards.openLink(url, {
@@ -136,6 +136,7 @@ class Results extends React.Component {
         url,
         provider: 'instant',
         type: 'supplementary-search',
+        kind: [`custom-search|{"class":"${name}"}`],
       },
       resultOrder: meta.resultOrder,
       url,
@@ -215,7 +216,8 @@ class Results extends React.Component {
                       `https://beta.cliqz.com/search?q=${encodeURIComponent(
                         query,
                       )}#channel=ios`,
-                      2,
+                      0,
+                      'cliqz',
                     )
                   }
                 >
@@ -234,7 +236,8 @@ class Results extends React.Component {
                       `https://www.google.com/search?q=${encodeURIComponent(
                         query,
                       )}`,
-                      0,
+                      1,
+                      'google',
                     )
                   }
                 >
@@ -251,7 +254,8 @@ class Results extends React.Component {
                   onPress={() =>
                     this.openSearchEngineLink(
                       `https://duckduckgo.com/?q=${encodeURIComponent(query)}`,
-                      1,
+                      2,
+                      'duckduckgo',
                     )
                   }
                 >
