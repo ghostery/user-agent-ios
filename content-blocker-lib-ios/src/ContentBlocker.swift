@@ -58,8 +58,8 @@ class ContentBlocker {
             self.adsWhitelistedDomains.domainSet = Set(list)
         }
 
-        if let list = self.readAdsWhitelistFile() {
-            self.adsWhitelistedDomains.domainSet = Set(list)
+        if let list = self.readTrackingWhitelistFile() {
+            self.trackingWhitelistedDomains.domainSet = Set(list)
         }
 
         TPStatsBlocklistChecker.shared.startup()
