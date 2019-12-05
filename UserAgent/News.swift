@@ -32,7 +32,7 @@ extension News: BrowserCoreClient {
     public static func getBackendCountries(callback: @escaping (Config) -> Void) {
         self.browserCore.callAction(
             module: "news",
-            action: "getBackendCountries",
+            action: "getLanguage",
             args: []
         ) { (error, result) in
             if error != nil {
@@ -66,7 +66,7 @@ extension News: BrowserCoreClient {
     public static func setBackendCountry(country: Country) {
         self.browserCore.callAction(
             module: "news",
-            action: "setBackendCountry",
+            action: "setLanguage",
             args: [country.key]
         )
     }
