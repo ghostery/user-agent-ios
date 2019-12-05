@@ -31,8 +31,10 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.resetSearchValues()
+        self.resetNewsValues()
         super.viewWillAppear(animated)
         self.updateSearchValues()
+        self.updateNewsValues()
     }
 
     override func generateSettings() -> [SettingSection] {
