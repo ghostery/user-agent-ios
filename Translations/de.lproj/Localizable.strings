@@ -775,6 +775,18 @@
 /* General settings section title */
 "Settings.General.SectionName" = "Allgemein";
 
+/* News settings section title. */
+"Settings.News.SectionName" = "";
+
+/* The button text in Settings that opens the list of supported news languages. */
+"Settings.News.Language" = "";
+
+/* Disable news from new tab page. */
+"Settings.News.NewsFromNewTabPage" = "";
+
+/* Disable load of news images. */
+"Settings.News.NewsImages" = "";
+
 /* Option in settings to show UserAgent Home when you open a new tab */
 "Settings.NewTab.Option.Home" = "%@ Home";
 

@@ -102,6 +102,15 @@ extension Strings {
         public struct General {
             public static let SectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")
         }
+        public struct News {
+            public struct Language {
+                public static let Title = NSLocalizedString("Settings.News.Language", comment: "The button text in Settings that opens the list of supported news languages.")
+                public static let German = NSLocalizedString("region-DE", comment: "Localized String for German region")
+            }
+            public static let SectionTitle = NSLocalizedString("Settings.News.SectionName", comment: "News settings section title")
+            public static let NewsFromNewTabPage = NSLocalizedString("Settings.News.NewsFromNewTabPage", comment: "Disable news from new tab page")
+            public static let NewsImages = NSLocalizedString("Settings.News.NewsImages", comment: "Disable load of news images")
+        }
         public struct ClearPrivateData {
             public static let Title = NSLocalizedString("Settings.ClearPrivateData.Title", comment: "Title displayed in header of the setting panel.")
             public static let ClearButton = NSLocalizedString("Settings.ClearPrivateData.Clear.Button", comment: "Button in settings that clears private data for the selected items.")

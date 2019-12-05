@@ -775,6 +775,18 @@
 /* General settings section title */
 "Settings.General.SectionName" = "General";
 
+/* News settings section title. */
+"Settings.News.SectionName" = "News";
+
+/* The button text in Settings that opens the list of supported news languages. */
+"Settings.News.Language" = "Choose News language/editions";
+
+/* Disable news from new tab page. */
+"Settings.News.NewsFromNewTabPage" = "News from New Tab Page";
+
+/* Disable load of news images. */
+"Settings.News.NewsImages" = "Show images";
+
 /* Label used as an item in Settings. When touched it will open a dialog to configure the home page and its uses. */
 "Settings.HomePage.SectionName" = "Homepage";
 
