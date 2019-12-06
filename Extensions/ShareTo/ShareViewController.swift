@@ -108,6 +108,7 @@ class ShareViewController: UIViewController {
 
         if shareItem?.isUrlType() ?? true {
             makeActionRow(addTo: stackView, label: Strings.ShareExtension.OpenIn, imageName: "Icon-Small", action: #selector(actionOpenInUserAgentNow), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareExtension.OpenInPrivateTab, imageName: "forgetMode", action: #selector(actionOpenInPrivateTabInUserAgentNow), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareExtension.LoadInBackground, imageName: "menu-Show-Tabs", action: #selector(actionLoadInBackground), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareExtension.BookmarkThisPage, imageName: "AddToBookmarks", action: #selector(actionBookmarkThisPage), hasNavigation: false)
         } else {
@@ -332,7 +333,7 @@ extension ShareViewController {
         finish()
     }
 
-    func openUserAgent(withUrl url: String, isSearch: Bool) {
+    func openUserAgent(withUrl url: String, isSearch: Bool, isPrivate: Bool = false) {
         // Telemetry is handled in the app delegate that receives this event.
         let profile = BrowserProfile(localName: "profile")
         profile.prefs.setBool(true, forKey: PrefsKeys.AppExtensionTelemetryOpenUrl)
@@ -343,7 +344,8 @@ extension ShareViewController {
             if isSearch {
                 return "\(protocolName)://open-text?text=\(encoded)"
             }
-            return "\(protocolName)://open-url?url=\(encoded)"
+            let privateTab = isPrivate ? "&private=true" : ""
+            return "\(protocolName)://open-url?url=\(encoded)\(privateTab)"
         }
 
         guard let url = URL(string: userAgentUrl(url)) else { return }
@@ -374,6 +376,16 @@ extension ShareViewController {
 
         if let shareItem = shareItem, case .shareItem(let item) = shareItem {
             openUserAgent(withUrl: item.url, isSearch: false)
+        }
+
+        finish(afterDelay: 0)
+    }
+
+    @objc func actionOpenInPrivateTabInUserAgentNow(gesture: UIGestureRecognizer) {
+        gesture.isEnabled = false
+
+        if let shareItem = shareItem, case .shareItem(let item) = shareItem {
+            openUserAgent(withUrl: item.url, isSearch: false, isPrivate: true)
         }
 
         finish(afterDelay: 0)
