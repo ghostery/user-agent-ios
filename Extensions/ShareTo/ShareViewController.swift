@@ -107,12 +107,13 @@ class ShareViewController: UIViewController {
         makeSeparator(addTo: stackView)
 
         if shareItem?.isUrlType() ?? true {
-            makeActionRow(addTo: stackView, label: Strings.ShareExtension.OpenIn, imageName: "Icon-Small", action: #selector(actionOpenInFirefoxNow), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareExtension.OpenIn, imageName: "Icon-Small", action: #selector(actionOpenInUserAgentNow), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareExtension.OpenInPrivateTab, imageName: "forgetMode", action: #selector(actionOpenInPrivateTabInUserAgentNow), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareExtension.LoadInBackground, imageName: "menu-Show-Tabs", action: #selector(actionLoadInBackground), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareExtension.BookmarkThisPage, imageName: "AddToBookmarks", action: #selector(actionBookmarkThisPage), hasNavigation: false)
         } else {
             pageInfoRowUrlLabel?.removeFromSuperview()
-            makeActionRow(addTo: stackView, label: Strings.ShareExtension.SearchIn, imageName: "quickSearch", action: #selector(actionSearchInFirefox), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ShareExtension.SearchIn, imageName: "quickSearch", action: #selector(actionSearchInUserAgent), hasNavigation: false)
         }
 
         let footerSpaceRow = UIView()
@@ -332,21 +333,22 @@ extension ShareViewController {
         finish()
     }
 
-    func openFirefox(withUrl url: String, isSearch: Bool) {
+    func openUserAgent(withUrl url: String, isSearch: Bool, isPrivate: Bool = false) {
         // Telemetry is handled in the app delegate that receives this event.
         let profile = BrowserProfile(localName: "profile")
         profile.prefs.setBool(true, forKey: PrefsKeys.AppExtensionTelemetryOpenUrl)
 
-        func firefoxUrl(_ url: String) -> String {
+        func userAgentUrl(_ url: String) -> String {
             let protocolName = AppInfo.protocolName
             let encoded = url.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.alphanumerics) ?? ""
             if isSearch {
                 return "\(protocolName)://open-text?text=\(encoded)"
             }
-            return "\(protocolName)://open-url?url=\(encoded)"
+            let privateTab = isPrivate ? "&private=true" : ""
+            return "\(protocolName)://open-url?url=\(encoded)\(privateTab)"
         }
 
-        guard let url = URL(string: firefoxUrl(url)) else { return }
+        guard let url = URL(string: userAgentUrl(url)) else { return }
         var responder = self as UIResponder?
         let selectorOpenURL = sel_registerName("openURL:")
         while let current = responder {
@@ -359,21 +361,31 @@ extension ShareViewController {
         }
     }
 
-    @objc func actionSearchInFirefox(gesture: UIGestureRecognizer) {
+    @objc func actionSearchInUserAgent(gesture: UIGestureRecognizer) {
         gesture.isEnabled = false
 
         if let shareItem = shareItem, case .rawText(let text) = shareItem {
-            openFirefox(withUrl: text, isSearch: true)
+            openUserAgent(withUrl: text, isSearch: true)
         }
 
         finish(afterDelay: 0)
     }
 
-    @objc func actionOpenInFirefoxNow(gesture: UIGestureRecognizer) {
+    @objc func actionOpenInUserAgentNow(gesture: UIGestureRecognizer) {
         gesture.isEnabled = false
 
         if let shareItem = shareItem, case .shareItem(let item) = shareItem {
-            openFirefox(withUrl: item.url, isSearch: false)
+            openUserAgent(withUrl: item.url, isSearch: false)
+        }
+
+        finish(afterDelay: 0)
+    }
+
+    @objc func actionOpenInPrivateTabInUserAgentNow(gesture: UIGestureRecognizer) {
+        gesture.isEnabled = false
+
+        if let shareItem = shareItem, case .shareItem(let item) = shareItem {
+            openUserAgent(withUrl: item.url, isSearch: false, isPrivate: true)
         }
 
         finish(afterDelay: 0)
