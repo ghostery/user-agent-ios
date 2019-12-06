@@ -10,6 +10,8 @@
 		03CCC9181AF05E7300DBF30D /* RelativeDatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCC9171AF05E7300DBF30D /* RelativeDatesTests.swift */; };
 		04A788AB23980BC90085503F /* PrivacyIndicatorCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A788AA23980BC90085503F /* PrivacyIndicatorCanvasView.swift */; };
 		04A788AD23980BD40085503F /* PrivacyIndicatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A788AC23980BD40085503F /* PrivacyIndicatorUtils.swift */; };
+		04A788AE239A545D0085503F /* PrivacyIndicatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A788AC23980BD40085503F /* PrivacyIndicatorUtils.swift */; };
+		04A788AF239A54610085503F /* PrivacyIndicatorCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A788AA23980BC90085503F /* PrivacyIndicatorCanvasView.swift */; };
 		0592458C862CA91EE918C61D /* LoginManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89284761B16A536C0985FB01 /* LoginManager.strings */; };
 		0B54BD191B698B7C004C822C /* SuggestedSites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B54BD181B698B7C004C822C /* SuggestedSites.swift */; };
 		0B62EFD21AD63CD100ACB9CD /* Clearables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B62EFD11AD63CD100ACB9CD /* Clearables.swift */; };
@@ -4521,6 +4523,7 @@
 				ACB7378D23042BAB00FA5626 /* AppDelegate.swift in Sources */,
 				ACB7378E23042BAB00FA5626 /* UIImageViewAligned.m in Sources */,
 				ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */,
+				04A788AF239A54610085503F /* PrivacyIndicatorCanvasView.swift in Sources */,
 				ACB7378F23042BAB00FA5626 /* BrowserPrompts.swift in Sources */,
 				46828D8A233E213A00E7D8A3 /* PrivacyIndicatorView.swift in Sources */,
 				ACB7379223042BAB00FA5626 /* ButtonToast.swift in Sources */,
@@ -4599,6 +4602,7 @@
 				ACB737D523042BAB00FA5626 /* WebPagesForTesting.swift in Sources */,
 				ACB737D623042BAB00FA5626 /* BrowserViewController.swift in Sources */,
 				46CA60E32316D4A80010CE6B /* History.swift in Sources */,
+				04A788AE239A545D0085503F /* PrivacyIndicatorUtils.swift in Sources */,
 				ACB737DB23042BAB00FA5626 /* DownloadQueue.swift in Sources */,
 				ACB737E023042BAB00FA5626 /* BackForwardListViewController.swift in Sources */,
 				ACB737E123042BAB00FA5626 /* ShareExtensionHelper.swift in Sources */,
