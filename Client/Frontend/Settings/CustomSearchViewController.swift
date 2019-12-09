@@ -90,7 +90,7 @@ class CustomSearchViewController: SettingsTableViewController {
             return deferred
         }
 
-        let engine = OpenSearchEngine(engineID: nil, shortName: name, searchTemplate: template, suggestTemplate: nil, isCustomEngine: true)
+        let engine = OpenSearchEngine(engineID: nil, shortName: name, image: UIImage(), searchTemplate: template, suggestTemplate: nil, isCustomEngine: true)
 
         //Make sure a valid scheme is used
         let testUrl = engine.searchURLForQuery("test")
