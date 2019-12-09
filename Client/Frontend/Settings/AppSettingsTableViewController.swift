@@ -107,7 +107,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 Search.setAdultFilter(filter: value ? .conservative : .liberal)
             },
             // Temporarily disabling additional search engines setting.
-            //            SearchSetting(settings: self),
+//            SearchSetting(settings: self),
         ]
         return SettingSection(title: NSAttributedString(string: Strings.Settings.Search.SectionTitle), children: searchSettings)
     }
