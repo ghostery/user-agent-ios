@@ -1282,7 +1282,10 @@ extension BrowserViewController: URLBarDelegate {
 
     func locationActionsForURLBar(_ urlBar: URLBarView) -> [AccessibleAction] {
         if UIPasteboard.general.string != nil {
-            return [pasteGoAction, pasteAction, copyAddressAction]
+            if UIPasteboard.general.isCopiedStringValidURL {
+                return [pasteGoAction, pasteAction, copyAddressAction]
+            }
+            return [pasteAction, copyAddressAction]
         } else {
             return [copyAddressAction]
         }

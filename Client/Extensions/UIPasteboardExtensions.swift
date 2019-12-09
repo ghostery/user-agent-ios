@@ -7,6 +7,14 @@ import Shared
 import UIKit
 
 extension UIPasteboard {
+
+    var isCopiedStringValidURL: Bool {
+        guard self.hasStrings, let string = UIPasteboard.general.string else {
+            return false
+        }
+        return URIFixup.getURL(string) != nil || URL(string: string)?.schemeIsValid == true
+    }
+
     func addImageWithData(_ data: Data, forURL url: URL) {
         let isGIF = data.isGIF
 

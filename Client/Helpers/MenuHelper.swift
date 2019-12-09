@@ -53,6 +53,10 @@ open class MenuHelper: NSObject {
         let searchTitle = String(format: NSLocalizedString("UIMenuItem.SearchWithUserAgent", value: "Search with Firefox", comment: "Search in New Tab Text selection menu item"), AppInfo.displayName)
         let searchItem = UIMenuItem(title: searchTitle, action: MenuHelper.SelectorSearchWithFirefox)
 
-        UIMenuController.shared.menuItems = [pasteAndGoItem, copyItem, revealPasswordItem, hidePasswordItem, openAndFillItem, findInPageItem, searchItem]
+        if UIPasteboard.general.isCopiedStringValidURL {
+            UIMenuController.shared.menuItems = [pasteAndGoItem, copyItem, revealPasswordItem, hidePasswordItem, openAndFillItem, findInPageItem, searchItem]
+        } else {
+            UIMenuController.shared.menuItems = [copyItem, revealPasswordItem, hidePasswordItem, openAndFillItem, findInPageItem, searchItem]
+        }
     }
 }

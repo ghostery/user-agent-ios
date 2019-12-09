@@ -312,12 +312,7 @@ class AutocompleteTextField: UITextField, UITextFieldDelegate {
 extension AutocompleteTextField: MenuHelperInterface {
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         if action == MenuHelper.SelectorPasteAndGo {
-            guard UIPasteboard.general.hasStrings, let string = UIPasteboard.general.string else {
-                return false
-            }
-            let isFixupURL = URIFixup.getURL(string) != nil
-            let isValidURL = URL(string: string)?.schemeIsValid == true
-            return isFixupURL || isValidURL
+            return UIPasteboard.general.isCopiedStringValidURL
         }
 
         return super.canPerformAction(action, withSender: sender)
