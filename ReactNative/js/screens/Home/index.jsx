@@ -91,7 +91,13 @@ const SpeedDialRow = ({ dials, limit = 4 }) => {
   return <View style={styles.speedDials}>{allDials}</View>;
 };
 
-export default function Home({ speedDials, pinnedSites, newsModule }) {
+export default function Home({
+  speedDials,
+  pinnedSites,
+  newsModule,
+  isNewsEnabled,
+  isNewsImagesEnabled,
+}) {
   const pinnedDomains = new Set([...pinnedSites.map(s => parse(s.url).domain)]);
   const dials = [
     ...pinnedSites.map(dial => ({ ...dial, pinned: true })),
@@ -119,7 +125,12 @@ export default function Home({ speedDials, pinnedSites, newsModule }) {
             <SpeedDialRow dials={firstRow} />
             <SpeedDialRow dials={secondRow} />
           </View>
-          <News newsModule={newsModule} />
+          {isNewsEnabled && (
+            <News
+              newsModule={newsModule}
+              isImagesEnabled={isNewsImagesEnabled}
+            />
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>

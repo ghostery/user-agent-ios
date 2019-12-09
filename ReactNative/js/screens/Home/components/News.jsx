@@ -57,7 +57,7 @@ const useNews = newsModule => {
   return data;
 };
 
-export default function News({ newsModule }) {
+export default function News({ newsModule, isImagesEnabled }) {
   const theme = useContext(ThemeContext);
   const news = useNews(newsModule);
 
@@ -76,7 +76,7 @@ export default function News({ newsModule }) {
           style={styles.item}
           key={item.url}
         >
-          {item.imageUrl &&
+          {isImagesEnabled && item.imageUrl &&
             <TouchableWithoutFeedback
               onPress={() => openLink(item.url)}
             >
