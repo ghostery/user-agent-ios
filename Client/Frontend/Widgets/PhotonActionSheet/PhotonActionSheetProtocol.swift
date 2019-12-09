@@ -227,26 +227,28 @@ extension PhotonActionSheetProtocol {
     }
 
     func getLongPressLocationBarActions(with urlBar: URLBarView) -> [PhotonActionSheetItem] {
-        let pasteGoAction = PhotonActionSheetItem(title: Strings.Menu.PasteAndGoTitle, iconString: "menu-PasteAndGo") { action in
-            if let pasteboardContents = UIPasteboard.general.string {
-                urlBar.delegate?.urlBar(urlBar, didSubmitText: pasteboardContents, completion: nil)
+        let copyAddressAction = PhotonActionSheetItem(title: Strings.Menu.CopyAddressTitle, iconString: "menu-Copy-Link") { action in
+            if let url = self.tabManager.selectedTab?.canonicalURL?.displayURL ?? urlBar.currentURL {
+                UIPasteboard.general.url = url
             }
+        }
+        guard let string = UIPasteboard.general.string else {
+            return [copyAddressAction]
+        }
+        var actions = [PhotonActionSheetItem]()
+        if UIPasteboard.general.isCopiedStringValidURL {
+            let pasteGoAction = PhotonActionSheetItem(title: Strings.Menu.PasteAndGoTitle, iconString: "menu-PasteAndGo") { action in
+                urlBar.delegate?.urlBar(urlBar, didSubmitText: string, completion: nil)
+            }
+            actions.append(pasteGoAction)
         }
         let pasteAction = PhotonActionSheetItem(title: Strings.Menu.PasteTitle, iconString: "menu-Paste") { action in
             if let pasteboardContents = UIPasteboard.general.string {
                 urlBar.enterOverlayMode(pasteboardContents, pasted: true, search: true)
             }
         }
-        let copyAddressAction = PhotonActionSheetItem(title: Strings.Menu.CopyAddressTitle, iconString: "menu-Copy-Link") { action in
-            if let url = self.tabManager.selectedTab?.canonicalURL?.displayURL ?? urlBar.currentURL {
-                UIPasteboard.general.url = url
-            }
-        }
-        if UIPasteboard.general.string != nil {
-            return [pasteGoAction, pasteAction, copyAddressAction]
-        } else {
-            return [copyAddressAction]
-        }
+        actions.append(contentsOf: [pasteAction, copyAddressAction])
+        return actions
     }
 
     @available(iOS 11.0, *)
