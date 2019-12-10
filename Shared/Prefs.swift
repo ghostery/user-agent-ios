@@ -23,8 +23,8 @@ public struct PrefsKeys {
     public static let PrivacyDashboardEnabledKey = "prefkey.privacy.dashboard"
 
     //News
-    public static let NewsFromNewTabEnabled = "NewsFromNewTabEnabled"
-    public static let NewsImagesEnabled = "NewsImagesEnabled"
+    public static let NewTabNewsEnabled = "NewTabNewsEnabled"
+    public static let NewTabNewsImagesEnabled = "NewTabNewsImagesEnabled"
 
     public static let NewTabCustomUrlPrefKey = "HomePageURLPref"
     //Activity Stream
