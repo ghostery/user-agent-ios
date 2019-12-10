@@ -76,7 +76,7 @@ class PrivacyStatementViewController: UIViewController {
         self.scrollView.addSubview(self.stackView)
 
         self.stackView.snp.makeConstraints { (make) in
-            make.left.right.top.equalTo(self.view)
+            make.left.right.top.equalTo(self.scrollView)
             make.width.equalTo(self.scrollView)
         }
 
