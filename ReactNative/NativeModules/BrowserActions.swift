@@ -72,7 +72,7 @@ class BrowserActions: NSObject {
                         }
 
                         for site in sites {
-                            if let url = URL(string: site.url), !self.isDuckduckGoRedirectURL(url) {
+                            if let url = URL(string: site.url), !self.isSearchEngineRedirectURL(profile: profile, url: url, query: query) {
                                 let d = ["url": site.url, "title": site.title]
                                 results.append(d)
                             }
@@ -84,14 +84,17 @@ class BrowserActions: NSObject {
         }
     }
 
-    private func isDuckduckGoRedirectURL(_ url: URL) -> Bool {
-        let urlString = url.absoluteString
-        if "duckduckgo.com" == url.host,
-            urlString.contains("kh="),
-            urlString.contains("uddg=") {
-            return true
+    private func isSearchEngineRedirectURL(profile: Profile, url: URL, query: NSString) -> Bool {
+        for engine in profile.searchEngines.orderedEngines {
+            guard let searchEngineURL = engine.searchURLForQuery(query as String) else {
+                continue
+            }
+            if let searchEngineURLHost = searchEngineURL.host, let urlHost = url.host {
+                if searchEngineURLHost + searchEngineURL.path == urlHost + url.path {
+                    return true
+                }
+            }
         }
-
         return false
     }
 
