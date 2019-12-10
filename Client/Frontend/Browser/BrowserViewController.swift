@@ -1710,6 +1710,15 @@ extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
 extension BrowserViewController: IntroViewControllerDelegate {
     @discardableResult
     func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
+
+        //// TODO: This is for testing. Generate proper model and invoce this mehtod after intro screen is dismissed
+        let dataModel = PrivacyStatementData(sortedSettings: [], settingsConversations: ["Hi for testing Hi for testingHi for testingHi for testingHi for testingHi for testing", "Second test message"], privacyConversations: ["Privacy test"], footerConversations: ["Happy using"])
+        let priv = PrivacyStatementViewController(dataModel: dataModel)
+        let navController = UINavigationController(rootViewController: priv)
+        present(navController, animated: true)
+        ////
+
+
         if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
             let introViewController = IntroViewController()
             introViewController.delegate = self
