@@ -11,6 +11,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
     private var currentRegion: Search.Country?
     private var availableRegions: [Search.Country]?
     private var currentAdultFilterMode: Search.AdultFilterMode?
+    private var isHumanWebEnabled: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,9 @@ class AppSettingsTableViewController: SettingsTableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.resetSearchValues()
+        self.resetBrowserCoreValues()
         super.viewWillAppear(animated)
-        self.updateSearchValues()
+        self.fetchBrowserCoreValus()
     }
 
     override func generateSettings() -> [SettingSection] {
@@ -98,6 +99,18 @@ class AppSettingsTableViewController: SettingsTableViewController {
             SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: [
                 ShowIntroductionSetting(settings: self),
                 SendFeedbackSetting(),
+                BoolSetting(
+                    prefs: prefs,
+                    defaultValue: self.isHumanWebEnabled,
+                    titleText: "Human Web",
+                    enabled: self.isHumanWebEnabled
+                ) { (value) in
+                    if value {
+                        HumanWebFeature.enable()
+                    } else {
+                        HumanWebFeature.disable()
+                    }
+                },
                 BoolSetting(prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true, attributedTitleText: NSAttributedString(string: Strings.Settings.SendUsage.Title), attributedStatusText: NSAttributedString(string: Strings.Settings.SendUsage.Message, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
             ]),
             SettingSection(title: NSAttributedString(string: NSLocalizedString("About", comment: "About settings section title")), children: [
@@ -129,25 +142,37 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     // MARK: - Private methods
 
-    private func resetSearchValues() {
+    private func resetBrowserCoreValues() {
         self.currentRegion = nil
         self.availableRegions = nil
         self.currentAdultFilterMode = nil
+        self.isHumanWebEnabled = false
     }
 
-    private func updateSearchValues() {
+    private func fetchBrowserCoreValus() {
+        let dispatchGroup = DispatchGroup()
+
+        dispatchGroup.enter()
         Search.getBackendCountries { (config) in
-            DispatchQueue.main.async {
-                self.currentRegion = config.selected
-                self.availableRegions = config.available
-                self.reloadData()
-            }
+            self.currentRegion = config.selected
+            self.availableRegions = config.available
+            dispatchGroup.leave()
         }
+
+        dispatchGroup.enter()
         Search.getAdultFilter { (mode) in
-            DispatchQueue.main.async {
-                self.currentAdultFilterMode = mode
-                self.reloadData()
-            }
+            self.currentAdultFilterMode = mode
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        HumanWebFeature.isEnabled { (isEnabled) in
+            self.isHumanWebEnabled = isEnabled
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) {
+             self.reloadData()
         }
     }
 
