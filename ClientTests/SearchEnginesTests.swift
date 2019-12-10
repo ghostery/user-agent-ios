@@ -168,4 +168,32 @@ class SearchEnginesTests: XCTestCase {
         XCTAssertEqual(engines.orderedEngines.first!.shortName, "Google", "Google should be the first search engine")
     }
 
+    func testSearchEnginesURLs() {
+        let profile = MockProfile()
+        let query: String = "query"
+        if let url = URL(string: "https://beta.cliqz.com/search/?q=\(query)") {
+            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
+        if let url = URL(string: "https://www.google.com/search?q=\(query)") {
+            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
+        if let url = URL(string: "https://www.bing.com/search?q=\(query)") {
+            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
+        if let url = URL(string: "https://www.amazon.com/gp/aw/s?k=\(query)") {
+            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
+        if let url = URL(string: "https://duckduckgo.com/?q=\(query)") {
+            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
+        if let url = URL(string: "https://mobile.twitter.com/search/?q=\(query)") {
+            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
+        if let url = URL(string: "https://en.m.wikipedia.org/wiki/Special:Search?search=\(query)") {
+            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
+        if let url = URL(string: "https://foo.com/search?q=\(query)") {
+            XCTAssertFalse(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
+    }
 }
