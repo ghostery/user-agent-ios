@@ -2,10 +2,10 @@ import Foundation
 
 class PrivacyIndicatorCanvasView: UIView {
     private var cachedSliceLayers: [CGColor: CAShapeLayer] = [:]
+    private var cachedStats: [WTMCategory: Int] = [:]
     private var backgroundTrackLayer: CAShapeLayer?
     private var greenLayer: CAShapeLayer?
     private var strikeThroughLayer: CAShapeLayer?
-    private var cachedStats: [WTMCategory: Int] = [:]
 }
 
 extension PrivacyIndicatorCanvasView {
@@ -28,10 +28,7 @@ fileprivate extension PrivacyIndicatorCanvasView {
         removeTrackersFromChart()
         removeStrikeThroughFromChart()
         removeGreenIndicatorFromChart()
-
-        let color =  UIColor(named: "PrivacyIndicatorBackground")!.cgColor
-        backgroundTrackLayer = circleLayer(for: color, useCache: false)
-        self.layer.addSublayer(backgroundTrackLayer!)
+        addBackgroundToChart()
 
         switch status {
         case .Disabled, .Whitelisted:
@@ -39,7 +36,7 @@ fileprivate extension PrivacyIndicatorCanvasView {
         case .NoBlockedURLs:
             addGreenIndicatorToChart()
         case .Blocking, .AdBlockWhitelisted, .AntiTrackingWhitelisted:
-            addTrackersToChart(status: status)
+            addTrackersToChart()
         }
     }
 
@@ -55,27 +52,37 @@ fileprivate extension PrivacyIndicatorCanvasView {
         cachedSliceLayers = [:]
     }
 
-    func addTrackersToChart(status: BlockerStatus) {
+    func addBackgroundToChart() {
+        if backgroundTrackLayer == nil {
+            let color = UIColor(named: "PrivacyIndicatorBackground")!.cgColor
+            backgroundTrackLayer = circleLayer(for: color, useCache: false)
+            self.layer.addSublayer(backgroundTrackLayer!)
+        }
+    }
+
+    func addTrackersToChart() {
         let n = CGFloat(cachedStats.values.reduce(0, +))
-        var j = PrivacyIndicatorUtils.CircleIterator(n: n)
+        var range = PrivacyIndicatorUtils.CircleRange(count: n)
         for (statsType, value) in cachedStats
             .sorted(by: { String(describing: $0) < String(describing: $1) }) {
                 let color = statsType.color.cgColor
-                addTrackerToChart(value, color, &j)
+                addTrackerToChart(value, color, &range)
         }
     }
 
     func addTrackerToChart(
-      _ value: Int,
-      _ color: CGColor,
-      _ j: inout PrivacyIndicatorUtils.CircleIterator
+        _ value: Int,
+        _ color: CGColor,
+        _ r: inout PrivacyIndicatorUtils.CircleRange
     ) {
         if value == 0 { return }
-        j.advance(CGFloat(value))
+        r.advance(CGFloat(value))
         let layer = circleLayer(for: color)
-        layer.strokeStart = j.current
-        layer.strokeEnd = j.next
-        self.layer.addSublayer(layer)
+        layer.strokeStart = r.first
+        layer.strokeEnd = r.last
+        if layer.superlayer != self.layer {
+            self.layer.addSublayer(layer)
+        }
     }
 
     private func removeTrackersFromChart() {
@@ -87,11 +94,12 @@ fileprivate extension PrivacyIndicatorCanvasView {
     }
 
     private func addStrikeThroughToChart() {
-        let width = self.frame.width
-        let maxX = self.bounds.maxX
-        let maxY = self.bounds.maxY
         if strikeThroughLayer == nil {
-            strikeThroughLayer = PrivacyIndicatorUtils.createStrike(width, maxX, maxY)
+            strikeThroughLayer = PrivacyIndicatorUtils.createStrike(
+                self.frame.width,
+                self.bounds.maxX,
+                self.bounds.maxY
+            )
             self.layer.addSublayer(strikeThroughLayer!)
         }
         strikeThroughLayer!.strokeStart = 0
@@ -106,9 +114,8 @@ fileprivate extension PrivacyIndicatorCanvasView {
     private func addGreenIndicatorToChart() {
         if greenLayer == nil {
             let color = UIColor(named: "NoTrackersSeen")!.cgColor
-            let layer = circleLayer(for: color, useCache: false)
-            self.layer.addSublayer(layer)
-            greenLayer = layer
+            greenLayer = circleLayer(for: color, useCache: false)
+            self.layer.addSublayer(greenLayer!)
         }
 
         greenLayer!.strokeStart = 0
@@ -122,12 +129,13 @@ fileprivate extension PrivacyIndicatorCanvasView {
 
     private func circleLayer(for color: CGColor, useCache: Bool = true) -> CAShapeLayer {
         if useCache && cachedSliceLayers[color] != nil {
-          return cachedSliceLayers[color]!
+            return cachedSliceLayers[color]!
         }
-
-        let width = self.frame.width
-        let center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
-        let layer = PrivacyIndicatorUtils.createCircle(center, width, color)
+        let layer = PrivacyIndicatorUtils.createCircle(
+            CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2),
+            self.frame.width,
+            color
+        )
         if useCache { cachedSliceLayers[color] = layer }
         return layer
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03CCC9181AF05E7300DBF30D /* RelativeDatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCC9171AF05E7300DBF30D /* RelativeDatesTests.swift */; };
+		04393427239D5AF700794E81 /* PrivacyIndicatorUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04393426239D5AF700794E81 /* PrivacyIndicatorUtilsTests.swift */; };
 		04A788AB23980BC90085503F /* PrivacyIndicatorCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A788AA23980BC90085503F /* PrivacyIndicatorCanvasView.swift */; };
 		04A788AD23980BD40085503F /* PrivacyIndicatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A788AC23980BD40085503F /* PrivacyIndicatorUtils.swift */; };
 		04A788AE239A545D0085503F /* PrivacyIndicatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A788AC23980BD40085503F /* PrivacyIndicatorUtils.swift */; };
@@ -1010,6 +1011,7 @@
 
 /* Begin PBXFileReference section */
 		03CCC9171AF05E7300DBF30D /* RelativeDatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeDatesTests.swift; sourceTree = "<group>"; };
+		04393426239D5AF700794E81 /* PrivacyIndicatorUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyIndicatorUtilsTests.swift; sourceTree = "<group>"; };
 		04A788AA23980BC90085503F /* PrivacyIndicatorCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyIndicatorCanvasView.swift; sourceTree = "<group>"; };
 		04A788AC23980BD40085503F /* PrivacyIndicatorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyIndicatorUtils.swift; sourceTree = "<group>"; };
 		0B54BD181B698B7C004C822C /* SuggestedSites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedSites.swift; sourceTree = "<group>"; };
@@ -2927,6 +2929,7 @@
 			isa = PBXGroup;
 			children = (
 				2BC00EFB234F212700BED6D7 /* ProfileTest.swift */,
+				04393426239D5AF700794E81 /* PrivacyIndicatorUtilsTests.swift */,
 				F84B21D91A090F8100AAB793 /* ClientTests.swift */,
 				3B39EDB91E16E18900EF029F /* CustomSearchEnginesTest.swift */,
 				D3D488581ABB54CD00A93597 /* FileAccessorTests.swift */,
@@ -4911,6 +4914,7 @@
 				2F13E79B1AC0C02700D75081 /* StringExtensionsTests.swift in Sources */,
 				2FDB10931A9FBEC5006CF312 /* PrefsTests.swift in Sources */,
 				D8EFFA261FF702A8001D3A09 /* NavigationRouterTests.swift in Sources */,
+				04393427239D5AF700794E81 /* PrivacyIndicatorUtilsTests.swift in Sources */,
 				63306D452110BAF000F25400 /* TabManagerStoreTests.swift in Sources */,
 				4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */,
 				A83E5B1D1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift in Sources */,
