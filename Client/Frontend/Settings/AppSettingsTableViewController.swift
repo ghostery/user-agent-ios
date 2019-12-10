@@ -165,10 +165,10 @@ class AppSettingsTableViewController: SettingsTableViewController {
         let newsSettigns = [
             NewsLanguageSetting(currentRegion: self.newsCurrentRegion, availableRegions: self.newsAvailableRegions),
             BoolSetting(prefs: prefs, prefKey: PrefsKeys.NewTabNewsEnabled, defaultValue: true, titleText: Strings.Settings.News.NewsFromNewTabPage, settingDidChange: { (_) in
-                NotificationCenter.default.post(name: .NewsSettingsChange, object: nil)
+                NotificationCenter.default.post(name: .NewsSettingsDidChange, object: nil)
             }),
             BoolSetting(prefs: prefs, prefKey: PrefsKeys.NewTabNewsImagesEnabled, defaultValue: true, titleText: Strings.Settings.News.NewsImages, settingDidChange: { (_) in
-                NotificationCenter.default.post(name: .NewsSettingsChange, object: nil)
+                NotificationCenter.default.post(name: .NewsSettingsDidChange, object: nil)
             }),
         ]
         return SettingSection(title: NSAttributedString(string: Strings.Settings.News.SectionTitle), children: newsSettigns)

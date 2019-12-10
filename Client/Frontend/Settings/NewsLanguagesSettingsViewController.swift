@@ -33,6 +33,7 @@ class NewsLanguagesSettingsViewController: SettingsTableViewController {
             }, onChanged: {
                 self.selectedRegion = region
                 News.setBackendCountry(country: region)
+                NotificationCenter.default.post(name: .NewsSettingsDidChange, object: nil)
                 self.tableView.reloadData()
             })
         }

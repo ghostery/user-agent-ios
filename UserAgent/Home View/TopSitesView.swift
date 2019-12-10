@@ -31,6 +31,12 @@ class TopSitesView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("Use init(profile:) to initialize")
     }
+
+    func refresh() {
+        self.subviews.forEach({ $0.removeFromSuperview() })
+        self.setup()
+    }
+
 }
 
 // MARK: - Private Implementation
