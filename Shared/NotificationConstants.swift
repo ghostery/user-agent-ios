@@ -12,6 +12,9 @@ extension Notification.Name {
     // Fired when the user finishes navigating to a page and the location has changed
     public static let OnLocationChange = Notification.Name("OnLocationChange")
 
+    // Fired when the user has changed news settings
+    public static let NewsSettingsChange = Notification.Name("NewsSettingsChange")
+
     // MARK: Notification UserInfo Keys
     public static let UserInfoKeyHasSyncableAccount = Notification.Name("UserInfoKeyHasSyncableAccount")
 

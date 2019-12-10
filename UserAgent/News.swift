@@ -29,35 +29,32 @@ public class News {
 
 extension News: BrowserCoreClient {
 
-    public static func getBackendCountries(callback: @escaping (Config) -> Void) {
+    public static func getAvailableLanguages(callback: @escaping (Config) -> Void) {
         self.browserCore.callAction(
             module: "news",
-            action: "getLanguage",
+            action: "getAvailableLanguages",
             args: []
         ) { (error, result) in
             if error != nil {
                 callback(Self.defaultConfig)
                 return
             }
-
-            guard let backends = result as? [String: [String: Any]] else {
+            guard let backends = result as? [[String: Any]] else {
                 callback(Self.defaultConfig)
                 return
             }
-            var selectedRegion: Country!
-            let selectedKey = backends.first { ($0.value["selected"] as? Bool) ?? false }?.key
-            if let key = selectedKey, let selected = backends[key], let name = selected["name"] as? String {
-                selectedRegion = Country(key: key, name: name)
-            } else {
-                selectedRegion = self.defaultRegion
-            }
+            var selectedRegion: Country = self.defaultRegion
             var availableRegions = [Country]()
-            for key in backends.keys.sorted() {
-                if let name = backends[key]?["name"] as? String {
-                    let region = Country(key: key, name: name)
-                    availableRegions.append(region)
+            backends.forEach { (language) in
+                if let name = language["name"] as? String, let key = language["code"] as? String {
+                    let country = Country(key: key, name: name)
+                    if let isSelected = language["isSelected"] as? Bool, isSelected {
+                        selectedRegion = country
+                    }
+                    availableRegions.append(country)
                 }
             }
+            availableRegions.sort(by: { $0.key < $1.key })
             let config = Config(selected: selectedRegion, available: availableRegions)
             callback(config)
         }

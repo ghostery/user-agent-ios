@@ -91,7 +91,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
     }
 
     private func updateNewsValues() {
-        News.getBackendCountries { (config) in
+        News.getAvailableLanguages { (config) in
             DispatchQueue.main.async {
                 self.newsCurrentRegion = config.selected
                 self.newsAvailableRegions = config.available
@@ -164,8 +164,12 @@ class AppSettingsTableViewController: SettingsTableViewController {
         let prefs = self.profile.prefs
         let newsSettigns = [
             NewsLanguageSetting(currentRegion: self.newsCurrentRegion, availableRegions: self.newsAvailableRegions),
-            BoolSetting(prefs: prefs, prefKey: PrefsKeys.NewTabNewsEnabled, defaultValue: true, titleText: Strings.Settings.News.NewsFromNewTabPage),
-            BoolSetting(prefs: prefs, prefKey: PrefsKeys.NewTabNewsImagesEnabled, defaultValue: true, titleText: Strings.Settings.News.NewsImages),
+            BoolSetting(prefs: prefs, prefKey: PrefsKeys.NewTabNewsEnabled, defaultValue: true, titleText: Strings.Settings.News.NewsFromNewTabPage, settingDidChange: { (_) in
+                NotificationCenter.default.post(name: .NewsSettingsChange, object: nil)
+            }),
+            BoolSetting(prefs: prefs, prefKey: PrefsKeys.NewTabNewsImagesEnabled, defaultValue: true, titleText: Strings.Settings.News.NewsImages, settingDidChange: { (_) in
+                NotificationCenter.default.post(name: .NewsSettingsChange, object: nil)
+            }),
         ]
         return SettingSection(title: NSAttributedString(string: Strings.Settings.News.SectionTitle), children: newsSettigns)
     }
