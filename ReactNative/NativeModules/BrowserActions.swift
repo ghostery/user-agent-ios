@@ -72,7 +72,7 @@ class BrowserActions: NSObject {
                         }
 
                         for site in sites {
-                            if let url = URL(string: site.url), !self.isSearchEngineRedirectURL(profile: profile, url: url, query: query) {
+                            if let url = URL(string: site.url), !profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query as String) {
                                 let d = ["url": site.url, "title": site.title]
                                 results.append(d)
                             }
@@ -82,20 +82,6 @@ class BrowserActions: NSObject {
                 }
             }
         }
-    }
-
-    private func isSearchEngineRedirectURL(profile: Profile, url: URL, query: NSString) -> Bool {
-        for engine in profile.searchEngines.orderedEngines {
-            guard let searchEngineURL = engine.searchURLForQuery(query as String) else {
-                continue
-            }
-            if let searchEngineURLHost = searchEngineURL.host, let urlHost = url.host {
-                if searchEngineURLHost + searchEngineURL.path == urlHost + url.path {
-                    return true
-                }
-            }
-        }
-        return false
     }
 
     @objc(requiresMainQueueSetup)
