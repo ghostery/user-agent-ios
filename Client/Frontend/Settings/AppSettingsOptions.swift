@@ -282,6 +282,35 @@ class SearchLanguageSetting: Setting {
     }
 }
 
+// Opens the News for language settings
+class NewsLanguageSetting: Setting {
+
+    private var currentRegion: News.Country?
+    private var availableRegions: [News.Country]?
+
+    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
+
+    override var style: UITableViewCell.CellStyle { return .value1 }
+
+    override var status: NSAttributedString? { return NSAttributedString(string: self.currentRegion?.name ?? "") }
+
+    override var accessibilityIdentifier: String? { return "News" }
+
+    init(currentRegion: News.Country?, availableRegions: [News.Country]?) {
+        self.currentRegion = currentRegion
+        self.availableRegions = availableRegions
+        super.init(title: NSAttributedString(string: Strings.Settings.News.Language.Title, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+    }
+
+    override func onClick(_ navigationController: UINavigationController?) {
+        guard let region = self.currentRegion, let regions = self.availableRegions else {
+            return
+        }
+        let viewController = NewsLanguagesSettingsViewController(selectedRegion: region, availableRegions: regions)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 class ClearPrivateDataSetting: Setting {
     let profile: Profile
     var tabManager: TabManager!

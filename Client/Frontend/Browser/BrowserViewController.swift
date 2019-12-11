@@ -709,7 +709,7 @@ class BrowserViewController: UIViewController {
         view.setNeedsUpdateConstraints()
     }
 
-    fileprivate func hideFirefoxHome() {
+    fileprivate func hideUserAgentHome() {
         guard let browserHomeViewController = self.homeViewController else {
             return
         }
@@ -735,13 +735,13 @@ class BrowserViewController: UIViewController {
         let isAboutHomeURL = url.flatMap { InternalURL($0)?.isAboutHomeURL } ?? false
         if !urlBar.inOverlayMode {
             guard let url = url else {
-                hideFirefoxHome()
+                hideUserAgentHome()
                 return
             }
             if isAboutHomeURL {
                 showUserAgentHome(inline: true)
             } else if !url.absoluteString.hasPrefix("\(InternalURL.baseUrl)/\(SessionRestoreHandler.path)") {
-                hideFirefoxHome()
+                hideUserAgentHome()
             }
         } else if isAboutHomeURL {
             showUserAgentHome(inline: false)

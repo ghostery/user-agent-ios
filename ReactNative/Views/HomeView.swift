@@ -13,6 +13,8 @@ import Storage
 class HomeView: UIView, ReactViewTheme {
     private var speedDials: [Site]?
     private var pinnedSites: [Site]?
+    private var isNewsEnabled = true
+    private var isNewsImagesEnabled = true
     private lazy var reactView: UIView = {
         func toDial(site: Site) -> [String: String] {
             return [
@@ -28,6 +30,8 @@ class HomeView: UIView, ReactViewTheme {
                 "theme": Self.getTheme(),
                 "speedDials": self.speedDials!.map(toDial),
                 "pinnedSites": self.pinnedSites!.map(toDial),
+                "isNewsEnabled": self.isNewsEnabled,
+                "isNewsImagesEnabled": self.isNewsImagesEnabled,
             ]
         )
 
@@ -39,10 +43,18 @@ class HomeView: UIView, ReactViewTheme {
         super.init(frame: frame)
     }
 
-    convenience init(speedDials: [Site], pinnedSites: [Site]) {
+    convenience init(
+        speedDials: [Site],
+        pinnedSites: [Site],
+        isNewsEnabled: Bool,
+        isNewsImagesEnabled: Bool
+    ) {
         self.init(frame: .zero)
         self.pinnedSites = pinnedSites
         self.speedDials = speedDials
+        self.isNewsEnabled = isNewsEnabled
+        self.isNewsImagesEnabled = isNewsImagesEnabled
+
         self.addSubview(self.reactView)
     }
 

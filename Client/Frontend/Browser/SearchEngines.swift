@@ -122,6 +122,20 @@ class SearchEngines {
         saveCustomEngines()
     }
 
+    func isSearchEngineRedirectURL(url: URL, query: String) -> Bool {
+        for engine in self.orderedEngines {
+            guard let searchEngineURL = engine.searchURLForQuery(query as String) else {
+                continue
+            }
+            if let searchEngineURLHost = (searchEngineURL.host as NSString?)?.deletingPathExtension, let urlHost = (url.host as NSString?)?.deletingPathExtension {
+                if searchEngineURLHost + searchEngineURL.path == urlHost + url.path {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
     func queryForSearchURL(_ url: URL?) -> String? {
         for engine in orderedEngines {
             guard let searchTerm = engine.queryForSearchURL(url) else { continue }

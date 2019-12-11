@@ -70,4 +70,43 @@ extension HumanWebFeature: BrowserCoreClient {
            action: "processPendingJobs",
            args: [])
     }
+
+    static func enable() {
+        self.browserCore.callAction(
+            module: "core",
+            action: "enableModule",
+            args: ["human-web-lite"])
+    }
+
+    static func disable() {
+        self.browserCore.callAction(
+           module: "core",
+           action: "disableModule",
+           args: ["human-web-lite"])
+    }
+
+    static func isEnabled(callback: @escaping (Bool) -> Void) {
+        self.browserCore.callAction(
+          module: "core",
+          action: "status",
+          args: []
+        ) { (error, result) in
+            if error != nil {
+                callback(false)
+                return
+            }
+
+            guard
+                let status = result as? [String: [String: [String: Any]]],
+                let modules = status["modules"],
+                let humanWeb = modules["human-web-lite"],
+                let isEnabled = humanWeb["isEnabled"] as? Bool
+            else {
+                callback(false)
+                return
+            }
+
+            callback(isEnabled)
+        }
+    }
 }

@@ -31,6 +31,12 @@ class TopSitesView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("Use init(profile:) to initialize")
     }
+
+    func refresh() {
+        self.subviews.forEach({ $0.removeFromSuperview() })
+        self.setup()
+    }
+
 }
 
 // MARK: - Private Implementation
@@ -58,7 +64,12 @@ private extension TopSitesView {
     }
 
     private func addHomeView(speedDials: [Site], pinnedSites: [Site]) {
-        let homeView = HomeView(speedDials: speedDials, pinnedSites: pinnedSites)
+        let homeView = HomeView(
+            speedDials: speedDials,
+            pinnedSites: pinnedSites,
+            isNewsEnabled: self.profile.prefs.boolForKey(PrefsKeys.NewTabNewsEnabled) ?? true,
+            isNewsImagesEnabled: self.profile.prefs.boolForKey(PrefsKeys.NewTabNewsImagesEnabled) ?? true
+        )
 
         addSubview(homeView)
 
