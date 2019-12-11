@@ -11,8 +11,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
     private var searchCurrentRegion: Search.Country?
     private var searchAvailableRegions: [Search.Country]?
     private var currentAdultFilterMode: Search.AdultFilterMode?
-    private var isHumanWebEnabled: Bool = false
-
     private var newsCurrentRegion: News.Country?
     private var newsAvailableRegions: [News.Country]?
 
@@ -142,13 +140,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         let supportSettigns = [
             ShowIntroductionSetting(settings: self),
             SendFeedbackSetting(),
-            BoolSetting(prefs: prefs, defaultValue: self.isHumanWebEnabled, titleText: Strings.Settings.HumanWebTitle, enabled: self.isHumanWebEnabled) { (value) in
-                if value {
-                    HumanWebFeature.enable()
-                } else {
-                    HumanWebFeature.disable()
-                }
-            },
+            HumanWebSetting(prefs: prefs),
             BoolSetting(prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true, attributedTitleText: NSAttributedString(string: Strings.Settings.SendUsage.Title), attributedStatusText: NSAttributedString(string: Strings.Settings.SendUsage.Message, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
         ]
         return SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: supportSettigns)
@@ -176,7 +168,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
         self.currentAdultFilterMode = nil
         self.newsCurrentRegion = nil
         self.newsAvailableRegions = nil
-        self.isHumanWebEnabled = false
     }
 
     private func fetchBrowserCoreValus() {
@@ -197,16 +188,8 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         dispatchGroup.enter()
         News.getAvailableLanguages { (config) in
-            DispatchQueue.main.async {
-                self.newsCurrentRegion = config.selected
-                self.newsAvailableRegions = config.available
-                dispatchGroup.leave()
-            }
-        }
-
-        dispatchGroup.enter()
-        HumanWebFeature.isEnabled { (isEnabled) in
-            self.isHumanWebEnabled = isEnabled
+            self.newsCurrentRegion = config.selected
+            self.newsAvailableRegions = config.available
             dispatchGroup.leave()
         }
 
