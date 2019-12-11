@@ -197,11 +197,9 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
         dispatchGroup.enter()
         News.getAvailableLanguages { (config) in
-            DispatchQueue.main.async {
-                self.newsCurrentRegion = config.selected
-                self.newsAvailableRegions = config.available
-                dispatchGroup.leave()
-            }
+            self.newsCurrentRegion = config.selected
+            self.newsAvailableRegions = config.available
+            dispatchGroup.leave()
         }
 
         dispatchGroup.enter()

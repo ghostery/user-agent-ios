@@ -28,7 +28,6 @@ class PrivacyStatementPolicyView: UIView {
 
         // TODO: setup arrow button
 
-
         // TODO: add tap gesture recognizer and connect with closure
 
         self.setupConstraints()

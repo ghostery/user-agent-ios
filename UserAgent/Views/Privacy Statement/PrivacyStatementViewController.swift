@@ -33,11 +33,16 @@ class PrivacyStatementViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white // TODO: apply theme
+        self.view.backgroundColor = Theme.browser.background // TODO: apply theme
         self.setupViews()
         self.setupNavigationItems()
         self.setupConstraints()
         // Do any additional setup after loading the view.
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.scrollView.contentSize.height = self.stackView.frame.height
     }
 
     private func setupNavigationItems() {
@@ -62,30 +67,31 @@ class PrivacyStatementViewController: UIViewController {
 
     private func setupStackView() {
         self.scrollView = UIScrollView()
-        self.view.addSubview(scrollView)
+        self.scrollView.layoutMargins = .zero
+        self.scrollView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(self.scrollView)
         self.scrollView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalTo(self.view)
         }
-
         self.stackView = UIStackView(arrangedSubviews: [self.headerView, self.authorView, self.settingsConversationView, self.settingsView, self.privacyConversationView, self.privacyPolicyView, self.footerConversationView, self.footerView])
+        self.stackView.translatesAutoresizingMaskIntoConstraints = false
         self.stackView.axis = .vertical
         self.stackView.alignment = .fill
-        self.stackView.distribution = .fill
+        self.stackView.distribution = .equalSpacing
         self.stackView.spacing = 5
 
         self.scrollView.addSubview(self.stackView)
 
         self.stackView.snp.makeConstraints { (make) in
-            make.left.right.top.equalTo(self.scrollView)
+            make.left.right.top.bottom.equalTo(self.scrollView)
             make.width.equalTo(self.scrollView)
         }
-
     }
 
     private func setupConstraints() {
         self.headerView.snp.makeConstraints { (make) in
-            make.topMargin.equalTo(self.view).offset(20)
-            make.left.right.equalTo(self.view).offset(20)
+            make.topMargin.equalTo(self.stackView).offset(20)
+            make.left.right.equalTo(self.stackView).offset(20)
             make.height.equalTo(40)
         }
         self.authorView.snp.makeConstraints { (make) in
@@ -95,36 +101,36 @@ class PrivacyStatementViewController: UIViewController {
         }
         self.settingsConversationView.snp.makeConstraints { (make) in
             make.top.equalTo(self.authorView.snp.bottom).offset(5)
-            make.left.right.equalTo(self.view)
+            make.left.right.equalTo(self.stackView)
             make.height.equalTo(160)
         }
         self.settingsView.snp.makeConstraints { (make) in
             make.top.equalTo(self.settingsConversationView.snp.bottom).offset(5)
-            make.left.right.equalTo(self.view)
+            make.left.right.equalTo(self.stackView)
             make.height.equalTo(self.dataModel.sortedSettings.count * 44)
         }
         self.privacyConversationView.snp.makeConstraints { (make) in
             make.top.equalTo(self.settingsView.snp.bottom).offset(5)
-            make.left.right.equalTo(self.view)
+            make.left.right.equalTo(self.stackView)
             make.height.equalTo(80)
         }
 
         self.privacyPolicyView.snp.makeConstraints { (make) in
             make.top.equalTo(self.privacyConversationView.snp.bottom).offset(5)
-            make.left.right.equalTo(self.view)
+            make.left.right.equalTo(self.stackView)
             make.height.equalTo(44)
         }
 
         self.footerConversationView.snp.makeConstraints { (make) in
             make.top.equalTo(self.privacyPolicyView.snp.bottom).offset(5)
-            make.left.right.equalTo(self.view)
+            make.left.right.equalTo(self.stackView)
             make.height.equalTo(80)
         }
 
         self.footerView.snp.makeConstraints { (make) in
             make.top.equalTo(self.footerConversationView.snp.bottom).offset(5)
-            make.left.right.equalTo(self.view)
-            make.bottom.equalTo(self.view)
+            make.left.right.equalTo(self.stackView)
+            make.bottom.equalTo(self.stackView)
         }
     }
 

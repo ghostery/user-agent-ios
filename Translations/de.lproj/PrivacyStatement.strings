@@ -1,0 +1,26 @@
+/* 
+  File.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 12/11/19.
+  Copyright © 2019 Cliqz. All rights reserved.
+*/
+
+/* Title displayed on the top of screen. */
+"PrivacyStatement.Title" = "";
+
+/* Conversation static message. */
+"PrivacyStatement.message1" = "";
+
+/* Conversation static message. */
+"PrivacyStatement.message2" = "";
+
+/* Conversation static message. */
+"PrivacyStatement.message3" = "";
+
+/* Conversation static message. */
+"PrivacyStatement.message4" = "";
+
+/* Conversation static message. */
+"PrivacyStatement.message5" = "";
+

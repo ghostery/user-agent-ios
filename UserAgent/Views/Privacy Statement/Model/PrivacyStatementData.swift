@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Shared
 
 struct PrivacyStatementProfile {
     // TODO: PK Initialize
@@ -17,11 +18,10 @@ struct PrivacyStatementProfile {
 
 struct PrivacyStatementData {
 
-
     let author = PrivacyStatementProfile()
     // TODO: localize
 
-    let title = "Your Privacy is Important to Us"
+    let title = Strings.PrivacyStatement.Title
     var sortedSettings: [Setting]
     var settingsConversations: [String]
     var privacyConversations: [String]

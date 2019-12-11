@@ -1,0 +1,25 @@
+/* 
+  File.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 12/11/19.
+  Copyright © 2019 Cliqz. All rights reserved.
+*/
+
+/* Title displayed on the top of screen. */
+"PrivacyStatement.Title" = "A message about privacy & data";
+
+/* Conversation static message. */
+"PrivacyStatement.message1" = "Hi, I'm Krzysztof and I'm building this app.";
+
+/* Conversation static message. */
+"PrivacyStatement.message2" = "I like privacy and transparency. Still data is important to build great products.";
+
+/* Conversation static message. */
+"PrivacyStatement.message3" = "That's why this app collects some data, but no data that could identify you. Yet, I believe you should decide what you want to share.";
+
+/* Conversation static message. */
+"PrivacyStatement.message4" = "Don't take my word, check it our for yourself.";
+
+/* Conversation static message. */
+"PrivacyStatement.message5" = "FYI, below is a more wordy version of this.";
