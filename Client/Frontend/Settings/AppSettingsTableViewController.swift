@@ -11,6 +11,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
     private var searchCurrentRegion: Search.Country?
     private var searchAvailableRegions: [Search.Country]?
     private var currentAdultFilterMode: Search.AdultFilterMode?
+    private var isHumanWebEnabled: Bool = false
 
     private var newsCurrentRegion: News.Country?
     private var newsAvailableRegions: [News.Country]?
@@ -30,11 +31,9 @@ class AppSettingsTableViewController: SettingsTableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.resetSearchValues()
-        self.resetNewsValues()
+        self.resetBrowserCoreValues()
         super.viewWillAppear(animated)
-        self.updateSearchValues()
-        self.updateNewsValues()
+        self.fetchBrowserCoreValus()
     }
 
     override func generateSettings() -> [SettingSection] {
@@ -63,42 +62,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     // MARK: - Private methods
 
-    private func resetSearchValues() {
-        self.searchCurrentRegion = nil
-        self.searchAvailableRegions = nil
-        self.currentAdultFilterMode = nil
-    }
-
-    private func updateSearchValues() {
-        Search.getBackendCountries { (config) in
-            DispatchQueue.main.async {
-                self.searchCurrentRegion = config.selected
-                self.searchAvailableRegions = config.available
-                self.reloadData()
-            }
-        }
-        Search.getAdultFilter { (mode) in
-            DispatchQueue.main.async {
-                self.currentAdultFilterMode = mode
-                self.reloadData()
-            }
-        }
-    }
-
-    private func resetNewsValues() {
-        self.newsCurrentRegion = nil
-        self.newsAvailableRegions = nil
-    }
-
-    private func updateNewsValues() {
-        News.getAvailableLanguages { (config) in
-            DispatchQueue.main.async {
-                self.newsCurrentRegion = config.selected
-                self.newsAvailableRegions = config.available
-                self.reloadData()
-            }
-        }
-    }
     private func searchSettingSection() -> SettingSection {
         let prefs = self.profile.prefs
         let searchSettings: [Setting] = [
@@ -179,6 +142,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
         let supportSettigns = [
             ShowIntroductionSetting(settings: self),
             SendFeedbackSetting(),
+            BoolSetting(prefs: prefs, defaultValue: self.isHumanWebEnabled, titleText: Strings.Settings.HumanWebTitle, enabled: self.isHumanWebEnabled) { (value) in
+                if value {
+                    HumanWebFeature.enable()
+                } else {
+                    HumanWebFeature.disable()
+                }
+            },
             BoolSetting(prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true, attributedTitleText: NSAttributedString(string: Strings.Settings.SendUsage.Title), attributedStatusText: NSAttributedString(string: Strings.Settings.SendUsage.Message, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
         ]
         return SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: supportSettigns)
@@ -196,6 +166,53 @@ class AppSettingsTableViewController: SettingsTableViewController {
             SentryIDSetting(settings: self),
         ]
         return SettingSection(title: NSAttributedString(string: NSLocalizedString("About", comment: "About settings section title")), children: aboutSettings)
+    }
+
+    // MARK: - Private methods
+
+    private func resetBrowserCoreValues() {
+        self.searchCurrentRegion = nil
+        self.searchAvailableRegions = nil
+        self.currentAdultFilterMode = nil
+        self.newsCurrentRegion = nil
+        self.newsAvailableRegions = nil
+        self.isHumanWebEnabled = false
+    }
+
+    private func fetchBrowserCoreValus() {
+        let dispatchGroup = DispatchGroup()
+
+        dispatchGroup.enter()
+        Search.getBackendCountries { (config) in
+            self.searchCurrentRegion = config.selected
+            self.searchAvailableRegions = config.available
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        Search.getAdultFilter { (mode) in
+            self.currentAdultFilterMode = mode
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.enter()
+        News.getAvailableLanguages { (config) in
+            DispatchQueue.main.async {
+                self.newsCurrentRegion = config.selected
+                self.newsAvailableRegions = config.available
+                dispatchGroup.leave()
+            }
+        }
+
+        dispatchGroup.enter()
+        HumanWebFeature.isEnabled { (isEnabled) in
+            self.isHumanWebEnabled = isEnabled
+            dispatchGroup.leave()
+        }
+
+        dispatchGroup.notify(queue: .main) {
+             self.reloadData()
+        }
     }
 
 }

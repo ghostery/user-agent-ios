@@ -54,7 +54,6 @@ extension News: BrowserCoreClient {
                     availableRegions.append(country)
                 }
             }
-            availableRegions.sort(by: { $0.key < $1.key })
             let config = Config(selected: selectedRegion, available: availableRegions)
             callback(config)
         }

@@ -27,7 +27,7 @@ class NewsLanguagesSettingsViewController: SettingsTableViewController {
     }
 
     override func generateSettings() -> [SettingSection] {
-        let searchSettings: [CheckmarkSetting] = self.availableRegions.map { region in
+        let newsLanguagesSettings: [CheckmarkSetting] = self.availableRegions.map { region in
             return CheckmarkSetting(title: NSAttributedString(string: region.name), subtitle: nil, accessibilityIdentifier: region.key, isEnabled: {
                 return region.key == self.selectedRegion.key
             }, onChanged: {
@@ -37,7 +37,7 @@ class NewsLanguagesSettingsViewController: SettingsTableViewController {
                 self.tableView.reloadData()
             })
         }
-        return [SettingSection(children: searchSettings)]
+        return [SettingSection(children: newsLanguagesSettings)]
     }
 
 }

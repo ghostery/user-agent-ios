@@ -824,6 +824,9 @@
 /* The title for the setting to send usage data. */
 "Settings.SendUsage.Title" = "Nutzungsdaten senden";
 
+/* The title for the human web setting. */
+"Settings.HumanWeb.Title" = "Human Web";
+
 /* The description of the open new tab siri shortcut */
 "Settings.Siri.OpenTabShortcut" = "Neuen Tab öffnen";
 
