@@ -9,6 +9,27 @@
 import Foundation
 import Shared
 
+enum PrivacyStatementSection: Int, CaseIterable {
+    case settingsConversation = 0
+    case settings
+    case repositoryConversation
+    case repository
+    case privacyConversation
+    case privacy
+    case message
+    
+    var numberOfRows: Int {
+        switch self {
+        case .settingsConversation:
+            return 3
+        case .settings:
+            return 2
+        case .repositoryConversation, .repository, .privacyConversation, .privacy, .message:
+            return 1
+        }
+    }
+}
+
 struct PrivacyStatementProfile {
     // TODO: PK Initialize
     let avatar = UIImage(named: "")
@@ -21,7 +42,7 @@ struct PrivacyStatementData {
     let author = PrivacyStatementProfile()
     // TODO: localize
 
-    let title = Strings.PrivacyStatement.Title
+    let title: String
     var sortedSettings: [Setting]
     var settingsConversations: [String]
     var privacyConversations: [String]

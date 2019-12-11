@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrivacyStatementViewController: UIViewController {
+class PrivacyStatementViewController: ThemedTableViewController {
 
     private let dataModel: PrivacyStatementData
     private var headerView: UILabel!
@@ -24,7 +24,7 @@ class PrivacyStatementViewController: UIViewController {
 
     init(dataModel: PrivacyStatementData) {
         self.dataModel = dataModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .plain)
     }
 
     required init?(coder: NSCoder) {
@@ -33,16 +33,12 @@ class PrivacyStatementViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = Theme.browser.background // TODO: apply theme
-        self.setupViews()
+        self.tableView.backgroundColor = Theme.browser.background // TODO: apply theme
+        self.tableView.tableFooterView = UIView()
+//        self.setupViews()
         self.setupNavigationItems()
-        self.setupConstraints()
+//        self.setupConstraints()
         // Do any additional setup after loading the view.
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.scrollView.contentSize.height = self.stackView.frame.height
     }
 
     private func setupNavigationItems() {
@@ -180,18 +176,38 @@ class PrivacyStatementViewController: UIViewController {
     }
 
     private func createConversationDialog(inView view: UIView, conversation: [String]) {
-        var topMargin = view.snp.top
-        for text in conversation {
-            let bubbleView = ChatBubbleView(text: text)
-            let calculatedSize = bubbleView.calculatedSize(width: 0.66 * self.view.frame.width)
-            view.addSubview(bubbleView)
-            bubbleView.snp.makeConstraints { (make) in
-                make.top.equalTo(topMargin).offset(10)
-                make.left.equalTo(view).offset(20)
-                make.width.equalTo(calculatedSize.width)
-                make.height.equalTo(60)
-            }
-            topMargin = bubbleView.snp.bottom
-        }
+//        var topMargin = view.snp.top
+//        for text in conversation {
+//            let bubbleView = ChatBubbleView(text: text)
+//            let calculatedSize = bubbleView.calculatedSize(width: 0.66 * self.view.frame.width)
+//            view.addSubview(bubbleView)
+//            bubbleView.snp.makeConstraints { (make) in
+//                make.top.equalTo(topMargin).offset(10)
+//                make.left.equalTo(view).offset(20)
+//                make.width.equalTo(calculatedSize.width)
+//                make.height.equalTo(60)
+//            }
+//            topMargin = bubbleView.snp.bottom
+//        }
     }
+}
+
+// UITableViewDataSource
+extension PrivacyStatementViewController {
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return PrivacyStatementSection.allCases.count
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let privacyStatementSection = PrivacyStatementSection(rawValue: section) else {
+            return 0
+        }
+        return privacyStatementSection.numberOfRows
+    }
+
+}
+
+// UITableViewDelegate
+extension PrivacyStatementViewController {
 }

@@ -82,6 +82,8 @@
 		2B76E43423A129DB001CF20E /* Strings+PrivacyStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */; };
 		2B76E43B23A12DB4001CF20E /* PrivacyStatement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */; };
 		2B76E43D23A12DE4001CF20E /* PrivacyStatement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */; };
+		2B76E43F23A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
+		2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
@@ -1075,6 +1077,7 @@
 		2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+PrivacyStatement.swift"; sourceTree = "<group>"; };
 		2B76E43823A12AE3001CF20E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrivacyStatement.strings; sourceTree = "<group>"; };
 		2B76E43A23A12AEA001CF20E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivacyStatement.strings; sourceTree = "<group>"; };
+		2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleViewCell.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
@@ -2114,7 +2117,7 @@
 			isa = PBXGroup;
 			children = (
 				C5B83E67239FD55C003687AC /* ChatBubble */,
-				C5B83E5A239F9CF9003687AC /* Privacy Statement */,
+				C5B83E5A239F9CF9003687AC /* PrivacyStatement */,
 				46BE36A42344D32D00DADCB6 /* QuerySuggestions */,
 				ACD654772360926B002D2EE0 /* Privacy Indicator */,
 			);
@@ -2396,14 +2399,14 @@
 			path = AntiPhishing;
 			sourceTree = "<group>";
 		};
-		C5B83E5A239F9CF9003687AC /* Privacy Statement */ = {
+		C5B83E5A239F9CF9003687AC /* PrivacyStatement */ = {
 			isa = PBXGroup;
 			children = (
 				C5B83E60239F9F04003687AC /* Model */,
 				C5B83E5F239F9EFE003687AC /* Views */,
 				C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */,
 			);
-			path = "Privacy Statement";
+			path = PrivacyStatement;
 			sourceTree = "<group>";
 		};
 		C5B83E5F239F9EFE003687AC /* Views */ = {
@@ -2412,6 +2415,7 @@
 				C5B83E61239FA44F003687AC /* PrivacyStatementProfileView.swift */,
 				C5B83E63239FA484003687AC /* PrivacyStatementSettingsView.swift */,
 				C5F986AE239FE3D7006E006A /* PrivacyStatementPolicyView.swift */,
+				2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4520,6 +4524,7 @@
 				2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */,
 				463432F92332521F0014A9F0 /* Telemetry.swift in Sources */,
 				ACB7374823042BAB00FA5626 /* TestAppDelegate.swift in Sources */,
+				2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */,
 				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
 				46CA60FF2317F8F60010CE6B /* SearchResultsViewController.swift in Sources */,
 				ACB7374A23042BAB00FA5626 /* Clearables.swift in Sources */,
@@ -4723,6 +4728,7 @@
 			files = (
 				D04CD74A216CF86B004FF5B0 /* SiriShortcuts.swift in Sources */,
 				EB9A179F20E6C1A200B12184 /* ThemedWidgets.swift in Sources */,
+				2B76E43F23A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */,
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
 				AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */,
 				46CA60F22317E4780010CE6B /* JSBridge.swift in Sources */,

@@ -40,15 +40,19 @@ class ChatBubbleView: UIView {
 
     private let labelFont = UIFont.systemFont(ofSize: 14)
 
-    init(text: String) {
+    var message: String = "" {
+        didSet {
+            self.setupLabel(self.message)
+        }
+    }
+    
+    init() {
         super.init(frame: .zero)
-        self.setupLabel(text)
         self.setupBubbleView()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-
     }
 
     func calculatedSize(width: CGFloat) -> CGSize {
