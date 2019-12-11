@@ -15,7 +15,7 @@ class HumanWebSetting: BoolSetting {
             prefs: prefs,
             defaultValue: false,
             titleText: Strings.Settings.HumanWebTitle,
-            enabled: true
+            enabled: false
         ) { (value) in
             if value {
                 HumanWebFeature.enable()
@@ -23,9 +23,14 @@ class HumanWebSetting: BoolSetting {
                 HumanWebFeature.disable()
             }
         }
+    }
 
+    override func displayBool(_ control: UISwitch) {
         HumanWebFeature.isEnabled { (isEnabled) in
-            self.setState(isEnabled)
+            DispatchQueue.main.async {
+                control.isEnabled = true
+                control.isOn = isEnabled
+            }
         }
     }
 }

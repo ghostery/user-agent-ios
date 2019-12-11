@@ -247,6 +247,8 @@
 		46E9660D236B33C2003C23F3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E9660B236B33C1003C23F3 /* Constants.m */; };
 		46ECCD1A23A11B8B002E761C /* HumanWebSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD1923A11B8A002E761C /* HumanWebSetting.swift */; };
 		46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD1923A11B8A002E761C /* HumanWebSetting.swift */; };
+		46ECCD1D23A14E1A002E761C /* TelemetrySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */; };
+		46ECCD1E23A14E1A002E761C /* TelemetrySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
 		59A68D66379CFA85C4EAF00B /* TwoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68B1F857A8638598A63A0 /* TwoLineCell.swift */; };
@@ -1197,6 +1199,7 @@
 		46E96608236B33A1003C23F3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		46E9660B236B33C1003C23F3 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		46ECCD1923A11B8A002E761C /* HumanWebSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanWebSetting.swift; sourceTree = "<group>"; };
+		46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetrySetting.swift; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		52280E16968DC760D8A37957 /* Pods-Lumen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.adhoc.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -2186,6 +2189,7 @@
 			isa = PBXGroup;
 			children = (
 				46ECCD1923A11B8A002E761C /* HumanWebSetting.swift */,
+				46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -4495,6 +4499,7 @@
 				ACB7375E23042BAB00FA5626 /* MetadataParserHelper.swift in Sources */,
 				ACB7375F23042BAB00FA5626 /* InsetButton.swift in Sources */,
 				2B516D36238BAC8B006D6B57 /* LibraryView.swift in Sources */,
+				46ECCD1E23A14E1A002E761C /* TelemetrySetting.swift in Sources */,
 				ACB7376023042BAB00FA5626 /* TabDisplayManager.swift in Sources */,
 				46A4C4D42347757800F4BCE0 /* AutoCompletion.swift in Sources */,
 				ACB7376123042BAB00FA5626 /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
@@ -4743,6 +4748,7 @@
 				46CA60F62317E5D10010CE6B /* JSBridge.m in Sources */,
 				D0C95E36200FDC5500E4E51C /* MetadataParserHelper.swift in Sources */,
 				2B516D35238BAC8B006D6B57 /* LibraryView.swift in Sources */,
+				46ECCD1D23A14E1A002E761C /* TelemetrySetting.swift in Sources */,
 				0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */,
 				ACD6548123619EEB002D2EE0 /* PrivacyDashboardView.swift in Sources */,
 				D87F84AC20B891160091F2DA /* TabDisplayManager.swift in Sources */,

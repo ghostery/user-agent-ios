@@ -94,7 +94,6 @@ class AppSettingsTableViewController: SettingsTableViewController {
                     FirefoxTabContentBlocker.togglePrivacyDashboardEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
             },
         ]
-        privacySettings += [PrivacyPolicySetting()]
         return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)
     }
 
@@ -141,7 +140,8 @@ class AppSettingsTableViewController: SettingsTableViewController {
             ShowIntroductionSetting(settings: self),
             SendFeedbackSetting(),
             HumanWebSetting(prefs: prefs),
-            BoolSetting(prefs: prefs, prefKey: AppConstants.PrefSendUsageData, defaultValue: true, attributedTitleText: NSAttributedString(string: Strings.Settings.SendUsage.Title), attributedStatusText: NSAttributedString(string: Strings.Settings.SendUsage.Message, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
+            TelemetrySetting(prefs: prefs),
+            PrivacyPolicySetting(),
         ]
         return SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: supportSettigns)
     }

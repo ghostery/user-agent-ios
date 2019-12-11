@@ -169,11 +169,10 @@ class BoolSetting: Setting {
     let prefKey: String? // Sometimes a subclass will manage its own pref setting. In that case the prefkey will be nil
 
     fileprivate let prefs: Prefs
-    fileprivate var defaultValue: Bool
+    fileprivate let defaultValue: Bool
     fileprivate let settingDidChange: ((Bool) -> Void)?
     fileprivate let statusText: NSAttributedString?
     fileprivate let switchEnabled: Bool
-    fileprivate var control: UISwitch?
 
     init(prefs: Prefs, prefKey: String? = nil, defaultValue: Bool, attributedTitleText: NSAttributedString, attributedStatusText: NSAttributedString? = nil, enabled: Bool = true, settingDidChange: ((Bool) -> Void)? = nil) {
         self.prefs = prefs
@@ -205,7 +204,6 @@ class BoolSetting: Setting {
         control.onTintColor = UIConstants.SystemBlueColor
         control.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
         control.accessibilityIdentifier = prefKey
-        self.control = control
 
         displayBool(control)
         if let title = title {
@@ -239,14 +237,6 @@ class BoolSetting: Setting {
             return
         }
         prefs.setBool(control.isOn, forKey: key)
-    }
-
-    func setState(_ state: Bool) {
-        if let control = self.control {
-            control.isOn = state
-        } else {
-            self.defaultValue = state
-        }
     }
 }
 
