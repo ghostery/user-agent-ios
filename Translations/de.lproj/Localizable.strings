@@ -775,6 +775,18 @@
 /* General settings section title */
 "Settings.General.SectionName" = "Allgemein";
 
+/* News settings section title. */
+"Settings.News.SectionName" = "News";
+
+/* The button text in Settings that opens the list of supported news languages. */
+"Settings.News.Language" = "News-Edition wählen";
+
+/* Disable news from new tab page. */
+"Settings.News.NewsFromNewTabPage" = "News anzeigen";
+
+/* Disable load of news images. */
+"Settings.News.NewsImages" = "Bilder anzeigen";
+
 /* Option in settings to show UserAgent Home when you open a new tab */
 "Settings.NewTab.Option.Home" = "%@ Home";
 
@@ -811,6 +823,9 @@
 
 /* The title for the setting to send usage data. */
 "Settings.SendUsage.Title" = "Nutzungsdaten senden";
+
+/* The title for the human web setting. */
+"Settings.HumanWeb.Title" = "Human Web";
 
 /* The description of the open new tab siri shortcut */
 "Settings.Siri.OpenTabShortcut" = "Neuen Tab öffnen";

@@ -60,6 +60,11 @@ class HomeViewController: UIViewController {
     init(profile: Profile) {
         self.profile = profile
         super.init(nibName: nil, bundle: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: .NewsSettingsDidChange, object: nil)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -71,6 +76,19 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+
+    // MARK: - Actions
+    @objc private func notificationReceived(_ notification: Notification) {
+        DispatchQueue.main.async {
+            switch notification.name {
+            case .NewsSettingsDidChange:
+                self.topSitesView.refresh()
+            default:
+                print("Error: Received unexpected notification \(notification.name)")
+            }
+        }
+    }
+
 }
 
 // MARK: - Private Implementation
