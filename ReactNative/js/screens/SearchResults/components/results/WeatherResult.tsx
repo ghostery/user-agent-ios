@@ -87,10 +87,10 @@ const WeatherResult = ({ result, theme }: { result: any; theme: any }) => {
             color: theme.descriptionColor,
           },
           headerLeftColumn: {
-            marginLeft: 10,
+            marginLeft: 15,
           },
           rightSideInfo: {
-            marginRight: 10,
+            marginRight: 15,
           },
           svgText: {
             color: theme.descriptionColor,
