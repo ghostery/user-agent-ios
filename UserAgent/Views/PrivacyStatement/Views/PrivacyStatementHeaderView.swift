@@ -57,12 +57,22 @@ class PrivacyStatementHeaderView: UIView {
 
     private func setupProfileImage() {
         self.profileImageView = UIImageView(image: self.profile.avatar)
+        self.profileImageView.clipsToBounds = true
+        self.profileImageView.layer.cornerRadius = PrivacyStatementHeaderViewUI.profileImageSize / 2
         self.addSubview(self.profileImageView)
         self.profileImageView.snp.makeConstraints { (make) in
             make.left.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset)
             make.top.equalTo(self.titleLabel.snp.bottom).offset(PrivacyStatementHeaderViewUI.offset)
             make.height.equalTo(PrivacyStatementHeaderViewUI.profileImageSize)
             make.width.equalTo(self.profileImageView.snp.height)
+        }
+
+        let iconImageView = UIImageView(image: UIImage(named: "privacyStatementLogo"))
+        self.addSubview(iconImageView)
+        iconImageView.snp.makeConstraints { (make) in
+            make.bottom.trailing.equalTo(self.profileImageView)
+            make.height.equalTo(PrivacyStatementHeaderViewUI.profileImageSize / 3)
+            make.width.equalTo(iconImageView.snp.height)
         }
     }
 
