@@ -14,7 +14,7 @@ struct PrivacyStatementViewControllerUI {
     static let okButtonHeight: CGFloat = 40.0
 }
 
-class PrivacyStatementViewController: ThemedTableViewController {
+class PrivacyStatementViewController: UITableViewController {
 
     private let dataModel: PrivacyStatementData
     private let prefs: Prefs
@@ -39,11 +39,13 @@ class PrivacyStatementViewController: ThemedTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.estimatedRowHeight = 44.0
         self.tableView.backgroundColor = UIColor.Grey20
+        self.tableView.separatorStyle = .none
         self.setupViews()
         self.setupNavigationItems()
     }
-    
+
     // MARK: - Actions
 
     @objc func okButtonAction() {
@@ -112,11 +114,45 @@ extension PrivacyStatementViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let section = PrivacyStatementSection(rawValue: indexPath.section) else {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+        switch section {
+        case .settingsConversation:
+            let message = self.dataModel.settingsConversations[indexPath.row]
+            return ChatBubbleViewCell(message: message)
+        case .settings:
+            return UITableViewCell()
+        case .repositoryConversation:
+            let message = self.dataModel.repositoryConversations[indexPath.row]
+            return ChatBubbleViewCell(message: message)
+        case .repository:
+            return UITableViewCell()
+        case .privacyConversation:
+            let message = self.dataModel.privacyConversations[indexPath.row]
+            return ChatBubbleViewCell(message: message)
+        case .privacy:
+            return UITableViewCell()
+        case .message:
+            return UITableViewCell()
+        }
     }
 
 }
 
 // UITableViewDelegate
 extension PrivacyStatementViewController {
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let section = PrivacyStatementSection(rawValue: indexPath.section) else {
+            return 0.0
+        }
+        switch section {
+        case .settingsConversation, .repositoryConversation, .privacyConversation:
+            return UITableView.automaticDimension
+        case .settings, .repository, .privacy, .message:
+            return 44.0
+        }
+    }
+
 }

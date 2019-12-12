@@ -571,7 +571,6 @@
 		C5B83E5C239F9D58003687AC /* PrivacyStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */; };
 		C5B83E5E239F9EB0003687AC /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */; };
 		C5B83E62239FA44F003687AC /* PrivacyStatementHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */; };
-		C5B83E64239FA484003687AC /* PrivacyStatementSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E63239FA484003687AC /* PrivacyStatementSettingsView.swift */; };
 		C5B83E66239FA589003687AC /* PrivacyStatementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E65239FA589003687AC /* PrivacyStatementData.swift */; };
 		C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3412359B30B00CB359A /* cliqz.xcassets */; };
 		C5C7D3442359B31D00CB359A /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3432359B31D00CB359A /* Ghostery.xcassets */; };
@@ -1359,7 +1358,6 @@
 		C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementViewController.swift; sourceTree = "<group>"; };
 		C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementHeaderView.swift; sourceTree = "<group>"; };
-		C5B83E63239FA484003687AC /* PrivacyStatementSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementSettingsView.swift; sourceTree = "<group>"; };
 		C5B83E65239FA589003687AC /* PrivacyStatementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementData.swift; sourceTree = "<group>"; };
 		C5C7D3412359B30B00CB359A /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
 		C5C7D3432359B31D00CB359A /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
@@ -2433,7 +2431,6 @@
 			isa = PBXGroup;
 			children = (
 				C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */,
-				C5B83E63239FA484003687AC /* PrivacyStatementSettingsView.swift */,
 				C5F986AE239FE3D7006E006A /* PrivacyStatementPolicyView.swift */,
 				2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */,
 			);
@@ -4832,7 +4829,6 @@
 				E650755C1E37F747006961AC /* Swizzling.m in Sources */,
 				C5B83E66239FA589003687AC /* PrivacyStatementData.swift in Sources */,
 				46442CEE238BE61D002E6D85 /* HumanWebFeature.swift in Sources */,
-				C5B83E64239FA484003687AC /* PrivacyStatementSettingsView.swift in Sources */,
 				74821FC51DB56A2500EEEA72 /* OpenWithSettingsViewController.swift in Sources */,
 				C5B83E5E239F9EB0003687AC /* ChatBubbleView.swift in Sources */,
 				D3B6923D1B9F9444004B87A4 /* FindInPageBar.swift in Sources */,
