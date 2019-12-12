@@ -523,8 +523,6 @@ class SettingsTableViewController: ThemedTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        settings = generateSettings()
-
         applyTheme()
     }
 

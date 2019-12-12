@@ -17,7 +17,7 @@ enum PrivacyStatementSection: Int, CaseIterable {
     case privacyConversation
     case privacy
     case message
-    
+
     var numberOfRows: Int {
         switch self {
         case .settingsConversation:
@@ -32,19 +32,18 @@ enum PrivacyStatementSection: Int, CaseIterable {
 
 struct PrivacyStatementProfile {
     // TODO: PK Initialize
-    let avatar = UIImage(named: "")
-    let name = "Name"
-    let title = "Title"
+    let avatar = UIImage(named: "splash-Icon")
+    let name = "Krzysztof"
+    let title = "Cliqz iOS Team"
 }
 
 struct PrivacyStatementData {
 
     let author = PrivacyStatementProfile()
-    // TODO: localize
 
     let title: String
     var sortedSettings: [Setting]
     var settingsConversations: [String]
+    var repositoryConversations: [String]
     var privacyConversations: [String]
-    var footerConversations: [String]
 }

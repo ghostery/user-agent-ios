@@ -250,6 +250,10 @@
 		46E9660A236B33A1003C23F3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E96608236B33A1003C23F3 /* Constants.swift */; };
 		46E9660C236B33C2003C23F3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E9660B236B33C1003C23F3 /* Constants.m */; };
 		46E9660D236B33C2003C23F3 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E9660B236B33C1003C23F3 /* Constants.m */; };
+		46ECCD1A23A11B8B002E761C /* HumanWebSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD1923A11B8A002E761C /* HumanWebSetting.swift */; };
+		46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD1923A11B8A002E761C /* HumanWebSetting.swift */; };
+		46ECCD1D23A14E1A002E761C /* TelemetrySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */; };
+		46ECCD1E23A14E1A002E761C /* TelemetrySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
 		59A68D66379CFA85C4EAF00B /* TwoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68B1F857A8638598A63A0 /* TwoLineCell.swift */; };
@@ -564,7 +568,7 @@
 		C5B4863C23328F03001F2E39 /* SQLiteBookmarksHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */; };
 		C5B83E5C239F9D58003687AC /* PrivacyStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */; };
 		C5B83E5E239F9EB0003687AC /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */; };
-		C5B83E62239FA44F003687AC /* PrivacyStatementProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E61239FA44F003687AC /* PrivacyStatementProfileView.swift */; };
+		C5B83E62239FA44F003687AC /* PrivacyStatementHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */; };
 		C5B83E64239FA484003687AC /* PrivacyStatementSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E63239FA484003687AC /* PrivacyStatementSettingsView.swift */; };
 		C5B83E66239FA589003687AC /* PrivacyStatementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E65239FA589003687AC /* PrivacyStatementData.swift */; };
 		C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3412359B30B00CB359A /* cliqz.xcassets */; };
@@ -1209,6 +1213,8 @@
 		46E96605236B27E6003C23F3 /* UserAgentConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAgentConstants.m; sourceTree = "<group>"; };
 		46E96608236B33A1003C23F3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		46E9660B236B33C1003C23F3 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		46ECCD1923A11B8A002E761C /* HumanWebSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanWebSetting.swift; sourceTree = "<group>"; };
+		46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetrySetting.swift; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		52280E16968DC760D8A37957 /* Pods-Lumen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.adhoc.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -1349,7 +1355,7 @@
 		C5B4863723328F03001F2E39 /* SQLiteBookmarksHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteBookmarksHelpers.swift; sourceTree = "<group>"; };
 		C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementViewController.swift; sourceTree = "<group>"; };
 		C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
-		C5B83E61239FA44F003687AC /* PrivacyStatementProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementProfileView.swift; sourceTree = "<group>"; };
+		C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementHeaderView.swift; sourceTree = "<group>"; };
 		C5B83E63239FA484003687AC /* PrivacyStatementSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementSettingsView.swift; sourceTree = "<group>"; };
 		C5B83E65239FA589003687AC /* PrivacyStatementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementData.swift; sourceTree = "<group>"; };
 		C5C7D3412359B30B00CB359A /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
@@ -1911,6 +1917,7 @@
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				46ECCD1823A11B21002E761C /* Cells */,
 				7B4980A71CE363ED0017547C /* Settings.xcassets */,
 				E692E3361C46E86A009D1240 /* AppSettingsOptions.swift */,
 				E68E39BD1C46F42000B85F42 /* AppSettingsTableViewController.swift */,
@@ -2201,6 +2208,15 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		46ECCD1823A11B21002E761C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				46ECCD1923A11B8A002E761C /* HumanWebSetting.swift */,
+				46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		7B0B1B9C1C1B69F500DF4AB5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -2412,7 +2428,7 @@
 		C5B83E5F239F9EFE003687AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C5B83E61239FA44F003687AC /* PrivacyStatementProfileView.swift */,
+				C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */,
 				C5B83E63239FA484003687AC /* PrivacyStatementSettingsView.swift */,
 				C5F986AE239FE3D7006E006A /* PrivacyStatementPolicyView.swift */,
 				2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */,
@@ -4549,6 +4565,7 @@
 				ACB7375E23042BAB00FA5626 /* MetadataParserHelper.swift in Sources */,
 				ACB7375F23042BAB00FA5626 /* InsetButton.swift in Sources */,
 				2B516D36238BAC8B006D6B57 /* LibraryView.swift in Sources */,
+				46ECCD1E23A14E1A002E761C /* TelemetrySetting.swift in Sources */,
 				ACB7376023042BAB00FA5626 /* TabDisplayManager.swift in Sources */,
 				46A4C4D42347757800F4BCE0 /* AutoCompletion.swift in Sources */,
 				ACB7376123042BAB00FA5626 /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
@@ -4644,6 +4661,7 @@
 				ACB737C023042BAB00FA5626 /* SimpleToast.swift in Sources */,
 				ACB737C123042BAB00FA5626 /* TrackingProtectionPageStats.swift in Sources */,
 				2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
+				46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
 				4620EA4A2350ABF9004586CF /* Search.swift in Sources */,
 				ACB737C223042BAB00FA5626 /* ScreenshotHelper.swift in Sources */,
 				46E9660D236B33C2003C23F3 /* Constants.m in Sources */,
@@ -4797,6 +4815,7 @@
 				46CA60F62317E5D10010CE6B /* JSBridge.m in Sources */,
 				D0C95E36200FDC5500E4E51C /* MetadataParserHelper.swift in Sources */,
 				2B516D35238BAC8B006D6B57 /* LibraryView.swift in Sources */,
+				46ECCD1D23A14E1A002E761C /* TelemetrySetting.swift in Sources */,
 				0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */,
 				ACD6548123619EEB002D2EE0 /* PrivacyDashboardView.swift in Sources */,
 				D87F84AC20B891160091F2DA /* TabDisplayManager.swift in Sources */,
@@ -4815,7 +4834,7 @@
 				D3BA7E0E1B0E934F00153782 /* ContextMenuHelper.swift in Sources */,
 				E660BE061BB0666D009AC090 /* InnerStrokedView.swift in Sources */,
 				46CA60E02316CF300010CE6B /* BrowserActions.m in Sources */,
-				C5B83E62239FA44F003687AC /* PrivacyStatementProfileView.swift in Sources */,
+				C5B83E62239FA44F003687AC /* PrivacyStatementHeaderView.swift in Sources */,
 				7BA8D1C71BA037F500C8AE9E /* OpenInHelper.swift in Sources */,
 				2B4EFBDB2399233A007A10E0 /* News.swift in Sources */,
 				E4B423BE1AB9FE6A007E66C8 /* ReaderModeCache.swift in Sources */,
@@ -4897,6 +4916,7 @@
 				EBE26B57220C959D00D1D99A /* BrowserViewController+TabToolbarDelegate.swift in Sources */,
 				0BD19A671A25309B0084FBA7 /* NSUserDefaultsPrefs.swift in Sources */,
 				2B516D39238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
+				46ECCD1A23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
 				E68AEDB01B18F81A00133D99 /* SwipeAnimator.swift in Sources */,
 				3BF56D271CDBBE1F00AC4D75 /* SimpleToast.swift in Sources */,
 				46E9660C236B33C2003C23F3 /* Constants.m in Sources */,

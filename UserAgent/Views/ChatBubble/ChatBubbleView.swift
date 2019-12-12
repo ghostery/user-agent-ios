@@ -45,7 +45,7 @@ class ChatBubbleView: UIView {
             self.setupLabel(self.message)
         }
     }
-    
+
     init() {
         super.init(frame: .zero)
         self.setupBubbleView()
