@@ -9,6 +9,12 @@
 /* Title displayed on the top of screen. */
 "PrivacyStatement.Title" = "A message about privacy & data";
 
+/* Human Web setting status. */
+"PrivacyStatement.HumanWebStatus" = "Why? Help us improve search quality";
+
+/* Statistic setting status. */
+"PrivacyStatement.StatisticStatus" = "Why? Help us improve the app";
+
 /* Conversation static message. */
 "PrivacyStatement.message1" = "Hi, I'm Krzysztof and I'm building this app.";
 

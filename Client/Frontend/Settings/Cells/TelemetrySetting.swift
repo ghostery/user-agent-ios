@@ -10,17 +10,14 @@ import Foundation
 import Shared
 
 class TelemetrySetting: BoolSetting {
-    convenience init(prefs: Prefs) {
+    convenience init(prefs: Prefs, attributedStatusText: NSAttributedString) {
         self.init(
             prefs: prefs,
             prefKey: AppConstants.PrefSendUsageData,
             defaultValue: true,
             attributedTitleText:
                 NSAttributedString(string: Strings.Settings.SendUsage.Title),
-            attributedStatusText:
-                NSAttributedString(
-                    string: Strings.Settings.SendUsage.Message,
-                    attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])
+            attributedStatusText: attributedStatusText
         )
     }
 }

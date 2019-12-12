@@ -9,6 +9,12 @@
 /* Title displayed on the top of screen. */
 "PrivacyStatement.Title" = "";
 
+/* Human Web setting status. */
+"PrivacyStatement.HumanWebStatus" = "";
+
+/* Statistic setting status. */
+"PrivacyStatement.StatisticStatus" = "";
+
 /* Conversation static message. */
 "PrivacyStatement.message1" = "";
 

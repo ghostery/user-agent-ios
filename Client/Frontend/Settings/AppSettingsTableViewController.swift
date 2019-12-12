@@ -140,7 +140,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             ShowIntroductionSetting(settings: self),
             SendFeedbackSetting(),
             HumanWebSetting(prefs: prefs),
-            TelemetrySetting(prefs: prefs),
+            TelemetrySetting(prefs: prefs, attributedStatusText: NSAttributedString(string: Strings.Settings.SendUsage.Message, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
             PrivacyPolicySetting(),
         ]
         return SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: supportSettigns)

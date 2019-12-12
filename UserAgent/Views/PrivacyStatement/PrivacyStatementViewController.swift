@@ -20,11 +20,11 @@ class PrivacyStatementViewController: UITableViewController {
     private let prefs: Prefs
 
     private lazy var humanWebSetting: HumanWebSetting = {
-        return HumanWebSetting(prefs: self.prefs)
+        return HumanWebSetting(prefs: self.prefs, attributedStatusText: NSAttributedString(string: Strings.PrivacyStatement.HumanWebStatus, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Grey80]))
     }()
 
     private lazy var telemetrySettings: TelemetrySetting = {
-        return TelemetrySetting(prefs: self.prefs)
+        return TelemetrySetting(prefs: self.prefs, attributedStatusText: NSAttributedString(string: Strings.PrivacyStatement.StatisticStatus, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Grey80]))
     }()
 
     init(dataModel: PrivacyStatementData, prefs: Prefs) {
@@ -122,7 +122,13 @@ extension PrivacyStatementViewController {
             let message = self.dataModel.settingsConversations[indexPath.row]
             return ChatBubbleViewCell(message: message)
         case .settings:
-            return UITableViewCell()
+            let cell = ThemedTableViewCell(style: .subtitle, reuseIdentifier: nil)
+            if indexPath.row == 0 {
+                self.humanWebSetting.onConfigureCell(cell)
+            } else {
+                self.telemetrySettings.onConfigureCell(cell)
+            }
+            return cell
         case .repositoryConversation:
             let message = self.dataModel.repositoryConversations[indexPath.row]
             return ChatBubbleViewCell(message: message)
@@ -151,7 +157,7 @@ extension PrivacyStatementViewController {
         case .settingsConversation, .repositoryConversation, .privacyConversation:
             return UITableView.automaticDimension
         case .settings, .repository, .privacy, .message:
-            return 44.0
+            return 70.0
         }
     }
 
