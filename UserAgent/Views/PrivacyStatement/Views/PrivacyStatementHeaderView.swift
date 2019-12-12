@@ -10,10 +10,10 @@ import UIKit
 import Shared
 
 struct PrivacyStatementHeaderViewUI {
-    static let titleFontSize: CGFloat = 40.0
-    static let profileFieldFontSize: CGFloat = 15.0
-    static let offset: CGFloat = 30.0
-    static let height: CGFloat = 200.0
+    static let titleFontSize: CGFloat = 36.0
+    static let profileFieldFontSize: CGFloat = 13.0
+    static let offset: CGFloat = 20.0
+    static let height: CGFloat = 180.0
     static let profileImageSize: CGFloat = 60.0
 }
 
@@ -51,7 +51,8 @@ class PrivacyStatementHeaderView: UIView {
         self.titleLabel.font = UIFont.boldSystemFont(ofSize: PrivacyStatementHeaderViewUI.titleFontSize)
         self.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { (make) in
-            make.left.top.right.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset)
+            make.left.top.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset)
+            make.right.equalTo(self).offset(-PrivacyStatementHeaderViewUI.offset)
         }
     }
 
@@ -62,7 +63,7 @@ class PrivacyStatementHeaderView: UIView {
         self.addSubview(self.profileImageView)
         self.profileImageView.snp.makeConstraints { (make) in
             make.left.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset)
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(PrivacyStatementHeaderViewUI.offset)
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(PrivacyStatementHeaderViewUI.offset / 2)
             make.height.equalTo(PrivacyStatementHeaderViewUI.profileImageSize)
             make.width.equalTo(self.profileImageView.snp.height)
         }
@@ -81,7 +82,7 @@ class PrivacyStatementHeaderView: UIView {
         self.profileInfoLabel.numberOfLines = 2
         let text = NSMutableAttributedString(string: self.profile.name + "\n" + self.profile.title)
         text.addAttributes([NSAttributedString.Key.foregroundColor: Theme.tableView.rowText, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: PrivacyStatementHeaderViewUI.profileFieldFontSize)], range: NSRange(location: 0, length: self.profile.name.count))
-        text.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font: UIFont.systemFont(ofSize: PrivacyStatementHeaderViewUI.profileFieldFontSize)], range: NSRange(location: self.profile.name.count + 1, length: self.profile.title.count))
+        text.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.Grey80, NSAttributedString.Key.font: UIFont.systemFont(ofSize: PrivacyStatementHeaderViewUI.profileFieldFontSize)], range: NSRange(location: self.profile.name.count + 1, length: self.profile.title.count))
         self.profileInfoLabel.attributedText = text
         self.addSubview(self.profileInfoLabel)
         self.profileInfoLabel.snp.makeConstraints { (make) in
