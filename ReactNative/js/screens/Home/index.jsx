@@ -17,12 +17,15 @@ const openSpeedDialLink = speedDial =>
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   container: {
     marginTop: 0,
   },
   contentContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
   },
   wrapper: {
@@ -57,7 +60,6 @@ const styles = StyleSheet.create({
     width: 80,
   },
   logoWrapper: {
-    flex: 1,
     marginTop: 40 - 8,
     marginBottom: 30,
   },
@@ -107,7 +109,7 @@ export default function Home({
   const secondRow = dials.slice(4, 8);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safeArea}>
       <ScrollView
         style={styles.container}
         onScroll={hideKeyboard}
