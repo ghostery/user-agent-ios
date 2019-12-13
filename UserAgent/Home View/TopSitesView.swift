@@ -42,7 +42,7 @@ class TopSitesView: UIView {
 // MARK: - Private Implementation
 private extension TopSitesView {
     private func setup() {
-        profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: false)
+        profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: false, completion: nil)
         _ = profile.history.getTopSitesWithLimit(8).both(
             profile.history.getPinnedTopSites()
             ).bindQueue(.main) { (topSites, pinned) -> Success in

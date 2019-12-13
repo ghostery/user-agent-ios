@@ -84,8 +84,9 @@ class ContextMenuUseCase {
         let removeFromTopSite = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.Remove, iconString: "action_remove") { action in
             if let host = site.tileURL.host {
                 self.profile.history.removeHostFromTopSites(host).uponQueue(.main) { _ in
-                    self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
-                    actionCompletion()
+                    self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true) {
+                        actionCompletion()
+                    }
                 }
             }
         }
