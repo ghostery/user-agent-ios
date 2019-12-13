@@ -31,7 +31,7 @@ enum PrivacyStatementSection: Int, CaseIterable {
 }
 
 struct PrivacyStatementProfile {
-    let avatar = UIImage(named: "privacyStatementProfile")
+    let avatar = UIImage(named: "profileIcon")
     let name = Strings.PrivacyStatement.ProfileName
     let title = Strings.PrivacyStatement.ProfileTitle
 }
