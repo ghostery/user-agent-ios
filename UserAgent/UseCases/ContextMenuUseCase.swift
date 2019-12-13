@@ -15,6 +15,7 @@ enum ContextMenuActions {
     case unpin
     case pin
     case newTab
+    case removeTopSite
 }
 
 public typealias ContextMenuActionCompletion = () -> Void
@@ -26,14 +27,10 @@ class ContextMenuUseCase {
     }
 
     func present(for site: Site, with actions: [ContextMenuActions], on viewController: UIViewController, completion: @escaping ContextMenuActionCompletion) {
-        var photonAction:[PhotonActionSheetItem] = []
+        var photonAction: [PhotonActionSheetItem] = []
         for action in actions {
-            switch action {
-            case .unpin:
-                let unpinAction = self.createActionUnpin(site: site, actionCompletion: completion)
-                photonAction.append(unpinAction)
-            default:
-                break
+            if let action = self.createActionItem(for: action, site: site, completion: completion) {
+                photonAction.append(action)
             }
         }
         let contextMenu = self.createContextMenu(site: site, with: photonAction)
@@ -51,6 +48,18 @@ class ContextMenuUseCase {
         return contextMenu
     }
 
+    private func createActionItem(for action: ContextMenuActions, site: Site, completion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem? {
+        switch action {
+        case .unpin:
+            return self.createActionUnpin(site: site, actionCompletion: completion)
+        case .pin:
+            return self.createActionUnpin(site: site, actionCompletion: completion)
+        default:
+            break
+        }
+        return nil
+    }
+
     private func createActionUnpin(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let removeTopSitesPin = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.RemovePinTopsite, iconString: "action_unpin") { action in
             self.profile.history.removeFromPinnedTopSites(site).uponQueue(.main) { _ in
@@ -58,5 +67,14 @@ class ContextMenuUseCase {
             }
         }
         return removeTopSitesPin
+    }
+
+    private func createActionPin(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
+        let addPinnedTopSite = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.PinTopsite, iconString: "action_pin") { action in
+            self.profile.history.addPinnedTopSite(site).uponQueue(.main) { _ in
+                actionCompletion()
+            }
+        }
+        return addPinnedTopSite
     }
 }
