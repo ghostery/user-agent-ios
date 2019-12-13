@@ -8,6 +8,7 @@
 
 import UIKit
 import Shared
+import MessageUI
 
 struct PrivacyStatementViewControllerUI {
     static let footerHeight: CGFloat = 100.0
@@ -120,6 +121,13 @@ class PrivacyStatementViewController: UITableViewController {
             navigationController.modalPresentationStyle = .formSheet
         }
         self.present(navigationController, animated: true)
+    }
+
+    private func presentMailComposer() {
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients(["support@cliqz.com"])
+        self.present(composer, animated: true)
     }
 
 }
@@ -243,7 +251,11 @@ extension PrivacyStatementViewController: PrivacyStatementSettingCellDelegate {
 extension PrivacyStatementViewController: PrivacyStatementMessageCellDelegate {
 
     func onClickMessageButton() {
-        self.presentWebViewWithPath(path: Strings.FeedbackWebsite, title: Strings.Settings.FAQAndSupport)
+        if MFMailComposeViewController.canSendMail() {
+            self.presentMailComposer()
+        } else {
+            self.presentWebViewWithPath(path: Strings.FeedbackWebsite, title: Strings.Settings.FAQAndSupport)
+        }
     }
 
 }
@@ -252,6 +264,14 @@ extension PrivacyStatementViewController: PrivacyStatementFooterViewDelegate {
 
     func onClickOkButton() {
         self.dismiss(animated: true)
+    }
+
+}
+
+extension PrivacyStatementViewController: MFMailComposeViewControllerDelegate {
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        controller.dismiss(animated: true)
     }
 
 }

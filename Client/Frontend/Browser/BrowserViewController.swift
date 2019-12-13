@@ -1756,7 +1756,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 
-    private func presentPrivacyStatementViewController() {
+    func presentPrivacyStatementViewController() {
         let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
         let privacyStatementViewController = PrivacyStatementNavigationController(dataModel: dataModel, prefs: self.profile.prefs)
         if topTabsVisible && UIDevice.current.isPad {
