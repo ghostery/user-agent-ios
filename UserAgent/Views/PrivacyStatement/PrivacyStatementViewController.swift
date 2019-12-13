@@ -55,6 +55,7 @@ class PrivacyStatementViewController: UITableViewController {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done) { (_) in
             self.dismiss(animated: true)
         }
+        doneButton.accessibilityLabel = "PrivacyStatementDone"
         self.navigationItem.rightBarButtonItem = doneButton
         self.navigationController?.navigationBar.barTintColor = UIColor.Grey20
         self.navigationController?.navigationBar.isTranslucent = false
