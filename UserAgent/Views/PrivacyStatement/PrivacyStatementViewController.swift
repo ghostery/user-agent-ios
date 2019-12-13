@@ -91,9 +91,10 @@ class PrivacyStatementViewController: UITableViewController {
         viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.DownloadsPanel.DoneTitle, style: .done, closure: { (_) in
             navigationController.dismiss(animated: true)
         })
-        if UIDevice.current.isPad {
-            navigationController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
-            navigationController.modalPresentationStyle = .formSheet
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
         self.present(navigationController, animated: true)
     }
@@ -102,9 +103,10 @@ class PrivacyStatementViewController: UITableViewController {
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
         composer.setToRecipients(["support@cliqz.com"])
-        if UIDevice.current.isPad {
-            composer.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
-            composer.modalPresentationStyle = .formSheet
+        if #available(iOS 13.0, *) {
+            composer.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+        } else {
+            composer.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
         self.present(composer, animated: true)
     }
