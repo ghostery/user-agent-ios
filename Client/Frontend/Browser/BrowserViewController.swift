@@ -40,6 +40,7 @@ protocol HomeViewControllerProtocol: Themeable {
     func willMove(toParent parent: UIViewController?)
     func removeFromParent()
     func switchView(segment: HomeViewController.Segment)
+    func refresh()
 }
 
 class BrowserViewController: UIViewController {

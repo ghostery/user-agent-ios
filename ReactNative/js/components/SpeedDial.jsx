@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { parse } from 'tldts';
 import Logo from './Logo';
@@ -41,14 +41,23 @@ const getStyles = theme => ({
   },
 });
 
-const SpeedDial = ({ speedDial, onPress, theme, style = {} }) => {
+const SpeedDial = ({ speedDial, onPress, onLongPress, theme, style = {} }) => {
   const styles = getStyles(theme);
   const { url } = speedDial;
   const name = parse(url).domain;
-  /* eslint-disable prettier/prettier */
+  const pressAction = useCallback(() => onPress(speedDial), [
+    onPress,
+    speedDial,
+  ]);
+  const longPressAction = useCallback(
+    () => (onLongPress ? onLongPress(speedDial) : null),
+    [onLongPress, speedDial],
+  );
+
   return (
     <TouchableWithoutFeedback
-      onPress={() => onPress(speedDial)}
+      onPress={pressAction}
+      onLongPress={longPressAction}
     >
       <View
         style={{
@@ -57,7 +66,7 @@ const SpeedDial = ({ speedDial, onPress, theme, style = {} }) => {
         }}
       >
         <View style={styles.circle}>
-          {speedDial.pinned &&
+          {speedDial.pinned && (
             <View style={styles.pin}>
               <NativeDrawable
                 style={styles.pinIcon}
@@ -65,21 +74,15 @@ const SpeedDial = ({ speedDial, onPress, theme, style = {} }) => {
                 source="ic_ez_pin"
               />
             </View>
-          }
-          <Logo
-            key={speedDial.url}
-            url={speedDial.url}
-            size={30}
-          />
+          )}
+          <Logo key={speedDial.url} url={speedDial.url} size={30} />
         </View>
-        <Text
-          numberOfLines={1}
-          style={styles.label}
-        >{name}</Text>
+        <Text numberOfLines={1} style={styles.label}>
+          {name}
+        </Text>
       </View>
     </TouchableWithoutFeedback>
   );
-  /* eslint-enable prettier/prettier */
 };
 
 export default withTheme(SpeedDial);

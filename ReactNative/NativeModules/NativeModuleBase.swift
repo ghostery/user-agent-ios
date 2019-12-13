@@ -8,14 +8,15 @@
 
 import Foundation
 
-class UseCases {
+protocol NativeModuleBase {
 
-    var tabUseCases: TabUseCases
-    var contextMenu: ContextMenuUseCase
+}
 
-    init(tabManager: TabManager, profile: Profile) {
-        self.tabUseCases = TabUseCases(tabManager: tabManager)
-        self.contextMenu = ContextMenuUseCase(profile: profile)
+extension NativeModuleBase {
+    func withAppDelegate(completion: @escaping (AppDelegate) -> Void) {
+        DispatchQueue.main.async {
+            guard let appDel = UIApplication.shared.delegate as? AppDelegate else { return }
+            completion(appDel)
+        }
     }
-
 }

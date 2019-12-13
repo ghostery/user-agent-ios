@@ -13,7 +13,7 @@ protocol DataObserver {
     var profile: Profile { get }
     var delegate: DataObserverDelegate? { get set }
 
-    func refreshIfNeeded(forceTopSites topSites: Bool)
+    func refreshIfNeeded(forceTopSites topSites: Bool, completion: (() -> Void)?)
 }
 
 protocol DataObserverDelegate: AnyObject {
@@ -53,8 +53,9 @@ class ActivityStreamDataObserver: DataObserver {
      refreshIfNeeded will refresh the underlying caches for TopSites.
      By default this will only refresh topSites if KeyTopSitesCacheIsValid is false
      */
-    func refreshIfNeeded(forceTopSites topSites: Bool) {
+    func refreshIfNeeded(forceTopSites topSites: Bool, completion: (() -> Void)? = nil) {
         guard !profile.isShutdown else {
+            completion?()
             return
         }
 
@@ -62,6 +63,7 @@ class ActivityStreamDataObserver: DataObserver {
         let shouldInvalidateTopSites = topSites || !(profile.prefs.boolForKey(PrefsKeys.KeyTopSitesCacheIsValid) ?? false)
         if !shouldInvalidateTopSites {
             // There is nothing to refresh. Bye
+            completion?()
             return
         }
 
@@ -74,6 +76,7 @@ class ActivityStreamDataObserver: DataObserver {
         self.delegate?.willInvalidateDataSources(forceTopSites: topSites)
         self.profile.recommendations.repopulate(invalidateTopSites: shouldInvalidateTopSites).uponQueue(.main) { _ in
             self.delegate?.didInvalidateDataSources(refresh: topSites, topSitesRefreshed: shouldInvalidateTopSites)
+            completion?()
         }
     }
 

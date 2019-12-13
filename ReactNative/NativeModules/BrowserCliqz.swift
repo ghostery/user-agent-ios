@@ -11,15 +11,7 @@ import React
 import Shared
 
 @objc(BrowserCliqz)
-class BrowserCliqz: RCTEventEmitter {
-
-    private func withAppDelegate(completion: @escaping (AppDelegate) -> Void) {
-        DispatchQueue.main.async {
-            guard let appDel = UIApplication.shared.delegate as? AppDelegate else { return }
-            completion(appDel)
-        }
-    }
-
+class BrowserCliqz: RCTEventEmitter, NativeModuleBase {
     private let PrefMapping = [
         "toolkit.telemetry.enabled": AppConstants.PrefSendUsageData,
     ]
