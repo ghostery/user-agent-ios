@@ -276,6 +276,7 @@ extension PrivacyStatementViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
 //        controller.dismiss(animated: true)
+        controller.dismiss(animated: true)
     }
 
 }

@@ -11,7 +11,8 @@ import UIKit
 struct PrivacyStatementMessageCellUI {
     static let titleFontSize: CGFloat = 12.0
     static let titleOffset: CGFloat = 20.0
-    static let iconSize: CGFloat = 15.0
+    static let iconWidth: CGFloat = 17.0
+    static let iconHeight: CGFloat = 13.0
     static let iconOffet: CGFloat = 5.0
 }
 
@@ -66,7 +67,7 @@ class PrivacyStatementMessageCell: ThemedTableViewCell {
         self.titleButton?.snp.makeConstraints({ (make) in
             make.right.equalTo(self).offset(-PrivacyStatementMessageCellUI.titleOffset)
             make.top.equalTo(self).offset(PrivacyStatementMessageCellUI.titleOffset / 2)
-            make.height.equalTo(2 * PrivacyStatementMessageCellUI.iconSize)
+            make.height.equalTo(2 * PrivacyStatementMessageCellUI.iconHeight)
         })
         self.iconImageView = UIImageView()
         self.iconImageView?.tintColor = Theme.general.controlTint
@@ -74,8 +75,8 @@ class PrivacyStatementMessageCell: ThemedTableViewCell {
         self.iconImageView?.snp.makeConstraints({ (make) in
             make.centerY.equalTo(self.titleButton!.snp.centerY)
             make.right.equalTo(self.titleButton!.snp.left).offset(-PrivacyStatementMessageCellUI.iconOffet)
-            make.width.equalTo(self.iconImageView!.snp.height)
-            make.width.equalTo(PrivacyStatementMessageCellUI.iconSize)
+            make.width.equalTo(PrivacyStatementMessageCellUI.iconWidth)
+            make.height.equalTo(PrivacyStatementMessageCellUI.iconHeight)
         })
     }
 
