@@ -571,6 +571,9 @@
 		C52F2D52235610C800146300 /* Tab+ChangeUserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */; };
 		C52F2D5723561BFA00146300 /* SearchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */; };
 		C52F2D5823561BFA00146300 /* SearchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */; };
+		C53212E423A3EB2900AEC9B2 /* PrivacyStatementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E65239FA589003687AC /* PrivacyStatementData.swift */; };
+		C53212E523A3EB3900AEC9B2 /* PrivacyStatementHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */; };
+		C53212E623A3EB3D00AEC9B2 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */; };
 		C56ED497233B692B006A63B1 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ED496233B692B006A63B1 /* Interceptor.swift */; };
 		C56ED498233B692B006A63B1 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ED496233B692B006A63B1 /* Interceptor.swift */; };
 		C56ED49E233B712F006A63B1 /* InterceptorFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ED49D233B712F006A63B1 /* InterceptorFeature.swift */; };
@@ -4579,6 +4582,7 @@
 				2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */,
 				2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */,
 				463432F92332521F0014A9F0 /* Telemetry.swift in Sources */,
+				C53212E423A3EB2900AEC9B2 /* PrivacyStatementData.swift in Sources */,
 				ACB7374823042BAB00FA5626 /* TestAppDelegate.swift in Sources */,
 				2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */,
 				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
@@ -4674,6 +4678,7 @@
 				ACB737A623042BAB00FA5626 /* ReaderModeBarView.swift in Sources */,
 				ACB737A723042BAB00FA5626 /* SiriSettingsViewController.swift in Sources */,
 				ACB737A823042BAB00FA5626 /* ContentBlocker.swift in Sources */,
+				C53212E523A3EB3900AEC9B2 /* PrivacyStatementHeaderView.swift in Sources */,
 				ACB737A923042BAB00FA5626 /* PhotonActionSheetProtocol.swift in Sources */,
 				2B516D30238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */,
 				46CA60E12316CF300010CE6B /* BrowserActions.m in Sources */,
@@ -4707,6 +4712,7 @@
 				2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
 				2B8DDBB323A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */,
 				46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
+				C53212E623A3EB3D00AEC9B2 /* ChatBubbleView.swift in Sources */,
 				46ECCD2723A3864E002E761C /* NativeModuleBase.swift in Sources */,
 				4620EA4A2350ABF9004586CF /* Search.swift in Sources */,
 				ACB737C223042BAB00FA5626 /* ScreenshotHelper.swift in Sources */,
