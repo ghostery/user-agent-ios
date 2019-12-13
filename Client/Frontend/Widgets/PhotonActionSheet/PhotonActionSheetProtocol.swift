@@ -358,7 +358,7 @@ extension PhotonActionSheetProtocol {
     }
 
     private func openPrivacyStatementItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
-        let openSettings = PhotonActionSheetItem(title: Strings.Menu.PrivacyStatementTitleString, iconString: "") { action in
+        let openSettings = PhotonActionSheetItem(title: Strings.Menu.PrivacyStatementTitleString, iconString: "chat") { action in
             (vcDelegate as? BrowserViewController)?.presentPrivacyStatementViewController()
         }
         return openSettings
