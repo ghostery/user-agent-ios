@@ -53,7 +53,9 @@ class ContextMenuUseCase {
         case .unpin:
             return self.createActionUnpin(site: site, actionCompletion: completion)
         case .pin:
-            return self.createActionUnpin(site: site, actionCompletion: completion)
+            return self.createActionPin(site: site, actionCompletion: completion)
+        case .removeTopSite:
+            return self.createActionRemoveTopSite(site: site, actionCompletion: completion)
         default:
             break
         }
@@ -76,5 +78,17 @@ class ContextMenuUseCase {
             }
         }
         return addPinnedTopSite
+    }
+
+    private func createActionRemoveTopSite(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
+        let removeFromTopSite = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.Remove, iconString: "action_remove") { action in
+            if let host = site.tileURL.host {
+                self.profile.history.removeHostFromTopSites(host).uponQueue(.main) { _ in
+                    self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true)
+                    actionCompletion()
+                }
+            }
+        }
+        return removeFromTopSite
     }
 }

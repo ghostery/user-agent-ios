@@ -21,6 +21,8 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
 
         if isPinned {
             actions += [.unpin]
+        } else {
+            actions += [.pin, .removeTopSite]
         }
 
         self.withAppDelegate { appDel in
@@ -29,7 +31,6 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
             sql.getSites(forURLs: [url.absoluteString]).uponQueue(.main) { result in
                 let site = result.successValue?.asArray().first?.flatMap({ $0 })
                     ?? Site(url: url.absoluteString, title: url.normalizedHost ?? rawUrl)
-
                 appDel.useCases.contextMenu.present(
                     for: site,
                     with: actions,
