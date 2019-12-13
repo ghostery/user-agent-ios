@@ -99,6 +99,20 @@ class PrivacyStatementViewController: UITableViewController {
         self.tableView.tableFooterView = footerView
     }
 
+    private func presentWebViewWithPath(path: String, title: String) {
+        guard let url = URL(string: path) else {
+            return
+        }
+        let viewController = SettingsContentViewController()
+        viewController.url = url
+        viewController.title = title
+        let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.DownloadsPanel.DoneTitle, style: .done, closure: { (_) in
+            navigationController.dismiss(animated: true)
+        })
+        self.present(navigationController, animated: true)
+    }
+
 }
 
 // UITableViewDataSource
@@ -188,12 +202,27 @@ extension PrivacyStatementViewController {
         }
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let section = PrivacyStatementSection(rawValue: indexPath.section) else {
+            return
+        }
+        switch section {
+        case .repository:
+            self.presentWebViewWithPath(path: "https://github.com/cliqz/user-agent-ios", title: Strings.PrivacyStatement.RepositoryTitle)
+        case .privacy:
+            self.presentWebViewWithPath(path: "https://www.cliqz.com/mobile/privacy-cliqz-for-ios", title: Strings.PrivacyStatement.PrivacyTitle)
+        default: break
+        }
+    }
+
 }
 
 extension PrivacyStatementViewController: PrivacyStatementSettingCellDelegate {
 
     func onClickInfoButton() {
-        // TODO: Present web view with info link.
+        // TODO: Fix path and title.
+        self.presentWebViewWithPath(path: "https://cliqz.com", title: "Info")
     }
 
 }
