@@ -218,11 +218,11 @@ class ShowIntroductionSetting: Setting {
 
 class SendFeedbackSetting: Setting {
     override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("FAQ & Support", comment: "Menu item in settings used to open https://cliqz.com/support"), attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
+        return NSAttributedString(string: Strings.Settings.FAQAndSupport, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
     }
 
     override var url: URL? {
-        return URL(string: "https://cliqz.com/support")
+        return URL(string: Strings.FeedbackWebsite)
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -341,7 +341,7 @@ class PrivacyPolicySetting: Setting {
     }
 
     override var url: URL? {
-        return URL(string: "https://www.cliqz.com/mobile/privacy-cliqz-for-ios")
+        return URL(string: Strings.PrivacyPolicyWebsite)
     }
 
     override func onClick(_ navigationController: UINavigationController?) {

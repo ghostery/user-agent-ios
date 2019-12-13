@@ -1730,16 +1730,18 @@ extension BrowserViewController: IntroViewControllerDelegate {
 
             return true
         }
-
         return false
     }
 
     func introViewControllerDidFinish(_ introViewController: IntroViewController) {
+        let shouldPresentPrivacyStatement = self.profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil
         self.profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
-
         introViewController.dismiss(animated: true) {
             if self.navigationController?.viewControllers.count ?? 0 > 1 {
                 _ = self.navigationController?.popToRootViewController(animated: true)
+            }
+            if shouldPresentPrivacyStatement {
+                self.presentPrivacyStatementViewController()
             }
         }
     }
@@ -1751,6 +1753,18 @@ extension BrowserViewController: IntroViewControllerDelegate {
     @objc func dismissSignInViewController() {
         self.dismiss(animated: true, completion: nil)
     }
+
+    func presentPrivacyStatementViewController() {
+        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
+        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
+        let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+        }
+        self.present(navigationController, animated: true)
+   }
 
 }
 

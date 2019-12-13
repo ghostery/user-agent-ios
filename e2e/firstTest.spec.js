@@ -10,6 +10,9 @@ const passOnboarding = async () => {
   const button$ = element(by.id('IntroViewController.startBrowsingButton'));
   await waitFor(button$).toBeVisible().withTimeout(2000);
   await button$.tap();
+  const doneButton$ = element(by.label('PrivacyStatementDone'));
+  await waitFor(doneButton$).toBeVisible().withTimeout(2000);
+  await doneButton$.tap();
   await waitFor(element(by.id('url'))).toBeVisible().withTimeout(2000);
 }
 

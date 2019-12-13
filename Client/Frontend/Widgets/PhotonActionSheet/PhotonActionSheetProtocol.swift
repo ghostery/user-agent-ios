@@ -61,6 +61,7 @@ extension PhotonActionSheetProtocol {
     func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         return [
             self.openWhatsNewItem(),
+            self.openPrivacyStatementItem(vcDelegate: vcDelegate),
             self.openSettingsItem(vcDelegate: vcDelegate),
         ]
     }
@@ -352,6 +353,13 @@ extension PhotonActionSheetProtocol {
             }
             let newTab = self.tabManager.addTab(URLRequest(url: url))
             self.tabManager.selectTab(newTab)
+        }
+        return openSettings
+    }
+
+    private func openPrivacyStatementItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
+        let openSettings = PhotonActionSheetItem(title: Strings.Menu.PrivacyStatementTitleString, iconString: "chat") { action in
+            (vcDelegate as? BrowserViewController)?.presentPrivacyStatementViewController()
         }
         return openSettings
     }

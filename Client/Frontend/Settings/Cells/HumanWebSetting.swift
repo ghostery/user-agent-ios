@@ -10,11 +10,12 @@ import Foundation
 import Shared
 
 class HumanWebSetting: BoolSetting {
-    convenience init(prefs: Prefs) {
+    convenience init(prefs: Prefs, attributedStatusText: NSAttributedString? = nil) {
         self.init(
             prefs: prefs,
             defaultValue: false,
-            titleText: Strings.Settings.HumanWebTitle,
+            attributedTitleText: NSAttributedString(string: Strings.Settings.HumanWebTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]),
+            attributedStatusText: attributedStatusText,
             enabled: false
         ) { (value) in
             if value {
