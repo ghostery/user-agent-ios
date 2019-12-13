@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import Storage
 
 @objc(ContextMenu)
 class ContextMenuNativeModule: NSObject, NativeModuleBase {
 
     @objc(speedDial:)
     public func speedDial(url_str: NSString) {
-        guard let url = URL(string: url_str as String) else { return }
+//        guard let url = URL(string: url_str as String) else { return }
 
         self.withAppDelegate { appDel in
-            //appDel.useCases
+            let site = Site(url: String(url_str), title: String(url_str))
+            appDel.useCases.contextMenu.present(for: site, with: [.unpin], on: appDel.browserViewController)
         }
     }
 

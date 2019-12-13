@@ -572,6 +572,8 @@
 		C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B53233112CD00D3F31F /* Bookmarks.swift */; };
 		C5E94B58233112CD00D3F31F /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B54233112CD00D3F31F /* BookmarksModel.swift */; };
 		C5E94B5A233112CD00D3F31F /* Trees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B56233112CD00D3F31F /* Trees.swift */; };
+		C5F986B123A384CB006E006A /* ContextMenuUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */; };
+		C5F986B223A384CB006E006A /* ContextMenuUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */; };
 		C817B34D1FC609500086018E /* UIScrollViewSwizzled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */; };
 		C82CDD47233E8996002E2743 /* Tab+ChangeUserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */; };
 		C8611C8E1F71904C00C3DE7D /* DiskImageStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF8CBC1B7472FA0007AFE6 /* DiskImageStoreTests.swift */; };
@@ -1352,6 +1354,7 @@
 		C5E94B53233112CD00D3F31F /* Bookmarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		C5E94B54233112CD00D3F31F /* BookmarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
 		C5E94B56233112CD00D3F31F /* Trees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trees.swift; sourceTree = "<group>"; };
+		C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuUseCase.swift; sourceTree = "<group>"; };
 		C62CE646A71600AB2E55CF4C /* Pods-StoragePerfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoragePerfTests.debug.xcconfig"; path = "Target Support Files/Pods-StoragePerfTests/Pods-StoragePerfTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewSwizzled.swift; sourceTree = "<group>"; };
 		C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tab+ChangeUserAgent.swift"; sourceTree = "<group>"; };
@@ -1866,6 +1869,7 @@
 			children = (
 				2B473CF0239637DE00442059 /* UseCases.swift */,
 				2B473CF32396387B00442059 /* TabBarUseCases.swift */,
+				C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -4654,6 +4658,7 @@
 				ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */,
 				464E683C234CB06200ABAC43 /* HomeView.swift in Sources */,
 				46E96604236B2793003C23F3 /* UserAgentConstants.swift in Sources */,
+				C5F986B223A384CB006E006A /* ContextMenuUseCase.swift in Sources */,
 				ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */,
 				464E6839234B75E300ABAC43 /* LogoView.swift in Sources */,
 				46BBFA652358B10400283594 /* BrowserCliqz.swift in Sources */,
@@ -4906,6 +4911,7 @@
 				B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
 				46E96603236B2793003C23F3 /* UserAgentConstants.swift in Sources */,
+				C5F986B123A384CB006E006A /* ContextMenuUseCase.swift in Sources */,
 				464E683B234CB06200ABAC43 /* HomeView.swift in Sources */,
 				EBA3B2D22268F57E00728BDB /* BadgeIcon.swift in Sources */,
 				464E6838234B75E300ABAC43 /* LogoView.swift in Sources */,

@@ -11,9 +11,11 @@ import Foundation
 class UseCases {
 
     var tabUseCases: TabUseCases
+    var contextMenu: ContextMenuUseCase
 
-    init(tabManager: TabManager) {
+    init(tabManager: TabManager, profile: Profile) {
         self.tabUseCases = TabUseCases(tabManager: tabManager)
+        self.contextMenu = ContextMenuUseCase(profile: profile)
     }
 
 }
