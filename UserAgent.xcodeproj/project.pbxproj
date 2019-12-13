@@ -86,6 +86,8 @@
 		2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
 		2B8DDBA323A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
 		2B8DDBA423A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
+		2B8DDBAC23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */; };
+		2B8DDBAD23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
@@ -1083,6 +1085,7 @@
 		2B76E43A23A12AEA001CF20E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivacyStatement.strings; sourceTree = "<group>"; };
 		2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleViewCell.swift; sourceTree = "<group>"; };
 		2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyStatement.xcassets; sourceTree = "<group>"; };
+		2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementSettingCell.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
@@ -2430,6 +2433,7 @@
 			children = (
 				C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */,
 				2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */,
+				2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4508,6 +4512,7 @@
 				ACB7372E23042BAB00FA5626 /* PanelDataObservers.swift in Sources */,
 				ACB7372F23042BAB00FA5626 /* ClipboardBarDisplayHandler.swift in Sources */,
 				ACB7373023042BAB00FA5626 /* HistoryBackButton.swift in Sources */,
+				2B8DDBAD23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */,
 				ACB7373123042BAB00FA5626 /* Theme.swift in Sources */,
 				ACB7373223042BAB00FA5626 /* OneLineCell.swift in Sources */,
 				ACB7373323042BAB00FA5626 /* FindInPageHelper.swift in Sources */,
@@ -4884,6 +4889,7 @@
 				66CE54A820FCF6CF00CC310B /* WebsiteDataManagementViewController.swift in Sources */,
 				39455F771FC83F430088A22C /* TabEventHandler.swift in Sources */,
 				E47616C71AB74CA600E7DD25 /* ReaderModeBarView.swift in Sources */,
+				2B8DDBAC23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */,
 				D821E90E2141B71C00452C55 /* SiriSettingsViewController.swift in Sources */,
 				EBB89507219398E500EB91A0 /* ContentBlocker.swift in Sources */,
 				2B516D2F238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */,

@@ -21,16 +21,13 @@ class ChatBubbleViewCell: UITableViewCell {
 
     init(message: String) {
         super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: nil)
+        self.selectionStyle = .none
         self.message = message
         self.setup()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
     }
 
     // MARK: - Private methods

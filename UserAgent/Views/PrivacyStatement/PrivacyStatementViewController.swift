@@ -12,6 +12,8 @@ import Shared
 struct PrivacyStatementViewControllerUI {
     static let footerHeight: CGFloat = 100.0
     static let okButtonHeight: CGFloat = 40.0
+    static let actionCellHeight: CGFloat = 70.0
+    static let separatorLeftOffset: CGFloat = 40.0
 }
 
 class PrivacyStatementViewController: UITableViewController {
@@ -122,11 +124,17 @@ extension PrivacyStatementViewController {
             let message = self.dataModel.settingsConversations[indexPath.row]
             return ChatBubbleViewCell(message: message)
         case .settings:
-            let cell = ThemedTableViewCell(style: .subtitle, reuseIdentifier: nil)
+            let cell = PrivacyStatementSettingCell(style: .subtitle, reuseIdentifier: nil)
             if indexPath.row == 0 {
+                cell.delegate = self
                 self.humanWebSetting.onConfigureCell(cell)
+                cell.hasBottomSeparator = true
+                cell.hasTopSeparator = true
+                cell.bottomSeparatorOffsets = (PrivacyStatementViewControllerUI.separatorLeftOffset, 0.0)
+                cell.infoButtonImage = UIImage(named: "privacyStatementLogo")
             } else {
                 self.telemetrySettings.onConfigureCell(cell)
+                cell.hasBottomSeparator = true
             }
             return cell
         case .repositoryConversation:
@@ -157,8 +165,16 @@ extension PrivacyStatementViewController {
         case .settingsConversation, .repositoryConversation, .privacyConversation:
             return UITableView.automaticDimension
         case .settings, .repository, .privacy, .message:
-            return 70.0
+            return PrivacyStatementViewControllerUI.actionCellHeight
         }
+    }
+
+}
+
+extension PrivacyStatementViewController: PrivacyStatementSettingCellDelegate {
+
+    func onClickInfoButton() {
+        // TODO: Present web view with info link.
     }
 
 }
