@@ -7,41 +7,40 @@
 */
 
 /* Title displayed on the top of screen. */
-"PrivacyStatement.Title" = "";
+"PrivacyStatement.Title" = "A message about privacy & data";
 
 /* Human Web setting status. */
-"PrivacyStatement.HumanWebStatus" = "";
+"PrivacyStatement.HumanWebStatus" = "Why? Help us improve search quality";
 
 /* Statistic setting status. */
-"PrivacyStatement.StatisticStatus" = "";
+"PrivacyStatement.StatisticStatus" = "Why? Help us improve the app";
 
 /* Repository title. */
-"PrivacyStatement.RepositoryTitle" = "";
+"PrivacyStatement.RepositoryTitle" = "GitHub Repository";
 
 /* Repository subtitle. */
-"PrivacyStatement.RepositorySubtitle" = "";
+"PrivacyStatement.RepositorySubtitle" = "This app is open source";
 
 /* Privacy title. */
-"PrivacyStatement.PrivacyTitle" = "";
+"PrivacyStatement.PrivacyTitle" = "Cliqz Privacy Policy";
 
 /* Privacy subtitle. */
-"PrivacyStatement.PrivacySubtitle" = "";
+"PrivacyStatement.PrivacySubtitle" = "Beware: written by lawyers, so not easy to read";
 
 /* Message cell tile. */
 "PrivacyStatement.MessageCellTitle" = "Write a message";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation1" = "";
+"PrivacyStatement.SettingsConversation1" = "Hi, I'm Krzysztof and I'm building this app.";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation2" = "";
+"PrivacyStatement.SettingsConversation2" = "I like privacy and transparency. Still data is important to build great products.";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation3" = "";
+"PrivacyStatement.SettingsConversation3" = "That's why this app collects some data, but no data that could identify you. Yet, I believe you should decide what you want to share.";
 
 /* Conversation static message. */
-"PrivacyStatement.RepositoryConversation" = "";
+"PrivacyStatement.RepositoryConversation" = "Don't take my word, check it our for yourself.";
 
 /* Conversation static message. */
-"PrivacyStatement.PrivacyConversation" = "";
-
+"PrivacyStatement.PrivacyConversation" = "FYI, below is a more wordy version of this.";

@@ -92,6 +92,8 @@
 		2B8DDBB023A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */; };
 		2B8DDBB223A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */; };
 		2B8DDBB323A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */; };
+		2B8DDBB523A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */; };
+		2B8DDBB623A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
@@ -1092,6 +1094,7 @@
 		2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementSettingCell.swift; sourceTree = "<group>"; };
 		2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementDisclosureCell.swift; sourceTree = "<group>"; };
 		2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementCell.swift; sourceTree = "<group>"; };
+		2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementMessageCell.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
@@ -2442,6 +2445,7 @@
 				2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */,
 				2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */,
 				2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */,
+				2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4558,6 +4562,7 @@
 				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
 				46CA60FF2317F8F60010CE6B /* SearchResultsViewController.swift in Sources */,
 				ACB7374A23042BAB00FA5626 /* Clearables.swift in Sources */,
+				2B8DDBB623A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */,
 				46E96607236B27E6003C23F3 /* UserAgentConstants.m in Sources */,
 				46BBFA682358B13A00283594 /* BrowserCliqz.m in Sources */,
 				ACB7374B23042BAB00FA5626 /* MailProviders.swift in Sources */,
@@ -4867,6 +4872,7 @@
 				39CE74F821A83105007AE4F2 /* TranslationSettingsController.swift in Sources */,
 				282DA4731A68C1E700A406E2 /* OpenSearch.swift in Sources */,
 				D0625CA8208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift in Sources */,
+				2B8DDBB523A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */,
 				2F44FCC71A9E8CF500FD20CC /* SearchSettingsTableViewController.swift in Sources */,
 				39A359E41BFCCE94006B9E87 /* UserActivityHandler.swift in Sources */,
 				D88FDAAF1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift in Sources */,

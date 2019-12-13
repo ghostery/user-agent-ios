@@ -185,6 +185,7 @@ extension Strings {
         public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
         public static let AdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
         public static let HumanWebTitle = NSLocalizedString("Settings.HumanWeb.Title", comment: "The title for the human web setting")
+        public static let FAQAndSupport = NSLocalizedString("FAQ & Support", comment: "Menu item in settings used to open https://cliqz.com/support")
     }
 
     // MARK: - Error Pages

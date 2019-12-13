@@ -33,7 +33,6 @@ class PrivacyStatementDisclosureCell: PrivacyStatementCell {
         self.textLabel?.textColor = Theme.tableView.rowText
         self.detailTextLabel?.textColor = UIColor.Grey80
         self.accessoryType = .disclosureIndicator
-        self.tintColor = .red
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -181,7 +181,11 @@ extension PrivacyStatementViewController {
             cell.detailTitle = Strings.PrivacyStatement.PrivacySubtitle
             return cell
         case .message:
-            return UITableViewCell()
+            let cell = PrivacyStatementMessageCell()
+            cell.delegate = self
+            cell.title = Strings.PrivacyStatement.MessageCellTitle
+            cell.icon = UIImage(named: "privacyStatementMessage")
+            return cell
         }
     }
 
@@ -209,9 +213,9 @@ extension PrivacyStatementViewController {
         }
         switch section {
         case .repository:
-            self.presentWebViewWithPath(path: "https://github.com/cliqz/user-agent-ios", title: Strings.PrivacyStatement.RepositoryTitle)
+            self.presentWebViewWithPath(path: Strings.RepositoryWebsite, title: Strings.PrivacyStatement.RepositoryTitle)
         case .privacy:
-            self.presentWebViewWithPath(path: "https://www.cliqz.com/mobile/privacy-cliqz-for-ios", title: Strings.PrivacyStatement.PrivacyTitle)
+            self.presentWebViewWithPath(path: Strings.PrivacyPolicyWebsite, title: Strings.PrivacyStatement.PrivacyTitle)
         default: break
         }
     }
@@ -221,8 +225,15 @@ extension PrivacyStatementViewController {
 extension PrivacyStatementViewController: PrivacyStatementSettingCellDelegate {
 
     func onClickInfoButton() {
-        // TODO: Fix path and title.
-        self.presentWebViewWithPath(path: "https://cliqz.com", title: "Info")
+        self.presentWebViewWithPath(path: Strings.HumanWebInfoWebsite, title: Strings.Settings.HumanWebTitle)
+    }
+
+}
+
+extension PrivacyStatementViewController: PrivacyStatementMessageCellDelegate {
+
+    func onClickMessageButton() {
+        self.presentWebViewWithPath(path: Strings.FeedbackWebsite, title: Strings.Settings.FAQAndSupport)
     }
 
 }

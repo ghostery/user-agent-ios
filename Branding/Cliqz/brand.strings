@@ -7,3 +7,7 @@
 */
 "website" = "https://cliqz.com/";
 "whatsNewWebsite" = "https://cliqz.com/magazine/cliqz-ios-3-1-0";
+"humanWebInfoWebsite" = "https://cliqz.com";
+"repositoryWebsite" = "https://github.com/cliqz/user-agent-ios";
+"privacyPolicyWebsite" = "https://www.cliqz.com/mobile/privacy-cliqz-for-ios";
+"feedbackWebsite" = "https://cliqz.com/support";
