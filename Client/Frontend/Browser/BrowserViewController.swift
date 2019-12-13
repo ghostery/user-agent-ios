@@ -1710,9 +1710,6 @@ extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
 extension BrowserViewController: IntroViewControllerDelegate {
     @discardableResult
     func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
-        // TODO: This is for testing.
-        self.presentPrivacyStatementViewController()
-        //
         if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
             let introViewController = IntroViewController()
             introViewController.delegate = self
