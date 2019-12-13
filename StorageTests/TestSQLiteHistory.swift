@@ -1136,7 +1136,7 @@ class TestSQLiteHistory: XCTestCase {
             return countTopSites()
         })
         .upon({ (count: Maybe<Cursor<Int>>) in
-            XCTAssert(count.successValue![0] == 2, "2 site returned")
+            XCTAssert(count.successValue![0] == 1, "1 site returned")
             expectation.fulfill()
         })
 
