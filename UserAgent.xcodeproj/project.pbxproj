@@ -95,6 +95,8 @@
 		2B8DDBB523A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */; };
 		2B8DDBB623A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */; };
 		2B8DDBB723A3B84600D2CE7A /* PrivacyStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */; };
+		2B8DDBB923A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
+		2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
@@ -1096,6 +1098,7 @@
 		2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementDisclosureCell.swift; sourceTree = "<group>"; };
 		2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementCell.swift; sourceTree = "<group>"; };
 		2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementMessageCell.swift; sourceTree = "<group>"; };
+		2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementFooterView.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
@@ -2442,6 +2445,7 @@
 			isa = PBXGroup;
 			children = (
 				C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */,
+				2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */,
 				2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */,
 				2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */,
 				2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */,
@@ -4575,6 +4579,7 @@
 				ACB7375123042BAB00FA5626 /* SessionData.swift in Sources */,
 				ACB7375223042BAB00FA5626 /* TabToolbar.swift in Sources */,
 				ACB7375323042BAB00FA5626 /* SyncContentSettingsViewController.swift in Sources */,
+				2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */,
 				ACB7375623042BAB00FA5626 /* TopTabsViews.swift in Sources */,
 				ACB7375923042BAB00FA5626 /* FocusHelper.swift in Sources */,
 				C52F2D52235610C800146300 /* Tab+ChangeUserAgent.swift in Sources */,
@@ -4956,6 +4961,7 @@
 				C52F2D5723561BFA00146300 /* SearchSettingsTableViewCell.swift in Sources */,
 				EBB89508219398E500EB91A0 /* ContentBlocker+Ads+Whitelist.swift in Sources */,
 				46CA60D1231554980010CE6B /* SearchResultsViewController.swift in Sources */,
+				2B8DDBB923A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */,
 				3B6889C51D66950E002AC85E /* UIImageColors.swift in Sources */,
 				392ED7E41D0AEF56009D9B62 /* NewTabAccessors.swift in Sources */,
 				2B473CF42396387B00442059 /* TabBarUseCases.swift in Sources */,

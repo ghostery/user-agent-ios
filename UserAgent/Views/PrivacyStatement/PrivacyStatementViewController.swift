@@ -11,7 +11,6 @@ import Shared
 
 struct PrivacyStatementViewControllerUI {
     static let footerHeight: CGFloat = 100.0
-    static let okButtonHeight: CGFloat = 40.0
     static let actionCellHeight: CGFloat = 70.0
     static let separatorLeftOffset: CGFloat = 40.0
 }
@@ -73,12 +72,6 @@ class PrivacyStatementViewController: UITableViewController {
         self.setupNavigationItems()
     }
 
-    // MARK: - Actions
-
-    @objc func okButtonAction() {
-        self.dismiss(animated: true)
-    }
-
     // MARK: - Private methods
 
     private func setupNavigationItems() {
@@ -106,21 +99,8 @@ class PrivacyStatementViewController: UITableViewController {
     }
 
     private func setupFooterView() {
-        let footerView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: self.tableView.frame.width, height: PrivacyStatementViewControllerUI.footerHeight)))
-        footerView.backgroundColor = .white
-        let okButton = UIButton(type: .system)
-        okButton.addTarget(self, action: #selector(okButtonAction), for: .touchUpInside)
-        okButton.clipsToBounds = true
-        okButton.layer.cornerRadius = PrivacyStatementViewControllerUI.okButtonHeight / 2
-        okButton.setTitle(Strings.General.OKString, for: .normal)
-        okButton.setTitleColor(.white, for: .normal)
-        okButton.backgroundColor = Theme.tableView.rowActionAccessory
-        footerView.addSubview(okButton)
-        okButton.snp.makeConstraints { (make) in
-            make.center.equalTo(footerView)
-            make.height.equalTo(PrivacyStatementViewControllerUI.okButtonHeight)
-            make.width.equalTo(footerView.snp.width).multipliedBy(0.5)
-        }
+        let footerView = PrivacyStatementFooterView(frame: CGRect(origin: .zero, size: CGSize(width: self.tableView.frame.width, height: PrivacyStatementViewControllerUI.footerHeight)))
+        footerView.delegate = self
         self.tableView.tableFooterView = footerView
     }
 
@@ -264,6 +244,14 @@ extension PrivacyStatementViewController: PrivacyStatementMessageCellDelegate {
 
     func onClickMessageButton() {
         self.presentWebViewWithPath(path: Strings.FeedbackWebsite, title: Strings.Settings.FAQAndSupport)
+    }
+
+}
+
+extension PrivacyStatementViewController: PrivacyStatementFooterViewDelegate {
+
+    func onClickOkButton() {
+        self.dismiss(animated: true)
     }
 
 }
