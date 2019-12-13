@@ -112,7 +112,16 @@ extension PrivacyStatementViewController {
         guard let privacyStatementSection = PrivacyStatementSection(rawValue: section) else {
             return 0
         }
-        return privacyStatementSection.numberOfRows
+        switch privacyStatementSection {
+        case .settingsConversation:
+            return self.dataModel.settingsConversations.count
+        case .repositoryConversation:
+            return self.dataModel.repositoryConversations.count
+        case .privacyConversation:
+            return self.dataModel.privacyConversations.count
+        default:
+            return privacyStatementSection.numberOfRows
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -141,12 +150,22 @@ extension PrivacyStatementViewController {
             let message = self.dataModel.repositoryConversations[indexPath.row]
             return ChatBubbleViewCell(message: message)
         case .repository:
-            return UITableViewCell()
+            let cell = PrivacyStatementDisclosureCell(style: .subtitle, reuseIdentifier: nil)
+            cell.hasTopSeparator = true
+            cell.hasBottomSeparator = true
+            cell.title = Strings.PrivacyStatement.RepositoryTitle
+            cell.detailTitle = Strings.PrivacyStatement.RepositorySubtitle
+            return cell
         case .privacyConversation:
             let message = self.dataModel.privacyConversations[indexPath.row]
             return ChatBubbleViewCell(message: message)
         case .privacy:
-            return UITableViewCell()
+            let cell = PrivacyStatementDisclosureCell(style: .subtitle, reuseIdentifier: nil)
+            cell.hasTopSeparator = true
+            cell.hasBottomSeparator = true
+            cell.title = Strings.PrivacyStatement.PrivacyTitle
+            cell.detailTitle = Strings.PrivacyStatement.PrivacySubtitle
+            return cell
         case .message:
             return UITableViewCell()
         }

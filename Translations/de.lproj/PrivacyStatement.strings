@@ -15,18 +15,33 @@
 /* Statistic setting status. */
 "PrivacyStatement.StatisticStatus" = "";
 
-/* Conversation static message. */
-"PrivacyStatement.message1" = "";
+/* Repository title. */
+"PrivacyStatement.RepositoryTitle" = "";
+
+/* Repository subtitle. */
+"PrivacyStatement.RepositorySubtitle" = "";
+
+/* Privacy title. */
+"PrivacyStatement.PrivacyTitle" = "";
+
+/* Privacy subtitle. */
+"PrivacyStatement.PrivacySubtitle" = "";
+
+/* Message cell tile. */
+"PrivacyStatement.MessageCellTitle" = "Write a message";
 
 /* Conversation static message. */
-"PrivacyStatement.message2" = "";
+"PrivacyStatement.SettingsConversation1" = "";
 
 /* Conversation static message. */
-"PrivacyStatement.message3" = "";
+"PrivacyStatement.SettingsConversation2" = "";
 
 /* Conversation static message. */
-"PrivacyStatement.message4" = "";
+"PrivacyStatement.SettingsConversation3" = "";
 
 /* Conversation static message. */
-"PrivacyStatement.message5" = "";
+"PrivacyStatement.RepositoryConversation" = "";
+
+/* Conversation static message. */
+"PrivacyStatement.PrivacyConversation" = "";
 

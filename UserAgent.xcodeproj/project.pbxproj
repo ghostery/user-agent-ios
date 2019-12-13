@@ -88,6 +88,10 @@
 		2B8DDBA423A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
 		2B8DDBAC23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */; };
 		2B8DDBAD23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */; };
+		2B8DDBAF23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */; };
+		2B8DDBB023A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */; };
+		2B8DDBB223A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */; };
+		2B8DDBB323A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
@@ -1086,6 +1090,8 @@
 		2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleViewCell.swift; sourceTree = "<group>"; };
 		2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyStatement.xcassets; sourceTree = "<group>"; };
 		2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementSettingCell.swift; sourceTree = "<group>"; };
+		2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementDisclosureCell.swift; sourceTree = "<group>"; };
+		2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementCell.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
@@ -2433,7 +2439,9 @@
 			children = (
 				C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */,
 				2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */,
+				2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */,
 				2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */,
+				2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4509,6 +4517,7 @@
 				ACB7372B23042BAB00FA5626 /* UserScriptManager.swift in Sources */,
 				2BFB7C3A238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
 				ACB7372C23042BAB00FA5626 /* ReaderModeUtils.swift in Sources */,
+				2B8DDBB023A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */,
 				ACB7372E23042BAB00FA5626 /* PanelDataObservers.swift in Sources */,
 				ACB7372F23042BAB00FA5626 /* ClipboardBarDisplayHandler.swift in Sources */,
 				ACB7373023042BAB00FA5626 /* HistoryBackButton.swift in Sources */,
@@ -4666,6 +4675,7 @@
 				ACB737C023042BAB00FA5626 /* SimpleToast.swift in Sources */,
 				ACB737C123042BAB00FA5626 /* TrackingProtectionPageStats.swift in Sources */,
 				2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
+				2B8DDBB323A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */,
 				46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
 				4620EA4A2350ABF9004586CF /* Search.swift in Sources */,
 				ACB737C223042BAB00FA5626 /* ScreenshotHelper.swift in Sources */,
@@ -4812,6 +4822,7 @@
 				D314E7F71A37B98700426A76 /* TabToolbar.swift in Sources */,
 				CEFA977E1FAA6B490016F365 /* SyncContentSettingsViewController.swift in Sources */,
 				C4E3983D1D21F1E7004E89BA /* TopTabsViews.swift in Sources */,
+				2B8DDBAF23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */,
 				39F4C10A2045DB2E00746155 /* FocusHelper.swift in Sources */,
 				E4CD9F2D1A6DC91200318571 /* TabLocationView.swift in Sources */,
 				0BB5B2881AC0A2B90052877D /* SnackBar.swift in Sources */,
@@ -4958,6 +4969,7 @@
 				F35B8D2D1D6383E9008E3D61 /* SessionRestoreHelper.swift in Sources */,
 				744ED5611DBFEB8D00A2B5BE /* MailtoLinkHandler.swift in Sources */,
 				D04D1B862097859B0074B35F /* DownloadToast.swift in Sources */,
+				2B8DDBB223A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */,
 				7B844E3D1BBDDB9D00E733A2 /* ChevronView.swift in Sources */,
 				2B516D3C238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */,

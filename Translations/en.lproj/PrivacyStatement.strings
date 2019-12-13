@@ -15,17 +15,32 @@
 /* Statistic setting status. */
 "PrivacyStatement.StatisticStatus" = "Why? Help us improve the app";
 
-/* Conversation static message. */
-"PrivacyStatement.message1" = "Hi, I'm Krzysztof and I'm building this app.";
+/* Repository title. */
+"PrivacyStatement.RepositoryTitle" = "GitHub Repository";
+
+/* Repository subtitle. */
+"PrivacyStatement.RepositorySubtitle" = "This app is open source";
+
+/* Privacy title. */
+"PrivacyStatement.PrivacyTitle" = "Cliqz Privacy Policy";
+
+/* Privacy subtitle. */
+"PrivacyStatement.PrivacySubtitle" = "Beware: written by lawyers, so not easy to read";
+
+/* Message cell tile. */
+"PrivacyStatement.MessageCellTitle" = "Write a message";
 
 /* Conversation static message. */
-"PrivacyStatement.message2" = "I like privacy and transparency. Still data is important to build great products.";
+"PrivacyStatement.SettingsConversation1" = "Hi, I'm Krzysztof and I'm building this app.";
 
 /* Conversation static message. */
-"PrivacyStatement.message3" = "That's why this app collects some data, but no data that could identify you. Yet, I believe you should decide what you want to share.";
+"PrivacyStatement.SettingsConversation2" = "I like privacy and transparency. Still data is important to build great products.";
 
 /* Conversation static message. */
-"PrivacyStatement.message4" = "Don't take my word, check it our for yourself.";
+"PrivacyStatement.SettingsConversation3" = "That's why this app collects some data, but no data that could identify you. Yet, I believe you should decide what you want to share.";
 
 /* Conversation static message. */
-"PrivacyStatement.message5" = "FYI, below is a more wordy version of this.";
+"PrivacyStatement.RepositoryConversation" = "Don't take my word, check it our for yourself.";
+
+/* Conversation static message. */
+"PrivacyStatement.PrivacyConversation" = "FYI, below is a more wordy version of this.";

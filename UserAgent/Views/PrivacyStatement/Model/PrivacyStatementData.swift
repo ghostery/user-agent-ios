@@ -20,12 +20,12 @@ enum PrivacyStatementSection: Int, CaseIterable {
 
     var numberOfRows: Int {
         switch self {
-        case .settingsConversation:
-            return 3
         case .settings:
             return 2
-        case .repositoryConversation, .repository, .privacyConversation, .privacy, .message:
+        case .repository, .privacy, .message:
             return 1
+        default:
+            return 0
         }
     }
 }

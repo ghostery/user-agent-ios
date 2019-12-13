@@ -9,8 +9,6 @@
 import UIKit
 
 struct PrivacyStatementSettingCellUI {
-    static let labelLeftOffset: CGFloat = 50.0
-    static let separatorHeight: CGFloat = 1.0
     static let infoButtonSize: CGFloat = 30.0
     static let infoButtonImageOffset: CGFloat = 5.0
 }
@@ -19,51 +17,11 @@ protocol PrivacyStatementSettingCellDelegate: class {
     func onClickInfoButton()
 }
 
-class PrivacyStatementSettingCell: ThemedTableViewCell {
+class PrivacyStatementSettingCell: PrivacyStatementCell {
 
-    private var topSeparatorView: UIView?
-    private var bottomSeparatorView: UIView?
     private var infoButton: UIButton?
-    
+
     weak var delegate: PrivacyStatementSettingCellDelegate?
-
-    var hasTopSeparator: Bool = false {
-        didSet {
-            self.updateTopSeparatorView()
-        }
-    }
-
-    var hasBottomSeparator: Bool = false {
-        didSet {
-            self.updateBottomSeparatorView()
-        }
-    }
-
-    var bottomSeparatorOffsets: (leftOffset: CGFloat, rightOffset: CGFloat) = (0, 0) {
-        didSet {
-            if self.bottomSeparatorView != nil {
-                self.bottomSeparatorView?.snp.remakeConstraints({ (make) in
-                    make.bottom.equalTo(self)
-                    make.height.equalTo(PrivacyStatementSettingCellUI.separatorHeight)
-                    make.left.equalTo(self).offset(self.bottomSeparatorOffsets.leftOffset)
-                    make.right.equalTo(self).offset(-self.bottomSeparatorOffsets.rightOffset)
-                })
-            }
-        }
-    }
-
-    var topSeparatorOffsets: (leftOffset: CGFloat, rightOffset: CGFloat) = (0, 0) {
-        didSet {
-            if self.topSeparatorView != nil {
-                self.topSeparatorView?.snp.remakeConstraints({ (make) in
-                    make.top.equalTo(self)
-                    make.height.equalTo(PrivacyStatementSettingCellUI.separatorHeight)
-                    make.left.equalTo(self).offset(self.topSeparatorOffsets.leftOffset)
-                    make.right.equalTo(self).offset(-self.topSeparatorOffsets.rightOffset)
-                })
-            }
-        }
-    }
 
     var infoButtonImage: UIImage? {
         didSet {
@@ -80,16 +38,6 @@ class PrivacyStatementSettingCell: ThemedTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if let frame = self.textLabel?.frame {
-            self.textLabel?.frame = CGRect(x: PrivacyStatementSettingCellUI.labelLeftOffset, y: frame.origin.y, width: frame.size.width, height: frame.size.height)
-        }
-        if let frame = self.detailTextLabel?.frame {
-            self.detailTextLabel?.frame = CGRect(x: PrivacyStatementSettingCellUI.labelLeftOffset, y: frame.origin.y, width: frame.size.width, height: frame.size.height)
-        }
-    }
-
     // MARK: - Actions
 
     @objc func infoButtonAction() {
@@ -97,44 +45,6 @@ class PrivacyStatementSettingCell: ThemedTableViewCell {
     }
 
     // MARK: - Private methods
-
-    private func updateBottomSeparatorView() {
-        if self.hasBottomSeparator {
-            if self.bottomSeparatorView == nil {
-                self.bottomSeparatorView = UIView()
-                self.bottomSeparatorView?.backgroundColor = UIColor.Grey40
-                self.addSubview(self.bottomSeparatorView!)
-                self.bottomSeparatorView?.snp.makeConstraints({ (make) in
-                    make.bottom.equalTo(self)
-                    make.height.equalTo(PrivacyStatementSettingCellUI.separatorHeight)
-                    make.left.equalTo(self).offset(self.bottomSeparatorOffsets.leftOffset)
-                    make.right.equalTo(self).offset(-self.bottomSeparatorOffsets.rightOffset)
-                })
-            }
-        } else {
-            self.bottomSeparatorView?.removeFromSuperview()
-            self.bottomSeparatorView = nil
-        }
-    }
-
-    private func updateTopSeparatorView() {
-        if self.hasTopSeparator {
-            if self.topSeparatorView == nil {
-                self.topSeparatorView = UIView()
-                self.topSeparatorView?.backgroundColor = UIColor.Grey40
-                self.addSubview(self.topSeparatorView!)
-                self.topSeparatorView?.snp.makeConstraints({ (make) in
-                    make.top.equalTo(self)
-                    make.height.equalTo(PrivacyStatementSettingCellUI.separatorHeight)
-                    make.left.equalTo(self).offset(self.topSeparatorOffsets.leftOffset)
-                    make.right.equalTo(self).offset(-self.topSeparatorOffsets.rightOffset)
-                })
-            }
-        } else {
-            self.topSeparatorView?.removeFromSuperview()
-            self.topSeparatorView = nil
-        }
-    }
 
     private func updateInfoButton() {
         if self.infoButtonImage == nil {

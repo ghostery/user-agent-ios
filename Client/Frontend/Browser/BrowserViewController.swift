@@ -1712,7 +1712,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
     func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
 
         //// TODO: This is for testing. Generate proper model and invoce this mehtod after intro screen is dismissed
-        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.message1, Strings.PrivacyStatement.message2, Strings.PrivacyStatement.message3], repositoryConversations: [Strings.PrivacyStatement.message5], privacyConversations: [Strings.PrivacyStatement.message4])
+        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
         let priv = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
         let navController = UINavigationController(rootViewController: priv)
         present(navController, animated: true)
