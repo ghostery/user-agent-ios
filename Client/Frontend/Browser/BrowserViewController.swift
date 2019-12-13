@@ -1755,13 +1755,15 @@ extension BrowserViewController: IntroViewControllerDelegate {
 
     func presentPrivacyStatementViewController() {
         let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
-        let privacyStatementViewController = PrivacyStatementNavigationController(dataModel: dataModel, prefs: self.profile.prefs)
-        if topTabsVisible && UIDevice.current.isPad {
-            privacyStatementViewController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
-            privacyStatementViewController.modalPresentationStyle = .formSheet
+        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
+        let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
-        self.present(privacyStatementViewController, animated: true)
-    }
+        self.present(navigationController, animated: true)
+   }
 
 }
 

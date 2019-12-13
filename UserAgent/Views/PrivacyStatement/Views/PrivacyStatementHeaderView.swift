@@ -51,8 +51,9 @@ class PrivacyStatementHeaderView: UIView {
         self.titleLabel.font = UIFont.boldSystemFont(ofSize: PrivacyStatementHeaderViewUI.titleFontSize)
         self.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { (make) in
-            make.left.top.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset)
-            make.right.equalTo(self).offset(-PrivacyStatementHeaderViewUI.offset)
+            make.left.equalTo(self.safeAreaLayoutGuide).offset(PrivacyStatementHeaderViewUI.offset)
+            make.top.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset)
+            make.right.equalTo(self.safeAreaLayoutGuide).offset(-PrivacyStatementHeaderViewUI.offset)
         }
     }
 
@@ -62,7 +63,7 @@ class PrivacyStatementHeaderView: UIView {
         self.profileImageView.layer.cornerRadius = PrivacyStatementHeaderViewUI.profileImageSize / 2
         self.addSubview(self.profileImageView)
         self.profileImageView.snp.makeConstraints { (make) in
-            make.left.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset)
+            make.left.equalTo(self.safeAreaLayoutGuide).offset(PrivacyStatementHeaderViewUI.offset)
             make.top.equalTo(self.titleLabel.snp.bottom).offset(PrivacyStatementHeaderViewUI.offset / 2)
             make.height.equalTo(PrivacyStatementHeaderViewUI.profileImageSize)
             make.width.equalTo(self.profileImageView.snp.height)
@@ -88,7 +89,7 @@ class PrivacyStatementHeaderView: UIView {
         self.profileInfoLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self.profileImageView.snp.right).offset(PrivacyStatementHeaderViewUI.offset / 2)
             make.centerY.equalTo(self.profileImageView.snp.centerY)
-            make.right.greaterThanOrEqualTo(self).offset(PrivacyStatementHeaderViewUI.offset)
+            make.right.greaterThanOrEqualTo(self.safeAreaLayoutGuide).offset(PrivacyStatementHeaderViewUI.offset)
         }
     }
 

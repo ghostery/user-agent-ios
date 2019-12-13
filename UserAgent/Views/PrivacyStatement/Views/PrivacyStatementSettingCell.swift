@@ -57,10 +57,10 @@ class PrivacyStatementSettingCell: PrivacyStatementCell {
                 self.infoButton?.imageEdgeInsets = UIEdgeInsets(equalInset: PrivacyStatementSettingCellUI.infoButtonImageOffset)
                 self.addSubview(self.infoButton!)
                 self.infoButton?.snp.makeConstraints({ (make) in
-                    make.centerY.equalTo(self.textLabel!.snp.centerY)
+                    make.top.equalTo(self).offset(10)
                     make.height.equalTo(PrivacyStatementSettingCellUI.infoButtonSize)
                     make.width.equalTo(self.infoButton!.snp.height)
-                    make.right.equalTo(self.textLabel!.snp.left)
+                    make.left.equalTo(self.safeAreaLayoutGuide).offset(PrivacyStatementCellUI.labelLeftOffset - PrivacyStatementSettingCellUI.infoButtonSize)
                 })
             }
             self.infoButton?.setImage(self.infoButtonImage, for: .normal)

@@ -65,7 +65,7 @@ class PrivacyStatementMessageCell: ThemedTableViewCell {
         self.titleButton?.setTitleColor(Theme.general.controlTint, for: .normal)
         self.addSubview(self.titleButton!)
         self.titleButton?.snp.makeConstraints({ (make) in
-            make.right.equalTo(self).offset(-PrivacyStatementMessageCellUI.titleOffset)
+            make.right.equalTo(self.safeAreaLayoutGuide).offset(-PrivacyStatementMessageCellUI.titleOffset)
             make.top.equalTo(self).offset(PrivacyStatementMessageCellUI.titleOffset / 2)
             make.height.equalTo(2 * PrivacyStatementMessageCellUI.iconHeight)
         })

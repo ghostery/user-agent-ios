@@ -16,31 +16,6 @@ struct PrivacyStatementViewControllerUI {
     static let separatorLeftOffset: CGFloat = 40.0
 }
 
-class PrivacyStatementNavigationController: UINavigationController {
-
-    override var shouldAutorotate: Bool {
-        return false
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-
-    init(dataModel: PrivacyStatementData, prefs: Prefs) {
-        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: prefs)
-        super.init(rootViewController: privacyStatementViewController)
-    }
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-}
-
 class PrivacyStatementViewController: UITableViewController {
 
     private let dataModel: PrivacyStatementData
@@ -287,7 +262,6 @@ extension PrivacyStatementViewController: PrivacyStatementFooterViewDelegate {
 extension PrivacyStatementViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-//        controller.dismiss(animated: true)
         controller.dismiss(animated: true)
     }
 

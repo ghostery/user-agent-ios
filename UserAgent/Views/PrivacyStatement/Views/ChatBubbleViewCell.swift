@@ -26,8 +26,9 @@ class ChatBubbleViewCell: UITableViewCell {
                 make.bottom.equalTo(self).offset(-self.labelOffsets.bottomOffset)
             }
             self.bubbleView.snp.updateConstraints { (make) in
-                make.top.equalTo(self.label).offset(-self.labelOffsets.topOffset / 2)
-                make.bottom.equalTo(self.label).offset(self.labelOffsets.bottomOffset / 2)
+                let minOffset = min(self.labelOffsets.topOffset, self.labelOffsets.bottomOffset)
+                make.top.equalTo(self.label).offset(-minOffset / 2)
+                make.bottom.equalTo(self.label).offset(minOffset / 2)
             }
         }
     }
@@ -41,6 +42,11 @@ class ChatBubbleViewCell: UITableViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.bubbleView.setNeedsDisplay()
     }
 
     // MARK: - Private methods
@@ -61,7 +67,7 @@ class ChatBubbleViewCell: UITableViewCell {
         self.label.snp.makeConstraints { (make) in
             make.top.equalTo(self).offset(self.labelOffsets.topOffset)
             make.bottom.equalTo(self).offset(-self.labelOffsets.bottomOffset)
-            make.left.equalTo(self).offset(ChatBubbleViewCellUI.offset)
+            make.left.equalTo(self.safeAreaLayoutGuide).offset(ChatBubbleViewCellUI.offset)
             make.width.equalTo(self).multipliedBy(0.6)
         }
     }
@@ -72,8 +78,9 @@ class ChatBubbleViewCell: UITableViewCell {
         self.addSubview(self.bubbleView)
         self.bringSubviewToFront(self.label)
         self.bubbleView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.label).offset(-self.labelOffsets.topOffset / 2)
-            make.bottom.equalTo(self.label).offset(self.labelOffsets.bottomOffset / 2)
+            let minOffset = min(self.labelOffsets.topOffset, self.labelOffsets.bottomOffset)
+            make.top.equalTo(self.label).offset(-minOffset / 2)
+            make.bottom.equalTo(self.label).offset(minOffset / 2)
             make.left.equalTo(self.label).offset(-ChatBubbleViewCellUI.offset / 2)
             make.right.equalTo(self.label).offset(ChatBubbleViewCellUI.offset / 2)
         }
