@@ -34,6 +34,10 @@ class ContextMenuUseCase {
             }
         }
         let contextMenu = self.createContextMenu(site: site, with: photonAction)
+
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+
         viewController.present(contextMenu, animated: true, completion: nil)
     }
 
@@ -41,9 +45,6 @@ class ContextMenuUseCase {
         let contextMenu = PhotonActionSheet(site: site, actions: actions)
         contextMenu.modalPresentationStyle = .overFullScreen
         contextMenu.modalTransitionStyle = .crossDissolve
-
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
 
         return contextMenu
     }

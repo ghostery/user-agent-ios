@@ -22,15 +22,21 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
         if isPinned {
             actions += [.unpin]
         } else {
-            actions += [.pin, .removeTopSite]
+            actions += [.removeTopSite]
         }
 
         self.withAppDelegate { appDel in
             guard let sql = appDel.profile?.history as? SQLiteHistory else { return }
 
             sql.getSites(forURLs: [url.absoluteString]).uponQueue(.main) { result in
-                let site = result.successValue?.asArray().first?.flatMap({ $0 })
-                    ?? Site(url: url.absoluteString, title: url.normalizedHost ?? rawUrl)
+                var site: Site
+                if let historySite = result.successValue?.asArray().first?.flatMap({ $0 }) {
+                    site = historySite
+                    actions += [.pin]
+                } else {
+                    site = Site(url: url.absoluteString, title: url.normalizedHost ?? rawUrl)
+                }
+
                 appDel.useCases.contextMenu.present(
                     for: site,
                     with: actions,
