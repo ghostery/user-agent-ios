@@ -1711,7 +1711,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
     @discardableResult
     func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
         // TODO: This is for testing.
-        self.presentPrivacyStatementViewController()
+//        self.presentPrivacyStatementViewController()
         //
         if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
             let introViewController = IntroViewController()
@@ -1758,9 +1758,12 @@ extension BrowserViewController: IntroViewControllerDelegate {
 
     private func presentPrivacyStatementViewController() {
         let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
-        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
-        let navController = UINavigationController(rootViewController: privacyStatementViewController)
-        self.present(navController, animated: true)
+        let privacyStatementViewController = PrivacyStatementNavigationController(dataModel: dataModel, prefs: self.profile.prefs)
+        if topTabsVisible && UIDevice.current.isPad {
+            privacyStatementViewController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
+            privacyStatementViewController.modalPresentationStyle = .formSheet
+        }
+        self.present(privacyStatementViewController, animated: true)
     }
 
 }

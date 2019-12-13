@@ -94,6 +94,7 @@
 		2B8DDBB323A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */; };
 		2B8DDBB523A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */; };
 		2B8DDBB623A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */; };
+		2B8DDBB723A3B84600D2CE7A /* PrivacyStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
@@ -4581,6 +4582,7 @@
 				ACB7375B23042BAB00FA5626 /* SnackBar.swift in Sources */,
 				ACB7375C23042BAB00FA5626 /* SessionRestoreHandler.swift in Sources */,
 				ACB7375D23042BAB00FA5626 /* QuickActions.swift in Sources */,
+				2B8DDBB723A3B84600D2CE7A /* PrivacyStatementViewController.swift in Sources */,
 				ACB7375E23042BAB00FA5626 /* MetadataParserHelper.swift in Sources */,
 				ACB7375F23042BAB00FA5626 /* InsetButton.swift in Sources */,
 				2B516D36238BAC8B006D6B57 /* LibraryView.swift in Sources */,

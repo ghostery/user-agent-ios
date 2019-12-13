@@ -19,7 +19,7 @@ protocol PrivacyStatementSettingCellDelegate: class {
 
 class PrivacyStatementSettingCell: PrivacyStatementCell {
 
-    private var infoButton: UIButton?
+    private (set) var infoButton: UIButton?
 
     weak var delegate: PrivacyStatementSettingCellDelegate?
 

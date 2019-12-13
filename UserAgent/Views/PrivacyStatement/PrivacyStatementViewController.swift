@@ -16,6 +16,31 @@ struct PrivacyStatementViewControllerUI {
     static let separatorLeftOffset: CGFloat = 40.0
 }
 
+class PrivacyStatementNavigationController: UINavigationController {
+
+    override var shouldAutorotate: Bool {
+        return false
+    }
+
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+
+    init(dataModel: PrivacyStatementData, prefs: Prefs) {
+        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: prefs)
+        super.init(rootViewController: privacyStatementViewController)
+    }
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
 class PrivacyStatementViewController: UITableViewController {
 
     private let dataModel: PrivacyStatementData
@@ -110,6 +135,10 @@ class PrivacyStatementViewController: UITableViewController {
         viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.DownloadsPanel.DoneTitle, style: .done, closure: { (_) in
             navigationController.dismiss(animated: true)
         })
+        if UIDevice.current.isPad {
+            navigationController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
+            navigationController.modalPresentationStyle = .formSheet
+        }
         self.present(navigationController, animated: true)
     }
 
@@ -154,7 +183,8 @@ extension PrivacyStatementViewController {
                 cell.hasBottomSeparator = true
                 cell.hasTopSeparator = true
                 cell.bottomSeparatorOffsets = (PrivacyStatementViewControllerUI.separatorLeftOffset, 0.0)
-                cell.infoButtonImage = UIImage(named: "privacyStatementLogo")
+                cell.infoButtonImage = UIImage(named: "humanWebInfoIcon")
+                cell.infoButton?.setImage(UIImage(named: "humanWebInfoIconHighlighted"), for: .highlighted)
             } else {
                 self.telemetrySettings.onConfigureCell(cell)
                 cell.hasBottomSeparator = true
