@@ -17,24 +17,27 @@ enum ContextMenuActions {
     case newTab
 }
 
+public typealias ContextMenuActionCompletion = () -> Void
+
 class ContextMenuUseCase {
     var profile: Profile
     init(profile: Profile) {
         self.profile = profile
     }
 
-    func present(for site: Site, with actions: [ContextMenuActions], on viewController: UIViewController) -> Success {
+    func present(for site: Site, with actions: [ContextMenuActions], on viewController: UIViewController, completion: @escaping ContextMenuActionCompletion) {
+        var photonAction:[PhotonActionSheetItem] = []
         for action in actions {
             switch action {
             case .unpin:
-                let unpinAction = self.createActionUnpin(site: site)
-                let contextMenu = self.createContextMenu(site: site, with: [unpinAction])
-                viewController.present(contextMenu, animated: true, completion: nil)
+                let unpinAction = self.createActionUnpin(site: site, actionCompletion: completion)
+                photonAction.append(unpinAction)
             default:
                 break
             }
         }
-        return succeed()
+        let contextMenu = self.createContextMenu(site: site, with: photonAction)
+        viewController.present(contextMenu, animated: true, completion: nil)
     }
 
     private func createContextMenu(site: Site, with actions: [PhotonActionSheetItem]) -> PhotonActionSheet {
@@ -48,9 +51,11 @@ class ContextMenuUseCase {
         return contextMenu
     }
 
-    private func createActionUnpin(site: Site) -> PhotonActionSheetItem {
+    private func createActionUnpin(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let removeTopSitesPin = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.RemovePinTopsite, iconString: "action_unpin") { action in
-            self.profile.history.removeFromPinnedTopSites(site)
+            self.profile.history.removeFromPinnedTopSites(site).uponQueue(.main) { _ in
+                actionCompletion()
+            }
         }
         return removeTopSitesPin
     }
