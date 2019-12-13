@@ -10,6 +10,6 @@
 
 @interface RCT_EXTERN_MODULE(ContextMenu, NSObject)
 
-RCT_EXTERN_METHOD(speedDial:(nonnull NSString *)url)
+RCT_EXTERN_METHOD(speedDial:(nonnull NSString *)url isPinned:(BOOL)isPinned)
 
 @end
