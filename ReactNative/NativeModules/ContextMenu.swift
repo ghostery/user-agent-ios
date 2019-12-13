@@ -32,7 +32,9 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
                 var site: Site
                 if let historySite = result.successValue?.asArray().first?.flatMap({ $0 }) {
                     site = historySite
-                    actions += [.pin]
+                    if !isPinned {
+                        actions += [.pin]
+                    }
                 } else {
                     site = Site(url: url.absoluteString, title: url.normalizedHost ?? rawUrl)
                 }
