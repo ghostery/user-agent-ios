@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useMemo, useContext } from 'react';
+import React, { useCallback, useState, useMemo, useContext } from 'react';
 import {
   NativeModules,
   View,
@@ -57,6 +57,18 @@ const useNews = newsModule => {
   return data;
 };
 
+const HiddableImage = ({ style, url }) => {
+  const [isHidden, setHidden] = useState(false, [url]);
+  const hide = useCallback(() => setHidden(true), [setHidden]);
+  const hiddenStyle = useMemo(
+    () => (isHidden ? { height: 0, marginBottom: 0 } : null),
+    [isHidden],
+  );
+  return (
+    <Image style={[style, hiddenStyle]} source={{ uri: url }} onError={hide} />
+  );
+};
+
 export default function News({ newsModule, isImagesEnabled }) {
   const theme = useContext(ThemeContext);
   const news = useNews(newsModule);
@@ -80,11 +92,7 @@ export default function News({ newsModule, isImagesEnabled }) {
             <TouchableWithoutFeedback
               onPress={() => openLink(item.url)}
             >
-
-              <Image
-                style={styles.image}
-                source={{uri: item.imageUrl}}
-              />
+              <HiddableImage style={styles.image} url={item.imageUrl} />
             </TouchableWithoutFeedback>
           }
           <ListItem
