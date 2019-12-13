@@ -127,6 +127,10 @@ class PrivacyStatementViewController: UITableViewController {
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
         composer.setToRecipients(["support@cliqz.com"])
+        if UIDevice.current.isPad {
+            composer.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
+            composer.modalPresentationStyle = .formSheet
+        }
         self.present(composer, animated: true)
     }
 
