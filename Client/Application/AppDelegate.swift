@@ -114,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         self.tabManager = TabManager(profile: profile, imageStore: imageStore)
 
-        self.useCases = UseCases(tabManager: self.tabManager)
+        self.useCases = UseCases(tabManager: self.tabManager, profile: profile)
 
         // Add restoration class, the factory that will return the ViewController we
         // will restore with.

@@ -30,7 +30,7 @@ open class MockPanelDataObservers: PanelDataObservers {
 }
 
 open class MockActivityStreamDataObserver: DataObserver {
-    public func refreshIfNeeded(forceTopSites topSites: Bool) {
+    public func refreshIfNeeded(forceTopSites topSites: Bool, completion: (() -> Void)?) {
     }
 
     public var profile: Client.Profile

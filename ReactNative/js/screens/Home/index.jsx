@@ -14,6 +14,8 @@ import News from './components/News';
 
 const openSpeedDialLink = speedDial =>
   NativeModules.BrowserActions.openLink(speedDial.url, '', false);
+const longPressSpeedDial = speedDial =>
+  NativeModules.ContextMenu.speedDial(speedDial.url, speedDial.pinned || false);
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
 const styles = StyleSheet.create({
@@ -82,6 +84,7 @@ const SpeedDialRow = ({ dials, limit = 4 }) => {
         style={styles.speedDial}
         speedDial={dial}
         onPress={openSpeedDialLink}
+        onLongPress={longPressSpeedDial}
       />
     )),
     Array(emptyCount)

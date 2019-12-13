@@ -82,13 +82,16 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
             switch notification.name {
             case .NewsSettingsDidChange:
-                self.topSitesView.refresh()
+                self.refresh()
             default:
                 print("Error: Received unexpected notification \(notification.name)")
             }
         }
     }
 
+    func refresh() {
+        self.topSitesView.refresh()
+    }
 }
 
 // MARK: - Private Implementation
