@@ -50,6 +50,9 @@ const WeatherResult = ({ result, theme }: { result: any; theme: any }) => {
           dayText: {
             color: theme.textColor,
           },
+          daysContainer: {
+            marginHorizontal: 7,
+          },
           divider: {
             backgroundColor: theme.backgroundColor,
           },
