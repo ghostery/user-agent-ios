@@ -134,6 +134,16 @@ class PrivacyStatementViewController: UITableViewController {
         self.present(composer, animated: true)
     }
 
+    private func settingsConversationCellOffsets(indexPath: IndexPath) -> (CGFloat, CGFloat) {
+        if indexPath.row == 0 {
+            return (ChatBubbleViewCellUI.offset, ChatBubbleViewCellUI.offset / 3)
+        } else if indexPath.row == self.dataModel.settingsConversations.count - 1 {
+            return (ChatBubbleViewCellUI.offset / 3, ChatBubbleViewCellUI.offset)
+        } else {
+            return (ChatBubbleViewCellUI.offset / 3, ChatBubbleViewCellUI.offset / 3)
+        }
+    }
+
 }
 
 // UITableViewDataSource
@@ -166,7 +176,9 @@ extension PrivacyStatementViewController {
         switch section {
         case .settingsConversation:
             let message = self.dataModel.settingsConversations[indexPath.row]
-            return ChatBubbleViewCell(message: message)
+            let cell = ChatBubbleViewCell(message: message)
+            cell.labelOffsets = self.settingsConversationCellOffsets(indexPath: indexPath)
+            return cell
         case .settings:
             let cell = PrivacyStatementSettingCell(style: .subtitle, reuseIdentifier: nil)
             if indexPath.row == 0 {

@@ -36,7 +36,7 @@
 "Menu.OpenWhatsNewAction.Title" = "Was ist neu";
 
 /* "Label for the button, displayed in the menu, used to open the Privacy Statement." */
-"Menu.OpenPrivacyStatementAction.Title" = "";
+"Menu.OpenPrivacyStatementAction.Title" = "Privacy Statement";
 
 /* Label for the button, displayed in the menu, used to show the html page source */
 "Menu.PageSourceAction.Title" = "Seitenquelltext anzeigen";
