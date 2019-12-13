@@ -14,11 +14,23 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
 
     @objc(speedDial:)
     public func speedDial(url_str: NSString) {
-        self.withAppDelegate { appDel in
-            let site = Site(url: String(url_str), title: String(url_str))
-            appDel.useCases.contextMenu.present(for: site, with: [.unpin], on: appDel.browserViewController, completion: {
+        let rawUrl = url_str as String
+        guard let url = URL(string: rawUrl) else { return }
 
-            })
+        self.withAppDelegate { appDel in
+            guard let sql = appDel.profile?.history as? SQLiteHistory else { return }
+
+            sql.getSites(forURLs: [url.absoluteString]).uponQueue(.main) { result in
+                let site = result.successValue?.asArray().first?.flatMap({ $0 })
+                    ?? Site(url: url.absoluteString, title: url.normalizedHost ?? rawUrl)
+                appDel.useCases.contextMenu.present(
+                    for: site,
+                    with: [.unpin],
+                    on: appDel.browserViewController
+                ) {
+                    appDel.browserViewController?.homeViewController?.refresh()
+                }
+            }
         }
     }
 
