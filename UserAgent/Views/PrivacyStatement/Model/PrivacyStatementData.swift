@@ -31,10 +31,9 @@ enum PrivacyStatementSection: Int, CaseIterable {
 }
 
 struct PrivacyStatementProfile {
-    // TODO: PK Initialize
     let avatar = UIImage(named: "privacyStatementProfile")
-    let name = "Krzysztof"
-    let title = "Cliqz iOS Team"
+    let name = Strings.PrivacyStatement.ProfileName
+    let title = Strings.PrivacyStatement.ProfileTitle
 }
 
 struct PrivacyStatementData {

@@ -1710,14 +1710,9 @@ extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
 extension BrowserViewController: IntroViewControllerDelegate {
     @discardableResult
     func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
-
-        //// TODO: This is for testing. Generate proper model and invoce this mehtod after intro screen is dismissed
-        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
-        let priv = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
-        let navController = UINavigationController(rootViewController: priv)
-        present(navController, animated: true)
-        ////
-
+        // TODO: This is for testing.
+        self.presentPrivacyStatementViewController()
+        //
         if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
             let introViewController = IntroViewController()
             introViewController.delegate = self
@@ -1737,16 +1732,18 @@ extension BrowserViewController: IntroViewControllerDelegate {
 
             return true
         }
-
-        return true
+        return false
     }
 
     func introViewControllerDidFinish(_ introViewController: IntroViewController) {
+        let shouldPresentPrivacyStatement = self.profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil
         self.profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
-
         introViewController.dismiss(animated: true) {
             if self.navigationController?.viewControllers.count ?? 0 > 1 {
                 _ = self.navigationController?.popToRootViewController(animated: true)
+            }
+            if shouldPresentPrivacyStatement {
+                self.presentPrivacyStatementViewController()
             }
         }
     }
@@ -1757,6 +1754,13 @@ extension BrowserViewController: IntroViewControllerDelegate {
 
     @objc func dismissSignInViewController() {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    private func presentPrivacyStatementViewController() {
+        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
+        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
+        let navController = UINavigationController(rootViewController: privacyStatementViewController)
+        self.present(navController, animated: true)
     }
 
 }

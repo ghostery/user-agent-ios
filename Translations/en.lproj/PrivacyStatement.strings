@@ -9,6 +9,12 @@
 /* Title displayed on the top of screen. */
 "PrivacyStatement.Title" = "A message about privacy & data";
 
+/* Profile name. */
+"PrivacyStatement.ProfileName" = "Krzysztof";
+
+/* Profile title. */
+"PrivacyStatement.ProfileTitle" = "Cliqz iOS Team";
+
 /* Human Web setting status. */
 "PrivacyStatement.HumanWebStatus" = "Why? Help us improve search quality";
 

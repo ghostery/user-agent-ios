@@ -23,7 +23,7 @@ class PrivacyStatementMessageCell: ThemedTableViewCell {
 
     private var iconImageView: UIImageView?
     private var titleButton: UIButton?
-    
+
     weak var delegate: PrivacyStatementMessageCellDelegate?
 
     var icon: UIImage? {
@@ -48,7 +48,7 @@ class PrivacyStatementMessageCell: ThemedTableViewCell {
     }
 
     // MARK: - Actions
-    
+
     @objc func messageButtonAction() {
         self.delegate?.onClickMessageButton()
     }
