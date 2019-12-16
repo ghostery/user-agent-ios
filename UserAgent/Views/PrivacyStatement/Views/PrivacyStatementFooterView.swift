@@ -50,7 +50,7 @@ class PrivacyStatementFooterView: UIView {
         okButton.addTarget(self, action: #selector(okButtonAction), for: .touchUpInside)
         okButton.clipsToBounds = true
         okButton.layer.cornerRadius = PrivacyStatementFooterViewUI.okButtonHeight / 2
-        okButton.setTitle(Strings.General.OKString, for: .normal)
+        okButton.setTitle(Strings.PrivacyStatement.DoneButton, for: .normal)
         okButton.setTitleColor(.white, for: .normal)
         okButton.backgroundColor = Theme.tableView.rowActionAccessory
         self.addSubview(okButton)
