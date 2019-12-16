@@ -1760,7 +1760,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
     }
 
     func presentPrivacyStatementViewController() {
-        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
+        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation], messageConversations: [Strings.PrivacyStatement.MessageConversation])
         let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
         privacyStatementViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: privacyStatementViewController)

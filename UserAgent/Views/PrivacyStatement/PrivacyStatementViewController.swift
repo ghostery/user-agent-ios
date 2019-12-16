@@ -13,6 +13,7 @@ import MessageUI
 struct PrivacyStatementViewControllerUI {
     static let footerHeight: CGFloat = 100.0
     static let actionCellHeight: CGFloat = 70.0
+    static let messageCellHeight: CGFloat = 40.0
     static let separatorLeftOffset: CGFloat = 40.0
 }
 
@@ -122,9 +123,9 @@ class PrivacyStatementViewController: UITableViewController {
 
     private func settingsConversationCellOffsets(indexPath: IndexPath) -> (CGFloat, CGFloat) {
         if indexPath.row == 0 {
-            return (ChatBubbleViewCellUI.offset, ChatBubbleViewCellUI.offset / 3)
+            return (2 * ChatBubbleViewCellUI.offset / 3, ChatBubbleViewCellUI.offset / 3)
         } else if indexPath.row == self.dataModel.settingsConversations.count - 1 {
-            return (ChatBubbleViewCellUI.offset / 3, ChatBubbleViewCellUI.offset)
+            return (ChatBubbleViewCellUI.offset / 3, 2 * ChatBubbleViewCellUI.offset / 3)
         } else {
             return (ChatBubbleViewCellUI.offset / 3, ChatBubbleViewCellUI.offset / 3)
         }
@@ -150,6 +151,8 @@ extension PrivacyStatementViewController {
             return self.dataModel.repositoryConversations.count
         case .privacyConversation:
             return self.dataModel.privacyConversations.count
+        case .messageConversation:
+            return self.dataModel.messageConversations.count
         default:
             return privacyStatementSection.numberOfRows
         }
@@ -188,7 +191,6 @@ extension PrivacyStatementViewController {
             cell.hasTopSeparator = true
             cell.hasBottomSeparator = true
             cell.title = Strings.PrivacyStatement.RepositoryTitle
-            cell.detailTitle = Strings.PrivacyStatement.RepositorySubtitle
             return cell
         case .privacyConversation:
             let message = self.dataModel.privacyConversations[indexPath.row]
@@ -198,8 +200,10 @@ extension PrivacyStatementViewController {
             cell.hasTopSeparator = true
             cell.hasBottomSeparator = true
             cell.title = Strings.PrivacyStatement.PrivacyTitle
-            cell.detailTitle = Strings.PrivacyStatement.PrivacySubtitle
             return cell
+        case .messageConversation:
+            let message = self.dataModel.messageConversations[indexPath.row]
+            return ChatBubbleViewCell(message: message)
         case .message:
             let cell = PrivacyStatementMessageCell()
             cell.delegate = self
@@ -219,10 +223,12 @@ extension PrivacyStatementViewController {
             return 0.0
         }
         switch section {
-        case .settingsConversation, .repositoryConversation, .privacyConversation:
+        case .settingsConversation, .repositoryConversation, .privacyConversation, .messageConversation:
             return UITableView.automaticDimension
-        case .settings, .repository, .privacy, .message:
+        case .settings, .repository, .privacy:
             return PrivacyStatementViewControllerUI.actionCellHeight
+        case .message:
+            return PrivacyStatementViewControllerUI.messageCellHeight
         }
     }
 

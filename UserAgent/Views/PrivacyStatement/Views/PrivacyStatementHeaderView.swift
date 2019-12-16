@@ -13,7 +13,7 @@ struct PrivacyStatementHeaderViewUI {
     static let titleFontSize: CGFloat = 36.0
     static let profileFieldFontSize: CGFloat = 13.0
     static let offset: CGFloat = 20.0
-    static let height: CGFloat = 180.0
+    static let height: CGFloat = 160.0
     static let profileImageSize: CGFloat = 60.0
 }
 
@@ -52,7 +52,7 @@ class PrivacyStatementHeaderView: UIView {
         self.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self.safeAreaLayoutGuide).offset(PrivacyStatementHeaderViewUI.offset)
-            make.top.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset)
+            make.top.equalTo(self).offset(PrivacyStatementHeaderViewUI.offset / 4)
             make.right.equalTo(self.safeAreaLayoutGuide).offset(-PrivacyStatementHeaderViewUI.offset)
         }
     }

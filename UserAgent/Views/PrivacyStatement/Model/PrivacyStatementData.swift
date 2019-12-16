@@ -16,6 +16,7 @@ enum PrivacyStatementSection: Int, CaseIterable {
     case repository
     case privacyConversation
     case privacy
+    case messageConversation
     case message
 
     var numberOfRows: Int {
@@ -45,4 +46,5 @@ struct PrivacyStatementData {
     var settingsConversations: [String]
     var repositoryConversations: [String]
     var privacyConversations: [String]
+    var messageConversations: [String]
 }
