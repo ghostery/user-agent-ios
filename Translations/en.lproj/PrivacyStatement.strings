@@ -21,6 +21,9 @@
 /* Human Web setting status. */
 "PrivacyStatement.HumanWebStatus" = "Help us build our search engine";
 
+/* Statistic setting title. */
+"PrivacyStatement.StatisticTitle" = "Interaction Statistics";
+
 /* Statistic setting status. */
 "PrivacyStatement.StatisticStatus" = "Help us improve this app";
 

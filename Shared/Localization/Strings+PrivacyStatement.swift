@@ -16,6 +16,7 @@ extension Strings {
         public static let ProfileName = NSLocalizedString("PrivacyStatement.ProfileName", tableName: "PrivacyStatement", comment: "Profile name.")
         public static let ProfileTitle = NSLocalizedString("PrivacyStatement.ProfileTitle", tableName: "PrivacyStatement", comment: "Profile title.")
         public static let HumanWebStatus = NSLocalizedString("PrivacyStatement.HumanWebStatus", tableName: "PrivacyStatement", comment: "Human Web setting status.")
+        public static let StatisticTitle = NSLocalizedString("PrivacyStatement.StatisticTitle", tableName: "PrivacyStatement", comment: "Statistic setting title.")
         public static let StatisticStatus = NSLocalizedString("PrivacyStatement.StatisticStatus", tableName: "PrivacyStatement", comment: "Statistic setting status.")
         public static let RepositoryTitle = NSLocalizedString("PrivacyStatement.RepositoryTitle", tableName: "PrivacyStatement", comment: "Repository title.")
         public static let PrivacyTitle = NSLocalizedString("PrivacyStatement.PrivacyTitle", tableName: "PrivacyStatement", comment: "Privacy title.")

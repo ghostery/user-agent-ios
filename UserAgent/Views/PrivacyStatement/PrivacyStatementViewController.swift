@@ -180,6 +180,7 @@ extension PrivacyStatementViewController {
                 cell.infoButton?.setImage(UIImage(named: "humanWebInfoIconHighlighted"), for: .highlighted)
             } else {
                 self.telemetrySettings.onConfigureCell(cell)
+                cell.textLabel?.text = Strings.PrivacyStatement.StatisticTitle
                 cell.hasBottomSeparator = true
             }
             return cell
