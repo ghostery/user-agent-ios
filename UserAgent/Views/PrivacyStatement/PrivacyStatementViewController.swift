@@ -16,6 +16,19 @@ struct PrivacyStatementViewControllerUI {
     static let separatorLeftOffset: CGFloat = 40.0
 }
 
+class PrivacyStatementNavigationController: UINavigationController {
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return Theme.statusBarStyle
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.modalPresentationCapturesStatusBarAppearance = true
+    }
+
+}
+
 class PrivacyStatementViewController: UITableViewController {
 
     private let dataModel: PrivacyStatementData
