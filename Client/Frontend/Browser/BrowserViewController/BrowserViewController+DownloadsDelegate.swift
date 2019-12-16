@@ -21,4 +21,11 @@ extension BrowserViewController: DownloadsDelegate {
     func downloadsDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
         self.openURLInNewTab(url: url, isPrivate: isPrivate)
     }
+
+    func downloadsDidClose() {
+        UIView.animate(withDuration: 1.0) {
+            self.view.window?.backgroundColor = Theme.browser.background
+        }
+    }
+
 }
