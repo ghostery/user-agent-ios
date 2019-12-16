@@ -1757,7 +1757,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
     func presentPrivacyStatementViewController() {
         let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
         let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
-        let navigationController = ThemedNavigationController(rootViewController: privacyStatementViewController)
+        let navigationController = PrivacyStatementNavigationController(rootViewController: privacyStatementViewController)
         if #available(iOS 13.0, *) {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
         } else {
