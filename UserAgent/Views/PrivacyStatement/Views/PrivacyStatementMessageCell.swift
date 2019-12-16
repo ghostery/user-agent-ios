@@ -10,7 +10,7 @@ import UIKit
 
 struct PrivacyStatementMessageCellUI {
     static let titleFontSize: CGFloat = 12.0
-    static let titleOffset: CGFloat = 20.0
+    static let titleOffset: CGFloat = 10.0
     static let iconWidth: CGFloat = 17.0
     static let iconHeight: CGFloat = 13.0
     static let iconOffet: CGFloat = 5.0
@@ -65,7 +65,7 @@ class PrivacyStatementMessageCell: ThemedTableViewCell {
         self.titleButton?.setTitleColor(Theme.general.controlTint, for: .normal)
         self.addSubview(self.titleButton!)
         self.titleButton?.snp.makeConstraints({ (make) in
-            make.right.equalTo(self.safeAreaLayoutGuide).offset(-PrivacyStatementMessageCellUI.titleOffset)
+            make.right.equalTo(self.safeAreaLayoutGuide).offset(-PrivacyStatementMessageCellUI.titleOffset * 2)
             make.top.equalTo(self).offset(PrivacyStatementMessageCellUI.titleOffset / 2)
             make.height.equalTo(2 * PrivacyStatementMessageCellUI.iconHeight)
         })

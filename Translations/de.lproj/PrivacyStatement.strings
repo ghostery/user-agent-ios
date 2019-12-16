@@ -6,8 +6,11 @@
   Copyright © 2019 Cliqz. All rights reserved.
 */
 
+/* Done button title */
+"PrivacyStatement.DoneButton" = "Fertig";
+
 /* Title displayed on the top of screen. */
-"PrivacyStatement.Title" = "A message about privacy & data";
+"PrivacyStatement.Title" = "Eine Nachricht zum Datenschutz";
 
 /* Profile name. */
 "PrivacyStatement.ProfileName" = "Krzysztof";
@@ -16,37 +19,34 @@
 "PrivacyStatement.ProfileTitle" = "Cliqz iOS Team";
 
 /* Human Web setting status. */
-"PrivacyStatement.HumanWebStatus" = "Why? Help us improve search quality";
+"PrivacyStatement.HumanWebStatus" = "Hilf uns, unsere Suchmaschine zu bauen";
+
+/* Statistic setting title. */
+"PrivacyStatement.StatisticTitle" = "Interaktions-Statisken";
 
 /* Statistic setting status. */
-"PrivacyStatement.StatisticStatus" = "Why? Help us improve the app";
+"PrivacyStatement.StatisticStatus" = "Hilf uns, diese App zu verbessern";
 
 /* Repository title. */
 "PrivacyStatement.RepositoryTitle" = "GitHub Repository";
 
-/* Repository subtitle. */
-"PrivacyStatement.RepositorySubtitle" = "This app is open source";
-
 /* Privacy title. */
-"PrivacyStatement.PrivacyTitle" = "Cliqz Privacy Policy";
-
-/* Privacy subtitle. */
-"PrivacyStatement.PrivacySubtitle" = "Beware: written by lawyers, so not easy to read";
+"PrivacyStatement.PrivacyTitle" = "Datenschutzerklärung";
 
 /* Message cell tile. */
-"PrivacyStatement.MessageCellTitle" = "Write a message";
+"PrivacyStatement.MessageCellTitle" = "Nachricht schreiben";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation1" = "Hi, I'm Krzysztof and I'm building this app.";
+"PrivacyStatement.SettingsConversation1" = "Hi, ich programmiere diese App. Bei Cliqz sind uns Privatsphäre und Transparenz wichtig.";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation2" = "I like privacy and transparency. Still data is important to build great products.";
+"PrivacyStatement.SettingsConversation2" = "Der Cliqz Browser sammelt Daten – aber keine, die dich identifizieren könnten. Ich glaube dennoch, dass Du selbst entscheiden solltest, was Du teilst:";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation3" = "That's why this app collects some data, but no data that could identify you. Yet, I believe you should decide what you want to share.";
+"PrivacyStatement.RepositoryConversation" = "Du musst das jetzt nicht einfach so glauben – unser Code ist open-source!";
 
 /* Conversation static message. */
-"PrivacyStatement.RepositoryConversation" = "Don't take my word, check it our for yourself.";
+"PrivacyStatement.PrivacyConversation" = "Bei Interesse findest Du hier eine ausführliche Version unserer Datenschutz-Praktiken:";
 
 /* Conversation static message. */
-"PrivacyStatement.PrivacyConversation" = "FYI, below is a more wordy version of this.";
+"PrivacyStatement.MessageConversation" = "Lass mich wissen, wenn Du fragen hast.";
