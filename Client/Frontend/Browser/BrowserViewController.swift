@@ -207,7 +207,7 @@ class BrowserViewController: UIViewController {
         let downloadsViewContrller = DownloadsViewController()
         downloadsViewContrller.delegate = self
         downloadsViewContrller.profile = self.profile
-        let navigationController = UINavigationController(rootViewController: downloadsViewContrller)
+        let navigationController = ThemedNavigationController(rootViewController: downloadsViewContrller)
         if #available(iOS 13.0, *) {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
         } else {
@@ -1757,7 +1757,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
     func presentPrivacyStatementViewController() {
         let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
         let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
-        let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
+        let navigationController = PrivacyStatementNavigationController(rootViewController: privacyStatementViewController)
         if #available(iOS 13.0, *) {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
         } else {
