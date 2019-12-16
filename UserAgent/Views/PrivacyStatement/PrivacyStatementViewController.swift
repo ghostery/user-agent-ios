@@ -16,17 +16,8 @@ struct PrivacyStatementViewControllerUI {
     static let separatorLeftOffset: CGFloat = 40.0
 }
 
-class PrivacyStatementNavigationController: UINavigationController {
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return Theme.statusBarStyle
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.modalPresentationCapturesStatusBarAppearance = true
-    }
-
+protocol PrivacyStatementViewControllerDelegate: class {
+    func privacyStatementViewControllerDidClose()
 }
 
 class PrivacyStatementViewController: UITableViewController {
@@ -42,6 +33,8 @@ class PrivacyStatementViewController: UITableViewController {
         return TelemetrySetting(prefs: self.prefs, attributedStatusText: NSAttributedString(string: Strings.PrivacyStatement.StatisticStatus, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Grey80]))
     }()
 
+    weak var delegate: PrivacyStatementViewControllerDelegate?
+
     init(dataModel: PrivacyStatementData, prefs: Prefs) {
         self.dataModel = dataModel
         self.prefs = prefs
@@ -54,6 +47,7 @@ class PrivacyStatementViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.presentationController?.delegate = self
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.backgroundColor = UIColor.Grey20
         self.tableView.separatorStyle = .none
@@ -67,6 +61,7 @@ class PrivacyStatementViewController: UITableViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done) { (_) in
             self.dismiss(animated: true)
+            self.delegate?.privacyStatementViewControllerDidClose()
         }
         doneButton.accessibilityLabel = "PrivacyStatementDone"
         self.navigationItem.rightBarButtonItem = doneButton
@@ -271,6 +266,7 @@ extension PrivacyStatementViewController: PrivacyStatementFooterViewDelegate {
 
     func onClickOkButton() {
         self.dismiss(animated: true)
+        self.delegate?.privacyStatementViewControllerDidClose()
     }
 
 }
@@ -279,6 +275,14 @@ extension PrivacyStatementViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
+    }
+
+}
+
+extension PrivacyStatementViewController: UIAdaptivePresentationControllerDelegate {
+
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        self.delegate?.privacyStatementViewControllerDidClose()
     }
 
 }

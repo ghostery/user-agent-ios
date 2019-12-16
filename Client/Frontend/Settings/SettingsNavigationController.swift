@@ -22,7 +22,6 @@ class ThemedNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
-        self.modalPresentationCapturesStatusBarAppearance = true
         applyTheme()
     }
 }
