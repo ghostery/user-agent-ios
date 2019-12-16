@@ -207,9 +207,14 @@ class BrowserViewController: UIViewController {
         let downloadsViewContrller = DownloadsViewController()
         downloadsViewContrller.delegate = self
         downloadsViewContrller.profile = self.profile
-        let navigationController = ThemedNavigationController(rootViewController: downloadsViewContrller)
+        let navigationController = UINavigationController(rootViewController: downloadsViewContrller)
         if #available(iOS 13.0, *) {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+            if UIDevice.current.isPhone {
+                UIView.animate(withDuration: 1.0) {
+                    self.view.window?.backgroundColor = .black
+                }
+            }
         } else {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
@@ -1757,14 +1762,30 @@ extension BrowserViewController: IntroViewControllerDelegate {
     func presentPrivacyStatementViewController() {
         let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2, Strings.PrivacyStatement.SettingsConversation3], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation])
         let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
-        let navigationController = PrivacyStatementNavigationController(rootViewController: privacyStatementViewController)
+        privacyStatementViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
         if #available(iOS 13.0, *) {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+            if UIDevice.current.isPhone {
+                UIView.animate(withDuration: 1.0) {
+                    self.view.window?.backgroundColor = .black
+                }
+            }
         } else {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
         self.present(navigationController, animated: true)
    }
+
+}
+
+extension BrowserViewController: PrivacyStatementViewControllerDelegate {
+
+    func privacyStatementViewControllerDidClose() {
+        UIView.animate(withDuration: 1.0) {
+            self.view.window?.backgroundColor = Theme.browser.background
+        }
+    }
 
 }
 
