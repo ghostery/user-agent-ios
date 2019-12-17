@@ -188,7 +188,7 @@ extension PrivacyStatementViewController {
             let message = self.dataModel.repositoryConversations[indexPath.row]
             return ChatBubbleViewCell(message: message)
         case .repository:
-            let cell = PrivacyStatementDisclosureCell(style: .subtitle, reuseIdentifier: nil)
+            let cell = PrivacyStatementDisclosureCell(style: .default, reuseIdentifier: nil)
             cell.hasTopSeparator = true
             cell.hasBottomSeparator = true
             cell.title = Strings.PrivacyStatement.RepositoryTitle
@@ -197,7 +197,7 @@ extension PrivacyStatementViewController {
             let message = self.dataModel.privacyConversations[indexPath.row]
             return ChatBubbleViewCell(message: message)
         case .privacy:
-            let cell = PrivacyStatementDisclosureCell(style: .subtitle, reuseIdentifier: nil)
+            let cell = PrivacyStatementDisclosureCell(style: .default, reuseIdentifier: nil)
             cell.hasTopSeparator = true
             cell.hasBottomSeparator = true
             cell.title = Strings.PrivacyStatement.PrivacyTitle
