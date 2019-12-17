@@ -488,6 +488,12 @@ class TabManager: NSObject {
         delegates.forEach { $0.get()?.tabManagerDidRemoveAllTabs(self, toast: toast) }
     }
 
+    func removeAllTabs() {
+        self.removeTabs(self.tabs)
+        self.selectTab(self.addTab())
+        self.delegates.forEach { $0.get()?.tabManagerDidRemoveAllTabs(self, toast: nil) }
+    }
+
     func undoCloseTabs() {
         guard let isPrivate = recentlyClosedForUndo.first?.isPrivate else {
             // No valid tabs

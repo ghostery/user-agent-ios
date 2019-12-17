@@ -62,6 +62,7 @@ extension PhotonActionSheetProtocol {
         return [
             self.openWhatsNewItem(),
             self.openPrivacyStatementItem(vcDelegate: vcDelegate),
+            self.closeAllTabsItem(),
             self.openSettingsItem(vcDelegate: vcDelegate),
         ]
     }
@@ -360,6 +361,13 @@ extension PhotonActionSheetProtocol {
     private func openPrivacyStatementItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
         let openSettings = PhotonActionSheetItem(title: Strings.Menu.PrivacyStatementTitleString, iconString: "chat") { action in
             (vcDelegate as? BrowserViewController)?.presentPrivacyStatementViewController()
+        }
+        return openSettings
+    }
+
+    private func closeAllTabsItem() -> PhotonActionSheetItem {
+        let openSettings = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsTitleString, iconString: "chat") { action in
+            self.tabManager.removeAllTabs()
         }
         return openSettings
     }
