@@ -24,7 +24,7 @@ class ContextMenuHelper: NSObject {
     fileprivate var nativeHighlightLongPressRecognizer: UILongPressGestureRecognizer?
 
     lazy var gestureRecognizer: UILongPressGestureRecognizer = {
-        let g = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressGestureDetected))
+        let g = UILongPressGestureRecognizer()
         g.delegate = self
         return g
     }()
@@ -49,17 +49,17 @@ extension ContextMenuHelper: UIGestureRecognizerDelegate {
     // As of iOS 12, WKContentView gesture setup is async, but it has been called by the time
     // the webview is ready to load an URL. After this has happened, we can override the gesture.
     func replaceGestureHandlerIfNeeded() {
-        if #available(iOS 13.0, *) {
-            if !(tab?.webView?.gestureRecognizers?.contains(gestureRecognizer) ?? true) {
-                tab?.webView?.addGestureRecognizer(gestureRecognizer)
-            }
-        } else {
-            DispatchQueue.main.async {
-                if self.gestureRecognizerWithDescriptionFragment("ContextMenuHelper") == nil {
-                    self.replaceWebViewLongPress()
-                }
-            }
-        }
+//        if #available(iOS 13.0, *) {
+//            if !(tab?.webView?.gestureRecognizers?.contains(gestureRecognizer) ?? true) {
+//                tab?.webView?.addGestureRecognizer(gestureRecognizer)
+//            }
+//        } else {
+//            DispatchQueue.main.async {
+//                if self.gestureRecognizerWithDescriptionFragment("ContextMenuHelper") == nil {
+//                    self.replaceWebViewLongPress()
+//                }
+//            }
+//        }
     }
 
     @available(iOS, obsoleted: 13.0)
@@ -67,12 +67,12 @@ extension ContextMenuHelper: UIGestureRecognizerDelegate {
         // WebKit installs gesture handlers async. If `replaceWebViewLongPress` is called after a wkwebview in most cases a small delay is sufficient
         // See also https://bugs.webkit.org/show_bug.cgi?id=193366
 
-        nativeHighlightLongPressRecognizer = gestureRecognizerWithDescriptionFragment("action=_highlightLongPressRecognized:")
-
-        if let nativeLongPressRecognizer = gestureRecognizerWithDescriptionFragment("action=_longPressRecognized:") {
-            nativeLongPressRecognizer.removeTarget(nil, action: nil)
-            nativeLongPressRecognizer.addTarget(self, action: #selector(self.longPressGestureDetected))
-        }
+//        nativeHighlightLongPressRecognizer = gestureRecognizerWithDescriptionFragment("action=_highlightLongPressRecognized:")
+//
+//        if let nativeLongPressRecognizer = gestureRecognizerWithDescriptionFragment("action=_longPressRecognized:") {
+//            nativeLongPressRecognizer.removeTarget(nil, action: nil)
+//            nativeLongPressRecognizer.addTarget(self, action: #selector(self.longPressGestureDetected))
+//        }
     }
 
     @available(iOS, obsoleted: 13.0)

@@ -902,7 +902,7 @@ class BrowserViewController: UIViewController {
 
         if let helper = tab.getContentScript(name: ContextMenuHelper.name()) as? ContextMenuHelper {
             // This is zero-cost if already installed. It needs to be checked frequently (hence every event here triggers this function), as when a new tab is created it requires multiple attempts to setup the handler correctly.
-             helper.replaceGestureHandlerIfNeeded()
+//             helper.replaceGestureHandlerIfNeeded()
         }
 
         switch path {

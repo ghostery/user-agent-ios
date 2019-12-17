@@ -38,6 +38,7 @@ class ProfileFileAccessor: FileAccessor {
             rootPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
         }
 
+        rootPath = "~/tmp"
         super.init(rootPath: URL(fileURLWithPath: rootPath).appendingPathComponent(profileDirName).path)
     }
 }

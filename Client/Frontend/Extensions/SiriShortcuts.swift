@@ -33,18 +33,18 @@ class SiriShortcuts {
         guard let activity = SiriShortcuts().getActivity(for: activityType) else {
             return
         }
-        let shortcut = INShortcut(userActivity: activity)
-        let addViewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-        addViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
-        addViewController.delegate = viewController as? INUIAddVoiceShortcutViewControllerDelegate
-        viewController.present(addViewController, animated: true, completion: nil)
+//        let shortcut = INShortcut(userActivity: activity)
+//        let addViewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+//        addViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+//        addViewController.delegate = viewController as? INUIAddVoiceShortcutViewControllerDelegate
+//        viewController.present(addViewController, animated: true, completion: nil)
     }
 
     static func displayEditSiri(for shortcut: INVoiceShortcut, in viewController: UIViewController) {
-        let editViewController = INUIEditVoiceShortcutViewController(voiceShortcut: shortcut)
-        editViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
-        editViewController.delegate = viewController as? INUIEditVoiceShortcutViewControllerDelegate
-        viewController.present(editViewController, animated: true, completion: nil)
+//        let editViewController = INUIEditVoiceShortcutViewController(voiceShortcut: shortcut)
+//        editViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+//        editViewController.delegate = viewController as? INUIEditVoiceShortcutViewControllerDelegate
+//        viewController.present(editViewController, animated: true, completion: nil)
     }
 
     static func manageSiri(for activityType: SiriShortcuts.activityType, in viewController: UIViewController) {
