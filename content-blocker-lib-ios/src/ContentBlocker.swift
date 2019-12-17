@@ -193,7 +193,9 @@ extension ContentBlocker {
 
         guard let prefsNewestDate = UserDefaults.standard.object(forKey: "blocker-file-date") as? Date else {
             UserDefaults.standard.set(fileDate, forKey: "blocker-file-date")
-            completion()
+            removeAllRulesInStore() {
+                completion()
+            }
             return
         }
 

@@ -22,11 +22,11 @@ class SuggestionsView: UIView {
     // MARK: - Constants
     private let boldFontAttributes = [
         NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17),
-        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.foregroundColor: UIColor.Grey80,
     ]
     private let normalFontAttributes = [
         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
-        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.foregroundColor: UIColor.Grey80,
     ]
     private let separatorBgColor = UIColor(rgb: 0xC7CBD3)
     private let margin: CGFloat = 10
