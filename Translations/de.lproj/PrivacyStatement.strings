@@ -37,10 +37,10 @@
 "PrivacyStatement.MessageCellTitle" = "Nachricht schreiben";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation1" = "Hi, ich programmiere diese App. Bei Cliqz sind uns Privatsphäre und Transparenz wichtig.";
+"PrivacyStatement.SettingsConversation1" = "Hi, ich programmiere diese App. Bei Cliqz bauen wir Produkte mit \"Privacy-by-Design\". Und wir glauben an Transparenz.";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation2" = "Der Cliqz Browser sammelt Daten – aber keine, die dich identifizieren könnten. Ich glaube dennoch, dass Du selbst entscheiden solltest, was Du teilst:";
+"PrivacyStatement.SettingsConversation2" = "Der Cliqz Browser sammelt nur nicht-personenbezogene Daten. Deshalb können wir dich niemals identifizeren – technisch unmöglich! Ich glaube dennoch, Du solltest selbst entscheiden, ob du sogar das abschalten möchtest:";
 
 /* Conversation static message. */
 "PrivacyStatement.RepositoryConversation" = "Du musst das jetzt nicht einfach so glauben – unser Code ist open-source!";
