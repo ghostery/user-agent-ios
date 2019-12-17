@@ -170,6 +170,8 @@ class Tab: NSObject {
     /// tab instance, queue it for later until we become foregrounded.
     fileprivate var alertQueue = [JSAlertInfo]()
 
+    fileprivate var refreshControl: UIRefreshControl?
+
     weak var browserViewController: BrowserViewController?
 
     init(bvc: BrowserViewController, configuration: WKWebViewConfiguration, isPrivate: Bool = false) {
@@ -228,6 +230,8 @@ class Tab: NSObject {
             self.webView = webView
             self.webView?.addObserver(self, forKeyPath: KVOConstants.URL.rawValue, options: .new, context: nil)
             UserScriptManager.shared.injectUserScriptsIntoTab(self)
+            self.setupRefreshControl()
+
             tabDelegate?.tab?(self, didCreateWebView: webView)
         }
     }
@@ -419,7 +423,8 @@ class Tab: NSObject {
         webView?.stopLoading()
     }
 
-    func reload() {
+    @objc func reload() {
+        self.refreshControl?.endRefreshing()
         if let _ = webView?.reloadFromOrigin() {
             print("reloaded zombified tab from origin")
             return
@@ -429,6 +434,13 @@ class Tab: NSObject {
             print("restoring webView from scratch")
             restore(webView)
         }
+    }
+
+    private func setupRefreshControl() {
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.addTarget(self, action: #selector(reload), for: UIControl.Event.valueChanged)
+        self.webView?.scrollView.addSubview(self.refreshControl!)
+        self.webView?.scrollView.bounces = true
     }
 
     func addContentScript(_ helper: TabContentScript, name: String) {
