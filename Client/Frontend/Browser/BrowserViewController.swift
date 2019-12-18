@@ -237,6 +237,12 @@ class BrowserViewController: UIViewController {
         }
     }
 
+    func updateWhatsNewBadge() {
+        let shouldShowWhatsNeweBadge = self.profile.prefs.boolForKey(PrefsKeys.WhatsNewBubble) == nil
+        self.toolbar?.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
+        self.urlBar.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
+    }
+
     fileprivate func updateToolbarStateForTraitCollection(_ newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator? = nil) {
         let showToolbar = shouldShowFooterForTraitCollection(newCollection)
         let showTopTabs = shouldShowTopTabsForTraitCollection(newCollection)
@@ -252,6 +258,7 @@ class BrowserViewController: UIViewController {
             footer.addSubview(toolbar!)
             toolbar?.tabToolbarDelegate = self
             toolbar?.applyUIMode(isPrivate: tabManager.selectedTab?.isPrivate ?? false)
+            self.updateWhatsNewBadge()
             toolbar?.applyTheme()
             updateTabCountUsingTabManager(self.tabManager)
         }
@@ -402,6 +409,7 @@ class BrowserViewController: UIViewController {
         urlBarTopTabsContainer.addSubview(topTabsContainer)
         notchAreaCover.contentView.addSubview(header)
 
+        self.updateWhatsNewBadge()
         // UIAccessibilityCustomAction subclass holding an AccessibleAction instance does not work, thus unable to generate AccessibleActions and UIAccessibilityCustomActions "on-demand" and need to make them "persistent" e.g. by being stored in BVC
         pasteGoAction = AccessibleAction(name: Strings.Menu.PasteAndGoTitle, handler: { () -> Bool in
             if let pasteboardContents = UIPasteboard.general.string {

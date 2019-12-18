@@ -193,8 +193,8 @@ class URLBarView: UIView {
         }
     }
 
-    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge",
-                                                         backdropCircleColor: UIColor.ForgetMode)
+    fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.ForgetMode)
+    fileprivate let whatsNeweBadge = BadgeWithBackdrop(imageName: "menuBadge")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -217,6 +217,8 @@ class URLBarView: UIView {
         }
 
         privateModeBadge.add(toParent: self)
+        self.whatsNeweBadge.add(toParent: self)
+        self.whatsNeweBadge.show(false)
 
         helper = TabToolbarHelper(toolbar: self)
         setupConstraints()
@@ -297,6 +299,7 @@ class URLBarView: UIView {
         }
 
         privateModeBadge.layout(onButton: tabsButton)
+        self.whatsNeweBadge.layout(onButton: self.menuButton)
     }
 
     override func updateConstraints() {
@@ -559,7 +562,7 @@ class URLBarView: UIView {
         stopReloadButton.isHidden = !toolbarIsShowing || inOverlayMode
 
         // badge isHidden is tied to private mode on/off, use alpha to hide in this case
-        [privateModeBadge].forEach {
+        [privateModeBadge, whatsNeweBadge].forEach {
             $0.badge.alpha = (!toolbarIsShowing || inOverlayMode) ? 0 : 1
             $0.backdrop.alpha = (!toolbarIsShowing || inOverlayMode) ? 0 : BadgeWithBackdrop.backdropAlpha
         }
@@ -604,6 +607,12 @@ extension URLBarView: TabToolbarProtocol {
     func privateModeBadge(visible: Bool) {
         if !UIDevice.current.isPad {
             privateModeBadge.show(visible)
+        }
+    }
+
+    func whatsNeweBadge(visible: Bool) {
+        if UIDevice.current.isPad {
+            self.whatsNeweBadge.show(visible)
         }
     }
 
@@ -743,6 +752,7 @@ extension URLBarView: Themeable {
         locationContainer.backgroundColor = .clear
 
         privateModeBadge.badge.tintBackground(color: Theme.browser.background)
+        self.whatsNeweBadge.badge.tintBackground(color: .clear)
         cancelButton.setTitleColor(Theme.general.controlTint, for: .normal)
     }
 }
