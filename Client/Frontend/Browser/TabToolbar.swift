@@ -22,6 +22,7 @@ protocol TabToolbarProtocol: AnyObject {
     func updatePageStatus(_ isWebPage: Bool)
     func updateTabCount(_ count: Int, animated: Bool)
     func privateModeBadge(visible: Bool)
+    func whatsNeweBadge(visible: Bool)
 }
 
 protocol TabToolbarDelegate: AnyObject {
@@ -209,6 +210,7 @@ class TabToolbar: UIView {
     lazy var stopReloadButton = ToolbarButton()
 
     fileprivate let privateModeBadge = BadgeWithBackdrop(imageName: "privateModeBadge", backdropCircleColor: UIColor.ForgetMode)
+    fileprivate let whatsNeweBadge = BadgeWithBackdrop(imageName: "menuBadge")
 
     var helper: TabToolbarHelper?
     private let contentView = UIStackView()
@@ -235,6 +237,8 @@ class TabToolbar: UIView {
         addButtons(actionButtons)
 
         privateModeBadge.add(toParent: contentView)
+        self.whatsNeweBadge.add(toParent: self.contentView)
+        self.whatsNeweBadge.show(false)
 
         contentView.axis = .horizontal
         contentView.distribution = .fillEqually
@@ -242,7 +246,7 @@ class TabToolbar: UIView {
 
     override func updateConstraints() {
         privateModeBadge.layout(onButton: tabsButton)
-
+        self.whatsNeweBadge.layout(onButton: self.menuButton)
         contentView.snp.makeConstraints { make in
             make.leading.trailing.top.equalTo(self)
             make.bottom.equalTo(self.safeArea.bottom)
@@ -293,6 +297,10 @@ extension TabToolbar: TabToolbarProtocol {
         privateModeBadge.show(visible)
     }
 
+    func whatsNeweBadge(visible: Bool) {
+        self.whatsNeweBadge.show(visible)
+    }
+
     func updateBackStatus(_ canGoBack: Bool) {
         backButton.isEnabled = canGoBack
     }
@@ -319,6 +327,7 @@ extension TabToolbar: Themeable, PrivateModeUI {
         helper?.setTheme(forButtons: actionButtons)
 
         privateModeBadge.badge.tintBackground(color: Theme.browser.background)
+        self.whatsNeweBadge.badge.tintBackground(color: .clear)
         menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
     }
 
