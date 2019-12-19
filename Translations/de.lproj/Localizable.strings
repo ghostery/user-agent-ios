@@ -32,7 +32,7 @@
 /* Section title label for recently bookmarked websites */
 "ActivityStream.NewRecentBookmarks.Title" = "Neue Lesezeichen";
 
-"ActivityStream.News.BreakingLabel" = "EILMENDUNG";
+"ActivityStream.News.BreakingLabel" = "EILMELDUNG";
 
 "ActivityStream.PinnedSites.SectionTitle" = "Angeheftete Seiten";
 
