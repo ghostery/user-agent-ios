@@ -62,9 +62,18 @@ extension PhotonActionSheetProtocol {
         return [
             self.openWhatsNewItem(vcDelegate: vcDelegate),
             self.openPrivacyStatementItem(vcDelegate: vcDelegate),
-            self.closeAllTabsItem(),
+            self.burnItem(vcDelegate: vcDelegate),
             self.openSettingsItem(vcDelegate: vcDelegate),
         ]
+    }
+
+    func getBurnActions() -> [PhotonActionSheetItem] {
+        let closeAllTabsAndClearData = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsAndClearDataTitleString, iconString: "menu-Home") { _ in
+            self.tabManager.removeAllTabs()
+            let userData: [Clearable] = [HistoryClearable(profile: self.profile), CacheClearable(tabManager: self.tabManager), CookiesClearable(tabManager: self.tabManager), SiteDataClearable(tabManager: self.tabManager)]
+            userData.forEach({ _ = $0.clear() })
+        }
+        return [closeAllTabsAndClearData]
     }
 
     fileprivate func share(fileURL: URL, buttonView: UIView, presentableVC: PresentableVC) {
@@ -368,9 +377,9 @@ extension PhotonActionSheetProtocol {
         return openSettings
     }
 
-    private func closeAllTabsItem() -> PhotonActionSheetItem {
-        let openSettings = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsTitleString, iconString: "chat") { action in
-            self.tabManager.removeAllTabs()
+    private func burnItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
+        let openSettings = PhotonActionSheetItem(title: Strings.Menu.BurnTitleString, iconString: "chat") { action in
+            (vcDelegate as? BrowserViewController)?.didPressBurnMenuItem()
         }
         return openSettings
     }

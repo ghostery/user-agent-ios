@@ -243,6 +243,16 @@ class BrowserViewController: UIViewController {
         self.urlBar.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
     }
 
+    func didPressBurnMenuItem() {
+        let actions = [self.getBurnActions()]
+        // force a modal if the menu is being displayed in compact split screen
+        let shouldSuppress = !topTabsVisible && UIDevice.current.isPad
+        guard let button = UIDevice.current.isPad ? self.urlBar.menuButton : self.toolbar?.menuButton else {
+            return
+        }
+        self.presentSheetWith(actions: actions, on: self, from: button, closeButtonTitle: Strings.General.CancelString, suppressPopover: shouldSuppress)
+    }
+
     fileprivate func updateToolbarStateForTraitCollection(_ newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator? = nil) {
         let showToolbar = shouldShowFooterForTraitCollection(newCollection)
         let showTopTabs = shouldShowTopTabsForTraitCollection(newCollection)
