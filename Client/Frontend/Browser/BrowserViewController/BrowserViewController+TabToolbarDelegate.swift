@@ -50,6 +50,13 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         presentSheetWith(actions: actions, on: self, from: button, suppressPopover: shouldSuppress)
     }
 
+    func tabToolbarDidLongPressMenu(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
+        guard let tab = self.tabManager.selectedTab, let homePanelURL = NewTabPage.topSites.url else {
+            return
+        }
+        tab.loadRequest(PrivilegedRequest(url: homePanelURL) as URLRequest)
+    }
+
     func tabToolbarDidPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
         self.focusLocationTextField(forTab: self.tabManager.selectedTab)
     }
