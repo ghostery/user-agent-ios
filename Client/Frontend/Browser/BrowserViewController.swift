@@ -210,11 +210,7 @@ class BrowserViewController: UIViewController {
         let navigationController = UINavigationController(rootViewController: downloadsViewContrller)
         if #available(iOS 13.0, *) {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
-            if UIDevice.current.isPhone {
-                UIView.animate(withDuration: 1.0) {
-                    self.view.window?.backgroundColor = .black
-                }
-            }
+            navigationController.presentationController?.delegate = self
         } else {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
@@ -237,7 +233,41 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    func updateWhatsNewBadge() {
+    func presentWhatsNewViewController() {
+        guard let url = URL(string: Strings.WhatsNewWebsite) else {
+            return
+        }
+        self.updateWhatsNewBadge()
+        let viewController = SettingsContentViewController()
+        viewController.url = url
+        viewController.title = Strings.Menu.WhatsNewTitleString
+        let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.General.CloseString, style: .done, closure: { (_) in
+            self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
+            navigationController.dismiss(animated: true)
+        })
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+            navigationController.presentationController?.delegate = self
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+        }
+        self.present(navigationController, animated: true)
+    }
+
+    func setPhoneWindowBackground(color: UIColor, animationDuration: TimeInterval? = nil) {
+        if UIDevice.current.isPhone {
+            if let duration = animationDuration {
+                UIView.animate(withDuration: duration) {
+                    self.view.window?.backgroundColor = color
+                }
+            } else {
+                self.view.window?.backgroundColor = color
+            }
+        }
+    }
+
+    private func updateWhatsNewBadge() {
         let shouldShowWhatsNeweBadge = self.profile.prefs.boolForKey(PrefsKeys.WhatsNewBubble) == nil
         self.toolbar?.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
         self.urlBar.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
@@ -1713,14 +1743,6 @@ extension BrowserViewController: UIPopoverPresentationControllerDelegate {
     }
 }
 
-extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
-    // Returning None here makes sure that the Popover is actually presented as a Popover and
-    // not as a full-screen modal, which is the default on compact device classes.
-    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return .none
-    }
-}
-
 extension BrowserViewController: IntroViewControllerDelegate {
     @discardableResult
     func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
@@ -1774,11 +1796,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
         let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
         if #available(iOS 13.0, *) {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
-            if UIDevice.current.isPhone {
-                UIView.animate(withDuration: 1.0) {
-                    self.view.window?.backgroundColor = .black
-                }
-            }
+            navigationController.presentationController?.delegate = self
         } else {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
@@ -1790,9 +1808,7 @@ extension BrowserViewController: IntroViewControllerDelegate {
 extension BrowserViewController: PrivacyStatementViewControllerDelegate {
 
     func privacyStatementViewControllerDidClose() {
-        UIView.animate(withDuration: 1.0) {
-            self.view.window?.backgroundColor = Theme.browser.background
-        }
+        self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
     }
 
 }
@@ -2279,4 +2295,25 @@ extension BrowserViewController {
     public static func foregroundBVC() -> BrowserViewController {
         return (UIApplication.shared.delegate as! AppDelegate).browserViewController
     }
+}
+
+extension BrowserViewController: UIAdaptivePresentationControllerDelegate {
+    // Returning None here makes sure that the Popover is actually presented as a Popover and
+    // not as a full-screen modal, which is the default on compact device classes.
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
+
+    func presentationController(_ presentationController: UIPresentationController, willPresentWithAdaptiveStyle style: UIModalPresentationStyle, transitionCoordinator: UIViewControllerTransitionCoordinator?) {
+        if #available(iOS 13.0, *) {
+            transitionCoordinator?.animate(alongsideTransition: { (_) in
+                self.setPhoneWindowBackground(color: .black)
+            })
+        }
+    }
+
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 0.05)
+    }
+
 }

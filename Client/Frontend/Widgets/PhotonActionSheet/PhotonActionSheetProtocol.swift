@@ -46,8 +46,9 @@ extension PhotonActionSheetProtocol {
         }
 
         let openDownloadsItem = self.openDownloadsItem(vcDelegate: vcDelegate)
+        let openWhatsNewtem = self.openWhatsNewItem(vcDelegate: vcDelegate)
 
-        return [openHomePage, openDownloadsItem]
+        return [openHomePage, openWhatsNewtem, openDownloadsItem]
     }
 
     /*
@@ -60,7 +61,6 @@ extension PhotonActionSheetProtocol {
 
     func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         return [
-            self.openWhatsNewItem(vcDelegate: vcDelegate),
             self.openPrivacyStatementItem(vcDelegate: vcDelegate),
             self.openSettingsItem(vcDelegate: vcDelegate),
         ]
@@ -349,13 +349,8 @@ extension PhotonActionSheetProtocol {
     private func openWhatsNewItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
         let badgeIconName: String? = (self.profile.prefs.boolForKey(PrefsKeys.WhatsNewBubble) == nil) ? "menuBadge" : nil
         let openSettings = PhotonActionSheetItem(title: Strings.Menu.WhatsNewTitleString, iconString: "menu-whatsNew", isEnabled: badgeIconName != nil, badgeIconNamed: badgeIconName) { action in
-            guard let url = URL(string: Strings.WhatsNewWebsite) else {
-                return
-            }
             self.profile.prefs.setBool(true, forKey: PrefsKeys.WhatsNewBubble)
-            (vcDelegate as? BrowserViewController)?.updateWhatsNewBadge()
-            let newTab = self.tabManager.addTab(URLRequest(url: url))
-            self.tabManager.selectTab(newTab)
+            (vcDelegate as? BrowserViewController)?.presentWhatsNewViewController()
         }
         return openSettings
     }

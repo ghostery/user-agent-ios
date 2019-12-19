@@ -48,7 +48,6 @@ class PrivacyStatementViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.presentationController?.delegate = self
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.backgroundColor = UIColor.Grey20
         self.tableView.separatorStyle = .none
@@ -282,14 +281,6 @@ extension PrivacyStatementViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
-    }
-
-}
-
-extension PrivacyStatementViewController: UIAdaptivePresentationControllerDelegate {
-
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        self.delegate?.privacyStatementViewControllerDidClose()
     }
 
 }
