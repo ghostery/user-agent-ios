@@ -31,7 +31,6 @@ class DownloadsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.presentationController?.delegate = self
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.DownloadsPanel.DoneTitle, style: .done, target: self, action: #selector(closeButtonAction))
         self.title = Strings.Menu.DownloadsTitleString
         self.view.addSubview(self.downloadsView)
@@ -79,14 +78,6 @@ extension DownloadsViewController: UIDocumentInteractionControllerDelegate {
 
     func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
         return self
-    }
-
-}
-
-extension DownloadsViewController: UIAdaptivePresentationControllerDelegate {
-
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        self.delegate?.downloadsDidClose()
     }
 
 }

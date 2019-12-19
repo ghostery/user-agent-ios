@@ -33,6 +33,7 @@ protocol TabToolbarDelegate: AnyObject {
     func tabToolbarDidPressReload(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressStop(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressMenu(_ tabToolbar: TabToolbarProtocol, button: UIButton)
+    func tabToolbarDidLongPressMenu(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidLongPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton)
@@ -93,6 +94,7 @@ open class TabToolbarHelper: NSObject {
         toolbar.menuButton.accessibilityLabel = Strings.Menu.ButtonAccessibilityLabel
         toolbar.menuButton.addTarget(self, action: #selector(didClickMenu), for: .touchUpInside)
         toolbar.menuButton.accessibilityIdentifier = "TabToolbar.menuButton"
+        toolbar.menuButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(didLongPressMenu(_:))))
     }
 
     func didClickBack() {
@@ -110,7 +112,9 @@ open class TabToolbarHelper: NSObject {
     }
 
     func didLongPressTabs(_ recognizer: UILongPressGestureRecognizer) {
-        toolbar.tabToolbarDelegate?.tabToolbarDidLongPressTabs(toolbar, button: toolbar.tabsButton)
+        if recognizer.state == .began {
+            toolbar.tabToolbarDelegate?.tabToolbarDidLongPressTabs(toolbar, button: toolbar.tabsButton)
+        }
     }
 
     func didClickForward() {
@@ -125,6 +129,12 @@ open class TabToolbarHelper: NSObject {
 
     func didClickMenu() {
         toolbar.tabToolbarDelegate?.tabToolbarDidPressMenu(toolbar, button: toolbar.menuButton)
+    }
+
+    func didLongPressMenu(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            toolbar.tabToolbarDelegate?.tabToolbarDidLongPressMenu(toolbar, button: toolbar.menuButton)
+        }
     }
 
     func didClickSearch() {
