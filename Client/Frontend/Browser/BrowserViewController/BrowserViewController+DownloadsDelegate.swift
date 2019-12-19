@@ -23,9 +23,7 @@ extension BrowserViewController: DownloadsDelegate {
     }
 
     func downloadsDidClose() {
-        UIView.animate(withDuration: 1.0) {
-            self.view.window?.backgroundColor = Theme.browser.background
-        }
+        self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
     }
 
 }
