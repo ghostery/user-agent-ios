@@ -68,7 +68,7 @@ extension PhotonActionSheetProtocol {
     }
 
     func getBurnActions() -> [PhotonActionSheetItem] {
-        let closeAllTabsAndClearData = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsAndClearDataTitleString, iconString: "menu-Home") { _ in
+        let closeAllTabsAndClearData = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsAndClearDataTitleString, iconString: "menu-burn") { _ in
             self.tabManager.removeAllTabs()
             let userData: [Clearable] = [HistoryClearable(profile: self.profile), CacheClearable(tabManager: self.tabManager), CookiesClearable(tabManager: self.tabManager), SiteDataClearable(tabManager: self.tabManager)]
             userData.forEach({ _ = $0.clear() })
@@ -373,7 +373,7 @@ extension PhotonActionSheetProtocol {
     }
 
     private func burnItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
-        let openSettings = PhotonActionSheetItem(title: Strings.Menu.BurnTitleString, iconString: "chat") { action in
+        let openSettings = PhotonActionSheetItem(title: Strings.Menu.BurnTitleString, iconString: "menu-burn") { action in
             (vcDelegate as? BrowserViewController)?.didPressBurnMenuItem()
         }
         return openSettings
