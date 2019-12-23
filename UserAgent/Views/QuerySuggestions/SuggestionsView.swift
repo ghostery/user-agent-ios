@@ -180,6 +180,6 @@ class SuggestionsView: UIView {
         guard let suggestion = button.titleLabel?.text else {
             return
         }
-        onSuggestionTapped?(suggestion)
+        onSuggestionTapped?(suggestion + " ")
     }
 }
