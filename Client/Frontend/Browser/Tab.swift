@@ -421,7 +421,7 @@ class Tab: NSObject {
             webView?.evaluateJavaScript("location.replace('\(page)')", completionHandler: nil)
             return
         }
-        
+
         if let _ = webView?.reloadFromOrigin() {
             print("reloaded zombified tab from origin")
             return
