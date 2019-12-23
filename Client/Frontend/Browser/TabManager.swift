@@ -326,7 +326,7 @@ class TabManager: NSObject {
         // If network is not available webView(_:didCommit:) is not going to be called
         // We should set request url in order to show url in url bar even no network
         tab.url = request?.url
-        
+
         if parent == nil || parent?.isPrivate != tab.isPrivate {
             tabs.append(tab)
         } else if let parent = parent, var insertIndex = tabs.firstIndex(of: parent) {

@@ -92,13 +92,13 @@ class TabTrayController: UIViewController {
         // When the app enters split screen mode we refresh the collection view layout to show the proper grid
         collectionView.collectionViewLayout.invalidateLayout()
     }
-    
+
     deinit {
         tabManager.removeDelegate(self.tabDisplayManager)
         tabManager.removeDelegate(self)
         tabDisplayManager = nil
     }
-    
+
     func focusTab() {
         guard let currentTab = tabManager.selectedTab, let index = self.tabDisplayManager.dataStore.index(of: currentTab), let rect = self.collectionView.layoutAttributesForItem(at: IndexPath(item: index, section: 0))?.frame else {
             return
