@@ -32,7 +32,7 @@ class SearchEnginesTests: XCTestCase {
     }
 
     func testAddingAndDeletingCustomEngines() {
-        let testEngine = OpenSearchEngine(engineID: "ATester", shortName: "ATester", searchTemplate: "http://firefox.com/find?q={searchTerm}", suggestTemplate: nil, isCustomEngine: true)
+        let testEngine = OpenSearchEngine(engineID: "ATester", shortName: "ATester", image: UIImage(), searchTemplate: "http://firefox.com/find?q={searchTerm}", suggestTemplate: nil, isCustomEngine: true)
         let profile = MockProfile()
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
         engines.addSearchEngine(testEngine)
@@ -155,7 +155,7 @@ class SearchEnginesTests: XCTestCase {
     func testUnorderedSearchEngines() {
         XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "zh-TW")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "DuckDuckGo", "Wikipedia (zh)"])
         XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "en-CA")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "Amazon.com", "DuckDuckGo", "Twitter", "Wikipedia"])
-        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "de-DE")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "Amazon.de", "DuckDuckGo", "Qwant", "Twitter", "Wikipedia (de)"])
+        XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "de-DE")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "Amazon.de", "DuckDuckGo", "Qwant", "Twitter", "Wikipedia (de)", "Ecosia"])
         XCTAssertEqual(SearchEngines.getUnorderedBundledEnginesFor(locale: Locale(identifier: "en-US")).compactMap({$0.shortName}), ["Cliqz", "Google", "Bing", "Amazon.com", "DuckDuckGo", "Twitter", "Wikipedia"])
     }
 

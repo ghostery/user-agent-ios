@@ -145,7 +145,7 @@
     "de": {
       "default": {
         "visibleDefaultEngines": [
-         "cliqz", "google-b-m", "bing", "amazon-de", "ddg", "qwant", "twitter", "wikipedia-de"
+         "cliqz", "google-b-m", "bing", "amazon-de", "ddg", "qwant", "twitter", "wikipedia-de", "ecosia"
         ]
       }
     },

@@ -290,22 +290,15 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
     // Add the intro screens.
     var i = 0
     let introLast = allIntroPages.count - 1
-    let introPager = app.scrollViews["IntroViewController.scrollView"]
     for intro in allIntroPages {
         let prev = i == 0 ? nil : allIntroPages[i - 1]
         let next = i == introLast ? nil : allIntroPages[i + 1]
 
         map.addScreenState(intro) { screenState in
-            if let prev = prev {
-                screenState.swipeRight(introPager, to: prev)
-            }
-
             if let next = next {
-                screenState.swipeLeft(introPager, to: next)
-            }
-
-            if i > 0 {
-                let startBrowsingButton = app.buttons["IntroViewController.startBrowsingButton"]
+                screenState.tap(app.buttons["nextOnboardingButton"], to: next)
+            }  else {
+                let startBrowsingButton = app.buttons["startBrowsingOnboardingButton"]
                 screenState.tap(startBrowsingButton, to: BrowserTab)
             }
         }
@@ -404,12 +397,20 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
         // For custom URL, should use Navigator.openNewURL or Navigator.openURL.
         screenState.gesture(forAction: Action.LoadURLByTyping, Action.LoadURL) { userState in
             let url = userState.url ?? defaultURL
-            app.textFields["address"].typeText("\(url)\r")
+            // Workaround BB iOS13 be sure tap happens on url bar
+            sleep(1)
+            app.textFields.firstMatch.tap()
+            app.textFields.firstMatch.tap()
+            app.textFields.firstMatch.typeText("\(url)\r")
         }
 
         screenState.gesture(forAction: Action.SetURLByTyping, Action.SetURL) { userState in
             let url = userState.url ?? defaultURL
-            app.textFields["address"].typeText("\(url)")
+            // Workaround BB iOS13 be sure tap happens on url bar
+            sleep(1)
+            app.textFields.firstMatch.tap()
+            app.textFields.firstMatch.tap()
+            app.textFields.firstMatch.typeText("\(url)")
         }
 
         screenState.noop(to: HomePanelsScreen)
@@ -555,8 +556,8 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
 
         screenState.gesture(forAction: Action.FxATypeEmail) { userState in
             if isTablet {
-                app.textFields.element(boundBy: 1).tap()
-                app.textFields.element(boundBy: 1).typeText(userState.fxaUsername!)
+                app.webViews.textFields.element(boundBy: 0).tap()
+                app.webViews.textFields.element(boundBy: 0).typeText(userState.fxaUsername!)
             } else {
                 app.textFields.element(boundBy: 0).tap()
                 app.textFields.element(boundBy: 0).typeText(userState.fxaUsername!)
@@ -808,6 +809,7 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
 
         screenState.tap(app.textFields["url"], to: URLBarOpen)
         screenState.gesture(to: URLBarLongPressMenu) {
+            sleep(1)
             app.textFields["url"].press(forDuration: 1.0)
         }
     }
