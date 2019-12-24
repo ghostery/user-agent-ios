@@ -37,6 +37,7 @@ protocol TabToolbarDelegate: AnyObject {
     func tabToolbarDidPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidLongPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton)
     func tabToolbarDidPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton)
+    func tabToolbarDidLongPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton)
 }
 
 @objcMembers
@@ -84,6 +85,8 @@ open class TabToolbarHelper: NSObject {
 
         toolbar.searchButton.setImage(UIImage.templateImageNamed("search"), for: .normal)
         toolbar.searchButton.addTarget(self, action: #selector(didClickSearch), for: .touchUpInside)
+        let longPressGestureSearchButton = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressSearch))
+        toolbar.searchButton.addGestureRecognizer(longPressGestureSearchButton)
 
         toolbar.tabsButton.addTarget(self, action: #selector(didClickTabs), for: .touchUpInside)
         let longPressGestureTabsButton = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressTabs))
@@ -114,6 +117,12 @@ open class TabToolbarHelper: NSObject {
     func didLongPressTabs(_ recognizer: UILongPressGestureRecognizer) {
         if recognizer.state == .began {
             toolbar.tabToolbarDelegate?.tabToolbarDidLongPressTabs(toolbar, button: toolbar.tabsButton)
+        }
+    }
+
+    func didLongPressSearch(_ recognizer: UILongPressGestureRecognizer) {
+        if recognizer.state == .began {
+            toolbar.tabToolbarDelegate?.tabToolbarDidLongPressSearch(toolbar, button: toolbar.searchButton)
         }
     }
 

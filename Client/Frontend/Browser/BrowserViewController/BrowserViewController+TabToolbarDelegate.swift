@@ -61,6 +61,10 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         self.focusLocationTextField(forTab: self.tabManager.selectedTab)
     }
 
+    func tabToolbarDidLongPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
+        self.showQueriesList(tabToolbar, button: button)
+    }
+
     func tabToolbarDidPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
         showTabTray()
     }
@@ -127,4 +131,18 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
             self.present(backForwardViewController, animated: true, completion: nil)
         }
     }
+
+    func showQueriesList(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
+        guard !self.queries.isEmpty else {
+            return
+        }
+        let queriesItems = self.getQueriesActions(queries: self.queries, didSelectQuery: { (query) in
+            self.urlBar.enterOverlayMode(query, pasted: false, search: true)
+        }) { (query) in
+            self.queries = self.queries.filter({ $0 != query })
+        }
+        let shouldSuppress = !self.topTabsVisible && UIDevice.current.isPad
+        self.presentSheetWith(actions: [queriesItems], on: self, from: button, suppressPopover: shouldSuppress)
+    }
+
 }

@@ -59,6 +59,17 @@ extension PhotonActionSheetProtocol {
 
     typealias PageOptionsVC = SettingsDelegate & PresentingModalViewControllerDelegate & UIViewController
 
+    func getQueriesActions(queries: [String], didSelectQuery: @escaping (String) -> Void, didRemoveQuery: @escaping (String) -> Void) -> [PhotonActionSheetItem] {
+        var queryItems = [PhotonActionSheetItem]()
+        for query in queries {
+            let queryItem = PhotonActionSheetItem(title: query, iconString: "") { item in
+                didSelectQuery(item.title)
+            }
+            queryItems.append(queryItem)
+        }
+        return queryItems
+    }
+
     func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         return [
             self.openPrivacyStatementItem(vcDelegate: vcDelegate),
