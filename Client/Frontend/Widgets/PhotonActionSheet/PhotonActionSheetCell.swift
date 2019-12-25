@@ -272,7 +272,8 @@ class PhotonActionSheetCell: UITableViewCell {
             return
         }
         self.removeButton = UIButton()
-        self.removeButton.setImage(UIImage(named: "clear"), for: .normal)
+        self.removeButton.setImage(UIImage(named: "clear")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        self.removeButton.tintColor = self.tintColor
         self.removeButton.addTarget(self, action: #selector(PhotonActionSheetCell.removeButtonAction), for: .touchUpInside)
         self.stackView.addArrangedSubview(self.removeButton)
         self.removeButton.snp.makeConstraints { (make) in
