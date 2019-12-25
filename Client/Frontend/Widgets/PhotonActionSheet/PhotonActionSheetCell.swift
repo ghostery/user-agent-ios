@@ -28,6 +28,8 @@ class PhotonActionSheetCell: UITableViewCell {
 
     var badgeOverlay: BadgeWithBackdrop?
 
+    var didRemove: ((UITableViewCell) -> Void)?
+
     private func createLabel() -> UILabel {
         let label = UILabel()
         label.minimumScaleFactor = 0.75 // Scale the font if we run out of space
@@ -96,6 +98,8 @@ class PhotonActionSheetCell: UITableViewCell {
 
     let toggleSwitch = ToggleSwitch()
 
+    var removeButton: UIButton!
+
     lazy var selectedOverlay: UIView = {
         let selectedOverlay = UIView()
         selectedOverlay.backgroundColor = PhotonActionSheetCellUX.SelectedOverlayColor
@@ -127,6 +131,8 @@ class PhotonActionSheetCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.statusIcon.image = nil
+        self.removeButton?.removeFromSuperview()
+        self.removeButton = nil
         disclosureIndicator.removeFromSuperview()
         disclosureLabel.removeFromSuperview()
         toggleSwitch.mainView.removeFromSuperview()
@@ -253,9 +259,30 @@ class PhotonActionSheetCell: UITableViewCell {
         case .Switch:
             toggleSwitch.setOn(action.isEnabled)
             stackView.addArrangedSubview(toggleSwitch.mainView)
+        case .Remove:
+            self.addRemoveButton()
         default:
             break // Do nothing. The rest are not supported yet.
         }
         action.customRender?(titleLabel, contentView)
     }
+
+    private func addRemoveButton() {
+        guard self.removeButton == nil else {
+            return
+        }
+        self.removeButton = UIButton()
+        self.removeButton.setImage(UIImage(named: "clear"), for: .normal)
+        self.removeButton.addTarget(self, action: #selector(PhotonActionSheetCell.removeButtonAction), for: .touchUpInside)
+        self.stackView.addArrangedSubview(self.removeButton)
+        self.removeButton.snp.makeConstraints { (make) in
+            make.width.equalTo(self.removeButton.snp.height)
+            make.height.equalTo(self.stackView)
+        }
+    }
+
+    @objc func removeButtonAction() {
+        self.didRemove?(self)
+    }
+
 }

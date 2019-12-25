@@ -62,8 +62,11 @@ extension PhotonActionSheetProtocol {
     func getQueriesActions(queries: [String], didSelectQuery: @escaping (String) -> Void, didRemoveQuery: @escaping (String) -> Void) -> [PhotonActionSheetItem] {
         var queryItems = [PhotonActionSheetItem]()
         for query in queries {
-            let queryItem = PhotonActionSheetItem(title: query, iconString: "") { item in
+            var queryItem = PhotonActionSheetItem(title: query, accessory: .Remove) { item in
                 didSelectQuery(item.title)
+            }
+            queryItem.didRemoveHandler = { item in
+                didRemoveQuery(item.title)
             }
             queryItems.append(queryItem)
         }

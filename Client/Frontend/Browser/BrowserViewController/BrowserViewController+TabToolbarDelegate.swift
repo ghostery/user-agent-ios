@@ -136,10 +136,13 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         guard !self.queries.isEmpty else {
             return
         }
-        let queriesItems = self.getQueriesActions(queries: self.queries, didSelectQuery: { (query) in
-            self.urlBar.enterOverlayMode(query, pasted: false, search: true)
-        }) { (query) in
-            self.queries = self.queries.filter({ $0 != query })
+        let queriesItems = self.getQueriesActions(queries: self.queries, didSelectQuery: { [weak self] (query) in
+            self?.urlBar.enterOverlayMode(query, pasted: false, search: true)
+        }) { [weak self] (query) in
+            self?.queries = self?.queries.filter({ $0 != query }) ?? []
+            if self?.queries.isEmpty ?? false {
+                self?.presentedViewController?.dismiss(animated: true)
+            }
         }
         let shouldSuppress = !self.topTabsVisible && UIDevice.current.isPad
         self.presentSheetWith(actions: [queriesItems], on: self, from: button, suppressPopover: shouldSuppress)
