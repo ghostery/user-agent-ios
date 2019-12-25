@@ -18,10 +18,9 @@ enum PrivacyDashboardUtils {
         private func columns(dot: UIView, label: UILabel, number: UILabel) {
             self.spacing = 5
             self.alignment = .top
-            self.distribution = .fillProportionally
+            self.distribution = .fill
             [dot, label, number].forEach { self.addArrangedSubview($0)}
             number.alpha = 0.7
-            number.textAlignment = .right
 
             label.snp.makeConstraints { make in
                 make.width.lessThanOrEqualTo(100)

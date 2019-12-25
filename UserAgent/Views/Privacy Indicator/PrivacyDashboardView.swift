@@ -2,14 +2,30 @@ import UIKit
 import Shared
 
 class PrivacyDashboardView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.snp.makeConstraints { make in
+            // This fixes a bug
+            // where the tableview would squash elements inside PrivacyDashboardView
+            make.height.greaterThanOrEqualTo(UIScreen.main.bounds.height * 0.3)
+        }
+        self.backgroundColor = UIColor.clear
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     var blocker: FirefoxTabContentBlocker? {
         didSet {
             guard let blocker = blocker else { return }
             self.privacyIndicator.blocker = blocker
-            DispatchQueue.main.async { [weak self] in
-                self?.subviews.forEach { $0.removeFromSuperview() }
-                self?.render(stats: blocker.stats, url: blocker.tab?.currentURL())
-            }
+            self.subviews.forEach { $0.removeFromSuperview() }
+            self.render(
+                status: blocker.status,
+                stats: blocker.stats,
+                domain: blocker.tab?.currentURL()?.baseDomain ?? ""
+            )
         }
     }
     private let privacyIndicator = PrivacyIndicatorView()
@@ -17,18 +33,16 @@ class PrivacyDashboardView: UIView {
 
 private extension PrivacyDashboardView {
 
-    func renderHeader(withStatus status: BlockerStatus, url: URL?) -> UIView {
+    func renderHeader(withStatus status: BlockerStatus, domain: String) -> UIView {
         let view = UIStackView(arrangedSubviews: [
             PrivacyDashboardUtils.Label(
                 withType: .title,
                 PrivacyDashboardUtils.headerText(withStatus: status)
             ),
-            PrivacyDashboardUtils.Label(
-                withType: .domain,
-                url?.baseDomain ?? ""
-            ),
+            PrivacyDashboardUtils.Label(withType: .domain, domain),
         ])
         view.axis = .vertical
+        view.distribution = .equalSpacing
         self.addSubview(view)
 
         view.snp.makeConstraints { make in
@@ -59,6 +73,7 @@ private extension PrivacyDashboardView {
         view.alignment = .top
         view.axis = .vertical
         view.spacing = 5
+
         return view
     }
 
@@ -121,28 +136,18 @@ private extension PrivacyDashboardView {
         wrapper.addArrangedSubview(view)
     }
 
-    func setStyles() {
-        self.snp.makeConstraints { make in
-            // This fixes a bug
-            // where the tableview would squash elements inside PrivacyDashboardView
-            make.height.greaterThanOrEqualTo(UIScreen.main.bounds.height * 0.3)
-        }
-        self.backgroundColor = UIColor.clear
-    }
-
     func render(
+        status: BlockerStatus,
         stats: TPPageStats,
-        url: URL?
+        domain: String
     ) {
-        guard let blocker = self.blocker else { return }
-        self.setStyles()
-        let header = self.renderHeader(withStatus: blocker.status, url: url)
+        let header = self.renderHeader(withStatus: status, domain: domain)
         let statsWrapper = self.renderStatsWrapper()
         self.renderMain(header: header, content: statsWrapper)
-        if blocker.status == .NoBlockedURLs {
+        if status == .NoBlockedURLs {
             return self.renderStatForNoBlockingUrl(withWrapper: statsWrapper)
         }
-        if [.Disabled, .Whitelisted].contains(blocker.status) {
+        if [.Disabled, .Whitelisted].contains(status) {
             return self.renderStatForWhitelisted(withWrapper: statsWrapper)
         }
         self.renderCounter(withStats: stats)
