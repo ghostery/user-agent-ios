@@ -319,6 +319,7 @@ class URLBarView: UIView {
         }
         if inOverlayMode {
             self.cancelButton.snp.remakeConstraints { make in
+                make.centerY.equalTo(self.locationContainer)
                 make.height.equalTo(locationContainer.snp.height)
                 make.trailing.equalTo(locationContainer.snp.trailing)
             }
@@ -543,6 +544,7 @@ class URLBarView: UIView {
                 make.edges.equalTo(self.locationView.urlTextField)
             }
             cancelButton.snp.remakeConstraints { make in
+                make.centerY.equalTo(self.locationContainer)
                 make.height.equalTo(locationContainer.snp.height)
                 make.leading.equalTo(locationView.snp.trailing)
             }
