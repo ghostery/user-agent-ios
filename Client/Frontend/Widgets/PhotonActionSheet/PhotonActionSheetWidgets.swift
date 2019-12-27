@@ -40,6 +40,7 @@ public enum PhotonActionSheetCellAccessoryType {
     case Switch
     case Text
     case Sync // Sync is a special case.
+    case Remove
     case None
 }
 
@@ -78,11 +79,12 @@ public struct PhotonActionSheetItem {
     // Enable height customization
     public var customHeight: ((PhotonActionSheetItem) -> CGFloat)?
 
+    public var didRemoveHandler: ((PhotonActionSheetItem) -> Void)?
+
     init(title: String, text: String? = nil, iconString: String? = nil, iconURL: URL? = nil, iconType: PhotonActionSheetIconType = .Image,
          iconAlignment: IconAlignment = .left, isEnabled: Bool = false, accessory: PhotonActionSheetCellAccessoryType = .None,
          accessoryText: String? = nil, badgeIconNamed: String? = nil, bold: Bool? = false, tabCount: String? = nil,
          customView: UIView? = nil, handler: ((PhotonActionSheetItem) -> Void)? = nil) {
-
         self.title = title
         self.iconString = iconString
         self.iconURL = iconURL

@@ -280,11 +280,31 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
 
+    private func configureRemoveActionIfNeeded(for cell: PhotonActionSheetCell, action: PhotonActionSheetItem) {
+        if action.accessory == .Remove {
+            cell.didRemove = { [weak self] cell in
+                if let indexPath = self?.tableView.indexPath(for: cell), let action = self?.actions[indexPath.section][indexPath.row] {
+                    self?.actions[indexPath.section].remove(at: indexPath.row)
+                    CATransaction.begin()
+                    self?.tableView.beginUpdates()
+                    CATransaction.setCompletionBlock {
+                        self?.view.setNeedsLayout()
+                    }
+                    self?.tableView.deleteRows(at: [indexPath], with: .left)
+                    self?.tableView.endUpdates()
+                    CATransaction.commit()
+                    action.didRemoveHandler?(action)
+                }
+            }
+        }
+    }
+
     private func photonActionSheetCell(for action: PhotonActionSheetItem,
                                        _ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PhotonActionSheetUX.CellName, for: indexPath) as! PhotonActionSheetCell
         cell.tintColor = self.tintColor
         cell.configure(with: action)
+        self.configureRemoveActionIfNeeded(for: cell, action: action)
         return cell
     }
 
