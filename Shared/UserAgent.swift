@@ -56,4 +56,13 @@ open class UserAgent {
         return "\(uaFxiOSVersion) " + (desktop ? "\(UserAgent.uaBitGoogleIpad) " : "\(UserAgent.uaBitMobile) ") + "\(UserAgent.uaBitSafari) \(AppInfo.displayName)"
     }
 
+    public static func oppositeUserAgent() -> String {
+        let isDefaultUADesktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
+        if isDefaultUADesktop {
+            return mobileUserAgent()
+        } else {
+            return desktopUserAgent()
+        }
+    }
+
 }

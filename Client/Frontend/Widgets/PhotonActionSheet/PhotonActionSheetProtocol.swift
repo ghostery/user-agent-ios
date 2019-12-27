@@ -127,15 +127,15 @@ extension PhotonActionSheetProtocol {
         let defaultUAisDesktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
         let toggleActionTitle: String
         if defaultUAisDesktop {
-            toggleActionTitle = tab.isDesktopUserAgent ? Strings.Menu.ViewDesktopSiteTitleString : Strings.Menu.ViewMobileSiteTitleString
+            toggleActionTitle = tab.changedUserAgent ? Strings.Menu.ViewDesktopSiteTitleString : Strings.Menu.ViewMobileSiteTitleString
         } else {
-            toggleActionTitle = tab.isDesktopUserAgent ? Strings.Menu.ViewMobileSiteTitleString : Strings.Menu.ViewDesktopSiteTitleString
+            toggleActionTitle = tab.changedUserAgent ? Strings.Menu.ViewMobileSiteTitleString : Strings.Menu.ViewDesktopSiteTitleString
         }
 
-        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.isDesktopUserAgent, badgeIconNamed: "menuBadge") { action in
+        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.changedUserAgent, badgeIconNamed: "menuBadge") { action in
             if let url = tab.url {
                 tab.toggleChangeUserAgent()
-                Tab.ChangeUserAgent.updateDomainList(forUrl: url, isChangedUA: tab.isDesktopUserAgent, isPrivate: tab.isPrivate)
+                Tab.ChangeUserAgent.updateDomainList(forUrl: url, isChangedUA: tab.changedUserAgent, isPrivate: tab.isPrivate)
             }
         }
 
