@@ -132,10 +132,10 @@ class Tab: NSObject {
     var lastTitle: String?
 
     /// Whether or not the desktop site was requested with the last request, reload or navigation.
-    var changedUserAgent: Bool = false {
+    var isDesktopUserAgent: Bool = false {
         didSet {
-            webView?.customUserAgent = changedUserAgent ? UserAgent.oppositeUserAgent() : nil
-            if changedUserAgent != oldValue {
+            webView?.customUserAgent = isDesktopUserAgent ? UserAgent.desktopUserAgent() : UserAgent.mobileUserAgent()
+            if isDesktopUserAgent != oldValue {
                 TabEvent.post(.didToggleDesktopMode, for: self)
             }
         }
@@ -497,7 +497,7 @@ class Tab: NSObject {
     }
 
     func toggleChangeUserAgent() {
-        changedUserAgent.toggle()
+        isDesktopUserAgent.toggle()
         reload()
         TabEvent.post(.didToggleDesktopMode, for: self)
     }

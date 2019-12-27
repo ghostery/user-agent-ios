@@ -304,15 +304,15 @@ extension TabLocationView: TabEventHandler {
 
     func tabDidGainFocus(_ tab: Tab) {
         updateBlockerStatus(forTab: tab)
-        menuBadge.show(tab.changedUserAgent || tab.changedReaderMode)
+        menuBadge.show(tab.isDesktopUserAgent || tab.changedReaderMode)
     }
 
     func tabDidToggleDesktopMode(_ tab: Tab) {
-        menuBadge.show(tab.changedUserAgent || tab.changedReaderMode)
+        menuBadge.show(tab.isDesktopUserAgent || tab.changedReaderMode)
     }
 
     func tabDidToggleReaderMode(_ tab: Tab) {
-        menuBadge.show(tab.changedUserAgent || tab.changedReaderMode)
+        menuBadge.show(tab.isDesktopUserAgent || tab.changedReaderMode)
     }
 }
 

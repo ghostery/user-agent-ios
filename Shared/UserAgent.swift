@@ -9,6 +9,8 @@ open class UserAgent {
     public static let uaBitSafari = "Safari/605.1.15"
     public static let uaBitMobile = "Mobile/15E148"
 
+    private static let uaFxiOSVersion = "FxiOS/21.0"
+
     // For iPad, we need to append this to the default UA for google.com to show correct page
     public static let uaBitGoogleIpad = "Version/13.0.3"
 
@@ -41,19 +43,17 @@ open class UserAgent {
     }
 
     public static func desktopUserAgent() -> String {
-        return "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/21.0 \(uaBitSafari) \(AppInfo.displayName)"
+        return "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15) AppleWebKit/605.1.15 (KHTML, like Gecko) \(uaFxiOSVersion) \(uaBitSafari) \(AppInfo.displayName)"
     }
 
     public static func mobileUserAgent() -> String {
-        return "Mozilla/5.0 (\(UIDevice.current.model); CPU OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/21.0  \(uaBitMobile) \(uaBitSafari) \(AppInfo.displayName)"
+        return "Mozilla/5.0 (\(UIDevice.current.model); CPU OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) \(uaFxiOSVersion)  \(uaBitMobile) \(uaBitSafari) \(AppInfo.displayName)"
     }
 
-    public static func oppositeUserAgent() -> String {
-        let isDefaultUADesktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
-        if isDefaultUADesktop {
-            return mobileUserAgent()
-        } else {
-            return desktopUserAgent()
-        }
+    public static func applicationNameForUserAgent() -> String {
+        let desktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
+        // Append FxiOS/version Mobile/version Safari/version to the built-in user agent
+        return "\(uaFxiOSVersion) " + (desktop ? "\(UserAgent.uaBitGoogleIpad) " : "\(UserAgent.uaBitMobile) ") + "\(UserAgent.uaBitSafari) \(AppInfo.displayName)"
     }
+
 }
