@@ -117,6 +117,8 @@
 		2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
 		2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		2BE2590623BA2C510022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
+		2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2591023BA2FD40022ED28 /* InfoPlist.strings */; };
+		2BE2590E23BA2FD40022ED28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2591023BA2FD40022ED28 /* InfoPlist.strings */; };
 		2BFB7C36238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */; };
@@ -1168,6 +1170,8 @@
 		2BE258C423BA1DFF0022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE258E923BA2B5B0022ED28 /* GhostryOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GhostryOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE2590F23BA2FD40022ED28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BE2591123BA2FD60022ED28 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
 		2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModeDetector.swift; sourceTree = "<group>"; };
 		2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "adult-domains.bin"; sourceTree = "<group>"; };
@@ -2012,6 +2016,7 @@
 				2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */,
 				2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */,
 				2BE258C423BA1DFF0022ED28 /* Info.plist */,
+				2BE2591023BA2FD40022ED28 /* InfoPlist.strings */,
 			);
 			path = OpenIn;
 			sourceTree = "<group>";
@@ -3713,6 +3718,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BE258FB23BA2B720022ED28 /* Media.xcassets in Resources */,
+				2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */,
 				2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3722,6 +3728,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BE258FC23BA2B720022ED28 /* Media.xcassets in Resources */,
+				2BE2590E23BA2FD40022ED28 /* InfoPlist.strings in Resources */,
 				2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5440,6 +5447,15 @@
 				2BE258C223BA1DFF0022ED28 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		2BE2591023BA2FD40022ED28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BE2590F23BA2FD40022ED28 /* en */,
+				2BE2591123BA2FD60022ED28 /* de */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		46828D912341F23300E7D8A3 /* UserAgent.strings */ = {
