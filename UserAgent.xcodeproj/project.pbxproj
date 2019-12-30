@@ -109,12 +109,12 @@
 		2BD02D3D23BA3381001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
 		2BD02D3E23BA33A3001539F0 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
 		2BD02D3F23BA33A4001539F0 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
+		2BD02D4823BA3698001539F0 /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4423BA3698001539F0 /* Ghostery.xcassets */; };
+		2BD02D4923BA3698001539F0 /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4623BA3698001539F0 /* cliqz.xcassets */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BE258F523BA2B5B0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2BE258FB23BA2B720022ED28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2586F23BA0C800022ED28 /* Media.xcassets */; };
-		2BE258FC23BA2B720022ED28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2586F23BA0C800022ED28 /* Media.xcassets */; };
 		2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
 		2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
 		2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
@@ -1196,8 +1196,9 @@
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BD02D4023BA34B0001539F0 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
 		2BD02D4123BA34B7001539F0 /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
+		2BD02D4423BA3698001539F0 /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
+		2BD02D4623BA3698001539F0 /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
-		2BE2586F23BA0C800022ED28 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		2BE258C223BA1DFF0022ED28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2BE258C423BA1DFF0022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2063,10 +2064,35 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2BD02D4223BA3698001539F0 /* Branding */ = {
+			isa = PBXGroup;
+			children = (
+				2BD02D4323BA3698001539F0 /* Ghostery */,
+				2BD02D4523BA3698001539F0 /* Cliqz */,
+			);
+			path = Branding;
+			sourceTree = "<group>";
+		};
+		2BD02D4323BA3698001539F0 /* Ghostery */ = {
+			isa = PBXGroup;
+			children = (
+				2BD02D4423BA3698001539F0 /* Ghostery.xcassets */,
+			);
+			path = Ghostery;
+			sourceTree = "<group>";
+		};
+		2BD02D4523BA3698001539F0 /* Cliqz */ = {
+			isa = PBXGroup;
+			children = (
+				2BD02D4623BA3698001539F0 /* cliqz.xcassets */,
+			);
+			path = Cliqz;
+			sourceTree = "<group>";
+		};
 		2BE2586E23BA0C800022ED28 /* OpenIn */ = {
 			isa = PBXGroup;
 			children = (
-				2BE2586F23BA0C800022ED28 /* Media.xcassets */,
+				2BD02D4223BA3698001539F0 /* Branding */,
 				2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */,
 				2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */,
 				2BE258C423BA1DFF0022ED28 /* Info.plist */,
@@ -3779,8 +3805,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BE258FB23BA2B720022ED28 /* Media.xcassets in Resources */,
 				2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */,
+				2BD02D4923BA3698001539F0 /* cliqz.xcassets in Resources */,
 				2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3789,9 +3815,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BE258FC23BA2B720022ED28 /* Media.xcassets in Resources */,
 				2BE2590E23BA2FD40022ED28 /* InfoPlist.strings in Resources */,
 				2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */,
+				2BD02D4823BA3698001539F0 /* Ghostery.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5754,6 +5780,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2D79D731EFCFB2526BEBEF1E /* Pods-CliqzOpenIn.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -5787,6 +5814,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA225D399EC0760BC5459012 /* Pods-CliqzOpenIn.adhoc.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -5815,6 +5843,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D3B755B44D4BC3C58E373260 /* Pods-CliqzOpenIn.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -5843,6 +5872,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 995C8D2FDD6F86A0854F6336 /* Pods-CliqzOpenIn.ci.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
