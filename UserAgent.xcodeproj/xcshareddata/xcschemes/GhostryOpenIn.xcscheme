@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2BE258E823BA2B5B0022ED28"
-               BuildableName = "GhostryOpenIn.appex"
-               BlueprintName = "GhostryOpenIn"
+               BuildableName = "GhosteryOpenIn.appex"
+               BlueprintName = "GhosteryOpenIn"
                ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

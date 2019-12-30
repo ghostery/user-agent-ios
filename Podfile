@@ -132,6 +132,14 @@ target 'GhosteryShareTo' do
   share_to
 end
 
+target 'CliqzOpenIn' do
+  share_to
+end
+
+target 'GhosteryOpenIn' do
+  share_to
+end
+
 target 'StoragePerfTests' do
 
 end

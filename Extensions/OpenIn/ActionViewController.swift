@@ -34,8 +34,8 @@ class ActionViewController: UIViewController {
 
     func openUserAgent(withUrl url: URL) {
         // Telemetry is handled in the app delegate that receives this event.
-//        let profile = BrowserProfile(localName: "profile")
-//        profile.prefs.setBool(true, forKey: PrefsKeys.AppExtensionTelemetryOpenUrl)
+        let profile = BrowserProfile(localName: "profile")
+        profile.prefs.setBool(true, forKey: PrefsKeys.AppExtensionTelemetryOpenUrl)
 
         let protocolName = AppInfo.protocolName
         let encoded = url.absoluteString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.alphanumerics) ?? ""
