@@ -107,14 +107,16 @@
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
-		2BE2587023BA0C800022ED28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2586F23BA0C800022ED28 /* Media.xcassets */; };
-		2BE2587223BA0C800022ED28 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2587123BA0C800022ED28 /* ActionRequestHandler.swift */; };
-		2BE2587423BA0C810022ED28 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2587323BA0C810022ED28 /* Action.js */; };
-		2BE2587823BA0C810022ED28 /* CliqzOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE2586D23BA0C800022ED28 /* CliqzOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2BE2588E23BA0C9E0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE2588223BA0C9E0022ED28 /* GhosteryOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2BE2589423BA0CB10022ED28 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2587123BA0C800022ED28 /* ActionRequestHandler.swift */; };
-		2BE2589523BA0CB40022ED28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2586F23BA0C800022ED28 /* Media.xcassets */; };
-		2BE2589623BA0CB60022ED28 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2587323BA0C810022ED28 /* Action.js */; };
+		2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BE258F523BA2B5B0022ED28 /* GhostryOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258E923BA2B5B0022ED28 /* GhostryOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BE258FB23BA2B720022ED28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2586F23BA0C800022ED28 /* Media.xcassets */; };
+		2BE258FC23BA2B720022ED28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2586F23BA0C800022ED28 /* Media.xcassets */; };
+		2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
+		2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
+		2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
+		2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
+		2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
+		2BE2590623BA2C510022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		2BFB7C36238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */; };
@@ -865,19 +867,33 @@
 			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
 			remoteInfo = Shared;
 		};
-		2BE2587623BA0C810022ED28 /* PBXContainerItemProxy */ = {
+		2BE258DD23BA2B4A0022ED28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2BE2586C23BA0C800022ED28;
+			remoteGlobalIDString = 2BE258D223BA2B4A0022ED28;
 			remoteInfo = CliqzOpenIn;
 		};
-		2BE2588C23BA0C9E0022ED28 /* PBXContainerItemProxy */ = {
+		2BE258F323BA2B5B0022ED28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2BE2588123BA0C9E0022ED28;
-			remoteInfo = GhosteryOpenIn;
+			remoteGlobalIDString = 2BE258E823BA2B5B0022ED28;
+			remoteInfo = GhostryOpenIn;
+		};
+		2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
+			remoteInfo = Shared;
+		};
+		2BE2590323BA2C440022ED28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
+			remoteInfo = Shared;
 		};
 		2F9A72311ABB856100F9F05D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1031,7 +1047,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2BE2588E23BA0C9E0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */,
+				2BE258F523BA2B5B0022ED28 /* GhostryOpenIn.appex in Embed App Extensions */,
 				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -1068,7 +1084,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				F84B22541A0920C600AAB793 /* CliqzShareTo.appex in Embed App Extensions */,
-				2BE2587823BA0C810022ED28 /* CliqzOpenIn.appex in Embed App Extensions */,
+				2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1146,12 +1162,12 @@
 		2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementFooterView.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
-		2BE2586D23BA0C800022ED28 /* CliqzOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE2586F23BA0C800022ED28 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		2BE2587123BA0C800022ED28 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
-		2BE2587323BA0C810022ED28 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
-		2BE2587523BA0C810022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BE2588223BA0C9E0022ED28 /* GhosteryOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GhosteryOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		2BE258C223BA1DFF0022ED28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2BE258C423BA1DFF0022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE258E923BA2B5B0022ED28 /* GhostryOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GhostryOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
 		2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModeDetector.swift; sourceTree = "<group>"; };
 		2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "adult-domains.bin"; sourceTree = "<group>"; };
@@ -1737,17 +1753,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE2586A23BA0C800022ED28 /* Frameworks */ = {
+		2BE258D023BA2B4A0022ED28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE2590623BA2C510022ED28 /* Shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE2587F23BA0C9E0022ED28 /* Frameworks */ = {
+		2BE258E623BA2B5B0022ED28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1991,9 +2009,9 @@
 			isa = PBXGroup;
 			children = (
 				2BE2586F23BA0C800022ED28 /* Media.xcassets */,
-				2BE2587123BA0C800022ED28 /* ActionRequestHandler.swift */,
-				2BE2587323BA0C810022ED28 /* Action.js */,
-				2BE2587523BA0C810022ED28 /* Info.plist */,
+				2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */,
+				2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */,
+				2BE258C423BA1DFF0022ED28 /* Info.plist */,
 			);
 			path = OpenIn;
 			sourceTree = "<group>";
@@ -3084,8 +3102,8 @@
 				3BFE4B071D342FB800DDF53F /* XCUITests.xctest */,
 				3B43E3D01D95C48D00BBA9DB /* StoragePerfTests.xctest */,
 				ACB7384723042BAB00FA5626 /* UserAgent.app */,
-				2BE2586D23BA0C800022ED28 /* CliqzOpenIn.appex */,
-				2BE2588223BA0C9E0022ED28 /* GhosteryOpenIn.appex */,
+				2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */,
+				2BE258E923BA2B5B0022ED28 /* GhostryOpenIn.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3272,38 +3290,40 @@
 			productReference = 288A2D861AB8B3260023ABC3 /* Shared.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2BE2586C23BA0C800022ED28 /* CliqzOpenIn */ = {
+		2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BE2587D23BA0C810022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */;
+			buildConfigurationList = 2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */;
 			buildPhases = (
-				2BE2586923BA0C800022ED28 /* Sources */,
-				2BE2586A23BA0C800022ED28 /* Frameworks */,
-				2BE2586B23BA0C800022ED28 /* Resources */,
+				2BE258CF23BA2B4A0022ED28 /* Sources */,
+				2BE258D023BA2B4A0022ED28 /* Frameworks */,
+				2BE258D123BA2B4A0022ED28 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2BE2590223BA2C3D0022ED28 /* PBXTargetDependency */,
 			);
 			name = CliqzOpenIn;
 			productName = CliqzOpenIn;
-			productReference = 2BE2586D23BA0C800022ED28 /* CliqzOpenIn.appex */;
+			productReference = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		2BE2588123BA0C9E0022ED28 /* GhosteryOpenIn */ = {
+		2BE258E823BA2B5B0022ED28 /* GhostryOpenIn */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BE2588F23BA0C9E0022ED28 /* Build configuration list for PBXNativeTarget "GhosteryOpenIn" */;
+			buildConfigurationList = 2BE258F623BA2B5B0022ED28 /* Build configuration list for PBXNativeTarget "GhostryOpenIn" */;
 			buildPhases = (
-				2BE2587E23BA0C9E0022ED28 /* Sources */,
-				2BE2587F23BA0C9E0022ED28 /* Frameworks */,
-				2BE2588023BA0C9E0022ED28 /* Resources */,
+				2BE258E523BA2B5B0022ED28 /* Sources */,
+				2BE258E623BA2B5B0022ED28 /* Frameworks */,
+				2BE258E723BA2B5B0022ED28 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2BE2590423BA2C440022ED28 /* PBXTargetDependency */,
 			);
-			name = GhosteryOpenIn;
-			productName = GhosteryOpenIn;
-			productReference = 2BE2588223BA0C9E0022ED28 /* GhosteryOpenIn.appex */;
+			name = GhostryOpenIn;
+			productName = GhostryOpenIn;
+			productReference = 2BE258E923BA2B5B0022ED28 /* GhostryOpenIn.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		2FCAE2191ABB51F800877008 /* Storage */ = {
@@ -3424,7 +3444,7 @@
 				ACB7371423042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371A23042BAB00FA5626 /* PBXTargetDependency */,
 				464F678D232793F00090D0B5 /* PBXTargetDependency */,
-				2BE2588D23BA0C9E0022ED28 /* PBXTargetDependency */,
+				2BE258F423BA2B5B0022ED28 /* PBXTargetDependency */,
 			);
 			name = Ghostery;
 			productName = Client;
@@ -3474,7 +3494,7 @@
 				288A2D9C1AB8B3260023ABC3 /* PBXTargetDependency */,
 				2FCAE2301ABB51F800877008 /* PBXTargetDependency */,
 				F84B22521A0920C600AAB793 /* PBXTargetDependency */,
-				2BE2587723BA0C810022ED28 /* PBXTargetDependency */,
+				2BE258DE23BA2B4A0022ED28 /* PBXTargetDependency */,
 			);
 			name = Cliqz;
 			productName = Client;
@@ -3540,12 +3560,12 @@
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
-					2BE2586C23BA0C800022ED28 = {
+					2BE258D223BA2B4A0022ED28 = {
 						CreatedOnToolsVersion = 11.3;
 						DevelopmentTeam = 2UYYSSHVUH;
 						ProvisioningStyle = Automatic;
 					};
-					2BE2588123BA0C9E0022ED28 = {
+					2BE258E823BA2B5B0022ED28 = {
 						CreatedOnToolsVersion = 11.3;
 						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
@@ -3667,6 +3687,8 @@
 				ACB7371123042BAB00FA5626 /* Ghostery */,
 				F84B22481A0920C600AAB793 /* CliqzShareTo */,
 				464F675F2326AFB70090D0B5 /* GhosteryShareTo */,
+				2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */,
+				2BE258E823BA2B5B0022ED28 /* GhostryOpenIn */,
 				288A2D851AB8B3260023ABC3 /* Shared */,
 				2FCAE2191ABB51F800877008 /* Storage */,
 				F84B21D21A090F8100AAB793 /* ClientTests */,
@@ -3674,8 +3696,6 @@
 				3B43E3CF1D95C48D00BBA9DB /* StoragePerfTests */,
 				2FCAE2231ABB51F800877008 /* StorageTests */,
 				3BFE4B061D342FB800DDF53F /* XCUITests */,
-				2BE2586C23BA0C800022ED28 /* CliqzOpenIn */,
-				2BE2588123BA0C9E0022ED28 /* GhosteryOpenIn */,
 			);
 		};
 /* End PBXProject section */
@@ -3688,21 +3708,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE2586B23BA0C800022ED28 /* Resources */ = {
+		2BE258D123BA2B4A0022ED28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BE2587423BA0C810022ED28 /* Action.js in Resources */,
-				2BE2587023BA0C800022ED28 /* Media.xcassets in Resources */,
+				2BE258FB23BA2B720022ED28 /* Media.xcassets in Resources */,
+				2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE2588023BA0C9E0022ED28 /* Resources */ = {
+		2BE258E723BA2B5B0022ED28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BE2589623BA0CB60022ED28 /* Action.js in Resources */,
-				2BE2589523BA0CB40022ED28 /* Media.xcassets in Resources */,
+				2BE258FC23BA2B720022ED28 /* Media.xcassets in Resources */,
+				2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4536,19 +4556,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE2586923BA0C800022ED28 /* Sources */ = {
+		2BE258CF23BA2B4A0022ED28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BE2587223BA0C800022ED28 /* ActionRequestHandler.swift in Sources */,
+				2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE2587E23BA0C9E0022ED28 /* Sources */ = {
+		2BE258E523BA2B5B0022ED28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BE2589423BA0CB10022ED28 /* ActionRequestHandler.swift in Sources */,
+				2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5260,15 +5280,25 @@
 			target = 288A2D851AB8B3260023ABC3 /* Shared */;
 			targetProxy = 288A2D9B1AB8B3260023ABC3 /* PBXContainerItemProxy */;
 		};
-		2BE2587723BA0C810022ED28 /* PBXTargetDependency */ = {
+		2BE258DE23BA2B4A0022ED28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2BE2586C23BA0C800022ED28 /* CliqzOpenIn */;
-			targetProxy = 2BE2587623BA0C810022ED28 /* PBXContainerItemProxy */;
+			target = 2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */;
+			targetProxy = 2BE258DD23BA2B4A0022ED28 /* PBXContainerItemProxy */;
 		};
-		2BE2588D23BA0C9E0022ED28 /* PBXTargetDependency */ = {
+		2BE258F423BA2B5B0022ED28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2BE2588123BA0C9E0022ED28 /* GhosteryOpenIn */;
-			targetProxy = 2BE2588C23BA0C9E0022ED28 /* PBXContainerItemProxy */;
+			target = 2BE258E823BA2B5B0022ED28 /* GhostryOpenIn */;
+			targetProxy = 2BE258F323BA2B5B0022ED28 /* PBXContainerItemProxy */;
+		};
+		2BE2590223BA2C3D0022ED28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 288A2D851AB8B3260023ABC3 /* Shared */;
+			targetProxy = 2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */;
+		};
+		2BE2590423BA2C440022ED28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 288A2D851AB8B3260023ABC3 /* Shared */;
+			targetProxy = 2BE2590323BA2C440022ED28 /* PBXContainerItemProxy */;
 		};
 		2F9A72321ABB856100F9F05D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5402,6 +5432,14 @@
 				2B76E43A23A12AEA001CF20E /* de */,
 			);
 			name = PrivacyStatement.strings;
+			sourceTree = "<group>";
+		};
+		2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BE258C223BA1DFF0022ED28 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		46828D912341F23300E7D8A3 /* UserAgent.strings */ = {
@@ -5568,7 +5606,7 @@
 			};
 			name = Debug;
 		};
-		2BE2587923BA0C810022ED28 /* Debug */ = {
+		2BE258E123BA2B4A0022ED28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -5599,7 +5637,7 @@
 			};
 			name = Debug;
 		};
-		2BE2587A23BA0C810022ED28 /* Adhoc */ = {
+		2BE258E223BA2B4A0022ED28 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -5625,7 +5663,7 @@
 			};
 			name = Adhoc;
 		};
-		2BE2587B23BA0C810022ED28 /* Release */ = {
+		2BE258E323BA2B4A0022ED28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -5651,7 +5689,7 @@
 			};
 			name = Release;
 		};
-		2BE2587C23BA0C810022ED28 /* CI */ = {
+		2BE258E423BA2B4A0022ED28 /* CI */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -5677,7 +5715,7 @@
 			};
 			name = CI;
 		};
-		2BE2589023BA0C9E0022ED28 /* Debug */ = {
+		2BE258F723BA2B5B0022ED28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -5700,7 +5738,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhosteryOpenIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5708,7 +5746,7 @@
 			};
 			name = Debug;
 		};
-		2BE2589123BA0C9E0022ED28 /* Adhoc */ = {
+		2BE258F823BA2B5B0022ED28 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -5726,7 +5764,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhosteryOpenIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5734,7 +5772,7 @@
 			};
 			name = Adhoc;
 		};
-		2BE2589223BA0C9E0022ED28 /* Release */ = {
+		2BE258F923BA2B5B0022ED28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -5752,7 +5790,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhosteryOpenIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5760,7 +5798,7 @@
 			};
 			name = Release;
 		};
-		2BE2589323BA0C9E0022ED28 /* CI */ = {
+		2BE258FA23BA2B5B0022ED28 /* CI */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
@@ -5778,7 +5816,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhosteryOpenIn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -7507,24 +7545,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BE2587D23BA0C810022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */ = {
+		2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2BE2587923BA0C810022ED28 /* Debug */,
-				2BE2587A23BA0C810022ED28 /* Adhoc */,
-				2BE2587B23BA0C810022ED28 /* Release */,
-				2BE2587C23BA0C810022ED28 /* CI */,
+				2BE258E123BA2B4A0022ED28 /* Debug */,
+				2BE258E223BA2B4A0022ED28 /* Adhoc */,
+				2BE258E323BA2B4A0022ED28 /* Release */,
+				2BE258E423BA2B4A0022ED28 /* CI */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BE2588F23BA0C9E0022ED28 /* Build configuration list for PBXNativeTarget "GhosteryOpenIn" */ = {
+		2BE258F623BA2B5B0022ED28 /* Build configuration list for PBXNativeTarget "GhostryOpenIn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2BE2589023BA0C9E0022ED28 /* Debug */,
-				2BE2589123BA0C9E0022ED28 /* Adhoc */,
-				2BE2589223BA0C9E0022ED28 /* Release */,
-				2BE2589323BA0C9E0022ED28 /* CI */,
+				2BE258F723BA2B5B0022ED28 /* Debug */,
+				2BE258F823BA2B5B0022ED28 /* Adhoc */,
+				2BE258F923BA2B5B0022ED28 /* Release */,
+				2BE258FA23BA2B5B0022ED28 /* CI */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
