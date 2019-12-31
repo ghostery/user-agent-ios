@@ -594,6 +594,8 @@
 		C5B83E66239FA589003687AC /* PrivacyStatementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E65239FA589003687AC /* PrivacyStatementData.swift */; };
 		C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3412359B30B00CB359A /* cliqz.xcassets */; };
 		C5C7D3442359B31D00CB359A /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3432359B31D00CB359A /* Ghostery.xcassets */; };
+		C5D1EB4C23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */; };
+		C5D1EB4D23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */; };
 		C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B53233112CD00D3F31F /* Bookmarks.swift */; };
 		C5E94B58233112CD00D3F31F /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B54233112CD00D3F31F /* BookmarksModel.swift */; };
 		C5E94B5A233112CD00D3F31F /* Trees.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B56233112CD00D3F31F /* Trees.swift */; };
@@ -1390,6 +1392,7 @@
 		C5B83E65239FA589003687AC /* PrivacyStatementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementData.swift; sourceTree = "<group>"; };
 		C5C7D3412359B30B00CB359A /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
 		C5C7D3432359B31D00CB359A /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
+		C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CliqzRefreshControl.swift; sourceTree = "<group>"; };
 		C5E94B53233112CD00D3F31F /* Bookmarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		C5E94B54233112CD00D3F31F /* BookmarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
 		C5E94B56233112CD00D3F31F /* Trees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trees.swift; sourceTree = "<group>"; };
@@ -2154,6 +2157,7 @@
 		46828D87233E213A00E7D8A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C5D1EB4A23BB7C0900C19728 /* RefreshControl */,
 				C5B83E67239FD55C003687AC /* ChatBubble */,
 				C5B83E5A239F9CF9003687AC /* PrivacyStatement */,
 				46BE36A42344D32D00DADCB6 /* QuerySuggestions */,
@@ -2513,6 +2517,14 @@
 				C5C7D3412359B30B00CB359A /* cliqz.xcassets */,
 			);
 			path = Cliqz;
+			sourceTree = "<group>";
+		};
+		C5D1EB4A23BB7C0900C19728 /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */,
+			);
+			path = RefreshControl;
 			sourceTree = "<group>";
 		};
 		C5E94B52233112CD00D3F31F /* Bookmarks */ = {
@@ -4541,6 +4553,7 @@
 				46CA60D92316BB3A0010CE6B /* History.m in Sources */,
 				ACB7372523042BAB00FA5626 /* AppSettingsOptions.swift in Sources */,
 				ACB7372A23042BAB00FA5626 /* ReaderModeStyleViewController.swift in Sources */,
+				C5D1EB4D23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */,
 				2B516D38238BAC8B006D6B57 /* HistoryView.swift in Sources */,
 				ACB7372B23042BAB00FA5626 /* UserScriptManager.swift in Sources */,
 				2BFB7C3A238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
@@ -4804,6 +4817,7 @@
 				AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */,
 				46CA60F22317E4780010CE6B /* JSBridge.swift in Sources */,
 				ACD654832361D2D2002D2EE0 /* WTMCategory+Dict.swift in Sources */,
+				C5D1EB4C23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */,
 				D029A04920A62DB0001DB72F /* TemporaryDocument.swift in Sources */,
 				2B516D37238BAC8B006D6B57 /* HistoryView.swift in Sources */,
 				E692E3371C46E86A009D1240 /* AppSettingsOptions.swift in Sources */,
