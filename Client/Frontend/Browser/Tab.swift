@@ -92,6 +92,20 @@ class Tab: NSObject {
         return self.url
     }
 
+    // Get the tab's current URL. If it is `nil`, check the `sessionData` since
+    // it may be a tab that has not been restored yet.
+    var actualURL: URL? {
+        var url = self.url
+        if url == nil, let sessionData = self.sessionData {
+            let urls = sessionData.urls
+            let index = sessionData.currentPage + urls.count - 1
+            if index < urls.count {
+                url = urls[index]
+            }
+        }
+        return url
+    }
+
     var userActivity: NSUserActivity?
 
     var webView: WKWebView?
@@ -192,7 +206,7 @@ class Tab: NSObject {
     var logoURL: URL {
         let logoPlaceholderURL = URL(string: Strings.BrandWebsite)!
         let faviconURL = URL(nullableString: self.displayFavicon?.url)
-        var logoURL = self.url ?? faviconURL ?? logoPlaceholderURL
+        var logoURL = self.actualURL ?? faviconURL ?? logoPlaceholderURL
         if InternalURL.isValid(url: logoURL) {
             logoURL = logoPlaceholderURL
         }
