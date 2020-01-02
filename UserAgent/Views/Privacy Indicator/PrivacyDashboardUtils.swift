@@ -19,7 +19,7 @@ enum PrivacyDashboardUtils {
             self.spacing = 5
             self.alignment = .top
             self.distribution = .fill
-            [dot, label, number].forEach { self.addArrangedSubview($0)}
+            [dot, label, number].forEach { self.addArrangedSubview($0) }
             number.alpha = 0.7
 
             label.snp.makeConstraints { make in
@@ -44,31 +44,31 @@ enum PrivacyDashboardUtils {
             super.init(frame: CGRect.zero)
             self.text = text
             switch type {
-            case .title: self.title()
-            case .stat: self.stat()
-            case .domain: self.domain()
-            case .counter: self.counter()
+            case .title: self.setupForTitle()
+            case .stat: self.setupForStat()
+            case .domain: self.setupForDomain()
+            case .counter: self.setupForCounter()
             }
         }
         required init(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-        private func title() {
+        private func setupForTitle() {
             self.font = UIFont.preferredFont(forTextStyle: .title1)
             self.adjustsFontForContentSizeCategory = true
             self.numberOfLines = 3
             self.lineBreakMode = .byWordWrapping
         }
-        private func stat() {
+        private func setupForStat() {
             self.textColor = Theme.textField.textAndTint
             self.numberOfLines = 0
             self.setContentCompressionResistancePriority(.required, for: .horizontal)
             self.font = UIFont.preferredFont(forTextStyle: .footnote)
         }
-        private func domain() {
+        private func setupForDomain() {
             self.textColor = UIColor.DarkGreen
         }
-        private func counter() {
+        private func setupForCounter() {
             let pointSize = UIFont.preferredFont(forTextStyle: .largeTitle).pointSize
             self.font = UIFont.monospacedDigitSystemFont(ofSize: pointSize, weight: .medium)
         }
