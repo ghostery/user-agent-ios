@@ -7,9 +7,11 @@
 //
 
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
-@interface RCT_EXTERN_MODULE(BrowserTabs, NSObject)
+@interface RCT_EXTERN_MODULE(BrowserTabs, RCTEventEmitter)
 
+RCT_EXTERN_METHOD(startListeningForTabEvents)
 RCT_EXTERN_METHOD(query:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 
 @end

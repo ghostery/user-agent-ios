@@ -2198,6 +2198,7 @@
 				46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */,
 				46CA60D2231555220010CE6B /* ReactViewController.swift */,
 				46E7DD542361C53D00C8372A /* ReactViewTheme.swift */,
+				46ECCD2523A3864E002E761C /* NativeModuleBase.swift */,
 				46CA60FE2317F8EF0010CE6B /* ViewControllers */,
 				464E6836234B75C800ABAC43 /* Views */,
 			);
@@ -2223,7 +2224,6 @@
 				46CA60E52317E0C60010CE6B /* LocaleConstants.swift */,
 				46E96605236B27E6003C23F3 /* UserAgentConstants.m */,
 				46E96602236B2793003C23F3 /* UserAgentConstants.swift */,
-				46ECCD2523A3864E002E761C /* NativeModuleBase.swift */,
 			);
 			path = NativeModules;
 			sourceTree = "<group>";
