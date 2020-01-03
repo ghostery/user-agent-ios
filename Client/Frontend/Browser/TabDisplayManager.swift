@@ -281,17 +281,6 @@ extension TabDisplayManager: UICollectionViewDragDelegate {
 
         guard let tab = dataStore.at(indexPath.item) else { return [] }
 
-        // Get the tab's current URL. If it is `nil`, check the `sessionData` since
-        // it may be a tab that has not been restored yet.
-        var url = tab.url
-        if url == nil, let sessionData = tab.sessionData {
-            let urls = sessionData.urls
-            let index = sessionData.currentPage + urls.count - 1
-            if index < urls.count {
-                url = urls[index]
-            }
-        }
-
         // Don't store the URL in the item as dragging a tab near the screen edge will prompt to open Safari with the URL
         let itemProvider = NSItemProvider()
 
@@ -423,6 +412,10 @@ extension TabDisplayManager: TabManagerDelegate {
             guard let removed = self?.dataStore.remove(tab) else { return }
             self?.collectionView.deleteItems(at: [IndexPath(row: removed, section: 0)])
         }
+    }
+
+    func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool) {
+
     }
 
     /* Function to take operations off the queue recursively, and perform them (i.e. performBatchUpdates) in sequence.

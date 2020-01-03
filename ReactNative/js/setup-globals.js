@@ -1,5 +1,6 @@
 import { NativeEventEmitter, NativeModules } from 'react-native';
 import networkStatus from './globals/browser/networkStatus';
+import tabs from './globals/browser/tabs';
 import './globals/navigator/userAgent';
 import './globals/window/DOMParser';
 
@@ -21,25 +22,7 @@ const browser = {
       return Promise.resolve([]);
     },
   },
-  tabs: {
-    onCreated: {
-      addListener() {},
-      removeListener() {},
-    },
-    onUpdated: {
-      addListener() {},
-      removeListener() {},
-    },
-    onRemoved: {
-      addListener() {},
-      removeListener() {},
-    },
-    onActivated: {
-      addListener() {},
-      removeListener() {},
-    },
-    query: () => Promise.resolve([]),
-  },
+  tabs,
   cliqz: {
     async setPref(/* key, value */) {
       return Promise.resolve();

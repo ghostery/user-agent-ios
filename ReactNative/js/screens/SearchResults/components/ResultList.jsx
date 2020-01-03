@@ -49,7 +49,11 @@ class CardList extends React.PureComponent {
   openLink = (result, url, elementName = '') => {
     const { cliqz } = this.props;
     const selection = this.getSelection(result, url, elementName);
-    cliqz.mobileCards.openLink(url, selection);
+    let actionUrl = url;
+    if (result.provider === 'tabs') {
+      actionUrl = `moz-action:switchtab,${JSON.stringify({ url })}`;
+    }
+    cliqz.mobileCards.openLink(actionUrl, selection);
   };
 
   getComponent = ({ item, index }) => {

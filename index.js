@@ -10,6 +10,7 @@ import { AppRegistry, YellowBox, NativeModules } from 'react-native';
 import './ReactNative/js/setup-globals';
 import App from 'browser-core-user-agent-ios/build/modules/core/app';
 import inject from 'browser-core-user-agent-ios/build/modules/core/kord/inject';
+import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
 import SearchResults from './ReactNative/js/screens/SearchResults';
@@ -24,6 +25,8 @@ YellowBox.ignoreWarnings([
 ]);
 
 moment.locale(NativeModules.LocaleConstants.lang);
+
+prefs.set('tabSearchEnabled', true);
 
 const app = new App({
   browser: global.browser,

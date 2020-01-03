@@ -279,6 +279,10 @@
 		46ECCD2423A3850D002E761C /* ContextMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD2223A3850D002E761C /* ContextMenu.m */; };
 		46ECCD2623A3864E002E761C /* NativeModuleBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD2523A3864E002E761C /* NativeModuleBase.swift */; };
 		46ECCD2723A3864E002E761C /* NativeModuleBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46ECCD2523A3864E002E761C /* NativeModuleBase.swift */; };
+		46FA068723BB7B2400B22F71 /* BrowserTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068623BB7B2400B22F71 /* BrowserTabs.m */; };
+		46FA068823BB7B2400B22F71 /* BrowserTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068623BB7B2400B22F71 /* BrowserTabs.m */; };
+		46FA068A23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */; };
+		46FA068B23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
 		59A68D66379CFA85C4EAF00B /* TwoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68B1F857A8638598A63A0 /* TwoLineCell.swift */; };
@@ -476,7 +480,7 @@
 		ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		ACB737E823042BAB00FA5626 /* CustomSearchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7275C1CCFE8B60099189F /* CustomSearchHandler.swift */; };
+		ACB737E823042BAB00FA5626 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
 		ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */; };
 		ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6327A631BF6438E008D12E0 /* DebugSettingsBundleOptions.swift */; };
@@ -1255,6 +1259,8 @@
 		46ECCD1F23A384EF002E761C /* ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenu.swift; sourceTree = "<group>"; };
 		46ECCD2223A3850D002E761C /* ContextMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContextMenu.m; sourceTree = "<group>"; };
 		46ECCD2523A3864E002E761C /* NativeModuleBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeModuleBase.swift; sourceTree = "<group>"; };
+		46FA068623BB7B2400B22F71 /* BrowserTabs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabs.m; sourceTree = "<group>"; };
+		46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserTabs.swift; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
 		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		52280E16968DC760D8A37957 /* Pods-Lumen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.adhoc.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -2186,11 +2192,13 @@
 				46442CE9238BE148002E6D85 /* BrowserCore.swift */,
 				463432FA233381C70014A9F0 /* BrowserCoreClient.swift */,
 				46CA610123180E1A0010CE6B /* Icons.xcassets */,
+				46FA068523BB741E00B22F71 /* BrowserAPI */,
 				46CA60D42316B9D00010CE6B /* NativeModules */,
 				46CA610D23190ABD0010CE6B /* NativeUIComponents */,
 				46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */,
 				46CA60D2231555220010CE6B /* ReactViewController.swift */,
 				46E7DD542361C53D00C8372A /* ReactViewTheme.swift */,
+				46ECCD2523A3864E002E761C /* NativeModuleBase.swift */,
 				46CA60FE2317F8EF0010CE6B /* ViewControllers */,
 				464E6836234B75C800ABAC43 /* Views */,
 			);
@@ -2204,8 +2212,6 @@
 				46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */,
 				46CA60DF2316CF300010CE6B /* BrowserActions.m */,
 				46CA60DB2316CED70010CE6B /* BrowserActions.swift */,
-				46BBFA662358B13A00283594 /* BrowserCliqz.m */,
-				46BBFA632358B10400283594 /* BrowserCliqz.swift */,
 				46E9660B236B33C1003C23F3 /* Constants.m */,
 				46E96608236B33A1003C23F3 /* Constants.swift */,
 				46ECCD1F23A384EF002E761C /* ContextMenu.swift */,
@@ -2218,7 +2224,6 @@
 				46CA60E52317E0C60010CE6B /* LocaleConstants.swift */,
 				46E96605236B27E6003C23F3 /* UserAgentConstants.m */,
 				46E96602236B2793003C23F3 /* UserAgentConstants.swift */,
-				46ECCD2523A3864E002E761C /* NativeModuleBase.swift */,
 			);
 			path = NativeModules;
 			sourceTree = "<group>";
@@ -2258,6 +2263,17 @@
 				46ECCD1C23A14E1A002E761C /* TelemetrySetting.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		46FA068523BB741E00B22F71 /* BrowserAPI */ = {
+			isa = PBXGroup;
+			children = (
+				46BBFA662358B13A00283594 /* BrowserCliqz.m */,
+				46BBFA632358B10400283594 /* BrowserCliqz.swift */,
+				46FA068623BB7B2400B22F71 /* BrowserTabs.m */,
+				46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */,
+			);
+			path = BrowserAPI;
 			sourceTree = "<group>";
 		};
 		7B0B1B9C1C1B69F500DF4AB5 /* Extensions */ = {
@@ -4590,6 +4606,7 @@
 				ACB7374423042BAB00FA5626 /* TabTrayController.swift in Sources */,
 				46CA60EB2317E0E00010CE6B /* LocaleConstants.swift in Sources */,
 				ACB7374623042BAB00FA5626 /* BrowserViewController+FindInPage.swift in Sources */,
+				46FA068823BB7B2400B22F71 /* BrowserTabs.m in Sources */,
 				ACB7374723042BAB00FA5626 /* TabContentBlocker+ContentScript.swift in Sources */,
 				2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */,
 				2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */,
@@ -4651,6 +4668,7 @@
 				ACB7377A23042BAB00FA5626 /* NSAttributedStringExtensions.swift in Sources */,
 				46BE36A32344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift in Sources */,
 				ACB7377B23042BAB00FA5626 /* PrintHelper.swift in Sources */,
+				46FA068B23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */,
 				ACB7377C23042BAB00FA5626 /* UIAlertControllerExtensions.swift in Sources */,
 				46CA610E23190FFD0010CE6B /* ReactViewController.swift in Sources */,
 				ACB7377D23042BAB00FA5626 /* TranslationSettingsController.swift in Sources */,
@@ -4764,7 +4782,7 @@
 				ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
-				ACB737E823042BAB00FA5626 /* CustomSearchHandler.swift in Sources */,
+				ACB737E823042BAB00FA5626 /* (null) in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
@@ -4827,6 +4845,7 @@
 				D0FCF7F51FE45842004A7995 /* UserScriptManager.swift in Sources */,
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
 				463432FB233381C70014A9F0 /* BrowserCoreClient.swift in Sources */,
+				46FA068A23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */,
 				E68F36981EA694000048CF44 /* PanelDataObservers.swift in Sources */,
 				31ADB5DA1E58CEC300E87909 /* ClipboardBarDisplayHandler.swift in Sources */,
 				745DAB3F1CDAB09E00D44181 /* HistoryBackButton.swift in Sources */,
@@ -4850,6 +4869,7 @@
 				ACD6547F23619B5C002D2EE0 /* PhotonCustomViewCell.swift in Sources */,
 				D01017F5219CB6BD009CBB5A /* DownloadContentScript.swift in Sources */,
 				C817B34D1FC609500086018E /* UIScrollViewSwizzled.swift in Sources */,
+				46FA068723BB7B2400B22F71 /* BrowserTabs.m in Sources */,
 				39F819C61FD70F5D009E31E4 /* TabEventHandlers.swift in Sources */,
 				E65607611C08B4E200534B02 /* SearchInputView.swift in Sources */,
 				FA6B2AC21D41F02D00429414 /* Punycode.swift in Sources */,
@@ -5034,7 +5054,6 @@
 				7B844E3D1BBDDB9D00E733A2 /* ChevronView.swift in Sources */,
 				2B516D3C238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */,
-				3BE7275D1CCFE8B60099189F /* CustomSearchHandler.swift in Sources */,
 				B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
 				46E96603236B2793003C23F3 /* UserAgentConstants.swift in Sources */,

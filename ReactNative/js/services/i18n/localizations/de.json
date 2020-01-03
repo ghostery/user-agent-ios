@@ -5,6 +5,9 @@
   "search_footer": {
     "message": "ANONYME SUCHERGEBNISSE BEREITGESTELLT VON CLIQZ"
   },
+  "search_switch_to_tab": {
+    "message": "ZU TAT WECHSELN"
+  },
   "search_alternative_search_engines_info": {
     "message": "Weitere Suchmaschinen"
   },

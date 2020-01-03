@@ -1036,7 +1036,7 @@ class BrowserViewController: UIViewController {
 
     func switchToTabForURLOrOpen(_ url: URL, isPrivate: Bool = false, isPrivileged: Bool) {
         popToBVC()
-        if let tab = tabManager.getTabForURL(url) {
+        if let tab = tabManager.getTabFor(url) {
             tabManager.selectTab(tab)
         } else {
             openURLInNewTab(url, isPrivate: isPrivate, isPrivileged: isPrivileged)
@@ -1704,6 +1704,10 @@ extension BrowserViewController: TabManagerDelegate {
             profile.recentlyClosedTabs.addTab(url as URL, title: tab.title, faviconURL: tab.displayFavicon?.url)
         }
         updateTabCountUsingTabManager(tabManager)
+    }
+
+    func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool) {
+
     }
 
     func tabManagerDidAddTabs(_ tabManager: TabManager) {

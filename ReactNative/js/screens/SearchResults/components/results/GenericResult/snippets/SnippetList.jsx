@@ -39,7 +39,7 @@ const getStyles = theme =>
       marginTop: 0,
       marginBottom: 0,
       borderTopColor: theme.separatorColor,
-      borderTopWidth: 0.5,
+      borderTopWidth: 1,
       marginLeft: 29,
     },
   });
