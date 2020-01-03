@@ -1036,7 +1036,7 @@ class BrowserViewController: UIViewController {
 
     func switchToTabForURLOrOpen(_ url: URL, isPrivate: Bool = false, isPrivileged: Bool) {
         popToBVC()
-        if let tab = tabManager.getTabForURL(url) {
+        if let tab = tabManager.getTabFor(url) {
             tabManager.selectTab(tab)
         } else {
             openURLInNewTab(url, isPrivate: isPrivate, isPrivileged: isPrivileged)

@@ -82,6 +82,7 @@ export default props => {
         <SnippetIcon type={type} logo={logo} provider={provider} url={url} />
         <View style={styles.rightContainer}>
           <Text numberOfLines={titleLines} style={titleStyle}>
+            {provider === 'tabs' && <Text>Tab: </Text>}
             {title}
           </Text>
           <View

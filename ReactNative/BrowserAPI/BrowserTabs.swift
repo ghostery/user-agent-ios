@@ -8,6 +8,7 @@
 
 import React
 import WebKit
+import Shared
 
 @objc(BrowserTabs)
 class BrowserTabs: RCTEventEmitter, NativeModuleBase {
@@ -30,7 +31,14 @@ class BrowserTabs: RCTEventEmitter, NativeModuleBase {
     @objc(query:reject:)
     public func query(resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         self.withTabManager { tabManager in
-            resolve(tabManager.tabs.map { self.serializeTab($0, withTabManager: tabManager) })
+            let tabs = tabManager.tabs.filter {
+                guard let url = $0.actualURL else { return false }
+
+                if InternalURL(url) == nil { return true }
+
+                return false
+            }.map { self.serializeTab($0, withTabManager: tabManager) }
+            resolve(tabs)
         }
     }
 
@@ -47,7 +55,6 @@ class BrowserTabs: RCTEventEmitter, NativeModuleBase {
         }
         return id
     }
-
 
     private func serializeTab(_ tab: Tab, withTabManager tabManager: TabManager) -> [String: Any] {
         let id = getTabId(tab)

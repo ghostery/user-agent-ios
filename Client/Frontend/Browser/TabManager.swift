@@ -171,10 +171,8 @@ class TabManager: NSObject {
                 return tab
             }
 
-            // Also look for tabs that haven't been restored yet.
-            if let sessionData = tab.sessionData,
-                0..<sessionData.urls.count ~= sessionData.currentPage,
-                sessionData.urls[sessionData.currentPage] == url {
+            if let tabUrl = tab.actualURL,
+                url.isEqual(tabUrl) {
                 return tab
             }
         }
@@ -529,11 +527,6 @@ class TabManager: NSObject {
 
     func removeAll() {
         removeTabs(self.tabs)
-    }
-
-    func getTabForURL(_ url: URL) -> Tab? {
-        assert(Thread.isMainThread)
-        return tabs.filter({ $0.webView?.url == url }).first
     }
 
     @objc func prefsDidChange() {
