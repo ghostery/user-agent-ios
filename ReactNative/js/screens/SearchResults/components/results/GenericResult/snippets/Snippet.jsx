@@ -62,9 +62,20 @@ const getStyles = theme =>
       fontSize: 14.5,
       marginTop: 2,
     },
+    switchToTabText: {
+      color: theme.descriptionColor,
+      fontSize: 9,
+      textAlign: 'right',
+      lineHeight: 9,
+      position: 'absolute',
+      top: -8,
+      right: 0,
+      fontWeight: '300',
+    },
   });
 
-const isHistory = props => props.data.provider === 'history';
+const isHistory = props =>
+  props.data.provider === 'history' || props.data.provider === 'tabs';
 
 export default props => {
   const styles = useStyles(getStyles);
@@ -81,8 +92,10 @@ export default props => {
       <View style={styles.container}>
         <SnippetIcon type={type} logo={logo} provider={provider} url={url} />
         <View style={styles.rightContainer}>
+          {provider === 'tabs' && (
+            <Text style={styles.switchToTabText}>SWITCH TO TAB</Text>
+          )}
           <Text numberOfLines={titleLines} style={titleStyle}>
-            {provider === 'tabs' && <Text>Tab: </Text>}
             {title}
           </Text>
           <View
