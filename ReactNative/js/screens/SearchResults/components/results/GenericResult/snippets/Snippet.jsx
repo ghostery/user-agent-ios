@@ -13,6 +13,7 @@ import SnippetIcon from './SnippetIcon';
 import Link from './Link';
 import NativeDrawable from '../../../../../../components/NativeDrawable';
 import { useStyles } from '../../../../../../contexts/theme';
+import t from '../../../../../../services/i18n';
 
 const httpsLockWidth = 9;
 const httpsLockMarginRight = 5;
@@ -93,7 +94,9 @@ export default props => {
         <SnippetIcon type={type} logo={logo} provider={provider} url={url} />
         <View style={styles.rightContainer}>
           {provider === 'tabs' && (
-            <Text style={styles.switchToTabText}>SWITCH TO TAB</Text>
+            <Text style={styles.switchToTabText}>
+              {t('search_switch_to_tab')}
+            </Text>
           )}
           <Text numberOfLines={titleLines} style={titleStyle}>
             {title}

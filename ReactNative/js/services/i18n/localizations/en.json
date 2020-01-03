@@ -5,6 +5,9 @@
   "search_footer": {
     "message": "ANONYMOUS SEARCH RESULTS PROVIDED BY CLIQZ"
   },
+  "search_switch_to_tab": {
+    "message": "SWITCH TO TAB"
+  },
   "search_alternative_search_engines_info": {
     "message": "Additional Search Engines"
   },
