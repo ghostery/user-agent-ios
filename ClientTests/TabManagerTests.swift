@@ -70,7 +70,7 @@ open class MockTabManagerDelegate: TabManagerDelegate {
     }
 
     public func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool) {
-        testDelegateMethodWithName(#function, tabs: [tab])
+
     }
 
     public func tabManagerDidRestoreTabs(_ tabManager: TabManager) {
