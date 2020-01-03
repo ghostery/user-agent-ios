@@ -80,14 +80,6 @@ class BrowserTabs: RCTEventEmitter, NativeModuleBase {
         ]
     }
 
-    private class WeakRef<T> where T: AnyObject {
-        private(set) weak var value: T?
-
-        init(_ value: T?) {
-            self.value = value
-        }
-    }
-
     func withTabManager(completion: @escaping (TabManager) -> Void) {
         withAppDelegate() { appDel in
             guard let tabManager = appDel.tabManager else { return }
