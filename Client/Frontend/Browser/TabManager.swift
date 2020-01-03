@@ -14,6 +14,7 @@ protocol TabManagerDelegate: AnyObject {
     func tabManager(_ tabManager: TabManager, didSelectedTabChange selected: Tab?, previous: Tab?, isRestoring: Bool)
     func tabManager(_ tabManager: TabManager, didAddTab tab: Tab, isRestoring: Bool)
     func tabManager(_ tabManager: TabManager, didRemoveTab tab: Tab, isRestoring: Bool)
+    func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool)
 
     func tabManagerDidRestoreTabs(_ tabManager: TabManager)
     func tabManagerDidAddTabs(_ tabManager: TabManager)
@@ -334,6 +335,8 @@ class TabManager: NSObject {
 
         delegates.forEach { $0.get()?.tabManager(self, didAddTab: tab, isRestoring: store.isRestoringTabs) }
 
+        tab.observeStateChanges(delegate: self)
+
         if !zombie {
             tab.createWebview()
         }
@@ -427,6 +430,8 @@ class TabManager: NSObject {
             delegates.forEach { $0.get()?.tabManager(self, didRemoveTab: tab, isRestoring: store.isRestoringTabs) }
             TabEvent.post(.didClose, for: tab)
         }
+
+        tab.removeStateChangeObserver(delegate: self)
 
         if flushToDisk {
             storeChanges()
@@ -755,5 +760,15 @@ extension TabManager {
     func testClearArchive() {
         assert(AppConstants.IsRunningTest)
         store.clearArchive()
+    }
+}
+
+extension TabManager: TabStateChangeDelegate {
+    func tab(_ tab: Tab, urlDidChangeTo url: URL) {
+        delegates.forEach { $0.get()?.tabManager(self, didUpdateTab: tab, isRestoring: store.isRestoringTabs) }
+    }
+
+    func tab(_ tab: Tab, titleDidChangeTo title: String) {
+        delegates.forEach { $0.get()?.tabManager(self, didUpdateTab: tab, isRestoring: store.isRestoringTabs) }
     }
 }

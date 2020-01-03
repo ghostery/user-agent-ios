@@ -414,6 +414,10 @@ extension TabDisplayManager: TabManagerDelegate {
         }
     }
 
+    func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool) {
+
+    }
+
     /* Function to take operations off the queue recursively, and perform them (i.e. performBatchUpdates) in sequence.
      If this func is called while it (or performBatchUpdates) is running, it returns immediately.
 

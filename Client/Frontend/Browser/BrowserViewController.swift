@@ -1706,6 +1706,10 @@ extension BrowserViewController: TabManagerDelegate {
         updateTabCountUsingTabManager(tabManager)
     }
 
+    func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool) {
+
+    }
+
     func tabManagerDidAddTabs(_ tabManager: TabManager) {
         updateTabCountUsingTabManager(tabManager)
     }

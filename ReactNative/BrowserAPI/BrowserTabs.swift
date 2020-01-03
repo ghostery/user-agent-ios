@@ -102,6 +102,8 @@ class BrowserTabs: RCTEventEmitter, NativeModuleBase {
 
 extension BrowserTabs: TabManagerDelegate {
     func tabManager(_ tabManager: TabManager, didSelectedTabChange selected: Tab?, previous: Tab?, isRestoring: Bool) {
+        if isRestoring { return }
+
         guard let selectedTab = selected else { return }
         let serializedSelectedTab = self.serializeTab(selectedTab, withTabManager: tabManager)
         let previousTabId = self.getTabId(previous)
@@ -119,6 +121,8 @@ extension BrowserTabs: TabManagerDelegate {
     }
 
     func tabManager(_ tabManager: TabManager, didAddTab tab: Tab, isRestoring: Bool) {
+        if isRestoring { return }
+
         sendEvent(body: [
             "eventName": "onCreated",
             "eventData": [
@@ -128,6 +132,8 @@ extension BrowserTabs: TabManagerDelegate {
     }
 
     func tabManager(_ tabManager: TabManager, didRemoveTab tab: Tab, isRestoring: Bool) {
+        if isRestoring { return }
+
         let serializedTab = self.serializeTab(tab, withTabManager: tabManager)
         sendEvent(body: [
             "eventName": "onRemoved",
@@ -137,6 +143,22 @@ extension BrowserTabs: TabManagerDelegate {
                     "windowId": serializedTab["windowId"],
                     "isWindowClosing": false,
                 ],
+            ],
+        ])
+    }
+
+    func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool) {
+        if isRestoring { return }
+
+        let serializedTab = self.serializeTab(tab, withTabManager: tabManager)
+        sendEvent(body: [
+            "eventName": "onUpdated",
+            "eventData": [
+                serializedTab["id"],
+                // This should be a changeInfo object but Browser Core
+                // incorectly expects a tab
+                serializedTab,
+                serializedTab,
             ],
         ])
     }

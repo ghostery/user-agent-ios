@@ -13,7 +13,7 @@ protocol ClipboardBarDisplayHandlerDelegate: AnyObject {
     func shouldDisplay(clipboardBar bar: ButtonToast)
 }
 
-class ClipboardBarDisplayHandler: NSObject, URLChangeDelegate {
+class ClipboardBarDisplayHandler: NSObject {
     weak var delegate: (ClipboardBarDisplayHandlerDelegate & SettingsDelegate)?
     weak var settingsDelegate: SettingsDelegate?
     weak var tabManager: TabManager?
@@ -64,7 +64,7 @@ class ClipboardBarDisplayHandler: NSObject, URLChangeDelegate {
             return
         }
         self.firstTab = firstTab
-        firstTab.observeURLChanges(delegate: self)
+        firstTab.observeStateChanges(delegate: self)
     }
 
     func didRestoreSession() {
@@ -77,19 +77,6 @@ class ClipboardBarDisplayHandler: NSObject, URLChangeDelegate {
         }
 
         sessionRestored = true
-        checkIfShouldDisplayBar()
-    }
-
-    func tab(_ tab: Tab, urlDidChangeTo url: URL) {
-        // Ugly hack to ensure we wait until we're finished restoring the session on the first tab
-        // before checking if we should display the clipboard bar.
-        guard sessionRestored,
-            !url.absoluteString.hasPrefix("\(WebServer.sharedInstance.base)/about/sessionrestore?history=") else {
-            return
-        }
-
-        tab.removeURLChangeObserver(delegate: self)
-        firstTabLoaded = true
         checkIfShouldDisplayBar()
     }
 
@@ -155,4 +142,21 @@ class ClipboardBarDisplayHandler: NSObject, URLChangeDelegate {
             }
         }
     }
+}
+
+extension ClipboardBarDisplayHandler: TabStateChangeDelegate {
+    func tab(_ tab: Tab, urlDidChangeTo url: URL) {
+        // Ugly hack to ensure we wait until we're finished restoring the session on the first tab
+        // before checking if we should display the clipboard bar.
+        guard sessionRestored,
+            !url.absoluteString.hasPrefix("\(WebServer.sharedInstance.base)/about/sessionrestore?history=") else {
+            return
+        }
+
+        tab.removeStateChangeObserver(delegate: self)
+        firstTabLoaded = true
+        checkIfShouldDisplayBar()
+    }
+
+    func tab(_ tab: Tab, titleDidChangeTo title: String) {}
 }
