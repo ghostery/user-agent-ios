@@ -105,8 +105,34 @@
 		2B8DDBB923A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
 		2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
+		2BC4664923C45CAF008CF508 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BC4664723C45C80008CF508 /* InfoPlist.strings */; };
+		2BD02D3823BA3375001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
+		2BD02D3D23BA3381001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
+		2BD02D3E23BA33A3001539F0 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
+		2BD02D3F23BA33A4001539F0 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
+		2BD02D4823BA3698001539F0 /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4423BA3698001539F0 /* Ghostery.xcassets */; };
+		2BD02D4923BA3698001539F0 /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4623BA3698001539F0 /* cliqz.xcassets */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
+		2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BE258F523BA2B5B0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
+		2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
+		2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
+		2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
+		2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
+		2BE2590623BA2C510022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
+		2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2591023BA2FD40022ED28 /* InfoPlist.strings */; };
+		2BE2591223BA312A0022ED28 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
+		2BE2591323BA312B0022ED28 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
+		2BE2591423BA31370022ED28 /* PanelDataObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68F36971EA694000048CF44 /* PanelDataObservers.swift */; };
+		2BE2591523BA31370022ED28 /* PanelDataObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68F36971EA694000048CF44 /* PanelDataObservers.swift */; };
+		2BE2591623BA313C0022ED28 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
+		2BE2591723BA313C0022ED28 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
+		2BE2591823BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
+		2BE2591923BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
+		2BE2591A23BA314D0022ED28 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
+		2BE2591B23BA314E0022ED28 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
 		2BFB7C36238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */; };
@@ -283,6 +309,7 @@
 		46FA068823BB7B2400B22F71 /* BrowserTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068623BB7B2400B22F71 /* BrowserTabs.m */; };
 		46FA068A23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */; };
 		46FA068B23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */; };
+		4919E71880C1F5A9BF560687 /* Pods_CliqzOpenIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F81ADA1D2D8D4AEA86F713F /* Pods_CliqzOpenIn.framework */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
 		59A68D66379CFA85C4EAF00B /* TwoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68B1F857A8638598A63A0 /* TwoLineCell.swift */; };
@@ -548,6 +575,7 @@
 		ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */; };
 		B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
 		B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
+		B4198C6C45B52D15B6C38C39 /* Pods_GhosteryOpenIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C38EFDC756B3283B41ACF1 /* Pods_GhosteryOpenIn.framework */; };
 		C2EDC31C6828A137B57F370B /* Pods_SharedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
@@ -861,6 +889,48 @@
 			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
 			remoteInfo = Shared;
 		};
+		2BD02D3923BA337A001539F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
+			remoteInfo = Storage;
+		};
+		2BD02D3B23BA337E001539F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
+			remoteInfo = Storage;
+		};
+		2BE258DD23BA2B4A0022ED28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BE258D223BA2B4A0022ED28;
+			remoteInfo = CliqzOpenIn;
+		};
+		2BE258F323BA2B5B0022ED28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BE258E823BA2B5B0022ED28;
+			remoteInfo = GhostryOpenIn;
+		};
+		2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
+			remoteInfo = Shared;
+		};
+		2BE2590323BA2C440022ED28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
+			remoteInfo = Shared;
+		};
 		2F9A72311ABB856100F9F05D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -1013,6 +1083,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				2BE258F523BA2B5B0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */,
 				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -1049,6 +1120,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				F84B22541A0920C600AAB793 /* CliqzShareTo.appex in Embed App Extensions */,
+				2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1075,6 +1147,7 @@
 		0BF1B7E21AC60DEA00A7B407 /* InsetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetButton.swift; sourceTree = "<group>"; };
 		0C0140A387E602B6E2E03337 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Menu.strings; sourceTree = "<group>"; };
 		0C382C71B5A388709DD6DCD4 /* Pods-Storage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storage.release.xcconfig"; path = "Target Support Files/Pods-Storage/Pods-Storage.release.xcconfig"; sourceTree = "<group>"; };
+		0FBEEFF3F9AD7E7E5ABCE59D /* Pods-GhosteryOpenIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhosteryOpenIn.release.xcconfig"; path = "Target Support Files/Pods-GhosteryOpenIn/Pods-GhosteryOpenIn.release.xcconfig"; sourceTree = "<group>"; };
 		10D644E8A387ADDE68FE9C90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Search.strings; sourceTree = "<group>"; };
 		160F43EF8BED72EBBC4770EA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ErrorPages.strings; sourceTree = "<group>"; };
 		193A856AFA9BC908427E33A5 /* Pods-Ghostery.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghostery.ci.xcconfig"; path = "Target Support Files/Pods-Ghostery/Pods-Ghostery.ci.xcconfig"; sourceTree = "<group>"; };
@@ -1125,7 +1198,20 @@
 		2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementMessageCell.swift; sourceTree = "<group>"; };
 		2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementFooterView.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
+		2BC4664623C45C80008CF508 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BC4664823C45C81008CF508 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD02D4023BA34B0001539F0 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
+		2BD02D4123BA34B7001539F0 /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
+		2BD02D4423BA3698001539F0 /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
+		2BD02D4623BA3698001539F0 /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
+		2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		2BE258C223BA1DFF0022ED28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2BE258C423BA1DFF0022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GhosteryOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE2590F23BA2FD40022ED28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BE2591123BA2FD60022ED28 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
 		2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModeDetector.swift; sourceTree = "<group>"; };
 		2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "adult-domains.bin"; sourceTree = "<group>"; };
@@ -1143,6 +1229,8 @@
 		2CEA6F781E93E3A600D4100E /* SearchSettingsUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchSettingsUITest.swift; sourceTree = "<group>"; };
 		2CF449A41E7BFE2C00FD7595 /* NavigationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTest.swift; sourceTree = "<group>"; };
 		2CF9D9A920067FA10083DF2A /* BrowsingPDFTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingPDFTests.swift; sourceTree = "<group>"; };
+		2D44E83F051DF59487144EF9 /* Pods-GhosteryOpenIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhosteryOpenIn.debug.xcconfig"; path = "Target Support Files/Pods-GhosteryOpenIn/Pods-GhosteryOpenIn.debug.xcconfig"; sourceTree = "<group>"; };
+		2D79D731EFCFB2526BEBEF1E /* Pods-CliqzOpenIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CliqzOpenIn.debug.xcconfig"; path = "Target Support Files/Pods-CliqzOpenIn/Pods-CliqzOpenIn.debug.xcconfig"; sourceTree = "<group>"; };
 		2D96A3D61431CF8CE98C7F4F /* Pods-StorageTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageTests.release.xcconfig"; path = "Target Support Files/Pods-StorageTests/Pods-StorageTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F13E79A1AC0C02700D75081 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		2F44FA1A1A9D426A00FD20CC /* TestHashExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHashExtensions.swift; sourceTree = "<group>"; };
@@ -1167,6 +1255,7 @@
 		2FDB10921A9FBEC5006CF312 /* PrefsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefsTests.swift; sourceTree = "<group>"; };
 		2FE64DDDBB243C9A69C37692 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ClearPrivateData.strings; sourceTree = "<group>"; };
 		2FEBABAE1AB3659000DB5728 /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
+		30172CAA2DB5FD8130686402 /* Pods-GhosteryOpenIn.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhosteryOpenIn.ci.xcconfig"; path = "Target Support Files/Pods-GhosteryOpenIn/Pods-GhosteryOpenIn.ci.xcconfig"; sourceTree = "<group>"; };
 		318FB6EA1DB5600D0004E40F /* SQLiteHistoryFactories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteHistoryFactories.swift; sourceTree = "<group>"; };
 		31ADB5D91E58CEC300E87909 /* ClipboardBarDisplayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardBarDisplayHandler.swift; sourceTree = "<group>"; };
 		31B072A38A59070074E373FA /* Pods-StorageTests.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageTests.ci.xcconfig"; path = "Target Support Files/Pods-StorageTests/Pods-StorageTests.ci.xcconfig"; sourceTree = "<group>"; };
@@ -1174,6 +1263,7 @@
 		325B626FDD9E35A098A7FAC8 /* Pods-Shared.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.ci.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.ci.xcconfig"; sourceTree = "<group>"; };
 		35F86BE2E8E4AE3FA002A620 /* Pods-ShareTo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTo.release.xcconfig"; path = "Target Support Files/Pods-ShareTo/Pods-ShareTo.release.xcconfig"; sourceTree = "<group>"; };
 		3749C637FFAA70760453C3CF /* Pods-ClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClientTests.debug.xcconfig"; path = "Target Support Files/Pods-ClientTests/Pods-ClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		374F6BEE52BB79659128C4E8 /* Pods-GhosteryOpenIn.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhosteryOpenIn.adhoc.xcconfig"; path = "Target Support Files/Pods-GhosteryOpenIn/Pods-GhosteryOpenIn.adhoc.xcconfig"; sourceTree = "<group>"; };
 		3905274B1C874D35007E0BB7 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		39236E711FCC600200A38F1B /* TabEventHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabEventHandlerTests.swift; sourceTree = "<group>"; };
 		392ED7E31D0AEF56009D9B62 /* NewTabAccessors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTabAccessors.swift; path = Accessors/NewTabAccessors.swift; sourceTree = "<group>"; };
@@ -1267,6 +1357,7 @@
 		526508281A8FDBAAA5D03184 /* Pods-SharedTests.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedTests.ci.xcconfig"; path = "Target Support Files/Pods-SharedTests/Pods-SharedTests.ci.xcconfig"; sourceTree = "<group>"; };
 		54730E8ED9A99BCE89FE3ADE /* Pods-CliqzShareTo.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CliqzShareTo.ci.xcconfig"; path = "Target Support Files/Pods-CliqzShareTo/Pods-CliqzShareTo.ci.xcconfig"; sourceTree = "<group>"; };
 		554867221DC3935A00183DAA /* HomePageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageTests.swift; sourceTree = "<group>"; };
+		56C38EFDC756B3283B41ACF1 /* Pods_GhosteryOpenIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GhosteryOpenIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		580B0C4121748CFE00448DF8 /* DataManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagementTests.swift; sourceTree = "<group>"; };
 		58CD6C7D7B77A1C7ACC8B7F3 /* Pods-StoragePerfTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoragePerfTests.release.xcconfig"; path = "Target Support Files/Pods-StoragePerfTests/Pods-StoragePerfTests.release.xcconfig"; sourceTree = "<group>"; };
 		595647DE90F2B0B5EBFBE795 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1311,6 +1402,7 @@
 		7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncQueue.swift; sourceTree = "<group>"; };
 		7D0948E3A5BB6267D54A25A4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Search.strings; sourceTree = "<group>"; };
 		7EB3449484DF7F9135AB619E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
+		7F81ADA1D2D8D4AEA86F713F /* Pods_CliqzOpenIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CliqzOpenIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB34881BBA574733B969540 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ClearPrivateDataConfirm.strings; sourceTree = "<group>"; };
 		8348811D348D6B8BFE462A58 /* Pods-StorageTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageTests.debug.xcconfig"; path = "Target Support Files/Pods-StorageTests/Pods-StorageTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84ABA3E805A19707DE49E5EB /* Pods-ShareTo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTo.debug.xcconfig"; path = "Target Support Files/Pods-ShareTo/Pods-ShareTo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1322,6 +1414,7 @@
 		961E4A3D9BA3DCF22A239C63 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		978E0EE660BD55DCCF1A57A4 /* Pods-SharedTests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedTests.adhoc.xcconfig"; path = "Target Support Files/Pods-SharedTests/Pods-SharedTests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		9904147345ED9D11B5E3967D /* Pods_Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		995C8D2FDD6F86A0854F6336 /* Pods-CliqzOpenIn.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CliqzOpenIn.ci.xcconfig"; path = "Target Support Files/Pods-CliqzOpenIn/Pods-CliqzOpenIn.ci.xcconfig"; sourceTree = "<group>"; };
 		9B6FCEB131FC677FAC277B52 /* Pods-ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClientTests.release.xcconfig"; path = "Target Support Files/Pods-ClientTests/Pods-ClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		A1B2E098D858B5632CD21ECE /* Pods_StoragePerfTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoragePerfTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIPasteboardExtensions.swift; path = Extensions/UIPasteboardExtensions.swift; sourceTree = "<group>"; };
@@ -1486,6 +1579,7 @@
 		D3A994961A3686BD008AD1AC /* Tab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		D3B6923C1B9F9444004B87A4 /* FindInPageBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindInPageBar.swift; sourceTree = "<group>"; };
 		D3B6923E1B9F9A58004B87A4 /* FindInPageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindInPageHelper.swift; sourceTree = "<group>"; };
+		D3B755B44D4BC3C58E373260 /* Pods-CliqzOpenIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CliqzOpenIn.release.xcconfig"; path = "Target Support Files/Pods-CliqzOpenIn/Pods-CliqzOpenIn.release.xcconfig"; sourceTree = "<group>"; };
 		D3BA41671BD82F2200DA5457 /* XCTestCaseExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCaseExtensions.swift; sourceTree = "<group>"; };
 		D3BA7E0D1B0E934F00153782 /* ContextMenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextMenuHelper.swift; sourceTree = "<group>"; };
 		D3BE7B251B054D4400641031 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -1683,6 +1777,7 @@
 		F8708D261A0970990051AB07 /* Cliqz-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cliqz-Info.plist"; sourceTree = "<group>"; };
 		F8708D291A0970990051AB07 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		F8EE4B768F386572E4EB1CA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
+		FA225D399EC0760BC5459012 /* Pods-CliqzOpenIn.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CliqzOpenIn.adhoc.xcconfig"; path = "Target Support Files/Pods-CliqzOpenIn/Pods-CliqzOpenIn.adhoc.xcconfig"; sourceTree = "<group>"; };
 		FA6B2AC11D41F02D00429414 /* Punycode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Punycode.swift; sourceTree = "<group>"; };
 		FAF345FCA6DA22E2D26E249A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Shared.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1710,6 +1805,26 @@
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				DABDA4AD20DA0FB900FBB0BD /* ObjcExceptionBridging.framework in Frameworks */,
 				EEEE63974D053E6648E85547 /* Pods_Cliqz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BE258D023BA2B4A0022ED28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BD02D3823BA3375001539F0 /* Storage.framework in Frameworks */,
+				2BE2590623BA2C510022ED28 /* Shared.framework in Frameworks */,
+				4919E71880C1F5A9BF560687 /* Pods_CliqzOpenIn.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BE258E623BA2B5B0022ED28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BD02D3D23BA3381001539F0 /* Storage.framework in Frameworks */,
+				2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */,
+				B4198C6C45B52D15B6C38C39 /* Pods_GhosteryOpenIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1866,6 +1981,14 @@
 				793FA5EA29FC7837DA9F09B5 /* Pods-Storage.ci.xcconfig */,
 				B0BF0C7B7CBBD5CA0E2328E7 /* Pods-StoragePerfTests.ci.xcconfig */,
 				31B072A38A59070074E373FA /* Pods-StorageTests.ci.xcconfig */,
+				2D79D731EFCFB2526BEBEF1E /* Pods-CliqzOpenIn.debug.xcconfig */,
+				FA225D399EC0760BC5459012 /* Pods-CliqzOpenIn.adhoc.xcconfig */,
+				D3B755B44D4BC3C58E373260 /* Pods-CliqzOpenIn.release.xcconfig */,
+				995C8D2FDD6F86A0854F6336 /* Pods-CliqzOpenIn.ci.xcconfig */,
+				2D44E83F051DF59487144EF9 /* Pods-GhosteryOpenIn.debug.xcconfig */,
+				374F6BEE52BB79659128C4E8 /* Pods-GhosteryOpenIn.adhoc.xcconfig */,
+				0FBEEFF3F9AD7E7E5ABCE59D /* Pods-GhosteryOpenIn.release.xcconfig */,
+				30172CAA2DB5FD8130686402 /* Pods-GhosteryOpenIn.ci.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1947,6 +2070,44 @@
 				2B516D2E238BAC8B006D6B57 /* BookmarksView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2BD02D4223BA3698001539F0 /* Branding */ = {
+			isa = PBXGroup;
+			children = (
+				2BD02D4323BA3698001539F0 /* Ghostery */,
+				2BD02D4523BA3698001539F0 /* Cliqz */,
+			);
+			path = Branding;
+			sourceTree = "<group>";
+		};
+		2BD02D4323BA3698001539F0 /* Ghostery */ = {
+			isa = PBXGroup;
+			children = (
+				2BD02D4423BA3698001539F0 /* Ghostery.xcassets */,
+				2BC4664723C45C80008CF508 /* InfoPlist.strings */,
+			);
+			path = Ghostery;
+			sourceTree = "<group>";
+		};
+		2BD02D4523BA3698001539F0 /* Cliqz */ = {
+			isa = PBXGroup;
+			children = (
+				2BD02D4623BA3698001539F0 /* cliqz.xcassets */,
+				2BE2591023BA2FD40022ED28 /* InfoPlist.strings */,
+			);
+			path = Cliqz;
+			sourceTree = "<group>";
+		};
+		2BE2586E23BA0C800022ED28 /* OpenIn */ = {
+			isa = PBXGroup;
+			children = (
+				2BD02D4223BA3698001539F0 /* Branding */,
+				2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */,
+				2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */,
+				2BE258C423BA1DFF0022ED28 /* Info.plist */,
+			);
+			path = OpenIn;
 			sourceTree = "<group>";
 		};
 		2BFB7C34238FA99600CE2E69 /* AutomaticForgetMode */ = {
@@ -2309,6 +2470,8 @@
 				5D4215C7E8E5CD5534FD54D4 /* Pods_GhosteryShareTo.framework */,
 				22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */,
 				A1B2E098D858B5632CD21ECE /* Pods_StoragePerfTests.framework */,
+				7F81ADA1D2D8D4AEA86F713F /* Pods_CliqzOpenIn.framework */,
+				56C38EFDC756B3283B41ACF1 /* Pods_GhosteryOpenIn.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2770,6 +2933,8 @@
 			children = (
 				C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */,
 				46947784232A982100129B51 /* GhosteryShareTo.entitlements */,
+				2BD02D4023BA34B0001539F0 /* CliqzOpenIn.entitlements */,
+				2BD02D4123BA34B7001539F0 /* GhosteryOpenIn.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -3045,6 +3210,8 @@
 				3BFE4B071D342FB800DDF53F /* XCUITests.xctest */,
 				3B43E3D01D95C48D00BBA9DB /* StoragePerfTests.xctest */,
 				ACB7384723042BAB00FA5626 /* UserAgent.app */,
+				2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */,
+				2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3190,6 +3357,7 @@
 			children = (
 				E40A18F61EDC73D5006B7F28 /* Entitlements */,
 				F8708D241A0970990051AB07 /* ShareTo */,
+				2BE2586E23BA0C800022ED28 /* OpenIn */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3229,6 +3397,46 @@
 			productName = Shared;
 			productReference = 288A2D861AB8B3260023ABC3 /* Shared.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */;
+			buildPhases = (
+				F02AE97D9BDAA327ACA4698A /* [CP] Check Pods Manifest.lock */,
+				2BE258CF23BA2B4A0022ED28 /* Sources */,
+				2BE258D023BA2B4A0022ED28 /* Frameworks */,
+				2BE258D123BA2B4A0022ED28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BD02D3A23BA337A001539F0 /* PBXTargetDependency */,
+				2BE2590223BA2C3D0022ED28 /* PBXTargetDependency */,
+			);
+			name = CliqzOpenIn;
+			productName = CliqzOpenIn;
+			productReference = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BE258F623BA2B5B0022ED28 /* Build configuration list for PBXNativeTarget "GhosteryOpenIn" */;
+			buildPhases = (
+				CCA3E03648F149AB8EFBCD68 /* [CP] Check Pods Manifest.lock */,
+				2BE258E523BA2B5B0022ED28 /* Sources */,
+				2BE258E623BA2B5B0022ED28 /* Frameworks */,
+				2BE258E723BA2B5B0022ED28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BD02D3C23BA337E001539F0 /* PBXTargetDependency */,
+				2BE2590423BA2C440022ED28 /* PBXTargetDependency */,
+			);
+			name = GhosteryOpenIn;
+			productName = GhostryOpenIn;
+			productReference = 2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		2FCAE2191ABB51F800877008 /* Storage */ = {
 			isa = PBXNativeTarget;
@@ -3348,6 +3556,7 @@
 				ACB7371423042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371A23042BAB00FA5626 /* PBXTargetDependency */,
 				464F678D232793F00090D0B5 /* PBXTargetDependency */,
+				2BE258F423BA2B5B0022ED28 /* PBXTargetDependency */,
 			);
 			name = Ghostery;
 			productName = Client;
@@ -3397,6 +3606,7 @@
 				288A2D9C1AB8B3260023ABC3 /* PBXTargetDependency */,
 				2FCAE2301ABB51F800877008 /* PBXTargetDependency */,
 				F84B22521A0920C600AAB793 /* PBXTargetDependency */,
+				2BE258DE23BA2B4A0022ED28 /* PBXTargetDependency */,
 			);
 			name = Cliqz;
 			productName = Client;
@@ -3452,7 +3662,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Cliqz;
 				TargetAttributes = {
@@ -3460,6 +3670,16 @@
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+					};
+					2BE258D223BA2B4A0022ED28 = {
+						CreatedOnToolsVersion = 11.3;
+						DevelopmentTeam = 2UYYSSHVUH;
+						ProvisioningStyle = Automatic;
+					};
+					2BE258E823BA2B5B0022ED28 = {
+						CreatedOnToolsVersion = 11.3;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 					};
 					2FCAE2191ABB51F800877008 = {
@@ -3579,6 +3799,8 @@
 				ACB7371123042BAB00FA5626 /* Ghostery */,
 				F84B22481A0920C600AAB793 /* CliqzShareTo */,
 				464F675F2326AFB70090D0B5 /* GhosteryShareTo */,
+				2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */,
+				2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */,
 				288A2D851AB8B3260023ABC3 /* Shared */,
 				2FCAE2191ABB51F800877008 /* Storage */,
 				F84B21D21A090F8100AAB793 /* ClientTests */,
@@ -3595,6 +3817,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BE258D123BA2B4A0022ED28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */,
+				2BD02D4923BA3698001539F0 /* cliqz.xcassets in Resources */,
+				2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BE258E723BA2B5B0022ED28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */,
+				2BC4664923C45CAF008CF508 /* InfoPlist.strings in Resources */,
+				2BD02D4823BA3698001539F0 /* Ghostery.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4235,6 +4477,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CCA3E03648F149AB8EFBCD68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GhosteryOpenIn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D42DE2E8C41FB257F60E5509 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4270,6 +4534,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${INCLUDE_SETTINGS_BUNDLE}\" = \"YES\" ]\nthen\n    cp -r \"${PROJECT_DIR}/Client/Application/Settings.bundle\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nfi\n";
+		};
+		F02AE97D9BDAA327ACA4698A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CliqzOpenIn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FB4E53AA04E33E895CD07F5A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4425,6 +4711,34 @@
 				7B9BF91C1E43472E00CB24F4 /* JSONExtensions.swift in Sources */,
 				E65075BD1E37F7AB006961AC /* SystemUtils.swift in Sources */,
 				E65075AB1E37F7AB006961AC /* SetExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BE258CF23BA2B4A0022ED28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BE2591423BA31370022ED28 /* PanelDataObservers.swift in Sources */,
+				2BE2591A23BA314D0022ED28 /* OpenSearch.swift in Sources */,
+				2BE2591623BA313C0022ED28 /* SearchEngines.swift in Sources */,
+				2BE2591823BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */,
+				2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */,
+				2BD02D3E23BA33A3001539F0 /* DefaultSearchPrefs.swift in Sources */,
+				2BE2591223BA312A0022ED28 /* Profile.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BE258E523BA2B5B0022ED28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BE2591523BA31370022ED28 /* PanelDataObservers.swift in Sources */,
+				2BE2591B23BA314E0022ED28 /* OpenSearch.swift in Sources */,
+				2BE2591723BA313C0022ED28 /* SearchEngines.swift in Sources */,
+				2BE2591923BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */,
+				2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */,
+				2BD02D3F23BA33A4001539F0 /* DefaultSearchPrefs.swift in Sources */,
+				2BE2591323BA312B0022ED28 /* Profile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5140,6 +5454,36 @@
 			target = 288A2D851AB8B3260023ABC3 /* Shared */;
 			targetProxy = 288A2D9B1AB8B3260023ABC3 /* PBXContainerItemProxy */;
 		};
+		2BD02D3A23BA337A001539F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FCAE2191ABB51F800877008 /* Storage */;
+			targetProxy = 2BD02D3923BA337A001539F0 /* PBXContainerItemProxy */;
+		};
+		2BD02D3C23BA337E001539F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FCAE2191ABB51F800877008 /* Storage */;
+			targetProxy = 2BD02D3B23BA337E001539F0 /* PBXContainerItemProxy */;
+		};
+		2BE258DE23BA2B4A0022ED28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */;
+			targetProxy = 2BE258DD23BA2B4A0022ED28 /* PBXContainerItemProxy */;
+		};
+		2BE258F423BA2B5B0022ED28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */;
+			targetProxy = 2BE258F323BA2B5B0022ED28 /* PBXContainerItemProxy */;
+		};
+		2BE2590223BA2C3D0022ED28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 288A2D851AB8B3260023ABC3 /* Shared */;
+			targetProxy = 2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */;
+		};
+		2BE2590423BA2C440022ED28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 288A2D851AB8B3260023ABC3 /* Shared */;
+			targetProxy = 2BE2590323BA2C440022ED28 /* PBXContainerItemProxy */;
+		};
 		2F9A72321ABB856100F9F05D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2FCAE2191ABB51F800877008 /* Storage */;
@@ -5272,6 +5616,32 @@
 				2B76E43A23A12AEA001CF20E /* de */,
 			);
 			name = PrivacyStatement.strings;
+			sourceTree = "<group>";
+		};
+		2BC4664723C45C80008CF508 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BC4664623C45C80008CF508 /* en */,
+				2BC4664823C45C81008CF508 /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BE258C223BA1DFF0022ED28 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		2BE2591023BA2FD40022ED28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BE2590F23BA2FD40022ED28 /* en */,
+				2BE2591123BA2FD60022ED28 /* de */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		46828D912341F23300E7D8A3 /* UserAgent.strings */ = {
@@ -5437,6 +5807,260 @@
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
+		};
+		2BE258E123BA2B4A0022ED28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D79D731EFCFB2526BEBEF1E /* Pods-CliqzOpenIn.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.2.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.CliqzOpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BE258E223BA2B4A0022ED28 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA225D399EC0760BC5459012 /* Pods-CliqzOpenIn.adhoc.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.2.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.CliqzOpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Adhoc;
+		};
+		2BE258E323BA2B4A0022ED28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3B755B44D4BC3C58E373260 /* Pods-CliqzOpenIn.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.2.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.CliqzOpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2BE258E423BA2B4A0022ED28 /* CI */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 995C8D2FDD6F86A0854F6336 /* Pods-CliqzOpenIn.ci.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.2.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.CliqzOpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = CI;
+		};
+		2BE258F723BA2B5B0022ED28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D44E83F051DF59487144EF9 /* Pods-GhosteryOpenIn.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = HPY23A294X;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BE258F823BA2B5B0022ED28 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 374F6BEE52BB79659128C4E8 /* Pods-GhosteryOpenIn.adhoc.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HPY23A294X;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Adhoc;
+		};
+		2BE258F923BA2B5B0022ED28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FBEEFF3F9AD7E7E5ABCE59D /* Pods-GhosteryOpenIn.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HPY23A294X;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2BE258FA23BA2B5B0022ED28 /* CI */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30172CAA2DB5FD8130686402 /* Pods-GhosteryOpenIn.ci.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HPY23A294X;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = CI;
 		};
 		2FCAE2341ABB51F900877008 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -5840,6 +6464,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E22F73B054C710E99D11A013 /* Pods-Cliqz.ci.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5878,6 +6503,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 193A856AFA9BC908427E33A5 /* Pods-Ghostery.ci.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -6254,6 +6880,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8EF4515D84F7B934A5318AEC /* Pods-Cliqz.adhoc.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -6545,6 +7172,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E856F0CC31F0A2760F95EEF6 /* Pods-Ghostery.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -6597,6 +7225,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D45B6D4541A6B664D8744B18 /* Pods-Ghostery.adhoc.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -6649,6 +7278,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2BCFD3D477938E531ED275F /* Pods-Ghostery.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -6764,6 +7394,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B59430F5B45D4B4809786C3 /* Pods-Cliqz.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -7045,6 +7676,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F80048466CE6947783A54A4E /* Pods-Cliqz.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -7147,6 +7779,28 @@
 				ACB737082304289100FA5626 /* Adhoc */,
 				E448FCA31AEE7A6000869B6C /* Release */,
 				4691B21B237C0CE000D71F4D /* CI */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BE258E123BA2B4A0022ED28 /* Debug */,
+				2BE258E223BA2B4A0022ED28 /* Adhoc */,
+				2BE258E323BA2B4A0022ED28 /* Release */,
+				2BE258E423BA2B4A0022ED28 /* CI */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BE258F623BA2B5B0022ED28 /* Build configuration list for PBXNativeTarget "GhosteryOpenIn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BE258F723BA2B5B0022ED28 /* Debug */,
+				2BE258F823BA2B5B0022ED28 /* Adhoc */,
+				2BE258F923BA2B5B0022ED28 /* Release */,
+				2BE258FA23BA2B5B0022ED28 /* CI */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
