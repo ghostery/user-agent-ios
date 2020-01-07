@@ -901,7 +901,7 @@ class BrowserViewController: UIViewController {
        }
 
     func finishEditingAndSubmit(_ url: URL, visitType: VisitType, forTab tab: Tab) {
-        if let query = self.searchController?.searchQuery {
+        if let query = self.searchController?.searchQuery, !tab.isPrivate {
             self.appendQuery(query: query)
         }
         currentBookmarksKeywordQuery?.cancel()
@@ -1410,7 +1410,9 @@ extension BrowserViewController: URLBarDelegate {
             finishEditingAndSubmit(fixupURL, visitType: VisitType.typed, forTab: currentTab)
             return
         }
-        self.appendQuery(query: text)
+        if !currentTab.isPrivate {
+            self.appendQuery(query: text)
+        }
         self.urlBar.closeKeyboard()
     }
 
