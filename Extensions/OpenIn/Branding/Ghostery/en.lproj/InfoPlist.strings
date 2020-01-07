@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 1/7/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "Open In Ghostery";
