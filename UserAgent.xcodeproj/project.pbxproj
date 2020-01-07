@@ -5833,6 +5833,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.CliqzOpenIn;
@@ -5864,6 +5865,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.2.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.CliqzOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5894,6 +5896,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.2.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.CliqzOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5924,6 +5927,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.2.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.CliqzOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5957,6 +5961,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
@@ -5987,6 +5992,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6016,6 +6022,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6045,6 +6052,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -12,23 +12,39 @@ import Shared
 
 class ActionViewController: UIViewController {
 
+    private var canOpenUserAgent: Bool = false
+    private var url: URL?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         for item in self.extensionContext!.inputItems as! [NSExtensionItem] {
             for provider in item.attachments! {
                 if provider.hasItemConformingToTypeIdentifier(kUTTypeURL as String) {
                     provider.loadItem(forTypeIdentifier: kUTTypeURL as String, options: nil, completionHandler: { (url, error) in
-                        OperationQueue.main.addOperation {
+                        DispatchQueue.main.async {
                             if let url = url as? URL {
-                                print(url)
-                                self.openUserAgent(withUrl: url)
+                                if self.canOpenUserAgent {
+                                    self.openUserAgent(withUrl: url)
+                                    self.done()
+                                } else {
+                                    self.url = url
+                                }
                             }
-                            self.done()
                         }
                     })
                     break
                 }
             }
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.canOpenUserAgent = true
+        if let url = self.url {
+            self.openUserAgent(withUrl: url)
+            self.done()
         }
     }
 
@@ -55,7 +71,7 @@ class ActionViewController: UIViewController {
     func done() {
         // Return any edited content to the host app.
         // This template doesn't do anything, so we just echo the passed in items.
-        self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
+        self.extensionContext?.completeRequest(returningItems: [], completionHandler: nil)
     }
 
 }
