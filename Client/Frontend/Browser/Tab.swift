@@ -38,8 +38,9 @@ protocol TabDelegate {
 }
 
 @objc
-protocol URLChangeDelegate {
+protocol TabStateChangeDelegate {
     func tab(_ tab: Tab, urlDidChangeTo url: URL)
+    func tab(_ tab: Tab, titleDidChangeTo title: String)
 }
 
 struct TabState {
@@ -92,11 +93,25 @@ class Tab: NSObject {
         return self.url
     }
 
+    // Get the tab's current URL. If it is `nil`, check the `sessionData` since
+    // it may be a tab that has not been restored yet.
+    var actualURL: URL? {
+        var url = self.url
+        if url == nil, let sessionData = self.sessionData {
+            let urls = sessionData.urls
+            let index = sessionData.currentPage + urls.count - 1
+            if index < urls.count {
+                url = urls[index]
+            }
+        }
+        return url
+    }
+
     var userActivity: NSUserActivity?
 
     var webView: WKWebView?
     var tabDelegate: TabDelegate?
-    weak var urlDidChangeDelegate: URLChangeDelegate?     // TO DO : generalize this.
+    private var tabStateChangeDelegates = WeakList<TabStateChangeDelegate>()
     var bars = [SnackBar]()
     var favicons = [Favicon]()
     var lastExecutedTime: Timestamp?
@@ -192,7 +207,7 @@ class Tab: NSObject {
     var logoURL: URL {
         let logoPlaceholderURL = URL(string: Strings.BrandWebsite)!
         let faviconURL = URL(nullableString: self.displayFavicon?.url)
-        var logoURL = self.url ?? faviconURL ?? logoPlaceholderURL
+        var logoURL = self.actualURL ?? faviconURL ?? logoPlaceholderURL
         if InternalURL.isValid(url: logoURL) {
             logoURL = logoPlaceholderURL
         }
@@ -227,6 +242,7 @@ class Tab: NSObject {
 
             self.webView = webView
             self.webView?.addObserver(self, forKeyPath: KVOConstants.URL.rawValue, options: .new, context: nil)
+            self.webView?.addObserver(self, forKeyPath: KVOConstants.title.rawValue, options: .new, context: nil)
             UserScriptManager.shared.injectUserScriptsIntoTab(self)
             tabDelegate?.tab?(self, didCreateWebView: webView)
         }
@@ -524,15 +540,26 @@ class Tab: NSObject {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard let webView = object as? WKWebView, webView == self.webView,
-            let path = keyPath, path == KVOConstants.URL.rawValue else {
+        guard
+            let webView = object as? WKWebView,
+            webView == self.webView,
+            let path = keyPath,
+            path == KVOConstants.URL.rawValue || path == KVOConstants.title.rawValue
+        else {
             return assertionFailure("Unhandled KVO key: \(keyPath ?? "nil")")
         }
-        guard let url = self.webView?.url else {
-            return
-        }
 
-        self.urlDidChangeDelegate?.tab(self, urlDidChangeTo: url)
+        if path == KVOConstants.URL.rawValue {
+            guard let url = self.webView?.url else { return }
+            for delegate in self.tabStateChangeDelegates {
+                delegate.tab(self, urlDidChangeTo: url)
+            }
+        } else if path == KVOConstants.title.rawValue {
+            guard let title = self.webView?.title else { return }
+            for delegate in self.tabStateChangeDelegates {
+                delegate.tab(self, titleDidChangeTo: title)
+            }
+        }
     }
 
     func isDescendentOf(_ ancestor: Tab) -> Bool {
@@ -550,14 +577,12 @@ class Tab: NSObject {
         }
     }
 
-    func observeURLChanges(delegate: URLChangeDelegate) {
-        self.urlDidChangeDelegate = delegate
+    func observeStateChanges(delegate: TabStateChangeDelegate) {
+        self.tabStateChangeDelegates.insert(delegate)
     }
 
-    func removeURLChangeObserver(delegate: URLChangeDelegate) {
-        if let existing = self.urlDidChangeDelegate, existing === delegate {
-            self.urlDidChangeDelegate = nil
-        }
+    func removeStateChangeObserver(delegate: TabStateChangeDelegate) {
+        _ = self.tabStateChangeDelegates.remove(delegate)
     }
 
     func applyTheme() {

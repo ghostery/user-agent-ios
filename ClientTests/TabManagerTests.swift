@@ -69,6 +69,10 @@ open class MockTabManagerDelegate: TabManagerDelegate {
         testDelegateMethodWithName(#function, tabs: [tab])
     }
 
+    public func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool) {
+
+    }
+
     public func tabManagerDidRestoreTabs(_ tabManager: TabManager) {
         testDelegateMethodWithName(#function, tabs: [])
     }

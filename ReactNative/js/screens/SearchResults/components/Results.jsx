@@ -33,7 +33,7 @@ const getStyles = theme =>
       right: 0,
     },
     separator: {
-      height: 0.5,
+      height: 1,
       backgroundColor: theme.separatorColor,
     },
     footer: {
