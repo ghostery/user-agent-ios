@@ -185,6 +185,9 @@ class Tab: NSObject {
     /// tab instance, queue it for later until we become foregrounded.
     fileprivate var alertQueue = [JSAlertInfo]()
 
+    private var refreshControl: CliqzRefreshControl?
+    private var scrollViewOffsetContext = "PullToRefresh"
+
     weak var browserViewController: BrowserViewController?
 
     init(bvc: BrowserViewController, configuration: WKWebViewConfiguration, isPrivate: Bool = false) {
@@ -244,6 +247,8 @@ class Tab: NSObject {
             self.webView?.addObserver(self, forKeyPath: KVOConstants.URL.rawValue, options: .new, context: nil)
             self.webView?.addObserver(self, forKeyPath: KVOConstants.title.rawValue, options: .new, context: nil)
             UserScriptManager.shared.injectUserScriptsIntoTab(self)
+            self.setupRefreshControl()
+
             tabDelegate?.tab?(self, didCreateWebView: webView)
         }
     }
@@ -431,7 +436,8 @@ class Tab: NSObject {
         webView?.stopLoading()
     }
 
-    func reload() {
+    @objc func reload() {
+        self.refreshControl?.endRefreshing()
         // If the current page is an error page, and the reload button is tapped, load the original URL
         if let url = webView?.url, let internalUrl = InternalURL(url), let page = internalUrl.originalURLFromErrorPage {
             webView?.evaluateJavaScript("location.replace('\(page)')", completionHandler: nil)
@@ -447,6 +453,19 @@ class Tab: NSObject {
             print("restoring webView from scratch")
             restore(webView)
         }
+    }
+
+    private func subscribeOnScrollViewContentOffset() {
+        self.webView?.scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: &self.scrollViewOffsetContext)
+    }
+
+    private func setupRefreshControl() {
+        self.refreshControl = CliqzRefreshControl()
+        self.refreshControl!.addTarget(self, action: #selector(reload), for: UIControl.Event.valueChanged)
+        self.webView?.scrollView.addSubview(self.refreshControl!)
+        self.webView?.scrollView.bounces = true
+        self.refreshControl?.updateHeight(height: self.browserViewController?.header.frame.size.height ?? 0)
+        self.subscribeOnScrollViewContentOffset()
     }
 
     func addContentScript(_ helper: TabContentScript, name: String) {
@@ -540,24 +559,34 @@ class Tab: NSObject {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard
-            let webView = object as? WKWebView,
-            webView == self.webView,
-            let path = keyPath,
-            path == KVOConstants.URL.rawValue || path == KVOConstants.title.rawValue
-        else {
-            return assertionFailure("Unhandled KVO key: \(keyPath ?? "nil")")
-        }
-
-        if path == KVOConstants.URL.rawValue {
-            guard let url = self.webView?.url else { return }
-            for delegate in self.tabStateChangeDelegates {
-                delegate.tab(self, urlDidChangeTo: url)
+        if context == &self.scrollViewOffsetContext {
+            guard let scrollView = self.webView?.scrollView else {
+                return
             }
-        } else if path == KVOConstants.title.rawValue {
-            guard let title = self.webView?.title else { return }
-            for delegate in self.tabStateChangeDelegates {
-                delegate.tab(self, titleDidChangeTo: title)
+
+            let headerHeight = self.browserViewController?.notchAreaCover.frame.size.height ?? 0
+            let offset = scrollView.contentOffset.y < 0 ? abs(scrollView.contentOffset.y) : 0
+            self.refreshControl?.updateHeight(height: headerHeight + offset)
+        } else {
+            guard
+                let webView = object as? WKWebView,
+                webView == self.webView,
+                let path = keyPath,
+                path == KVOConstants.URL.rawValue || path == KVOConstants.title.rawValue
+            else {
+                return assertionFailure("Unhandled KVO key: \(keyPath ?? "nil")")
+            }
+
+            if path == KVOConstants.URL.rawValue {
+                guard let url = self.webView?.url else { return }
+                for delegate in self.tabStateChangeDelegates {
+                    delegate.tab(self, urlDidChangeTo: url)
+                }
+            } else if path == KVOConstants.title.rawValue {
+                guard let title = self.webView?.title else { return }
+                for delegate in self.tabStateChangeDelegates {
+                    delegate.tab(self, titleDidChangeTo: title)
+                }
             }
         }
     }
