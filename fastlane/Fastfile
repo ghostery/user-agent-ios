@@ -16,6 +16,10 @@ APPS = {
     share_to_provisioning_profile: "2bbfa6d3-0e13-4a69-ab75-07fb76dc8a49",
     share_to_provisioning_profile_name: "match AppStore com.cliqz.ShareTo",
 
+    open_in_identifier: "com.cliqz.ShareTo",
+    open_in_provisioning_profile: "2bbfa6d3-0e13-4a69-ab75-07fb76dc8a49",
+    open_in_provisioning_profile_name: "match AppStore com.cliqz.OpenIn",
+
     sentry_slug: "cliqz-ios",
     match_branch: "browser-ios",
   },
@@ -33,6 +37,10 @@ APPS = {
     share_to_identifier: "com.cliqz.browser.nightly.ShareTo",
     share_to_provisioning_profile: "93a334ed-4bb7-4121-b7d1-326fe0546dec",
     share_to_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.ShareTo",
+
+    open_in_identifier: "com.cliqz.browser.nightly.OpenIn",
+    open_in_provisioning_profile: "2bbfa6d3-0e13-4a69-ab75-07fb76dc8a49",
+    open_in_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.OpenIn",
 
     sentry_slug: "cliqznighly-ios",
     match_branch: "cliqz-browser-nightly",
@@ -69,7 +77,7 @@ platform :ios do
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
       keychain_password: ENV["MATCH_PASSWORD"],
       git_branch: app.match_branch,
-      app_identifier: [app.app_identifier, app.share_to_identifier],
+      app_identifier: [app.app_identifier, app.share_to_identifier, app.open_in_identifier],
       readonly: true,
       verbose: true
     )
@@ -118,6 +126,12 @@ platform :ios do
       app_identifier: app.share_to_identifier
     )
 
+    update_app_identifier(
+      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
+      plist_path: "./Extensions/OpenIn/#{app.target}-Info.plist",
+      app_identifier: app.open_in_identifier
+    )
+
     update_app_group_identifiers(
       entitlements_file: "Client/Entitlements/#{app.target}.entitlements",
       app_group_identifiers: [app.app_group_identifier]
@@ -125,6 +139,11 @@ platform :ios do
 
     update_app_group_identifiers(
       entitlements_file: "Extensions/Entitlements/#{app.target}ShareTo.entitlements",
+      app_group_identifiers: [app.app_group_identifier]
+    )
+
+    update_app_group_identifiers(
+      entitlements_file: "Extensions/Entitlements/#{app.target}OpenIn.entitlements",
       app_group_identifiers: [app.app_group_identifier]
     )
 
@@ -147,6 +166,13 @@ platform :ios do
       build_configuration: app.configuration,
     )
 
+    update_project_provisioning(
+      xcodeproj: "UserAgent.xcodeproj",
+      profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/#{app.share_to_provisioning_profile}.mobileprovision",
+      target_filter: "OpenIn",
+      build_configuration: app.configuration,
+    )
+
     build_app(
       workspace: "UserAgent.xcworkspace",
       clean: true,
@@ -161,6 +187,7 @@ platform :ios do
         provisioningProfiles: {
           app.app_identifier => app.provisioning_profile_name,
           app.share_to_identifier => app.share_to_provisioning_profile_name,
+          app.open_in_identifier => app.open_in_provisioning_profile_name,
         }
       }
     )
