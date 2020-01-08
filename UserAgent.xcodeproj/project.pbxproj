@@ -1774,7 +1774,7 @@
 		F84B22431A09165600AAB793 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F84B22491A0920C600AAB793 /* CliqzShareTo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzShareTo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8708D251A0970990051AB07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F8708D261A0970990051AB07 /* Cliqz-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cliqz-Info.plist"; sourceTree = "<group>"; };
+		F8708D261A0970990051AB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8708D291A0970990051AB07 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		F8EE4B768F386572E4EB1CA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
 		FA225D399EC0760BC5459012 /* Pods-CliqzOpenIn.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CliqzOpenIn.adhoc.xcconfig"; path = "Target Support Files/Pods-CliqzOpenIn/Pods-CliqzOpenIn.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -3368,7 +3368,7 @@
 				C5C7D33E2359B25E00CB359A /* Branding */,
 				EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */,
 				F8708D251A0970990051AB07 /* Images.xcassets */,
-				F8708D261A0970990051AB07 /* Cliqz-Info.plist */,
+				F8708D261A0970990051AB07 /* Info.plist */,
 				E41A7D4A1A1BE04500245963 /* InitialViewController.swift */,
 				EB940747208134AF00702E05 /* UXConstants.swift */,
 				F8708D291A0970990051AB07 /* ShareViewController.swift */,

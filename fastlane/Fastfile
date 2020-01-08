@@ -122,13 +122,13 @@ platform :ios do
 
     update_app_identifier(
       xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Extensions/ShareTo/#{app.target}-Info.plist",
+      plist_path: "./Extensions/ShareTo/Info.plist",
       app_identifier: app.share_to_identifier
     )
 
     update_app_identifier(
       xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Extensions/OpenIn/#{app.target}-Info.plist",
+      plist_path: "./Extensions/OpenIn/Info.plist",
       app_identifier: app.open_in_identifier
     )
 
