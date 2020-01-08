@@ -33,14 +33,15 @@ def vagrantfile = '''
 require 'uri'
 
 node_id = URI::encode(ENV['NODE_ID'] || '')
-name = "mojave-xcode11-#{ENV['BRANCH_NAME'] || ''}"
+name = "catalina-xcode11.3-#{ENV['BRANCH_NAME'] || ''}"
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "mojave-xcode11"
+    config.vm.box = "catalina-xcode11.3"
+    config.vm.synced_folder ".", "/vagrant", disabled: true
 
-    config.vm.define "mojave" do |mojave|
-        mojave.vm.hostname = "mojave-xcode11"
-        mojave.ssh.forward_agent = true
+    config.vm.define "catalina" do |catalina|
+        catalina.vm.hostname = "catalina-xcode11.3"
+        catalina.ssh.forward_agent = true
 
         config.vm.provider "parallels" do |prl|
             prl.name = name
@@ -48,14 +49,15 @@ Vagrant.configure("2") do |config|
             prl.cpus = ENV["NODE_CPU_COUNT"] || 2
         end
 
-        mojave.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
+        catalina.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL#!/bin/bash -l
             set -e
             set -x
 
+            sudo mount -uw /
             sudo mkdir -p /jenkins
             sudo chown vagrant /jenkins
 
-            brew -v
+            brew -v install watchman
 
             brew tap adoptopenjdk/openjdk
             # `which java` does not work as MacOS try to be smart and request jave installation
