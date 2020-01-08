@@ -17,7 +17,7 @@ APPS = {
     share_to_provisioning_profile_name: "match AppStore com.cliqz.ShareTo",
 
     open_in_identifier: "com.cliqz.OpenIn",
-    open_in_provisioning_profile: "2bbfa6d3-0e13-4a69-ab75-07fb76dc8a49",
+    open_in_provisioning_profile: "1f8b6a38-cbd6-4cf4-a1bb-df83f419e6c6",
     open_in_provisioning_profile_name: "match AppStore com.cliqz.OpenIn",
 
     sentry_slug: "cliqz-ios",
@@ -39,7 +39,7 @@ APPS = {
     share_to_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.ShareTo",
 
     open_in_identifier: "com.cliqz.browser.nightly.OpenIn",
-    open_in_provisioning_profile: "2bbfa6d3-0e13-4a69-ab75-07fb76dc8a49",
+    open_in_provisioning_profile: "8b4418bc-4c38-4095-97bc-06399719f999",
     open_in_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.OpenIn",
 
     sentry_slug: "cliqznighly-ios",
