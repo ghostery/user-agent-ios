@@ -509,6 +509,7 @@ class Tab: NSObject {
     }
 
     func addSnackbar(_ bar: SnackBar) {
+        if bars.count > 2 { return } // maximum 3 snackbars allowed on a tab
         bars.append(bar)
         tabDelegate?.tab(self, didAddSnackbar: bar)
     }
