@@ -16,7 +16,7 @@ APPS = {
     share_to_provisioning_profile: "2bbfa6d3-0e13-4a69-ab75-07fb76dc8a49",
     share_to_provisioning_profile_name: "match AppStore com.cliqz.ShareTo",
 
-    open_in_identifier: "com.cliqz.ShareTo",
+    open_in_identifier: "com.cliqz.OpenIn",
     open_in_provisioning_profile: "2bbfa6d3-0e13-4a69-ab75-07fb76dc8a49",
     open_in_provisioning_profile_name: "match AppStore com.cliqz.OpenIn",
 
