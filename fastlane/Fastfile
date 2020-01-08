@@ -168,7 +168,7 @@ platform :ios do
 
     update_project_provisioning(
       xcodeproj: "UserAgent.xcodeproj",
-      profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/#{app.share_to_provisioning_profile}.mobileprovision",
+      profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/#{app.open_in_provisioning_profile}.mobileprovision",
       target_filter: "OpenIn",
       build_configuration: app.configuration,
     )
