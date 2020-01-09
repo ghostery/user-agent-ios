@@ -516,7 +516,7 @@ class URLBarView: UIView {
         cancelButton.isHidden = false
         progressBar.isHidden = false
         menuButton.isHidden = !toolbarIsShowing
-        self.searchButton.isHidden = !toolbarIsShowing
+        self.searchButton.isHidden = !toolbarIsShowing || UIDevice.current.isPhone
         forwardButton.isHidden = !toolbarIsShowing
         backButton.isHidden = !toolbarIsShowing
         tabsButton.isHidden = !toolbarIsShowing || topTabsIsShowing
