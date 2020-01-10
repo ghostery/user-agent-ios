@@ -45,7 +45,7 @@ class TPStatsBlocklistsTests: XCTestCase {
     func testURLInList() {
         blocklists.load()
         
-        func blocklist(_ urlString: String, _ whitelistedDomains: [String] = []) -> WTMCategory? {
+        func blocklist(_ urlString: String, _ whitelistedDomains: [String] = []) -> (WTMCategory, String)? {
             let whitelistedRegexs = whitelistedDomains.compactMap { (domain) -> String? in
                 return wildcardContentBlockerDomainToRegex(domain: domain)
             }
@@ -53,13 +53,13 @@ class TPStatsBlocklistsTests: XCTestCase {
             return blocklists.urlIsInCategory(URL(string: urlString)!, whitelistedDomains: whitelistedRegexs)
         }
         
-        XCTAssertEqual(blocklist("https://www.firefox.com"), nil)
-        XCTAssertEqual(blocklist("https://2leep.com/track"), .advertising)
-        XCTAssertEqual(blocklist("https://sub.2leep.com/ad"), .advertising)
-        XCTAssertEqual(blocklist("https://admeld.com"), .advertising)
-        XCTAssertEqual(blocklist("https://admeld.com/popup"), .advertising)
-        XCTAssertEqual(blocklist("https://sub.admeld.com"), .advertising)
-        XCTAssertEqual(blocklist("https://subadmeld.com"), nil)
+        XCTAssertEqual(blocklist("https://www.firefox.com")?.0 ?? nil, nil)
+        XCTAssertEqual(blocklist("https://2leep.com/track")?.0 ?? nil, .advertising)
+        XCTAssertEqual(blocklist("https://sub.2leep.com/ad")?.0 ?? nil, .advertising)
+        XCTAssertEqual(blocklist("https://admeld.com")?.0 ?? nil, .advertising)
+        XCTAssertEqual(blocklist("https://admeld.com/popup")?.0 ?? nil, .advertising)
+        XCTAssertEqual(blocklist("https://sub.admeld.com")?.0 ?? nil, .advertising)
+        XCTAssertEqual(blocklist("https://subadmeld.com")?.0 ?? nil, nil)
 
 //        XCTAssertEqual(blocklist("https://aolanswers.com"), .content)
 //        XCTAssertEqual(blocklist("https://sub.aolanswers.com"), .content)
@@ -69,8 +69,8 @@ class TPStatsBlocklistsTests: XCTestCase {
 //        XCTAssertEqual(blocklist("https://games.com.aolanswers.com"), .content)
 //        XCTAssertEqual(blocklist("https://bluesky.com.aolanswers.com"), .content)
 
-        XCTAssertEqual(blocklist("https://sub.xiti.com/track"), .analytics)
-        XCTAssertEqual(blocklist("https://backtype.com"), .advertising)
-        XCTAssertEqual(blocklist("https://backtype.com", ["*firefox.com", "*e.com"]), nil)
+        XCTAssertEqual(blocklist("https://sub.xiti.com/track")?.0 ?? nil, .analytics)
+        XCTAssertEqual(blocklist("https://backtype.com")?.0 ?? nil, .advertising)
+        XCTAssertEqual(blocklist("https://backtype.com", ["*firefox.com", "*e.com"])?.0 ?? nil, nil)
     }
 }

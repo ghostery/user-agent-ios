@@ -35,9 +35,10 @@ const app = new App({
 const appReady = app.start();
 
 app.modules['insights'].background.actions['reportStats'] = async function (tabId, stats) {
-  console.warn("XXXXXX", tabId, stats);
   await this.db.insertPageStats(tabId, stats);
-};
+}.bind(app.modules['insights'].background);
+
+
 
 global.CLIQZ = {
   app,
