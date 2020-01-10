@@ -50,6 +50,23 @@ struct TabState {
     var favicon: Favicon?
 }
 
+class TabRegistry {
+    private static var weakTabSet: [WeakRef<Tab>] = []
+
+    public static func getTabId(_ tab: Tab) -> Int {
+        let id: Int
+        if let index = self.weakTabSet.firstIndex(where: { $0.value === tab }) {
+            // tab id counted from 1 not from 0
+            id = index + 1
+        } else {
+            weakTabSet.append(WeakRef(tab))
+            // tab id counted from 1 not from 0
+            id = weakTabSet.count
+        }
+        return id
+    }
+}
+
 class Tab: NSObject {
     fileprivate var _isPrivate: Bool = false
     internal fileprivate(set) var isPrivate: Bool {
@@ -61,6 +78,10 @@ class Tab: NSObject {
                 _isPrivate = newValue
             }
         }
+    }
+
+    var id: Int {
+        return TabRegistry.getTabId(self)
     }
 
     var tabState: TabState {

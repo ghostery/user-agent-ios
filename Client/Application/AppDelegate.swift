@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     var shutdownWebServer: DispatchSourceTimer?
     var interceptorFeature: InterceptorFeature!
     var humanWebFeature: HumanWebFeature!
+    var insightsFeature: InsightsFeature!
     var useCases: UseCases!
 
     weak var application: UIApplication?
@@ -136,6 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, ui: self.browserViewController, useCases: self.useCases)
         self.humanWebFeature = HumanWebFeature(tabManager: self.tabManager)
+        self.insightsFeature = InsightsFeature(tabManager: self.tabManager)
 
         let navigationController = UINavigationController(rootViewController: browserViewController)
         navigationController.delegate = self

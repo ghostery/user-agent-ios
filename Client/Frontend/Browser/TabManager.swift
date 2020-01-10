@@ -19,6 +19,21 @@ protocol TabManagerDelegate: AnyObject {
     func tabManagerDidRestoreTabs(_ tabManager: TabManager)
     func tabManagerDidAddTabs(_ tabManager: TabManager)
     func tabManagerDidRemoveAllTabs(_ tabManager: TabManager, toast: ButtonToast?)
+
+    func tabManagerDidClearContentBlocker(_ tabManager: TabManager, tab: Tab, isRestoring: Bool)
+}
+
+extension TabManagerDelegate {
+    func tabManager(_ tabManager: TabManager, didSelectedTabChange selected: Tab?, previous: Tab?, isRestoring: Bool) {}
+    func tabManager(_ tabManager: TabManager, didAddTab tab: Tab, isRestoring: Bool) {}
+    func tabManager(_ tabManager: TabManager, didRemoveTab tab: Tab, isRestoring: Bool) {}
+    func tabManager(_ tabManager: TabManager, didUpdateTab tab: Tab, isRestoring: Bool) {}
+
+    func tabManagerDidRestoreTabs(_ tabManager: TabManager) {}
+    func tabManagerDidAddTabs(_ tabManager: TabManager) {}
+    func tabManagerDidRemoveAllTabs(_ tabManager: TabManager, toast: ButtonToast?) {}
+
+    func tabManagerDidClearContentBlocker(_ tabManager: TabManager, tab: Tab, isRestoring: Bool) {}
 }
 
 // We can't use a WeakList here because this is a protocol.
@@ -598,6 +613,12 @@ extension TabManager: WKNavigationDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         if let tab = self[webView], let blocker = tab.contentBlocker {
+            for delegate in self.delegates {
+                delegate.get()?.tabManagerDidClearContentBlocker(
+                    self,
+                    tab: tab,
+                    isRestoring: self.store.isRestoringTabs)
+            }
             blocker.clearPageStats()
         }
     }
