@@ -13,6 +13,7 @@ import inject from 'browser-core-user-agent-ios/build/modules/core/kord/inject';
 import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
+import PrivacyStats from './ReactNative/js/screens/PrivacyStats/index';
 import SearchResults from './ReactNative/js/screens/SearchResults';
 import BridgeManager from './ReactNative/js/bridge-manager';
 import Logo from './ReactNative/js/components/Logo';
@@ -61,3 +62,4 @@ AppRegistry.registerComponent('BrowserCore', () => class extends React.Component
 AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.module('news')} {...props} />);
 AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults bridgeManager={bridgeManager} events={events} {...props} />);
 AppRegistry.registerComponent('Logo', () => Logo);
+AppRegistry.registerComponent('PrivacyStats', () => (props) => <PrivacyStats insightsModule={inject.module('insights')} {...props} />);

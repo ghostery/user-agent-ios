@@ -237,6 +237,8 @@
 		464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */; };
 		464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
 		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		46569CC623CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
+		46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -1311,6 +1313,7 @@
 		46442CED238BE61D002E6D85 /* HumanWebFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanWebFeature.swift; sourceTree = "<group>"; };
 		464E6837234B75E300ABAC43 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		464E683A234CB06200ABAC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatsView.swift; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -2327,6 +2330,7 @@
 			children = (
 				464E6837234B75E300ABAC43 /* LogoView.swift */,
 				464E683A234CB06200ABAC43 /* HomeView.swift */,
+				46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -4931,6 +4935,7 @@
 				046C031523ABFE9F00D826E3 /* PrivacyDashboardUtils.swift in Sources */,
 				463432F92332521F0014A9F0 /* Telemetry.swift in Sources */,
 				C53212E423A3EB2900AEC9B2 /* PrivacyStatementData.swift in Sources */,
+				46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */,
 				ACB7374823042BAB00FA5626 /* TestAppDelegate.swift in Sources */,
 				2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */,
 				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
@@ -5205,6 +5210,7 @@
 				463432F82332521F0014A9F0 /* Telemetry.swift in Sources */,
 				46CA60D82316BB3A0010CE6B /* History.m in Sources */,
 				46E96606236B27E6003C23F3 /* UserAgentConstants.m in Sources */,
+				46569CC623CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */,
 				0B62EFD21AD63CD100ACB9CD /* Clearables.swift in Sources */,
 				7482205C1DBAB56300EEEA72 /* MailProviders.swift in Sources */,
 				46442CEA238BE148002E6D85 /* BrowserCore.swift in Sources */,

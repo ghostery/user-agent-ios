@@ -39,6 +39,9 @@ extension PhotonActionSheetProtocol {
     func getLibraryActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
         guard let tab = self.tabManager.selectedTab else { return [] }
 
+        let privacyStatsView = PrivacyStatsView()
+        let privacyStats = PhotonActionSheetItem(title: "", customView: privacyStatsView)
+
         let openHomePage = PhotonActionSheetItem(title: Strings.Menu.OpenHomePageTitleString, iconString: "menu-Home") { _ in
             if let homePanelURL = NewTabPage.topSites.url {
                 tab.loadRequest(PrivilegedRequest(url: homePanelURL) as URLRequest)
@@ -48,7 +51,7 @@ extension PhotonActionSheetProtocol {
         let openDownloadsItem = self.openDownloadsItem(vcDelegate: vcDelegate)
         let openWhatsNewtem = self.openWhatsNewItem(vcDelegate: vcDelegate)
 
-        return [openHomePage, openWhatsNewtem, openDownloadsItem]
+        return [privacyStats, openHomePage, openWhatsNewtem, openDownloadsItem]
     }
 
     /*
