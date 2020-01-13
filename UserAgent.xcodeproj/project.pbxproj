@@ -239,6 +239,9 @@
 		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46569CC623CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
 		46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
+		46569CCB23CC902C00224DC2 /* ControlCenter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46569CCE23CC902C00224DC2 /* ControlCenter.strings */; };
+		46569CCC23CC902C00224DC2 /* ControlCenter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46569CCE23CC902C00224DC2 /* ControlCenter.strings */; };
+		46569CD323CC90C900224DC2 /* Strings+ControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CD023CC90C900224DC2 /* Strings+ControlCenter.swift */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -1314,6 +1317,9 @@
 		464E6837234B75E300ABAC43 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		464E683A234CB06200ABAC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatsView.swift; sourceTree = "<group>"; };
+		46569CCD23CC902C00224DC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ControlCenter.strings; sourceTree = "<group>"; };
+		46569CCF23CC903100224DC2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ControlCenter.strings; sourceTree = "<group>"; };
+		46569CD023CC90C900224DC2 /* Strings+ControlCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+ControlCenter.swift"; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -2497,6 +2503,7 @@
 			children = (
 				D35210E01CB2F16600FC5DCB /* Strings.swift */,
 				46BBFA6123575B0000283594 /* Strings+Brand.swift */,
+				46569CD023CC90C900224DC2 /* Strings+ControlCenter.swift */,
 				46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */,
 				AC33579B2387F2CC00693969 /* Strings+Storage.swift */,
 				2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */,
@@ -2521,6 +2528,7 @@
 				8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */,
 				9A5540EB8DEED346508AE041 /* ClearPrivateData.strings */,
 				1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */,
+				46569CCE23CC902C00224DC2 /* ControlCenter.strings */,
 				6B144025BB2AFEA7FF2CCC04 /* ErrorPages.strings */,
 				E178452EA7469EB0EF3611B9 /* FindInPage.strings */,
 				9CE94446954F6DCEF9FCCDAB /* HistoryPanel.strings */,
@@ -3900,6 +3908,7 @@
 				ACB737FD23042BAB00FA5626 /* SessionRestore.html in Resources */,
 				ACB737FF23042BAB00FA5626 /* Menu.xcassets in Resources */,
 				ACB7380023042BAB00FA5626 /* Intro.xcassets in Resources */,
+				46569CCC23CC902C00224DC2 /* ControlCenter.strings in Resources */,
 				ACB7380423042BAB00FA5626 /* Reader.html in Resources */,
 				ACC6EC602329460F000F5499 /* colors.xcassets in Resources */,
 				ACB7380523042BAB00FA5626 /* InfoPlist.strings in Resources */,
@@ -3983,6 +3992,7 @@
 				ACD654792360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */,
 				834A40198503DEA0CC1E7FBA /* Shared.strings in Resources */,
 				4620EA552354C59F004586CF /* safari-ads-network.json in Resources */,
+				46569CCB23CC902C00224DC2 /* ControlCenter.strings in Resources */,
 				DAF24B7382D07138FE660E37 /* HistoryPanel.strings in Resources */,
 				A835425991BEA33554CC85C2 /* Storage.strings in Resources */,
 				172D411A9902FAA934616773 /* Search.strings in Resources */,
@@ -4717,6 +4727,7 @@
 				E65075B71E37F7AB006961AC /* Logger.swift in Sources */,
 				E65075961E37F7AB006961AC /* AsyncReducer.swift in Sources */,
 				7B9BF91C1E43472E00CB24F4 /* JSONExtensions.swift in Sources */,
+				46569CD323CC90C900224DC2 /* Strings+ControlCenter.swift in Sources */,
 				E65075BD1E37F7AB006961AC /* SystemUtils.swift in Sources */,
 				E65075AB1E37F7AB006961AC /* SetExtensions.swift in Sources */,
 			);
@@ -5654,6 +5665,15 @@
 				2BE2591123BA2FD60022ED28 /* de */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		46569CCE23CC902C00224DC2 /* ControlCenter.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				46569CCD23CC902C00224DC2 /* en */,
+				46569CCF23CC903100224DC2 /* de */,
+			);
+			name = ControlCenter.strings;
 			sourceTree = "<group>";
 		};
 		46828D912341F23300E7D8A3 /* UserAgent.strings */ = {

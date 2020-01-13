@@ -16,7 +16,9 @@ class PrivacyStatsView: UIView, PhotonCustomViewCellContent, ReactViewTheme {
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "PrivacyStats",
-            initialProperties: [:]
+            initialProperties: [
+                "theme": Self.getTheme(),
+            ]
         )
 
         reactView.delegate = self
@@ -34,7 +36,7 @@ class PrivacyStatsView: UIView, PhotonCustomViewCellContent, ReactViewTheme {
     func setup() {
         self.addSubview(self.reactView)
         self.snp.makeConstraints { (make) in
-            make.height.equalTo(80)
+            make.height.equalTo(120)
         }
     }
 
