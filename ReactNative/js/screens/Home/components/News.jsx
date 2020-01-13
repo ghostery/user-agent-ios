@@ -57,15 +57,16 @@ const useNews = newsModule => {
   return data;
 };
 
-const HiddableImage = ({ style, url }) => {
-  const [isHidden, setHidden] = useState(false, [url]);
+const HiddableImage = (props) => {
+  const { style, source } = props;
+  const [isHidden, setHidden] = useState(false, [source]);
   const hide = useCallback(() => setHidden(true), [setHidden]);
   const hiddenStyle = useMemo(
     () => (isHidden ? { height: 0, marginBottom: 0 } : null),
     [isHidden],
   );
   return (
-    <Image style={[style, hiddenStyle]} source={{ uri: url }} onError={hide} />
+    <Image {...props} style={[style, hiddenStyle]} source={{ uri: source }} onError={hide} />
   );
 };
 
@@ -92,7 +93,7 @@ export default function News({ newsModule, isImagesEnabled }) {
             <TouchableWithoutFeedback
               onPress={() => openLink(item.url)}
             >
-              <HiddableImage style={styles.image} url={item.imageUrl} />
+              <HiddableImage style={styles.image} source={item.imageUrl} />
             </TouchableWithoutFeedback>
           }
           <ListItem

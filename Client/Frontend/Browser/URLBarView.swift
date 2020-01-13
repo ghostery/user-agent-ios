@@ -293,7 +293,11 @@ class URLBarView: UIView {
         }
 
         self.searchButton.snp.makeConstraints { (make) in
-            make.trailing.equalTo(self.menuButton.snp.leading).offset(-URLBarViewUX.Padding / 2)
+            if UIDevice.current.isPhone {
+                make.trailing.equalTo(self.tabsButton.snp.leading)
+            } else {
+                make.trailing.equalTo(self.menuButton.snp.leading)
+            }
             make.centerY.equalTo(self)
             make.size.equalTo(URLBarViewUX.ButtonHeight)
         }
@@ -313,11 +317,10 @@ class URLBarView: UIView {
         self.locationContainer.snp.remakeConstraints { make in
             if self.toolbarIsShowing {
                 make.leading.equalTo(self.stopReloadButton.snp.trailing).offset(URLBarViewUX.Padding)
-                make.trailing.equalTo(self.tabsButton.snp.leading).offset(-15)
+                make.trailing.equalTo(self.searchButton.snp.leading).offset(-URLBarViewUX.Padding)
             } else {
                 // Otherwise, left align the location view
-                make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0,
-                                                                       right: 15))
+                make.leading.trailing.equalTo(self).inset(UIEdgeInsets(top: 0, left: URLBarViewUX.LocationLeftPadding, bottom: 0, right: URLBarViewUX.Padding))
             }
 
             make.centerY.equalTo(self)
