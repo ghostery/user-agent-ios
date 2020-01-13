@@ -75,8 +75,6 @@ class TabManager: NSObject {
             configuration.websiteDataStore = WKWebsiteDataStore.nonPersistent()
         }
 
-        configuration.applicationNameForUserAgent = UserAgent.applicationNameForUserAgent()
-
         configuration.setURLSchemeHandler(InternalSchemeHandler(), forURLScheme: InternalURL.scheme)
         return configuration
     }

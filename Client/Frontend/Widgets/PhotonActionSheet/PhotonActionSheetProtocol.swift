@@ -124,7 +124,7 @@ extension PhotonActionSheetProtocol {
             return [[shareFile]]
         }
 
-        let defaultUAisDesktop = UserAgent.isDesktop(ua: UserAgent.defaultUserAgent())
+        let defaultUAisDesktop = UserAgent.isDesktop(ua: UserAgent.getUserAgent())
         let toggleActionTitle: String
         if defaultUAisDesktop {
             toggleActionTitle = tab.changedUserAgent ? Strings.Menu.ViewDesktopSiteTitleString : Strings.Menu.ViewMobileSiteTitleString

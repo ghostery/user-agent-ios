@@ -149,7 +149,6 @@ class Tab: NSObject {
     /// Whether or not the desktop site was requested with the last request, reload or navigation.
     var changedUserAgent: Bool = false {
         didSet {
-            webView?.customUserAgent = changedUserAgent ? UserAgent.oppositeUserAgent() : UserAgent.defaultUserAgent()
             if changedUserAgent != oldValue {
                 TabEvent.post(.didToggleDesktopMode, for: self)
             }
