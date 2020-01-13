@@ -15,7 +15,7 @@ class Constants: NSObject {
         return [
             "isDebug": self.isDebug,
             "isCI": self.isCI,
-            "userAgent": UserAgent.defaultUserAgent(),
+            "userAgent": UserAgent.getUserAgent(),
         ]
     }
 

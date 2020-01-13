@@ -98,6 +98,15 @@ public extension String {
 
         return self.replacingCharacters(in: range, with: replacement)
     }
+
+    func isEmptyOrWhitespace() -> Bool {
+        // Check empty string
+        if self.isEmpty {
+            return true
+        }
+        // Trim and check empty string
+        return (self.trimmingCharacters(in: .whitespaces) == "")
+    }
 }
 
 public extension String {
