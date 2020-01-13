@@ -33,19 +33,22 @@ enum BlockerStatus: String {
     case Blocking
 }
 
-struct WhitelistedDomains {
-    var domainSet = Set<String>() {
-        didSet {
-            domainRegex = domainSet.compactMap { wildcardContentBlockerDomainToRegex(domain: "*" + $0) }
+class ContentBlocker {
+    internal class Whitelists {
+        public let ads = Whitelist(whitelistFilename: "ads_whitelist")
+        public let trackers = Whitelist(whitelistFilename: "whitelist")
+
+        var cleanupStore: (((() -> Void)?) -> Void)? {
+            didSet {
+                self.ads.cleanupStore = cleanupStore
+                self.trackers.cleanupStore = cleanupStore
+            }
         }
+
+        init() {}
     }
 
-    private(set) var domainRegex = [String]()
-}
-
-class ContentBlocker {
-    var adsWhitelistedDomains = WhitelistedDomains()
-    var trackingWhitelistedDomains = WhitelistedDomains()
+    internal let whitelists = Whitelists()
 
     let ruleStore: WKContentRuleListStore = WKContentRuleListStore.default()
     var setupCompleted = false
@@ -53,13 +56,8 @@ class ContentBlocker {
     static let shared = ContentBlocker()
 
     private init() {
-        // Read the whitelist at startup
-        if let list = self.readAdsWhitelistFile() {
-            self.adsWhitelistedDomains.domainSet = Set(list)
-        }
-
-        if let list = self.readTrackingWhitelistFile() {
-            self.trackingWhitelistedDomains.domainSet = Set(list)
+        self.whitelists.cleanupStore = { completion in
+            self.clearWhitelists(completion: completion)
         }
 
         TPStatsBlocklistChecker.shared.startup()
@@ -70,6 +68,15 @@ class ContentBlocker {
                     self.setupCompleted = true
                     NotificationCenter.default.post(name: .contentBlockerTabSetupRequired, object: nil)
                 }
+            }
+        }
+    }
+
+    func clearWhitelists(completion: (() -> Void)?) {
+        self.removeAllRulesInStore {
+            self.compileListsNotInStore {
+                completion?()
+                NotificationCenter.default.post(name: .contentBlockerTabSetupRequired, object: nil)
             }
         }
     }
