@@ -9,7 +9,9 @@
 import Foundation
 import React
 
-class PrivacyStatsView: UIView, ReactViewTheme {
+class PrivacyStatsView: UIView, PhotonCustomViewCellContent, ReactViewTheme {
+    var onSizeChange: (() -> Void)?
+
     private lazy var reactView: RCTRootView = {
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
@@ -17,24 +19,38 @@ class PrivacyStatsView: UIView, ReactViewTheme {
             initialProperties: [:]
         )
 
+        reactView.delegate = self
+
         reactView.sizeFlexibility = .widthAndHeight
 
         return reactView
     }()
 
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: .zero)
         self.setup()
     }
 
     func setup() {
         self.addSubview(self.reactView)
         self.snp.makeConstraints { (make) in
-            make.height.equalTo(100)
+            make.height.equalTo(80)
         }
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
+    }
+}
+
+extension PrivacyStatsView: RCTRootViewDelegate {
+    func rootViewDidChangeIntrinsicSize(_ rootView: RCTRootView!) {
+        if rootView.intrinsicContentSize.height == self.frame.size.height {
+            return
+        }
+        self.snp.makeConstraints { (make) in
+            make.height.equalTo(rootView.intrinsicContentSize.height)
+        }
+        self.onSizeChange?()
     }
 }

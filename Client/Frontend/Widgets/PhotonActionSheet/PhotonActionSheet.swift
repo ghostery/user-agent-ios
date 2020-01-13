@@ -313,6 +313,15 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PhotonCustomViewCell.self), for: indexPath) as! PhotonCustomViewCell
         cell.tintColor = self.tintColor
         cell.customView = action.customView
+        cell.onSizeChange = {
+            CATransaction.begin()
+            self.tableView.beginUpdates()
+            CATransaction.setCompletionBlock {
+                self.view.setNeedsLayout()
+            }
+            self.tableView.endUpdates()
+            CATransaction.commit()
+        }
         return cell
     }
 
