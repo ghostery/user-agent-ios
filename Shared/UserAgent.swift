@@ -85,7 +85,7 @@ public enum UserAgentPlatform {
 
 public struct CustomUserAgentConstant {
     private static let defaultMobileUA = UserAgentBuilder.defaultMobileUserAgent().userAgent()
-    private static let customDesktopUA = UserAgentBuilder.defaultDesktopUserAgent().clone(extensions: "Version/\(AppInfo.appVersion) \(UserAgent.uaBitSafari)")
+    private static let customDesktopUA = UserAgentBuilder.defaultDesktopUserAgent().clone(extensions: "Version/21.0 \(UserAgent.uaBitSafari)")
     public static let mobileUserAgent = [
         "whatsapp.com": defaultMobileUA,
         "paypal.com": defaultMobileUA,
