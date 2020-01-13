@@ -237,6 +237,8 @@
 		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46569CD523CCC60400224DC2 /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CD423CCC60400224DC2 /* Whitelist.swift */; };
 		46569CD623CCC60400224DC2 /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CD423CCC60400224DC2 /* Whitelist.swift */; };
+		46569CD823CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */; };
+		46569CD923CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -1311,6 +1313,7 @@
 		464E6837234B75E300ABAC43 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		464E683A234CB06200ABAC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		46569CD423CCC60400224DC2 /* Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whitelist.swift; sourceTree = "<group>"; };
+		46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-cosmetic.json"; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -3149,6 +3152,7 @@
 				4620EA4B2354C59E004586CF /* safari-ads-cosmetic.json */,
 				4620EA4E2354C59F004586CF /* safari-ads-network.json */,
 				4620EA4D2354C59E004586CF /* safari-tracking-network.json */,
+				46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -3914,6 +3918,7 @@
 				ACB7381523042BAB00FA5626 /* MailSchemes.plist in Resources */,
 				2BFB7C40239001CB00CE2E69 /* adult-domains.bin in Resources */,
 				ACB7381723042BAB00FA5626 /* CertError.css in Resources */,
+				46569CD923CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */,
 				4620EA542354C59F004586CF /* safari-tracking-network.json in Resources */,
 				2B8DDBA423A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */,
 				ACB7381B23042BAB00FA5626 /* NetError.html in Resources */,
@@ -3987,6 +3992,7 @@
 				2B0360902350B07200273A24 /* tracker_db_v2.json in Resources */,
 				1B954C90A7579FD9F5A0A9B7 /* Localizable.strings in Resources */,
 				4620EA4F2354C59F004586CF /* safari-ads-cosmetic.json in Resources */,
+				46569CD823CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */,
 				4620EA532354C59F004586CF /* safari-tracking-network.json in Resources */,
 				2B184F45BDED21008E6376E1 /* ClearHistoryConfirm.strings in Resources */,
 				FAAB475499C966BF3A44A105 /* Intro.strings in Resources */,

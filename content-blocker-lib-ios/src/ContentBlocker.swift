@@ -9,6 +9,7 @@ enum BlocklistName: String {
     case advertisingNetwork = "advertisingNetwork"
     case advertisingCosmetic = "advertisingCosmetic"
     case trackingNetwork = "trackingNetwork"
+    case popupsCosmetic = "popupsCosmetic"
 
     var filename: String {
         switch self {
@@ -18,10 +19,17 @@ enum BlocklistName: String {
             return "safari-ads-cosmetic"
         case .trackingNetwork:
             return "safari-tracking-network"
+        case .popupsCosmetic:
+            return "safari-popups-cosmetic"
         }
     }
 
-    static var all: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic, .trackingNetwork] }
+    static let all: [BlocklistName] = [
+        .advertisingNetwork,
+        .advertisingCosmetic,
+        .trackingNetwork,
+        .popupsCosmetic,
+    ]
 }
 
 enum BlockerStatus: String {
@@ -268,6 +276,8 @@ extension ContentBlocker {
                         str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "]")
                     case .trackingNetwork:
                         str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "]")
+                    case .popupsCosmetic:
+                        str = str.replacingCharacters(in: range, with: "]")
                     }
                     self.ruleStore.compileContentRuleList(forIdentifier: item.filename, encodedContentRuleList: str) { rule, error in
                         if let error = error {
