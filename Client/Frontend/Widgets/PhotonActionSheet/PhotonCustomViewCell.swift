@@ -8,8 +8,20 @@
 
 import UIKit
 
+public protocol PhotonCustomViewCellContent: UIView {
+    var onSizeChange: (() -> Void)? { get set }
+}
+
 class PhotonCustomViewCell: UITableViewCell {
-    var customView: UIView? {
+
+    public var onSizeChange: (() -> Void)? {
+        didSet {
+            guard let newCustomView = customView else { return }
+            newCustomView.onSizeChange = onSizeChange
+        }
+    }
+
+    var customView: PhotonCustomViewCellContent? {
         didSet {
             backgroundColor = UIColor.clear
 

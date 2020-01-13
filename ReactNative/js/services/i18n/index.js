@@ -3,6 +3,9 @@ import { NativeModules } from 'react-native';
 let translations;
 
 export default function t(key) {
+  if (key in NativeModules.LocaleConstants) {
+    return NativeModules.LocaleConstants[key];
+  }
   if (!translations) {
     const locale = NativeModules.LocaleConstants.lang;
     switch (locale) {

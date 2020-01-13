@@ -19,6 +19,9 @@ class LocaleConstants: NSObject {
             "ActivityStream.TopSites.SectionTitle": Strings.ActivityStream.TopSites.Title,
             "ActivityStream.PinnedSites.SectionTitle": Strings.ActivityStream.PinnedSitesTitle,
             "ActivityStream.News.BreakingLabel": Strings.ActivityStream.News.BreakingLabel,
+            "ControlCenter.PrivacyProtection.Title": Strings.ControlCenter.PrivacyProtection.Title,
+            "ControlCenter.PrivacyProtection.AdsBlocked": Strings.ControlCenter.PrivacyProtection.AdsBlocked,
+            "ControlCenter.PrivacyProtection.TrackersBlocked": Strings.ControlCenter.PrivacyProtection.TrackersBlocked,
         ]
     }
 
