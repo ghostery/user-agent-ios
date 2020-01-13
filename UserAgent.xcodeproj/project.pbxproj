@@ -239,6 +239,8 @@
 		46569CD623CCC60400224DC2 /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CD423CCC60400224DC2 /* Whitelist.swift */; };
 		46569CD823CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */; };
 		46569CD923CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */; };
+		46569CDB23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */; };
+		46569CDC23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -1314,6 +1316,7 @@
 		464E683A234CB06200ABAC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		46569CD423CCC60400224DC2 /* Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whitelist.swift; sourceTree = "<group>"; };
 		46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-cosmetic.json"; sourceTree = "<group>"; };
+		46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Popups+Whitelist.swift"; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -3164,6 +3167,7 @@
 				EBB894F7219398E500EB91A0 /* TabContentBlocker.swift */,
 				EBB894F8219398E500EB91A0 /* ContentBlocker.swift */,
 				EBB894F9219398E500EB91A0 /* ContentBlocker+Ads+Whitelist.swift */,
+				46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */,
 				2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */,
 				EBB894FA219398E500EB91A0 /* TabContentBlocker+ContentScript.swift */,
 				46569CD423CCC60400224DC2 /* Whitelist.swift */,
@@ -4929,6 +4933,7 @@
 				46B68D30231420DD0091156C /* HomeViewController.swift in Sources */,
 				ACB7374423042BAB00FA5626 /* TabTrayController.swift in Sources */,
 				46CA60EB2317E0E00010CE6B /* LocaleConstants.swift in Sources */,
+				46569CDC23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */,
 				ACB7374623042BAB00FA5626 /* BrowserViewController+FindInPage.swift in Sources */,
 				46FA068823BB7B2400B22F71 /* BrowserTabs.m in Sources */,
 				ACB7374723042BAB00FA5626 /* TabContentBlocker+ContentScript.swift in Sources */,
@@ -5192,6 +5197,7 @@
 				C45F44691D087DB600CB7EF0 /* TopTabsViewController.swift in Sources */,
 				0BF0DB941A8545800039F300 /* URLBarView.swift in Sources */,
 				ACD6547F23619B5C002D2EE0 /* PhotonCustomViewCell.swift in Sources */,
+				46569CDB23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */,
 				D01017F5219CB6BD009CBB5A /* DownloadContentScript.swift in Sources */,
 				C817B34D1FC609500086018E /* UIScrollViewSwizzled.swift in Sources */,
 				46FA068723BB7B2400B22F71 /* BrowserTabs.m in Sources */,

@@ -41,21 +41,23 @@ enum BlockerStatus: String {
     case Blocking
 }
 
-class ContentBlocker {
-    internal class Whitelists {
-        public let ads = Whitelist(whitelistFilename: "ads_whitelist")
-        public let trackers = Whitelist(whitelistFilename: "whitelist")
+internal class Whitelists {
+    public let ads = Whitelist(whitelistFilename: "ads_whitelist")
+    public let trackers = Whitelist(whitelistFilename: "whitelist")
+    public let popups = Whitelist(whitelistFilename: "popups_whitelist")
 
-        var cleanupStore: (((() -> Void)?) -> Void)? {
-            didSet {
-                self.ads.cleanupStore = cleanupStore
-                self.trackers.cleanupStore = cleanupStore
-            }
+    var cleanupStore: (((() -> Void)?) -> Void)? {
+        didSet {
+            self.ads.cleanupStore = cleanupStore
+            self.trackers.cleanupStore = cleanupStore
+            self.popups.cleanupStore = cleanupStore
         }
-
-        init() {}
     }
 
+    init() {}
+}
+
+class ContentBlocker {
     internal let whitelists = Whitelists()
 
     let ruleStore: WKContentRuleListStore = WKContentRuleListStore.default()
@@ -277,7 +279,7 @@ extension ContentBlocker {
                     case .trackingNetwork:
                         str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "]")
                     case .popupsCosmetic:
-                        str = str.replacingCharacters(in: range, with: "]")
+                        str = str.replacingCharacters(in: range, with: self.popupsWhitelistAsJSON() + "]")
                     }
                     self.ruleStore.compileContentRuleList(forIdentifier: item.filename, encodedContentRuleList: str) { rule, error in
                         if let error = error {

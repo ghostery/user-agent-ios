@@ -31,6 +31,8 @@
 
 "PrivacyDashboard.Switch.AntiTracking" = "Anti-Tracking on this page";
 
+"PrivacyDashboard.Switch.PopupsBlocking" = "Block popups on this page";
+
 "PrivacyDashboard.Title.AdBlockWhitelisted" = "Trackers blocked";
 
 "PrivacyDashboard.Title.AntiTrackingWhitelisted" = "Ads blocked";
