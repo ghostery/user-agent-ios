@@ -36,7 +36,7 @@ class PrivacyStatsView: UIView, PhotonCustomViewCellContent, ReactViewTheme {
     func setup() {
         self.addSubview(self.reactView)
         self.snp.makeConstraints { (make) in
-            make.height.equalTo(120)
+            make.height.equalTo(100)
         }
     }
 

@@ -36,7 +36,7 @@ extension PhotonActionSheetProtocol {
 
     //Returns a list of actions which is used to build a menu
     //OpenURL is a closure that can open a given URL in some view controller. It is up to the class using the menu to know how to open it
-    func getLibraryActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
+    func getControlCenterActions(vcDelegate: PageOptionsVC) -> [[PhotonActionSheetItem]] {
         guard let tab = self.tabManager.selectedTab else { return [] }
 
         let privacyStatsView = PrivacyStatsView()
@@ -48,10 +48,20 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        let openDownloadsItem = self.openDownloadsItem(vcDelegate: vcDelegate)
-        let openWhatsNewtem = self.openWhatsNewItem(vcDelegate: vcDelegate)
-
-        return [privacyStats, openHomePage, openWhatsNewtem, openDownloadsItem]
+        return [
+            [
+                privacyStats,
+            ], [
+                self.openWhatsNewItem(vcDelegate: vcDelegate),
+                self.openPrivacyStatementItem(vcDelegate: vcDelegate),
+            ], [
+                self.burnItem(vcDelegate: vcDelegate),
+            ], [
+                self.openDownloadsItem(vcDelegate: vcDelegate),
+                self.openSettingsItem(vcDelegate: vcDelegate),
+                openHomePage,
+            ],
+        ]
     }
 
     /*
@@ -75,15 +85,7 @@ extension PhotonActionSheetProtocol {
         }
         return queryItems
     }
-
-    func getOtherPanelActions(vcDelegate: PageOptionsVC) -> [PhotonActionSheetItem] {
-        return [
-            self.openPrivacyStatementItem(vcDelegate: vcDelegate),
-            self.burnItem(vcDelegate: vcDelegate),
-            self.openSettingsItem(vcDelegate: vcDelegate),
-        ]
-    }
-
+    
     func getBurnActions() -> [PhotonActionSheetItem] {
         let closeAllTabsAndClearData = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsAndClearDataTitleString, iconString: "menu-burn") { _ in
             self.tabManager.removeAllTabs()
