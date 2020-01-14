@@ -85,7 +85,7 @@ extension PhotonActionSheetProtocol {
         }
         return queryItems
     }
-    
+
     func getBurnActions() -> [PhotonActionSheetItem] {
         let closeAllTabsAndClearData = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsAndClearDataTitleString, iconString: "menu-burn") { _ in
             self.tabManager.removeAllTabs()

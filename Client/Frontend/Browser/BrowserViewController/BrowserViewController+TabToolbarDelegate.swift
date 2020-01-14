@@ -42,7 +42,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     func tabToolbarDidPressMenu(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
         // ensure that any keyboards or spinners are dismissed before presenting the menu
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-      
+
         // force a modal if the menu is being displayed in compact split screen
         let shouldSuppress = !topTabsVisible && UIDevice.current.isPad
         presentSheetWith(actions: getControlCenterActions(vcDelegate: self), on: self, from: button, suppressPopover: shouldSuppress)

@@ -205,6 +205,8 @@ class Tab: NSObject {
     /// tab instance, queue it for later until we become foregrounded.
     fileprivate var alertQueue = [JSAlertInfo]()
 
+    private (set) var refreshControl: CliqzRefreshControl?
+
     weak var browserViewController: BrowserViewController?
 
     init(bvc: BrowserViewController, configuration: WKWebViewConfiguration, isPrivate: Bool = false) {
@@ -264,6 +266,8 @@ class Tab: NSObject {
             self.webView?.addObserver(self, forKeyPath: KVOConstants.URL.rawValue, options: .new, context: nil)
             self.webView?.addObserver(self, forKeyPath: KVOConstants.title.rawValue, options: .new, context: nil)
             UserScriptManager.shared.injectUserScriptsIntoTab(self)
+            self.setupRefreshControl()
+
             tabDelegate?.tab?(self, didCreateWebView: webView)
         }
     }
@@ -608,6 +612,29 @@ class Tab: NSObject {
     func applyTheme() {
         UITextField.appearance().keyboardAppearance = isPrivate ? .dark : .default
     }
+
+    private func setupRefreshControl() {
+        guard let scrollView = self.webView?.scrollView, self.refreshControl == nil else { return }
+        self.refreshControl = CliqzRefreshControl(scrollView: scrollView)
+        self.refreshControl?.delegate = self
+    }
+
+}
+
+extension Tab: CliqzRefreshControlDelegate {
+
+    func refreshControllAlphaDidChange(alpha: CGFloat) {
+        self.browserViewController?.notchAreaCover.alpha = 1 - alpha
+    }
+
+    func refreshControllMinimumHeight() -> CGFloat {
+        return self.browserViewController?.notchAreaCover.frame.height ?? 0
+    }
+
+    func refreshControllDidRefresh() {
+        self.reload()
+    }
+
 }
 
 extension Tab: TabWebViewDelegate {

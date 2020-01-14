@@ -1187,6 +1187,7 @@ class BrowserViewController: UIViewController {
                 self.screenshotHelper.takeScreenshot(tab)
                 if webView.superview == self.view {
                     webView.removeFromSuperview()
+                    tab.refreshControl?.removeFromSuperview()
                 }
             }
         }
@@ -1516,6 +1517,7 @@ extension BrowserViewController: TabDelegate {
         webView.uiDelegate = nil
         webView.scrollView.delegate = nil
         webView.removeFromSuperview()
+        tab.refreshControl?.removeFromSuperview()
     }
 
     fileprivate func findSnackbar(_ barToFind: SnackBar) -> Int? {
@@ -1587,6 +1589,7 @@ extension BrowserViewController: TabManagerDelegate {
             let activityStreamPanel = homeViewController {
             activityStreamPanel.scrollToTop()
         }
+        previous?.refreshControl?.removeFromSuperview()
 
         // Remove the old accessibilityLabel. Since this webview shouldn't be visible, it doesn't need it
         // and having multiple views with the same label confuses tests.
@@ -1618,6 +1621,16 @@ extension BrowserViewController: TabManagerDelegate {
             webViewContainer.addSubview(webView)
             webView.snp.makeConstraints { make in
                 make.left.right.top.bottom.equalTo(self.webViewContainer)
+            }
+
+            if let refreshControl = selected?.refreshControl {
+                self.view.addSubview(refreshControl)
+                refreshControl.snp.removeConstraints()
+                refreshControl.snp.makeConstraints({ (make) in
+                    make.topMargin.equalTo(self.view.safeAreaLayoutGuide.snp.topMargin)
+                    make.left.right.equalToSuperview()
+                    make.height.equalTo(self.notchAreaCover.frame.size.height)
+                })
             }
 
             // This is a terrible workaround for a bad iOS 12 bug where PDF
