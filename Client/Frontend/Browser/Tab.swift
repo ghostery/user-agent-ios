@@ -206,7 +206,8 @@ class Tab: NSObject {
     fileprivate var alertQueue = [JSAlertInfo]()
 
     private var refreshControl: CliqzRefreshControl?
-    private var scrollViewOffsetContext = "PullToRefresh"
+    private var scrollViewOffsetContext = "PullToRefreshContext"
+    private var pullToRefreshAllowed: Bool = true
 
     weak var browserViewController: BrowserViewController?
 
@@ -475,19 +476,6 @@ class Tab: NSObject {
         }
     }
 
-    private func subscribeOnScrollViewContentOffset() {
-        self.webView?.scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: &self.scrollViewOffsetContext)
-    }
-
-    private func setupRefreshControl() {
-        self.refreshControl = CliqzRefreshControl()
-        self.refreshControl!.addTarget(self, action: #selector(reload), for: UIControl.Event.valueChanged)
-        self.webView?.scrollView.addSubview(self.refreshControl!)
-        self.webView?.scrollView.bounces = true
-        self.refreshControl?.updateHeight(height: self.browserViewController?.header.frame.size.height ?? 0)
-        self.subscribeOnScrollViewContentOffset()
-    }
-
     func addContentScript(_ helper: TabContentScript, name: String) {
         contentScriptManager.addContentScript(helper, name: name, forTab: self)
     }
@@ -580,13 +568,7 @@ class Tab: NSObject {
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if context == &self.scrollViewOffsetContext {
-            guard let scrollView = self.webView?.scrollView else {
-                return
-            }
-
-            let headerHeight = self.browserViewController?.notchAreaCover.frame.size.height ?? 0
-            let offset = scrollView.contentOffset.y < 0 ? abs(scrollView.contentOffset.y) : 0
-            self.refreshControl?.updateHeight(height: headerHeight + offset)
+            self.scrollViewDidScroll()
         } else {
             guard
                 let webView = object as? WKWebView,
@@ -636,6 +618,41 @@ class Tab: NSObject {
 
     func applyTheme() {
         UITextField.appearance().keyboardAppearance = isPrivate ? .dark : .default
+    }
+
+    private func setupRefreshControl() {
+        self.refreshControl = CliqzRefreshControl()
+        self.refreshControl?.alpha = 0.0
+        self.refreshControl!.addTarget(self, action: #selector(reload), for: UIControl.Event.valueChanged)
+        self.webView?.scrollView.addSubview(self.refreshControl!)
+        self.refreshControl?.updateHeight(height: self.browserViewController?.notchAreaCover.frame.size.height ?? 0)
+        self.subscribeOnScrollViewContentOffset()
+    }
+
+    private func subscribeOnScrollViewContentOffset() {
+        self.webView?.scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: &self.scrollViewOffsetContext)
+    }
+
+    private func scrollViewDidScroll() {
+        guard let scrollView = self.webView?.scrollView else {
+            return
+        }
+        if self.pullToRefreshAllowed {
+            if scrollView.contentOffset.y < 0.0 {
+                let alpha = abs(scrollView.contentOffset.y) / 20
+                self.browserViewController?.notchAreaCover.alpha = max(0.0, 1 - alpha)
+                self.refreshControl?.alpha = min(alpha, 1.0)
+            } else {
+                self.pullToRefreshAllowed = scrollView.isDragging || scrollView.contentOffset.y == 0.0
+                self.browserViewController?.notchAreaCover.alpha = 1.0
+                self.refreshControl?.alpha = 0.0
+            }
+        } else {
+            self.pullToRefreshAllowed = !scrollView.isDragging && scrollView.contentOffset.y == 0.0
+        }
+        let headerHeight = self.browserViewController?.notchAreaCover.frame.size.height ?? 0
+        let offset = scrollView.contentOffset.y < 0 ? abs(scrollView.contentOffset.y) : 0
+        self.refreshControl?.updateHeight(height: headerHeight + offset)
     }
 }
 

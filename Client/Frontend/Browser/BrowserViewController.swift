@@ -495,9 +495,6 @@ class BrowserViewController: UIViewController {
         // links into the view from other apps.
         let dropInteraction = UIDropInteraction(delegate: self)
         view.addInteraction(dropInteraction)
-
-        // TODO: This will cause visual bug while scrolling up. We need to do this only when we initiate the pull to refresh
-        view.bringSubviewToFront(webViewContainer)
     }
 
     fileprivate func setupConstraints() {

@@ -9,15 +9,14 @@
 import Foundation
 
 class CliqzRefreshControl: UIRefreshControl {
-    let contentView = UIView()
+    private let contentView = UIView()
     private let centerAction = UIView()
 
     override init() {
         super.init()
         self.clipsToBounds = false
-        self.backgroundColor = .blue
+        self.backgroundColor = .clear
         self.setupContentView()
-        self.setupFixedConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -47,23 +46,20 @@ class CliqzRefreshControl: UIRefreshControl {
 
     }
 
-    private func setupFixedConstraints() {
+    private func setupContentView() {
+        self.contentView.backgroundColor = Theme.browser.background
+        self.addSubview(self.contentView)
         self.contentView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
             make.height.equalTo(100)
         }
-    }
-
-    private func setupContentView() {
-        self.contentView.backgroundColor = Theme.browser.background
-        self.addSubview(contentView)
         self.setupActions()
     }
 
     private func setupActions() {
-        centerAction.backgroundColor = .blue
-        self.contentView.addSubview(centerAction)
-        centerAction.snp.makeConstraints { (make) in
+        self.centerAction.backgroundColor = .blue
+        self.contentView.addSubview(self.centerAction)
+        self.centerAction.snp.makeConstraints { (make) in
             make.width.height.greaterThanOrEqualTo(30).priority(1000)
             make.center.equalToSuperview()
         }
