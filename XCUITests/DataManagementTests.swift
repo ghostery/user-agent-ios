@@ -10,7 +10,7 @@ class DataManagementTests: BaseTestCase {
         navigator.performAction(Action.AcceptClearAllWebsiteData)
         let expectedWebsiteDataEntries2 = app.tables.cells.count
         XCTAssertEqual(expectedWebsiteDataEntries2, 1)
-        navigator.openURL("cliqz.com")
+        navigator.openURL("example.com")
         navigator.goto(WebsiteDataSettings)
         let expectedWebsiteDataEntries3 = app.tables.cells.count
         XCTAssertEqual(expectedWebsiteDataEntries3, 2)
