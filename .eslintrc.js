@@ -7,4 +7,7 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/react'
   ],
+  env: {
+    webextensions: true,
+  }
 }

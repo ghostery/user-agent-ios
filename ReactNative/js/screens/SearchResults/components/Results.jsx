@@ -5,11 +5,10 @@ import {
   View,
   Text,
   ScrollView,
-  TouchableWithoutFeedback,
   NativeModules,
 } from 'react-native';
-import NativeDrawable from '../../../components/NativeDrawable';
 import ResultList from './ResultList';
+import SpeedDial from '../../../components/SpeedDial';
 import { withTheme } from '../../../contexts/theme';
 import CliqzProvider from '../../../contexts/cliqz';
 import t from '../../../services/i18n';
@@ -71,10 +70,16 @@ const getStyles = theme =>
       fontSize: 12,
     },
     searchEnginesContainer: {
+      marginTop: 10,
+      marginBottom: 100,
+      textAlign: 'center',
+    },
+    searchEnginesGroupContainer: {
+      flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       marginTop: 10,
-      marginBottom: 100,
+      marginBottom: 10,
       textAlign: 'center',
     },
     searchEngineIcon: {
@@ -106,10 +111,30 @@ function isResultAllowed({ template, provider, type }) {
   );
 }
 
+function groupBy(arr, n) {
+  const group = [];
+  for (let i = 0, j = 0; i < arr.length; i += 1) {
+    if (i >= n && i % n === 0) {
+      j += 1;
+    }
+    group[j] = group[j] || [];
+    group[j].push(arr[i]);
+  }
+  return group;
+}
+
 class Results extends React.Component {
   constructor(props) {
     super(props);
     this.scrollRef = React.createRef();
+    this.state = {
+      searchEngines: [],
+    };
+    browser.search.get().then(searchEngines => {
+      this.setState({
+        searchEngines,
+      });
+    });
   }
 
   // eslint-disable-next-line react/no-deprecated
@@ -151,6 +176,7 @@ class Results extends React.Component {
       meta,
       query: resultsQuery,
     } = _results;
+    const { searchEngines } = this.state;
     const results = (allResults || []).filter(isResultAllowed);
     const styles = getStyles(_theme);
 
@@ -210,64 +236,33 @@ class Results extends React.Component {
                 </Text>
               </View>
               <View style={styles.searchEnginesContainer}>
-                <TouchableWithoutFeedback
-                  onPress={() =>
-                    this.openSearchEngineLink(
-                      `https://beta.cliqz.com/search?q=${encodeURIComponent(
-                        query,
-                      )}#channel=ios`,
-                      0,
-                      'cliqz',
-                    )
-                  }
-                >
-                  <View>
-                    <NativeDrawable
-                      style={styles.searchEngineIcon}
-                      color="#ffffff"
-                      source="ic_ez_cliqz"
-                    />
-                    <Text style={styles.searchEngineText}>Cliqz</Text>
+                {groupBy(searchEngines, 3).map((searchEnginesGroup, i) => (
+                  <View
+                    style={styles.searchEnginesGroupContainer}
+                    key={searchEnginesGroup.map(e => e.name).join('')}
+                  >
+                    {searchEnginesGroup.map(searchEngine => (
+                      <SpeedDial
+                        key={searchEngine.name}
+                        styles={{
+                          label: {
+                            color: _theme.separatorColor,
+                          },
+                        }}
+                        speedDial={{
+                          pinned: false,
+                          url: searchEngine.favIconUrl,
+                        }}
+                        onPress={() =>
+                          browser.search.search({
+                            query,
+                            engine: searchEngine.name,
+                          })
+                        }
+                      />
+                    ))}
                   </View>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback
-                  onPress={() =>
-                    this.openSearchEngineLink(
-                      `https://www.google.com/search?q=${encodeURIComponent(
-                        query,
-                      )}`,
-                      1,
-                      'google',
-                    )
-                  }
-                >
-                  <View>
-                    <NativeDrawable
-                      style={styles.searchEngineIcon}
-                      color="#ffffff"
-                      source="ic_ez_google"
-                    />
-                    <Text style={styles.searchEngineText}>Google</Text>
-                  </View>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback
-                  onPress={() =>
-                    this.openSearchEngineLink(
-                      `https://duckduckgo.com/?q=${encodeURIComponent(query)}`,
-                      2,
-                      'duckduckgo',
-                    )
-                  }
-                >
-                  <View>
-                    <NativeDrawable
-                      style={styles.searchEngineIcon}
-                      color="#ffffff"
-                      source="ic_ez_ddg"
-                    />
-                    <Text style={styles.searchEngineText}>DuckDuckGo</Text>
-                  </View>
-                </TouchableWithoutFeedback>
+                ))}
               </View>
             </>
           </ScrollView>
