@@ -25,12 +25,12 @@ const getStyle = theme => ({
     justifyContent: 'center',
   },
   rowTitle: {
+    color: `${theme.textColor}99`,
+  },
+  rowDescription: {
     color: theme.textColor,
     fontSize: 13,
     fontWeight: 'bold',
-  },
-  rowDescription: {
-    color: `${theme.textColor}99`,
   },
 });
 
