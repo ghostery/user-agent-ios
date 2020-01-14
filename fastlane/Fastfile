@@ -39,7 +39,7 @@ APPS = {
     share_to_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.ShareTo",
 
     open_in_identifier: "com.cliqz.browser.nightly.OpenIn",
-    open_in_provisioning_profile: "8b4418bc-4c38-4095-97bc-06399719f999",
+    open_in_provisioning_profile: "3f191f93-a559-43d8-a1ab-666dd0306362",
     open_in_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.OpenIn",
 
     sentry_slug: "cliqznighly-ios",
