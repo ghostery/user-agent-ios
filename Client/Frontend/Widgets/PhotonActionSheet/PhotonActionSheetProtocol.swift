@@ -336,29 +336,49 @@ extension PhotonActionSheetProtocol {
             return []
         }
 
-        let trackingProtectionEnabled = ContentBlocker.shared.isTrackingWhitelisted(url: currentURL)
         let trackingProtection = PhotonActionSheetItem(
             title: Strings.PrivacyDashboard.Switch.AntiTracking,
             iconString: "menu-TrackingProtection",
-            isEnabled: !trackingProtectionEnabled,
+            isEnabled: !ContentBlocker.shared.isTrackingWhitelisted(url: currentURL),
             accessory: .Switch
         ) { action in
-            ContentBlocker.shared.trackingWhitelist(enable: !trackingProtectionEnabled, url: currentURL) {
+            ContentBlocker.shared.trackingWhitelist(
+                enable: !ContentBlocker.shared.isTrackingWhitelisted(url: currentURL),
+                url: currentURL
+            ) {
                 tab.reload()
             }
         }
-        let adBlockingEnabled = ContentBlocker.shared.isAdsWhitelisted(url: currentURL)
+
         let adBlocking = PhotonActionSheetItem(
             title: Strings.PrivacyDashboard.Switch.AdBlock,
             iconString: "menu-AdBlocking",
-            isEnabled: !adBlockingEnabled,
+            isEnabled: !ContentBlocker.shared.isAdsWhitelisted(url: currentURL),
             accessory: .Switch
         ) { action in
-            ContentBlocker.shared.adsWhitelist(enable: !adBlockingEnabled, url: currentURL) {
+            ContentBlocker.shared.adsWhitelist(
+                enable: !ContentBlocker.shared.isAdsWhitelisted(url: currentURL),
+                url: currentURL
+            ) {
                 tab.reload()
             }
         }
-        return [trackingProtection, adBlocking]
+
+        let popupsBlocking = PhotonActionSheetItem(
+            title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
+            iconString: "menu-AdBlocking",
+            isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: currentURL),
+            accessory: .Switch
+        ) { action in
+            ContentBlocker.shared.popupsWhitelist(
+                enable: !ContentBlocker.shared.isPopupsWhitelisted(url: currentURL),
+                url: currentURL
+            ) {
+                tab.reload()
+            }
+        }
+
+        return [trackingProtection, adBlocking, popupsBlocking]
     }
 
     @available(iOS 11.0, *)

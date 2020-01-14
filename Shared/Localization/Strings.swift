@@ -377,6 +377,7 @@ extension Strings {
         public struct Switch {
              public static let AntiTracking = NSLocalizedString("PrivacyDashboard.Switch.AntiTracking", tableName: "UserAgent", comment: "")
             public static let AdBlock = NSLocalizedString("PrivacyDashboard.Switch.AdBlock", tableName: "UserAgent", comment: "")
+            public static let PopupsBlocking = NSLocalizedString("PrivacyDashboard.Switch.PopupsBlocking", tableName: "UserAgent", comment: "")
         }
         public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
     }
