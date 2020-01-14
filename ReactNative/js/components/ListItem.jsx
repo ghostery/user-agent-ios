@@ -37,7 +37,7 @@ const getStyle = theme => ({
 export default function ListItem({ url, title, onPress, label }) {
   const styles = useStyles(getStyle);
 
-  const name = parse(url).domain;
+  const name = parse(url).hostname;
 
   /* eslint-disable prettier/prettier */
   return (
