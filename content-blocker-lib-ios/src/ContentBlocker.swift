@@ -5,6 +5,18 @@
 import WebKit
 import Shared
 
+private let HIDE_ADS_RULE = """
+{
+    "trigger": {
+        "url-filter": ".*"
+    },
+    "action": {
+        "type": "css-display-none",
+        "selector": "#tads"
+    }
+}
+"""
+
 enum BlocklistName: String {
     case advertisingNetwork = "advertisingNetwork"
     case advertisingCosmetic = "advertisingCosmetic"
@@ -274,8 +286,10 @@ extension ContentBlocker {
                     var str = jsonString
                     guard let range = str.range(of: "]", options: String.CompareOptions.backwards) else { return }
                     switch item {
-                    case .advertisingNetwork, .advertisingCosmetic:
+                    case .advertisingNetwork:
                         str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "]")
+                    case .advertisingCosmetic:
+                        str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "," + HIDE_ADS_RULE + "]")
                     case .trackingNetwork:
                         str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "]")
                     case .popupsCosmetic:
