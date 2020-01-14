@@ -12,6 +12,7 @@ import { View, StyleSheet } from 'react-native';
 import Card from './results/GenericResult';
 import WeatherSnippet from './results/WeatherResult';
 import { withCliqz } from '../../../contexts/cliqz';
+import { isSwitchToTab } from './helpers';
 
 const styles = StyleSheet.create({
   defaultSeparator: {
@@ -50,7 +51,7 @@ class CardList extends React.PureComponent {
     const { cliqz } = this.props;
     const selection = this.getSelection(result, url, elementName);
     let actionUrl = url;
-    if (result.provider === 'tabs') {
+    if (isSwitchToTab(result)) {
       actionUrl = `moz-action:switchtab,${JSON.stringify({ url })}`;
     }
     cliqz.mobileCards.openLink(actionUrl, selection);

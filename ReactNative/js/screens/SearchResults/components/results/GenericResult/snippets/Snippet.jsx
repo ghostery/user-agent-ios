@@ -14,6 +14,7 @@ import Link from './Link';
 import NativeDrawable from '../../../../../../components/NativeDrawable';
 import { useStyles } from '../../../../../../contexts/theme';
 import t from '../../../../../../services/i18n';
+import { isSwitchToTab } from '../../../helpers';
 
 const httpsLockWidth = 9;
 const httpsLockMarginRight = 5;
@@ -22,9 +23,14 @@ const getStyles = theme =>
   StyleSheet.create({
     container: {
       flexDirection: 'row',
-      paddingRight: 2 * 7 + 28 + 6,
       paddingTop: 7,
       paddingBottom: 6,
+      paddingRight: 2,
+    },
+    rightContainer: {
+      flex: 1,
+      flexGrow: 1,
+      paddingRight: 0,
     },
     mainTitle: {
       color: theme.linkColor,
@@ -72,6 +78,8 @@ const getStyles = theme =>
       top: -8,
       right: 0,
       fontWeight: '300',
+      backgroundColor: theme.backgroundColor,
+      paddingLeft: 5,
     },
   });
 
@@ -93,7 +101,7 @@ export default props => {
       <View style={styles.container}>
         <SnippetIcon type={type} logo={logo} provider={provider} url={url} />
         <View style={styles.rightContainer}>
-          {provider === 'tabs' && (
+          {isSwitchToTab(data) && (
             <Text style={styles.switchToTabText}>
               {t('search_switch_to_tab')}
             </Text>
