@@ -584,6 +584,9 @@
 /* Accessibility Label for the tab toolbar Reload button */
 "Reload" = "Reload";
 
+/* Refresh title for Refresh Control. */
+"RefreshControl.Reload" = "Reload";
+
 /* Title for the button that removes a reading list item */
 "Remove" = "Remove";
 

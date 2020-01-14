@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Shared
 
 protocol CliqzRefreshControlDelegate: class {
     func refreshControllAlphaDidChange(alpha: CGFloat)
@@ -22,15 +23,20 @@ struct CliqzRefreshControlUI {
 class CliqzRefreshControl: UIView {
 
     private let centerAction = UIView()
+    private let titleLabel = UILabel()
+    private let refreshImageView = UIImageView(image: UIImage(named: "nav-refresh"))
+
     private weak var scrollView: UIScrollView?
+    private weak var animationView: UIView?
     private var pullToRefreshAllowed: Bool = true
+    private var isRefreshing: Bool = false
 
     weak var delegate: CliqzRefreshControlDelegate?
 
     init(scrollView: UIScrollView) {
         super.init(frame: CGRect.zero)
         self.scrollView = scrollView
-        self.clipsToBounds = false
+        self.clipsToBounds = true
         self.backgroundColor = Theme.browser.background
         self.alpha = 0.0
         self.setupContentView()
@@ -46,26 +52,73 @@ class CliqzRefreshControl: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.animationView?.layer.cornerRadius = (self.animationView?.frame.width ?? 0) / 2
         self.centerAction.layer.cornerRadius = self.centerAction.frame.width / 2
     }
 
     private func setupContentView() {
-        self.centerAction.backgroundColor = .yellow
+        self.setupCenterAction()
+        self.setupTitle()
+        self.scrollView?.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
+    }
+
+    private func setupCenterAction() {
+        self.centerAction.backgroundColor = UIColor.Grey40
         self.addSubview(self.centerAction)
         self.centerAction.snp.makeConstraints { (make) in
             make.width.equalTo(self.centerAction.snp.height)
             make.height.greaterThanOrEqualTo(CliqzRefreshControlUI.minimumActionHeight).priority(.high)
             make.height.lessThanOrEqualTo(CliqzRefreshControlUI.maximumActionHeight).priority(.high)
             make.height.equalToSuperview().multipliedBy(0.25).priority(.medium)
-            make.center.equalToSuperview().offset(10)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(10)
         }
-        self.scrollView?.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
+        self.centerAction.addSubview(self.refreshImageView)
+        self.refreshImageView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.width.height.equalTo(2 * CliqzRefreshControlUI.minimumActionHeight / 3)
+        }
+    }
+
+    private func setupTitle() {
+        self.titleLabel.text = Strings.RefreshControl.ReloadLabel
+        self.titleLabel.font = UIFont.systemFont(ofSize: 12)
+        self.addSubview(self.titleLabel)
+        self.titleLabel.isHidden = true
+        self.titleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.centerAction.snp.bottom).offset(5)
+            make.centerX.equalTo(self.centerAction)
+        }
+    }
+
+    private func animateBubble() {
+        let view = UIView(frame: self.centerAction.frame)
+        view.clipsToBounds = true
+        view.backgroundColor = self.centerAction.backgroundColor
+        view.layer.cornerRadius = view.frame.width / 2
+        self.insertSubview(view, belowSubview: self.centerAction)
+        self.animationView = view
+        view.snp.makeConstraints { (make) in
+            make.center.equalTo(self.centerAction)
+            make.width.height.equalTo(self.centerAction)
+        }
+        UIView.animate(withDuration: 0.2, animations: {
+            view.layer.cornerRadius = view.frame.width / 2
+            view.snp.remakeConstraints { (make) in
+                make.center.equalTo(self.centerAction)
+                make.width.height.equalTo(self.snp.width)
+            }
+            self.layoutIfNeeded()
+        }) { (_) in
+            view.removeFromSuperview()
+        }
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         guard let scrollView = self.scrollView else {
             return
         }
+        self.isRefreshing = self.isRefreshing && !scrollView.isTracking
         if self.pullToRefreshAllowed {
             if scrollView.contentOffset.y < 0.0 {
                 let alpha = abs(scrollView.contentOffset.y) / 20
@@ -82,16 +135,18 @@ class CliqzRefreshControl: UIView {
             })
             let getMaxValue = self.centerAction.frame.height >= CliqzRefreshControlUI.maximumActionHeight
             if getMaxValue {
-                self.centerAction.backgroundColor = .green
+                self.titleLabel.isHidden = false
             } else {
-                self.centerAction.backgroundColor = .yellow
+                self.titleLabel.isHidden = true
             }
-            if !scrollView.isDragging && getMaxValue {
+            if !scrollView.isDragging && getMaxValue && !self.isRefreshing {
+                self.isRefreshing = true
+                self.animateBubble()
                 self.delegate?.refreshControllDidRefresh()
             }
         } else {
             if scrollView.isDecelerating {
-                self.pullToRefreshAllowed  = scrollView.contentOffset.y == 0.0
+                self.pullToRefreshAllowed = scrollView.contentOffset.y == 0.0
             } else {
                 self.pullToRefreshAllowed = !scrollView.isDragging && scrollView.contentOffset.y == 0.0
             }

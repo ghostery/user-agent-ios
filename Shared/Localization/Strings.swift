@@ -38,6 +38,11 @@ extension Strings {
         public static let RemoveButtonAccessibilityLabel = NSLocalizedString("TopSites.RemovePage.Button", comment: "Button shown in editing mode to remove this site from the top sites panel.")
     }
 
+    // MARK: - Refresh Control
+    public struct RefreshControl {
+        public static let ReloadLabel = NSLocalizedString("RefreshControl.Reload", comment: "Refresh title for Refresh Control.")
+    }
+
     // MARK: - Activity Stream.
     public struct ActivityStream {
         public struct News {
