@@ -28,6 +28,8 @@ extension ReactViewTheme {
             "urlColor": mode == "dark" ? "#6BA573" : "#579D61",
             "linkColor": mode == "dark" ? "#FFFFFF" : "#003172",
             "redColor": "#E64C68",
+            "fontSize": DynamicFontHelper.defaultHelper.DeviceFontSize,
+            "fontSizeLarge": DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS.pointSize,
         ]
     }
 }

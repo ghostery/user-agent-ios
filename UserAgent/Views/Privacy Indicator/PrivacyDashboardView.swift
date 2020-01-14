@@ -1,7 +1,9 @@
 import UIKit
 import Shared
 
-class PrivacyDashboardView: UIView {
+class PrivacyDashboardView: UIView, PhotonCustomViewCellContent {
+    var onSizeChange: (() -> Void)?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.snp.makeConstraints { make in
