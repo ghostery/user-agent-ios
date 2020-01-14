@@ -31,7 +31,8 @@ class CliqzRefreshControl: UIView {
         super.init(frame: CGRect.zero)
         self.scrollView = scrollView
         self.clipsToBounds = false
-        self.backgroundColor = .red//Theme.browser.background
+        self.backgroundColor = Theme.browser.background
+        self.alpha = 0.0
         self.setupContentView()
     }
 
@@ -55,8 +56,8 @@ class CliqzRefreshControl: UIView {
             make.width.equalTo(self.centerAction.snp.height)
             make.height.greaterThanOrEqualTo(CliqzRefreshControlUI.minimumActionHeight).priority(.high)
             make.height.lessThanOrEqualTo(CliqzRefreshControlUI.maximumActionHeight).priority(.high)
-            make.height.equalToSuperview().multipliedBy(0.2).priority(.medium)
-            make.center.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.25).priority(.medium)
+            make.center.equalToSuperview().offset(10)
         }
         self.scrollView?.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
     }

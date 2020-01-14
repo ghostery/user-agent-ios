@@ -617,7 +617,6 @@ class Tab: NSObject {
         guard let scrollView = self.webView?.scrollView, self.refreshControl == nil else { return }
         self.refreshControl = CliqzRefreshControl(scrollView: scrollView)
         self.refreshControl?.delegate = self
-        self.refreshControl?.alpha = 0.0
     }
 
 }
