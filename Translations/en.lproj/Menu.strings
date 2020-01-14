@@ -30,7 +30,7 @@
 "Menu.Burn.Title" = "Delete everything";
 
 /* Label for the button, displayed in the menu, used to close all tabs and clear data. */
-"Menu.CloseAllTabsAndClearData.Title" = "Close all tabs and clear data";
+"Menu.CloseAllTabsAndClearData.Title" = "Close tabs and clear all data";
 
 /* Label for the button, displayed in the menu, used to open the Settings menu. */
 "Menu.OpenSettingsAction.Title" = "Settings";

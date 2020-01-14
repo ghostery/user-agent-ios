@@ -40,7 +40,7 @@
 "PrivacyStatement.SettingsConversation1" = "Hi, ich programmiere diese App. Bei Cliqz bauen wir Produkte mit \"Privacy-by-Design\". Und wir glauben an Transparenz.";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation2" = "Der Cliqz Browser sammelt nur nicht-personenbezogene Daten. Deshalb können wir dich niemals identifizeren – technisch unmöglich! Ich glaube dennoch, Du solltest selbst entscheiden, ob du sogar das abschalten möchtest:";
+"PrivacyStatement.SettingsConversation2" = "Der Cliqz Browser sammelt nur nicht-personenbezogene Daten. Deshalb können wir dich niemals identifizeren – technisch unmöglich! Ich glaube dennoch, Du solltest selbst entscheiden, ob Du sogar das abschalten möchtest:";
 
 /* Conversation static message. */
 "PrivacyStatement.RepositoryConversation" = "Du musst das jetzt nicht einfach so glauben – unser Code ist open-source!";
@@ -49,4 +49,4 @@
 "PrivacyStatement.PrivacyConversation" = "Bei Interesse findest Du hier eine ausführliche Version unserer Datenschutz-Praktiken:";
 
 /* Conversation static message. */
-"PrivacyStatement.MessageConversation" = "Lass mich wissen, wenn Du fragen hast.";
+"PrivacyStatement.MessageConversation" = "Lass mich wissen, wenn Du Fragen hast.";
