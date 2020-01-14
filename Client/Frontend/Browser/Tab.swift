@@ -455,7 +455,7 @@ class Tab: NSObject {
         webView?.stopLoading()
     }
 
-    @objc func reload() {
+    func reload() {
         // If the current page is an error page, and the reload button is tapped, load the original URL
         if let url = webView?.url, let internalUrl = InternalURL(url), let page = internalUrl.originalURLFromErrorPage {
             webView?.evaluateJavaScript("location.replace('\(page)')", completionHandler: nil)
@@ -569,8 +569,8 @@ class Tab: NSObject {
             webView == self.webView,
             let path = keyPath,
             path == KVOConstants.URL.rawValue || path == KVOConstants.title.rawValue
-            else {
-                return assertionFailure("Unhandled KVO key: \(keyPath ?? "nil")")
+        else {
+            return assertionFailure("Unhandled KVO key: \(keyPath ?? "nil")")
         }
 
         if path == KVOConstants.URL.rawValue {
