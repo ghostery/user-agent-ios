@@ -8,8 +8,8 @@
  */
 import React, { useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
-import moment from '../../../../../../services/moment';
 import { NewsSnippet } from '@cliqz/component-ui-snippet-news';
+import moment from '../../../../../../services/moment';
 import { withTheme } from '../../../../../../contexts/theme';
 
 const styles = StyleSheet.create({
@@ -21,12 +21,22 @@ const styles = StyleSheet.create({
 const date2text = (date: Date) => moment(date).fromNow();
 
 const Separator = (width: number) => <View style={{ width }} />;
-const ListHeader = Separator.bind(null, 37);
+const ListHeader = Separator.bind(null, 41);
 const ListFooter = Separator.bind(null, 7);
 const ListSeparator = Separator.bind(null, 10);
 
-const Snippet = ({ theme, news, openLink }: { theme: any, news: any, openLink: (url: string, type: string) => void }) => {
-  const onPressCall = useCallback((url: string) => openLink(url, 'news'), [openLink]);
+const Snippet = ({
+  theme,
+  news,
+  openLink,
+}: {
+  theme: any;
+  news: any;
+  openLink: (url: string, type: string) => void;
+}) => {
+  const onPressCall = useCallback((url: string) => openLink(url, 'news'), [
+    openLink,
+  ]);
   return (
     <View style={styles.container}>
       <NewsSnippet
@@ -35,7 +45,8 @@ const Snippet = ({ theme, news, openLink }: { theme: any, news: any, openLink: (
         ListHeader={ListHeader}
         ListFooter={ListFooter}
         ListSeparator={ListSeparator}
-        onPress={onPressCall} styles={{
+        onPress={onPressCall}
+        styles={{
           itemTitle: {
             color: theme.textColor,
           },
