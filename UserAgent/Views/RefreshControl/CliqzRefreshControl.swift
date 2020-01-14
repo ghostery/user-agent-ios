@@ -8,14 +8,30 @@
 
 import Foundation
 
-class CliqzRefreshControl: UIRefreshControl {
-    private let contentView = UIView()
-    private let centerAction = UIView()
+protocol CliqzRefreshControlDelegate: class {
+    func refreshControllAlphaDidChange(alpha: CGFloat)
+    func refreshControllMinimumHeight() -> CGFloat
+    func refreshControllDidRefresh()
+}
 
-    override init() {
-        super.init()
+struct CliqzRefreshControlUI {
+    static let minimumActionHeight: CGFloat = 20.0
+    static let maximumActionHeight: CGFloat = 40.0
+}
+
+class CliqzRefreshControl: UIView {
+
+    private let centerAction = UIView()
+    private weak var scrollView: UIScrollView?
+    private var pullToRefreshAllowed: Bool = true
+
+    weak var delegate: CliqzRefreshControlDelegate?
+
+    init(scrollView: UIScrollView) {
+        super.init(frame: CGRect.zero)
+        self.scrollView = scrollView
         self.clipsToBounds = false
-        self.backgroundColor = .clear
+        self.backgroundColor = .red//Theme.browser.background
         self.setupContentView()
     }
 
@@ -23,45 +39,61 @@ class CliqzRefreshControl: UIRefreshControl {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func updateHeight(height: CGFloat) {
-        self.contentView.snp.updateConstraints { (make) in
-            make.height.equalTo(height)
-        }
-        var proposedHeight = self.contentView.frame.size.height / 4
-        proposedHeight = max(proposedHeight, 30)
-        self.centerAction.layer.cornerRadius = proposedHeight / 2
-        self.centerAction.snp.updateConstraints { (make) in
-            make.width.height.greaterThanOrEqualTo(proposedHeight)
-        }
+    deinit {
+        self.scrollView?.removeObserver(self, forKeyPath: "contentOffset")
     }
 
-    override func endRefreshing() {
-        super.endRefreshing()
-        self.centerAction.alpha = 0.2
-        UIView.animate(withDuration: 0.5,
-                       delay: 0.0,
-                       options: [.curveLinear, .repeat, .autoreverse],
-                       animations: { self.centerAction.alpha = 1.0 },
-                       completion: nil)
-
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.centerAction.layer.cornerRadius = self.centerAction.frame.width / 2
     }
 
     private func setupContentView() {
-        self.contentView.backgroundColor = Theme.browser.background
-        self.addSubview(self.contentView)
-        self.contentView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
-            make.height.equalTo(100)
+        self.centerAction.backgroundColor = .yellow
+        self.addSubview(self.centerAction)
+        self.centerAction.snp.makeConstraints { (make) in
+            make.width.equalTo(self.centerAction.snp.height)
+            make.height.greaterThanOrEqualTo(CliqzRefreshControlUI.minimumActionHeight).priority(.high)
+            make.height.lessThanOrEqualTo(CliqzRefreshControlUI.maximumActionHeight).priority(.high)
+            make.height.equalToSuperview().multipliedBy(0.2).priority(.medium)
+            make.center.equalToSuperview()
         }
-        self.setupActions()
+        self.scrollView?.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
     }
 
-    private func setupActions() {
-        self.centerAction.backgroundColor = .blue
-        self.contentView.addSubview(self.centerAction)
-        self.centerAction.snp.makeConstraints { (make) in
-            make.width.height.greaterThanOrEqualTo(30).priority(1000)
-            make.center.equalToSuperview()
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        guard let scrollView = self.scrollView else {
+            return
+        }
+        if self.pullToRefreshAllowed {
+            if scrollView.contentOffset.y < 0.0 {
+                let alpha = abs(scrollView.contentOffset.y) / 20
+                self.alpha = min(alpha, 1.0)
+            } else {
+                self.pullToRefreshAllowed = scrollView.isTracking || scrollView.contentOffset.y == 0.0
+                self.alpha = 0.0
+            }
+            self.delegate?.refreshControllAlphaDidChange(alpha: self.alpha)
+            let headerHeight = self.delegate?.refreshControllMinimumHeight() ?? 0
+            let offset = scrollView.contentOffset.y < 0 ? abs(scrollView.contentOffset.y) : 0
+            self.snp.updateConstraints({ (make) in
+                make.height.equalTo(max(headerHeight, headerHeight + offset))
+            })
+            let getMaxValue = self.centerAction.frame.height >= CliqzRefreshControlUI.maximumActionHeight
+            if getMaxValue {
+                self.centerAction.backgroundColor = .green
+            } else {
+                self.centerAction.backgroundColor = .yellow
+            }
+            if !scrollView.isDragging && getMaxValue {
+                self.delegate?.refreshControllDidRefresh()
+            }
+        } else {
+            if scrollView.isDecelerating {
+                self.pullToRefreshAllowed  = scrollView.contentOffset.y == 0.0
+            } else {
+                self.pullToRefreshAllowed = !scrollView.isDragging && scrollView.contentOffset.y == 0.0
+            }
         }
     }
 

@@ -205,9 +205,7 @@ class Tab: NSObject {
     /// tab instance, queue it for later until we become foregrounded.
     fileprivate var alertQueue = [JSAlertInfo]()
 
-    private var refreshControl: CliqzRefreshControl?
-    private var scrollViewOffsetContext = "PullToRefreshContext"
-    private var pullToRefreshAllowed: Bool = true
+    private (set) var refreshControl: CliqzRefreshControl?
 
     weak var browserViewController: BrowserViewController?
 
@@ -458,7 +456,6 @@ class Tab: NSObject {
     }
 
     @objc func reload() {
-        self.refreshControl?.endRefreshing()
         // If the current page is an error page, and the reload button is tapped, load the original URL
         if let url = webView?.url, let internalUrl = InternalURL(url), let page = internalUrl.originalURLFromErrorPage {
             webView?.evaluateJavaScript("location.replace('\(page)')", completionHandler: nil)
@@ -567,28 +564,24 @@ class Tab: NSObject {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        if context == &self.scrollViewOffsetContext {
-            self.scrollViewDidScroll()
-        } else {
-            guard
-                let webView = object as? WKWebView,
-                webView == self.webView,
-                let path = keyPath,
-                path == KVOConstants.URL.rawValue || path == KVOConstants.title.rawValue
+        guard
+            let webView = object as? WKWebView,
+            webView == self.webView,
+            let path = keyPath,
+            path == KVOConstants.URL.rawValue || path == KVOConstants.title.rawValue
             else {
                 return assertionFailure("Unhandled KVO key: \(keyPath ?? "nil")")
-            }
+        }
 
-            if path == KVOConstants.URL.rawValue {
-                guard let url = self.webView?.url else { return }
-                for delegate in self.tabStateChangeDelegates {
-                    delegate.tab(self, urlDidChangeTo: url)
-                }
-            } else if path == KVOConstants.title.rawValue {
-                guard let title = self.webView?.title else { return }
-                for delegate in self.tabStateChangeDelegates {
-                    delegate.tab(self, titleDidChangeTo: title)
-                }
+        if path == KVOConstants.URL.rawValue {
+            guard let url = self.webView?.url else { return }
+            for delegate in self.tabStateChangeDelegates {
+                delegate.tab(self, urlDidChangeTo: url)
+            }
+        } else if path == KVOConstants.title.rawValue {
+            guard let title = self.webView?.title else { return }
+            for delegate in self.tabStateChangeDelegates {
+                delegate.tab(self, titleDidChangeTo: title)
             }
         }
     }
@@ -621,39 +614,28 @@ class Tab: NSObject {
     }
 
     private func setupRefreshControl() {
-        self.refreshControl = CliqzRefreshControl()
+        guard let scrollView = self.webView?.scrollView, self.refreshControl == nil else { return }
+        self.refreshControl = CliqzRefreshControl(scrollView: scrollView)
+        self.refreshControl?.delegate = self
         self.refreshControl?.alpha = 0.0
-        self.refreshControl!.addTarget(self, action: #selector(reload), for: UIControl.Event.valueChanged)
-        self.webView?.scrollView.addSubview(self.refreshControl!)
-        self.refreshControl?.updateHeight(height: self.browserViewController?.notchAreaCover.frame.size.height ?? 0)
-        self.subscribeOnScrollViewContentOffset()
     }
 
-    private func subscribeOnScrollViewContentOffset() {
-        self.webView?.scrollView.addObserver(self, forKeyPath: "contentOffset", options: .new, context: &self.scrollViewOffsetContext)
+}
+
+extension Tab: CliqzRefreshControlDelegate {
+
+    func refreshControllAlphaDidChange(alpha: CGFloat) {
+        self.browserViewController?.notchAreaCover.alpha = 1 - alpha
     }
 
-    private func scrollViewDidScroll() {
-        guard let scrollView = self.webView?.scrollView else {
-            return
-        }
-        if self.pullToRefreshAllowed {
-            if scrollView.contentOffset.y < 0.0 {
-                let alpha = abs(scrollView.contentOffset.y) / 20
-                self.browserViewController?.notchAreaCover.alpha = max(0.0, 1 - alpha)
-                self.refreshControl?.alpha = min(alpha, 1.0)
-            } else {
-                self.pullToRefreshAllowed = scrollView.isDragging || scrollView.contentOffset.y == 0.0
-                self.browserViewController?.notchAreaCover.alpha = 1.0
-                self.refreshControl?.alpha = 0.0
-            }
-        } else {
-            self.pullToRefreshAllowed = !scrollView.isDragging && scrollView.contentOffset.y == 0.0
-        }
-        let headerHeight = self.browserViewController?.notchAreaCover.frame.size.height ?? 0
-        let offset = scrollView.contentOffset.y < 0 ? abs(scrollView.contentOffset.y) : 0
-        self.refreshControl?.updateHeight(height: headerHeight + offset)
+    func refreshControllMinimumHeight() -> CGFloat {
+        return self.browserViewController?.notchAreaCover.frame.height ?? 0
     }
+
+    func refreshControllDidRefresh() {
+        self.reload()
+    }
+
 }
 
 extension Tab: TabWebViewDelegate {
