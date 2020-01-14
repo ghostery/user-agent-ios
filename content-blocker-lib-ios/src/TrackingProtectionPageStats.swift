@@ -20,6 +20,11 @@ enum WTMCategory: String {
     case unknown = "unknown"
 }
 
+struct Tracker: Hashable {
+    var category: WTMCategory
+    var id: String
+}
+
 struct TPPageStats {
     private (set) var adCount: Int = 0
     private (set) var analyticCount: Int = 0
@@ -36,12 +41,15 @@ struct TPPageStats {
     private (set) var cdnCount: Int = 0
     private (set) var unknownCount: Int = 0
 
+    private (set) var trackers: Set<Tracker> = []
+
     var total: Int {
         return self.adCount + self.socialCount + self.analyticCount + self.contentCount + self.essentialCount + self.miscCount + self.hostingCount + self.pornvertisingCount + self.audioVideoPlayerCount + self.extensionsCount + self.customerInteractionCount + self.commentsCount + self.cdnCount + self.unknownCount
     }
 
-    mutating func update(byAddingCategory category: WTMCategory) {
-        switch category {
+    mutating func update(byAddingTracker tracker: Tracker) {
+        self.trackers.insert(tracker)
+        switch tracker.category {
         case .advertising:
             self.adCount += 1
         case .analytics:
@@ -80,8 +88,8 @@ class TPStatsBlocklistChecker {
     // Initialized async, is non-nil when ready to be used.
     private var blockLists: TPStatsBlocklists?
 
-    func isBlocked(url: URL) -> Deferred<WTMCategory?> {
-        let deferred = Deferred<WTMCategory?>()
+    func isBlocked(url: URL) -> Deferred<Tracker?> {
+        let deferred = Deferred<Tracker?>()
 
         guard let blockLists = blockLists, let host = url.host, !host.isEmpty else {
             // TP Stats init isn't complete yet
@@ -93,7 +101,9 @@ class TPStatsBlocklistChecker {
         let whitelistRegex = ContentBlocker.shared.whitelists.ads.whitelistedDomains.domainRegex + ContentBlocker.shared.whitelists.trackers.whitelistedDomains.domainRegex
 
         DispatchQueue.global().async {
-            deferred.fill(blockLists.urlIsInCategory(url, whitelistedDomains: whitelistRegex).flatMap { $0 })
+            deferred.fill(
+                blockLists.urlIsInCategory(url, whitelistedDomains: whitelistRegex)
+            )
         }
         return deferred
     }
@@ -129,8 +139,7 @@ func wildcardContentBlockerDomainToRegex(domain: String) -> String? {
 }
 
 class TPStatsBlocklists {
-
-    private var domainCategoryMap = [String: WTMCategory]()
+    private var trackers = [String: (Tracker)]()
 
     func load() {
         do {
@@ -150,10 +159,11 @@ class TPStatsBlocklists {
             }
             var categories = [String: String]()
             for app in apps {
-                if let value = app.value as? [String: String] {
-                    if let category = value["cat"] {
-                        categories[app.key] = category
-                    }
+                if
+                    let value = app.value as? [String: AnyObject],
+                    let category = value["cat"] as? String
+                {
+                    categories[app.key] = category
                 }
             }
             guard let domains = data["domains"] as? [String: AnyObject] else {
@@ -168,7 +178,7 @@ class TPStatsBlocklists {
                 else {
                     continue
                 }
-                self.domainCategoryMap[domain.key] = wtmCategory
+                self.trackers[domain.key] = Tracker(category: wtmCategory, id: id)
             }
         } catch {
             assertionFailure("Blocklists: \(error.localizedDescription)")
@@ -176,13 +186,14 @@ class TPStatsBlocklists {
         }
     }
 
-    func urlIsInCategory(_ url: URL, whitelistedDomains: [String]) -> WTMCategory? {
+    func urlIsInCategory(_ url: URL, whitelistedDomains: [String]) -> Tracker? {
         guard let baseDomain = url.baseDomain else {
             return nil
         }
-        guard let category = self.domainCategoryMap[baseDomain] else {
+        guard let tracker = self.trackers[baseDomain] else {
             return nil
         }
+
         // Check the whitelist.
         if !whitelistedDomains.isEmpty {
             for ignoreDomain in whitelistedDomains {
@@ -191,7 +202,7 @@ class TPStatsBlocklists {
                 }
             }
         }
-        return category
+        return tracker
     }
 
 }

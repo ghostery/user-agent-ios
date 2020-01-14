@@ -12,7 +12,6 @@ import Shared
 
 @objc(BrowserTabs)
 class BrowserTabs: RCTEventEmitter, NativeModuleBase {
-    private var weakTabSet: [WeakRef<Tab>] = []
     private var isListeningForTabEvents = false
 
     @objc(startListeningForTabEvents)
@@ -42,28 +41,13 @@ class BrowserTabs: RCTEventEmitter, NativeModuleBase {
         }
     }
 
-    private func getTabId(_ tab: Tab?) -> Int? {
-        guard let tab = tab else { return nil }
-        var id = self.weakTabSet.firstIndex(where: { $0.value === tab }) as Int?
-        if id == nil {
-            weakTabSet.append(WeakRef(tab))
-            // tab id counted from 1 not from 0
-            id = weakTabSet.count
-        } else {
-            // start counting tab ids with 1
-            id = id! + 1
-        }
-        return id
-    }
-
     private func serializeTab(_ tab: Tab, withTabManager tabManager: TabManager) -> [String: Any] {
-        let id = getTabId(tab)
         let isInReaderMode = tab.actualURL?.isReaderModeURL ?? false
         let isActive = tabManager.selectedTab == tab
         let isPrivate = tab.isPrivate
         let tabs = isPrivate ? tabManager.privateTabs : tabManager.normalTabs
         return [
-            "id": id ?? -1,
+            "id": tab.id,
             "active": isActive,
             "hidden": false,
             "highlighted": false,
@@ -106,7 +90,7 @@ extension BrowserTabs: TabManagerDelegate {
 
         guard let selectedTab = selected else { return }
         let serializedSelectedTab = self.serializeTab(selectedTab, withTabManager: tabManager)
-        let previousTabId = self.getTabId(previous)
+        let previousTabId = previous?.id
 
         sendEvent(body: [
             "eventName": "onActivated",

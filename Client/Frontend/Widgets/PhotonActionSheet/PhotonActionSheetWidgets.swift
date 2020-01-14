@@ -71,7 +71,7 @@ public struct PhotonActionSheetItem {
     public fileprivate(set) var tabCount: String?
     public fileprivate(set) var handler: ((PhotonActionSheetItem) -> Void)?
     public fileprivate(set) var badgeIconName: String?
-    public private(set) var customView: UIView?
+    public private(set) var customView: PhotonCustomViewCellContent?
 
     // Enable title customization beyond what the interface provides,
     public var customRender: ((_ title: UILabel, _ contentView: UIView) -> Void)?
@@ -84,7 +84,7 @@ public struct PhotonActionSheetItem {
     init(title: String, text: String? = nil, iconString: String? = nil, iconURL: URL? = nil, iconType: PhotonActionSheetIconType = .Image,
          iconAlignment: IconAlignment = .left, isEnabled: Bool = false, accessory: PhotonActionSheetCellAccessoryType = .None,
          accessoryText: String? = nil, badgeIconNamed: String? = nil, bold: Bool? = false, tabCount: String? = nil,
-         customView: UIView? = nil, handler: ((PhotonActionSheetItem) -> Void)? = nil) {
+         customView: PhotonCustomViewCellContent? = nil, handler: ((PhotonActionSheetItem) -> Void)? = nil) {
         self.title = title
         self.iconString = iconString
         self.iconURL = iconURL
