@@ -4,6 +4,7 @@ const fs = require('fs');
 const fetch = require("node-fetch");
 
 (async function () {
+  // Ad rules
   const adList = await (await fetch("https://cdn.cliqz.com/adblocker/configs/safari-ads/allowed-lists.json")).json();
 
   // Ad Network rules
@@ -16,10 +17,19 @@ const fetch = require("node-fetch");
   const adCosmeticRules = await (await fetch(adCosmeticRulesUrl)).text();
   fs.writeFileSync('content-blocker-lib-ios/Lists/safari-ads-cosmetic.json', adCosmeticRules);
 
+  // Tracking rules
   const trackingList = await (await fetch("https://cdn.cliqz.com/adblocker/configs/safari-tracking/allowed-lists.json")).json();
 
   // Tracking Network rules
   const trackingNetworkRulesUrl = trackingList.safari.network;
   const trackingNetworkRules = await (await fetch(trackingNetworkRulesUrl)).text();
   fs.writeFileSync('content-blocker-lib-ios/Lists/safari-tracking-network.json', trackingNetworkRules);
+
+  // Popups rules
+  const popupsList = await (await fetch("https://cdn.cliqz.com/adblocker/configs/safari-autoconsent/allowed-lists.json")).json();
+
+  // Popup Cosmetic rules
+  const popupsCosmeticRulesUrl = popupsList.safari.cosmetic;
+  const popupsCosmeticRules = await (await fetch(popupsCosmeticRulesUrl)).text();
+  fs.writeFileSync('content-blocker-lib-ios/Lists/safari-popups-cosmetic.json', popupsCosmeticRules);
 })();

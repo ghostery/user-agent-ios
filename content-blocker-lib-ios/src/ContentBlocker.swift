@@ -9,6 +9,7 @@ enum BlocklistName: String {
     case advertisingNetwork = "advertisingNetwork"
     case advertisingCosmetic = "advertisingCosmetic"
     case trackingNetwork = "trackingNetwork"
+    case popupsCosmetic = "popupsCosmetic"
 
     var filename: String {
         switch self {
@@ -18,10 +19,17 @@ enum BlocklistName: String {
             return "safari-ads-cosmetic"
         case .trackingNetwork:
             return "safari-tracking-network"
+        case .popupsCosmetic:
+            return "safari-popups-cosmetic"
         }
     }
 
-    static var all: [BlocklistName] { return [.advertisingNetwork, .advertisingCosmetic, .trackingNetwork] }
+    static let all: [BlocklistName] = [
+        .advertisingNetwork,
+        .advertisingCosmetic,
+        .trackingNetwork,
+        .popupsCosmetic,
+    ]
 }
 
 enum BlockerStatus: String {
@@ -33,19 +41,24 @@ enum BlockerStatus: String {
     case Blocking
 }
 
-struct WhitelistedDomains {
-    var domainSet = Set<String>() {
+internal class Whitelists {
+    public let ads = Whitelist(whitelistFilename: "ads_whitelist")
+    public let trackers = Whitelist(whitelistFilename: "whitelist")
+    public let popups = Whitelist(whitelistFilename: "popups_whitelist")
+
+    var cleanupStore: (((() -> Void)?) -> Void)? {
         didSet {
-            domainRegex = domainSet.compactMap { wildcardContentBlockerDomainToRegex(domain: "*" + $0) }
+            self.ads.cleanupStore = cleanupStore
+            self.trackers.cleanupStore = cleanupStore
+            self.popups.cleanupStore = cleanupStore
         }
     }
 
-    private(set) var domainRegex = [String]()
+    init() {}
 }
 
 class ContentBlocker {
-    var adsWhitelistedDomains = WhitelistedDomains()
-    var trackingWhitelistedDomains = WhitelistedDomains()
+    internal let whitelists = Whitelists()
 
     let ruleStore: WKContentRuleListStore = WKContentRuleListStore.default()
     var setupCompleted = false
@@ -53,13 +66,8 @@ class ContentBlocker {
     static let shared = ContentBlocker()
 
     private init() {
-        // Read the whitelist at startup
-        if let list = self.readAdsWhitelistFile() {
-            self.adsWhitelistedDomains.domainSet = Set(list)
-        }
-
-        if let list = self.readTrackingWhitelistFile() {
-            self.trackingWhitelistedDomains.domainSet = Set(list)
+        self.whitelists.cleanupStore = { completion in
+            self.clearWhitelists(completion: completion)
         }
 
         TPStatsBlocklistChecker.shared.startup()
@@ -70,6 +78,15 @@ class ContentBlocker {
                     self.setupCompleted = true
                     NotificationCenter.default.post(name: .contentBlockerTabSetupRequired, object: nil)
                 }
+            }
+        }
+    }
+
+    func clearWhitelists(completion: (() -> Void)?) {
+        self.removeAllRulesInStore {
+            self.compileListsNotInStore {
+                completion?()
+                NotificationCenter.default.post(name: .contentBlockerTabSetupRequired, object: nil)
             }
         }
     }
@@ -261,6 +278,8 @@ extension ContentBlocker {
                         str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "]")
                     case .trackingNetwork:
                         str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "]")
+                    case .popupsCosmetic:
+                        str = str.replacingCharacters(in: range, with: self.popupsWhitelistAsJSON() + "]")
                     }
                     self.ruleStore.compileContentRuleList(forIdentifier: item.filename, encodedContentRuleList: str) { rule, error in
                         if let error = error {
