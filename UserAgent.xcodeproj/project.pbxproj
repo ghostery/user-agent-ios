@@ -69,6 +69,8 @@
 		2B4DFF2323CF0777001145AF /* BrowserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2123CF0777001145AF /* BrowserSearch.swift */; };
 		2B4DFF2523CF07E1001145AF /* BrowserSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2423CF07E1001145AF /* BrowserSearch.m */; };
 		2B4DFF2623CF07E1001145AF /* BrowserSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2423CF07E1001145AF /* BrowserSearch.m */; };
+		2B4DFF2823CF18BF001145AF /* OpenLinkUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */; };
+		2B4DFF2923CF18BF001145AF /* OpenLinkUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */; };
 		2B4EFBD823991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4EFBD723991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift */; };
 		2B4EFBD923991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4EFBD723991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift */; };
 		2B4EFBDB2399233A007A10E0 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4EFBDA2399233A007A10E0 /* News.swift */; };
@@ -1199,6 +1201,7 @@
 		2B473CF32396387B00442059 /* TabBarUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUseCases.swift; sourceTree = "<group>"; };
 		2B4DFF2123CF0777001145AF /* BrowserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSearch.swift; sourceTree = "<group>"; };
 		2B4DFF2423CF07E1001145AF /* BrowserSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserSearch.m; sourceTree = "<group>"; };
+		2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinkUseCases.swift; sourceTree = "<group>"; };
 		2B4EFBD723991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLanguagesSettingsViewController.swift; sourceTree = "<group>"; };
 		2B4EFBDA2399233A007A10E0 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		2B516D28238BAC8B006D6B57 /* DownloadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
@@ -2077,6 +2080,7 @@
 				2B473CF0239637DE00442059 /* UseCases.swift */,
 				2B473CF32396387B00442059 /* TabBarUseCases.swift */,
 				C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */,
+				2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -4954,6 +4958,7 @@
 				2B516D32238BAC8B006D6B57 /* DownloadsView.swift in Sources */,
 				46CA60F32317E4780010CE6B /* JSBridge.swift in Sources */,
 				2B4DFF2623CF07E1001145AF /* BrowserSearch.m in Sources */,
+				2B4DFF2923CF18BF001145AF /* OpenLinkUseCases.swift in Sources */,
 				ACB7373523042BAB00FA5626 /* BrowserViewController+ReaderMode.swift in Sources */,
 				46ECCD2123A384F0002E761C /* ContextMenu.swift in Sources */,
 				ACB7373623042BAB00FA5626 /* PhotonActionSheetWidgets.swift in Sources */,
@@ -5218,6 +5223,7 @@
 				E692E3371C46E86A009D1240 /* AppSettingsOptions.swift in Sources */,
 				2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
 				E4CD9F6D1A77DD2800318571 /* ReaderModeStyleViewController.swift in Sources */,
+				2B4DFF2823CF18BF001145AF /* OpenLinkUseCases.swift in Sources */,
 				D0FCF7F51FE45842004A7995 /* UserScriptManager.swift in Sources */,
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
 				463432FB233381C70014A9F0 /* BrowserCoreClient.swift in Sources */,

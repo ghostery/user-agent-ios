@@ -115,8 +115,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         self.tabManager = TabManager(profile: profile, imageStore: imageStore)
 
-        self.useCases = UseCases(tabManager: self.tabManager, profile: profile)
-
         // Add restoration class, the factory that will return the ViewController we
         // will restore with.
 
@@ -138,6 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, ui: self.browserViewController, useCases: self.useCases)
         self.humanWebFeature = HumanWebFeature(tabManager: self.tabManager)
         self.insightsFeature = InsightsFeature(tabManager: self.tabManager)
+        self.useCases = UseCases(tabManager: self.tabManager, profile: self.profile!, browserViewController: self.browserViewController)
 
         let navigationController = UINavigationController(rootViewController: browserViewController)
         navigationController.delegate = self
