@@ -9,7 +9,7 @@
 import React
 
 @objc(BrowserSearch)
-class BrowserSearch: RCTEventEmitter, NativeModuleBase {
+class BrowserSearch: NSObject, NativeModuleBase {
 
     @objc(get:reject:)
     public func get(resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
@@ -37,7 +37,8 @@ class BrowserSearch: RCTEventEmitter, NativeModuleBase {
         }
     }
 
-    override static func requiresMainQueueSetup() -> Bool {
+    @objc(requiresMainQueueSetup)
+    static func requiresMainQueueSetup() -> Bool {
         return false
     }
 

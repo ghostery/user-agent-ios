@@ -7,9 +7,8 @@
 //
 
 #import <React/RCTBridgeModule.h>
-#import <React/RCTEventEmitter.h>
 
-@interface RCT_EXTERN_MODULE(BrowserSearch, RCTEventEmitter)
+@interface RCT_EXTERN_MODULE(BrowserSearch, NSObject)
 
 RCT_EXTERN_METHOD(get:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 RCT_EXTERN_METHOD(search:(NSString)query name:(NSString)name)
