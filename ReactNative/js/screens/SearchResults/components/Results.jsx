@@ -6,12 +6,15 @@ import {
   Text,
   ScrollView,
   NativeModules,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import ResultList from './ResultList';
 import SpeedDial from '../../../components/SpeedDial';
+import NativeDrawable from '../../../components/NativeDrawable';
 import { withTheme } from '../../../contexts/theme';
 import CliqzProvider from '../../../contexts/cliqz';
 import t from '../../../services/i18n';
+import { resultTitleFontSize } from '../styles';
 
 const getStyles = theme =>
   StyleSheet.create({
@@ -36,18 +39,27 @@ const getStyles = theme =>
       backgroundColor: theme.separatorColor,
     },
     footer: {
-      height: 50,
-      borderTopColor: theme.separatorColor,
-      borderTopWidth: 1,
-      backgroundColor: theme.backgroundColor,
+      height: 60,
+      borderBottomColor: theme.separatorColor,
+      borderBottomWidth: 1,
+      backgroundColor: theme.separatorColor,
       alignItems: 'center',
       justifyContent: 'center',
       borderBottomLeftRadius: 10,
       borderBottomRightRadius: 10,
     },
+    footerWrapper: {
+      flexDirection: 'row',
+    },
+    footerIcon: {
+      width: 20,
+      height: 20,
+    },
     footerText: {
       color: theme.textColor,
-      fontSize: 9,
+      alignSelf: 'center',
+      marginLeft: 10,
+      fontSize: resultTitleFontSize,
     },
     noResults: {
       backgroundColor: theme.backgroundColor,
@@ -238,9 +250,24 @@ class Results extends React.Component {
                   </Text>
                 </View>
               )}
-              <View style={styles.footer}>
-                <Text style={styles.footerText}>{t('search_footer')}</Text>
-              </View>
+
+              <TouchableWithoutFeedback
+                onPress={() =>
+                  this.openSearchEngineResultsPage('Cliqz', query, 0)
+                }
+              >
+                <View style={styles.footer}>
+                  <View style={styles.footerWrapper}>
+                    <NativeDrawable
+                      style={styles.footerIcon}
+                      source="nav-menu"
+                      color={_theme.brandTintColor}
+                    />
+                    <Text style={styles.footerText}>{t('search_footer')}</Text>
+                  </View>
+                </View>
+              </TouchableWithoutFeedback>
+
               <View style={styles.searchEnginesHeader}>
                 <Text style={styles.searchEnginesHeaderText}>
                   {t('search_alternative_search_engines_info')}
@@ -259,6 +286,9 @@ class Results extends React.Component {
                           styles={{
                             label: {
                               color: _theme.separatorColor,
+                            },
+                            circle: {
+                              borderColor: `${_theme.separatorColor}44`,
                             },
                           }}
                           speedDial={{

@@ -30,6 +30,7 @@ extension ReactViewTheme {
             "redColor": "#E64C68",
             "fontSize": DynamicFontHelper.defaultHelper.DeviceFontSize,
             "fontSizeLarge": DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS.pointSize,
+            "brandTintColor": Theme.general.controlTint.hexString,
         ]
     }
 }
