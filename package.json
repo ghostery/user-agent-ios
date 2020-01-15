@@ -18,6 +18,7 @@
   "license": "MPL-2.0",
   "dependencies": {
     "@babel/core": "^7.7.2",
+    "@cliqz/component-styles": "^0.5.0",
     "@cliqz/component-ui-logo": "^0.5.4",
     "@cliqz/component-ui-snippet-news": "^0.5.2",
     "@cliqz/component-ui-snippet-weather": "^0.5.2",

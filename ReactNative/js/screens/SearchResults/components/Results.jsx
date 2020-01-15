@@ -5,14 +5,16 @@ import {
   View,
   Text,
   ScrollView,
-  TouchableWithoutFeedback,
   NativeModules,
+  TouchableWithoutFeedback,
 } from 'react-native';
-import NativeDrawable from '../../../components/NativeDrawable';
 import ResultList from './ResultList';
+import SpeedDial from '../../../components/SpeedDial';
+import NativeDrawable from '../../../components/NativeDrawable';
 import { withTheme } from '../../../contexts/theme';
 import CliqzProvider from '../../../contexts/cliqz';
 import t from '../../../services/i18n';
+import { resultTitleFontSize } from '../styles';
 
 const getStyles = theme =>
   StyleSheet.create({
@@ -37,18 +39,27 @@ const getStyles = theme =>
       backgroundColor: theme.separatorColor,
     },
     footer: {
-      height: 50,
-      borderTopColor: theme.separatorColor,
-      borderTopWidth: 1,
-      backgroundColor: theme.backgroundColor,
+      height: 60,
+      borderBottomColor: theme.separatorColor,
+      borderBottomWidth: 1,
+      backgroundColor: theme.separatorColor,
       alignItems: 'center',
       justifyContent: 'center',
       borderBottomLeftRadius: 10,
       borderBottomRightRadius: 10,
     },
+    footerWrapper: {
+      flexDirection: 'row',
+    },
+    footerIcon: {
+      width: 20,
+      height: 20,
+    },
     footerText: {
       color: theme.textColor,
-      fontSize: 9,
+      alignSelf: 'center',
+      marginLeft: 10,
+      fontSize: resultTitleFontSize,
     },
     noResults: {
       backgroundColor: theme.backgroundColor,
@@ -71,10 +82,16 @@ const getStyles = theme =>
       fontSize: 12,
     },
     searchEnginesContainer: {
+      marginTop: 10,
+      marginBottom: 100,
+      textAlign: 'center',
+    },
+    searchEnginesGroupContainer: {
+      flex: 1,
       flexDirection: 'row',
       justifyContent: 'space-evenly',
       marginTop: 10,
-      marginBottom: 100,
+      marginBottom: 10,
       textAlign: 'center',
     },
     searchEngineIcon: {
@@ -106,10 +123,30 @@ function isResultAllowed({ template, provider, type }) {
   );
 }
 
+function groupBy(arr, n) {
+  const group = [];
+  for (let i = 0, j = 0; i < arr.length; i += 1) {
+    if (i >= n && i % n === 0) {
+      j += 1;
+    }
+    group[j] = group[j] || [];
+    group[j].push(arr[i]);
+  }
+  return group;
+}
+
 class Results extends React.Component {
   constructor(props) {
     super(props);
     this.scrollRef = React.createRef();
+    this.state = {
+      searchEngines: [],
+    };
+    browser.search.get().then(searchEngines => {
+      this.setState({
+        searchEngines,
+      });
+    });
   }
 
   // eslint-disable-next-line react/no-deprecated
@@ -119,27 +156,38 @@ class Results extends React.Component {
     }
   }
 
-  openSearchEngineLink = async (url, index, name) => {
-    const { results = {}, query, cliqz } = this.props;
+  openSearchEngineResultsPage = async (searchEngine, query, index) => {
+    const { results = {}, cliqz } = this.props;
     const meta = results.meta || {};
-    await cliqz.mobileCards.openLink(url, {
-      action: 'click',
-      elementName: 'icon',
-      isFromAutoCompletedUrl: false,
-      isNewTab: false,
-      isPrivateMode: false,
-      isPrivateResult: meta.isPrivate,
-      query,
-      isSearchEngine: true,
-      rawResult: {
-        index,
+    const { favIconUrl: url } = searchEngine;
+
+    await cliqz.search.reportSelection(
+      {
+        action: 'click',
+        elementName: 'icon',
+        isFromAutoCompletedUrl: false,
+        isNewTab: false,
+        isPrivateMode: false,
+        isPrivateResult: meta.isPrivate,
+        query,
+        isSearchEngine: true,
+        rawResult: {
+          index,
+          url,
+          provider: 'instant',
+          type: 'supplementary-search',
+          kind: [`custom-search|{"class":"${searchEngine.name}"}`],
+        },
+        resultOrder: meta.resultOrder,
         url,
-        provider: 'instant',
-        type: 'supplementary-search',
-        kind: [`custom-search|{"class":"${name}"}`],
       },
-      resultOrder: meta.resultOrder,
-      url,
+      {
+        contextId: 'mobile-cards',
+      },
+    );
+    browser.search.search({
+      query,
+      engine: searchEngine.name,
     });
   };
 
@@ -151,6 +199,7 @@ class Results extends React.Component {
       meta,
       query: resultsQuery,
     } = _results;
+    const { searchEngines } = this.state;
     const results = (allResults || []).filter(isResultAllowed);
     const styles = getStyles(_theme);
 
@@ -201,73 +250,64 @@ class Results extends React.Component {
                   </Text>
                 </View>
               )}
-              <View style={styles.footer}>
-                <Text style={styles.footerText}>{t('search_footer')}</Text>
-              </View>
+
+              <TouchableWithoutFeedback
+                onPress={() =>
+                  this.openSearchEngineResultsPage({ name: 'Cliqz' }, query, 0)
+                }
+              >
+                <View style={styles.footer}>
+                  <View style={styles.footerWrapper}>
+                    <NativeDrawable
+                      style={styles.footerIcon}
+                      source="nav-menu"
+                      color={_theme.brandTintColor}
+                    />
+                    <Text style={styles.footerText}>{t('search_footer')}</Text>
+                  </View>
+                </View>
+              </TouchableWithoutFeedback>
+
               <View style={styles.searchEnginesHeader}>
                 <Text style={styles.searchEnginesHeaderText}>
                   {t('search_alternative_search_engines_info')}
                 </Text>
               </View>
               <View style={styles.searchEnginesContainer}>
-                <TouchableWithoutFeedback
-                  onPress={() =>
-                    this.openSearchEngineLink(
-                      `https://beta.cliqz.com/search?q=${encodeURIComponent(
-                        query,
-                      )}#channel=ios`,
-                      0,
-                      'cliqz',
-                    )
-                  }
-                >
-                  <View>
-                    <NativeDrawable
-                      style={styles.searchEngineIcon}
-                      color="#ffffff"
-                      source="ic_ez_cliqz"
-                    />
-                    <Text style={styles.searchEngineText}>Cliqz</Text>
-                  </View>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback
-                  onPress={() =>
-                    this.openSearchEngineLink(
-                      `https://www.google.com/search?q=${encodeURIComponent(
-                        query,
-                      )}`,
-                      1,
-                      'google',
-                    )
-                  }
-                >
-                  <View>
-                    <NativeDrawable
-                      style={styles.searchEngineIcon}
-                      color="#ffffff"
-                      source="ic_ez_google"
-                    />
-                    <Text style={styles.searchEngineText}>Google</Text>
-                  </View>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback
-                  onPress={() =>
-                    this.openSearchEngineLink(
-                      `https://duckduckgo.com/?q=${encodeURIComponent(query)}`,
-                      2,
-                      'duckduckgo',
-                    )
-                  }
-                >
-                  <View>
-                    <NativeDrawable
-                      style={styles.searchEngineIcon}
-                      color="#ffffff"
-                      source="ic_ez_ddg"
-                    />
-                    <Text style={styles.searchEngineText}>DuckDuckGo</Text>
-                  </View>
-                </TouchableWithoutFeedback>
+                {groupBy(searchEngines, 3).map(
+                  (searchEnginesGroup, groupIndex) => (
+                    <View
+                      style={styles.searchEnginesGroupContainer}
+                      key={searchEnginesGroup.map(e => e.name).join('')}
+                    >
+                      {searchEnginesGroup.map((searchEngine, engineIndex) => (
+                        <SpeedDial
+                          key={searchEngine.name}
+                          styles={{
+                            label: {
+                              color: _theme.separatorColor,
+                            },
+                            circle: {
+                              borderColor: `${_theme.separatorColor}44`,
+                            },
+                          }}
+                          speedDial={{
+                            pinned: false,
+                            url: searchEngine.favIconUrl,
+                          }}
+                          onPress={() =>
+                            this.openSearchEngineResultsPage(
+                              searchEngine,
+                              query,
+                              // index 0 is "show more results" Cliqz link
+                              1 + groupIndex * 3 + engineIndex,
+                            )
+                          }
+                        />
+                      ))}
+                    </View>
+                  ),
+                )}
               </View>
             </>
           </ScrollView>

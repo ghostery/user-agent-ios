@@ -1,6 +1,7 @@
 import { NativeEventEmitter, NativeModules } from 'react-native';
 import networkStatus from './globals/browser/networkStatus';
 import tabs from './globals/browser/tabs';
+import search from './globals/browser/search';
 import './globals/navigator/userAgent';
 import './globals/window/DOMParser';
 
@@ -23,6 +24,7 @@ const browser = {
     },
   },
   tabs,
+  search,
   cliqz: {
     async setPref(/* key, value */) {
       return Promise.resolve();

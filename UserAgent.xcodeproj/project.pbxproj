@@ -65,6 +65,12 @@
 		2B473CF2239637DE00442059 /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF0239637DE00442059 /* UseCases.swift */; };
 		2B473CF42396387B00442059 /* TabBarUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF32396387B00442059 /* TabBarUseCases.swift */; };
 		2B473CF52396387B00442059 /* TabBarUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF32396387B00442059 /* TabBarUseCases.swift */; };
+		2B4DFF2223CF0777001145AF /* BrowserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2123CF0777001145AF /* BrowserSearch.swift */; };
+		2B4DFF2323CF0777001145AF /* BrowserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2123CF0777001145AF /* BrowserSearch.swift */; };
+		2B4DFF2523CF07E1001145AF /* BrowserSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2423CF07E1001145AF /* BrowserSearch.m */; };
+		2B4DFF2623CF07E1001145AF /* BrowserSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2423CF07E1001145AF /* BrowserSearch.m */; };
+		2B4DFF2823CF18BF001145AF /* OpenLinkUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */; };
+		2B4DFF2923CF18BF001145AF /* OpenLinkUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */; };
 		2B4EFBD823991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4EFBD723991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift */; };
 		2B4EFBD923991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4EFBD723991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift */; };
 		2B4EFBDB2399233A007A10E0 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4EFBDA2399233A007A10E0 /* News.swift */; };
@@ -237,17 +243,17 @@
 		464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */; };
 		464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
 		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		46569CC623CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
+		46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
+		46569CCB23CC902C00224DC2 /* ControlCenter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46569CCE23CC902C00224DC2 /* ControlCenter.strings */; };
+		46569CCC23CC902C00224DC2 /* ControlCenter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46569CCE23CC902C00224DC2 /* ControlCenter.strings */; };
+		46569CD323CC90C900224DC2 /* Strings+ControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CD023CC90C900224DC2 /* Strings+ControlCenter.swift */; };
 		46569CD523CCC60400224DC2 /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CD423CCC60400224DC2 /* Whitelist.swift */; };
 		46569CD623CCC60400224DC2 /* Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CD423CCC60400224DC2 /* Whitelist.swift */; };
 		46569CD823CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */; };
 		46569CD923CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */; };
 		46569CDB23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */; };
 		46569CDC23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */; };
-		46569CC623CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
-		46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
-		46569CCB23CC902C00224DC2 /* ControlCenter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46569CCE23CC902C00224DC2 /* ControlCenter.strings */; };
-		46569CCC23CC902C00224DC2 /* ControlCenter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46569CCE23CC902C00224DC2 /* ControlCenter.strings */; };
-		46569CD323CC90C900224DC2 /* Strings+ControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CD023CC90C900224DC2 /* Strings+ControlCenter.swift */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -1193,6 +1199,9 @@
 		2B473CEC23952A2700442059 /* BloomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomFilter.swift; sourceTree = "<group>"; };
 		2B473CF0239637DE00442059 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
 		2B473CF32396387B00442059 /* TabBarUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUseCases.swift; sourceTree = "<group>"; };
+		2B4DFF2123CF0777001145AF /* BrowserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSearch.swift; sourceTree = "<group>"; };
+		2B4DFF2423CF07E1001145AF /* BrowserSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserSearch.m; sourceTree = "<group>"; };
+		2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinkUseCases.swift; sourceTree = "<group>"; };
 		2B4EFBD723991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLanguagesSettingsViewController.swift; sourceTree = "<group>"; };
 		2B4EFBDA2399233A007A10E0 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		2B516D28238BAC8B006D6B57 /* DownloadsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
@@ -1324,13 +1333,13 @@
 		46442CED238BE61D002E6D85 /* HumanWebFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanWebFeature.swift; sourceTree = "<group>"; };
 		464E6837234B75E300ABAC43 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		464E683A234CB06200ABAC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		46569CD423CCC60400224DC2 /* Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whitelist.swift; sourceTree = "<group>"; };
-		46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-cosmetic.json"; sourceTree = "<group>"; };
-		46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Popups+Whitelist.swift"; sourceTree = "<group>"; };
 		46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatsView.swift; sourceTree = "<group>"; };
 		46569CCD23CC902C00224DC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ControlCenter.strings; sourceTree = "<group>"; };
 		46569CCF23CC903100224DC2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ControlCenter.strings; sourceTree = "<group>"; };
 		46569CD023CC90C900224DC2 /* Strings+ControlCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+ControlCenter.swift"; sourceTree = "<group>"; };
+		46569CD423CCC60400224DC2 /* Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whitelist.swift; sourceTree = "<group>"; };
+		46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-cosmetic.json"; sourceTree = "<group>"; };
+		46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Popups+Whitelist.swift"; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -2071,6 +2080,7 @@
 				2B473CF0239637DE00442059 /* UseCases.swift */,
 				2B473CF32396387B00442059 /* TabBarUseCases.swift */,
 				C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */,
+				2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -2460,6 +2470,8 @@
 				46BBFA632358B10400283594 /* BrowserCliqz.swift */,
 				46FA068623BB7B2400B22F71 /* BrowserTabs.m */,
 				46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */,
+				2B4DFF2423CF07E1001145AF /* BrowserSearch.m */,
+				2B4DFF2123CF0777001145AF /* BrowserSearch.swift */,
 			);
 			path = BrowserAPI;
 			sourceTree = "<group>";
@@ -4945,6 +4957,8 @@
 				46CA610B231909EF0010CE6B /* ReactNativeBridge.swift in Sources */,
 				2B516D32238BAC8B006D6B57 /* DownloadsView.swift in Sources */,
 				46CA60F32317E4780010CE6B /* JSBridge.swift in Sources */,
+				2B4DFF2623CF07E1001145AF /* BrowserSearch.m in Sources */,
+				2B4DFF2923CF18BF001145AF /* OpenLinkUseCases.swift in Sources */,
 				ACB7373523042BAB00FA5626 /* BrowserViewController+ReaderMode.swift in Sources */,
 				46ECCD2123A384F0002E761C /* ContextMenu.swift in Sources */,
 				ACB7373623042BAB00FA5626 /* PhotonActionSheetWidgets.swift in Sources */,
@@ -4977,6 +4991,7 @@
 				46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */,
 				ACB7374823042BAB00FA5626 /* TestAppDelegate.swift in Sources */,
 				2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */,
+				2B4DFF2323CF0777001145AF /* BrowserSearch.swift in Sources */,
 				46569CD623CCC60400224DC2 /* Whitelist.swift in Sources */,
 				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
 				46CA60FF2317F8F60010CE6B /* SearchResultsViewController.swift in Sources */,
@@ -5204,9 +5219,11 @@
 				C5D1EB4C23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */,
 				D029A04920A62DB0001DB72F /* TemporaryDocument.swift in Sources */,
 				2B516D37238BAC8B006D6B57 /* HistoryView.swift in Sources */,
+				2B4DFF2523CF07E1001145AF /* BrowserSearch.m in Sources */,
 				E692E3371C46E86A009D1240 /* AppSettingsOptions.swift in Sources */,
 				2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
 				E4CD9F6D1A77DD2800318571 /* ReaderModeStyleViewController.swift in Sources */,
+				2B4DFF2823CF18BF001145AF /* OpenLinkUseCases.swift in Sources */,
 				D0FCF7F51FE45842004A7995 /* UserScriptManager.swift in Sources */,
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
 				463432FB233381C70014A9F0 /* BrowserCoreClient.swift in Sources */,
@@ -5390,6 +5407,7 @@
 				46E7DD552361C53D00C8372A /* ReactViewTheme.swift in Sources */,
 				D31F95E91AC226CB005C9F3B /* ScreenshotHelper.swift in Sources */,
 				39CE74F021A6D2B8007AE4F2 /* DocumentServicesHelper.swift in Sources */,
+				2B4DFF2223CF0777001145AF /* BrowserSearch.swift in Sources */,
 				D3968F251A38FE8500CEFD3B /* TabManager.swift in Sources */,
 				C4E398601D22C409004E89BA /* TopTabsLayout.swift in Sources */,
 				2816F0001B33E05400522243 /* UIConstants.swift in Sources */,

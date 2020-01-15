@@ -2,6 +2,7 @@
 import React, { useCallback } from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { parse } from 'tldts';
+import { merge } from '@cliqz/component-styles';
 import Logo from './Logo';
 import NativeDrawable from './NativeDrawable';
 import { withTheme } from '../contexts/theme';
@@ -41,8 +42,14 @@ const getStyles = theme => ({
   },
 });
 
-const SpeedDial = ({ speedDial, onPress, onLongPress, theme, style = {} }) => {
-  const styles = getStyles(theme);
+const SpeedDial = ({
+  speedDial,
+  onPress,
+  onLongPress,
+  theme,
+  styles: customStyles = {},
+}) => {
+  const styles = merge(getStyles(theme), customStyles);
   const { url } = speedDial;
   const name = parse(url).domain;
   const pressAction = useCallback(() => onPress(speedDial), [
@@ -59,12 +66,7 @@ const SpeedDial = ({ speedDial, onPress, onLongPress, theme, style = {} }) => {
       onPress={pressAction}
       onLongPress={longPressAction}
     >
-      <View
-        style={{
-          ...styles.container,
-          ...style,
-        }}
-      >
+      <View style={styles.container}>
         <View style={styles.circle}>
           {speedDial.pinned && (
             <View style={styles.pin}>

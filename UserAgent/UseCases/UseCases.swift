@@ -12,10 +12,12 @@ class UseCases {
 
     var tabUseCases: TabUseCases
     var contextMenu: ContextMenuUseCase
+    var openLink: OpenLinkUseCases
 
-    init(tabManager: TabManager, profile: Profile) {
+    init(tabManager: TabManager, profile: Profile, browserViewController: BrowserViewController) {
         self.tabUseCases = TabUseCases(tabManager: tabManager)
         self.contextMenu = ContextMenuUseCase(profile: profile)
+        self.openLink = OpenLinkUseCases(tabManager: tabManager, browserViewController: browserViewController)
     }
 
 }
