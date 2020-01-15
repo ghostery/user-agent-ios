@@ -26,6 +26,7 @@ export default class Cliqz {
     this.search = createModuleWrapper(inject, 'search', [
       'getSnippet',
       'reportHighlight',
+      'reportSelection',
     ]);
     this.geolocation = createModuleWrapper(inject, 'geolocation', [
       'updateGeoLocation',

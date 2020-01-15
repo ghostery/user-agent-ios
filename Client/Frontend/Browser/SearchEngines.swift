@@ -11,6 +11,7 @@ private let log = Logger.browserLogger
 
 private let OrderedEngineNames = "search.orderedEngineNames"
 private let DisabledEngineNames = "search.disabledEngineNames"
+private let ResetDisabledEngineNames = "search.reset.disabledEngineNames"
 private let ShowSearchSuggestionsOptIn = "search.suggestions.showOptIn"
 private let ShowSearchSuggestions = "search.suggestions.show"
 private let customSearchEnginesFileName = "customEngines.plist"
@@ -42,8 +43,8 @@ class SearchEngines {
         // By default, show search suggestions
         self.shouldShowSearchSuggestions = prefs.boolForKey(ShowSearchSuggestions) ?? true
         self.fileAccessor = files
-        self.disabledEngineNames = getDisabledEngineNames()
         self.orderedEngines = getOrderedEngines()
+        self.disabledEngineNames = getDisabledEngineNames()
     }
 
     var defaultEngine: OpenSearchEngine {
@@ -77,6 +78,8 @@ class SearchEngines {
             self.prefs.setObject(self.orderedEngines.map { $0.shortName }, forKey: OrderedEngineNames)
         }
     }
+
+    var searchEnginesIncludedCliqz: [OpenSearchEngine]!
 
     var quickSearchEngines: [OpenSearchEngine]! {
         return self.orderedEngines.filter({ (engine) in !self.isEngineDefault(engine) && self.isEngineEnabled(engine) })
@@ -153,7 +156,27 @@ class SearchEngines {
         return nil
     }
 
+    fileprivate func resetDisabledEngineNamesIfNeeded() {
+        let defaultEnabledEnginesIDs = ["google-b-1-m", "bing", "ddg"]
+        let reset = self.prefs.boolForKey(ResetDisabledEngineNames)
+        if reset == nil || !reset! {
+            var disabledNames = [String]()
+            for engine in self.orderedEngines {
+                guard let engineID = engine.engineID else {
+                    disabledNames.append(engine.shortName)
+                    continue
+                }
+                if !defaultEnabledEnginesIDs.contains(engineID) {
+                    disabledNames.append(engine.shortName)
+                }
+            }
+            self.prefs.setObject(Array(disabledNames), forKey: DisabledEngineNames)
+            self.prefs.setBool(true, forKey: ResetDisabledEngineNames)
+        }
+    }
+
     fileprivate func getDisabledEngineNames() -> [String: Bool] {
+        self.resetDisabledEngineNamesIfNeeded()
         if let disabledEngineNames = self.prefs.stringArrayForKey(DisabledEngineNames) {
             var disabledEngineDict = [String: Bool]()
             for engineName in disabledEngineNames {
@@ -224,7 +247,10 @@ class SearchEngines {
     /// Get all known search engines, possibly as ordered by the user.
     fileprivate func getOrderedEngines() -> [OpenSearchEngine] {
         let locale = Locale(identifier: Locale.preferredLanguages.first ?? Locale.current.identifier)
-        let unorderedEngines = customEngines + SearchEngines.getUnorderedBundledEnginesFor(locale: locale)
+        let defaultSearchEngines = SearchEngines.getUnorderedBundledEnginesFor(locale: locale)
+        let unorderedEngines = customEngines + defaultSearchEngines.filter({ $0.engineID != "cliqz" })
+
+        self.searchEnginesIncludedCliqz = customEngines + defaultSearchEngines
 
         // might not work to change the default.
         guard let orderedEngineNames = prefs.stringArrayForKey(OrderedEngineNames) else {

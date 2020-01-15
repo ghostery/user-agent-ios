@@ -39,8 +39,6 @@ app.modules['insights'].background.actions['reportStats'] = async function (tabI
   await this.db.insertPageStats(tabId, stats);
 }.bind(app.modules['insights'].background);
 
-
-
 global.CLIQZ = {
   app,
 };

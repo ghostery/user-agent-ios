@@ -15,6 +15,8 @@ import NativeDrawable from '../../../../../../components/NativeDrawable';
 import { useStyles } from '../../../../../../contexts/theme';
 import t from '../../../../../../services/i18n';
 import { isSwitchToTab } from '../../../helpers';
+import { resultTitleFontSize } from '../../../../styles';
+
 
 const httpsLockWidth = 9;
 const httpsLockMarginRight = 5;
@@ -34,7 +36,7 @@ const getStyles = theme =>
     },
     mainTitle: {
       color: theme.linkColor,
-      fontSize: 17,
+      fontSize: resultTitleFontSize,
       lineHeight: 20,
       marginTop: (28 - 20) / 2,
     },

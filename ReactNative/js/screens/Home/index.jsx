@@ -81,7 +81,9 @@ const SpeedDialRow = ({ dials, limit = 4 }) => {
     ...dials.map(dial => (
       <SpeedDial
         key={dial.url}
-        style={styles.speedDial}
+        styles={{
+          container: styles.speedDial,
+        }}
         speedDial={dial}
         onPress={openSpeedDialLink}
         onLongPress={longPressSpeedDial}
