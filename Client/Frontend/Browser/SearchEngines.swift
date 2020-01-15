@@ -78,6 +78,8 @@ class SearchEngines {
         }
     }
 
+    var searchEnginesIncludedCliqz: [OpenSearchEngine]!
+
     var quickSearchEngines: [OpenSearchEngine]! {
         return self.orderedEngines.filter({ (engine) in !self.isEngineDefault(engine) && self.isEngineEnabled(engine) })
     }
@@ -224,7 +226,10 @@ class SearchEngines {
     /// Get all known search engines, possibly as ordered by the user.
     fileprivate func getOrderedEngines() -> [OpenSearchEngine] {
         let locale = Locale(identifier: Locale.preferredLanguages.first ?? Locale.current.identifier)
-        let unorderedEngines = customEngines + SearchEngines.getUnorderedBundledEnginesFor(locale: locale)
+        let defaultSearchEngines = SearchEngines.getUnorderedBundledEnginesFor(locale: locale)
+        let unorderedEngines = customEngines + defaultSearchEngines.filter({ $0.engineID != "cliqz" })
+
+        self.searchEnginesIncludedCliqz = customEngines + defaultSearchEngines
 
         // might not work to change the default.
         guard let orderedEngineNames = prefs.stringArrayForKey(OrderedEngineNames) else {
