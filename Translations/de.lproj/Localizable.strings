@@ -303,7 +303,7 @@
 "HomePanel.ContextMenu.DeleteFromHistory" = "Aus Chronik löschen";
 
 /* The title for the Open in New Private Tab context menu action for sites in Home Panels */
-"HomePanel.ContextMenu.OpenInNewPrivateTab" = "In neuem privaten Tab öffnen";
+"HomePanel.ContextMenu.OpenInNewPrivateTab" = "In neuem Vergessen-Modus Tab öffnen";
 
 /* The title for the Open in New Tab context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.OpenInNewTab" = "In neuem Tab öffnen";

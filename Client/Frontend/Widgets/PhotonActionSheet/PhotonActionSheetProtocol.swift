@@ -366,7 +366,7 @@ extension PhotonActionSheetProtocol {
 
         let popupsBlocking = PhotonActionSheetItem(
             title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
-            iconString: "menu-AdBlocking",
+            iconString: "menu-PopupBlocking",
             isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: currentURL),
             accessory: .Switch
         ) { action in
