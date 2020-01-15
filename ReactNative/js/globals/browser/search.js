@@ -2,26 +2,20 @@ import { NativeModules } from 'react-native';
 
 export default {
   async get() {
-    return [
-      {
-        name: 'google',
-        isDefault: false,
-        favIconUrl: 'https://google.com/',
-      },
-    ];
+    return NativeModules.BrowserSearch.get();
   },
   async search(searchProperties) {
     // ignore tabId for now
-    const { query, engine, tabId } = searchProperties;
+    const { query, engine } = searchProperties;
 
     if (!query) {
       throw new Error('query is required');
     }
 
-    NativeModules.BrowserActions.openLink(
-      `https://beta.cliqz.com/search?q=${query}`,
-      '',
-      false,
-    );
+    if (!engine) {
+      throw new Error('engine is required');
+    }
+
+    NativeModules.BrowserSearch.search(query, engine);
   },
 };

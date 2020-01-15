@@ -253,7 +253,7 @@ class Results extends React.Component {
 
               <TouchableWithoutFeedback
                 onPress={() =>
-                  this.openSearchEngineResultsPage('Cliqz', query, 0)
+                  this.openSearchEngineResultsPage({ name: 'Cliqz' }, query, 0)
                 }
               >
                 <View style={styles.footer}>

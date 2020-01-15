@@ -6,8 +6,7 @@
 <ShortName>Cliqz</ShortName>
 <Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAApVBMVEUA//8ArvAArvAAr/EAr/EAsPIAtfQArvD///8GsPCP2/j6/f5/1vcsvPLs+P3L7vwXtfFQx/Q8wfMctvHv+v7g9f3a8/zU8fxCw/To+P296vuc3/mJ2fhby/VHxPQzvvMMsvB20/chuPLl9/2z5/qh4fl61fdpz/YluvLz+/656fpt0fZVyfU4wPMUtPHP8Pyt5fpz0vbD7PuT3fj1+/6n4/lizfWkNf+GAAAAB3RSTlMB9uPDuWQY4yYUZQAAAx1JREFUaN7tmul2qjAQgHFpZxBRAa1YBcG9dalb+/6PdvWWtiRBEjrknnPP8fur8hEyzkxCjAsP9WoFSqdSrT8YVx5roI3a40VQA43ULs8HtPJg1EErdaMKWqkaFdBKxQDN3AV3wb8VdLa+Ezj+1gMeuqCzGba7+MVLex54JQo6hzcU6S+8cgTbmYU3ePbpAvcZ82iHNEFnjjL2HkEQdFHOef1bgTlENfbRrwTeG6rytPqFYNVDdQbjwgK7hUV4cQsKJlMsRtcuJNg9YVGmXhHBKxanbaoLFtmx0lhv3NV2sx71MYuGsmBsZVx9YadDLDP9haqCthiGS2H8gRjGPVNNsESeUQQiZiwMtKkkiFp8jDuQjc9/89xREcT8wG24xaTPD1VBYA6QoTWB2+x63GB3csEHMlgu5GG/IEMsF3AVbAn5OFyhlgo8ruqCjHdkGMsEa/77MiYWG6kywR7TvIOcBqY5ygRsFbZBTocNiihfYLMJCFQ4Yho/X7AR/jdyDrlhZ+QlahdUWLFJO1/ANlomyBDnbZYvmDFZAtToM4UtX/DM/i2lyH9k5NSaV5AiPtceUTAeidk1TNfPKfUR9XDmAM92fmZ+RJnk+HqXTU+oDIenZJKpYbqz8IK1D8UKur9+NCP/0d6/8shhJ6SlRQ8b5FTh/iS2uXgHTkhPdv10HCwj4KCn6zVb54dcUaIXnOjMt70fzDDoJXMorg4azFipRX+MGRwDExLobUsbsxiMJiqCQKHx+sAbvDrltI5RF7NpDe1ymt9T9tVDs6z23ZZcnb4AObJRyl+dvoQKcvtF+iIQzFaOgbSM/YqpEeYYKAtxy+O6rSlroG8lNLl78BucgboZMjWZpc0AgDXQt3OcZJo/b+EEjIGwISV0S82kW+cN9C21VfK59fmEeAN9U3CU6qFOIBjo25qtZJrD5AnxBvrGbPDdRQ74tWBcytby8Tuxn4A1xCVtjtvJ+CwXGENc0vb+z9QCg1/aC4qBmcQZlPyKZXx9xRJuO3Dlf3xJdBf85S4Q0P7KXfuhAe3HHrQf3NB99ET/4Rntx3/+AF9CJMC3aT2PAAAAAElFTkSuQmCC</Image>
 
-<Url type="text/html" method="GET" template="https://beta.cliqz.com/search/">
-    <Param name="q" value="{searchTerms}"/>
+<Url type="text/html" method="GET" template="https://beta.cliqz.com/search?q={searchTerms}#channel=ios">
 </Url>
 <SearchForm>https://beta.cliqz.com</SearchForm>
 </SearchPlugin>
