@@ -144,27 +144,38 @@ class Results extends React.Component {
     }
   }
 
-  openSearchEngineLink = async (url, index, name) => {
-    const { results = {}, query, cliqz } = this.props;
+  openSearchEngineResultsPage = async (searchEngine, query, index) => {
+    const { results = {}, cliqz } = this.props;
     const meta = results.meta || {};
-    await cliqz.mobileCards.openLink(url, {
-      action: 'click',
-      elementName: 'icon',
-      isFromAutoCompletedUrl: false,
-      isNewTab: false,
-      isPrivateMode: false,
-      isPrivateResult: meta.isPrivate,
-      query,
-      isSearchEngine: true,
-      rawResult: {
-        index,
+    const { favIconUrl: url } = searchEngine;
+
+    await cliqz.search.reportSelection(
+      {
+        action: 'click',
+        elementName: 'icon',
+        isFromAutoCompletedUrl: false,
+        isNewTab: false,
+        isPrivateMode: false,
+        isPrivateResult: meta.isPrivate,
+        query,
+        isSearchEngine: true,
+        rawResult: {
+          index,
+          url,
+          provider: 'instant',
+          type: 'supplementary-search',
+          kind: [`custom-search|{"class":"${searchEngine.name}"}`],
+        },
+        resultOrder: meta.resultOrder,
         url,
-        provider: 'instant',
-        type: 'supplementary-search',
-        kind: [`custom-search|{"class":"${name}"}`],
       },
-      resultOrder: meta.resultOrder,
-      url,
+      {
+        contextId: 'mobile-cards',
+      },
+    );
+    browser.search.search({
+      query,
+      engine: searchEngine.name,
     });
   };
 
@@ -236,33 +247,37 @@ class Results extends React.Component {
                 </Text>
               </View>
               <View style={styles.searchEnginesContainer}>
-                {groupBy(searchEngines, 3).map((searchEnginesGroup, i) => (
-                  <View
-                    style={styles.searchEnginesGroupContainer}
-                    key={searchEnginesGroup.map(e => e.name).join('')}
-                  >
-                    {searchEnginesGroup.map(searchEngine => (
-                      <SpeedDial
-                        key={searchEngine.name}
-                        styles={{
-                          label: {
-                            color: _theme.separatorColor,
-                          },
-                        }}
-                        speedDial={{
-                          pinned: false,
-                          url: searchEngine.favIconUrl,
-                        }}
-                        onPress={() =>
-                          browser.search.search({
-                            query,
-                            engine: searchEngine.name,
-                          })
-                        }
-                      />
-                    ))}
-                  </View>
-                ))}
+                {groupBy(searchEngines, 3).map(
+                  (searchEnginesGroup, groupIndex) => (
+                    <View
+                      style={styles.searchEnginesGroupContainer}
+                      key={searchEnginesGroup.map(e => e.name).join('')}
+                    >
+                      {searchEnginesGroup.map((searchEngine, engineIndex) => (
+                        <SpeedDial
+                          key={searchEngine.name}
+                          styles={{
+                            label: {
+                              color: _theme.separatorColor,
+                            },
+                          }}
+                          speedDial={{
+                            pinned: false,
+                            url: searchEngine.favIconUrl,
+                          }}
+                          onPress={() =>
+                            this.openSearchEngineResultsPage(
+                              searchEngine,
+                              query,
+                              // index 0 is "show more results" Cliqz link
+                              1 + groupIndex * 3 + engineIndex,
+                            )
+                          }
+                        />
+                      ))}
+                    </View>
+                  ),
+                )}
               </View>
             </>
           </ScrollView>
