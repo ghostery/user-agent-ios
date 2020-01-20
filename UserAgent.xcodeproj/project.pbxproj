@@ -254,6 +254,8 @@
 		46569CD923CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */ = {isa = PBXBuildFile; fileRef = 46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */; };
 		46569CDB23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */; };
 		46569CDC23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */; };
+		465E2AF823D1C66800ECEFA3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2AF723D1C66800ECEFA3 /* Authenticator.swift */; };
+		465E2AF923D1C66800ECEFA3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2AF723D1C66800ECEFA3 /* Authenticator.swift */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -1340,6 +1342,7 @@
 		46569CD423CCC60400224DC2 /* Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whitelist.swift; sourceTree = "<group>"; };
 		46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-cosmetic.json"; sourceTree = "<group>"; };
 		46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Popups+Whitelist.swift"; sourceTree = "<group>"; };
+		465E2AF723D1C66800ECEFA3 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -2973,6 +2976,7 @@
 				63306D3821103EAE00F25400 /* SavedTab.swift */,
 				63306D422110B3CD00F25400 /* TabManagerStore.swift */,
 				39CE74FA21A8513B007AE4F2 /* TranslationService.swift */,
+				465E2AF723D1C66800ECEFA3 /* Authenticator.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -5055,6 +5059,7 @@
 				ACB7378323042BAB00FA5626 /* SearchSettingsTableViewController.swift in Sources */,
 				ACB7378423042BAB00FA5626 /* UserActivityHandler.swift in Sources */,
 				ACB7378523042BAB00FA5626 /* PhotonActionSheetAnimator.swift in Sources */,
+				465E2AF923D1C66800ECEFA3 /* Authenticator.swift in Sources */,
 				ACB7378623042BAB00FA5626 /* TabScrollController.swift in Sources */,
 				ACB7378823042BAB00FA5626 /* TranslationService.swift in Sources */,
 				ACB7378923042BAB00FA5626 /* UIViewExtensions.swift in Sources */,
@@ -5406,6 +5411,7 @@
 				46A4C4D6234775A800F4BCE0 /* AutoCompletion.m in Sources */,
 				46E7DD552361C53D00C8372A /* ReactViewTheme.swift in Sources */,
 				D31F95E91AC226CB005C9F3B /* ScreenshotHelper.swift in Sources */,
+				465E2AF823D1C66800ECEFA3 /* Authenticator.swift in Sources */,
 				39CE74F021A6D2B8007AE4F2 /* DocumentServicesHelper.swift in Sources */,
 				2B4DFF2223CF0777001145AF /* BrowserSearch.swift in Sources */,
 				D3968F251A38FE8500CEFD3B /* TabManager.swift in Sources */,
