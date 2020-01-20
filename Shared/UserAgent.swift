@@ -128,7 +128,7 @@ public struct UserAgentBuilder {
     }
 
     public static func defaultMobileUserAgent() -> UserAgentBuilder {
-        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(\(UIDevice.current.model); CPU \(UIDevice.current.model) OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: "\(UserAgent.uaFxiOSVersion)  \(UserAgent.uaBitMobile) \(UserAgent.uaBitSafari) \(AppInfo.displayName)")
+        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(\(UIDevice.current.model); CPU \(UIDevice.current.model) OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: "\(UserAgent.uaFxiOSVersion) \(UserAgent.uaBitMobile) \(UserAgent.uaBitSafari) \(AppInfo.displayName)")
     }
 
     public static func defaultDesktopUserAgent() -> UserAgentBuilder {
