@@ -145,6 +145,9 @@ class Tab: NSObject {
             if let _url = url, let internalUrl = InternalURL(_url), internalUrl.isAuthorized {
                 url = URL(string: internalUrl.stripAuthorization)
             }
+            let isNewTabPage = self.isNewTabPage
+            let isHistoryEmpty = self.backList?.isEmpty ?? true && self.forwardList?.isEmpty ?? true
+            self.isPureNewTabPage = isNewTabPage && isHistoryEmpty
         }
     }
     var mimeType: String?
@@ -182,6 +185,8 @@ class Tab: NSObject {
         }
         return NewTabPage.fromAboutHomeURL(url: url) != nil
     }
+
+    var isPureNewTabPage: Bool = true
 
     var changedReaderMode: Bool = false {
         didSet {
@@ -331,6 +336,7 @@ class Tab: NSObject {
         contentScriptManager.uninstall(tab: self)
 
         webView?.removeObserver(self, forKeyPath: KVOConstants.URL.rawValue)
+        webView?.removeObserver(self, forKeyPath: KVOConstants.title.rawValue)
 
         if let webView = webView {
             tabDelegate?.tab?(self, willDeleteWebView: webView)

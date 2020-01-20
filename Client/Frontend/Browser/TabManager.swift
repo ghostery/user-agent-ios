@@ -255,8 +255,8 @@ class TabManager: NSObject {
     }
 
     func addPopupForParentTab(bvc: BrowserViewController, parentTab: Tab, configuration: WKWebViewConfiguration) -> Tab {
-        let popup = Tab(bvc: bvc, configuration: configuration, isPrivate: parentTab.isPrivate)
-        configureTab(popup, request: nil, afterTab: parentTab, flushToDisk: true, zombie: false, isPopup: true)
+        var popup = Tab(bvc: bvc, configuration: configuration, isPrivate: parentTab.isPrivate)
+        popup = configureTab(popup, request: nil, afterTab: parentTab, flushToDisk: true, zombie: false, isPopup: true)
 
         // Wait momentarily before selecting the new tab, otherwise the parent tab
         // may be unable to set `window.location` on the popup immediately after
@@ -301,8 +301,7 @@ class TabManager: NSObject {
 
         let bvc = BrowserViewController.foregroundBVC()
         let tab = Tab(bvc: bvc, configuration: configuration, isPrivate: isPrivate)
-        configureTab(tab, request: request, afterTab: afterTab, flushToDisk: flushToDisk, zombie: zombie)
-        return tab
+        return configureTab(tab, request: request, afterTab: afterTab, flushToDisk: flushToDisk, zombie: zombie)
     }
 
     func moveTab(isPrivate privateMode: Bool, fromIndex visibleFromIndex: Int, toIndex visibleToIndex: Int) {
@@ -328,12 +327,16 @@ class TabManager: NSObject {
         storeChanges()
     }
 
-    func configureTab(_ tab: Tab, request: URLRequest?, afterTab parent: Tab? = nil, flushToDisk: Bool, zombie: Bool, isPopup: Bool = false) {
+    func configureTab(_ tab: Tab, request: URLRequest?, afterTab parent: Tab? = nil, flushToDisk: Bool, zombie: Bool, isPopup: Bool = false) -> Tab {
         assert(Thread.isMainThread)
 
         // If network is not available webView(_:didCommit:) is not going to be called
         // We should set request url in order to show url in url bar even no network
         tab.url = request?.url
+
+        if !store.isRestoringTabs, tab.isPureNewTabPage, let newTab = self.tabs.first(where: { $0.isPureNewTabPage && $0.isPrivate == tab.isPrivate }) {
+            return newTab
+        }
 
         if parent == nil || parent?.isPrivate != tab.isPrivate {
             tabs.append(tab)
@@ -367,6 +370,7 @@ class TabManager: NSObject {
         if flushToDisk {
         	storeChanges()
         }
+        return tab
     }
 
     enum SwitchPrivacyModeResult { case createdNewTab; case usedExistingTab }

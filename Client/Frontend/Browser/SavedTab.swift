@@ -11,6 +11,7 @@ class SavedTab: NSObject, NSCoding {
     let isSelected: Bool
     let title: String?
     let isPrivate: Bool
+    let isPureNewTabPage: Bool
     var sessionData: SessionData?
     var screenshotUUID: UUID?
     var faviconURL: String?
@@ -23,6 +24,7 @@ class SavedTab: NSObject, NSCoding {
         var json: [String: AnyObject] = [
             "title": title as AnyObject,
             "isPrivate": String(self.isPrivate) as AnyObject,
+            "iPureNewTabPage": String(self.isPureNewTabPage) as AnyObject,
             "isSelected": String(self.isSelected) as AnyObject,
             "faviconURL": faviconURL as AnyObject,
             "screenshotUUID": uuid as AnyObject,
@@ -43,6 +45,7 @@ class SavedTab: NSObject, NSCoding {
         self.title = tab.displayTitle
         self.isPrivate = tab.isPrivate
         self.faviconURL = tab.displayFavicon?.url
+        self.isPureNewTabPage = tab.isPureNewTabPage
         super.init()
 
         if tab.sessionData == nil {
@@ -70,6 +73,7 @@ class SavedTab: NSObject, NSCoding {
         self.isSelected = coder.decodeBool(forKey: "isSelected")
         self.title = coder.decodeObject(forKey: "title") as? String
         self.isPrivate = coder.decodeBool(forKey: "isPrivate")
+        self.isPureNewTabPage = coder.decodeBool(forKey: "isPureNewTabPage")
         self.faviconURL = coder.decodeObject(forKey: "faviconURL") as? String
     }
 
@@ -79,13 +83,14 @@ class SavedTab: NSObject, NSCoding {
         coder.encode(isSelected, forKey: "isSelected")
         coder.encode(title, forKey: "title")
         coder.encode(isPrivate, forKey: "isPrivate")
+        coder.encode(isPureNewTabPage, forKey: "isPureNewTabPage")
         coder.encode(faviconURL, forKey: "faviconURL")
     }
 
     func configureSavedTabUsing(_ tab: Tab, imageStore: DiskImageStore? = nil) -> Tab {
         // Since this is a restored tab, reset the URL to be loaded as that will be handled by the SessionRestoreHandler
         tab.url = nil
-
+        tab.isPureNewTabPage = self.isPureNewTabPage
         if let faviconURL = faviconURL {
             let icon = Favicon(url: faviconURL, date: Date())
             icon.width = 1
