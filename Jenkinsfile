@@ -172,7 +172,7 @@ ${newChangelog}"""
                     string(credentialsId: 'f206e880-e09a-4369-a3f6-f86ee94481f2', variable: 'SENTRY_AUTH_TOKEN'),
                     string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
                 ]) {
-                    timeout(60) {
+                    timeout(120) {
                         ansiColor('xterm') {
                             sh """#!/bin/bash -l
                                 set -x
