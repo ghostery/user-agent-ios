@@ -79,7 +79,10 @@ class SearchEngines {
         }
     }
 
-    var searchEnginesIncludedCliqz: [OpenSearchEngine]!
+    var searchEnginesIncludedCliqz: [OpenSearchEngine]! {
+        let defaultSearchEngines = self.getEnginesForLocale()
+        return defaultSearchEngines.filter({ $0.engineID == "cliqz" }) + self.getOrderedEngines()
+    }
 
     var quickSearchEngines: [OpenSearchEngine]! {
         return self.orderedEngines.filter({ (engine) in !self.isEngineDefault(engine) && self.isEngineEnabled(engine) })
@@ -246,11 +249,8 @@ class SearchEngines {
 
     /// Get all known search engines, possibly as ordered by the user.
     fileprivate func getOrderedEngines() -> [OpenSearchEngine] {
-        let locale = Locale(identifier: Locale.preferredLanguages.first ?? Locale.current.identifier)
-        let defaultSearchEngines = SearchEngines.getUnorderedBundledEnginesFor(locale: locale)
+        let defaultSearchEngines = self.getEnginesForLocale()
         let unorderedEngines = customEngines + defaultSearchEngines.filter({ $0.engineID != "cliqz" })
-
-        self.searchEnginesIncludedCliqz = customEngines + defaultSearchEngines
 
         // might not work to change the default.
         guard let orderedEngineNames = prefs.stringArrayForKey(OrderedEngineNames) else {
@@ -277,5 +277,10 @@ class SearchEngines {
 
             return index1! < index2!
         }
+    }
+
+    private func getEnginesForLocale() -> [OpenSearchEngine] {
+        let locale = Locale(identifier: Locale.preferredLanguages.first ?? Locale.current.identifier)
+        return SearchEngines.getUnorderedBundledEnginesFor(locale: locale)
     }
 }
