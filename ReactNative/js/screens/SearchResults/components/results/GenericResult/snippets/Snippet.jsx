@@ -17,9 +17,8 @@ import t from '../../../../../../services/i18n';
 import { isSwitchToTab } from '../../../helpers';
 import { resultTitleFontSize } from '../../../../styles';
 
-
-const httpsLockWidth = 9;
-const httpsLockMarginRight = 5;
+const httpsLockWidth = 12;
+const httpsLockMarginRight = 2;
 
 const getStyles = theme =>
   StyleSheet.create({
@@ -65,6 +64,9 @@ const getStyles = theme =>
     },
     lockColor: {
       color: theme.urlColor,
+    },
+    lockBreakColor: {
+      color: theme.unsafeUrlColor,
     },
     description: {
       color: theme.descriptionColor,
@@ -118,10 +120,22 @@ export default props => {
           >
             <NativeDrawable
               style={styles.lock}
-              color={styles.lockColor.color}
-              source="ic_ez_https_lock"
+              color={
+                url.startsWith('https')
+                  ? styles.lockColor.color
+                  : styles.lockBreakColor.color
+              }
+              source={
+                url.startsWith('https') ? 'lock_verified' : 'lock_not_verified'
+              }
             />
-            <Text numberOfLines={1} style={styles.url}>
+            <Text
+              numberOfLines={1}
+              style={[
+                styles.url,
+                url.startsWith('https') || styles.lockBreakColor,
+              ]}
+            >
               {friendlyUrl}
             </Text>
           </View>
