@@ -288,7 +288,9 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
                     CATransaction.begin()
                     self?.tableView.beginUpdates()
                     CATransaction.setCompletionBlock {
-                        self?.view.setNeedsLayout()
+                        UIView.animate(withDuration: 5) {
+                            self?.view.setNeedsLayout()
+                        }
                     }
                     self?.tableView.deleteRows(at: [indexPath], with: .left)
                     self?.tableView.endUpdates()
@@ -317,7 +319,9 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
             CATransaction.begin()
             self.tableView.beginUpdates()
             CATransaction.setCompletionBlock {
-                self.view.setNeedsLayout()
+                UIView.animate(withDuration: 5) {
+                    self.view.setNeedsLayout()
+                }
             }
             self.tableView.endUpdates()
             CATransaction.commit()

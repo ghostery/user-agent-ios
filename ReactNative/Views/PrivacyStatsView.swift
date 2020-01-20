@@ -50,7 +50,7 @@ extension PrivacyStatsView: RCTRootViewDelegate {
         if rootView.intrinsicContentSize.height == self.frame.size.height {
             return
         }
-        self.snp.makeConstraints { (make) in
+        self.snp.updateConstraints { (make) in
             make.height.equalTo(rootView.intrinsicContentSize.height)
         }
         self.onSizeChange?()

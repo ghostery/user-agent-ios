@@ -6,11 +6,12 @@ import t from '../../services/i18n';
 
 const getStyle = (theme: {
   fontSizeLarge: number;
+  fontSizeSmall: number;
   textColor: string;
   descriptionColor: string;
 }) => ({
   container: {
-    height: 100,
+    minHeight: 100,
   },
   icon: {
     height: 24,
@@ -43,6 +44,7 @@ const getStyle = (theme: {
   },
   statsTitle: {
     color: theme.descriptionColor,
+    fontSize: theme.fontSizeSmall,
   },
 });
 
@@ -83,8 +85,15 @@ export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
     ({ title, count }: { title: string; count: number }) => {
       return (
         <View style={styles.statsContainer}>
-          <Text style={styles.statsCount}>{count}</Text>
-          <Text numberOfLines={2} style={styles.statsTitle}>
+          <Text style={styles.statsCount} allowFontScaling={false}>
+            {count}
+          </Text>
+          <Text
+            numberOfLines={2}
+            ellipsizeMode="tail"
+            style={styles.statsTitle}
+            allowFontScaling={false}
+          >
             {title}
           </Text>
         </View>
@@ -99,7 +108,7 @@ export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <NativeDrawable style={styles.icon} source="privacy-stats" />
-        <Text style={styles.title}>
+        <Text style={styles.title} allowFontScaling={false}>
           {t('ControlCenter.PrivacyProtection.Title')}
         </Text>
       </View>
