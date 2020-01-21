@@ -40,7 +40,7 @@ class TabManagerStoreTests: XCTestCase {
     func addTabWithSessionData(isPrivate: Bool = false) {
         let tab = Tab(bvc: BrowserViewController.foregroundBVC(), configuration: configuration, isPrivate: isPrivate)
         tab.url = URL(string: "http://yahoo.com")!
-        manager.configureTab(tab, request: URLRequest(url: tab.url!), flushToDisk: false, zombie: false)
+        _ = manager.configureTab(tab, request: URLRequest(url: tab.url!), flushToDisk: false, zombie: false)
         tab.sessionData = SessionData(currentPage: 0, urls: [tab.url!], lastUsedTime: Date.now())
     }
 
