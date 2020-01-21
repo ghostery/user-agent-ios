@@ -145,9 +145,8 @@ class Tab: NSObject {
             if let _url = url, let internalUrl = InternalURL(_url), internalUrl.isAuthorized {
                 url = URL(string: internalUrl.stripAuthorization)
             }
-            let isNewTabPage = self.isNewTabPage
             let isHistoryEmpty = self.backList?.isEmpty ?? true && self.forwardList?.isEmpty ?? true
-            self.isPureNewTabPage = isNewTabPage && isHistoryEmpty
+            self.isPureNewTabPage = self.isNewTabPage && isHistoryEmpty
         }
     }
     var mimeType: String?
