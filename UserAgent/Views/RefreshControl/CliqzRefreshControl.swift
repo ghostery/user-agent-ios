@@ -13,6 +13,7 @@ protocol CliqzRefreshControlDelegate: class {
     func refreshControllAlphaDidChange(alpha: CGFloat)
     func refreshControllMinimumHeight() -> CGFloat
     func refreshControllDidRefresh()
+    func isRefreshing() -> Bool
 }
 
 struct CliqzRefreshControlUI {
@@ -28,8 +29,12 @@ class CliqzRefreshControl: UIView {
 
     private weak var scrollView: UIScrollView?
     private weak var animationView: UIView?
-    private var pullToRefreshAllowed: Bool = true
-    private var isRefreshing: Bool = false
+    private var pullToRefreshAllowed: Bool = true {
+        didSet {
+            self.isTrackingStarted = !self.pullToRefreshAllowed
+        }
+    }
+    private var isTrackingStarted: Bool = false
 
     weak var delegate: CliqzRefreshControlDelegate?
 
@@ -118,7 +123,10 @@ class CliqzRefreshControl: UIView {
         guard let scrollView = self.scrollView else {
             return
         }
-        self.isRefreshing = self.isRefreshing && !scrollView.isTracking
+        guard self.isTrackingStarted || scrollView.isTracking else {
+            return
+        }
+        self.isTrackingStarted = true
         if self.pullToRefreshAllowed {
             if scrollView.contentOffset.y < 0.0 {
                 let alpha = abs(scrollView.contentOffset.y) / 20
@@ -139,8 +147,7 @@ class CliqzRefreshControl: UIView {
             } else {
                 self.titleLabel.isHidden = true
             }
-            if !scrollView.isDragging && getMaxValue && !self.isRefreshing {
-                self.isRefreshing = true
+            if !scrollView.isDragging && getMaxValue && !(self.delegate?.isRefreshing() ?? false) {
                 self.animateBubble()
                 self.delegate?.refreshControllDidRefresh()
             }
