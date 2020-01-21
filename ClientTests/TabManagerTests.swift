@@ -95,6 +95,8 @@ class TabManagerTests: XCTestCase {
     var manager: TabManager!
     var delegate: MockTabManagerDelegate!
 
+    private let request = URLRequest(url: URL(string: "https://cliqz.com")!)
+
     override func setUp() {
         super.setUp()
 
@@ -159,7 +161,7 @@ class TabManagerTests: XCTestCase {
         //create the tab before adding the mock delegate. So we don't have to check delegate calls we dont care about
         let tab = manager.addTab()
         manager.selectTab(tab)
-        let privateTab = manager.addTab(isPrivate: true)
+        let privateTab = manager.addTab(self.request, isPrivate: true)
         manager.selectTab(privateTab)
         manager.addDelegate(delegate)
 
@@ -183,7 +185,7 @@ class TabManagerTests: XCTestCase {
         //create the tab before adding the mock delegate. So we don't have to check delegate calls we dont care about
         let tab = manager.addTab()
         manager.selectTab(tab)
-        let privateTab = manager.addTab(isPrivate: true)
+        let privateTab = manager.addTab(self.request, isPrivate: true)
         manager.selectTab(privateTab)
         manager.addDelegate(delegate)
 
@@ -202,11 +204,10 @@ class TabManagerTests: XCTestCase {
     func testDeletePrivateTabsOnExit() {
         profile.prefs.setBool(true, forKey: "settings.closePrivateTabs")
 
-        let request = URLRequest(url: URL(string: "https://cliqz.com")!)
         // create one private and one normal tab
         let tab = manager.addTab()
         manager.selectTab(tab)
-        manager.selectTab(manager.addTab(request, isPrivate: true))
+        manager.selectTab(manager.addTab(self.request, isPrivate: true))
 
         XCTAssertEqual(manager.selectedTab?.isPrivate, true, "The selected tab should be the private tab")
         XCTAssertEqual(manager.privateTabs.count, 1, "There should only be one private tab")
@@ -215,20 +216,20 @@ class TabManagerTests: XCTestCase {
         XCTAssertEqual(manager.privateTabs.count, 0, "If the normal tab is selected the private tab should have been deleted")
         XCTAssertEqual(manager.normalTabs.count, 1, "The regular tab should stil be around")
 
-        manager.selectTab(manager.addTab(request, isPrivate: true))
+        manager.selectTab(manager.addTab(self.request, isPrivate: true))
         XCTAssertEqual(manager.privateTabs.count, 1, "There should be one new private tab")
         manager.willSwitchTabMode(leavingPBM: true)
         XCTAssertEqual(manager.privateTabs.count, 0, "After willSwitchTabMode there should be no more private tabs")
 
-        manager.selectTab(manager.addTab(request, isPrivate: true))
-        manager.selectTab(manager.addTab(request, isPrivate: true))
+        manager.selectTab(manager.addTab(self.request, isPrivate: true))
+        manager.selectTab(manager.addTab(self.request, isPrivate: true))
         XCTAssertEqual(manager.privateTabs.count, 2, "Private tabs should not be deleted when another one is added")
-        manager.selectTab(manager.addTab(request))
+        manager.selectTab(manager.addTab(self.request))
         XCTAssertEqual(manager.privateTabs.count, 0, "But once we add a normal tab we've switched out of private mode. Private tabs should be deleted")
         XCTAssertEqual(manager.normalTabs.count, 2, "The original normal tab and the new one should both still exist")
 
         profile.prefs.setBool(false, forKey: "settings.closePrivateTabs")
-        manager.selectTab(manager.addTab(request, isPrivate: true))
+        manager.selectTab(manager.addTab(self.request, isPrivate: true))
         manager.selectTab(tab)
         XCTAssertEqual(manager.selectedTab?.isPrivate, false, "The selected tab should not be private")
         XCTAssertEqual(manager.privateTabs.count, 1, "If the flag is false then private tabs should still exist")
@@ -239,8 +240,8 @@ class TabManagerTests: XCTestCase {
 
         let tab = manager.addTab()
         manager.selectTab(tab)
-        manager.selectTab(manager.addTab())
-        manager.selectTab(manager.addTab(isPrivate: true))
+        manager.selectTab(manager.addTab(self.request))
+        manager.selectTab(manager.addTab(self.request, isPrivate: true))
 
         manager.willSwitchTabMode(leavingPBM: false)
         XCTAssertEqual(manager.privateTabs.count, 1, "There should be 1 private tab")
@@ -254,8 +255,8 @@ class TabManagerTests: XCTestCase {
 
         let tab = manager.addTab()
         manager.selectTab(tab)
-        manager.addTab()
-        let deleteTab = manager.addTab()
+        manager.addTab(self.request)
+        let deleteTab = manager.addTab(self.request)
 
         manager.removeTabAndUpdateSelectedIndex(deleteTab)
         XCTAssertEqual(tab, manager.selectedTab)
@@ -265,7 +266,7 @@ class TabManagerTests: XCTestCase {
     func testDeleteSelectedTab() {
 
         func addTab(_ visit: Bool) -> Tab {
-            let tab = manager.addTab()
+            let tab = manager.addTab(self.request)
             if visit {
                 tab.lastExecutedTime = Date.now()
             }
@@ -303,8 +304,7 @@ class TabManagerTests: XCTestCase {
     func testDeleteLastTab() {
 
         //create the tab before adding the mock delegate. So we don't have to check delegate calls we dont care about
-        let request = URLRequest(url: URL(string: "https://cliqz.com")!)
-        (0..<10).forEach {_ in manager.addTab(request) }
+        (0..<10).forEach {_ in manager.addTab(self.request) }
         manager.selectTab(manager.tabs.last)
         let deleteTab = manager.tabs.last
         let newSelectedTab = manager.tabs[8]
@@ -328,9 +328,9 @@ class TabManagerTests: XCTestCase {
 
         // create one private and one normal tab
         let tab = manager.addTab()
-        let newTab = manager.addTab()
+        let newTab = manager.addTab(self.request)
         manager.selectTab(tab)
-        manager.selectTab(manager.addTab(isPrivate: true))
+        manager.selectTab(manager.addTab(self.request, isPrivate: true))
         manager.addDelegate(delegate)
 
         // Double check a few things
@@ -364,8 +364,7 @@ class TabManagerTests: XCTestCase {
     func testDeleteFirstTab() {
 
         //create the tab before adding the mock delegate. So we don't have to check delegate calls we dont care about
-        let request = URLRequest(url: URL(string: "https://cliqz.com")!)
-        (0..<10).forEach {_ in manager.addTab(request) }
+        (0..<10).forEach {_ in manager.addTab(self.request) }
         manager.selectTab(manager.tabs.first)
         let deleteTab = manager.tabs.first
         let newSelectedTab = manager.tabs[1]
@@ -385,8 +384,8 @@ class TabManagerTests: XCTestCase {
     func testRemoveTabSelectedTabShouldChangeIndex() {
 
         let tab1 = manager.addTab()
-        manager.addTab()
-        let tab3 = manager.addTab()
+        manager.addTab(self.request)
+        let tab3 = manager.addTab(self.request)
 
         manager.selectTab(tab3)
         let beforeRemoveTabIndex = manager.selectedIndex
@@ -400,7 +399,7 @@ class TabManagerTests: XCTestCase {
     func testRemoveTabRemovingLastNormalTabShouldNotSwitchToPrivateTab() {
 
         let tab0 = manager.addTab()
-        let tab1 = manager.addTab(isPrivate: true)
+        let tab1 = manager.addTab(self.request, isPrivate: true)
 
         manager.selectTab(tab0)
         // select private tab, so we are in privateMode
@@ -416,7 +415,7 @@ class TabManagerTests: XCTestCase {
     func testRemoveAllShouldRemoveAllTabs() {
 
         let tab0 = manager.addTab()
-        let tab1 = manager.addTab()
+        let tab1 = manager.addTab(self.request)
 
         manager.removeAll()
         XCTAssert(nil == manager.tabs.firstIndex(of: tab0))
@@ -428,7 +427,7 @@ class TabManagerTests: XCTestCase {
     func testTabsIndex() {
         // We add 2 tabs. Then a private one before adding another normal tab and selecting it.
         // Make sure that when the last one is deleted we dont switch to the private tab
-        let (_, _, privateOne, last) = (manager.addTab(), manager.addTab(), manager.addTab(isPrivate: true), manager.addTab())
+        let (_, _, privateOne, last) = (manager.addTab(self.request), manager.addTab(self.request), manager.addTab(self.request, isPrivate: true), manager.addTab(self.request))
         manager.selectTab(last)
         manager.addDelegate(delegate)
 
@@ -447,7 +446,7 @@ class TabManagerTests: XCTestCase {
     func testRemoveTabAndUpdateSelectedIndexIsSelectedParentTabAfterRemoval() {
 
         func addTab(_ visit: Bool) -> Tab {
-            let tab = manager.addTab()
+            let tab = manager.addTab(self.request)
             if visit {
                 tab.lastExecutedTime = Date.now()
             }
@@ -471,9 +470,9 @@ class TabManagerTests: XCTestCase {
         // We add 2 tabs. Then a private one before adding another normal tab and selecting the first.
         // Make sure that when the last one is deleted we dont switch to the private tab
         let deleted = manager.addTab()
-        let newSelected = manager.addTab()
-        manager.addTab(isPrivate: true)
-        manager.addTab()
+        let newSelected = manager.addTab(self.request)
+        manager.addTab(self.request, isPrivate: true)
+        manager.addTab(self.request)
         manager.selectTab(manager.tabs.first)
         manager.addDelegate(delegate)
 
