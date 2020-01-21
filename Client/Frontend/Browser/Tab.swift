@@ -640,10 +640,6 @@ extension Tab: CliqzRefreshControlDelegate {
         self.reload()
     }
 
-    func isRefreshing() -> Bool {
-        return self.webView?.isLoading ?? false
-    }
-
 }
 
 extension Tab: TabWebViewDelegate {
