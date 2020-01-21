@@ -13,6 +13,7 @@ protocol CliqzRefreshControlDelegate: class {
     func refreshControllAlphaDidChange(alpha: CGFloat)
     func refreshControllMinimumHeight() -> CGFloat
     func refreshControllDidRefresh()
+    func isRefreshing() -> Bool
 }
 
 struct CliqzRefreshControlUI {
@@ -28,8 +29,12 @@ class CliqzRefreshControl: UIView {
 
     private weak var scrollView: UIScrollView?
     private weak var animationView: UIView?
-    private var pullToRefreshAllowed: Bool = true
-    private var isRefreshing: Bool = false
+    private var pullToRefreshAllowed: Bool = true {
+        didSet {
+            self.isTrackingStarted = !self.pullToRefreshAllowed
+        }
+    }
+    private var isTrackingStarted: Bool = false
 
     weak var delegate: CliqzRefreshControlDelegate?
 
@@ -115,41 +120,44 @@ class CliqzRefreshControl: UIView {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard let scrollView = self.scrollView else {
+        guard let scrollView = self.scrollView, scrollView.contentOffset.y <= 0 else {
+            if self.alpha != 0 {
+                self.alpha = 0
+                self.delegate?.refreshControllAlphaDidChange(alpha: self.alpha)
+            }
             return
         }
-        self.isRefreshing = self.isRefreshing && !scrollView.isTracking
+        guard self.isTrackingStarted || scrollView.isTracking else {
+            return
+        }
+        self.isTrackingStarted = true
         if self.pullToRefreshAllowed {
-            if scrollView.contentOffset.y < 0.0 {
-                let alpha = abs(scrollView.contentOffset.y) / 20
-                self.alpha = min(alpha, 1.0)
-            } else {
+            if scrollView.contentOffset.y >= 0.0 {
                 self.pullToRefreshAllowed = scrollView.isTracking || scrollView.contentOffset.y == 0.0
-                self.alpha = 0.0
             }
-            self.delegate?.refreshControllAlphaDidChange(alpha: self.alpha)
-            let headerHeight = self.delegate?.refreshControllMinimumHeight() ?? 0
-            let offset = scrollView.contentOffset.y < 0 ? abs(scrollView.contentOffset.y) : 0
-            self.snp.updateConstraints({ (make) in
-                make.height.equalTo(max(headerHeight, headerHeight + offset))
-            })
-            let getMaxValue = self.centerAction.frame.height >= CliqzRefreshControlUI.maximumActionHeight
-            if getMaxValue {
-                self.titleLabel.isHidden = false
-            } else {
-                self.titleLabel.isHidden = true
-            }
-            if !scrollView.isDragging && getMaxValue && !self.isRefreshing {
-                self.isRefreshing = true
-                self.animateBubble()
-                self.delegate?.refreshControllDidRefresh()
-            }
+            self.handlePullToRefresh(scrollView: scrollView)
         } else {
             if scrollView.isDecelerating {
                 self.pullToRefreshAllowed = scrollView.contentOffset.y == 0.0
             } else {
                 self.pullToRefreshAllowed = !scrollView.isDragging && scrollView.contentOffset.y == 0.0
             }
+        }
+    }
+
+    private func handlePullToRefresh(scrollView: UIScrollView) {
+        self.alpha = scrollView.contentOffset.y < 0.0 ? min((abs(scrollView.contentOffset.y) / 20), 1.0) : 0.0
+        self.delegate?.refreshControllAlphaDidChange(alpha: self.alpha)
+        let headerHeight = self.delegate?.refreshControllMinimumHeight() ?? 0
+        let offset = scrollView.contentOffset.y < 0 ? abs(scrollView.contentOffset.y) : 0
+        self.snp.updateConstraints({ (make) in
+            make.height.equalTo(max(headerHeight, headerHeight + offset))
+        })
+        let getMaxValue = self.centerAction.frame.height >= CliqzRefreshControlUI.maximumActionHeight
+        self.titleLabel.isHidden = !getMaxValue
+        if !scrollView.isDragging && getMaxValue && !(self.delegate?.isRefreshing() ?? false) {
+            self.animateBubble()
+            self.delegate?.refreshControllDidRefresh()
         }
     }
 
