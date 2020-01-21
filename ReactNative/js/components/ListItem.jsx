@@ -48,14 +48,15 @@ export default function ListItem({ url, title, onPress, label }) {
         <Logo url={url} size={48} />
         <View style={styles.rowText}>
           <View style={styles.firstRow}>
-            <Text style={styles.rowTitle}>{name}</Text>
+            <Text style={styles.rowTitle} allowFontScaling={false}>{name}</Text>
             {label &&
-              <Text style={styles.label}>{label}</Text>
+              <Text style={styles.label} allowFontScaling={false}>{label}</Text>
             }
           </View>
           <Text
             numberOfLines={2}
             style={styles.rowDescription}
+            allowFontScaling={false}
           >{title}</Text>
         </View>
       </View>

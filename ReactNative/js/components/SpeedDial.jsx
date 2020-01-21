@@ -79,7 +79,7 @@ const SpeedDial = ({
           )}
           <Logo key={speedDial.url} url={speedDial.url} size={30} />
         </View>
-        <Text numberOfLines={1} style={styles.label}>
+        <Text numberOfLines={1} style={styles.label} allowFontScaling={false}>
           {name}
         </Text>
       </View>

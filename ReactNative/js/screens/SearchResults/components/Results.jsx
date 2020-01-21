@@ -39,24 +39,35 @@ const getStyles = theme =>
       backgroundColor: theme.separatorColor,
     },
     footer: {
-      height: 60,
       borderBottomColor: theme.separatorColor,
-      borderBottomWidth: 1,
-      backgroundColor: theme.separatorColor,
+      borderBottomWidth: 0,
+      top: -1,
+      backgroundColor: theme.backgroundColor,
       alignItems: 'center',
       justifyContent: 'center',
-      borderBottomLeftRadius: 10,
-      borderBottomRightRadius: 10,
-    },
-    footerWrapper: {
+      borderBottomLeftRadius: 17,
+      borderBottomRightRadius: 17,
       flexDirection: 'row',
+    },
+    showMoreButtonWrapper: {
+      backgroundColor: theme.brandTintColor,
+      borderRadius: 10,
+      paddingVertical: 20,
+      marginVertical: 14,
+      marginHorizontal: 14,
+      flexGrow: 1,
+      flexDirection: 'column',
+    },
+    showMoreButton: {
+      flexDirection: 'row',
+      alignSelf: 'center',
     },
     footerIcon: {
       width: 20,
       height: 20,
     },
     footerText: {
-      color: theme.textColor,
+      color: 'white',
       alignSelf: 'center',
       marginLeft: 10,
       fontSize: resultTitleFontSize,
@@ -251,22 +262,30 @@ class Results extends React.Component {
                 </View>
               )}
 
-              <TouchableWithoutFeedback
-                onPress={() =>
-                  this.openSearchEngineResultsPage({ name: 'Cliqz' }, query, 0)
-                }
-              >
-                <View style={styles.footer}>
-                  <View style={styles.footerWrapper}>
-                    <NativeDrawable
-                      style={styles.footerIcon}
-                      source="nav-menu"
-                      color={_theme.brandTintColor}
-                    />
-                    <Text style={styles.footerText}>{t('search_footer')}</Text>
+              <View style={styles.footer}>
+                <TouchableWithoutFeedback
+                  onPress={() =>
+                    this.openSearchEngineResultsPage(
+                      { name: 'Cliqz' },
+                      query,
+                      0,
+                    )
+                  }
+                >
+                  <View style={styles.showMoreButtonWrapper}>
+                    <View style={styles.showMoreButton}>
+                      <NativeDrawable
+                        style={styles.footerIcon}
+                        source="nav-menu"
+                        color="#ffffff"
+                      />
+                      <Text style={styles.footerText} allowFontScaling={false}>
+                        {t('search_footer')}
+                      </Text>
+                    </View>
                   </View>
-                </View>
-              </TouchableWithoutFeedback>
+                </TouchableWithoutFeedback>
+              </View>
 
               <View style={styles.searchEnginesHeader}>
                 <Text style={styles.searchEnginesHeaderText}>
@@ -285,7 +304,7 @@ class Results extends React.Component {
                           key={searchEngine.name}
                           styles={{
                             label: {
-                              color: _theme.separatorColor,
+                              color: 'white',
                             },
                             circle: {
                               borderColor: `${_theme.separatorColor}44`,
