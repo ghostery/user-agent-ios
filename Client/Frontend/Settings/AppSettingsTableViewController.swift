@@ -100,6 +100,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         let prefs = self.profile.prefs
         var generalSettings: [Setting] = [
             OpenWithSetting(settings: self),
+            NewTabPageDefaultViewSetting(settings: self),
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
                         titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
         ]

@@ -23,6 +23,7 @@ public struct PrefsKeys {
     public static let PrivacyDashboardEnabledKey = "prefkey.privacy.dashboard"
 
     public static let WhatsNewBubble = "WhatsNewBubble-\(AppInfo.appVersion)"
+    public static let NewTabPageDefaultView = "NewTabPageDefaultView"
 
     //News
     public static let NewTabNewsEnabled = "NewTabNewsEnabled"
