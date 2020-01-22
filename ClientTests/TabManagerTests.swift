@@ -95,7 +95,7 @@ class TabManagerTests: XCTestCase {
     var manager: TabManager!
     var delegate: MockTabManagerDelegate!
 
-    private let request = URLRequest(url: URL(string: "https://cliqz.com")!)
+    private let request = URLRequest(url: URL(string: "http://example.com")!)
 
     override func setUp() {
         super.setUp()
@@ -121,9 +121,27 @@ class TabManagerTests: XCTestCase {
         XCTAssertEqual(manager.normalTabs.count, 1, "There should be one normal tab")
     }
 
+    func testAddMoreThanOneNewTabShouldKeepOnlyOne() {
+        manager.addDelegate(delegate)
+        delegate.expect([didAdd])
+        manager.addTab()
+        manager.addTab()
+        delegate.verify("Not all delegate methods were called")
+        XCTAssertEqual(manager.normalTabs.count, 1, "There should be one normal tab")
+    }
+
     func testAddTabShouldAddOnePrivateTab() {
         manager.addDelegate(delegate)
         delegate.expect([didAdd])
+        manager.addTab(isPrivate: true)
+        delegate.verify("Not all delegate methods were called")
+        XCTAssertEqual(manager.privateTabs.count, 1, "There should be one private tab")
+    }
+
+    func testAddMoreThanOneNewPrivateTabShouldKeepOnlyOne() {
+        manager.addDelegate(delegate)
+        delegate.expect([didAdd])
+        manager.addTab(isPrivate: true)
         manager.addTab(isPrivate: true)
         delegate.verify("Not all delegate methods were called")
         XCTAssertEqual(manager.privateTabs.count, 1, "There should be one private tab")

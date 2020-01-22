@@ -37,10 +37,11 @@ class TabManagerStoreTests: XCTestCase {
     }
 
     // Without session data, a Tab can't become a SavedTab and get archived
-    func addTabWithSessionData(isPrivate: Bool = false) {
+    func addTabWithSessionData(isPrivate: Bool = false, url: URL? = URL(string: "http://yahoo.com")!) {
         let tab = Tab(bvc: BrowserViewController.foregroundBVC(), configuration: configuration, isPrivate: isPrivate)
-        tab.url = URL(string: "http://yahoo.com")!
-        _ = manager.configureTab(tab, request: URLRequest(url: tab.url!), flushToDisk: false, zombie: false)
+        tab.url = url
+        let request: URLRequest? = url == nil ? nil : URLRequest(url: url!)
+        _ = manager.configureTab(tab, request: request, flushToDisk: false, zombie: false)
         tab.sessionData = SessionData(currentPage: 0, urls: [tab.url!], lastUsedTime: Date.now())
     }
 
@@ -97,5 +98,44 @@ class TabManagerStoreTests: XCTestCase {
         }
         waitForExpectations(timeout: 2, handler: nil)
     }
+
+    func testRestoreTabsWithNewTab() {
+        self.addTabWithSessionData()
+        self.addTabWithSessionData(url: nil)
+
+        let e = expectation(description: "saved")
+        self.manager.storeChanges().uponQueue(.main) { _ in
+            XCTAssertEqual(self.manager.testTabCountOnDisk(), 2)
+            e.fulfill()
+        }
+        self.manager.testClearTabs()
+        XCTAssertEqual(self.manager.normalTabs.count, 0)
+        self.waitForExpectations(timeout: 2, handler: nil)
+        let restoredTabsCount = self.manager.testCountRestoredTabs(clearPrivateTabs: false)
+        XCTAssertEqual(restoredTabsCount, 2)
+        XCTAssertEqual(self.manager.normalTabs.count, 2)
+        self.manager.addTab()
+        XCTAssertEqual(self.manager.normalTabs.count, 2)
+    }
+
+    func testRestoreTabsWithNewPrivateTab() {
+        self.addTabWithSessionData(isPrivate: true)
+        self.addTabWithSessionData(isPrivate: true, url: nil)
+
+        let e = expectation(description: "saved")
+        self.manager.storeChanges().uponQueue(.main) { _ in
+            XCTAssertEqual(self.manager.testTabCountOnDisk(), 2)
+            e.fulfill()
+        }
+        self.manager.testClearTabs()
+        XCTAssertEqual(self.manager.privateTabs.count, 0)
+        self.waitForExpectations(timeout: 2, handler: nil)
+        let restoredTabsCount = self.manager.testCountRestoredTabs(clearPrivateTabs: false)
+        XCTAssertEqual(restoredTabsCount, 2)
+        XCTAssertEqual(self.manager.privateTabs.count, 2)
+        self.manager.addTab()
+        XCTAssertEqual(self.manager.privateTabs.count, 2)
+    }
+
 }
 

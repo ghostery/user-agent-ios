@@ -774,9 +774,9 @@ extension TabManager {
         return store.testTabCountOnDisk()
     }
 
-    func testCountRestoredTabs() -> Int {
+    func testCountRestoredTabs(clearPrivateTabs: Bool = true) -> Int {
         assert(AppConstants.IsRunningTest)
-        _ = store.restoreStartupTabs(clearPrivateTabs: true, tabManager: self)
+        _ = store.restoreStartupTabs(clearPrivateTabs: clearPrivateTabs, tabManager: self)
         return count
     }
 
@@ -784,6 +784,12 @@ extension TabManager {
         assert(AppConstants.IsRunningTest)
         store.clearArchive()
     }
+
+    func testClearTabs() {
+        assert(AppConstants.IsRunningTest)
+        self.tabs.removeAll()
+    }
+
 }
 
 extension TabManager: TabStateChangeDelegate {
