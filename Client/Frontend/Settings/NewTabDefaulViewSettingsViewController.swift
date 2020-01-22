@@ -19,7 +19,7 @@ class NewTabDefaultViewSettingsViewController: SettingsTableViewController {
         self.availableSegments = availableSegments
         super.init(style: .grouped)
         self.profile = profile
-        self.title = Strings.Settings.NewTabPageDefaultView.PageTitle
+        self.title = Strings.Settings.NewTabPageDefaultView.SectionName
         self.hasSectionSeparatorLine = false
     }
 
