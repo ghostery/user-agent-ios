@@ -105,6 +105,15 @@ class SavedTab: NSObject, NSCoding {
         tab.sessionData = sessionData
         tab.lastTitle = title
 
+        tab.isPureNewTabPage = self.isPureNewTabPage()
+
         return tab
+    }
+
+    private func isPureNewTabPage() -> Bool {
+        guard let data = self.sessionData else {
+            return false
+        }
+        return data.urls.count == 1 && NewTabPage.fromAboutHomeURL(url: data.urls.first!) != nil
     }
 }
