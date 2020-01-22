@@ -267,6 +267,7 @@ class TabTrayController: UIViewController {
             return
         }
         openNewTab()
+        self.dismissTabTray()
     }
 
     func openNewTab(_ request: URLRequest? = nil) {
