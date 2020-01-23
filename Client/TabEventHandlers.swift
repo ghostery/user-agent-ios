@@ -6,12 +6,12 @@ import Foundation
 import Shared
 
 class TabEventHandlers {
-    static func create(with prefs: Prefs) -> [TabEventHandler] {
+    static func create(with profile: Profile) -> [TabEventHandler] {
         let handlers: [TabEventHandler] = [
             FaviconHandler(),
-            UserActivityHandler(),
+            UserActivityHandler(profile: profile),
             MetadataParserHelper(),
-            MediaImageLoader(prefs),
+            MediaImageLoader(profile.prefs),
         ]
 
         return handlers

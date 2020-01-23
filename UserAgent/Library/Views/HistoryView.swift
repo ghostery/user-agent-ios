@@ -9,6 +9,7 @@
 import UIKit
 import Shared
 import Storage
+import CoreSpotlight
 
 private struct HistoryViewUX {
     static let EmptyScreenItemWidth = 170
@@ -153,6 +154,7 @@ private extension HistoryView {
             self.tableView.endUpdates()
             self.updateEmptyPanelState()
             self.profile.history.setTopSitesNeedsInvalidation()
+            CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [site.url])
         }
     }
 

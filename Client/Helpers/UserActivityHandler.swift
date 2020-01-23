@@ -14,7 +14,11 @@ private let browsingActivityType: String = "org.mozilla.ios.firefox.browsing"
 private let searchableIndex = CSSearchableIndex(name: "firefox")
 
 class UserActivityHandler {
-    init() {
+
+    private var profile: Profile
+
+    init(profile: Profile) {
+        self.profile = profile
         register(self, forTabEvents: .didClose, .didLoseFocus, .didGainFocus, .didChangeURL, .didLoadPageMetadata) // .didLoadFavicon, // TO DO : Bug 1390294
     }
 
@@ -33,10 +37,42 @@ class UserActivityHandler {
 
         let userActivity = NSUserActivity(activityType: browsingActivityType)
         userActivity.webpageURL = url
+
+        let query = self.profile.searchEngines.queryForSearchURL(url)
+        if query == nil || !self.profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query!) {
+            let attributeSet = self.searchableItemAttribute(tab: tab, url: url)
+            self.addIndexSearchableItem(attributeSet: attributeSet, url: url)
+            userActivity.contentAttributeSet = attributeSet
+            userActivity.userInfo = [CSSearchableItemActivityIdentifier: url.absoluteString]
+        }
+
         userActivity.becomeCurrent()
 
         tab.userActivity = userActivity
     }
+
+    private func searchableItemAttribute(tab: Tab, url: URL) -> CSSearchableItemAttributeSet {
+        let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeText as String)
+        attributeSet.title = tab.title
+        attributeSet.relatedUniqueIdentifier = url.absoluteString
+        attributeSet.contentDescription = url.absoluteString
+//        attributeSet.thumbnailData = UIImage(named: "AppIcon")?.jpegData(compressionQuality: 1.0)
+        return attributeSet
+    }
+
+    fileprivate func addIndexSearchableItem(attributeSet: CSSearchableItemAttributeSet, url: URL) {
+        // Create an item with a unique identifier, a domain identifier, and the attribute set you created earlier.
+        let item = CSSearchableItem(uniqueIdentifier: attributeSet.relatedUniqueIdentifier!, domainIdentifier: url.baseDomain, attributeSet: attributeSet)
+        // Add the item to the on-device index.
+        CSSearchableIndex.default().indexSearchableItems([item]) { error in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+            } else {
+                print("Item indexed.")
+            }
+        }
+    }
+
 }
 
 extension UserActivityHandler: TabEventHandler {

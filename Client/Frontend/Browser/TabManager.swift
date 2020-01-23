@@ -126,7 +126,7 @@ class TabManager: NSObject {
 
         self.profile = profile
         self.navDelegate = TabManagerNavDelegate()
-        self.tabEventHandlers = TabEventHandlers.create(with: profile.prefs)
+        self.tabEventHandlers = TabEventHandlers.create(with: profile)
 
         self.store = TabManagerStore(imageStore: imageStore)
         super.init()
