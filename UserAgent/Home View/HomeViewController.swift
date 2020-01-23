@@ -97,7 +97,7 @@ class HomeViewController: UIViewController {
             case .NewsSettingsDidChange:
                 self.refresh()
             case .NewTabPageDefaultViewSettingsDidChange:
-                self.selectDefaultSegment()
+                self.switchToDefaultSegment()
             default:
                 print("Error: Received unexpected notification \(notification.name)")
             }
@@ -116,7 +116,7 @@ private extension HomeViewController {
         setupConstraints()
     }
 
-    func selectDefaultSegment() {
+    func switchToDefaultSegment() {
         var defaultSegment: Segment = .topSites
         if let rawValue = self.profile.prefs.intForKey(PrefsKeys.NewTabPageDefaultView), let segment = Segment(rawValue: rawValue) {
             defaultSegment = segment
@@ -127,7 +127,6 @@ private extension HomeViewController {
     }
 
     func setupSegmentedControl() {
-        self.selectDefaultSegment()
         segmentedControl.tintColor = UIColor.BrightBlue
     }
 
@@ -190,6 +189,10 @@ extension HomeViewController: HomeViewControllerProtocol {
     func switchView(segment: HomeViewController.Segment) {
         self.showView(segment: segment)
         self.segmentedControl.selectedSegmentIndex = self.segments.firstIndex(of: segment) ?? 0
+    }
+
+    func switchViewToDefaultSegment() {
+        self.switchToDefaultSegment()
     }
 
     func scrollToTop() {
