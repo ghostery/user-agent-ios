@@ -744,8 +744,6 @@ class BrowserViewController: UIViewController {
             homeViewController.didMove(toParent: self)
         }
 
-        self.homeViewController?.switchViewToDefaultSegment()
-
         homeViewController?.applyTheme()
 
         // We have to run this animation, even if the view is already showing
@@ -1720,6 +1718,9 @@ extension BrowserViewController: TabManagerDelegate {
     func tabManager(_ tabManager: TabManager, didRemoveTab tab: Tab, isRestoring: Bool) {
         if let url = tab.url, !(InternalURL(url)?.isAboutURL ?? false), !tab.isPrivate {
             profile.recentlyClosedTabs.addTab(url as URL, title: tab.title, faviconURL: tab.displayFavicon?.url)
+        }
+        if (tab.isPrivate && self.tabManager.privateTabs.isEmpty) || (!tab.isPrivate && self.tabManager.normalTabs.isEmpty) {
+            self.homeViewController?.switchViewToDefaultSegment()
         }
         updateTabCountUsingTabManager(tabManager)
     }

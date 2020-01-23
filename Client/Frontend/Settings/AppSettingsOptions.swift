@@ -413,7 +413,7 @@ class NewTabPageDefaultViewSetting: Setting {
 
     override var status: NSAttributedString {
         guard let segment = self.profile.prefs.intForKey(PrefsKeys.NewTabPageDefaultView) else {
-            return NSAttributedString(string: HomeViewController.Segment.topSites.title)
+            return NSAttributedString(string: HomeViewController.Segment.defaultValue.title)
         }
         let title = HomeViewController.Segment(rawValue: segment)?.title ?? ""
         return NSAttributedString(string: title)
@@ -432,7 +432,7 @@ class NewTabPageDefaultViewSetting: Setting {
         if let segment = self.profile.prefs.intForKey(PrefsKeys.NewTabPageDefaultView) {
             selectedSegment = HomeViewController.Segment(rawValue: segment)
         } else {
-            selectedSegment = .topSites
+            selectedSegment = HomeViewController.Segment.defaultValue
         }
         let availableSegments: [HomeViewController.Segment] = [.topSites, .bookmarks, .history]
         let viewController = NewTabDefaultViewSettingsViewController(profile: self.profile, selectedSegment: selectedSegment, availableSegments: availableSegments)

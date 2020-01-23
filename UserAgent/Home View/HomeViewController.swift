@@ -34,6 +34,10 @@ class HomeViewController: UIViewController {
             }
         }
 
+        static var defaultValue: Segment {
+            return .topSites
+        }
+
     }
 
     private let segments: [Segment] = [.topSites, .bookmarks, .history]
@@ -117,7 +121,7 @@ private extension HomeViewController {
     }
 
     func switchToDefaultSegment() {
-        var defaultSegment: Segment = .topSites
+        var defaultSegment: Segment = Segment.defaultValue
         if let rawValue = self.profile.prefs.intForKey(PrefsKeys.NewTabPageDefaultView), let segment = Segment(rawValue: rawValue) {
             defaultSegment = segment
         }
@@ -127,6 +131,7 @@ private extension HomeViewController {
     }
 
     func setupSegmentedControl() {
+        self.switchToDefaultSegment()
         segmentedControl.tintColor = UIColor.BrightBlue
     }
 
