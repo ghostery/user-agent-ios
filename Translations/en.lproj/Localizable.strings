@@ -842,6 +842,9 @@
 /* The option that takes you to the siri shortcuts settings page */
 "Settings.Siri.SectionName" = "Siri Shortcuts";
 
+/* The option in settings to configure default selected view in new tab */
+"Settings.NewTabPageDefaultView.SectionName" = "New Tab";
+
 /* Explanation of basic mode. */
 "Settings.TrackingProtection.Info.BasicTitle" = "Balanced for protection and performance.";
 

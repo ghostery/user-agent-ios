@@ -40,6 +40,7 @@ protocol HomeViewControllerProtocol: Themeable {
     func willMove(toParent parent: UIViewController?)
     func removeFromParent()
     func switchView(segment: HomeViewController.Segment)
+    func switchViewToDefaultSegment()
     func refresh()
 }
 
@@ -1717,6 +1718,9 @@ extension BrowserViewController: TabManagerDelegate {
     func tabManager(_ tabManager: TabManager, didRemoveTab tab: Tab, isRestoring: Bool) {
         if let url = tab.url, !(InternalURL(url)?.isAboutURL ?? false), !tab.isPrivate {
             profile.recentlyClosedTabs.addTab(url as URL, title: tab.title, faviconURL: tab.displayFavicon?.url)
+        }
+        if (tab.isPrivate && self.tabManager.privateTabs.isEmpty) || (!tab.isPrivate && self.tabManager.normalTabs.isEmpty) {
+            self.homeViewController?.switchViewToDefaultSegment()
         }
         updateTabCountUsingTabManager(tabManager)
     }

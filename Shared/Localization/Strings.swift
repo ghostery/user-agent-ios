@@ -176,6 +176,9 @@ extension Strings {
             public static let SectionDescription = String(format: NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are"), AppInfo.displayName)
             public static let OpenURL = NSLocalizedString("Settings.Siri.OpenTabShortcut", comment: "The description of the open new tab siri shortcut")
         }
+        public struct NewTabPageDefaultView {
+            public static let SectionName = NSLocalizedString("Settings.NewTabPageDefaultView.SectionName", comment: "The option in settings to configure default selected view in new tab")
+        }
         public struct DNT {
             public static let NotTrackTitle = NSLocalizedString("Settings.DNT.Title", comment: "DNT Settings title")
             public static let OptionOnWithTP = NSLocalizedString("Settings.DNT.OptionOnWithTP", comment: "DNT Settings option for only turning on when Tracking Protection is also on")
