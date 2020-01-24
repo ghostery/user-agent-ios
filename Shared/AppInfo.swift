@@ -43,6 +43,10 @@ open class AppInfo {
         return applicationBundle.object(forInfoDictionaryKey: String(kCFBundleVersionKey)) as! String
     }
 
+    public static var activityTypes: String {
+        return (applicationBundle.object(forInfoDictionaryKey: "NSUserActivityTypes") as! [String]).first!
+    }
+
     public static var majorAppVersion: String {
         return appVersion.components(separatedBy: ".").first!
     }

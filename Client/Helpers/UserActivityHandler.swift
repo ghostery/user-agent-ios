@@ -9,9 +9,9 @@ import CoreSpotlight
 import MobileCoreServices
 import WebKit
 
-private let browsingActivityType: String = "org.mozilla.ios.firefox.browsing"
+private let browsingActivityType: String = AppInfo.activityTypes
 
-private let searchableIndex = CSSearchableIndex(name: "firefox")
+private let searchableIndex = CSSearchableIndex(name: AppInfo.displayName.lowercased())
 
 class UserActivityHandler {
 
@@ -56,7 +56,6 @@ class UserActivityHandler {
         attributeSet.title = tab.title
         attributeSet.relatedUniqueIdentifier = url.absoluteString
         attributeSet.contentDescription = url.absoluteString
-//        attributeSet.thumbnailData = UIImage(named: "AppIcon")?.jpegData(compressionQuality: 1.0)
         return attributeSet
     }
 
