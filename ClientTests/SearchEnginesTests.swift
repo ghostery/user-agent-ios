@@ -7,15 +7,15 @@ import Foundation
 import XCTest
 import Shared
 
-private let DefaultSearchEngineName = "Google"
-private let ExpectedEngineNames = ["Google", "Bing", "DuckDuckGo"]
+private let DefaultSearchEngineName = "Cliqz"
+private let ExpectedEngineNames = ["Cliqz", "Google", "Bing", "DuckDuckGo"]
 
 class SearchEnginesTests: XCTestCase {
 
     func testIncludesExpectedEngines() {
         // Verify that the set of shipped engines includes the expected subset.
         let profile = MockProfile()
-        let engines = SearchEngines(prefs: profile.prefs, files: profile.files).orderedEngines
+        let engines = SearchEngines(prefs: profile.prefs, files: profile.files).searchEnginesIncludedCliqz
         XCTAssertTrue((engines?.count)! >= ExpectedEngineNames.count)
 
         for engineName in ExpectedEngineNames {
@@ -28,7 +28,7 @@ class SearchEnginesTests: XCTestCase {
         let profile = MockProfile()
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
         XCTAssertEqual(engines.defaultEngine.shortName, DefaultSearchEngineName)
-        XCTAssertEqual(engines.orderedEngines[0].shortName, DefaultSearchEngineName)
+        XCTAssertEqual(engines.searchEnginesIncludedCliqz[0].shortName, DefaultSearchEngineName)
     }
 
     func testAddingAndDeletingCustomEngines() {
@@ -46,25 +46,27 @@ class SearchEnginesTests: XCTestCase {
     func testDefaultEngine() {
         let profile = MockProfile()
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
-        let engineSet = engines.orderedEngines
+        let engineSet = engines.searchEnginesIncludedCliqz
 
         engines.defaultEngine = (engineSet?[0])!
         XCTAssertTrue(engines.isEngineDefault((engineSet?[0])!))
         XCTAssertFalse(engines.isEngineDefault((engineSet?[1])!))
         // The first ordered engine is the default.
-        XCTAssertEqual(engines.orderedEngines[0].shortName, engineSet?[0].shortName)
+        XCTAssertEqual(engines.searchEnginesIncludedCliqz[0].shortName, engineSet?[0].shortName)
 
+        /* Disabling the following tests as Cliqz doesn't allow to change default search engine.
         engines.defaultEngine = (engineSet?[1])!
         XCTAssertFalse(engines.isEngineDefault((engineSet?[0])!))
         XCTAssertTrue(engines.isEngineDefault((engineSet?[1])!))
         // The first ordered engine is the default.
-        XCTAssertEqual(engines.orderedEngines[0].shortName, engineSet?[1].shortName)
+        XCTAssertEqual(engines.searchEnginesIncludedCliqz[0].shortName, engineSet?[1].shortName)
 
         let engines2 = SearchEngines(prefs: profile.prefs, files: profile.files)
         // The default engine should have been persisted.
         XCTAssertTrue(engines2.isEngineDefault((engineSet?[1])!))
         // The first ordered engine is the default.
-        XCTAssertEqual(engines.orderedEngines[0].shortName, engineSet?[1].shortName)
+        XCTAssertEqual(engines.searchEnginesIncludedCliqz[0].shortName, engineSet?[1].shortName)
+         */
     }
 
     func testOrderedEngines() {
@@ -99,34 +101,33 @@ class SearchEnginesTests: XCTestCase {
     func testQuickSearchEngines() {
         let profile = MockProfile()
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
-        let engineSet = engines.orderedEngines
+        let engineSet = engines.searchEnginesIncludedCliqz
 
         // You can't disable the default engine.
-        engines.defaultEngine = (engineSet?[1])!
-        engines.disableEngine((engineSet?[1])!)
-        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
+//        engines.defaultEngine = (engineSet?[1])!
+        engines.disableEngine((engineSet?[0])!)
+        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
 
         // The default engine is not included in the quick search engines.
-        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[1].shortName }.count)
+        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
 
         // Enable and disable work.
         engines.enableEngine((engineSet?[0])!)
         XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
-        XCTAssertEqual(1, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
+        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
 
         engines.disableEngine((engineSet?[0])!)
-        XCTAssertFalse(engines.isEngineEnabled((engineSet?[0])!))
+        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
         XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
 
         // Setting the default engine enables it.
-        engines.defaultEngine = (engineSet?[0])!
-        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
+//        engines.defaultEngine = (engineSet?[0])!
+//        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
 
         // Setting the order may change the default engine, which enables it.
         engines.orderedEngines = [(engineSet?[2])!, (engineSet?[1])!, (engineSet?[0])!]
-        XCTAssertTrue(engines.isEngineDefault((engineSet?[2])!))
-        // not sure what this was testing
-//        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
+//        XCTAssertTrue(engines.isEngineDefault((engineSet?[2])!))
+        XCTAssertTrue(engines.isEngineEnabled((engineSet?[2])!))
 
         // The enabling should be persisted.
         engines.enableEngine((engineSet?[2])!)
@@ -172,10 +173,9 @@ class SearchEnginesTests: XCTestCase {
     func testSearchEnginesURLs() {
         let profile = MockProfile()
         let query: String = "query"
-        // fails propably due the the #channel=ios
-//        if let url = URL(string: "https://beta.cliqz.com/search/?q=\(query)#channel=ios") {
-//            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
-//        }
+        if let url = URL(string: "https://beta.cliqz.com/search/?q=\(query)") {
+            XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
+        }
         if let url = URL(string: "https://www.google.com/search?q=\(query)") {
             XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
         }

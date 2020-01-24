@@ -49,7 +49,7 @@ class SearchEngines {
 
     var defaultEngine: OpenSearchEngine {
         get {
-            return self.orderedEngines[0]
+            return self.searchEnginesIncludedCliqz[0]
         }
 
         set(defaultEngine) {
@@ -85,7 +85,7 @@ class SearchEngines {
     }
 
     var quickSearchEngines: [OpenSearchEngine]! {
-        return self.orderedEngines.filter({ (engine) in !self.isEngineDefault(engine) && self.isEngineEnabled(engine) })
+        return self.searchEnginesIncludedCliqz.filter({ (engine) in !self.isEngineDefault(engine) && self.isEngineEnabled(engine) })
     }
 
     var shouldShowSearchSuggestions: Bool {
