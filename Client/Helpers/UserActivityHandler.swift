@@ -39,7 +39,7 @@ class UserActivityHandler {
         userActivity.webpageURL = url
 
         let query = self.profile.searchEngines.queryForSearchURL(url)
-        if query == nil || !self.profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query!) {
+        if !tab.isPrivate && (query == nil || !self.profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query!)) {
             let attributeSet = self.searchableItemAttribute(tab: tab, url: url)
             self.addIndexSearchableItem(attributeSet: attributeSet, url: url)
             userActivity.contentAttributeSet = attributeSet
