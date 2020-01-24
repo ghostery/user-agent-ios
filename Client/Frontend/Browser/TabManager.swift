@@ -334,7 +334,12 @@ class TabManager: NSObject {
         // We should set request url in order to show url in url bar even no network
         tab.url = request?.url
 
-        if !store.isRestoringTabs, tab.isPureNewTabPage, let newTab = self.tabs.first(where: { $0.isPureNewTabPage && $0.isPrivate == tab.isPrivate }) {
+        // Resure currently open New Tab page if possible
+        if
+            !store.isRestoringTabs,
+            tab.isPureNewTabPage,
+            !isPopup,
+            let newTab = self.tabs.first(where: { $0.isPureNewTabPage && $0.isPrivate == tab.isPrivate }) {
             return newTab
         }
 
