@@ -404,6 +404,42 @@ class OpenWithSetting: Setting {
     }
 }
 
+class NewTabPageDefaultViewSetting: Setting {
+    let profile: Profile
+
+    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
+
+    override var accessibilityIdentifier: String? { return "DefaultView.Setting" }
+
+    override var status: NSAttributedString {
+        guard let segment = self.profile.prefs.intForKey(PrefsKeys.NewTabPageDefaultView) else {
+            return NSAttributedString(string: HomeViewController.Segment.defaultValue.title)
+        }
+        let title = HomeViewController.Segment(rawValue: segment)?.title ?? ""
+        return NSAttributedString(string: title)
+    }
+
+    override var style: UITableViewCell.CellStyle { return .value1 }
+
+    init(settings: SettingsTableViewController) {
+        self.profile = settings.profile
+
+        super.init(title: NSAttributedString(string: Strings.Settings.NewTabPageDefaultView.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+    }
+
+    override func onClick(_ navigationController: UINavigationController?) {
+        var selectedSegment: HomeViewController.Segment!
+        if let segment = self.profile.prefs.intForKey(PrefsKeys.NewTabPageDefaultView) {
+            selectedSegment = HomeViewController.Segment(rawValue: segment)
+        } else {
+            selectedSegment = HomeViewController.Segment.defaultValue
+        }
+        let availableSegments: [HomeViewController.Segment] = [.topSites, .bookmarks, .history]
+        let viewController = NewTabDefaultViewSettingsViewController(profile: self.profile, selectedSegment: selectedSegment, availableSegments: availableSegments)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 class TranslationSetting: Setting {
     let profile: Profile
     override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }

@@ -18,15 +18,31 @@ class HomeViewController: UIViewController {
 
     fileprivate let profile: Profile
 
-    enum Segment {
-        case topSites
+    enum Segment: Int32 {
+        case topSites = 0
         case bookmarks
         case history
+
+        var title: String {
+            switch self {
+            case .topSites:
+                return Strings.HomeView.SegmentedControl.TopSitesTitle
+            case .bookmarks:
+                return Strings.HomeView.SegmentedControl.BookmarksTitle
+            case .history:
+                return Strings.HomeView.SegmentedControl.HistoryTitle
+            }
+        }
+
+        static var defaultValue: Segment {
+            return .topSites
+        }
+
     }
 
     private let segments: [Segment] = [.topSites, .bookmarks, .history]
     private lazy var segmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: self.segments.map({ self.title(for: $0) }))
+        let segmentedControl = UISegmentedControl(items: self.segments.map({ $0.title }))
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         segmentedControl.setContentCompressionResistancePriority(.required, for: .vertical)
         if #available(iOS 13.0, *) {
@@ -61,6 +77,7 @@ class HomeViewController: UIViewController {
         self.profile = profile
         super.init(nibName: nil, bundle: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: .NewsSettingsDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: .NewTabPageDefaultViewSettingsDidChange, object: nil)
     }
 
     deinit {
@@ -83,6 +100,8 @@ class HomeViewController: UIViewController {
             switch notification.name {
             case .NewsSettingsDidChange:
                 self.refresh()
+            case .NewTabPageDefaultViewSettingsDidChange:
+                self.switchToDefaultSegment()
             default:
                 print("Error: Received unexpected notification \(notification.name)")
             }
@@ -101,10 +120,18 @@ private extension HomeViewController {
         setupConstraints()
     }
 
-    func setupSegmentedControl() {
-        showView(segment: .topSites)
-        guard let segmentIndex = segments.firstIndex(of: .topSites) else { return }
+    func switchToDefaultSegment() {
+        var defaultSegment: Segment = Segment.defaultValue
+        if let rawValue = self.profile.prefs.intForKey(PrefsKeys.NewTabPageDefaultView), let segment = Segment(rawValue: rawValue) {
+            defaultSegment = segment
+        }
+        showView(segment: defaultSegment)
+        guard let segmentIndex = segments.firstIndex(of: defaultSegment) else { return }
         segmentedControl.selectedSegmentIndex = segmentIndex
+    }
+
+    func setupSegmentedControl() {
+        self.switchToDefaultSegment()
         segmentedControl.tintColor = UIColor.BrightBlue
     }
 
@@ -155,16 +182,6 @@ private extension HomeViewController {
         allViews[segmentIndex].alpha = 1
     }
 
-    private func title(for segment: Segment) -> String {
-        switch segment {
-        case .topSites:
-            return Strings.HomeView.SegmentedControl.TopSitesTitle
-        case .bookmarks:
-            return Strings.HomeView.SegmentedControl.BookmarksTitle
-        case .history:
-            return Strings.HomeView.SegmentedControl.HistoryTitle
-        }
-    }
 }
 
 // MARK: - HomeViewControllerProtocol
@@ -177,6 +194,10 @@ extension HomeViewController: HomeViewControllerProtocol {
     func switchView(segment: HomeViewController.Segment) {
         self.showView(segment: segment)
         self.segmentedControl.selectedSegmentIndex = self.segments.firstIndex(of: segment) ?? 0
+    }
+
+    func switchViewToDefaultSegment() {
+        self.switchToDefaultSegment()
     }
 
     func scrollToTop() {
