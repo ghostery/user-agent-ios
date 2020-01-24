@@ -138,7 +138,7 @@ class SearchEngines {
                 return true
             }
         }
-        for engine in self.orderedEngines {
+        for engine in self.searchEnginesIncludedCliqz {
             guard let searchEngineURL = engine.searchURLForQuery(query as String) else {
                 continue
             }
@@ -152,7 +152,7 @@ class SearchEngines {
     }
 
     func queryForSearchURL(_ url: URL?) -> String? {
-        for engine in orderedEngines {
+        for engine in self.searchEnginesIncludedCliqz {
             guard let searchTerm = engine.queryForSearchURL(url) else { continue }
             return searchTerm
         }
