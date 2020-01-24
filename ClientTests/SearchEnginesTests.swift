@@ -8,7 +8,7 @@ import XCTest
 import Shared
 
 private let DefaultSearchEngineName = "Cliqz"
-private let ExpectedEngineNames = ["Cliqz", "Google", "Bing", "DuckDuckGo"]
+private let ExpectedEngineNames = ["Cliqz", "Amazon.com", "Bing", "DuckDuckGo", "Google", "Twitter", "Wikipedia"]
 
 class SearchEnginesTests: XCTestCase {
 
@@ -74,7 +74,7 @@ class SearchEnginesTests: XCTestCase {
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
 
         engines.orderedEngines = [ExpectedEngineNames[4], ExpectedEngineNames[2], ExpectedEngineNames[0]].map { name in
-            for engine in engines.orderedEngines {
+            for engine in engines.searchEnginesIncludedCliqz {
                 if engine.shortName == name {
                     return engine
                 }
@@ -90,12 +90,12 @@ class SearchEnginesTests: XCTestCase {
         // The ordering should have been persisted.
         XCTAssertEqual(engines2.orderedEngines[0].shortName, ExpectedEngineNames[4])
         XCTAssertEqual(engines2.orderedEngines[1].shortName, ExpectedEngineNames[2])
-        XCTAssertEqual(engines2.orderedEngines[2].shortName, ExpectedEngineNames[0])
+        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[3])
 
         // Remaining engines should be appended in alphabetical order.
-        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[1])
-        XCTAssertEqual(engines2.orderedEngines[4].shortName, ExpectedEngineNames[3])
-        XCTAssertEqual(engines2.orderedEngines[5].shortName, ExpectedEngineNames[5])
+        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[3])
+        XCTAssertEqual(engines2.orderedEngines[4].shortName, ExpectedEngineNames[5])
+        XCTAssertEqual(engines2.orderedEngines[5].shortName, ExpectedEngineNames[6])
     }
 
     func testQuickSearchEngines() {
