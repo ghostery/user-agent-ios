@@ -60,16 +60,8 @@ class UserActivityHandler {
     }
 
     fileprivate func addIndexSearchableItem(attributeSet: CSSearchableItemAttributeSet, url: URL) {
-        // Create an item with a unique identifier, a domain identifier, and the attribute set you created earlier.
         let item = CSSearchableItem(uniqueIdentifier: attributeSet.relatedUniqueIdentifier!, domainIdentifier: url.baseDomain, attributeSet: attributeSet)
-        // Add the item to the on-device index.
-        CSSearchableIndex.default().indexSearchableItems([item]) { error in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
-            } else {
-                print("Item indexed.")
-            }
-        }
+        CSSearchableIndex.default().indexSearchableItems([item])
     }
 
 }
