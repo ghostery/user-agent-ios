@@ -14,7 +14,6 @@ class OpenSearchEngine: NSObject, NSCoding {
 
     let shortName: String
     let engineID: String?
-    let image: UIImage
     let isCustomEngine: Bool
     let searchTemplate: String
     fileprivate let suggestTemplate: String?
@@ -24,9 +23,8 @@ class OpenSearchEngine: NSObject, NSCoding {
 
     fileprivate lazy var searchQueryComponentKey: String? = self.getQueryArgFromTemplate()
 
-    init(engineID: String?, shortName: String, image: UIImage, searchTemplate: String, suggestTemplate: String?, isCustomEngine: Bool) {
+    init(engineID: String?, shortName: String, searchTemplate: String, suggestTemplate: String?, isCustomEngine: Bool) {
         self.shortName = shortName
-        self.image = image
         self.searchTemplate = searchTemplate
         self.suggestTemplate = suggestTemplate
         self.isCustomEngine = isCustomEngine
@@ -39,8 +37,7 @@ class OpenSearchEngine: NSObject, NSCoding {
         // http://stackoverflow.com/a/40034694
         let isCustomEngine = aDecoder.decodeAsBool(forKey: "isCustomEngine")
         guard let searchTemplate = aDecoder.decodeObject(forKey: "searchTemplate") as? String,
-            let shortName = aDecoder.decodeObject(forKey: "shortName") as? String,
-            let image = aDecoder.decodeObject(forKey: "image") as? UIImage else {
+            let shortName = aDecoder.decodeObject(forKey: "shortName") as? String else {
                 assertionFailure()
                 return nil
         }
@@ -48,7 +45,6 @@ class OpenSearchEngine: NSObject, NSCoding {
         self.searchTemplate = searchTemplate
         self.shortName = shortName
         self.isCustomEngine = isCustomEngine
-        self.image = image
         self.engineID = aDecoder.decodeObject(forKey: "engineID") as? String
         self.suggestTemplate = nil
     }
@@ -57,7 +53,6 @@ class OpenSearchEngine: NSObject, NSCoding {
         aCoder.encode(searchTemplate, forKey: "searchTemplate")
         aCoder.encode(shortName, forKey: "shortName")
         aCoder.encode(isCustomEngine, forKey: "isCustomEngine")
-        aCoder.encode(image, forKey: "image")
         aCoder.encode(engineID, forKey: "engineID")
     }
 
@@ -258,39 +253,6 @@ class OpenSearchParser {
             return nil
         }
 
-        let imageIndexers = docIndexer.children(tag: "Image")
-        var largestImage = 0
-        var largestImageElement: XMLElement?
-
-        // TO DO: For now, just use the largest icon.
-        for imageIndexer in imageIndexers {
-            let imageWidth = Int(imageIndexer.attributes["width"] ?? "")
-            let imageHeight = Int(imageIndexer.attributes["height"] ?? "")
-
-            // Only accept square images.
-            if imageWidth != imageHeight {
-                continue
-            }
-
-            if let imageWidth = imageWidth {
-                if imageWidth > largestImage {
-                    largestImage = imageWidth
-                    largestImageElement = imageIndexer
-                }
-            }
-        }
-
-        let uiImage: UIImage
-        if let imageElement = largestImageElement,
-            let imageURL = URL(string: imageElement.stringValue),
-            let imageData = try? Data(contentsOf: imageURL),
-            let image = UIImage.imageFromDataThreadSafe(imageData) {
-            uiImage = image
-        } else {
-            print("Error: Invalid search image data")
-            return nil
-        }
-
-        return OpenSearchEngine(engineID: engineID, shortName: shortName, image: uiImage, searchTemplate: searchTemplate, suggestTemplate: suggestTemplate, isCustomEngine: false)
+        return OpenSearchEngine(engineID: engineID, shortName: shortName, searchTemplate: searchTemplate, suggestTemplate: suggestTemplate, isCustomEngine: false)
     }
 }
