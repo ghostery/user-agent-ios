@@ -36,6 +36,7 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
             (SiteDataClearable(tabManager: self.tabManager), true),
             (TrackingProtectionClearable(), true),
             (DownloadedFilesClearable(), false), // Don't clear downloaded files by default
+            (PrivacyStatsClearable(), false),
         ]
         return items
     }()
