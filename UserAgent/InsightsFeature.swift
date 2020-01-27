@@ -23,6 +23,8 @@ extension InsightsFeature: TabManagerDelegate {
         if isRestoring { return }
         guard let stats = tab.contentBlocker?.stats else { return }
 
+        guard !tab.isPrivate else { return }
+
         self.reportStats(
             tabId: tab.id,
             trackers: stats.trackers,
