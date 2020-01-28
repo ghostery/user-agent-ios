@@ -16,6 +16,13 @@ class InsightsFeature: NSObject {
         self.tabManager = tabManager
         self.tabManager.addDelegate(self)
     }
+
+    func clearStats() {
+        self.browserCore.callAction(
+            module: "insights",
+            action: "clearData",
+            args: [])
+    }
 }
 
 extension InsightsFeature: TabManagerDelegate {
