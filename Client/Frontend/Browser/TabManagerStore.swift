@@ -116,15 +116,17 @@ class TabManagerStore {
     }
 
     func restoreStartupTabs(clearPrivateTabs: Bool, tabManager: TabManager) -> Tab? {
-        var selectedTab = restoreTabs(savedTabs: archivedStartupTabs, clearPrivateTabs: clearPrivateTabs, tabManager: tabManager)
+        var selectedTab = self.restoreTabs(savedTabs: archivedStartupTabs, clearPrivateTabs: clearPrivateTabs, tabManager: tabManager)
         switch tabManager.startTab {
         case .lastOpenedTab: break
         case .newTab:
             if !(selectedTab?.isPureNewTabPage ?? false) {
-                selectedTab = tabManager.addTab()
+                self.lockedForReading = true
+                selectedTab = tabManager.tabs.first(where: { $0.isPureNewTabPage }) ?? tabManager.addTab()
+                self.lockedForReading = false
             }
         }
-        archivedStartupTabs.removeAll()
+        self.archivedStartupTabs.removeAll()
         return selectedTab
     }
 
