@@ -441,7 +441,7 @@ class URLBarView: UIView {
 
     func updateProgressBar(_ progress: Float) {
         progressBar.alpha = 1
-        progressBar.isHidden = false
+        progressBar.isHidden = self.inOverlayMode
         progressBar.setProgress(progress, animated: !isTransitioning)
     }
 
