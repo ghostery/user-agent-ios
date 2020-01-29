@@ -51,12 +51,39 @@ class WeakTabManagerDelegate {
 
 // TabManager must extend NSObjectProtocol in order to implement WKNavigationDelegate
 class TabManager: NSObject {
+
+    enum StartTab: Int32 {
+        case lastOpenedTab = 0
+        case newTab
+
+        var title: String {
+            switch self {
+            case .lastOpenedTab:
+                return Strings.Settings.OnBrowserStartTab.LastOpenedTab
+            case .newTab:
+                return Strings.Settings.OnBrowserStartTab.NewTab
+            }
+        }
+
+        static var defaultValue: StartTab {
+            return .lastOpenedTab
+        }
+
+    }
+
     fileprivate var delegates = [WeakTabManagerDelegate]()
     fileprivate let tabEventHandlers: [TabEventHandler]
     fileprivate let store: TabManagerStore
     fileprivate let profile: Profile
 
     let delaySelectingNewPopupTab: TimeInterval = 0.1
+
+    var startTab: StartTab {
+        guard let start = self.profile.prefs.intForKey(PrefsKeys.OnBrowserStartTab) else {
+            return StartTab.defaultValue
+        }
+        return StartTab(rawValue: start)!
+    }
 
     func addDelegate(_ delegate: TabManagerDelegate) {
         assert(Thread.isMainThread)

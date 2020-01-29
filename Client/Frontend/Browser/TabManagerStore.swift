@@ -10,6 +10,7 @@ import XCGLogger
 
 private let log = Logger.browserLogger
 class TabManagerStore {
+
     fileprivate var lockedForReading = false
     fileprivate let imageStore: DiskImageStore?
     fileprivate var fileManager = FileManager.default
@@ -115,7 +116,14 @@ class TabManagerStore {
     }
 
     func restoreStartupTabs(clearPrivateTabs: Bool, tabManager: TabManager) -> Tab? {
-        let selectedTab = restoreTabs(savedTabs: archivedStartupTabs, clearPrivateTabs: clearPrivateTabs, tabManager: tabManager)
+        var selectedTab = restoreTabs(savedTabs: archivedStartupTabs, clearPrivateTabs: clearPrivateTabs, tabManager: tabManager)
+        switch tabManager.startTab {
+        case .lastOpenedTab: break
+        case .newTab:
+            if !(selectedTab?.isPureNewTabPage ?? false) {
+                selectedTab = tabManager.addTab()
+            }
+        }
         archivedStartupTabs.removeAll()
         return selectedTab
     }
