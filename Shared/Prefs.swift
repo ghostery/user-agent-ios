@@ -24,6 +24,7 @@ public struct PrefsKeys {
 
     public static let WhatsNewBubble = "WhatsNewBubble-\(AppInfo.appVersion)"
     public static let NewTabPageDefaultView = "NewTabPageDefaultView"
+    public static let OnBrowserStartTab = "OnBrowserStartTab"
 
     //News
     public static let NewTabNewsEnabled = "NewTabNewsEnabled"

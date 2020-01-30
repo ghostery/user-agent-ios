@@ -169,6 +169,11 @@ extension Strings {
         public struct NewTab {
             public static let TopSites = String(format: NSLocalizedString("Settings.NewTab.Option.Home", comment: "Option in settings to show Firefox Home when you open a new tab"), AppInfo.displayName)
         }
+        public struct OnBrowserStartTab {
+            public static let SectionName = NSLocalizedString("Settings.OnBrowserStartTab.SectionName", comment: "The option in settings to configure first launch tab")
+            public static let LastOpenedTab = NSLocalizedString("Settings.OnBrowserStartTab.LastOpenedTab", comment: "The option in settings to configure first launch to open last opened tab")
+            public static let NewTab = NSLocalizedString("Settings.OnBrowserStartTab.NewTab", comment: "The option in settings to configure first launch to open new tab")
+        }
         public struct OpenWith {
             public static let SectionName = NSLocalizedString("Settings.OpenWith.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour.")
             public static let PageTitle = NSLocalizedString("Settings.OpenWith.PageTitle", comment: "Title for Open With Settings")

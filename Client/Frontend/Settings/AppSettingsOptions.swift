@@ -440,6 +440,42 @@ class NewTabPageDefaultViewSetting: Setting {
     }
 }
 
+class OnBrowserStartShowSetting: Setting {
+    let profile: Profile
+
+    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
+
+    override var accessibilityIdentifier: String? { return "OnBrowserStartShow.Setting" }
+
+    override var status: NSAttributedString {
+        guard let segment = self.profile.prefs.intForKey(PrefsKeys.OnBrowserStartTab) else {
+            return NSAttributedString(string: TabManager.StartTab.defaultValue.title)
+        }
+        let title = TabManager.StartTab(rawValue: segment)?.title ?? ""
+        return NSAttributedString(string: title)
+    }
+
+    override var style: UITableViewCell.CellStyle { return .value1 }
+
+    init(settings: SettingsTableViewController) {
+        self.profile = settings.profile
+
+        super.init(title: NSAttributedString(string: Strings.Settings.OnBrowserStartTab.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+    }
+
+    override func onClick(_ navigationController: UINavigationController?) {
+        var selectedStartTab: TabManager.StartTab!
+        if let startTab = self.profile.prefs.intForKey(PrefsKeys.OnBrowserStartTab) {
+            selectedStartTab = TabManager.StartTab(rawValue: startTab)
+        } else {
+            selectedStartTab = TabManager.StartTab.defaultValue
+        }
+        let availableStartTabs: [TabManager.StartTab] = [.lastOpenedTab, .newTab]
+        let viewController = OnBrowserStartShowSettingsViewController(profile: self.profile, selectedStartTab: selectedStartTab, availableStartTabs: availableStartTabs)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 class TranslationSetting: Setting {
     let profile: Profile
     override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }

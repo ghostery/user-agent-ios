@@ -793,6 +793,15 @@
 /* Option in settings to show UserAgent Home when you open a new tab */
 "Settings.NewTab.Option.Home" = "%@ Home";
 
+/* The option in settings to configure first launch tab */
+"Settings.OnBrowserStartTab.SectionName" = "Beim Browserstart anzeigen";
+
+/* The option in settings to configure first launch to open last opened tab */
+"Settings.OnBrowserStartTab.LastOpenedTab" = "Zuletzt geöffneter Tab";
+
+/* The option in settings to configure first launch to open new tab */
+"Settings.OnBrowserStartTab.NewTab" = "Newtab-Seite";
+
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
 "Settings.OfferClipboardBar.Status" = "Wenn %@ geöffnet wird";
 
