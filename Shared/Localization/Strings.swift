@@ -347,10 +347,6 @@ extension Strings {
                 public static let LabelText = NSLocalizedString("ContextMenu.ButtonToast.NewTabOpened.LabelText", comment: "The label text in the Button Toast for switching to a fresh New Tab.")
                 public static let ButtonText = NSLocalizedString("ContextMenu.ButtonToast.NewTabOpened.ButtonText", comment: "The button text in the Button Toast for switching to a fresh New Tab.")
             }
-            public struct NewPrivateTabOpened {
-                public static let LabelText = NSLocalizedString("ContextMenu.ButtonToast.NewPrivateTabOpened.LabelText", comment: "The label text in the Button Toast for switching to a fresh New Private Tab.")
-                public static let ButtonText = NSLocalizedString("ContextMenu.ButtonToast.NewPrivateTabOpened.ButtonText", comment: "The button text in the Button Toast for switching to a fresh New Private Tab.")
-            }
         }
         public static let OpenInNewTab = NSLocalizedString("ContextMenu.OpenInNewTabButtonTitle", comment: "Context menu item for opening a link in a new tab")
         public static let BookmarkLink = NSLocalizedString("ContextMenu.BookmarkLinkButtonTitle", comment: "Context menu item for bookmarking a link URL")
