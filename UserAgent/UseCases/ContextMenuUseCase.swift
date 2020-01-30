@@ -9,6 +9,7 @@
 import Foundation
 import Storage
 import Shared
+import CoreSpotlight
 
 enum ContextMenuActions {
     case unknwon
@@ -16,6 +17,7 @@ enum ContextMenuActions {
     case pin
     case newTab
     case removeTopSite
+    case deleteFromHistory
 }
 
 public typealias ContextMenuActionCompletion = () -> Void
@@ -57,6 +59,8 @@ class ContextMenuUseCase {
             return self.createActionPin(site: site, actionCompletion: completion)
         case .removeTopSite:
             return self.createActionRemoveTopSite(site: site, actionCompletion: completion)
+        case .deleteFromHistory:
+            return self.createActionDeleteFromHistory(site: site, actionCompletion: completion)
         default:
             break
         }
@@ -93,4 +97,15 @@ class ContextMenuUseCase {
         }
         return removeFromTopSite
     }
+
+    private func createActionDeleteFromHistory(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
+        let removeFromTopSite = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.DeleteFromHistory, iconString: "action_delete") { action in
+            self.profile.history.removeHistoryForURL(site.url).uponQueue(.main) { result in
+                CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [site.url])
+                actionCompletion()
+            }
+        }
+        return removeFromTopSite
+    }
+
 }
