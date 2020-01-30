@@ -882,9 +882,12 @@ class BrowserViewController: UIViewController {
 
     func openURLInNewTab(url: URL, isPrivate: Bool) {
         let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
+        if self.urlBar.inOverlayMode {
+            self.urlBar.cancel()
+        }
         // If we are showing toptabs a user can just use the top tab bar
         // If in overlay mode switching doesnt correctly dismiss the homepanels
-        guard !topTabsVisible, !self.urlBar.inOverlayMode else {
+        guard !topTabsVisible else {
             return
         }
         // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.

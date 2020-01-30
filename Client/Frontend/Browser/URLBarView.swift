@@ -434,6 +434,10 @@ class URLBarView: UIView {
         updateViewsForOverlayModeAndToolbarChanges()
     }
 
+    func cancel() {
+        self.didClickCancel()
+    }
+
     func updateAlphaForSubviews(_ alpha: CGFloat) {
         locationContainer.alpha = alpha
         self.alpha = alpha
