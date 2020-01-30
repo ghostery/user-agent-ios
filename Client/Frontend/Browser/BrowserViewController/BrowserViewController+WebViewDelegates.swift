@@ -120,23 +120,8 @@ extension BrowserViewController: WKUIDelegate {
             let isPrivate = currentTab.isPrivate
             let addTab = { (rURL: URL, isPrivate: Bool) in
                 let tab = self.tabManager.addTab(URLRequest(url: rURL as URL), afterTab: currentTab, isPrivate: isPrivate)
-                guard !self.topTabsVisible else {
-                    return
-                }
-                var toastLabelText: String
 
-                if isPrivate {
-                    toastLabelText = Strings.ContextMenu.ButtonToast.NewPrivateTabOpened.LabelText
-                } else {
-                    toastLabelText = Strings.ContextMenu.ButtonToast.NewTabOpened.LabelText
-                }
-                // We're not showing the top tabs; show a toast to quick switch to the fresh new tab.
-                let toast = ButtonToast(labelText: toastLabelText, buttonText: Strings.ContextMenu.ButtonToast.NewTabOpened.ButtonText, completion: { buttonPressed in
-                    if buttonPressed {
-                        self.tabManager.selectTab(tab)
-                    }
-                })
-                self.show(toast: toast)
+                self.tabManager.selectTab(tab)
             }
 
             let getImageData = { (_ url: URL, success: @escaping (Data) -> Void) in
