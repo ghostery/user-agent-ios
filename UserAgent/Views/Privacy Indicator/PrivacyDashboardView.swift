@@ -30,7 +30,6 @@ class PrivacyDashboardView: UIView, PhotonCustomViewCellContent {
             )
             let (arcs, strike) = PrivacyIndicatorTransformation
                 .transform(status: blocker.status, stats: blocker.stats)
-            print("XXXX arcs", arcs)
             self.privacyIndicator.update(arcs: arcs, strike: strike)
         }
     }

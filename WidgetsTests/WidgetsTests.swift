@@ -1,34 +1,35 @@
-//
-// Copyright (c) 2017-2019 Cliqz GmbH. All rights reserved.
-//
-// This Source Code Form is subject to the terms of the Mozilla Public
-// License, v. 2.0. If a copy of the MPL was not distributed with this
-// file, You can obtain one at https://mozilla.org/MPL/2.0/.
-//
-
+import Foundation
 import XCTest
 @testable import Widgets
 
 class WidgetsTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testCircleRangeInit() {
+        let r = Widgets.PrivacyIndicator.utils.CircleRange(count: 1)
+        XCTAssert(r.first == 0 && r.first == r.last)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testCircleRangeAdvance() {
+        var r = Widgets.PrivacyIndicator.utils.CircleRange(count: 100)
+        r.advance(CGFloat(10))
+        XCTAssert(r.first == 0 && r.last == 0.1)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCircleRangeAdvanceTwice() {
+        var r = Widgets.PrivacyIndicator.utils.CircleRange(count: 100)
+        r.advance(CGFloat(10))
+        r.advance(CGFloat(20))
+        XCTAssert((10 * r.first).rounded() == 1)
+        XCTAssert((10 * r.last).rounded() == 3)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testCircleRangeAdvanceTenTimes() {
+        var r = Widgets.PrivacyIndicator.utils.CircleRange(count: 100)
+        for _ in 0..<10 { r.advance(CGFloat(10)) }
+        XCTAssert((10 * r.first).rounded() == 9)
+        XCTAssert((10 * r.last).rounded() == 10)
     }
-
+    func testPercentToRadian() {
+        XCTAssert(Widgets.PrivacyIndicator.utils.percentToRadian(0.25) == 0.0)
+        XCTAssert(4.7...4.8 ~= Widgets.PrivacyIndicator.utils.percentToRadian(0))
+        XCTAssert(1.5...1.6 ~= Widgets.PrivacyIndicator.utils.percentToRadian(0.5))
+        XCTAssert(3.1...3.2 ~= Widgets.PrivacyIndicator.utils.percentToRadian(0.75))
+        XCTAssert(4.7...4.8 ~= Widgets.PrivacyIndicator.utils.percentToRadian(0.9999))
+    }
 }
