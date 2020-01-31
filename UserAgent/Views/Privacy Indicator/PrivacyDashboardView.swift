@@ -1,5 +1,6 @@
 import UIKit
 import Shared
+import Widgets
 
 class PrivacyDashboardView: UIView, PhotonCustomViewCellContent {
     var onSizeChange: (() -> Void)?
@@ -21,20 +22,22 @@ class PrivacyDashboardView: UIView, PhotonCustomViewCellContent {
     var blocker: FirefoxTabContentBlocker? {
         didSet {
             guard let blocker = blocker else { return }
-            self.privacyIndicator.blocker = blocker
             self.subviews.forEach { $0.removeFromSuperview() }
             self.render(
                 status: blocker.status,
                 stats: blocker.stats,
                 domain: blocker.tab?.currentURL()?.baseDomain ?? ""
             )
+            let (arcs, strike) = PrivacyIndicatorTransformation
+                .transform(status: blocker.status, stats: blocker.stats)
+            print("XXXX arcs", arcs)
+            self.privacyIndicator.update(arcs: arcs, strike: strike)
         }
     }
-    private let privacyIndicator = PrivacyIndicatorView()
+    private let privacyIndicator = PrivacyIndicator.Widget()
 }
 
 private extension PrivacyDashboardView {
-
     func renderHeader(withStatus status: BlockerStatus, domain: String) -> UIView {
         let view = UIStackView(arrangedSubviews: [
             PrivacyDashboardUtils.Label(
