@@ -420,19 +420,7 @@ extension PhotonActionSheetProtocol {
 
     private func openSettingsItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
         let openSettings = PhotonActionSheetItem(title: Strings.Menu.SettingsTitleString, iconString: "menu-Settings") { action in
-            let settingsTableViewController = AppSettingsTableViewController()
-            settingsTableViewController.profile = self.profile
-            settingsTableViewController.tabManager = self.tabManager
-            settingsTableViewController.settingsDelegate = vcDelegate
-
-            let controller = ThemedNavigationController(rootViewController: settingsTableViewController)
-            controller.presentingModalViewControllerDelegate = vcDelegate
-
-            // Wait to present VC in an async dispatch queue to prevent a case where dismissal
-            // of this popover on iPad seems to block the presentation of the modal VC.
-            DispatchQueue.main.async {
-                vcDelegate.present(controller, animated: true, completion: nil)
-            }
+            (vcDelegate as? BrowserViewController)?.presentSettingsViewController()
         }
         return openSettings
     }

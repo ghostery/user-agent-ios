@@ -1122,17 +1122,25 @@ class BrowserViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
 
-    @objc fileprivate func openSettings() {
-        assert(Thread.isMainThread, "Opening settings requires being invoked on the main thread")
-
-        let settingsTableViewController = AppSettingsTableViewController()
-        settingsTableViewController.profile = profile
-        settingsTableViewController.tabManager = tabManager
-        settingsTableViewController.settingsDelegate = self
-
-        let controller = ThemedNavigationController(rootViewController: settingsTableViewController)
-        controller.presentingModalViewControllerDelegate = self
-        self.present(controller, animated: true, completion: nil)
+    @discardableResult
+    func presentSettingsViewController() -> UINavigationController {
+        let viewController = AppSettingsTableViewController()
+        viewController.profile = self.profile
+        viewController.tabManager = self.tabManager
+        viewController.settingsDelegate = self
+        let navigationController = ThemedNavigationController(rootViewController: viewController)
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Done", comment: "Done button on left side of the Settings view controller title bar"), style: .done, closure: { (_) in
+            self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
+            navigationController.dismiss(animated: true)
+        })
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+            navigationController.presentationController?.delegate = self
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+        }
+        self.present(navigationController, animated: true)
+        return navigationController
     }
 
     fileprivate func postLocationChangeNotificationForTab(_ tab: Tab, navigation: WKNavigation?) {
