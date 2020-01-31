@@ -2,7 +2,7 @@
 import UIKit
 
 public enum PrivacyIndicator {
-
+    
 public class Widget: UIView {
     public var onTapBlock: (() -> Void)? {
         didSet {
@@ -14,16 +14,15 @@ public class Widget: UIView {
 
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
-        print("XXXX Widget didMoveToSuperview")
         self.clipsToBounds = false
         self.addSubview(self.canvas)
-        // button should be added last, see hitTest
-        self.addSubview(self.button)
+        self.addSubview(self.button) // should be added last, see hitTest
         self.button.addTarget(
             self,
             action: #selector(self.didPressButton(_:)),
             for: .touchUpInside)
     }
+    
     override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if clipsToBounds || isHidden || alpha == 0 { return nil }
         for subview in subviews.reversed() {
@@ -33,10 +32,11 @@ public class Widget: UIView {
         }
         return nil
     }
-    deinit {
-        print("XXXX deinit Indicator")
-    }
-}
+} // end class Widget
+} // end namespace PrivacyIndicator
+
+public extension PrivacyIndicator {
+    typealias Segment = (UIColor, Int)
 }
 
 public extension PrivacyIndicator.Widget {
@@ -44,18 +44,19 @@ public extension PrivacyIndicator.Widget {
         arcs: [PrivacyIndicator.Segment],
         strike: PrivacyIndicator.Segment?
     ) {
-        self.canvas.render(arcs: arcs, strike: strike)
+        self.canvas.update(arcs: arcs, strike: strike)
     }
 }
 
 fileprivate extension PrivacyIndicator.Widget {
     @objc
     func didPressButton(_ button: UIButton) {
-        print("XXXX Indicator didPressButton")
         self.onTapBlock?()
     }
 }
 
+
+// TODO fix preview
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 struct SwiftLeeViewRepresentable: UIViewRepresentable {

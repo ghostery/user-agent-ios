@@ -77,6 +77,5 @@ enum utils {
             last = last + value / count
         }
     }
-}
-
-}
+} // end namespace utils
+} // end namespace PrivacyIndicator

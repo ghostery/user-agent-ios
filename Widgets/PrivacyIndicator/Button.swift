@@ -5,18 +5,15 @@ extension PrivacyIndicator {
 class ButtonView: UIButton {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        print("XXXX Button didMoveToSuperview")
         self.setConstrains()
     }
-}
-}
+} // end class ButtonView
+} // end namespace PrivacyIndicator
 
 fileprivate extension PrivacyIndicator.ButtonView {
     func setConstrains() {
         self.clipsToBounds = false
         guard let sv = self.superview else { return }
-        print("XXXX Button setConstraints")
-        
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.topAnchor.constraint(equalTo: sv.topAnchor),

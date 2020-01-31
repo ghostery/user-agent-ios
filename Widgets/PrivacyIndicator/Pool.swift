@@ -9,7 +9,6 @@ class Pool<T: ConstructableWithSettings>
     private var current: Int = 0
 
     func reallocate(with n: Int) {
-        print("XXXX Pool reallocate # n", self.pool.count, n)
         self.current = 0
         if n < self.pool.count {
             self.pool = Array(self.pool[0..<n])
@@ -19,7 +18,6 @@ class Pool<T: ConstructableWithSettings>
         }
     }
     func next() -> T {
-        print("XXXX Pool next", self.current)
         assert(self.current < self.pool.count)
         let tmp = self.current
         self.current += 1
@@ -35,8 +33,8 @@ class Strike: ConstructableWithSettings {
     }
     typealias Settings = Shape
     var layer: CAShapeLayer
+    
     required init(settings: Strike.Shape) {
-        print("XXXX Strike init")
         self.layer = PrivacyIndicator.utils.createStrike(
             start: settings.start,
             end: settings.end,
@@ -44,7 +42,6 @@ class Strike: ConstructableWithSettings {
         )
     }
     deinit {
-        print("XXXX Strike deinit")
         self.layer.removeFromSuperlayer()
     }
 }
@@ -57,8 +54,8 @@ class Circle: ConstructableWithSettings {
     }
     typealias Settings = Shape
     var layer: CAShapeLayer
+    
     required init(settings: Circle.Shape) {
-        print("XXXX Circle init")
         self.layer = PrivacyIndicator.utils.createCircle(
             center: settings.center,
             radius: settings.radius,
@@ -66,8 +63,7 @@ class Circle: ConstructableWithSettings {
         )
     }
     deinit {
-        print("XXXX Circle deinit")
         self.layer.removeFromSuperlayer()
     }
-}
-}
+} // end class Circle
+} // end namespace PrivacyIndicator

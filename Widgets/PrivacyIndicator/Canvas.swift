@@ -1,9 +1,5 @@
 import UIKit
 
-public extension PrivacyIndicator {
-    typealias Segment = (UIColor, Int)
-}
-
 extension PrivacyIndicator {
 
 class CanvasView: UIView {
@@ -12,7 +8,6 @@ class CanvasView: UIView {
     private var pool = (arcs: Pool<Circle>(), strikes: Pool<Strike>())
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        print("XXXX Canvs didMoveToSuperview")
         self.setConstraints()
     }
 
@@ -25,7 +20,6 @@ class CanvasView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print("XXXX Canvas layoutSubviews", self.arcs)
         self.pool.arcs.reallocate(with: self.arcs.count)
         self.pool.strikes.reallocate(with: self.strike == nil ? 0 : 1)
         self.drawArcs()
@@ -35,11 +29,10 @@ class CanvasView: UIView {
 } // end namespace PrivacyIndicator
 
 extension PrivacyIndicator.CanvasView {
-    func render(
+    func update(
         arcs: [PrivacyIndicator.Segment],
         strike: PrivacyIndicator.Segment?
     ) {
-        print("XXXX Canvas render")
         self.arcs = arcs
         self.strike = strike
         self.setNeedsLayout()
@@ -100,6 +93,7 @@ fileprivate extension PrivacyIndicator.CanvasView {
         let diagonal = sqrt(3 * width * width)
         let distance = (diagonal / 2) - radius
         let vDistance = sqrt((distance * distance) / 2)
+        
         return PrivacyIndicator.Strike.Shape(
             start: CGPoint(x: vDistance, y: vDistance),
             end: CGPoint(x: maxX - vDistance, y: maxY - vDistance),
@@ -107,7 +101,6 @@ fileprivate extension PrivacyIndicator.CanvasView {
     }
     
     func getSettingForCircle() -> PrivacyIndicator.Circle.Shape {
-        print("XXXX settingForCircle", self.bounds.width, self.frame.width)
         return PrivacyIndicator.Circle.Shape(
             center: CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2),
             radius: self.frame.width * 3 / 8,
