@@ -1125,6 +1125,9 @@ class BrowserViewController: UIViewController {
     @discardableResult
     func presentSettingsViewController() -> UINavigationController {
         let viewController = AppSettingsTableViewController()
+        if #available(iOS 13.0, *) {
+            viewController.isModalInPresentation = AppConstants.IsRunningTest
+        }
         viewController.profile = self.profile
         viewController.tabManager = self.tabManager
         viewController.settingsDelegate = self
