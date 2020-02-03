@@ -1,32 +1,31 @@
 import UIKit
 
 extension PrivacyIndicator {
+    class CanvasView: UIView {
+        var arcs: [Segment] = []
+        var strike: Segment?
+        private var pool = (arcs: Pool<Circle>(), strikes: Pool<Strike>())
+        override func didMoveToSuperview() {
+            super.didMoveToSuperview()
+            self.setConstraints()
+        }
 
-class CanvasView: UIView {
-    var arcs: [Segment] = []
-    var strike: Segment?
-    private var pool = (arcs: Pool<Circle>(), strikes: Pool<Strike>())
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        self.setConstraints()
-    }
-
-    override var bounds: CGRect {
-        didSet {
-            self.pool.arcs.settings = self.getSettingForCircle()
-            self.pool.strikes.settings = self.getSettingForStrike()
+        override var bounds: CGRect {
+            didSet {
+                self.pool.arcs.settings = self.getSettingForCircle()
+                self.pool.strikes.settings = self.getSettingForStrike()
+            }
+        }
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            self.pool.arcs.reallocate(with: self.arcs.count)
+            self.pool.strikes.reallocate(with: self.strike == nil ? 0 : 1)
+            self.drawArcs()
+            self.drawStrikes()
         }
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.pool.arcs.reallocate(with: self.arcs.count)
-        self.pool.strikes.reallocate(with: self.strike == nil ? 0 : 1)
-        self.drawArcs()
-        self.drawStrikes()
-    }
-} // end class CanvasView
-} // end namespace PrivacyIndicator
+}
 
 extension PrivacyIndicator.CanvasView {
     func update(

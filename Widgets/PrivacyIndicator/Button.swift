@@ -1,14 +1,13 @@
 import UIKit
 
 extension PrivacyIndicator {
-
-class ButtonView: UIButton {
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        self.setConstrains()
+    class ButtonView: UIButton {
+        override func didMoveToSuperview() {
+            super.didMoveToSuperview()
+            self.setConstrains()
+        }
     }
-} // end class ButtonView
-} // end namespace PrivacyIndicator
+}
 
 fileprivate extension PrivacyIndicator.ButtonView {
     func setConstrains() {

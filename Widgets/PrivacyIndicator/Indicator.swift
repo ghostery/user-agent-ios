@@ -1,39 +1,50 @@
-//import Foundation
 import UIKit
 
 public enum PrivacyIndicator {
-    
-public class Widget: UIView {
-    public var onTapBlock: (() -> Void)? {
-        didSet {
-            self.button.isHidden = onTapBlock == nil
+    public class Widget: UIView {
+        public var onTapBlock: (() -> Void)? {
+            didSet {
+                self.button.isHidden = onTapBlock == nil
+            }
+        }
+        private var canvas = PrivacyIndicator.CanvasView()
+        private var button = PrivacyIndicator.ButtonView()
+        
+        init() {
+            super.init(frame: CGRect.zero)
+        }
+        
+        init(arcs: [Segment], strike: Segment?) {
+            super.init(frame: CGRect.zero)
+            self.canvas.update(arcs: arcs, strike: strike)
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+        
+        override public func didMoveToSuperview() {
+            super.didMoveToSuperview()
+            self.clipsToBounds = false
+            self.addSubview(self.canvas)
+            self.addSubview(self.button) // should be added last, see hitTest
+            self.button.addTarget(
+                self,
+                action: #selector(self.didPressButton(_:)),
+                for: .touchUpInside)
+        }
+        
+        override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+            if clipsToBounds || isHidden || alpha == 0 { return nil }
+            for subview in subviews.reversed() {
+                let newPoint = subview.convert(point, from: self)
+                let view = subview.hitTest(newPoint, with: event)
+                if view != nil { return view }
+            }
+            return nil
         }
     }
-    private var canvas = PrivacyIndicator.CanvasView()
-    private var button = PrivacyIndicator.ButtonView()
-
-    override public func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        self.clipsToBounds = false
-        self.addSubview(self.canvas)
-        self.addSubview(self.button) // should be added last, see hitTest
-        self.button.addTarget(
-            self,
-            action: #selector(self.didPressButton(_:)),
-            for: .touchUpInside)
-    }
-    
-    override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if clipsToBounds || isHidden || alpha == 0 { return nil }
-        for subview in subviews.reversed() {
-            let newPoint = subview.convert(point, from: self)
-            let view = subview.hitTest(newPoint, with: event)
-            if view != nil { return view }
-        }
-        return nil
-    }
-} // end class Widget
-} // end namespace PrivacyIndicator
+}
 
 public extension PrivacyIndicator {
     typealias Segment = (UIColor, Int)
@@ -55,17 +66,18 @@ fileprivate extension PrivacyIndicator.Widget {
     }
 }
 
-
-// TODO fix preview
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
+
 struct SwiftLeeViewRepresentable: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
         return PrivacyIndicator.Widget()
     }
     func updateUIView(_ view: UIView, context: Context) {
         let v = (view as! PrivacyIndicator.Widget)
-        v.update(arcs: [(UIColor.green, 1)], strike: nil)
+        let arcs = [(UIColor.green, 4), (UIColor.black, 3)]
+        v.update(arcs: arcs, strike: nil)
+        
     }
 }
 @available(iOS 13.0, *)
