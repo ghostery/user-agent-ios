@@ -17,8 +17,7 @@ extension PrivacyIndicator {
             }
         }
         func next() -> T {
-            //print("XXXX next", self.current, self.pool.count)
-            //assert(self.current < self.pool.count)
+            assert(self.current < self.pool.count)
             let tmp = self.current
             self.current += 1
             return self.pool[tmp]
