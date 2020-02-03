@@ -300,7 +300,7 @@ extension TabLocationView: TabEventHandler {
         assertIsMainThread("UI changes must be on the main thread")
         guard let blocker = tab.contentBlocker else { return }
         let (arcs, strike) = PrivacyIndicatorTransformation
-                .transform(status: blocker.status, stats: blocker.stats)
+            .transform(status: blocker.status, stats: blocker.stats)
         self.privacyIndicator.update(arcs: arcs, strike: strike)
     }
 
