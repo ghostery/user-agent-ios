@@ -6,6 +6,7 @@ import UIKit
 import Shared
 import SnapKit
 import XCGLogger
+import Widgets
 
 private let log = Logger.browserLogger
 
@@ -102,8 +103,8 @@ class TabLocationView: UIView {
         }
     }
 
-    lazy var privacyIndicator: PrivacyIndicatorView = {
-        let indicator = PrivacyIndicatorView()
+    lazy var privacyIndicator: PrivacyIndicator.Widget = {
+        let indicator = PrivacyIndicator.Widget()
         indicator.onTapBlock = { () -> Void in self.delegate?.tabLocationViewDidTapShield(self) }
         return indicator
     }()
@@ -298,8 +299,9 @@ extension TabLocationView: TabEventHandler {
     private func updateBlockerStatus(forTab tab: Tab) {
         assertIsMainThread("UI changes must be on the main thread")
         guard let blocker = tab.contentBlocker else { return }
-        privacyIndicator.update(with: blocker.stats)
-        privacyIndicator.blocker = blocker
+        let (arcs, strike) = PrivacyIndicatorTransformation
+            .transform(status: blocker.status, stats: blocker.stats)
+        self.privacyIndicator.update(arcs: arcs, strike: strike)
     }
 
     func tabDidGainFocus(_ tab: Tab) {
