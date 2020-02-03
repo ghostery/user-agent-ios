@@ -18,7 +18,6 @@ extension PrivacyIndicator {
             let layer = CAShapeLayer()
             layer.path = path
             layer.fillColor = nil
-            layer.strokeColor = UIColor(named: "PrivacyIndicatorBackground")!.cgColor
             layer.lineWidth = lineWidth
             return layer
         }

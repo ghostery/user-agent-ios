@@ -76,8 +76,8 @@ struct SwiftLeeViewRepresentable: UIViewRepresentable {
     func updateUIView(_ view: UIView, context: Context) {
         let v = (view as! PrivacyIndicator.Widget)
         let arcs = [(UIColor.green, 4), (UIColor.black, 3)]
-        v.update(arcs: arcs, strike: nil)
-        
+        let strike = (UIColor.blue, 1)
+        v.update(arcs: arcs, strike: strike)
     }
 }
 @available(iOS 13.0, *)
