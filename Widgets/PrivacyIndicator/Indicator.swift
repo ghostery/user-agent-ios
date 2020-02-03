@@ -9,20 +9,6 @@ public enum PrivacyIndicator {
         }
         private var canvas = PrivacyIndicator.CanvasView()
         private var button = PrivacyIndicator.ButtonView()
-        
-        init() {
-            super.init(frame: CGRect.zero)
-        }
-        
-        init(arcs: [Segment], strike: Segment?) {
-            super.init(frame: CGRect.zero)
-            self.canvas.update(arcs: arcs, strike: strike)
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
         override public func didMoveToSuperview() {
             super.didMoveToSuperview()
             self.clipsToBounds = false
@@ -33,7 +19,6 @@ public enum PrivacyIndicator {
                 action: #selector(self.didPressButton(_:)),
                 for: .touchUpInside)
         }
-        
         override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
             if clipsToBounds || isHidden || alpha == 0 { return nil }
             for subview in subviews.reversed() {
