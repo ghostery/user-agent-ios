@@ -73,7 +73,7 @@ enum NavigationPath {
             return nil
         }
 
-        guard let scheme = components.scheme, urlSchemes.contains(scheme) else {
+        guard let scheme = components.scheme, urlSchemes.contains(where: { $0.lowercased() == scheme.lowercased() }) else {
             return nil
         }
 
@@ -107,14 +107,7 @@ enum NavigationPath {
             // Todo: #228
             break
         case .settings(let settingsPath):
-            guard let rootVC = bvc.navigationController else {
-                return
-            }
-            let settingsTableViewController = AppSettingsTableViewController()
-            settingsTableViewController.profile = bvc.profile
-            settingsTableViewController.tabManager = bvc.tabManager
-            settingsTableViewController.settingsDelegate = bvc
-            NavigationPath.handleSettings(settings: settingsPath, with: rootVC, baseSettingsVC: settingsTableViewController, and: bvc)
+            NavigationPath.handleSettings(settings: settingsPath, and: bvc)
         }
     }
 
@@ -141,32 +134,25 @@ enum NavigationPath {
         bvc.urlBar(bvc.urlBar, didSubmitText: text, completion: nil)
     }
 
-    private static func handleSettings(settings: SettingsPage, with rootNav: UINavigationController, baseSettingsVC: AppSettingsTableViewController, and bvc: BrowserViewController) {
+    private static func handleSettings(settings: SettingsPage, and bvc: BrowserViewController) {
 
-        guard let profile = baseSettingsVC.profile, let tabManager = baseSettingsVC.tabManager else {
-            return
-        }
-
-        let controller = ThemedNavigationController(rootViewController: baseSettingsVC)
-        controller.presentingModalViewControllerDelegate = bvc
-        controller.modalPresentationStyle = UIModalPresentationStyle.formSheet
-        rootNav.present(controller, animated: true, completion: nil)
+        let controller = bvc.presentSettingsViewController()
 
         switch settings {
         case .general:
             break // Intentional NOOP; Already displaying the general settings VC
         case .mailto:
-            let viewController = OpenWithSettingsViewController(prefs: profile.prefs)
+            let viewController = OpenWithSettingsViewController(prefs: bvc.profile.prefs)
             controller.pushViewController(viewController, animated: true)
         case .search:
             let viewController = SearchSettingsTableViewController()
-            viewController.model = profile.searchEngines
-            viewController.profile = profile
+            viewController.model = bvc.profile.searchEngines
+            viewController.profile = bvc.profile
             controller.pushViewController(viewController, animated: true)
         case .clearPrivateData:
             let viewController = ClearPrivateDataTableViewController()
-            viewController.profile = profile
-            viewController.tabManager = tabManager
+            viewController.profile = bvc.profile
+            viewController.tabManager = bvc.tabManager
             controller.pushViewController(viewController, animated: true)
         default:
             break
