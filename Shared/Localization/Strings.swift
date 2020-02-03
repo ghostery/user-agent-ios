@@ -23,6 +23,7 @@ extension Strings {
         public static let CancelString = NSLocalizedString("Cancel", comment: "Label for Cancel button")
         public static let OpenSettingsString = NSLocalizedString("Open Settings", comment: "See http://mzl.la/1G7uHo7")
         public static let CloseString = NSLocalizedString("Close", comment: "Lable for Close button")
+        public static let DoneString = NSLocalizedString("Done", comment: "Done button on right side of the Downloads view controller title bar")
     }
 
     // MARK: - Table date section titles
