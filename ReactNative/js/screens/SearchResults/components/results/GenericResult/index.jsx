@@ -9,10 +9,14 @@
 
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { GenericSnippet } from '@cliqz/component-ui-snippet-generic';
 import NewsSnippet from './snippets/NewsSnippet';
-import Snippet from './snippets/Snippet';
 import SnippetList from './snippets/SnippetList';
+import NativeDrawable from '../../../../../components/NativeDrawable';
+import t from '../../../../../services/i18n';
+import Logo from '../../../../../components/Logo';
 import { useStyles } from '../../../../../contexts/theme';
+import { resultTitleFontSize } from '../../../styles';
 
 const SUPPORTED_DEEP_RESULTS = ['streaming', 'simple_links', 'buttons'];
 
@@ -30,8 +34,62 @@ const getStyles = theme =>
     },
   });
 
+const getSnippetStyles = theme =>
+  StyleSheet.create({
+    mainTitle: {
+      color: theme.linkColor,
+      fontSize: resultTitleFontSize,
+    },
+    subTitle: {
+      color: theme.linkColor,
+    },
+    visitedTitle: {
+      color: theme.visitedColor,
+    },
+    url: {
+      color: theme.urlColor,
+    },
+    lockColor: {
+      color: theme.urlColor,
+    },
+    lockBreakColor: {
+      color: theme.unsafeUrlColor,
+    },
+    description: {
+      color: theme.descriptionColor,
+    },
+    switchToTabText: {
+      color: theme.descriptionColor,
+      backgroundColor: theme.backgroundColor,
+    },
+  });
+
+const ImageRendererComponent = ({ source, color, style }) => {
+  return <NativeDrawable style={style} color={color} source={source} />;
+};
+
+const LogoComponent = ({ size, url }) => {
+  return <Logo size={size} url={url} />;
+};
+
+const Snippet = ({ openLink, result, type, styles }) => {
+  return (
+    <GenericSnippet
+      openLink={openLink}
+      result={result}
+      type={type}
+      isUrlsSelecable={false}
+      ImageRendererComponent={ImageRendererComponent}
+      LogoComponent={LogoComponent}
+      t={t}
+      styles={styles}
+    />
+  );
+};
+
 export default ({ result, openLink }) => {
   const styles = useStyles(getStyles);
+  const snippetStyles = useStyles(getSnippetStyles);
   const { url } = result;
   const urls = result.data.urls || [];
   const deepResults = result.data.deepResults || [];
@@ -45,7 +103,12 @@ export default ({ result, openLink }) => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Snippet openLink={openLink} data={result} type="main" logo={logo} />
+        <Snippet
+          result={result}
+          type="main"
+          openLink={openLink}
+          styles={snippetStyles}
+        />
         {urls.length > 0 && (
           <SnippetList
             limit={3}
@@ -54,8 +117,9 @@ export default ({ result, openLink }) => {
               <Snippet
                 key={snippet.url}
                 openLink={openLink}
-                data={snippet}
+                result={snippet}
                 type="history"
+                styles={snippetStyles}
               />
             ))}
           />
@@ -72,8 +136,9 @@ export default ({ result, openLink }) => {
               <Snippet
                 key={link.url}
                 openLink={openLink}
-                data={link}
+                result={link}
                 type={snippet.type}
+                styles={snippetStyles}
               />
             ))}
           />
