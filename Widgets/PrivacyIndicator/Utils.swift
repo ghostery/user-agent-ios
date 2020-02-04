@@ -76,4 +76,4 @@ extension PrivacyIndicator {
             }
         }
     }
-} 
+}

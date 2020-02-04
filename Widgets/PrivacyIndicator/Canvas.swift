@@ -16,7 +16,7 @@ extension PrivacyIndicator {
                 self.pool.strikes.settings = self.getSettingForStrike()
             }
         }
-        
+
         override func layoutSubviews() {
             super.layoutSubviews()
             self.pool.arcs.reallocate(with: self.arcs.count)
@@ -60,7 +60,7 @@ fileprivate extension PrivacyIndicator.CanvasView {
             self.layer.addSublayer(layer)
         }
     }
-    
+
     func drawStrikes() {
         guard let (color, _) = self.strike else { return }
         let layer = self.pool.strikes.next().layer
@@ -71,7 +71,7 @@ fileprivate extension PrivacyIndicator.CanvasView {
             self.layer.addSublayer(layer)
         }
     }
-    
+
     func setConstraints() {
         guard let sv = self.superview else { return }
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -92,13 +92,13 @@ fileprivate extension PrivacyIndicator.CanvasView {
         let diagonal = sqrt(3 * width * width)
         let distance = (diagonal / 2) - radius
         let vDistance = sqrt((distance * distance) / 2)
-        
+
         return PrivacyIndicator.Strike.Shape(
             start: CGPoint(x: vDistance, y: vDistance),
             end: CGPoint(x: maxX - vDistance, y: maxY - vDistance),
             lineWidth: width * 1 / 8)
     }
-    
+
     func getSettingForCircle() -> PrivacyIndicator.Circle.Shape {
         return PrivacyIndicator.Circle.Shape(
             center: CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2),
