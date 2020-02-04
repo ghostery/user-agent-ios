@@ -25,7 +25,7 @@
     "@cliqz/indexeddbshim": "^4.1.2",
     "@react-native-community/netinfo": "^4.6.1",
     "browser-core-user-agent-ios": "https://s3.amazonaws.com/cdncliqz/update/edge/user-agent-ios/v3.42/3.42.0.640286c.tgz",
-    "cliqz-logo-database": "^0.5.4",
+    "cliqz-logo-database": "^0.5.5",
     "glob-to-regexp": "^0.4.1",
     "jsdom-jscore-rn": "^0.1.7",
     "moment": "^2.24.0",
