@@ -147,7 +147,7 @@ class FastmailIntegration: MailProvider {
         "cc",
         "bcc",
         "subject",
-        "body"
+        "body",
     ]
 
     func newEmailURLFromMetadata(_ metadata: MailToMetadata) -> URL? {
