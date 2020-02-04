@@ -41,9 +41,9 @@ class NavigationTest: BaseTestCase {
         }
 
         // Once an url has been open, the back button is enabled but not the forward button
-        navigator.openURL(website_1["url"]!)
+        navigator.openURL(path(forTestPage: "test-example.html"))
         waitUntilPageLoad()
-        waitForValueContains(app.textFields["url"], value: website_1["value"]!)
+        waitForValueContains(app.textFields["url"], value: "test-example.html")
         if iPad() {
             XCTAssertTrue(app.buttons["URLBarView.backButton"].isEnabled)
             XCTAssertFalse(app.buttons["Forward"].isEnabled)
@@ -53,9 +53,9 @@ class NavigationTest: BaseTestCase {
         }
 
         // Once a second url is open, back button is enabled but not the forward one till we go back to url_1
-        navigator.openURL(website_2["url"]!)
+        navigator.openURL(path(forTestPage: "test-mozilla-org.html"))
         waitUntilPageLoad()
-        waitForValueContains(app.textFields["url"], value: website_2["value"]!)
+        waitForValueContains(app.textFields["url"], value: "test-mozilla-org.html")
         if iPad() {
             XCTAssertTrue(app.buttons["URLBarView.backButton"].isEnabled)
             XCTAssertFalse(app.buttons["Forward"].isEnabled)
@@ -68,7 +68,7 @@ class NavigationTest: BaseTestCase {
             app.buttons["TabToolbar.backButton"].tap()
         }
         waitUntilPageLoad()
-        waitForValueContains(app.textFields["url"], value: website_1["value"]!)
+        waitForValueContains(app.textFields["url"], value: "test-example.html")
 
         if iPad() {
             app.buttons["Forward"].tap()
@@ -77,7 +77,7 @@ class NavigationTest: BaseTestCase {
             app.buttons["TabToolbar.forwardButton"].tap()
         }
         waitUntilPageLoad()
-        waitForValueContains(app.textFields["url"], value: website_2["value"]!)
+        waitForValueContains(app.textFields["url"], value: "test-mozilla-org")
     }
 
     func testScrollsToTopWithMultipleTabs() {
