@@ -57,7 +57,7 @@ Vagrant.configure("2") do |config|
             sudo mkdir -p /jenkins
             sudo chown vagrant /jenkins
 
-            brew -v install watchman
+            brew -v
 
             brew tap adoptopenjdk/openjdk
             # `which java` does not work as MacOS try to be smart and request jave installation
