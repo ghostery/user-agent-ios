@@ -58,11 +58,11 @@ enum BlockerStatus: String {
 }
 
 internal class Whitelists {
-    public let ads = Whitelist(whitelistFilename: "ads_whitelist")
-    public let trackers = Whitelist(whitelistFilename: "whitelist")
-    public let popups = Whitelist(whitelistFilename: "popups_whitelist")
+    public let ads = Whitelist(whitelistFilename: "ads_whitelist", blocklists: [.advertisingNetwork, .advertisingCosmetic])
+    public let trackers = Whitelist(whitelistFilename: "whitelist", blocklists: [.trackingNetwork])
+    public let popups = Whitelist(whitelistFilename: "popups_whitelist", blocklists: [.popupsNetwork, .popupsCosmetic])
 
-    var cleanupStore: (((() -> Void)?) -> Void)? {
+    var cleanupStore: Whitelist.CleanupStore? {
         didSet {
             self.ads.cleanupStore = cleanupStore
             self.trackers.cleanupStore = cleanupStore
@@ -82,8 +82,8 @@ class ContentBlocker {
     static let shared = ContentBlocker()
 
     private init() {
-        self.whitelists.cleanupStore = { completion in
-            self.clearWhitelists(completion: completion)
+        self.whitelists.cleanupStore = { (blocklists, completion) in
+            self.clearWhitelists(fromLists: blocklists, completion: completion)
         }
 
         TPStatsBlocklistChecker.shared.startup()
@@ -98,8 +98,8 @@ class ContentBlocker {
         }
     }
 
-    func clearWhitelists(completion: (() -> Void)?) {
-        self.removeAllRulesInStore {
+    func clearWhitelists(fromLists: [BlocklistName] = [], completion: (() -> Void)?) {
+        self.removeAllRulesInStore(fromLists: fromLists) {
             self.compileListsNotInStore {
                 completion?()
                 NotificationCenter.default.post(name: .contentBlockerTabSetupRequired, object: nil)
@@ -197,12 +197,17 @@ extension ContentBlocker {
         }
     }
 
-    func removeAllRulesInStore(completion: @escaping () -> Void) {
+    func removeAllRulesInStore(fromLists: [BlocklistName] = [], completion: @escaping () -> Void) {
+        let filenamesOfListToClean = fromLists.map { $0.filename }
+
         ruleStore.getAvailableContentRuleListIdentifiers { available in
-            guard let available = available else {
+            guard var available = available else {
                 completion()
                 return
             }
+
+            available = available.filter { filenamesOfListToClean.contains($0) }
+
             let deferreds: [Deferred<Void>] = available.map { filename in
                 let result = Deferred<Void>()
                 self.ruleStore.removeContentRuleList(forIdentifier: filename) { _ in
