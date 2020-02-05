@@ -52,8 +52,9 @@ const fetch = require('node-fetch');
     'content-blocker-lib-ios/Lists/safari-popups-cosmetic.json',
     popupsCosmeticRules,
   );
+
   // Popup Networkd rules
-  const popupsNetworkRulesUrl = popupsList.safari.Network;
+  const popupsNetworkRulesUrl = popupsList.safari.network;
   const popupsNetworkRules = await (await fetch(popupsNetworkRulesUrl)).text();
   fs.writeFileSync(
     'content-blocker-lib-ios/Lists/safari-popups-network.json',
