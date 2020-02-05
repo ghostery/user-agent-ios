@@ -23,7 +23,7 @@ extension PrivacyIndicator {
             return self.pool[tmp]
         }
     }
-        
+
     class Strike: ConstructableWithSettings {
         struct Shape: DefaultConstructable {
             var start: CGPoint = CGPoint()
@@ -32,7 +32,7 @@ extension PrivacyIndicator {
         }
         typealias Settings = Shape
         var layer: CAShapeLayer
-        
+
         required init(settings: Strike.Shape) {
             self.layer = PrivacyIndicator.utils.createStrike(
                 start: settings.start,
@@ -53,7 +53,7 @@ extension PrivacyIndicator {
         }
         typealias Settings = Shape
         var layer: CAShapeLayer
-        
+
         required init(settings: Circle.Shape) {
             self.layer = PrivacyIndicator.utils.createCircle(
                 center: settings.center,

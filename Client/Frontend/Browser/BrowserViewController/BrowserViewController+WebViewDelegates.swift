@@ -426,12 +426,15 @@ extension BrowserViewController: WKNavigationDelegate {
         }
 
         if !(url.scheme?.contains("firefox") ?? true) {
-            UIApplication.shared.open(url, options: [:]) { openedURL in
-                // Do not show error message for JS navigated links or redirect as it's not the result of a user action.
-                if !openedURL, navigationAction.navigationType == .linkActivated {
-                    let alert = UIAlertController(title: Strings.Errors.OpenURL.Title, message: Strings.Errors.OpenURL.Message, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: Strings.General.OKString, style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+            showSnackbar(forExternalUrl: url, tab: tab) { isOk in
+                guard isOk else { return }
+                UIApplication.shared.open(url, options: [:]) { openedURL in
+                    // Do not show error message for JS navigated links or redirect as it's not the result of a user action.
+                    if !openedURL, navigationAction.navigationType == .linkActivated {
+                        let alert = UIAlertController(title: Strings.Errors.OpenURL.Title, message: Strings.Errors.OpenURL.Message, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: Strings.General.OKString, style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
         }
@@ -600,6 +603,9 @@ extension BrowserViewController: WKNavigationDelegate {
         guard let tab = tabManager[webView] else { return }
 
         tab.url = webView.url
+        // When tab url changes after web content starts loading on the page
+        // We notify the contect blocker change so that content blocker status can be correctly shown on beside the URL bar
+        tab.contentBlocker?.notifyContentBlockingChanged()
         self.scrollController.resetZoomState()
 
         if tabManager.selectedTab === tab {
