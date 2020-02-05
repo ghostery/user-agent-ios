@@ -1423,10 +1423,11 @@ extension BrowserViewController: URLBarDelegate {
     }
 
     private func appendQuery(query: String) {
-        guard !self.queries.contains(query) else {
+        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedQuery.isEmpty && !self.queries.contains(trimmedQuery) else {
             return
         }
-        self.queries.insert(query, at: 0)
+        self.queries.insert(trimmedQuery, at: 0)
         self.queries = Array(self.queries.prefix(5))
     }
 
