@@ -44,6 +44,7 @@ enum BlocklistName: String {
         .advertisingCosmetic,
         .trackingNetwork,
         .popupsCosmetic,
+        .popupsNetwork,
     ]
 }
 
