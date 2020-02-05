@@ -37,6 +37,7 @@ private let customSearchEnginesFileName = "customEngines.plist"
 class SearchEngines {
     fileprivate let prefs: Prefs
     fileprivate let fileAccessor: FileAccessor
+    fileprivate var cliqzSearchEngine: OpenSearchEngine?
 
     init(prefs: Prefs, files: FileAccessor) {
         self.prefs = prefs
@@ -44,6 +45,7 @@ class SearchEngines {
         self.shouldShowSearchSuggestions = prefs.boolForKey(ShowSearchSuggestions) ?? true
         self.fileAccessor = files
         self.orderedEngines = getOrderedEngines()
+        self.cliqzSearchEngine = self.getEnginesForLocale().filter({ $0.engineID == "cliqz" }).first
         self.disabledEngineNames = getDisabledEngineNames()
     }
 
@@ -80,8 +82,10 @@ class SearchEngines {
     }
 
     var searchEnginesIncludedCliqz: [OpenSearchEngine]! {
-        let defaultSearchEngines = self.getEnginesForLocale()
-        return defaultSearchEngines.filter({ $0.engineID == "cliqz" }) + self.getOrderedEngines()
+        guard let cliqz = self.cliqzSearchEngine else {
+            return self.orderedEngines
+        }
+        return [cliqz] + self.orderedEngines
     }
 
     var quickSearchEngines: [OpenSearchEngine]! {

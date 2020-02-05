@@ -15,7 +15,7 @@ def triggers = []
 def app
 
 if("$BRANCH_NAME" == 'develop' || "$BRANCH_NAME" == 'jenkins') {
-    triggers << cron('H H(19-22) * * *')
+    triggers << cron('H H(18-20) * * *')
     app = apps['CliqzNightly']
 } else {
     app = apps['Cliqz']
@@ -53,9 +53,8 @@ Vagrant.configure("2") do |config|
             set -e
             set -x
 
-            sudo mount -uw /
-            sudo mkdir -p /jenkins
-            sudo chown vagrant /jenkins
+            sudo mkdir -p /Users/vagrant/jenkins
+            sudo chown vagrant /Users/vagrant/jenkins
 
             brew -v
 
@@ -78,7 +77,7 @@ node('gideon') {
 
     vagrant.inside(
         'Vagrantfile',
-        '/jenkins',
+        '/Users/vagrant/jenkins',
         4, // CPU
         8192, // MEMORY
         12000, // VNC port
@@ -174,7 +173,7 @@ ${newChangelog}"""
                     string(credentialsId: 'f206e880-e09a-4369-a3f6-f86ee94481f2', variable: 'SENTRY_AUTH_TOKEN'),
                     string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
                 ]) {
-                    timeout(60) {
+                    timeout(120) {
                         ansiColor('xterm') {
                             sh """#!/bin/bash -l
                                 set -x
