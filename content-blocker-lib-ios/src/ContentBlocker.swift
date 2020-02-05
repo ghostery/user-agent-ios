@@ -22,6 +22,7 @@ enum BlocklistName: String {
     case advertisingCosmetic = "advertisingCosmetic"
     case trackingNetwork = "trackingNetwork"
     case popupsCosmetic = "popupsCosmetic"
+    case popupsNetwork = "popupsNetwork"
 
     var filename: String {
         switch self {
@@ -33,6 +34,8 @@ enum BlocklistName: String {
             return "safari-tracking-network"
         case .popupsCosmetic:
             return "safari-popups-cosmetic"
+        case .popupsNetwork:
+            return "safari-popups-network"
         }
     }
 
@@ -292,6 +295,8 @@ extension ContentBlocker {
                         str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "," + HIDE_ADS_RULE + "]")
                     case .trackingNetwork:
                         str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "]")
+                    case .popupsNetwork:
+                        str = str.replacingCharacters(in: range, with: self.popupsWhitelistAsJSON() + "]")
                     case .popupsCosmetic:
                         str = str.replacingCharacters(in: range, with: self.popupsWhitelistAsJSON() + "]")
                     }
