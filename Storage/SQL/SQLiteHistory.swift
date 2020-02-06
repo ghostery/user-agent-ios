@@ -382,6 +382,13 @@ fileprivate struct SQLiteFrecentHistory: FrecentHistory {
 }
 
 extension SQLiteHistory: BrowserHistory {
+    public func removeHostFromHistory(_ host: String) -> Success {
+//        if let host = (site.url as String).asURL?.normalizedHost {
+//            return self.removeHostFromTopSites(host)
+//        }
+        return deferMaybe(DatabaseError(description: "Invalid url for site \(host)"))
+    }
+    
     public func removeSiteFromTopSites(_ site: Site) -> Success {
         if let host = (site.url as String).asURL?.normalizedHost {
             return self.removeHostFromTopSites(host)

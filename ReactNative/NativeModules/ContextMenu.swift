@@ -12,29 +12,36 @@ import Storage
 @objc(ContextMenu)
 class ContextMenuNativeModule: NSObject, NativeModuleBase {
 
-    @objc(result:isHistory:)
-    public func result(url_str: NSString, isHistory: Bool) {
+    @objc(result:title:isHistory:query:)
+    public func result(url_str: NSString, title: NSString, isHistory: Bool, query: NSString) {
         let rawUrl = url_str as String
         guard let url = URL(string: rawUrl) else { return }
 
-        var actions: [ContextMenuActions] = [.newTab]
+        var actions: [ContextMenuActions] = [] // [.newTab]
 
         if isHistory {
-            actions += [.deleteFromHistory]
+            actions += [.deleteFromHistory, .deleteDomainFromHistory]
+        }
+
+        if actions.isEmpty {
+            return
         }
 
         self.withAppDelegate { appDel in
-            let site = Site(url: url.absoluteString, title: url.normalizedHost ?? rawUrl)
+            let site = Site(url: url.absoluteString, title: title as String)
 
             appDel.useCases.contextMenu.present(
                 for: site,
-                with: actions,
+                withQuery: query as String,
+                withActions: actions,
                 on: appDel.browserViewController
-            ) {
+            ) { shouldRefresh in
                 guard let searchContorller = appDel.browserViewController?.searchController else { return }
-                // redo query
-                let query = searchContorller.searchQuery
-                searchContorller.searchQuery = query
+                if shouldRefresh {
+                    // redo query
+                    let query = searchContorller.searchQuery
+                    searchContorller.searchQuery = query
+                }
             }
         }
     }
@@ -68,10 +75,12 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
 
                 appDel.useCases.contextMenu.present(
                     for: site,
-                    with: actions,
+                    withActions: actions,
                     on: appDel.browserViewController
-                ) {
-                    appDel.browserViewController?.homeViewController?.refresh()
+                ) { shouldRefresh in
+                    if shouldRefresh {
+                        appDel.browserViewController?.homeViewController?.refresh()
+                    }
                 }
             }
         }

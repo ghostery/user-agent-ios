@@ -296,6 +296,8 @@
 /* The title for the Delete from History context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.DeleteFromHistory" = "Delete from History";
 
+"HomePanel.ContextMenu.DeleteHostFromHistory" = "Delete entire website from History";
+
 /* The title for the Open in New Private Tab context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.OpenInNewPrivateTab" = "Open in New Forget Mode Tab";
 

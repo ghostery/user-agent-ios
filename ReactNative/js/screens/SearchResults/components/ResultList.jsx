@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const onLongPress = (url, { isHistory } = {}) =>
-  NativeModules.ContextMenu.result(url, isHistory);
+const onLongPress = ({ url, title, isHistory, query } = {}) =>
+  NativeModules.ContextMenu.result(url, title, isHistory, query);
 
 class CardList extends React.PureComponent {
   constructor(props) {
@@ -75,7 +75,12 @@ class CardList extends React.PureComponent {
         key={item.meta.domain}
         onPress={(...args) => this.openLink(item, ...args)}
         onLongPress={() =>
-          onLongPress(item.url, { isHistory: item.provider === 'history' })
+          onLongPress({
+            url: item.url,
+            title: item.title,
+            isHistory: item.provider === 'history',
+            query: item.text,
+          })
         }
         result={item}
         index={index}
