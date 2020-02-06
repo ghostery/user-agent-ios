@@ -20,14 +20,18 @@ struct WhitelistedDomains {
 }
 
 class Whitelist {
-    var cleanupStore: (((() -> Void)?) -> Void)?
+    typealias CleanupStore = ([BlocklistName], (() -> Void)?) -> Void
+
+    var cleanupStore: CleanupStore?
 
     private var filename: String!
+    private var blocklists: [BlocklistName]!
 
     public var whitelistedDomains = WhitelistedDomains()
 
-    init(whitelistFilename: String) {
+    init(whitelistFilename: String, blocklists: [BlocklistName]) {
         self.filename = whitelistFilename
+        self.blocklists = blocklists
 
         // Read the whitelist at startup
         if let list = self.readWhitelistFile() {
@@ -65,7 +69,7 @@ class Whitelist {
     }
 
     private func updateWhitelist(completion: (() -> Void)?) {
-        self.cleanupStore?(completion)
+        self.cleanupStore?(self.blocklists, completion)
 
         guard let fileURL = self.fileURL() else { return }
         if self.whitelistedDomains.domainSet.isEmpty {
