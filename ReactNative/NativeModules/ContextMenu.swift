@@ -17,10 +17,10 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
         let rawUrl = url_str as String
         guard let url = URL(string: rawUrl) else { return }
 
-        var actions: [ContextMenuActions] = [] // [.newTab]
+        var actions: [ContextMenuActions] = []
 
         if isHistory {
-            actions += [.deleteFromHistory, .deleteDomainFromHistory]
+            actions += [.deleteFromHistory]
         }
 
         if actions.isEmpty {
@@ -35,13 +35,11 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
                 withQuery: query as String,
                 withActions: actions,
                 on: appDel.browserViewController
-            ) { shouldRefresh in
+            ) {
                 guard let searchContorller = appDel.browserViewController?.searchController else { return }
-                if shouldRefresh {
-                    // redo query
-                    let query = searchContorller.searchQuery
-                    searchContorller.searchQuery = query
-                }
+                // redo query
+                let query = searchContorller.searchQuery
+                searchContorller.searchQuery = query
             }
         }
     }
@@ -77,10 +75,8 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
                     for: site,
                     withActions: actions,
                     on: appDel.browserViewController
-                ) { shouldRefresh in
-                    if shouldRefresh {
-                        appDel.browserViewController?.homeViewController?.refresh()
-                    }
+                ) {
+                    appDel.browserViewController?.homeViewController?.refresh()
                 }
             }
         }
