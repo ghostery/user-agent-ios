@@ -797,7 +797,7 @@
 "Settings.OnBrowserStartTab.NewTab" = "Newtab-Seite";
 
 /* The option in settings to enable/disable Refresh Control. */
-"Settings.RefreshControl.SectionName" = "Refresh Control";
+"Settings.RefreshControl.SectionName" = "Zum Neuladen nach unten ziehen";
 
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
 "Settings.OfferClipboardBar.Status" = "Wenn %@ geöffnet wird";

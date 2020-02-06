@@ -18,7 +18,15 @@ protocol CliqzRefreshControlDelegate: class {
 
 struct CliqzRefreshControlUI {
     static let minimumActionHeight: CGFloat = 20.0
-    static let maximumActionHeight: CGFloat = 40.0
+    static var maximumActionHeight: CGFloat {
+        if UIDevice.current.isPhone {
+            if UIApplication.shared.statusBarOrientation == .landscapeLeft || UIApplication.shared.statusBarOrientation == .landscapeRight {
+                return 30.0
+            }
+            return 50.0
+        }
+        return 60.0
+    }
 }
 
 class CliqzRefreshControl: UIView {
