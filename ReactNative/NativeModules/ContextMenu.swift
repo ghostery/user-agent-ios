@@ -12,6 +12,33 @@ import Storage
 @objc(ContextMenu)
 class ContextMenuNativeModule: NSObject, NativeModuleBase {
 
+    @objc(result:isHistory:)
+    public func result(url_str: NSString, isHistory: Bool) {
+        let rawUrl = url_str as String
+        guard let url = URL(string: rawUrl) else { return }
+
+        var actions: [ContextMenuActions] = [.newTab]
+
+        if isHistory {
+            actions += [.deleteFromHistory]
+        }
+
+        self.withAppDelegate { appDel in
+            let site = Site(url: url.absoluteString, title: url.normalizedHost ?? rawUrl)
+
+            appDel.useCases.contextMenu.present(
+                for: site,
+                with: actions,
+                on: appDel.browserViewController
+            ) {
+                guard let searchContorller = appDel.browserViewController?.searchController else { return }
+                // redo query
+                let query = searchContorller.searchQuery
+                searchContorller.searchQuery = query
+            }
+        }
+    }
+
     @objc(speedDial:isPinned:)
     public func speedDial(url_str: NSString, isPinned: Bool) {
         let rawUrl = url_str as String
