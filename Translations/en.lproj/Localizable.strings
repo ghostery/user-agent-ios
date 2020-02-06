@@ -799,6 +799,9 @@
 /* The option in settings to configure first launch to open new tab */
 "Settings.OnBrowserStartTab.NewTab" = "New Tab Page";
 
+/* The option in settings to enable/disable Refresh Control. */
+"Settings.RefreshControl.SectionName" = "Pull to reload";
+
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
 "Settings.OfferClipboardBar.Status" = "When Opening %@";
 

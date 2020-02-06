@@ -36,6 +36,8 @@ class CliqzRefreshControl: UIView {
     }
     private var isTrackingStarted: Bool = false
 
+    var isEnabled: Bool = true
+
     weak var delegate: CliqzRefreshControlDelegate?
 
     init(scrollView: UIScrollView) {
@@ -120,6 +122,9 @@ class CliqzRefreshControl: UIView {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        guard self.isEnabled else {
+            return
+        }
         guard let scrollView = self.scrollView, scrollView.contentOffset.y <= 0 else {
             if self.alpha != 0 {
                 self.alpha = 0

@@ -98,6 +98,8 @@ class AppSettingsTableViewController: SettingsTableViewController {
             OpenWithSetting(settings: self),
             NewTabPageDefaultViewSetting(settings: self),
             OnBrowserStartShowSetting(settings: self),
+            BoolSetting(prefs: prefs, prefKey: PrefsKeys.RefreshControlEnabled, defaultValue: true,
+                        titleText: Strings.Settings.RefreshControl.SectionName),
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
                         titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
         ]
