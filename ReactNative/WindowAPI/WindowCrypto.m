@@ -11,5 +11,6 @@
 @interface RCT_EXTERN_MODULE(WindowCrypto, NSObject)
 
 RCT_EXTERN_METHOD(digest:(NSString)algorithm data:(NSString)data resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(generateEntropy:(NSInteger)count resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 
 @end

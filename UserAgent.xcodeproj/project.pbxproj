@@ -5419,6 +5419,7 @@
 				DD31E0FB1B382B520077078A /* TabPrintPageRenderer.swift in Sources */,
 				E4CD9E911A6897FB00318571 /* ReaderMode.swift in Sources */,
 				2BC457FE23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */,
+				46CA60E82317E0DC0010CE6B /* LocaleConstants.m in Sources */,
 				460C247D23ED73EC00D922B0 /* WindowCrypto.m in Sources */,
 				74C027451B2A348C001B1E88 /* SessionData.swift in Sources */,
 				D314E7F71A37B98700426A76 /* TabToolbar.swift in Sources */,

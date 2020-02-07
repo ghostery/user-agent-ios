@@ -26,6 +26,24 @@ extension Data {
         }
         self = data
     }
+
+    public func toHexString() -> String {
+        return self.compactMap { String(format: "%02x", $0) }.joined()
+    }
+
+    public static func generateSecureRandomData(count: Int) -> Data {
+        var outData = Data(count: count)
+
+        let result = outData.withUnsafeMutableBytes {
+            SecRandomCopyBytes(kSecRandomDefault, count, $0)
+        }
+
+        guard result == 0 else {
+            fatalError("Failed to randomly generate bytes. SecRandomCopyBytes error code: (\(result)).")
+        }
+
+        return outData
+    }
 }
 
 @objc(WindowCrypto)
@@ -44,8 +62,8 @@ class WindowCrypto: NSObject {
                     return
                 }
                 let hash = SHA256.hash(data: data)
-                let hashString = hash.compactMap { String(format: "%02x", $0) }.joined()
-                resolve(hashString)
+                let hexHash = hash.compactMap { String(format: "%02x", $0) }.joined()
+                resolve(hexHash)
             } else {
                 reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
                 return
@@ -53,6 +71,16 @@ class WindowCrypto: NSObject {
         } else {
             reject("E_algorithm", "Algorithm is not supported", nil)
         }
+    }
+
+    @objc(generateEntropy:resolve:reject:)
+    public func generateEntropy(
+        count: NSInteger,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        let random = Data.generateSecureRandomData(count: count as Int)
+        resolve(random.toHexString())
     }
 
     @objc(requiresMainQueueSetup)
