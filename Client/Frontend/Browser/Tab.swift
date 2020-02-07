@@ -187,6 +187,12 @@ class Tab: NSObject {
 
     var isPureNewTabPage: Bool = true
 
+    var allowPullToRefresh: Bool = true {
+        didSet {
+            self.refreshControl?.isEnabled = self.allowPullToRefresh
+        }
+    }
+
     var changedReaderMode: Bool = false {
         didSet {
             if self.changedReaderMode != oldValue {

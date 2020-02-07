@@ -18,7 +18,15 @@ protocol CliqzRefreshControlDelegate: class {
 
 struct CliqzRefreshControlUI {
     static let minimumActionHeight: CGFloat = 20.0
-    static let maximumActionHeight: CGFloat = 40.0
+    static var maximumActionHeight: CGFloat {
+        if UIDevice.current.isPhone {
+            if UIApplication.shared.statusBarOrientation == .landscapeLeft || UIApplication.shared.statusBarOrientation == .landscapeRight {
+                return 30.0
+            }
+            return 50.0
+        }
+        return 60.0
+    }
 }
 
 class CliqzRefreshControl: UIView {
@@ -35,6 +43,8 @@ class CliqzRefreshControl: UIView {
         }
     }
     private var isTrackingStarted: Bool = false
+
+    var isEnabled: Bool = true
 
     weak var delegate: CliqzRefreshControlDelegate?
 
@@ -120,6 +130,9 @@ class CliqzRefreshControl: UIView {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        guard self.isEnabled else {
+            return
+        }
         guard let scrollView = self.scrollView, scrollView.contentOffset.y <= 0 else {
             if self.alpha != 0 {
                 self.alpha = 0

@@ -659,8 +659,9 @@ class BrowserViewController: UIViewController {
         footer.alpha = 1
 
         [header, footer, readerModeBar].forEach { view in
-                view?.transform = .identity
+            view?.transform = .identity
         }
+        self.notchAreaCover.isHidden = false
     }
 
     override func updateViewConstraints() {

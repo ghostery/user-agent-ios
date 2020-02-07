@@ -175,6 +175,9 @@ extension Strings {
             public static let LastOpenedTab = NSLocalizedString("Settings.OnBrowserStartTab.LastOpenedTab", comment: "The option in settings to configure first launch to open last opened tab")
             public static let NewTab = NSLocalizedString("Settings.OnBrowserStartTab.NewTab", comment: "The option in settings to configure first launch to open new tab")
         }
+        public struct RefreshControl {
+            public static let SectionName = NSLocalizedString("Settings.RefreshControl.SectionName", comment: "The option in settings to enable/disable Refresh Control.")
+        }
         public struct OpenWith {
             public static let SectionName = NSLocalizedString("Settings.OpenWith.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour.")
             public static let PageTitle = NSLocalizedString("Settings.OpenWith.PageTitle", comment: "Title for Open With Settings")

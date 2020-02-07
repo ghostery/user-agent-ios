@@ -26,6 +26,9 @@ public struct PrefsKeys {
     public static let NewTabPageDefaultView = "NewTabPageDefaultView"
     public static let OnBrowserStartTab = "OnBrowserStartTab"
 
+    //Pull to refresh
+    public static let RefreshControlEnabled = "RefreshControlEnabled"
+
     //News
     public static let NewTabNewsEnabled = "NewTabNewsEnabled"
     public static let NewTabNewsImagesEnabled = "NewTabNewsImagesEnabled"

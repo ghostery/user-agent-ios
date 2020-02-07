@@ -586,9 +586,11 @@ class TabManager: NSObject {
     @objc func prefsDidChange() {
         DispatchQueue.main.async {
             let allowPopups = !(self.profile.prefs.boolForKey("blockPopups") ?? true)
+            let allowPullToRefresh = self.profile.prefs.boolForKey(PrefsKeys.RefreshControlEnabled) ?? true
             // Each tab may have its own configuration, so we should tell each of them in turn.
             for tab in self.tabs {
                 tab.webView?.configuration.preferences.javaScriptCanOpenWindowsAutomatically = allowPopups
+                tab.allowPullToRefresh = allowPullToRefresh
             }
             // The default tab configurations also need to change.
             self.configuration.preferences.javaScriptCanOpenWindowsAutomatically = allowPopups
