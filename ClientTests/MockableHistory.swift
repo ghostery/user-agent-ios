@@ -20,7 +20,6 @@ class MockableHistory: BrowserHistory, SyncableHistory {
     func removeHistoryForURL(_ url: String) -> Success { fatalError() }
     func removeSiteFromTopSites(_ site: Site) -> Success { fatalError() }
     func removeHostFromTopSites(_ host: String) -> Success { fatalError() }
-    func removeHostFromHistory(_ host: String) -> Success { fatalError() }
     func clearTopSitesCache() -> Success { fatalError() }
     func removeFromPinnedTopSites(_ site: Site) -> Success { fatalError() }
     func isPinnedTopSite(_ url: String) -> Deferred<Maybe<Bool>> { fatalError()}
