@@ -9,27 +9,28 @@
 import Foundation
 import Storage
 import Shared
+import CoreSpotlight
 
 enum ContextMenuActions {
-    case unknwon
     case unpin
     case pin
-    case newTab
     case removeTopSite
+    case deleteFromHistory
 }
 
 public typealias ContextMenuActionCompletion = () -> Void
 
 class ContextMenuUseCase {
-    var profile: Profile
+    private var profile: Profile!
+
     init(profile: Profile) {
         self.profile = profile
     }
 
-    func present(for site: Site, with actions: [ContextMenuActions], on viewController: UIViewController, completion: @escaping ContextMenuActionCompletion) {
+    func present(for site: Site, withQuery query: String? = nil, withActions actions: [ContextMenuActions], on viewController: UIViewController, completion: @escaping ContextMenuActionCompletion) {
         var photonAction: [PhotonActionSheetItem] = []
         for action in actions {
-            if let action = self.createActionItem(for: action, site: site, completion: completion) {
+            if let action = self.createActionItem(for: action, site: site, query: query, completion: completion) {
                 photonAction.append(action)
             }
         }
@@ -49,7 +50,12 @@ class ContextMenuUseCase {
         return contextMenu
     }
 
-    private func createActionItem(for action: ContextMenuActions, site: Site, completion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem? {
+    private func createActionItem(
+        for action: ContextMenuActions,
+        site: Site,
+        query: String?,
+        completion: @escaping ContextMenuActionCompletion
+    ) -> PhotonActionSheetItem? {
         switch action {
         case .unpin:
             return self.createActionUnpin(site: site, actionCompletion: completion)
@@ -57,10 +63,9 @@ class ContextMenuUseCase {
             return self.createActionPin(site: site, actionCompletion: completion)
         case .removeTopSite:
             return self.createActionRemoveTopSite(site: site, actionCompletion: completion)
-        default:
-            break
+        case .deleteFromHistory:
+            return self.createActionDeleteFromHistory(site: site, actionCompletion: completion)
         }
-        return nil
     }
 
     private func createActionUnpin(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
@@ -89,6 +94,16 @@ class ContextMenuUseCase {
                         actionCompletion()
                     }
                 }
+            }
+        }
+        return removeFromTopSite
+    }
+
+    private func createActionDeleteFromHistory(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
+        let removeFromTopSite = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.DeleteFromHistory, iconString: "action_delete") { action in
+            self.profile.history.removeHistoryForURL(site.url).uponQueue(.main) { result in
+                CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [site.url])
+                actionCompletion()
             }
         }
         return removeFromTopSite

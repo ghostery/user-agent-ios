@@ -12,6 +12,38 @@ import Storage
 @objc(ContextMenu)
 class ContextMenuNativeModule: NSObject, NativeModuleBase {
 
+    @objc(result:title:isHistory:query:)
+    public func result(url_str: NSString, title: NSString, isHistory: Bool, query: NSString) {
+        let rawUrl = url_str as String
+        guard let url = URL(string: rawUrl) else { return }
+
+        var actions: [ContextMenuActions] = []
+
+        if isHistory {
+            actions += [.deleteFromHistory]
+        }
+
+        if actions.isEmpty {
+            return
+        }
+
+        self.withAppDelegate { appDel in
+            let site = Site(url: url.absoluteString, title: title as String)
+
+            appDel.useCases.contextMenu.present(
+                for: site,
+                withQuery: query as String,
+                withActions: actions,
+                on: appDel.browserViewController
+            ) {
+                guard let searchContorller = appDel.browserViewController?.searchController else { return }
+                // redo query
+                let query = searchContorller.searchQuery
+                searchContorller.searchQuery = query
+            }
+        }
+    }
+
     @objc(speedDial:isPinned:)
     public func speedDial(url_str: NSString, isPinned: Bool) {
         let rawUrl = url_str as String
@@ -41,7 +73,7 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
 
                 appDel.useCases.contextMenu.present(
                     for: site,
-                    with: actions,
+                    withActions: actions,
                     on: appDel.browserViewController
                 ) {
                     appDel.browserViewController?.homeViewController?.refresh()
