@@ -1,9 +1,16 @@
-import { NativeEventEmitter, NativeModules } from 'react-native';
+import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
 import networkStatus from './globals/browser/networkStatus';
 import tabs from './globals/browser/tabs';
 import search from './globals/browser/search';
 import './globals/navigator/userAgent';
-import './globals/window/DOMParser';
+import { DOMParser } from './globals/window/DOMParser';
+import { crypto } from './globals/window/crypto';
+
+window.DOMParser = DOMParser;
+if (Platform.OS === 'ios' && Platform.Version >= 13) {
+  // window.crypto cannot be reassigned in Chrome, so those APIs have to be tested in Safari
+  window.crypto = crypto;
+}
 
 const browser = {
   networkStatus,
