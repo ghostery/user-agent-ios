@@ -72,13 +72,14 @@ const LogoComponent = ({ size, url }) => {
   return <Logo size={size} url={url} />;
 };
 
-const Snippet = ({ openLink, result, type, styles }) => {
+const Snippet = ({ onPress, onLongPress, result, type, styles }) => {
   return (
     <GenericSnippet
-      openLink={openLink}
+      onPress={onPress}
+      onLongPress={onLongPress}
       result={result}
       type={type}
-      isUrlsSelecable={false}
+      isSelectable={false}
       ImageRendererComponent={ImageRendererComponent}
       LogoComponent={LogoComponent}
       t={t}
@@ -87,7 +88,7 @@ const Snippet = ({ openLink, result, type, styles }) => {
   );
 };
 
-export default ({ result, openLink }) => {
+export default ({ result, onPress, onLongPress }) => {
   const styles = useStyles(getStyles);
   const snippetStyles = useStyles(getSnippetStyles);
   const { url } = result;
@@ -99,14 +100,14 @@ export default ({ result, openLink }) => {
   const news = deepResults.find(
     r => r.type === 'news' || r.type === 'top-news',
   ) || { links: [] };
-  const { logo } = result.meta;
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <Snippet
           result={result}
           type="main"
-          openLink={openLink}
+          onPress={onPress}
+          onLongPress={onLongPress}
           styles={snippetStyles}
         />
         {urls.length > 0 && (
@@ -116,7 +117,8 @@ export default ({ result, openLink }) => {
             list={urls.map(snippet => (
               <Snippet
                 key={snippet.url}
-                openLink={openLink}
+                onPress={onPress}
+                onLongPress={onLongPress}
                 result={snippet}
                 type="history"
                 styles={snippetStyles}
@@ -125,7 +127,7 @@ export default ({ result, openLink }) => {
           />
         )}
       </View>
-      {news.links.length > 0 && <NewsSnippet news={news} openLink={openLink} />}
+      {news.links.length > 0 && <NewsSnippet news={news} openLink={onPress} />}
       <View style={styles.wrapper}>
         {snippets.map(snippet => (
           <SnippetList
@@ -135,7 +137,8 @@ export default ({ result, openLink }) => {
             list={snippet.links.map(link => (
               <Snippet
                 key={link.url}
-                openLink={openLink}
+                onPress={onPress}
+                onLongPress={onLongPress}
                 result={link}
                 type={snippet.type}
                 styles={snippetStyles}

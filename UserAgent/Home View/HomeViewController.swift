@@ -60,13 +60,13 @@ class HomeViewController: UIViewController {
         return topSitesView
     }()
 
-    private lazy var bookmarksView: UIView = {
+    private lazy var bookmarksView: BookmarksView = {
         let bookmarksView = BookmarksView(profile: self.profile)
         bookmarksView.delegate = self
         return bookmarksView
     }()
 
-    private lazy var historyView: UIView = {
+    private lazy var historyView: HistoryView = {
         let historyView = HistoryView(profile: self.profile)
         historyView.delegate = self
         return historyView
@@ -110,6 +110,8 @@ class HomeViewController: UIViewController {
 
     func refresh() {
         self.topSitesView.refresh()
+        self.bookmarksView.reloadData()
+        self.historyView.reloadData()
     }
 }
 

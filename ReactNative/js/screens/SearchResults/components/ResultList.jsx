@@ -8,8 +8,8 @@
  */
 
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import Card from './results/GenericResult';
+import { View, StyleSheet, NativeModules } from 'react-native';
+import GenericResult from './results/GenericResult';
 import WeatherSnippet from './results/WeatherResult';
 import { withCliqz } from '../../../contexts/cliqz';
 import { isSwitchToTab } from './helpers';
@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
 });
+
+const onLongPress = ({ url, title, isHistory, query } = {}) =>
+  NativeModules.ContextMenu.result(url, title, isHistory, query);
 
 class CardList extends React.PureComponent {
   constructor(props) {
@@ -58,7 +61,7 @@ class CardList extends React.PureComponent {
   };
 
   getComponent = ({ item, index }) => {
-    let Component = Card;
+    let Component = GenericResult;
     switch (item.template) {
       case 'weatherEZ':
         Component = WeatherSnippet;
@@ -70,7 +73,15 @@ class CardList extends React.PureComponent {
     return (
       <Component
         key={item.meta.domain}
-        openLink={(...args) => this.openLink(item, ...args)}
+        onPress={(...args) => this.openLink(item, ...args)}
+        onLongPress={() =>
+          onLongPress({
+            url: item.url,
+            title: item.title,
+            isHistory: item.provider === 'history',
+            query: item.text,
+          })
+        }
         result={item}
         index={index}
       />
