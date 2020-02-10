@@ -12,7 +12,6 @@ import ResultList from './ResultList';
 import SpeedDial from '../../../components/SpeedDial';
 import NativeDrawable from '../../../components/NativeDrawable';
 import { withTheme } from '../../../contexts/theme';
-import CliqzProvider from '../../../contexts/cliqz';
 import t from '../../../services/i18n';
 import { resultTitleFontSize } from '../styles';
 
@@ -146,6 +145,18 @@ function groupBy(arr, n) {
   return group;
 }
 
+function handleAutocompletion(url = '', query = '') {
+  const trimmedUrl = url.replace(/http([s]?):\/\/(www.)?/, '').toLowerCase();
+  const searchLower = query.toLowerCase();
+  if (trimmedUrl.startsWith(searchLower)) {
+    NativeModules.AutoCompletion.autoComplete(trimmedUrl);
+  } else {
+    NativeModules.AutoCompletion.autoComplete(query);
+  }
+}
+
+const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
+
 class Results extends React.Component {
   constructor(props) {
     super(props);
@@ -168,11 +179,12 @@ class Results extends React.Component {
   }
 
   openSearchEngineResultsPage = async (searchEngine, query, index) => {
-    const { results = {}, cliqz } = this.props;
+    const { results = {}, searchModule } = this.props;
     const meta = results.meta || {};
     const { favIconUrl: url } = searchEngine;
 
-    await cliqz.search.reportSelection(
+    await searchModule.action(
+      'reportSelection',
       {
         action: 'click',
         elementName: 'icon',
@@ -196,14 +208,25 @@ class Results extends React.Component {
         contextId: 'mobile-cards',
       },
     );
+
     browser.search.search({
       query,
       engine: searchEngine.name,
     });
   };
 
+  reportHighlight = () => {
+    const { searchModule } = this.props;
+    searchModule.reportHighlight();
+  };
+
   render() {
-    const { results: _results, query, theme: _theme, cliqz } = this.props;
+    const {
+      results: _results,
+      query,
+      theme: _theme,
+      searchModule,
+    } = this.props;
     const {
       results: allResults,
       suggestions,
@@ -222,115 +245,110 @@ class Results extends React.Component {
     if (results[0]) {
       const { friendlyUrl, text } = results[0];
       if (friendlyUrl && text) {
-        cliqz.mobileCards.handleAutocompletion(friendlyUrl, text);
+        handleAutocompletion(friendlyUrl, text);
       }
     }
 
     return (
       <View style={styles.container}>
-        <CliqzProvider.Provider value={cliqz}>
-          <ScrollView
-            bounces
-            ref={this.scrollRef}
-            showsVerticalScrollIndicator={false}
-            keyboardDismissMode="on-drag"
-            keyboardShouldPersistTaps="handled"
-            onTouchStart={() => cliqz.mobileCards.hideKeyboard()}
-            onScrollEndDrag={() => cliqz.search.reportHighlight()}
+        <ScrollView
+          bounces
+          ref={this.scrollRef}
+          showsVerticalScrollIndicator={false}
+          keyboardDismissMode="on-drag"
+          keyboardShouldPersistTaps="handled"
+          onTouchStart={hideKeyboard}
+          onScrollEndDrag={this.reportHighlight}
+        >
+          <View style={styles.bouncer} />
+          <View
+            accessible={false}
+            accessibilityLabel="search-results"
+            style={styles.searchUI}
           >
-            <View style={styles.bouncer} />
-            <View
-              accessible={false}
-              accessibilityLabel="search-results"
-              style={styles.searchUI}
-            >
-              <ResultList
-                results={results}
-                meta={meta}
-                style={styles.cardListStyle}
-                header={<View />}
-                separator={<View style={styles.separator} />}
-                footer={<View />}
-              />
-            </View>
-            <>
-              {results.length === 0 && (
-                <View style={styles.noResults}>
-                  <Text style={styles.noResultsText}>
-                    {t('search_no_results')}
-                  </Text>
-                </View>
-              )}
-
-              <View style={styles.footer}>
-                <TouchableWithoutFeedback
-                  onPress={() =>
-                    this.openSearchEngineResultsPage(
-                      { name: 'Cliqz' },
-                      query,
-                      0,
-                    )
-                  }
-                >
-                  <View style={styles.showMoreButtonWrapper}>
-                    <View style={styles.showMoreButton}>
-                      <NativeDrawable
-                        style={styles.footerIcon}
-                        source="nav-menu"
-                        color="#ffffff"
-                      />
-                      <Text style={styles.footerText} allowFontScaling={false}>
-                        {t('search_footer')}
-                      </Text>
-                    </View>
-                  </View>
-                </TouchableWithoutFeedback>
-              </View>
-
-              <View style={styles.searchEnginesHeader}>
-                <Text style={styles.searchEnginesHeaderText}>
-                  {t('search_alternative_search_engines_info')}
+            <ResultList
+              results={results}
+              meta={meta}
+              style={styles.cardListStyle}
+              header={<View />}
+              separator={<View style={styles.separator} />}
+              footer={<View />}
+              searchModule={searchModule}
+            />
+          </View>
+          <>
+            {results.length === 0 && (
+              <View style={styles.noResults}>
+                <Text style={styles.noResultsText}>
+                  {t('search_no_results')}
                 </Text>
               </View>
-              <View style={styles.searchEnginesContainer}>
-                {groupBy(searchEngines, 3).map(
-                  (searchEnginesGroup, groupIndex) => (
-                    <View
-                      style={styles.searchEnginesGroupContainer}
-                      key={searchEnginesGroup.map(e => e.name).join('')}
-                    >
-                      {searchEnginesGroup.map((searchEngine, engineIndex) => (
-                        <SpeedDial
-                          key={searchEngine.name}
-                          styles={{
-                            label: {
-                              color: 'white',
-                            },
-                            circle: {
-                              borderColor: `${_theme.separatorColor}44`,
-                            },
-                          }}
-                          speedDial={{
-                            pinned: false,
-                            url: searchEngine.favIconUrl,
-                          }}
-                          onPress={() =>
-                            this.openSearchEngineResultsPage(
-                              searchEngine,
-                              query,
-                              // index 0 is "show more results" Cliqz link
-                              1 + groupIndex * 3 + engineIndex,
-                            )
-                          }
-                        />
-                      ))}
-                    </View>
-                  ),
-                )}
-              </View>
-            </>
-          </ScrollView>
-        </CliqzProvider.Provider>
+            )}
+
+            <View style={styles.footer}>
+              <TouchableWithoutFeedback
+                onPress={() =>
+                  this.openSearchEngineResultsPage({ name: 'Cliqz' }, query, 0)
+                }
+              >
+                <View style={styles.showMoreButtonWrapper}>
+                  <View style={styles.showMoreButton}>
+                    <NativeDrawable
+                      style={styles.footerIcon}
+                      source="nav-menu"
+                      color="#ffffff"
+                    />
+                    <Text style={styles.footerText} allowFontScaling={false}>
+                      {t('search_footer')}
+                    </Text>
+                  </View>
+                </View>
+              </TouchableWithoutFeedback>
+            </View>
+
+            <View style={styles.searchEnginesHeader}>
+              <Text style={styles.searchEnginesHeaderText}>
+                {t('search_alternative_search_engines_info')}
+              </Text>
+            </View>
+            <View style={styles.searchEnginesContainer}>
+              {groupBy(searchEngines, 3).map(
+                (searchEnginesGroup, groupIndex) => (
+                  <View
+                    style={styles.searchEnginesGroupContainer}
+                    key={searchEnginesGroup.map(e => e.name).join('')}
+                  >
+                    {searchEnginesGroup.map((searchEngine, engineIndex) => (
+                      <SpeedDial
+                        key={searchEngine.name}
+                        styles={{
+                          label: {
+                            color: 'white',
+                          },
+                          circle: {
+                            borderColor: `${_theme.separatorColor}44`,
+                          },
+                        }}
+                        speedDial={{
+                          pinned: false,
+                          url: searchEngine.favIconUrl,
+                        }}
+                        onPress={() =>
+                          this.openSearchEngineResultsPage(
+                            searchEngine,
+                            query,
+                            // index 0 is "show more results" Cliqz link
+                            1 + groupIndex * 3 + engineIndex,
+                          )
+                        }
+                      />
+                    ))}
+                  </View>
+                ),
+              )}
+            </View>
+          </>
+        </ScrollView>
       </View>
     );
   }

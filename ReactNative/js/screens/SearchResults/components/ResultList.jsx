@@ -11,7 +11,6 @@ import React from 'react';
 import { View, StyleSheet, NativeModules } from 'react-native';
 import GenericResult from './results/GenericResult';
 import WeatherSnippet from './results/WeatherResult';
-import { withCliqz } from '../../../contexts/cliqz';
 import { isSwitchToTab } from './helpers';
 
 const styles = StyleSheet.create({
@@ -22,8 +21,10 @@ const styles = StyleSheet.create({
 
 const onLongPress = ({ url, title, isHistory, query } = {}) =>
   NativeModules.ContextMenu.result(url, title, isHistory, query);
+const openLink = (url, query) =>
+  NativeModules.BrowserActions.openLink(url, query);
 
-class CardList extends React.PureComponent {
+export default class CardList extends React.PureComponent {
   constructor(props) {
     super(props);
     this.lastText = '';
@@ -50,14 +51,19 @@ class CardList extends React.PureComponent {
     return selection;
   };
 
-  openLink = (result, url, elementName = '') => {
-    const { cliqz } = this.props;
+  openLink = async (result, url, elementName = '') => {
+    const { searchModule } = this.props;
     const selection = this.getSelection(result, url, elementName);
     let actionUrl = url;
     if (isSwitchToTab(result)) {
       actionUrl = `moz-action:switchtab,${JSON.stringify({ url })}`;
     }
-    cliqz.mobileCards.openLink(actionUrl, selection);
+
+    await searchModule.action('reportSelection', selection, {
+      contextId: 'mobile-cards',
+    });
+
+    openLink(actionUrl, selection.query);
   };
 
   getComponent = ({ item, index }) => {
@@ -113,5 +119,3 @@ class CardList extends React.PureComponent {
     );
   }
 }
-
-export default withCliqz(CardList);
