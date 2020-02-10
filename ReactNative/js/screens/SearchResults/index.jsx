@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Results from './components/Results';
-import Cliqz from './services/cliqz-wrapper';
 
 export default class SearchResults extends React.Component {
   constructor(props) {
@@ -13,8 +12,6 @@ export default class SearchResults extends React.Component {
     this.searchRef = React.createRef();
     this.onAction = this.onAction.bind(this);
     this.onResults = this.onResults.bind(this);
-    const { bridgeManager } = this.props;
-    this.cliqz = new Cliqz(bridgeManager.inject);
   }
 
   // eslint-disable-next-line react/no-deprecated
@@ -52,12 +49,10 @@ export default class SearchResults extends React.Component {
 
   render() {
     const { query, results } = this.state;
+    const { searchModule } = this.props;
 
-    // eslint-disable-next-line prettier/prettier
-    return <Results
-      results={results}
-      query={query}
-      cliqz={this.cliqz}
-    />;
+    return (
+      <Results results={results} query={query} searchModule={searchModule} />
+    );
   }
 }

@@ -13,8 +13,8 @@ let HideKeyboardSearchNotification = NSNotification.Name(rawValue: "Search:hideK
 
 @objc(BrowserActions)
 class BrowserActions: NSObject, NativeModuleBase {
-    @objc(openLink:query:isSearchEngine:)
-    public func openLink(url_str: NSString, query: NSString, isSearchEngine: Bool) {
+    @objc(openLink:query:)
+    public func openLink(url_str: NSString, query: NSString) {
         self.withAppDelegate { appDel in
             appDel.useCases.openLink.openLink(urlString: url_str as String, query: query as String)
         }
