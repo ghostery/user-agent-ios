@@ -121,6 +121,10 @@
 		2B8DDBB923A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
 		2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
+		2BC457FE23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */; };
+		2BC457FF23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */; };
+		2BC4580523F1385900057204 /* PhotonActionSheetCollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */; };
+		2BC4580623F1385900057204 /* PhotonActionSheetCollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */; };
 		2BC4664923C45CAF008CF508 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BC4664723C45C80008CF508 /* InfoPlist.strings */; };
 		2BD02D3823BA3375001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
 		2BD02D3D23BA3381001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
@@ -1271,6 +1275,8 @@
 		2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementMessageCell.swift; sourceTree = "<group>"; };
 		2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementFooterView.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
+		2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionCell.swift; sourceTree = "<group>"; };
+		2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionItemCell.swift; sourceTree = "<group>"; };
 		2BC4664623C45C80008CF508 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BC4664823C45C81008CF508 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BD02D4023BA34B0001539F0 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
@@ -2205,6 +2211,15 @@
 				2B516D2E238BAC8B006D6B57 /* BookmarksView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2BC4580023F1382900057204 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */,
+				2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		2BD02D4223BA3698001539F0 /* Branding */ = {
@@ -3271,6 +3286,7 @@
 		EBA3B2CE2268F3E700728BDB /* PhotonActionSheet */ = {
 			isa = PBXGroup;
 			children = (
+				2BC4580023F1382900057204 /* CollectionCell */,
 				742A56381D80B54A00BDB803 /* PhotonActionSheet.swift */,
 				EBA3B2C22268F16300728BDB /* PhotonActionSheetCell.swift */,
 				EBA3B2CC2268F27500728BDB /* PhotonActionSheetWidgets.swift */,
@@ -5235,6 +5251,7 @@
 				46442CEF238BE61D002E6D85 /* HumanWebFeature.swift in Sources */,
 				ACB7376723042BAB00FA5626 /* SettingsNavigationController.swift in Sources */,
 				ACB7376B23042BAB00FA5626 /* ContextMenuHelper.swift in Sources */,
+				2BC457FF23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */,
 				ACB7376C23042BAB00FA5626 /* InnerStrokedView.swift in Sources */,
 				ACB7377023042BAB00FA5626 /* OpenInHelper.swift in Sources */,
 				ACB7377123042BAB00FA5626 /* ReaderModeCache.swift in Sources */,
@@ -5244,6 +5261,7 @@
 				ACB7377323042BAB00FA5626 /* SettingsContentViewController.swift in Sources */,
 				ACB7377423042BAB00FA5626 /* FirefoxTabContentBlocker.swift in Sources */,
 				ACB7377523042BAB00FA5626 /* PhotonActionSheet.swift in Sources */,
+				2BC4580623F1385900057204 /* PhotonActionSheetCollectionItemCell.swift in Sources */,
 				ACB7377623042BAB00FA5626 /* BackForwardTableViewCell.swift in Sources */,
 				ACB7377823042BAB00FA5626 /* PhotonActionSheetCell.swift in Sources */,
 				ACB7377A23042BAB00FA5626 /* NSAttributedStringExtensions.swift in Sources */,
@@ -5452,6 +5470,7 @@
 				D0B9483D22A18B78002F4AA1 /* TextFieldTableViewCell.swift in Sources */,
 				C45F44691D087DB600CB7EF0 /* TopTabsViewController.swift in Sources */,
 				0BF0DB941A8545800039F300 /* URLBarView.swift in Sources */,
+				2BC4580523F1385900057204 /* PhotonActionSheetCollectionItemCell.swift in Sources */,
 				ACD6547F23619B5C002D2EE0 /* PhotonCustomViewCell.swift in Sources */,
 				46569CDB23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */,
 				D01017F5219CB6BD009CBB5A /* DownloadContentScript.swift in Sources */,
@@ -5481,6 +5500,7 @@
 				C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */,
 				DD31E0FB1B382B520077078A /* TabPrintPageRenderer.swift in Sources */,
 				E4CD9E911A6897FB00318571 /* ReaderMode.swift in Sources */,
+				2BC457FE23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */,
 				46CA60E82317E0DC0010CE6B /* LocaleConstants.m in Sources */,
 				74C027451B2A348C001B1E88 /* SessionData.swift in Sources */,
 				D314E7F71A37B98700426A76 /* TabToolbar.swift in Sources */,
