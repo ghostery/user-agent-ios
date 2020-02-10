@@ -57,7 +57,11 @@ extension PhotonActionSheetProtocol {
             ], [
                 self.burnItem(vcDelegate: vcDelegate),
             ], [
-                self.collectionItem(vcDelegate: vcDelegate, openHomePage: openHomePage),
+                PhotonActionSheetItem(title: "", collectionItems: [
+                    openHomePage,
+                    self.openSettingsItem(vcDelegate: vcDelegate),
+                    self.openDownloadsItem(vcDelegate: vcDelegate),
+                ]),
             ],
         ]
     }
@@ -428,15 +432,6 @@ extension PhotonActionSheetProtocol {
             (vcDelegate as? BrowserViewController)?.showDownloads()
         }
         return openDownloads
-    }
-
-    private func collectionItem(vcDelegate: PageOptionsVC, openHomePage: PhotonActionSheetItem) -> PhotonActionSheetItem {
-        let items = [
-            openHomePage,
-            self.openSettingsItem(vcDelegate: vcDelegate),
-            self.openDownloadsItem(vcDelegate: vcDelegate),
-        ]
-        return PhotonActionSheetItem(title: "", collectionItems: items)
     }
 
     private func refreshPageItem() -> PhotonActionSheetItem {

@@ -410,11 +410,10 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
 extension PhotonActionSheet: PhotonActionSheetCollectionCellDelegate {
 
     func collectionCellDidSelectItem(item: PhotonActionSheetItem) {
+        self.dismiss(nil)
         guard let handler = item.handler else {
-            self.dismiss(nil)
             return
         }
-        self.dismiss(nil)
         handler(item)
     }
 
