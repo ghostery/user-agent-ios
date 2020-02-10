@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
-import { parse } from 'tldts';
 import Logo from './Logo';
 import { useStyles } from '../contexts/theme';
 
@@ -34,33 +33,39 @@ const getStyle = theme => ({
   },
 });
 
-export default function ListItem({ url, title, onPress, label }) {
+export default function ListItem({
+  url,
+  displayUrl: name,
+  title,
+  onPress,
+  label,
+}) {
   const styles = useStyles(getStyle);
 
-  const name = parse(url).hostname;
-
-  /* eslint-disable prettier/prettier */
   return (
-    <TouchableWithoutFeedback
-      onPress={onPress}
-    >
+    <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.row}>
         <Logo url={url} size={48} />
         <View style={styles.rowText}>
           <View style={styles.firstRow}>
-            <Text style={styles.rowTitle} allowFontScaling={false}>{name}</Text>
-            {label &&
-              <Text style={styles.label} allowFontScaling={false}>{label}</Text>
-            }
+            <Text style={styles.rowTitle} allowFontScaling={false}>
+              {name}
+            </Text>
+            {label && (
+              <Text style={styles.label} allowFontScaling={false}>
+                {label}
+              </Text>
+            )}
           </View>
           <Text
             numberOfLines={2}
             style={styles.rowDescription}
             allowFontScaling={false}
-          >{title}</Text>
+          >
+            {title}
+          </Text>
         </View>
       </View>
     </TouchableWithoutFeedback>
   );
-  /* eslint-enable prettier/prettier */
 }

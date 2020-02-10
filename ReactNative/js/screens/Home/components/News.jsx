@@ -99,6 +99,7 @@ export default function News({ newsModule, isImagesEnabled }) {
           <ListItem
             url={item.url}
             title={item.title}
+            displayUrl={item.displayUrl}
             label={item.breaking_label ? NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel'] : null}
             onPress={() => openLink(item.url)}
           />
