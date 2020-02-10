@@ -11,18 +11,19 @@ import UIKit
 class PhotonActionSheetCollectionItemCell: UICollectionViewCell {
 
     static let VerticalPadding: CGFloat = 2
+    static let IconSize: CGFloat = 25.0
 
     lazy private var titleLabel: UILabel = {
         let label = UILabel()
-        label.minimumScaleFactor = 0.75 // Scale the font if we run out of space
+        label.minimumScaleFactor = 0.5
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.adjustsFontSizeToFitWidth = true
-        label.numberOfLines = 2
-        label.font = DynamicFontHelper.defaultHelper.SmallSizeMediumWeightAS
+        label.textAlignment = .center
+        label.font = DynamicFontHelper.defaultHelper.SmallSizeRegularWeightAS
         return label
     }()
 
-    lazy private var iconView: UIImageView = {
+    lazy private var iconImageView: UIImageView = {
         let icon = UIImageView()
         icon.contentMode = .scaleAspectFit
         icon.clipsToBounds = true
@@ -43,9 +44,13 @@ class PhotonActionSheetCollectionItemCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
-        self.stackView.addArrangedSubview(self.iconView)
+        self.stackView.addArrangedSubview(self.iconImageView)
         self.stackView.addArrangedSubview(self.titleLabel)
-        self.contentView.addSubview(stackView)
+        self.iconImageView.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.titleLabel).priority(.medium)
+            make.width.height.equalTo(PhotonActionSheetCollectionItemCell.IconSize)
+        }
+        self.contentView.addSubview(self.stackView)
         self.stackView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.contentView)
         }
@@ -56,7 +61,8 @@ class PhotonActionSheetCollectionItemCell: UICollectionViewCell {
     }
 
     func configure(with item: PhotonActionSheetItem) {
-        self.iconView.image = UIImage(named: item.iconString ?? "")?.withRenderingMode(.alwaysTemplate)
+        self.iconImageView.image = UIImage(named: item.iconString ?? "")?.withRenderingMode(.alwaysTemplate)
+        self.titleLabel.textColor = item.accessory == .Text ? titleLabel.textColor.withAlphaComponent(0.6) : titleLabel.textColor
         self.titleLabel.text = item.title
     }
 

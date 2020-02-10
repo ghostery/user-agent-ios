@@ -10,9 +10,9 @@ import UIKit
 
 private struct PhotonActionSheetCollectionCellUX {
     static let VerticalPadding: CGFloat = 10.0
-    static let HorizontalPadding: CGFloat = 56.0
+    static let HorizontalPadding: CGFloat = 16.0
     static let Height: CGFloat = 50.0
-    static let MaximumCellsCountInScreen: Int = 4
+    static let MaximumCellsCountInScreen: Int = 3
     static let CellName = "PhotonActionSheetCollectionCell"
 }
 
@@ -43,6 +43,7 @@ public class PhotonActionSheetCollectionCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
         self.collectionView.register(PhotonActionSheetCollectionItemCell.self, forCellWithReuseIdentifier: PhotonActionSheetCollectionCellUX.CellName)
         self.isAccessibilityElement = true
         self.backgroundColor = .clear
@@ -97,8 +98,7 @@ extension PhotonActionSheetCollectionCell: UICollectionViewDelegate {
 extension PhotonActionSheetCollectionCell: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let count = min(self.items.count, PhotonActionSheetCollectionCellUX.MaximumCellsCountInScreen)
-        return CGSize(width: collectionView.frame.width / CGFloat(count), height: collectionView.frame.height)
+        return CGSize(width: collectionView.frame.width / CGFloat(PhotonActionSheetCollectionCellUX.MaximumCellsCountInScreen), height: collectionView.frame.height)
     }
 
 }
