@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, NativeModules } from 'react-native';
 import NativeDrawable from '../../components/NativeDrawable';
 import { useStyles } from '../../contexts/theme';
 import t from '../../services/i18n';
+import { number } from 'prop-types';
 
 const getStyle = (theme: {
   fontSizeLarge: number;
@@ -57,23 +58,29 @@ const useStats = (insightsModule: BrowserCoreModule) => {
     adsBlocked: 0,
     trackersBlocked: 0,
   });
+
   useEffect(() => {
-    insightsModule
-      .action('getDashboardStats', [''])
-      .then(
-        ({
-          adsBlocked,
-          trackersBlocked,
-        }: {
-          adsBlocked: number;
-          trackersBlocked: number;
-        }) => {
-          setStats({
-            adsBlocked,
-            trackersBlocked,
-          });
+    async function getStats() {
+      const [tabsState, dashboardStats] = await Promise.all([
+        NativeModules.InsightsFeature.getTabsState(),
+        insightsModule.action('getDashboardStats', ['']),
+      ]);
+      let { adsBlocked, trackersBlocked } = dashboardStats;
+
+      tabsState.forEach(
+        (tabState: { adsBlocked: number; trackersBlocked: number }) => {
+          adsBlocked += tabState.adsBlocked;
+          trackersBlocked += tabState.trackersBlocked;
         },
       );
+
+      setStats({
+        adsBlocked,
+        trackersBlocked,
+      });
+    }
+
+    getStats();
   }, [insightsModule]);
   return stats;
 };

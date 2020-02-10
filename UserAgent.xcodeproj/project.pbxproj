@@ -216,6 +216,10 @@
 		3D9CAA1C1EFCD655002434DD /* ClipBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9CAA1B1EFCD655002434DD /* ClipBoardTests.swift */; };
 		460C247623EB0D3200D922B0 /* safari-popups-network.json in Resources */ = {isa = PBXBuildFile; fileRef = 460C247523EB0D3200D922B0 /* safari-popups-network.json */; };
 		460C247723EB0D3200D922B0 /* safari-popups-network.json in Resources */ = {isa = PBXBuildFile; fileRef = 460C247523EB0D3200D922B0 /* safari-popups-network.json */; };
+		460C248123F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */; };
+		460C248223F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */; };
+		460C248423F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
+		460C248523F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
 		461E5E59234F6891004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E58234F6891004DDE84 /* brand.strings */; };
 		461E5E5B234F68A7004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E5A234F68A7004DDE84 /* brand.strings */; };
 		4620EA492350ABF9004586CF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA482350ABF9004586CF /* Search.swift */; };
@@ -1371,6 +1375,8 @@
 		3D9CAA1B1EFCD655002434DD /* ClipBoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipBoardTests.swift; sourceTree = "<group>"; };
 		4063430C93211557F15DA9AA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Shared.strings; sourceTree = "<group>"; };
 		460C247523EB0D3200D922B0 /* safari-popups-network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-network.json"; sourceTree = "<group>"; };
+		460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsFeatureReactNativeModule.swift; sourceTree = "<group>"; };
+		460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsightsFeatureReactNativeModule.m; sourceTree = "<group>"; };
 		461E5E58234F6891004DDE84 /* brand.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = brand.strings; sourceTree = "<group>"; };
 		461E5E5A234F68A7004DDE84 /* brand.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = brand.strings; sourceTree = "<group>"; };
 		4620EA482350ABF9004586CF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -2439,9 +2445,20 @@
 			path = XCUITests;
 			sourceTree = "<group>";
 		};
+		460C247F23F18BB600D922B0 /* Insights */ = {
+			isa = PBXGroup;
+			children = (
+				463E78F023C773F400C33BB0 /* InsightsFeature.swift */,
+				460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */,
+				460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */,
+			);
+			path = Insights;
+			sourceTree = "<group>";
+		};
 		463432F6233251F70014A9F0 /* UserAgent */ = {
 			isa = PBXGroup;
 			children = (
+				460C247F23F18BB600D922B0 /* Insights */,
 				AC65328C2347674D00FC7ADB /* Home View */,
 				C56ED494233B68C7006A63B1 /* Interceptor */,
 				2B473CEF239637D000442059 /* UseCases */,
@@ -2451,7 +2468,6 @@
 				4620EA482350ABF9004586CF /* Search.swift */,
 				463432F72332521F0014A9F0 /* Telemetry.swift */,
 				2B4EFBDA2399233A007A10E0 /* News.swift */,
-				463E78F023C773F400C33BB0 /* InsightsFeature.swift */,
 			);
 			path = UserAgent;
 			sourceTree = "<group>";
@@ -5146,6 +5162,7 @@
 				C5D1EB4D23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */,
 				2B516D38238BAC8B006D6B57 /* HistoryView.swift in Sources */,
 				ACB7372B23042BAB00FA5626 /* UserScriptManager.swift in Sources */,
+				460C248523F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */,
 				2BFB7C3A238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
 				ACB7372C23042BAB00FA5626 /* ReaderModeUtils.swift in Sources */,
 				2B8DDBB023A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */,
@@ -5178,6 +5195,7 @@
 				ACB7374123042BAB00FA5626 /* TabEventHandlers.swift in Sources */,
 				ACB7374223042BAB00FA5626 /* SearchInputView.swift in Sources */,
 				ACB7374323042BAB00FA5626 /* Punycode.swift in Sources */,
+				460C248223F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */,
 				46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */,
 				46B68D30231420DD0091156C /* HomeViewController.swift in Sources */,
 				ACB7374423042BAB00FA5626 /* TabTrayController.swift in Sources */,
@@ -5479,6 +5497,7 @@
 				46BBFA672358B13A00283594 /* BrowserCliqz.m in Sources */,
 				2B427C7223D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift in Sources */,
 				C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */,
+				460C248423F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */,
 				DD31E0FB1B382B520077078A /* TabPrintPageRenderer.swift in Sources */,
 				E4CD9E911A6897FB00318571 /* ReaderMode.swift in Sources */,
 				46CA60E82317E0DC0010CE6B /* LocaleConstants.m in Sources */,
@@ -5529,6 +5548,7 @@
 				D0C95E0E200FD3B200E4E51C /* PrintHelper.swift in Sources */,
 				E64ED8FA1BC55AE300DAF864 /* UIAlertControllerExtensions.swift in Sources */,
 				39CE74F821A83105007AE4F2 /* TranslationSettingsController.swift in Sources */,
+				460C248123F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */,
 				282DA4731A68C1E700A406E2 /* OpenSearch.swift in Sources */,
 				D0625CA8208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift in Sources */,
 				2B8DDBB523A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */,
