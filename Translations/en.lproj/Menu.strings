@@ -54,7 +54,7 @@
 "Menu.RemoveBookmarkAction.Title" = "Remove Bookmark";
 
 /* Label for the button, displayed in the menu, used to open the share dialog. */
-"Menu.SharePageAction.Title" = "Share Page With…";
+"Menu.SharePageAction.Title" = "Share";
 
 /* Label for the button, displayed in the menu, used to open the tabs tray */
 "Menu.ShowTabs.Title" = "Show Tabs";

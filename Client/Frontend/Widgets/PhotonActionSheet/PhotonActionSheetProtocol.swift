@@ -147,23 +147,6 @@ extension PhotonActionSheetProtocol {
         }
         var domainActions = [toggleDesktopSite]
 
-        if let url = tab.url {
-            let popupsBlocking = PhotonActionSheetItem(
-                title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
-                iconString: "menu-PopupBlocking",
-                isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
-                accessory: .Switch
-            ) { action in
-                ContentBlocker.shared.popupsWhitelist(
-                    enable: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
-                    url: url
-                ) {
-                    tab.reload()
-                }
-            }
-            domainActions.append(popupsBlocking)
-        }
-
         let bookmarkPage = PhotonActionSheetItem(title: Strings.Menu.AddBookmarkTitleString, iconString: "menu-Bookmark") { action in
             guard let url = tab.canonicalURL?.displayURL,
                 let bvc = presentableVC as? BrowserViewController else {
@@ -228,6 +211,23 @@ extension PhotonActionSheetProtocol {
                 readerModeChanged?(item.isEnabled)
             }
             domainActions.append(readerModeAction)
+        }
+
+        if let url = tab.url {
+            let popupsBlocking = PhotonActionSheetItem(
+                title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
+                iconString: "menu-PopupBlocking",
+                isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
+                accessory: .Switch
+            ) { action in
+                ContentBlocker.shared.popupsWhitelist(
+                    enable: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
+                    url: url
+                ) {
+                    tab.reload()
+                }
+            }
+            domainActions.append(popupsBlocking)
         }
 
         var commonActions = [refreshPage]
