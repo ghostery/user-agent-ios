@@ -217,7 +217,7 @@ class Results extends React.Component {
 
   reportHighlight = () => {
     const { searchModule } = this.props;
-    searchModule.reportHighlight();
+    searchModule.action('reportHighlight');
   };
 
   render() {

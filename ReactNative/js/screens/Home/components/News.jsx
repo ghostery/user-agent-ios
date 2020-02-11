@@ -34,7 +34,7 @@ const getStyles = theme =>
     },
   });
 
-const openLink = url => NativeModules.BrowserActions.openLink(url, '', false);
+const openLink = url => NativeModules.BrowserActions.openLink(url, '');
 
 const deepEqualNews = (oldNews, news) => {
   return oldNews.every((_, index) => {
