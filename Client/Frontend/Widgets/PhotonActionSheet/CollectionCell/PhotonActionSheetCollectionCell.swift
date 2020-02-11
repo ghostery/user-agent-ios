@@ -97,7 +97,8 @@ extension PhotonActionSheetCollectionCell: UICollectionViewDelegate {
 extension PhotonActionSheetCollectionCell: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width / CGFloat(PhotonActionSheetCollectionCellUX.MaximumCellsCountInScreen), height: collectionView.frame.height)
+        let cellsCount = min(self.items.count, PhotonActionSheetCollectionCellUX.MaximumCellsCountInScreen)
+        return CGSize(width: collectionView.frame.width / CGFloat(cellsCount), height: collectionView.frame.height)
     }
 
 }

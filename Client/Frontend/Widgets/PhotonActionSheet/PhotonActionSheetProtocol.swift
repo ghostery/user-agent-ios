@@ -139,11 +139,29 @@ extension PhotonActionSheetProtocol {
             toggleActionTitle = tab.changedUserAgent ? Strings.Menu.ViewMobileSiteTitleString : Strings.Menu.ViewDesktopSiteTitleString
         }
 
-        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.changedUserAgent, badgeIconNamed: "menuBadge") { action in
+        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.changedUserAgent, accessory: .Switch, badgeIconNamed: "menuBadge") { action in
             if let url = tab.url {
                 tab.toggleChangeUserAgent()
                 Tab.ChangeUserAgent.updateDomainList(forUrl: url, isChangedUA: tab.changedUserAgent, isPrivate: tab.isPrivate)
             }
+        }
+        var domainActions = [toggleDesktopSite]
+
+        if let url = tab.url {
+            let popupsBlocking = PhotonActionSheetItem(
+                title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
+                iconString: "menu-PopupBlocking",
+                isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
+                accessory: .Switch
+            ) { action in
+                ContentBlocker.shared.popupsWhitelist(
+                    enable: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
+                    url: url
+                ) {
+                    tab.reload()
+                }
+            }
+            domainActions.append(popupsBlocking)
         }
 
         let bookmarkPage = PhotonActionSheetItem(title: Strings.Menu.AddBookmarkTitleString, iconString: "menu-Bookmark") { action in
@@ -192,25 +210,7 @@ extension PhotonActionSheetProtocol {
             }.uponQueue(.main) { _ in }
         }
 
-        let sharePage = PhotonActionSheetItem(title: Strings.Menu.SharePageTitleString, iconString: "action_share") { action in
-            guard let url = tab.canonicalURL?.displayURL else { return }
-
-            if let temporaryDocument = tab.temporaryDocument {
-                temporaryDocument.getURL().uponQueue(.main, block: { tempDocURL in
-                    // If we successfully got a temp file URL, share it like a downloaded file,
-                    // otherwise present the ordinary share menu for the web URL.
-                    if tempDocURL.isFileURL {
-                        self.share(fileURL: tempDocURL, buttonView: buttonView, presentableVC: presentableVC)
-                    } else {
-                        presentShareMenu(url, tab, buttonView, .up)
-                    }
-                })
-            } else {
-                presentShareMenu(url, tab, buttonView, .up)
-            }
-        }
-
-        var mainActions = [sharePage]
+        var mainActions = [PhotonActionSheetItem]()
 
         // Disable bookmarking if the URL is too long.
         if !tab.urlIsTooLong {
@@ -221,8 +221,6 @@ extension PhotonActionSheetProtocol {
         mainActions.append(pinAction)
 
         let refreshPage = self.refreshPageItem()
-
-        var domainActions = [toggleDesktopSite]
 
         if let isReaderModeEnabled = isReaderModeEnabled {
             let readerModeAction = PhotonActionSheetItem(title: Strings.Menu.ReaderModeTitleString, iconString: "reader", isEnabled: isReaderModeEnabled, accessory: .Switch, badgeIconNamed: "menuBadge") { (item) in
@@ -242,7 +240,26 @@ extension PhotonActionSheetProtocol {
             commonActions.insert(findInPageAction, at: 0)
         }
 
-        return [mainActions, domainActions, commonActions]
+        let sharePage = PhotonActionSheetItem(title: Strings.Menu.SharePageTitleString, iconString: "action_share") { action in
+            guard let url = tab.canonicalURL?.displayURL else { return }
+
+            if let temporaryDocument = tab.temporaryDocument {
+                temporaryDocument.getURL().uponQueue(.main, block: { tempDocURL in
+                    // If we successfully got a temp file URL, share it like a downloaded file,
+                    // otherwise present the ordinary share menu for the web URL.
+                    if tempDocURL.isFileURL {
+                        self.share(fileURL: tempDocURL, buttonView: buttonView, presentableVC: presentableVC)
+                    } else {
+                        presentShareMenu(url, tab, buttonView, .up)
+                    }
+                })
+            } else {
+                presentShareMenu(url, tab, buttonView, .up)
+            }
+        }
+
+        commonActions.append(sharePage)
+        return [mainActions, domainActions, [PhotonActionSheetItem(title: "", collectionItems: commonActions)]]
     }
 
     func fetchBookmarkStatus(for url: String) -> Deferred<Maybe<Bool>> {
@@ -366,21 +383,7 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        let popupsBlocking = PhotonActionSheetItem(
-            title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
-            iconString: "menu-PopupBlocking",
-            isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: currentURL),
-            accessory: .Switch
-        ) { action in
-            ContentBlocker.shared.popupsWhitelist(
-                enable: !ContentBlocker.shared.isPopupsWhitelisted(url: currentURL),
-                url: currentURL
-            ) {
-                tab.reload()
-            }
-        }
-
-        return [trackingProtection, adBlocking, popupsBlocking]
+        return [trackingProtection, adBlocking]
     }
 
     @available(iOS 11.0, *)
