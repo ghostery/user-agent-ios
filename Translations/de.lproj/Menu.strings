@@ -54,7 +54,7 @@
 "Menu.RemoveBookmarkAction.Title" = "Lesezeichen entfernen";
 
 /* Label for the button, displayed in the menu, used to open the share dialog. */
-"Menu.SharePageAction.Title" = "Seite teilen mit…";
+"Menu.SharePageAction.Title" = "Teilen";
 
 /* Label for the button, displayed in the menu, used to open the tabs tray */
 "Menu.ShowTabs.Title" = "Tabs anzeigen";

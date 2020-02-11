@@ -139,12 +139,13 @@ extension PhotonActionSheetProtocol {
             toggleActionTitle = tab.changedUserAgent ? Strings.Menu.ViewMobileSiteTitleString : Strings.Menu.ViewDesktopSiteTitleString
         }
 
-        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.changedUserAgent, badgeIconNamed: "menuBadge") { action in
+        let toggleDesktopSite = PhotonActionSheetItem(title: toggleActionTitle, iconString: "menu-RequestDesktopSite", isEnabled: tab.changedUserAgent, accessory: .Switch, badgeIconNamed: "menuBadge") { action in
             if let url = tab.url {
                 tab.toggleChangeUserAgent()
                 Tab.ChangeUserAgent.updateDomainList(forUrl: url, isChangedUA: tab.changedUserAgent, isPrivate: tab.isPrivate)
             }
         }
+        var domainActions = [toggleDesktopSite]
 
         let bookmarkPage = PhotonActionSheetItem(title: Strings.Menu.AddBookmarkTitleString, iconString: "menu-Bookmark") { action in
             guard let url = tab.canonicalURL?.displayURL,
@@ -192,6 +193,53 @@ extension PhotonActionSheetProtocol {
             }.uponQueue(.main) { _ in }
         }
 
+        var mainActions = [PhotonActionSheetItem]()
+
+        // Disable bookmarking if the URL is too long.
+        if !tab.urlIsTooLong {
+            mainActions.append(isBookmarked ? removeBookmark : bookmarkPage)
+        }
+
+        let pinAction = (isPinned ? removeTopSitesPin : pinToTopSites)
+        mainActions.append(pinAction)
+
+        let refreshPage = self.refreshPageItem()
+
+        if let isReaderModeEnabled = isReaderModeEnabled {
+            let readerModeAction = PhotonActionSheetItem(title: Strings.Menu.ReaderModeTitleString, iconString: "reader", isEnabled: isReaderModeEnabled, accessory: .Switch, badgeIconNamed: "menuBadge") { (item) in
+                tab.toggleChangeReaderMode()
+                readerModeChanged?(item.isEnabled)
+            }
+            domainActions.append(readerModeAction)
+        }
+
+        if let url = tab.url {
+            let popupsBlocking = PhotonActionSheetItem(
+                title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
+                iconString: "menu-PopupBlocking",
+                isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
+                accessory: .Switch
+            ) { action in
+                ContentBlocker.shared.popupsWhitelist(
+                    enable: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
+                    url: url
+                ) {
+                    tab.reload()
+                }
+            }
+            domainActions.append(popupsBlocking)
+        }
+
+        var commonActions = [refreshPage]
+
+        // Disable find in page if document is pdf.
+        if tab.mimeType != MIMEType.PDF {
+            let findInPageAction = PhotonActionSheetItem(title: Strings.Menu.FindInPageTitleString, iconString: "menu-FindInPage") { action in
+                findInPage()
+            }
+            commonActions.insert(findInPageAction, at: 0)
+        }
+
         let sharePage = PhotonActionSheetItem(title: Strings.Menu.SharePageTitleString, iconString: "action_share") { action in
             guard let url = tab.canonicalURL?.displayURL else { return }
 
@@ -210,39 +258,8 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        var mainActions = [sharePage]
-
-        // Disable bookmarking if the URL is too long.
-        if !tab.urlIsTooLong {
-            mainActions.append(isBookmarked ? removeBookmark : bookmarkPage)
-        }
-
-        let pinAction = (isPinned ? removeTopSitesPin : pinToTopSites)
-        mainActions.append(pinAction)
-
-        let refreshPage = self.refreshPageItem()
-
-        var domainActions = [toggleDesktopSite]
-
-        if let isReaderModeEnabled = isReaderModeEnabled {
-            let readerModeAction = PhotonActionSheetItem(title: Strings.Menu.ReaderModeTitleString, iconString: "reader", isEnabled: isReaderModeEnabled, accessory: .Switch, badgeIconNamed: "menuBadge") { (item) in
-                tab.toggleChangeReaderMode()
-                readerModeChanged?(item.isEnabled)
-            }
-            domainActions.append(readerModeAction)
-        }
-
-        var commonActions = [refreshPage]
-
-        // Disable find in page if document is pdf.
-        if tab.mimeType != MIMEType.PDF {
-            let findInPageAction = PhotonActionSheetItem(title: Strings.Menu.FindInPageTitleString, iconString: "menu-FindInPage") { action in
-                findInPage()
-            }
-            commonActions.insert(findInPageAction, at: 0)
-        }
-
-        return [mainActions, domainActions, commonActions]
+        commonActions.append(sharePage)
+        return [mainActions, domainActions, [PhotonActionSheetItem(title: "", collectionItems: commonActions)]]
     }
 
     func fetchBookmarkStatus(for url: String) -> Deferred<Maybe<Bool>> {
@@ -366,21 +383,7 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        let popupsBlocking = PhotonActionSheetItem(
-            title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
-            iconString: "menu-PopupBlocking",
-            isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: currentURL),
-            accessory: .Switch
-        ) { action in
-            ContentBlocker.shared.popupsWhitelist(
-                enable: !ContentBlocker.shared.isPopupsWhitelisted(url: currentURL),
-                url: currentURL
-            ) {
-                tab.reload()
-            }
-        }
-
-        return [trackingProtection, adBlocking, popupsBlocking]
+        return [trackingProtection, adBlocking]
     }
 
     @available(iOS 11.0, *)
