@@ -45,7 +45,6 @@ public class PhotonActionSheetCollectionCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         self.collectionView.register(PhotonActionSheetCollectionItemCell.self, forCellWithReuseIdentifier: PhotonActionSheetCollectionCellUX.CellName)
-        self.isAccessibilityElement = true
         self.backgroundColor = .clear
         self.contentView.addSubview(self.collectionView)
         let padding = PhotonActionSheetCollectionCellUX.HorizontalPadding

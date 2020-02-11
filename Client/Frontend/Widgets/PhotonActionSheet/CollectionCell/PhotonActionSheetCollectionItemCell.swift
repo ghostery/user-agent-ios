@@ -43,6 +43,7 @@ class PhotonActionSheetCollectionItemCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.isAccessibilityElement = true
         self.backgroundColor = .clear
         self.stackView.addArrangedSubview(self.iconImageView)
         self.stackView.addArrangedSubview(self.titleLabel)
@@ -64,6 +65,8 @@ class PhotonActionSheetCollectionItemCell: UICollectionViewCell {
         self.iconImageView.image = UIImage(named: item.iconString ?? "")?.withRenderingMode(.alwaysTemplate)
         self.titleLabel.textColor = item.accessory == .Text ? titleLabel.textColor.withAlphaComponent(0.6) : titleLabel.textColor
         self.titleLabel.text = item.title
+        self.accessibilityIdentifier = item.iconString
+        self.accessibilityLabel = item.title
     }
 
 }
