@@ -57,9 +57,11 @@ extension PhotonActionSheetProtocol {
             ], [
                 self.burnItem(vcDelegate: vcDelegate),
             ], [
-                self.openDownloadsItem(vcDelegate: vcDelegate),
-                self.openSettingsItem(vcDelegate: vcDelegate),
-                openHomePage,
+                PhotonActionSheetItem(title: "", collectionItems: [
+                    openHomePage,
+                    self.openSettingsItem(vcDelegate: vcDelegate),
+                    self.openDownloadsItem(vcDelegate: vcDelegate),
+                ]),
             ],
         ]
     }
@@ -405,7 +407,7 @@ extension PhotonActionSheetProtocol {
     }
 
     private func openPrivacyStatementItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
-        let openSettings = PhotonActionSheetItem(title: Strings.Menu.PrivacyStatementTitleString, iconString: "chat") { action in
+        let openSettings = PhotonActionSheetItem(title: Strings.Menu.PrivacyStatementTitleString, iconString: "menu-privacy") { action in
             (vcDelegate as? BrowserViewController)?.presentPrivacyStatementViewController()
         }
         return openSettings

@@ -153,6 +153,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
+        tableView.register(PhotonActionSheetCollectionCell.self, forCellReuseIdentifier: PhotonActionSheetUX.CollectionCellName)
         tableView.register(PhotonActionSheetCell.self, forCellReuseIdentifier: PhotonActionSheetUX.CellName)
         tableView.register(PhotonCustomViewCell.self, forCellReuseIdentifier: String(describing: PhotonCustomViewCell.self))
         tableView.register(PhotonActionSheetSiteHeaderView.self, forHeaderFooterViewReuseIdentifier: PhotonActionSheetUX.SiteHeaderName)
@@ -275,6 +276,8 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
 
         if action.customView != nil {
             return photonCustomViewCell(for: action, tableView, indexPath)
+        } else if !(action.collectionItems?.isEmpty ?? true) {
+            return photonActionSheetCollectionCell(for: action, tableView, indexPath)
         } else {
             return photonActionSheetCell(for: action, tableView, indexPath)
         }
@@ -307,6 +310,15 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.tintColor = self.tintColor
         cell.configure(with: action)
         self.configureRemoveActionIfNeeded(for: cell, action: action)
+        return cell
+    }
+
+    private func photonActionSheetCollectionCell(for action: PhotonActionSheetItem,
+                                                 _ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PhotonActionSheetUX.CollectionCellName, for: indexPath) as! PhotonActionSheetCollectionCell
+        cell.delegate = self
+        cell.tintColor = self.tintColor
+        cell.configure(with: action)
         return cell
     }
 
@@ -378,7 +390,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         if let custom = action.customHeight {
             return custom(action)
         }
-        if action.customView != nil {
+        if action.customView != nil || action.collectionItems != nil {
             return UITableView.automaticDimension
         } else {
             return PhotonActionSheetUX.RowHeight
@@ -393,4 +405,16 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         return view
     }
+}
+
+extension PhotonActionSheet: PhotonActionSheetCollectionCellDelegate {
+
+    func collectionCellDidSelectItem(item: PhotonActionSheetItem) {
+        self.dismiss(nil)
+        guard let handler = item.handler else {
+            return
+        }
+        handler(item)
+    }
+
 }
