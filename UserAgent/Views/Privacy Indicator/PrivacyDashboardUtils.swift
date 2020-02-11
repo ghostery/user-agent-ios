@@ -18,13 +18,10 @@ enum PrivacyDashboardUtils {
         private func columns(dot: UIView, label: UILabel, number: UILabel) {
             self.spacing = 5
             self.alignment = .top
-            self.distribution = .fill
+            self.distribution = .fillProportionally
             [dot, label, number].forEach { self.addArrangedSubview($0) }
             number.alpha = 0.7
-
-            label.snp.makeConstraints { make in
-                make.width.lessThanOrEqualTo(100)
-            }
+            number.textAlignment = .right
             number.snp.makeConstraints { make in
                 // space for keeping three digits [18, 25]
                 make.width.greaterThanOrEqualTo(18)
@@ -61,9 +58,9 @@ enum PrivacyDashboardUtils {
         }
         private func setupForStat() {
             self.textColor = Theme.textField.textAndTint
-            self.numberOfLines = 0
+            self.numberOfLines = 2
+            self.lineBreakMode = .byWordWrapping
             self.setContentCompressionResistancePriority(.required, for: .horizontal)
-            self.font = UIFont.preferredFont(forTextStyle: .footnote)
         }
         private func setupForDomain() {
             self.textColor = UIColor.DarkGreen

@@ -89,7 +89,7 @@ fileprivate extension PrivacyIndicator.CanvasView {
         let maxX = self.bounds.maxX
         let maxY = self.bounds.maxY
         let radius = width * 3 / 8
-        let diagonal = sqrt(3 * width * width)
+        let diagonal = sqrt(2 * width * width)
         let distance = (diagonal / 2) - radius
         let vDistance = sqrt((distance * distance) / 2)
 
