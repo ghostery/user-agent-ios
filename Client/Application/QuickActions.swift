@@ -42,7 +42,8 @@ class QuickActions: NSObject {
     var launchedShortcutItem: UIApplicationShortcutItem?
 
     // MARK: Handling Quick Actions
-    @discardableResult func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem, withBrowserViewController bvc: BrowserViewController ) -> Bool {
+    @discardableResult
+    func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem, withBrowserViewController bvc: BrowserViewController ) -> Bool {
 
         // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
         guard let shortCutType = ShortcutType(fullType: shortcutItem.type) else { return false }
@@ -53,6 +54,14 @@ class QuickActions: NSObject {
 
         return true
     }
+
+    func filterOutUnsupportedShortcutItems(application: UIApplication) {
+        application.shortcutItems = application.shortcutItems?.filter({ (item) -> Bool in
+            return ShortcutType(fullType: item.type) != nil
+        })
+    }
+
+    // MARK: - Private methods
 
     fileprivate func handleShortCutItemOfType(_ type: ShortcutType, userData: [String: NSSecureCoding]?, browserViewController: BrowserViewController) {
         switch type {
