@@ -193,6 +193,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             Logger.browserLogger.deleteOldLogsDownToSizeLimit()
         }
 
+        QuickActions.sharedInstance.filterOutUnsupportedShortcutItems(application: application)
         // If a shortcut was launched, display its information and take the appropriate action
         if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
 
