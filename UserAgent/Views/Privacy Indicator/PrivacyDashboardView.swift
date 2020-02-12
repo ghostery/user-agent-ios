@@ -8,9 +8,7 @@ class PrivacyDashboardView: UIView, PhotonCustomViewCellContent {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.snp.makeConstraints { make in
-            // This fixes a bug
-            // where the tableview would squash elements inside PrivacyDashboardView
-            make.height.greaterThanOrEqualTo(UIScreen.main.bounds.height * 0.3)
+            make.height.greaterThanOrEqualTo(0)
         }
         self.backgroundColor = UIColor.clear
     }
