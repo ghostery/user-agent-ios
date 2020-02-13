@@ -106,7 +106,7 @@ extension SearchResultsViewController: BrowserCoreClient {
                 "isPrivateResult": false,
                 "query": queryWithoutCompletion,
                 "rawResult": [
-                    "index": -1,
+                    "index": 0,
                     "url": url.absoluteString,
                     "type": isAutocompleted ? "" : "navigate-to",
                     "provider": isAutocompleted ? "cliqz" : "instant",

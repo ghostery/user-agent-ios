@@ -19,10 +19,11 @@
   "dependencies": {
     "@babel/core": "^7.7.2",
     "@cliqz/component-styles": "^0.5.0",
+    "@cliqz/component-types": "^0.7.1",
     "@cliqz/component-ui-logo": "^0.5.4",
     "@cliqz/component-ui-selectable-results": "^0.5.5",
-    "@cliqz/component-ui-snippet-generic": "^0.6.0",
-    "@cliqz/component-ui-snippet-news": "^0.5.2",
+    "@cliqz/component-ui-snippet-generic": "^0.7.3",
+    "@cliqz/component-ui-snippet-news": "^0.7.0",
     "@cliqz/component-ui-snippet-weather": "^0.5.2",
     "@cliqz/indexeddbshim": "^4.1.2",
     "@react-native-community/netinfo": "^4.6.1",
