@@ -9,6 +9,7 @@
 import React, { useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { NewsSnippet } from '@cliqz/component-ui-snippet-news';
+import { Link, LinkMeta, openLink as OpenLink } from '@cliqz/component-types';
 import moment from '../../../../../../services/moment';
 import { withTheme } from '../../../../../../contexts/theme';
 
@@ -32,11 +33,14 @@ const Snippet = ({
 }: {
   theme: any;
   news: any;
-  openLink: (url: string, type: string) => void;
+  openLink: OpenLink;
 }) => {
-  const onPressCall = useCallback((url: string) => openLink(url, 'news'), [
-    openLink,
-  ]);
+  const onPressCall = useCallback(
+    (link: Link, linkMeta: LinkMeta) => {
+      openLink(link, linkMeta);
+    },
+    [openLink],
+  );
   return (
     <View style={styles.container}>
       <NewsSnippet

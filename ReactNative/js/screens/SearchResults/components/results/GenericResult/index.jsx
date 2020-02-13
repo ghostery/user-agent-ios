@@ -72,12 +72,20 @@ const LogoComponent = ({ size, url }) => {
   return <Logo size={size} url={url} />;
 };
 
-const Snippet = ({ onPress, onLongPress, result, type, styles }) => {
+const Snippet = ({
+  onPress,
+  onLongPress,
+  result,
+  type,
+  styles,
+  resultIndex,
+}) => {
   return (
     <GenericSnippet
       onPress={onPress}
       onLongPress={onLongPress}
       result={result}
+      resultIndex={resultIndex}
       type={type}
       isSelectable={false}
       ImageRendererComponent={ImageRendererComponent}
@@ -88,7 +96,7 @@ const Snippet = ({ onPress, onLongPress, result, type, styles }) => {
   );
 };
 
-export default ({ result, onPress, onLongPress }) => {
+export default ({ result, onPress, onLongPress, index }) => {
   const styles = useStyles(getStyles);
   const snippetStyles = useStyles(getSnippetStyles);
   const { url } = result;
@@ -106,6 +114,7 @@ export default ({ result, onPress, onLongPress }) => {
         <Snippet
           result={result}
           type="main"
+          resultIndex={index}
           onPress={onPress}
           onLongPress={onLongPress}
           styles={snippetStyles}
@@ -114,13 +123,14 @@ export default ({ result, onPress, onLongPress }) => {
           <SnippetList
             limit={3}
             expandStep={5}
-            list={urls.map(snippet => (
+            list={urls.map((snippet, snippetIndex) => (
               <Snippet
                 key={snippet.url}
                 onPress={onPress}
                 onLongPress={onLongPress}
                 result={snippet}
                 type="history"
+                resultIndex={snippetIndex}
                 styles={snippetStyles}
               />
             ))}
@@ -134,14 +144,15 @@ export default ({ result, onPress, onLongPress }) => {
             key={url + snippet.type}
             limit={3}
             expandStep={5}
-            list={snippet.links.map(link => (
+            list={snippet.links.map((link, linkIndex) => (
               <Snippet
                 key={link.url}
                 onPress={onPress}
                 onLongPress={onLongPress}
                 result={link}
-                type={snippet.type}
+                type="anchor"
                 styles={snippetStyles}
+                resultIndex={linkIndex}
               />
             ))}
           />

@@ -31,29 +31,29 @@ export default class CardList extends React.PureComponent {
     this.lastUrl = '';
   }
 
-  getSelection = (result, url, elementName) => {
-    const { meta, index } = this.props;
+  openLink = async ({ result, resultIndex, subResult, subResultMeta }) => {
+    const { searchModule } = this.props;
+    const { url } = subResult;
+    const isSubResult = result.url !== subResult.url;
     const selection = {
       action: 'click',
-      elementName,
+      elementName: '',
       isFromAutoCompletedUrl: false,
       isNewTab: false,
       isPrivateMode: false,
-      isPrivateResult: meta.isPrivate,
       query: result.text,
       rawResult: {
-        index,
         ...result,
+        index: resultIndex,
+        subResult: isSubResult
+          ? {
+              type: subResultMeta.type,
+              index: subResultMeta.index,
+            }
+          : {},
       },
-      resultOrder: meta.resultOrder,
-      url,
+      url: result.url,
     };
-    return selection;
-  };
-
-  openLink = async (result, url, elementName = '') => {
-    const { searchModule } = this.props;
-    const selection = this.getSelection(result, url, elementName);
     let actionUrl = url;
     if (isSwitchToTab(result)) {
       actionUrl = `moz-action:switchtab,${JSON.stringify({ url })}`;
@@ -66,9 +66,9 @@ export default class CardList extends React.PureComponent {
     openLink(actionUrl, selection.query);
   };
 
-  getComponent = ({ item, index }) => {
+  getComponent = ({ result, resultIndex }) => {
     let Component = GenericResult;
-    switch (item.template) {
+    switch (result.template) {
       case 'weatherEZ':
         Component = WeatherSnippet;
         break;
@@ -78,18 +78,25 @@ export default class CardList extends React.PureComponent {
 
     return (
       <Component
-        key={item.meta.domain}
-        onPress={(...args) => this.openLink(item, ...args)}
-        onLongPress={() =>
-          onLongPress({
-            url: item.url,
-            title: item.title,
-            isHistory: item.provider === 'history',
-            query: item.text,
+        key={result.meta.domain}
+        onPress={(link, linkMeta) =>
+          this.openLink({
+            result,
+            resultIndex,
+            subResult: link,
+            subResultMeta: linkMeta,
           })
         }
-        result={item}
-        index={index}
+        onLongPress={({ url, title }, { isHistory }) =>
+          onLongPress({
+            url,
+            title,
+            isHistory,
+            query: result.text,
+          })
+        }
+        result={result}
+        index={resultIndex}
       />
     );
   };
@@ -108,9 +115,9 @@ export default class CardList extends React.PureComponent {
     return (
       <View style={listStyle}>
         {header || <View style={styles.defaultSeparator} />}
-        {results.map(result => (
+        {results.map((result, resultIndex) => (
           <View key={result.url}>
-            {this.getComponent({ item: result })}
+            {this.getComponent({ result, resultIndex })}
             {separator || <View style={styles.defaultSeparator} />}
           </View>
         ))}
