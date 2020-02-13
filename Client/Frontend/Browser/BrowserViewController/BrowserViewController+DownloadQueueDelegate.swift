@@ -49,12 +49,7 @@ extension BrowserViewController: DownloadQueueDelegate {
             downloadToast.dismiss(false)
 
             if error == nil {
-                let downloadCompleteToast = ButtonToast(labelText: download.filename, imageName: "check", buttonText: Strings.Downloads.Toast.GoToDownloadsButtonTitle, completion: { buttonPressed in
-                    guard buttonPressed else { return }
-                    self.showDownloads()
-                })
-
-                self.show(toast: downloadCompleteToast, duration: DispatchTimeInterval.seconds(8))
+                self.showDownloadsToast(filename: download.filename)
             } else {
                 let downloadFailedToast = ButtonToast(labelText: Strings.Downloads.Toast.Failed, backgroundColor: UIColor.Grey60, textAlignment: .center)
 
@@ -62,4 +57,13 @@ extension BrowserViewController: DownloadQueueDelegate {
             }
         }
     }
+
+    func showDownloadsToast(filename: String) {
+        let downloadCompleteToast = ButtonToast(labelText: filename, imageName: "check", buttonText: Strings.Downloads.Toast.GoToDownloadsButtonTitle, completion: { buttonPressed in
+            guard buttonPressed else { return }
+            self.showDownloads()
+        })
+        self.show(toast: downloadCompleteToast, duration: DispatchTimeInterval.seconds(8))
+    }
+
 }

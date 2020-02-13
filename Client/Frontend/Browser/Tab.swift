@@ -292,7 +292,11 @@ class Tab: NSObject {
 
             var urls = [String]()
             for url in sessionData.urls {
-                urls.append(url.absoluteString)
+                if url.isFileURL, let downloadURL = try? DownloadFolder.downloadsURL() {
+                    urls.append(downloadURL.appendingPathComponent(url.lastPathComponent).absoluteString)
+                } else {
+                    urls.append(url.absoluteString)
+                }
             }
 
             let currentPage = sessionData.currentPage
