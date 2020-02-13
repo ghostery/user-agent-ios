@@ -8,3 +8,6 @@
 "ControlCenter.PrivacyProtection.Title" = "Privacy Protection";
 "ControlCenter.PrivacyProtection.AdsBlocked" = "Ads Blocked";
 "ControlCenter.PrivacyProtection.TrackersBlocked" = "Trackers Blocked";
+"ControlCenter.SearchStats.Title" = "Anonymous search";
+"ControlCenter.SearchStats.CliqzSearch" = "Cliqz Search";
+"ControlCenter.SearchStats.OtherSearch" = "Other";

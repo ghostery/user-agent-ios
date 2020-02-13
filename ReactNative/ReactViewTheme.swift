@@ -32,6 +32,7 @@ extension ReactViewTheme {
             "fontSizeSmall": DynamicFontHelper.defaultHelper.SmallSizeRegularWeightAS.pointSize,
             "fontSizeMedium": DynamicFontHelper.defaultHelper.MediumSizeRegularWeightAS.pointSize,
             "fontSizeLarge": DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS.pointSize,
+            "brandColor": UIColor.CliqzBlue.hexString,
             "brandTintColor": Theme.general.controlTint.hexString,
         ]
     }

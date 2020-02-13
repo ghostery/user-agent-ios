@@ -123,6 +123,18 @@ const getStyles = theme =>
 
 const BLOCKED_TEMPLATES = ['calculator', 'currency', 'flight'];
 
+function reportSearchStats(insightsModule, searchEngine) {
+  const searchStats = {};
+
+  if (searchEngine.name === 'Cliqz') {
+    searchStats.cliqzSearch = 1;
+  } else {
+    searchStats.otherSearch = 1;
+  }
+
+  insightsModule.action('insertSearchStats', searchStats);
+}
+
 function isResultAllowed({ template, provider, type }) {
   return (
     !BLOCKED_TEMPLATES.includes(template) &&
@@ -179,7 +191,7 @@ class Results extends React.Component {
   }
 
   openSearchEngineResultsPage = async (searchEngine, query, index) => {
-    const { results = {}, searchModule } = this.props;
+    const { results = {}, searchModule, insightsModule } = this.props;
     const meta = results.meta || {};
     const { favIconUrl: url } = searchEngine;
 
@@ -209,6 +221,8 @@ class Results extends React.Component {
       },
     );
 
+    reportSearchStats(insightsModule, searchEngine);
+
     browser.search.search({
       query,
       engine: searchEngine.name,
@@ -226,6 +240,7 @@ class Results extends React.Component {
       query,
       theme: _theme,
       searchModule,
+      insightsModule,
     } = this.props;
     const {
       results: allResults,
@@ -274,6 +289,7 @@ class Results extends React.Component {
               separator={<View style={styles.separator} />}
               footer={<View />}
               searchModule={searchModule}
+              insightsModule={insightsModule}
             />
           </View>
           <>
