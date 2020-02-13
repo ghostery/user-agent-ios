@@ -145,6 +145,15 @@ class TabManagerStore {
 
         var tabToSelect: Tab?
         for savedTab in savedTabs {
+            // Don't restore tabs with file url
+            if let sessionData = savedTab.sessionData, sessionData.urls.contains(where: { $0.isFileURL }) {
+                var urls = sessionData.urls
+                urls.removeAll(where: { $0.isFileURL })
+                if urls.isEmpty {
+                    continue
+                }
+                savedTab.sessionData = SessionData(currentPage: sessionData.currentPage, urls: urls, lastUsedTime: sessionData.lastUsedTime)
+            }
             // Provide an empty request to prevent a new tab from loading the home screen
             var tab = tabManager.addTab(flushToDisk: false, zombie: true, isPrivate: savedTab.isPrivate)
             tab = savedTab.configureSavedTabUsing(tab, imageStore: imageStore)
