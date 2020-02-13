@@ -32,7 +32,7 @@ export default class CardList extends React.PureComponent {
   }
 
   openLink = async ({ result, resultIndex, subResult, subResultMeta }) => {
-    const { searchModule } = this.props;
+    const { searchModule, insightsModule } = this.props;
     const { url } = subResult;
     const isSubResult = result.url !== subResult.url;
     const selection = {
@@ -61,6 +61,10 @@ export default class CardList extends React.PureComponent {
 
     await searchModule.action('reportSelection', selection, {
       contextId: 'mobile-cards',
+    });
+
+    insightsModule.action('insertSearchStats', {
+      cliqzSearch: 1,
     });
 
     openLink(actionUrl, selection.query);

@@ -16,5 +16,10 @@ extension Strings {
             public static let AdsBlocked = NSLocalizedString("ControlCenter.PrivacyProtection.AdsBlocked", tableName: "ControlCenter", comment: "Ads Blocked label")
             public static let TrackersBlocked = NSLocalizedString("ControlCenter.PrivacyProtection.TrackersBlocked", tableName: "ControlCenter", comment: "Trackers Blocked label")
         }
+        public struct SearchStats {
+            public static let Title = NSLocalizedString("ControlCenter.SearchStats.Title", tableName: "ControlCenter", comment: "Title")
+            public static let CliqzSearch = NSLocalizedString("ControlCenter.SearchStats.CliqzSearch", tableName: "ControlCenter", comment: "Cliqz Search")
+            public static let OtherSearch = NSLocalizedString("ControlCenter.SearchStats.OtherSearch", tableName: "ControlCenter", comment: "Other Search")
+        }
     }
 }
