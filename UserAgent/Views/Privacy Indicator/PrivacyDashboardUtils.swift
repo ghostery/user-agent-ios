@@ -107,12 +107,12 @@ enum PrivacyDashboardUtils {
         case .Disabled: return ""
         case .NoBlockedURLs:
              return Strings.PrivacyDashboard.Title.NoTrackersSeen
-        case .AdBlockWhitelisted:
-             return Strings.PrivacyDashboard.Title.AdBlockWhitelisted
-        case .AntiTrackingWhitelisted:
-            return Strings.PrivacyDashboard.Title.AntiTrackingWhitelisted
-        case .Whitelisted:
-            return Strings.PrivacyDashboard.Title.Whitelisted
+        case .AdBlockAllowListed:
+             return Strings.PrivacyDashboard.Title.AdBlockAllowListed
+        case .AntiTrackingAllowListed:
+            return Strings.PrivacyDashboard.Title.AntiTrackingAllowListed
+        case .AllowListed:
+            return Strings.PrivacyDashboard.Title.AllowListed
         case .Blocking:
             return Strings.PrivacyDashboard.Title.BlockingEnabled
         default: return ""

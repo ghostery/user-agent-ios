@@ -10,16 +10,16 @@ import WebKit
 
 extension ContentBlocker {
 
-    func trackingWhitelistAsJSON() -> String {
-        return self.whitelists.trackers.asJSON()
+    func trackingAllowListAsJSON() -> String {
+        return self.allowLists.trackers.asJSON()
     }
 
-    func trackingWhitelist(enable: Bool, url: URL, completion: (() -> Void)?) {
-        self.whitelists.trackers.whitelist(enable: enable, url: url, completion: completion)
+    func trackingAllowList(enable: Bool, url: URL, completion: (() -> Void)?) {
+        self.allowLists.trackers.allowList(enable: enable, url: url, completion: completion)
     }
 
-    func isTrackingWhitelisted(url: URL) -> Bool {
-        return self.whitelists.trackers.isWhitelisted(url: url)
+    func isTrackingAllowListed(url: URL) -> Bool {
+        return self.allowLists.trackers.isAllowListed(url: url)
     }
 
 }

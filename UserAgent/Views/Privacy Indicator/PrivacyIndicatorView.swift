@@ -10,7 +10,7 @@ enum PrivacyIndicatorTransformation {
             let color = UIColor(named: "NoTrackersSeen")!
             return (arcs: [(color, 1)], strike: nil)
         }
-        if [.Disabled, .Whitelisted].contains(status) {
+        if [.Disabled, .AllowListed].contains(status) {
             let color = UIColor(named: "PrivacyIndicatorBackground")!
             return (arcs: [(color, 1)], strike: (color, 1))
         }

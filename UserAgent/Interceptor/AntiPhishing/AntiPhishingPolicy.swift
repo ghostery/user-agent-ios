@@ -13,15 +13,15 @@ class AntiPhishingPolicy: NSObject, InterceptorPolicy {
 
     private var queue = DispatchQueue.global(qos: .background)
     private let detector: AntiPhishingDetector
-    private var whitelistedURL: URL?
+    private var allowListedURL: URL?
 
     override init() {
         detector = AntiPhishingDetector(queue: queue)
     }
 
     func canLoad(url: URL, onPostFactumCheck: PostFactumCallback?) -> Bool {
-        if whitelistedURL == url {
-            whitelistedURL = nil
+        if allowListedURL == url {
+            allowListedURL = nil
             return true
         }
 
@@ -41,7 +41,7 @@ class AntiPhishingPolicy: NSObject, InterceptorPolicy {
         return true
     }
 
-    func whitelistUrl(_ url: URL) {
-        self.whitelistedURL = url
+    func allowListUrl(_ url: URL) {
+        self.allowListedURL = url
     }
 }

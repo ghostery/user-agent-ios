@@ -6,16 +6,16 @@ import WebKit
 
 extension ContentBlocker {
 
-    func adsWhitelistAsJSON() -> String {
-        return self.whitelists.ads.asJSON()
+    func adsAllowListAsJSON() -> String {
+        return self.allowLists.ads.asJSON()
     }
 
-    func adsWhitelist(enable: Bool, url: URL, completion: (() -> Void)?) {
-        self.whitelists.ads.whitelist(enable: enable, url: url, completion: completion)
+    func adsAllowList(enable: Bool, url: URL, completion: (() -> Void)?) {
+        self.allowLists.ads.allowList(enable: enable, url: url, completion: completion)
     }
 
-    func isAdsWhitelisted(url: URL) -> Bool {
-        return self.whitelists.ads.isWhitelisted(url: url)
+    func isAdsAllowListed(url: URL) -> Bool {
+        return self.allowLists.ads.isAllowListed(url: url)
     }
 
 }
