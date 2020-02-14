@@ -196,7 +196,7 @@ class ReaderModeStyleViewController: UIViewController {
     fileprivate func selectFontType(_ fontType: ReaderModeFontType) {
         readerModeStyle.fontType = fontType
         for button in fontTypeButtons {
-            button.isSelected = (button.fontType == fontType)
+            button.isSelected = button.fontType.isSameFamily(fontType)
         }
         for button in themeButtons {
             button.fontType = fontType
@@ -257,11 +257,13 @@ class FontTypeButton: UIButton {
         backgroundColor = ReaderModeStyleViewControllerUX.FontTypeRowBackground
         accessibilityHint = NSLocalizedString("Changes font type.", comment: "Accessibility hint for the font type buttons in reader mode display settings")
         switch fontType {
-        case .sansSerif:
+        case .sansSerif,
+             .sansSerifBold:
             setTitle(NSLocalizedString("Sans-serif", comment: "Font type setting in the reading view settings"), for: [])
             let f = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
             titleLabel?.font = f
-        case .serif:
+        case .serif,
+             .serifBold:
             setTitle(NSLocalizedString("Serif", comment: "Font type setting in the reading view settings"), for: [])
             let f = UIFont(name: "Georgia", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
             titleLabel?.font = f
@@ -324,9 +326,9 @@ class FontSizeLabel: UILabel {
     var fontType: ReaderModeFontType = .sansSerif {
         didSet {
             switch fontType {
-            case .sansSerif:
+            case .sansSerif, .sansSerifBold:
                 font = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
-            case .serif:
+            case .serif, .serifBold:
                 font = UIFont(name: "Georgia", size: DynamicFontHelper.defaultHelper.ReaderBigFontSize)
             }
         }
@@ -365,9 +367,9 @@ class ThemeButton: UIButton {
     var fontType: ReaderModeFontType = .sansSerif {
         didSet {
             switch fontType {
-            case .sansSerif:
+            case .sansSerif, .sansSerifBold:
                 titleLabel?.font = UIFont(name: "GillSans", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
-            case .serif:
+            case .serif, .serifBold:
                 titleLabel?.font = UIFont(name: "Georgia", size: DynamicFontHelper.defaultHelper.ReaderStandardFontSize)
             }
         }
