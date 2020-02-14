@@ -39,6 +39,11 @@ app.modules['insights'].background.actions['reportStats'] = async function (tabI
   await this.db.insertPageStats(tabId, stats);
 }.bind(app.modules['insights'].background);
 
+app.modules['insights'].background.actions['getSearchStats'] = async function () {
+  const searchStats = await this.db.getSearchStats();
+  return searchStats;
+}.bind(app.modules['insights'].background);
+
 global.CLIQZ = {
   app,
 };
@@ -58,6 +63,6 @@ bridgeManager.addActionListener(({ module, action, args /* , id */ }) => {
 AppRegistry.setWrapperComponentProvider(ThemeWrapperComponentProvider(bridgeManager));
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component { render() { return null; }});
 AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.module('news')} {...props} />);
-AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults searchModule={inject.module('search')} bridgeManager={bridgeManager} events={events} {...props} />);
+AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults searchModule={inject.module('search')} insightsModule={inject.module('insights')} bridgeManager={bridgeManager} events={events} {...props} />);
 AppRegistry.registerComponent('Logo', () => Logo);
 AppRegistry.registerComponent('PrivacyStats', () => (props) => <PrivacyStats insightsModule={inject.module('insights')} {...props} />);
