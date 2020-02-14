@@ -14,6 +14,12 @@ private struct DownloadsViewUX {
     static let EmptyScreenItemWidth = 170
 }
 
+struct DownloadFolder {
+    static func downloadsURL() throws -> URL {
+        return try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Downloads")
+    }
+}
+
 struct DownloadedFile: Equatable {
     let path: URL
     let size: UInt64
@@ -109,7 +115,7 @@ extension DownloadsView {
     private func fetchData() -> [DownloadedFile] {
         var downloadedFiles: [DownloadedFile] = []
         do {
-            let downloadsPath = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("Downloads")
+            let downloadsPath = try DownloadFolder.downloadsURL()
             let files = try FileManager.default.contentsOfDirectory(at: downloadsPath, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
             for file in files {
                 let attributes = try FileManager.default.attributesOfItem(atPath: file.path) as NSDictionary

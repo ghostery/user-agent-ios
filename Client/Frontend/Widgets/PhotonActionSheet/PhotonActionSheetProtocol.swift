@@ -97,10 +97,42 @@ extension PhotonActionSheetProtocol {
         return [closeAllTabsAndClearData]
     }
 
+    fileprivate func saveFileToDownloads(fileURL: URL, presentableVC: PresentableVC) {
+        let fileName = fileURL.lastPathComponent
+        do {
+            let downloadsURL = try DownloadFolder.downloadsURL()
+            var toURL = downloadsURL.appendingPathComponent(fileName)
+            let files = try FileManager.default.contentsOfDirectory(at: downloadsURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
+            if files.contains(toURL) {
+                var index = 1
+                let fileExtension = fileURL.pathExtension
+                let fileNameWithoutExtension = fileURL.deletingPathExtension().lastPathComponent
+                files.forEach { (fileUrl) in
+                    let nameWithoutExtension = fileUrl.deletingPathExtension().lastPathComponent
+                    if nameWithoutExtension.contains(fileNameWithoutExtension + "_") {
+                        if let number = Int(nameWithoutExtension.replaceFirstOccurrence(of: fileNameWithoutExtension + "_", with: "")) {
+                            index = max(index, number + 1)
+                        }
+                    }
+                }
+                toURL = downloadsURL.appendingPathComponent("\(fileNameWithoutExtension)_\(index).\(fileExtension)")
+            }
+            try FileManager.default.copyItem(at: fileURL, to: toURL)
+            (presentableVC as? BrowserViewController)?.showDownloadsToast(filename: toURL.lastPathComponent)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
     fileprivate func share(fileURL: URL, buttonView: UIView, presentableVC: PresentableVC) {
         let helper = ShareExtensionHelper(url: fileURL, tab: tabManager.selectedTab)
-        let controller = helper.createActivityViewController { completed, activityType in
+        let controller = helper.createActivityViewController(withDownloadActivity: true) { completed, activityType in
             print("Shared downloaded file: \(completed)")
+            if activityType == FileDownloadActivity.activityType {
+                if completed {
+                    self.saveFileToDownloads(fileURL: fileURL, presentableVC: presentableVC)
+                }
+            }
         }
 
         if let popoverPresentationController = controller.popoverPresentationController {
