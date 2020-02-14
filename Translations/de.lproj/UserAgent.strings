@@ -25,7 +25,7 @@
 
 "PrivacyDashboard.Legend.NoTrackersSeen" = "Wunderbar, diese Website enthält keine Tracker!";
 
-"PrivacyDashboard.Legend.Whitelisted" = "Dieser Modus kann hilfreich sein, wenn einige Website-Funktionen mit eingeschaltetem Anti-Tracking oder Werbeblocker nicht richtig funktionieren.";
+"PrivacyDashboard.Legend.AllowListed" = "Dieser Modus kann hilfreich sein, wenn einige Website-Funktionen mit eingeschaltetem Anti-Tracking oder Werbeblocker nicht richtig funktionieren.";
 
 "PrivacyDashboard.Switch.AdBlock" = "Werbeblocker auf dieser Seite";
 
@@ -33,15 +33,15 @@
 
 "PrivacyDashboard.Switch.PopupsBlocking" = "Pop-up-Blocker auf dieser Seite";
 
-"PrivacyDashboard.Title.AdBlockWhitelisted" = "Blockierte Tracker";
+"PrivacyDashboard.Title.AdBlockAllowListed" = "Blockierte Tracker";
 
-"PrivacyDashboard.Title.AntiTrackingWhitelisted" = "Blockierte Werbungen";
+"PrivacyDashboard.Title.AntiTrackingAllowListed" = "Blockierte Werbungen";
 
 "PrivacyDashboard.Title.BlockingEnabled" = "Blockierte Tracker und Werbungen";
 
 "PrivacyDashboard.Title.NoTrackersSeen" = "Keine Tracker auf";
 
-"PrivacyDashboard.Title.Whitelisted" = "Deaktiviert auf dieser Seite";
+"PrivacyDashboard.Title.AllowListed" = "Deaktiviert auf dieser Seite";
 
 /* Privacy Dashboard */
 "PrivacyDashboard.ViewFullReport" = "Statistikbericht";

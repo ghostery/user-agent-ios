@@ -51,18 +51,18 @@ enum BlocklistName: String {
 enum BlockerStatus: String {
     case Disabled
     case NoBlockedURLs // When TP is enabled but nothing is being blocked
-    case AdBlockWhitelisted
-    case AntiTrackingWhitelisted
-    case Whitelisted
+    case AdBlockAllowListed
+    case AntiTrackingAllowListed
+    case AllowListed
     case Blocking
 }
 
-internal class Whitelists {
-    public let ads = Whitelist(whitelistFilename: "ads_whitelist", blocklists: [.advertisingNetwork, .advertisingCosmetic])
-    public let trackers = Whitelist(whitelistFilename: "whitelist", blocklists: [.trackingNetwork])
-    public let popups = Whitelist(whitelistFilename: "popups_whitelist", blocklists: [.popupsNetwork, .popupsCosmetic])
+internal class AllowLists {
+    public let ads = AllowList(allowListFilename: "ads_whitelist", blocklists: [.advertisingNetwork, .advertisingCosmetic])
+    public let trackers = AllowList(allowListFilename: "whitelist", blocklists: [.trackingNetwork])
+    public let popups = AllowList(allowListFilename: "popups_whitelist", blocklists: [.popupsNetwork, .popupsCosmetic])
 
-    var cleanupStore: Whitelist.CleanupStore? {
+    var cleanupStore: AllowList.CleanupStore? {
         didSet {
             self.ads.cleanupStore = cleanupStore
             self.trackers.cleanupStore = cleanupStore
@@ -74,7 +74,7 @@ internal class Whitelists {
 }
 
 class ContentBlocker {
-    internal let whitelists = Whitelists()
+    internal let allowLists = AllowLists()
 
     let ruleStore: WKContentRuleListStore = WKContentRuleListStore.default()
     var setupCompleted = false
@@ -82,8 +82,8 @@ class ContentBlocker {
     static let shared = ContentBlocker()
 
     private init() {
-        self.whitelists.cleanupStore = { (blocklists, completion) in
-            self.clearWhitelists(fromLists: blocklists, completion: completion)
+        self.allowLists.cleanupStore = { (blocklists, completion) in
+            self.clearAllowLists(fromLists: blocklists, completion: completion)
         }
 
         TPStatsBlocklistChecker.shared.startup()
@@ -98,7 +98,7 @@ class ContentBlocker {
         }
     }
 
-    func clearWhitelists(fromLists: [BlocklistName] = [], completion: (() -> Void)?) {
+    func clearAllowLists(fromLists: [BlocklistName] = [], completion: (() -> Void)?) {
         self.removeAllRulesInStore(fromLists: fromLists) {
             self.compileListsNotInStore {
                 completion?()
@@ -107,8 +107,8 @@ class ContentBlocker {
         }
     }
 
-    // Ensure domains used for whitelisting are standardized by using this function.
-    func whitelistableDomain(fromUrl url: URL) -> String? {
+    // Ensure domains used for allowListing are standardized by using this function.
+    func allowListableDomain(fromUrl url: URL) -> String? {
         guard let domain = url.host, !domain.isEmpty else {
             return nil
         }
@@ -296,15 +296,15 @@ extension ContentBlocker {
                     guard let range = str.range(of: "]", options: String.CompareOptions.backwards) else { return }
                     switch item {
                     case .advertisingNetwork:
-                        str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "]")
+                        str = str.replacingCharacters(in: range, with: self.adsAllowListAsJSON() + "]")
                     case .advertisingCosmetic:
-                        str = str.replacingCharacters(in: range, with: self.adsWhitelistAsJSON() + "," + HIDE_ADS_RULE + "]")
+                        str = str.replacingCharacters(in: range, with: self.adsAllowListAsJSON() + "," + HIDE_ADS_RULE + "]")
                     case .trackingNetwork:
-                        str = str.replacingCharacters(in: range, with: self.trackingWhitelistAsJSON() + "]")
+                        str = str.replacingCharacters(in: range, with: self.trackingAllowListAsJSON() + "]")
                     case .popupsNetwork:
-                        str = str.replacingCharacters(in: range, with: self.popupsWhitelistAsJSON() + "]")
+                        str = str.replacingCharacters(in: range, with: self.popupsAllowListAsJSON() + "]")
                     case .popupsCosmetic:
-                        str = str.replacingCharacters(in: range, with: self.popupsWhitelistAsJSON() + "]")
+                        str = str.replacingCharacters(in: range, with: self.popupsAllowListAsJSON() + "]")
                     }
                     self.ruleStore.compileContentRuleList(forIdentifier: item.filename, encodedContentRuleList: str) { rule, error in
                         if let error = error {

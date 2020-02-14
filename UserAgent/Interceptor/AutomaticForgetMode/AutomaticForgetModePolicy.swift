@@ -13,15 +13,15 @@ class AutomaticForgetModePolicy: NSObject, InterceptorPolicy {
 
     private var queue = DispatchQueue.global(qos: .background)
     private let detector: AutomaticForgetModeDetector
-    private var whitelistedURL: URL?
+    private var allowListedURL: URL?
 
     override init() {
         self.detector = AutomaticForgetModeDetector()
     }
 
     func canLoad(url: URL, onPostFactumCheck: PostFactumCallback?) -> Bool {
-        guard self.whitelistedURL?.baseDomain != url.baseDomain else {
-            self.whitelistedURL = nil
+        guard self.allowListedURL?.baseDomain != url.baseDomain else {
+            self.allowListedURL = nil
             return true
         }
 
@@ -33,7 +33,7 @@ class AutomaticForgetModePolicy: NSObject, InterceptorPolicy {
         return true
     }
 
-    func whitelistUrl(_ url: URL) {
-        self.whitelistedURL = url
+    func allowListUrl(_ url: URL) {
+        self.allowListedURL = url
     }
 }

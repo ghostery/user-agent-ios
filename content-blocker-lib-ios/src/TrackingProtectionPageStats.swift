@@ -98,11 +98,11 @@ class TPStatsBlocklistChecker {
         }
 
         // Make a copy on the main thread
-        let whitelistRegex = ContentBlocker.shared.whitelists.ads.whitelistedDomains.domainRegex + ContentBlocker.shared.whitelists.trackers.whitelistedDomains.domainRegex
+        let allowListRegex = ContentBlocker.shared.allowLists.ads.allowListedDomains.domainRegex + ContentBlocker.shared.allowLists.trackers.allowListedDomains.domainRegex
 
         DispatchQueue.global().async {
             deferred.fill(
-                blockLists.urlIsInCategory(url, whitelistedDomains: whitelistRegex)
+                blockLists.urlIsInCategory(url, allowListedDomains: allowListRegex)
             )
         }
         return deferred
@@ -186,7 +186,7 @@ class TPStatsBlocklists {
         }
     }
 
-    func urlIsInCategory(_ url: URL, whitelistedDomains: [String]) -> Tracker? {
+    func urlIsInCategory(_ url: URL, allowListedDomains: [String]) -> Tracker? {
         guard let baseDomain = url.baseDomain else {
             return nil
         }
@@ -194,9 +194,9 @@ class TPStatsBlocklists {
             return nil
         }
 
-        // Check the whitelist.
-        if !whitelistedDomains.isEmpty {
-            for ignoreDomain in whitelistedDomains {
+        // Check the allowList.
+        if !allowListedDomains.isEmpty {
+            for ignoreDomain in allowListedDomains {
                 if baseDomain.range(of: ignoreDomain, options: .regularExpression) != nil {
                     return nil
                 }
