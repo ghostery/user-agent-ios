@@ -65,6 +65,7 @@
 		2B0360902350B07200273A24 /* tracker_db_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B03608F2350B07200273A24 /* tracker_db_v2.json */; };
 		2B0360912350B07200273A24 /* tracker_db_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B03608F2350B07200273A24 /* tracker_db_v2.json */; };
 		2B184F45BDED21008E6376E1 /* ClearHistoryConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */; };
+		2B22E67B23F683A7000A39E6 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
 		2B2EA06A235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B2EA06B235F087100FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B427C7223D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */; };
@@ -5413,6 +5414,7 @@
 				464E683C234CB06200ABAC43 /* HomeView.swift in Sources */,
 				46E96604236B2793003C23F3 /* UserAgentConstants.swift in Sources */,
 				C5F986B223A384CB006E006A /* ContextMenuUseCase.swift in Sources */,
+				2B22E67B23F683A7000A39E6 /* FileDownloadActivity.swift in Sources */,
 				ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */,
 				464E6839234B75E300ABAC43 /* LogoView.swift in Sources */,
 				46BBFA652358B10400283594 /* BrowserCliqz.swift in Sources */,
