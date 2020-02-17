@@ -182,12 +182,7 @@ class BrowserViewController: UIViewController {
         dismissVisibleMenus()
 
         coordinator.animate(alongsideTransition: { context in
-            let portrateImage = UIImage(named: "searchBackgroundImage")
-            if self.isStatusBarOrientationLandscape, let cgImage = portrateImage?.cgImage {
-                self.searchBackgroundImageView.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .left)
-            } else {
-                self.searchBackgroundImageView.image = portrateImage
-            }
+            self.updateSearchBackgourndImage()
             self.scrollController.updateMinimumZoom()
             self.topTabsViewController?.scrollToCurrentTab(false, centerCell: false)
             if let popover = self.displayedPopoverController {
@@ -290,6 +285,15 @@ class BrowserViewController: UIViewController {
         let shouldShowWhatsNeweBadge = self.profile.prefs.boolForKey(PrefsKeys.WhatsNewBubble) == nil
         self.toolbar?.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
         self.urlBar.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
+    }
+
+    private func updateSearchBackgourndImage() {
+        let portrateImage = UIImage(named: "searchBackgroundImage")
+        if self.isStatusBarOrientationLandscape, let cgImage = portrateImage?.cgImage {
+            self.searchBackgroundImageView.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .left)
+        } else {
+            self.searchBackgroundImageView.image = portrateImage
+        }
     }
 
     func didPressBurnMenuItem() {
@@ -499,12 +503,7 @@ class BrowserViewController: UIViewController {
         alertStackView.axis = .vertical
         alertStackView.alignment = .center
 
-        let portrateImage = UIImage(named: "searchBackgroundImage")
-        if self.isStatusBarOrientationLandscape, let cgImage = portrateImage?.cgImage {
-            self.searchBackgroundImageView.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .left)
-        } else {
-            self.searchBackgroundImageView.image = portrateImage
-        }
+        self.updateSearchBackgourndImage()
         self.view.addSubview(self.searchBackgroundImageView)
         view.addSubview(self.overlayBackground)
         self.hideOverlayBackground()
