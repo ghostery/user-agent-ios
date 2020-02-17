@@ -70,7 +70,20 @@ class BrowserViewController: UIViewController {
         return effectView
     }()
 
-    private let searchBackgroundImageView = UIImageView(image: UIImage(named: "searchBackgroundImage"))
+    private var isStatusBarOrientationLandscape: Bool {
+        return UIApplication.shared.statusBarOrientation == .landscapeLeft || UIApplication.shared.statusBarOrientation == .landscapeRight
+    }
+
+    private let searchBackgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        let effectView = UIVisualEffectView()
+        effectView.effect = UIBlurEffect(style: .light)
+        imageView.addSubview(effectView)
+        effectView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        return imageView
+    }()
 
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
     var findInPageBar: FindInPageBar?
@@ -169,6 +182,7 @@ class BrowserViewController: UIViewController {
         dismissVisibleMenus()
 
         coordinator.animate(alongsideTransition: { context in
+            self.updateSearchBackgroundImage()
             self.scrollController.updateMinimumZoom()
             self.topTabsViewController?.scrollToCurrentTab(false, centerCell: false)
             if let popover = self.displayedPopoverController {
@@ -271,6 +285,15 @@ class BrowserViewController: UIViewController {
         let shouldShowWhatsNeweBadge = self.profile.prefs.boolForKey(PrefsKeys.WhatsNewBubble) == nil
         self.toolbar?.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
         self.urlBar.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
+    }
+
+    private func updateSearchBackgroundImage() {
+        let portrateImage = UIImage(named: "searchBackgroundImage")
+        if self.isStatusBarOrientationLandscape, let cgImage = portrateImage?.cgImage {
+            self.searchBackgroundImageView.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .left)
+        } else {
+            self.searchBackgroundImageView.image = portrateImage
+        }
     }
 
     func didPressBurnMenuItem() {
@@ -480,6 +503,7 @@ class BrowserViewController: UIViewController {
         alertStackView.axis = .vertical
         alertStackView.alignment = .center
 
+        self.updateSearchBackgroundImage()
         self.view.addSubview(self.searchBackgroundImageView)
         view.addSubview(self.overlayBackground)
         self.hideOverlayBackground()
