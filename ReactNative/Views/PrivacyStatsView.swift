@@ -22,21 +22,20 @@ class PrivacyStatsView: UIView, PhotonCustomViewCellContent, ReactViewTheme {
         )
 
         reactView.delegate = self
-
-        reactView.sizeFlexibility = .widthAndHeight
+        reactView.backgroundColor = .clear
+        reactView.sizeFlexibility = .height
 
         return reactView
     }()
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        self.setup()
-    }
-
-    func setup() {
         self.addSubview(self.reactView)
         self.snp.makeConstraints { (make) in
             make.height.equalTo(100)
+        }
+        self.reactView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
         }
     }
 
