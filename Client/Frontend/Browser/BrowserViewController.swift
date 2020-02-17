@@ -182,7 +182,12 @@ class BrowserViewController: UIViewController {
         dismissVisibleMenus()
 
         coordinator.animate(alongsideTransition: { context in
-            self.searchBackgroundImageView.image = self.isStatusBarOrientationLandscape ? UIImage(named: "searchBackgroundImageLandscape") : UIImage(named: "searchBackgroundImage")
+            let portrateImage = UIImage(named: "searchBackgroundImage")
+            if self.isStatusBarOrientationLandscape, let cgImage = portrateImage?.cgImage {
+                self.searchBackgroundImageView.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .left)
+            } else {
+                self.searchBackgroundImageView.image = portrateImage
+            }
             self.scrollController.updateMinimumZoom()
             self.topTabsViewController?.scrollToCurrentTab(false, centerCell: false)
             if let popover = self.displayedPopoverController {
@@ -494,7 +499,12 @@ class BrowserViewController: UIViewController {
         alertStackView.axis = .vertical
         alertStackView.alignment = .center
 
-        self.searchBackgroundImageView.image = self.isStatusBarOrientationLandscape ? UIImage(named: "searchBackgroundImageLandscape") : UIImage(named: "searchBackgroundImage")
+        let portrateImage = UIImage(named: "searchBackgroundImage")
+        if self.isStatusBarOrientationLandscape, let cgImage = portrateImage?.cgImage {
+            self.searchBackgroundImageView.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .left)
+        } else {
+            self.searchBackgroundImageView.image = portrateImage
+        }
         self.view.addSubview(self.searchBackgroundImageView)
         view.addSubview(self.overlayBackground)
         self.hideOverlayBackground()
