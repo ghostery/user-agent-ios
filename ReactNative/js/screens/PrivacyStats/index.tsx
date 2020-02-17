@@ -46,7 +46,6 @@ const getStyle = (theme: {
     fontWeight: '500',
   },
   statsTitle: {
-    color: theme.descriptionColor,
     fontSize: theme.fontSizeSmall,
   },
   searchIcon: {
@@ -75,7 +74,6 @@ const getStyle = (theme: {
     backgroundColor: theme.brandTintColor,
   },
   smallText: {
-    color: theme.textColor,
     fontSize: theme.fontSizeSmall,
   },
   boldText: {
@@ -204,10 +202,6 @@ export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
     [styles.smallText, styles.right],
     [styles],
   );
-  const otherSearchStatsNumberStyle = mergeStyles(
-    [styles.boldText, styles.right],
-    [styles],
-  );
 
   return (
     <View style={styles.container}>
@@ -224,10 +218,10 @@ export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
       <View style={styles.statsWrapper}>
         <View style={styles.row}>
           <View style={styles.leftRightRow}>
-            <Text style={styles.boldText}>
+            <Text style={styles.boldText} allowFontScaling={false}>
               {formatPercent(searchStats.cliqzSearch)}
             </Text>
-            <Text style={otherSearchStatsNumberStyle}>
+            <Text style={styles.right} allowFontScaling={false}>
               {formatPercent(searchStats.otherSearch)}
             </Text>
           </View>
@@ -236,10 +230,10 @@ export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
             <View style={otherSearchBarStyle} />
           </View>
           <View style={styles.leftRightRow}>
-            <Text style={styles.smallText}>
+            <Text style={styles.smallText} allowFontScaling={false}>
               {t('ControlCenter.SearchStats.CliqzSearch')}
             </Text>
-            <Text style={otherSearchStatsLabelStyle}>
+            <Text style={otherSearchStatsLabelStyle} allowFontScaling={false}>
               {t('ControlCenter.SearchStats.OtherSearch')}
             </Text>
           </View>

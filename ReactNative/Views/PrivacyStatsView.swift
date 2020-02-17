@@ -35,7 +35,7 @@ class PrivacyStatsView: UIView, PhotonCustomViewCellContent, ReactViewTheme {
             make.height.equalTo(100)
         }
         self.reactView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
 
