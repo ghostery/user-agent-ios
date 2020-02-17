@@ -182,7 +182,7 @@ class BrowserViewController: UIViewController {
         dismissVisibleMenus()
 
         coordinator.animate(alongsideTransition: { context in
-            self.updateSearchBackgourndImage()
+            self.updateSearchBackgroundImage()
             self.scrollController.updateMinimumZoom()
             self.topTabsViewController?.scrollToCurrentTab(false, centerCell: false)
             if let popover = self.displayedPopoverController {
@@ -287,7 +287,7 @@ class BrowserViewController: UIViewController {
         self.urlBar.whatsNeweBadge(visible: shouldShowWhatsNeweBadge)
     }
 
-    private func updateSearchBackgourndImage() {
+    private func updateSearchBackgroundImage() {
         let portrateImage = UIImage(named: "searchBackgroundImage")
         if self.isStatusBarOrientationLandscape, let cgImage = portrateImage?.cgImage {
             self.searchBackgroundImageView.image = UIImage(cgImage: cgImage, scale: 1.0, orientation: .left)
@@ -503,7 +503,7 @@ class BrowserViewController: UIViewController {
         alertStackView.axis = .vertical
         alertStackView.alignment = .center
 
-        self.updateSearchBackgourndImage()
+        self.updateSearchBackgroundImage()
         self.view.addSubview(self.searchBackgroundImageView)
         view.addSubview(self.overlayBackground)
         self.hideOverlayBackground()
