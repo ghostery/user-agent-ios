@@ -482,11 +482,11 @@
 /* The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled. */
 "Menu.TrackingProtectionNoBlocking.Description" = "No tracking elements detected on this page.";
 
-/* label for the menu item to show when the website is whitelisted from blocking trackers. */
-"Menu.TrackingProtectionOption.WhiteListOnDescription" = "The site includes elements that may track your browsing. You have disabled protection.";
+/* label for the menu item to show when the website is allowListed from blocking trackers. */
+"Menu.TrackingProtectionOption.AllowListOnDescription" = "The site includes elements that may track your browsing. You have disabled protection.";
 
-/* label for the menu item that lets you remove a website from the tracking protection whitelist */
-"Menu.TrackingProtectionWhitelistRemove.Title" = "Enable for this site";
+/* label for the menu item that lets you remove a website from the tracking protection allowList */
+"Menu.TrackingProtectionAllowListRemove.Title" = "Enable for this site";
 
 /* The title for the option to view the What's new page. */
 "Menu.WhatsNew.Title" = "What's New";

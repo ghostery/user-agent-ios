@@ -10,16 +10,16 @@ import WebKit
 
 extension ContentBlocker {
 
-    func popupsWhitelistAsJSON() -> String {
-        return self.whitelists.popups.asJSON()
+    func popupsAllowListAsJSON() -> String {
+        return self.allowLists.popups.asJSON()
     }
 
-    func popupsWhitelist(enable: Bool, url: URL, completion: (() -> Void)?) {
-        self.whitelists.popups.whitelist(enable: enable, url: url, completion: completion)
+    func popupsAllowList(enable: Bool, url: URL, completion: (() -> Void)?) {
+        self.allowLists.popups.allowList(enable: enable, url: url, completion: completion)
     }
 
-    func isPopupsWhitelisted(url: URL) -> Bool {
-        return self.whitelists.popups.isWhitelisted(url: url)
+    func isPopupsAllowListed(url: URL) -> Bool {
+        return self.allowLists.popups.isAllowListed(url: url)
     }
 
 }

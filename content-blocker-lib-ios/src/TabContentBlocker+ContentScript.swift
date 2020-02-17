@@ -17,10 +17,10 @@ extension TabContentBlocker {
             return
         }
 
-        // Reset the pageStats to make sure the trackingprotection shield icon knows that a page was whitelisted
-        let isAdsWhiteListed = !self.isPrivacyDashboardEnabled || ContentBlocker.shared.isAdsWhitelisted(url: mainDocumentUrl)
-        let isTrackingWhiteListed = !self.isPrivacyDashboardEnabled || ContentBlocker.shared.isTrackingWhitelisted(url: mainDocumentUrl)
-        guard !isAdsWhiteListed || !isTrackingWhiteListed else {
+        // Reset the pageStats to make sure the trackingprotection shield icon knows that a page was allowListed
+        let isAdsAllowListed = !self.isPrivacyDashboardEnabled || ContentBlocker.shared.isAdsAllowListed(url: mainDocumentUrl)
+        let isTrackingAllowListed = !self.isPrivacyDashboardEnabled || ContentBlocker.shared.isTrackingAllowListed(url: mainDocumentUrl)
+        guard !isAdsAllowListed || !isTrackingAllowListed else {
             clearPageStats()
             return
         }

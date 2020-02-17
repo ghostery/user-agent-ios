@@ -388,13 +388,13 @@ extension Strings {
         public struct Title {
             public static let BlockingEnabled = NSLocalizedString("PrivacyDashboard.Title.BlockingEnabled", tableName: "UserAgent", comment: "")
             public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Title.NoTrackersSeen", tableName: "UserAgent", comment: "")
-            public static let AdBlockWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AdBlockWhitelisted", tableName: "UserAgent", comment: "")
-            public static let AntiTrackingWhitelisted = NSLocalizedString("PrivacyDashboard.Title.AntiTrackingWhitelisted", tableName: "UserAgent", comment: "")
-            public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Title.Whitelisted", tableName: "UserAgent", comment: "")
+            public static let AdBlockAllowListed = NSLocalizedString("PrivacyDashboard.Title.AdBlockAllowListed", tableName: "UserAgent", comment: "")
+            public static let AntiTrackingAllowListed = NSLocalizedString("PrivacyDashboard.Title.AntiTrackingAllowListed", tableName: "UserAgent", comment: "")
+            public static let AllowListed = NSLocalizedString("PrivacyDashboard.Title.AllowListed", tableName: "UserAgent", comment: "")
         }
         public struct Legend {
             public static let NoTrackersSeen = NSLocalizedString("PrivacyDashboard.Legend.NoTrackersSeen", tableName: "UserAgent", comment: "")
-            public static let Whitelisted = NSLocalizedString("PrivacyDashboard.Legend.Whitelisted", tableName: "UserAgent", comment: "")
+            public static let AllowListed = NSLocalizedString("PrivacyDashboard.Legend.AllowListed", tableName: "UserAgent", comment: "")
         }
         public struct Switch {
              public static let AntiTracking = NSLocalizedString("PrivacyDashboard.Switch.AntiTracking", tableName: "UserAgent", comment: "")
@@ -452,8 +452,8 @@ extension Strings {
         public static let TrackingProtectionAnalyticsBlocked = NSLocalizedString("Menu.TrackingProtectionAnalyticsBlocked.Title", tableName: "Menu", comment: "The title that shows the number of Analytics scripts blocked")
         public static let TrackingProtectionSocialBlocked = NSLocalizedString("Menu.TrackingProtectionSocialBlocked.Title", tableName: "Menu", comment: "The title that shows the number of social scripts blocked")
         public static let TrackingProtectionContentBlocked = NSLocalizedString("Menu.TrackingProtectionContentBlocked.Title", tableName: "Menu", comment: "The title that shows the number of content scripts blocked")
-        public static let TrackingProtectionWhiteListOn = NSLocalizedString("Menu.TrackingProtectionOption.WhiteListOnDescription", comment: "label for the menu item to show when the website is whitelisted from blocking trackers.")
-        public static let TrackingProtectionWhiteListRemove = NSLocalizedString("Menu.TrackingProtectionWhitelistRemove.Title", comment: "label for the menu item that lets you remove a website from the tracking protection whitelist")
+        public static let TrackingProtectionAllowListOn = NSLocalizedString("Menu.TrackingProtectionOption.AllowListOnDescription", comment: "label for the menu item to show when the website is allowListed from blocking trackers.")
+        public static let TrackingProtectionAllowListRemove = NSLocalizedString("Menu.TrackingProtectionAllowListRemove.Title", comment: "label for the menu item that lets you remove a website from the tracking protection allowList")
         public static let TrackingProtectionEssentialBlocked = NSLocalizedString("Menu.TrackingProtectionEssentialBlocked.Title", tableName: "Menu", comment: "")
         public static let TrackingProtectionMiscBlocked = NSLocalizedString("Menu.TrackingProtectionEssentialMisc.Title", tableName: "Menu", comment: "")
         public static let TrackingProtectionHostingBlocked = NSLocalizedString("Menu.TrackingProtectionHostingBlocked.Title", tableName: "Menu", comment: "")

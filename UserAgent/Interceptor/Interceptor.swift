@@ -19,7 +19,7 @@ typealias PostFactumCallback = (URL, InterceptorPolicy) -> Void
 
 protocol InterceptorPolicy: AnyObject {
     var type: InterceptorType { get }
-    func whitelistUrl(_ url: URL)
+    func allowListUrl(_ url: URL)
     func canLoad(url: URL, onPostFactumCheck: PostFactumCallback?) -> Bool
 }
 

@@ -97,10 +97,42 @@ extension PhotonActionSheetProtocol {
         return [closeAllTabsAndClearData]
     }
 
+    fileprivate func saveFileToDownloads(fileURL: URL, presentableVC: PresentableVC) {
+        let fileName = fileURL.lastPathComponent
+        do {
+            let downloadsURL = try DownloadFolder.downloadsURL()
+            var toURL = downloadsURL.appendingPathComponent(fileName)
+            let files = try FileManager.default.contentsOfDirectory(at: downloadsURL, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles, .skipsPackageDescendants, .skipsSubdirectoryDescendants])
+            if files.contains(toURL) {
+                var index = 1
+                let fileExtension = fileURL.pathExtension
+                let fileNameWithoutExtension = fileURL.deletingPathExtension().lastPathComponent
+                files.forEach { (fileUrl) in
+                    let nameWithoutExtension = fileUrl.deletingPathExtension().lastPathComponent
+                    if nameWithoutExtension.contains(fileNameWithoutExtension + "_") {
+                        if let number = Int(nameWithoutExtension.replaceFirstOccurrence(of: fileNameWithoutExtension + "_", with: "")) {
+                            index = max(index, number + 1)
+                        }
+                    }
+                }
+                toURL = downloadsURL.appendingPathComponent("\(fileNameWithoutExtension)_\(index).\(fileExtension)")
+            }
+            try FileManager.default.copyItem(at: fileURL, to: toURL)
+            (presentableVC as? BrowserViewController)?.showDownloadsToast(filename: toURL.lastPathComponent)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
     fileprivate func share(fileURL: URL, buttonView: UIView, presentableVC: PresentableVC) {
         let helper = ShareExtensionHelper(url: fileURL, tab: tabManager.selectedTab)
-        let controller = helper.createActivityViewController { completed, activityType in
+        let controller = helper.createActivityViewController(withDownloadActivity: true) { completed, activityType in
             print("Shared downloaded file: \(completed)")
+            if activityType == FileDownloadActivity.activityType {
+                if completed {
+                    self.saveFileToDownloads(fileURL: fileURL, presentableVC: presentableVC)
+                }
+            }
         }
 
         if let popoverPresentationController = controller.popoverPresentationController {
@@ -217,11 +249,11 @@ extension PhotonActionSheetProtocol {
             let popupsBlocking = PhotonActionSheetItem(
                 title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
                 iconString: "menu-PopupBlocking",
-                isEnabled: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
+                isEnabled: !ContentBlocker.shared.isPopupsAllowListed(url: url),
                 accessory: .Switch
             ) { action in
-                ContentBlocker.shared.popupsWhitelist(
-                    enable: !ContentBlocker.shared.isPopupsWhitelisted(url: url),
+                ContentBlocker.shared.popupsAllowList(
+                    enable: !ContentBlocker.shared.isPopupsAllowListed(url: url),
                     url: url
                 ) {
                     tab.reload()
@@ -346,7 +378,7 @@ extension PhotonActionSheetProtocol {
     }
 
     @available(iOS 11.0, *)
-    private func menuActionsForWhitelistedSite(for tab: Tab) -> [[PhotonActionSheetItem]] {
+    private func menuActionsForAllowListedSite(for tab: Tab) -> [[PhotonActionSheetItem]] {
         return [self.menuActions(for: tab)]
     }
 
@@ -358,11 +390,11 @@ extension PhotonActionSheetProtocol {
         let trackingProtection = PhotonActionSheetItem(
             title: Strings.PrivacyDashboard.Switch.AntiTracking,
             iconString: "menu-TrackingProtection",
-            isEnabled: !ContentBlocker.shared.isTrackingWhitelisted(url: currentURL),
+            isEnabled: !ContentBlocker.shared.isTrackingAllowListed(url: currentURL),
             accessory: .Switch
         ) { action in
-            ContentBlocker.shared.trackingWhitelist(
-                enable: !ContentBlocker.shared.isTrackingWhitelisted(url: currentURL),
+            ContentBlocker.shared.trackingAllowList(
+                enable: !ContentBlocker.shared.isTrackingAllowListed(url: currentURL),
                 url: currentURL
             ) {
                 tab.reload()
@@ -372,11 +404,11 @@ extension PhotonActionSheetProtocol {
         let adBlocking = PhotonActionSheetItem(
             title: Strings.PrivacyDashboard.Switch.AdBlock,
             iconString: "menu-AdBlocking",
-            isEnabled: !ContentBlocker.shared.isAdsWhitelisted(url: currentURL),
+            isEnabled: !ContentBlocker.shared.isAdsAllowListed(url: currentURL),
             accessory: .Switch
         ) { action in
-            ContentBlocker.shared.adsWhitelist(
-                enable: !ContentBlocker.shared.isAdsWhitelisted(url: currentURL),
+            ContentBlocker.shared.adsAllowList(
+                enable: !ContentBlocker.shared.isAdsAllowListed(url: currentURL),
                 url: currentURL
             ) {
                 tab.reload()

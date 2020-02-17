@@ -126,9 +126,9 @@ private extension PrivacyDashboardView {
         wrapper.addArrangedSubview(view)
     }
 
-    func renderStatForWhitelisted(withWrapper wrapper: UIStackView) {
+    func renderStatForAllowListed(withWrapper wrapper: UIStackView) {
         let view = PrivacyDashboardUtils.HStack { () -> (UIView, UILabel) in
-            let name = Strings.PrivacyDashboard.Legend.Whitelisted
+            let name = Strings.PrivacyDashboard.Legend.AllowListed
             let color = UIColor(named: "PrivacyIndicatorBackground")!
             return (
                 PrivacyDashboardUtils.Dot(withColor: color),
@@ -149,8 +149,8 @@ private extension PrivacyDashboardView {
         if status == .NoBlockedURLs {
             return self.renderStatForNoBlockingUrl(withWrapper: statsWrapper)
         }
-        if [.Disabled, .Whitelisted].contains(status) {
-            return self.renderStatForWhitelisted(withWrapper: statsWrapper)
+        if [.Disabled, .AllowListed].contains(status) {
+            return self.renderStatForAllowListed(withWrapper: statsWrapper)
         }
         self.renderCounter(withStats: stats)
         self.renderStats(wrapper: statsWrapper, stats: stats)

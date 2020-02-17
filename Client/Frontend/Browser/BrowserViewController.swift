@@ -69,6 +69,9 @@ class BrowserViewController: UIViewController {
         effectView.effect = UIBlurEffect(style: .light)
         return effectView
     }()
+
+    private let searchBackgroundImageView = UIImageView(image: UIImage(named: "searchBackgroundImage"))
+
     let alertStackView = UIStackView() // All content that appears above the footer should be added to this view. (Find In Page/SnackBars)
     var findInPageBar: FindInPageBar?
 
@@ -477,6 +480,7 @@ class BrowserViewController: UIViewController {
         alertStackView.axis = .vertical
         alertStackView.alignment = .center
 
+        self.view.addSubview(self.searchBackgroundImageView)
         view.addSubview(self.overlayBackground)
         self.hideOverlayBackground()
         clipboardBarDisplayHandler = ClipboardBarDisplayHandler(prefs: profile.prefs, tabManager: tabManager)
@@ -517,6 +521,10 @@ class BrowserViewController: UIViewController {
 
         webViewContainerBackdrop.snp.makeConstraints { make in
             make.edges.equalTo(webViewContainer)
+        }
+
+        self.searchBackgroundImageView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
 
         overlayBackground.snp.makeConstraints { make in
@@ -817,6 +825,7 @@ class BrowserViewController: UIViewController {
         guard let searchController = self.searchController else {
             return
         }
+        self.view.bringSubviewToFront(self.searchBackgroundImageView)
         self.view.bringSubviewToFront(self.overlayBackground)
 
         addChild(searchController)
@@ -853,13 +862,15 @@ class BrowserViewController: UIViewController {
 
     fileprivate func hideOverlayBackground() {
         self.overlayBackground.isHidden = true
+        self.searchBackgroundImageView.isHidden = true
         self.topTabsViewController?.view.isHidden = false
         self.setupURLBarBlurEffect()
     }
 
     fileprivate func showOverlayBackground() {
         self.topTabsViewController?.view.isHidden = true
-        self.overlayBackground.isHidden = false
+        self.overlayBackground.isHidden = self.tabManager.selectedTab?.isNewTabPage ?? false
+        self.searchBackgroundImageView.isHidden = !(self.tabManager.selectedTab?.isNewTabPage ?? false)
         self.notchAreaCover.effect = nil
     }
 
@@ -2137,6 +2148,7 @@ extension BrowserViewController: Themeable {
 
         self.notchAreaCover.backgroundColor = .clear
         self.overlayBackground.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        self.searchBackgroundImageView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         tabManager.tabs.forEach { $0.applyTheme() }
     }
 }

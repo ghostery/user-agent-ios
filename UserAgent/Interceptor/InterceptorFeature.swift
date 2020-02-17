@@ -46,7 +46,7 @@ extension InterceptorFeature: InterceptorDelegate {
         case .phishing:
             ui.showAntiPhishingAlert(tab: tab, url: url, policy: policy)
         case .automaticForgetMode:
-            policy.whitelistUrl(url)
+            policy.allowListUrl(url)
             self.useCases.tabUseCases.openNewPrivateTab(url: url)
         default:
             break
