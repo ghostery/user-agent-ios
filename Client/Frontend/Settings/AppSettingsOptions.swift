@@ -146,10 +146,6 @@ class VersionSetting: Setting {
         return NSAttributedString(string: String(format: NSLocalizedString("Version %@ (%@)", comment: "Version number of Firefox shown in settings"), appVersion, buildNumber), attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
     }
 
-    override func onConfigureCell(_ cell: UITableViewCell) {
-        super.onConfigureCell(cell)
-    }
-
     override func onClick(_ navigationController: UINavigationController?) {
         DebugSettingsClickCount += 1
         if DebugSettingsClickCount >= 5 {
