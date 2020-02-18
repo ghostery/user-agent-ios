@@ -75,7 +75,7 @@ class Setting: NSObject {
         cell.accessibilityIdentifier = accessibilityIdentifier
         cell.iconImage = _image
         if let title = title?.string {
-            if let detailText = cell.detailTextLabel?.text {
+            if let detailText = cell.detailLabel.text {
                 cell.accessibilityLabel = "\(title), \(detailText)"
             } else if let status = status?.string {
                 cell.accessibilityLabel = "\(title), \(status)"
@@ -459,11 +459,6 @@ class ButtonSetting: Setting {
         } else {
             cell.titleLabel.textColor = Theme.tableView.disabledRowText
         }
-        cell.textLabel?.snp.makeConstraints({ make in
-            make.height.equalTo(44)
-            make.trailing.equalTo(cell.contentView).offset(-Padding)
-            make.leading.equalTo(cell.contentView).offset(Padding)
-        })
         cell.titleLabel.textAlignment = .center
         cell.accessibilityTraits = UIAccessibilityTraits.button
         cell.selectionStyle = .none

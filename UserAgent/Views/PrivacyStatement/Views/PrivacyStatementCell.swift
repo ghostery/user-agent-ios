@@ -9,7 +9,7 @@
 import UIKit
 
 struct PrivacyStatementCellUI {
-    static let labelLeftOffset: CGFloat = 50.0
+    static let labelLeftOffset: CGFloat = 40.0
     static let separatorHeight: CGFloat = 1.0
 }
 
@@ -58,11 +58,8 @@ class PrivacyStatementCell: ThemedTableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        if let frame = self.textLabel?.frame {
-            self.textLabel?.frame = CGRect(x: PrivacyStatementCellUI.labelLeftOffset, y: frame.origin.y, width: frame.size.width, height: frame.size.height)
-        }
-        if let frame = self.detailTextLabel?.frame {
-            self.detailTextLabel?.frame = CGRect(x: PrivacyStatementCellUI.labelLeftOffset, y: frame.origin.y, width: frame.size.width, height: frame.size.height)
+        self.titleLabel.snp.updateConstraints { (make) in
+            make.left.equalTo(self.iconImageView.snp.right).offset(PrivacyStatementCellUI.labelLeftOffset)
         }
     }
 

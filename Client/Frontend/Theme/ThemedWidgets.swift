@@ -39,7 +39,7 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
         }
     }
 
-    lazy private var iconImageView: UIImageView = {
+    lazy var iconImageView: UIImageView = {
         let icon = UIImageView()
         icon.contentMode = .scaleAspectFit
         icon.clipsToBounds = true
@@ -111,7 +111,6 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
                 make.right.equalToSuperview().offset(-ThemedTableViewCellUX.TitleLabelOffset)
                 make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset)
                 make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
-                make.width.equalToSuperview().multipliedBy(0.4)
             }
         }
         if style == .subtitle {
