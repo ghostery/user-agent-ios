@@ -47,6 +47,7 @@ const getStyle = (theme: {
   },
   statsTitle: {
     fontSize: theme.fontSizeSmall,
+    color: theme.textColor,
   },
   searchIcon: {
     color: theme.brandTintColor,
@@ -72,9 +73,6 @@ const getStyle = (theme: {
   },
   activeBar: {
     backgroundColor: theme.brandTintColor,
-  },
-  smallText: {
-    fontSize: theme.fontSizeSmall,
   },
   boldText: {
     color: theme.textColor,
@@ -199,7 +197,7 @@ export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
     [styles, searchStats.otherSearch],
   );
   const otherSearchStatsLabelStyle = mergeStyles(
-    [styles.smallText, styles.right],
+    [styles.statsTitle, styles.right],
     [styles],
   );
 
@@ -230,7 +228,7 @@ export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
             <View style={otherSearchBarStyle} />
           </View>
           <View style={styles.leftRightRow}>
-            <Text style={styles.smallText} allowFontScaling={false}>
+            <Text style={styles.statsTitle} allowFontScaling={false}>
               {t('ControlCenter.SearchStats.CliqzSearch')}
             </Text>
             <Text style={otherSearchStatsLabelStyle} allowFontScaling={false}>
