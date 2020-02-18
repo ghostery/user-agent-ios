@@ -64,7 +64,7 @@ class Setting: NSObject {
         cell.detailLabel.assign(attributed: status)
         cell.detailLabel.attributedText = status
         cell.detailLabel.numberOfLines = 0
-        cell.detailLabel.lineBreakMode = .byTruncatingTail
+        cell.titleLabel.lineBreakMode = .byTruncatingTail
         cell.titleLabel.assign(attributed: title)
         cell.titleLabel.textAlignment = textAlignment
         cell.titleLabel.numberOfLines = 0
@@ -628,8 +628,7 @@ class SettingsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let section = settings[indexPath.section]
-        if let setting = section[indexPath.row], let height = setting.cellHeight {
+        if let setting = settings[indexPath.section][indexPath.row], let height = setting.cellHeight {
             return height
         }
 
@@ -645,25 +644,4 @@ class SettingsTableViewController: ThemedTableViewController {
         }
     }
 
-    fileprivate func calculateStatusCellHeightForSetting(_ setting: Setting) -> CGFloat {
-        dummyToggleCell.layoutSubviews()
-
-        let topBottomMargin: CGFloat = 10
-        let width = dummyToggleCell.contentView.frame.width - 2 * dummyToggleCell.separatorInset.left
-
-        return
-            heightForLabel(dummyToggleCell.textLabel!, width: width, text: setting.title?.string) +
-            heightForLabel(dummyToggleCell.detailTextLabel!, width: width, text: setting.status?.string) +
-            2 * topBottomMargin
-    }
-
-    fileprivate func heightForLabel(_ label: UILabel, width: CGFloat, text: String?) -> CGFloat {
-        guard let text = text else { return 0 }
-
-        let size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let attrs = [NSAttributedString.Key.font: label.font as Any]
-        let boundingRect = NSString(string: text).boundingRect(with: size,
-            options: .usesLineFragmentOrigin, attributes: attrs, context: nil)
-        return boundingRect.height
-    }
 }

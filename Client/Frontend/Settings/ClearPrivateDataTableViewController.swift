@@ -75,11 +75,11 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
 
         if indexPath.section == SectionArrow {
             cell.accessoryType = .disclosureIndicator
-            cell.textLabel?.text = Strings.Settings.WebsiteData.Title
+            cell.titleLabel.text = Strings.Settings.WebsiteData.Title
             cell.accessibilityIdentifier = "WebsiteData"
             clearButton = cell
         } else if indexPath.section == SectionToggles {
-            cell.textLabel?.text = clearables[indexPath.item].clearable.label
+            cell.titleLabel.text = clearables[indexPath.item].clearable.label
             let control = UISwitchThemed()
             control.onTintColor = Theme.tableView.controlTint
             control.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
@@ -89,9 +89,9 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
             control.tag = indexPath.item
         } else {
             assert(indexPath.section == SectionButton)
-            cell.textLabel?.text = Strings.Settings.ClearPrivateData.ClearButton
-            cell.textLabel?.textAlignment = .center
-            cell.textLabel?.textColor = Theme.general.destructiveRed
+            cell.titleLabel.text = Strings.Settings.ClearPrivateData.ClearButton
+            cell.titleLabel.textAlignment = .center
+            cell.titleLabel.textColor = Theme.general.destructiveRed
             cell.accessibilityTraits = UIAccessibilityTraits.button
             cell.accessibilityIdentifier = "ClearPrivateData"
             clearButton = cell

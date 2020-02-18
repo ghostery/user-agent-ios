@@ -4,18 +4,21 @@
 import UIKit
 
 private struct ThemedTableViewCellUX {
-    static let CellSideOffset = 20
-    static let TitleLabelOffset = 10
-    static let CellTopBottomOffset = 10
-    static let IconSize = 24
-    static let CornerRadius: CGFloat = 3
+    static let CellSideOffset: CGFloat = 20.0
+    static let TitleLabelOffset: CGFloat = 10.0
+    static let CellTopBottomOffset: CGFloat = 11.0
+    static let IconSize: CGFloat = 24.0
+    static let CornerRadius: CGFloat = 3.0
 }
 
 class ThemedTableViewCell: UITableViewCell, Themeable {
     var detailTextColor = Theme.tableView.rowDetailText
 
     lazy var titleLabel: UILabel = {
-        return self.createLabel()
+        let label = self.createLabel()
+        label.setContentHuggingPriority(.required, for: .horizontal)
+        label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        return label
     }()
 
     lazy var detailLabel: UILabel = {
@@ -101,13 +104,14 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
             if style == .subtitle {
                 make.left.equalTo(self.titleLabel)
                 make.right.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
-                make.top.equalTo(self.titleLabel.snp.bottom).offset(ThemedTableViewCellUX.TitleLabelOffset / 2)
+                make.top.equalTo(self.titleLabel.snp.bottom)
                 make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
             } else {
-                make.left.equalTo(self.titleLabel.snp.right).offset(ThemedTableViewCellUX.TitleLabelOffset)
+                make.left.equalTo(self.titleLabel.snp.right).offset(2 * ThemedTableViewCellUX.TitleLabelOffset)
                 make.right.equalToSuperview().offset(-ThemedTableViewCellUX.TitleLabelOffset)
                 make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset)
                 make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
+                make.width.equalToSuperview().multipliedBy(0.4)
             }
         }
         if style == .subtitle {
@@ -121,10 +125,8 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
 
     private func createLabel() -> UILabel {
         let label = UILabel()
-        label.numberOfLines = 4
+        label.numberOfLines = 0
         label.font = DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS
-        label.setContentHuggingPriority(.required, for: .horizontal)
-        label.setContentCompressionResistancePriority(.required, for: .horizontal)
         return label
     }
 

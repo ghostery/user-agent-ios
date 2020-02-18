@@ -106,7 +106,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
         cell.editingAccessoryType = .disclosureIndicator
         cell.accessibilityLabel = Strings.Settings.AddCustomEngine.Title
         cell.accessibilityIdentifier = "customEngineViewButton"
-        cell.textLabel?.text = Strings.Settings.AddCustomEngine.ButtonTitle
+        cell.titleLabel.text = Strings.Settings.AddCustomEngine.ButtonTitle
         cell.separatorInset = .zero
         return cell
     }
