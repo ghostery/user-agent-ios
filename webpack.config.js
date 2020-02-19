@@ -46,13 +46,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: [
-              ["env", {
-                targets: {
-                  iOS: "10.3"
-                }
-              }]
-            ]
+            presets: [require('./preset-env.config')],
           }
         }
       }

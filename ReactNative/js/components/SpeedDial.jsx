@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useCallback } from 'react';
 import { View, TouchableWithoutFeedback, Text } from 'react-native';
 import { parse } from 'tldts';

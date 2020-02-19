@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { useCallback, useState, useMemo, useContext } from 'react';
 import {
   NativeModules,

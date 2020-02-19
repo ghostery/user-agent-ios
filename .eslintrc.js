@@ -9,5 +9,8 @@ module.exports = {
   ],
   env: {
     webextensions: true,
+  },
+  rules: {
+    "react/prop-types": 0
   }
 }

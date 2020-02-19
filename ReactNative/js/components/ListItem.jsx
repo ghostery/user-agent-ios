@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import Logo from './Logo';
