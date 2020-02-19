@@ -190,7 +190,7 @@ class CustomSearchEngineTextView: Setting, UITextViewDelegate {
         super.init(cellHeight: TextFieldHeight)
     }
 
-    override func onConfigureCell(_ cell: UITableViewCell) {
+    override func onConfigureCell(_ cell: ThemedTableViewCell) {
         super.onConfigureCell(cell)
         if let id = accessibilityIdentifier {
             textField.accessibilityIdentifier = id + "TextField"

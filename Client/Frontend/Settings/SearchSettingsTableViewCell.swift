@@ -20,6 +20,7 @@ class SearchSettingsTableViewCell: ThemedTableViewCell {
         self.contentView.addSubview(self.logoView)
         self.label.adjustsFontSizeToFitWidth = true
         self.label.minimumScaleFactor = 0.5
+        self.layout()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -30,21 +31,18 @@ class SearchSettingsTableViewCell: ThemedTableViewCell {
         self.logoView.url = url
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.layout()
-    }
-
     private func layout() {
         self.logoView.snp.makeConstraints { make in
             make.height.equalTo(logoWidth)
             make.width.equalTo(logoWidth)
-            make.centerY.equalTo(self)
-            make.leading.equalTo(self.snp.leading).offset(20)
+            make.top.greaterThanOrEqualTo(self.contentView).offset(8)
+            make.bottom.greaterThanOrEqualTo(self.contentView).offset(-8)
+            make.centerY.equalTo(self.contentView)
+            make.leading.equalTo(self.contentView.snp.leading).offset(20)
         }
         self.label.snp.makeConstraints { make in
-            make.height.equalTo(self)
-            make.centerY.equalTo(self)
+            make.top.equalTo(self.contentView).offset(10)
+            make.bottom.equalTo(self.contentView).offset(-10)
             make.leading.equalTo(self.logoView.snp.trailing).offset(20)
             make.right.equalTo(self.contentView).offset(-10)
         }

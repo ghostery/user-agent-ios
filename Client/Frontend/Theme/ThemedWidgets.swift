@@ -3,12 +3,59 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 import UIKit
 
+private struct ThemedTableViewCellUX {
+    static let CellSideOffset: CGFloat = 20.0
+    static let TitleLabelOffset: CGFloat = 10.0
+    static let CellTopBottomOffset: CGFloat = 11.0
+    static let IconSize: CGFloat = 24.0
+    static let CornerRadius: CGFloat = 3.0
+}
+
 class ThemedTableViewCell: UITableViewCell, Themeable {
     var detailTextColor = Theme.tableView.rowDetailText
 
+    lazy var titleLabel: UILabel = {
+        let label = self.createLabel()
+        label.setContentHuggingPriority(UILayoutPriority(251.0), for: .horizontal)
+        label.setContentHuggingPriority(UILayoutPriority(250.0), for: .vertical)
+        return label
+    }()
+
+    lazy var detailLabel: UILabel = {
+        let label = self.createLabel()
+        label.setContentHuggingPriority(UILayoutPriority(251.0), for: .horizontal)
+        label.setContentHuggingPriority(UILayoutPriority(250.0), for: .vertical)
+        return label
+    }()
+
+    var iconImage: UIImage? {
+        didSet {
+            self.iconImageView.image = self.iconImage
+            if self.iconImage == nil {
+                self.iconImageView.snp.updateConstraints { (make) in
+                    make.width.equalTo(0)
+                }
+            } else {
+                self.iconImageView.snp.updateConstraints { (make) in
+                    make.width.equalTo(ThemedTableViewCellUX.IconSize)
+                }
+            }
+        }
+    }
+
+    lazy var iconImageView: UIImageView = {
+        let icon = UIImageView()
+        icon.contentMode = .scaleAspectFit
+        icon.clipsToBounds = true
+        icon.layer.cornerRadius = ThemedTableViewCellUX.CornerRadius
+        icon.setContentCompressionResistancePriority(.required, for: .horizontal)
+        return icon
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        applyTheme()
+        self.setup(style: style)
+        self.applyTheme()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -17,22 +64,77 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
 
     func applyTheme() {
         var needToChangeTextColor = true
-        if textLabel?.attributedText?.length ?? 0 > 0 {
-             needToChangeTextColor = textLabel?.attributedText?.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) == nil
+        if self.titleLabel.attributedText?.length ?? 0 > 0 {
+             needToChangeTextColor = self.titleLabel.attributedText?.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) == nil
         }
         if needToChangeTextColor {
-            textLabel?.textColor = Theme.tableView.rowText
+            self.titleLabel.textColor = Theme.tableView.rowText
         }
         var needToChangeDetailTextColor = true
-        if detailTextLabel?.attributedText?.length ?? 0 > 0 {
-            needToChangeDetailTextColor = detailTextLabel?.attributedText?.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) == nil
+        if self.detailLabel.attributedText?.length ?? 0 > 0 {
+            needToChangeDetailTextColor = self.detailLabel.attributedText?.attribute(NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: nil) == nil
         }
         if needToChangeDetailTextColor {
-            detailTextLabel?.textColor = detailTextColor
+            self.detailLabel.textColor = detailTextColor
         }
-        backgroundColor = Theme.tableView.rowBackground
-        tintColor = Theme.general.controlTint
+        self.backgroundColor = Theme.tableView.rowBackground
+        self.tintColor = Theme.general.controlTint
     }
+
+    private func setup(style: UITableViewCell.CellStyle) {
+        self.contentView.addSubview(self.iconImageView)
+        self.iconImageView.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(ThemedTableViewCellUX.CellSideOffset / 2)
+            make.centerY.equalToSuperview()
+            make.width.equalTo(0)
+            make.height.equalTo(ThemedTableViewCellUX.IconSize)
+        }
+
+        self.contentView.addSubview(self.titleLabel)
+        self.titleLabel.snp.makeConstraints { (make) in
+            make.leading.equalTo(self.iconImageView.snp.trailing).offset(ThemedTableViewCellUX.TitleLabelOffset / 2)
+            if style == .subtitle {
+                make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset)
+                make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
+            } else {
+                make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                make.centerY.equalToSuperview()
+            }
+        }
+        self.contentView.addSubview(self.detailLabel)
+        self.detailLabel.snp.makeConstraints { (make) in
+            if style == .subtitle {
+                make.leading.equalTo(self.titleLabel.snp.leading)
+                make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
+                make.top.equalTo(self.titleLabel.snp.bottom)
+                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
+            } else {
+                make.leading.greaterThanOrEqualTo(self.titleLabel.snp.trailing).offset(2 * ThemedTableViewCellUX.TitleLabelOffset)
+                make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.TitleLabelOffset)
+                make.centerY.equalToSuperview()
+                make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                make.width.equalTo(self.titleLabel.snp.width).multipliedBy(0.7).priority(200)
+            }
+        }
+        if style == .subtitle {
+            self.detailLabel.textAlignment = .left
+            self.detailLabel.font = DynamicFontHelper.defaultHelper.SmallSizeRegularWeightAS
+        } else {
+            self.detailLabel.textAlignment = .right
+            self.detailLabel.font = DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS
+        }
+    }
+
+    private func createLabel() -> UILabel {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.font = DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+
 }
 
 class ThemedTableViewController: UITableViewController, Themeable {

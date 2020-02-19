@@ -91,18 +91,18 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
         switch section {
         case .sites:
             if let record = siteRecords?[safe: indexPath.row] {
-                cell.textLabel?.text = record.displayName
+                cell.titleLabel.text = record.displayName
             }
         case .showMore:
-            cell.textLabel?.text = Strings.Settings.WebsiteData.ShowMoreButton
-            cell.textLabel?.textColor = showMoreButtonEnabled ? Theme.general.highlightBlue : UIColor.gray
+            cell.titleLabel.text = Strings.Settings.WebsiteData.ShowMoreButton
+            cell.titleLabel.textColor = showMoreButtonEnabled ? Theme.general.highlightBlue : UIColor.gray
             cell.accessibilityTraits = UIAccessibilityTraits.button
             cell.accessibilityIdentifier = "ShowMoreWebsiteData"
             showMoreButton = cell
         case .clearAllButton:
-            cell.textLabel?.text = Strings.Settings.ClearPrivateData.ClearAllWebsiteDataButton
-            cell.textLabel?.textAlignment = .center
-            cell.textLabel?.textColor = Theme.general.destructiveRed
+            cell.titleLabel.text = Strings.Settings.ClearPrivateData.ClearAllWebsiteDataButton
+            cell.titleLabel.textAlignment = .center
+            cell.titleLabel.textColor = Theme.general.destructiveRed
             cell.accessibilityTraits = UIAccessibilityTraits.button
             cell.accessibilityIdentifier = "ClearAllWebsiteData"
             clearButton = cell
