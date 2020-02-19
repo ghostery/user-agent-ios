@@ -23,9 +23,9 @@ steps:
   displayName: 'Change XCode to 11.1'
 
 - task: NodeTool@0
-  displayName: 'Define Node to v9.11.2'
+  displayName: 'Define Node to v10.17.0'
   inputs:
-    versionSpec: '9.11.2'
+    versionSpec: '10.17.0'
 
 - bash: |
     set -x

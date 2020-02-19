@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /*!
  * Copyright (c) 2014-present Cliqz GmbH. All rights reserved.
  *

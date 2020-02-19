@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Logo } from '@cliqz/component-ui-logo';
 import getLogo from 'cliqz-logo-database';
