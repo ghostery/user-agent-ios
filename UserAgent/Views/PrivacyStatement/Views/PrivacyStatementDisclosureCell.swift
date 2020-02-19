@@ -12,26 +12,26 @@ class PrivacyStatementDisclosureCell: PrivacyStatementCell {
 
     var title: String? {
         get {
-            return self.textLabel?.text
+            return self.titleLabel.text
         }
         set {
-            self.textLabel?.text = newValue
+            self.titleLabel.text = newValue
         }
     }
 
     var detailTitle: String? {
         get {
-            return self.detailTextLabel?.text
+            return self.detailLabel.text
         }
         set {
-            self.detailTextLabel?.text = newValue
+            self.detailLabel.text = newValue
         }
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.textLabel?.textColor = Theme.tableView.rowText
-        self.detailTextLabel?.textColor = UIColor.Grey80
+        self.titleLabel.textColor = Theme.tableView.rowText
+        self.detailLabel.textColor = UIColor.Grey80
         self.accessoryType = .disclosureIndicator
     }
 

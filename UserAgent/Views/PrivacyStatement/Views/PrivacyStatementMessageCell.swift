@@ -22,14 +22,14 @@ protocol PrivacyStatementMessageCellDelegate: class {
 
 class PrivacyStatementMessageCell: ThemedTableViewCell {
 
-    private var iconImageView: UIImageView?
+    private var messageIconImageView: UIImageView?
     private var titleButton: UIButton?
 
     weak var delegate: PrivacyStatementMessageCellDelegate?
 
     var icon: UIImage? {
         didSet {
-            self.iconImageView?.image = self.icon
+            self.messageIconImageView?.image = self.icon
         }
     }
 
@@ -69,10 +69,10 @@ class PrivacyStatementMessageCell: ThemedTableViewCell {
             make.top.equalTo(self).offset(PrivacyStatementMessageCellUI.titleOffset / 2)
             make.height.equalTo(2 * PrivacyStatementMessageCellUI.iconHeight)
         })
-        self.iconImageView = UIImageView()
-        self.iconImageView?.tintColor = Theme.general.controlTint
-        self.addSubview(self.iconImageView!)
-        self.iconImageView?.snp.makeConstraints({ (make) in
+        self.messageIconImageView = UIImageView()
+        self.messageIconImageView?.tintColor = Theme.general.controlTint
+        self.addSubview(self.messageIconImageView!)
+        self.messageIconImageView?.snp.makeConstraints({ (make) in
             make.centerY.equalTo(self.titleButton!.snp.centerY)
             make.right.equalTo(self.titleButton!.snp.left).offset(-PrivacyStatementMessageCellUI.iconOffet)
             make.width.equalTo(PrivacyStatementMessageCellUI.iconWidth)

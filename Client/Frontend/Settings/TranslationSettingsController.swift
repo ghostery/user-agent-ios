@@ -75,11 +75,11 @@ class TranslationSettingsController: ThemedTableViewController {
         switch section {
         case .translationOnOff:
             if indexPath.row == 0 {
-                cell.textLabel?.text = Strings.Settings.TranslateSnackBar.SwitchTitle
-                cell.detailTextLabel?.text = Strings.Settings.TranslateSnackBar.SwitchSubtitle
-                cell.detailTextLabel?.numberOfLines = 4
-                cell.detailTextLabel?.minimumScaleFactor = 0.5
-                cell.detailTextLabel?.adjustsFontSizeToFitWidth = true
+                cell.titleLabel.text = Strings.Settings.TranslateSnackBar.SwitchTitle
+                cell.detailLabel.text = Strings.Settings.TranslateSnackBar.SwitchSubtitle
+                cell.detailLabel.numberOfLines = 4
+                cell.detailLabel.minimumScaleFactor = 0.5
+                cell.detailLabel.adjustsFontSizeToFitWidth = true
 
                 let control = UISwitchThemed()
                 control.accessibilityIdentifier = "TranslateSwitchValue"
@@ -98,7 +98,7 @@ class TranslationSettingsController: ThemedTableViewController {
 
         case .lightDarkPicker:
             let thisService = setting.list[indexPath.row]
-            cell.textLabel?.text = thisService.name
+            cell.titleLabel.text = thisService.name
 
             let selectedService = setting.useTranslationService
             if thisService.id == selectedService.id {
