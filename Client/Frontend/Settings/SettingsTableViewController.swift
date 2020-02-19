@@ -64,7 +64,6 @@ class Setting: NSObject {
         cell.detailLabel.assign(attributed: status)
         cell.detailLabel.attributedText = status
         cell.detailLabel.numberOfLines = 0
-        cell.titleLabel.lineBreakMode = .byTruncatingTail
         cell.titleLabel.assign(attributed: title)
         cell.titleLabel.textAlignment = textAlignment
         cell.titleLabel.numberOfLines = 0
@@ -73,7 +72,7 @@ class Setting: NSObject {
         cell.accessoryView = nil
         cell.selectionStyle = enabled ? .default : .none
         cell.accessibilityIdentifier = accessibilityIdentifier
-        cell.iconImage = _image
+        cell.iconImage = self.image
         if let title = title?.string {
             if let detailText = cell.detailLabel.text {
                 cell.accessibilityLabel = "\(title), \(detailText)"
@@ -84,8 +83,6 @@ class Setting: NSObject {
             }
         }
         cell.accessibilityTraits = UIAccessibilityTraits.button
-        cell.indentationWidth = 0
-        cell.layoutMargins = .zero
         // So that the separator line goes all the way to the left edge.
         cell.separatorInset = .zero
         cell.applyTheme()
@@ -504,7 +501,6 @@ class SettingsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier)
         tableView.register(ThemedTableSectionHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SectionHeaderIdentifier)
         tableView.tableFooterView = UIView(frame: CGRect(width: view.frame.width, height: 30))
         tableView.estimatedRowHeight = 44
@@ -560,10 +556,14 @@ class SettingsTableViewController: ThemedTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = settings[indexPath.section]
         if let setting = section[indexPath.row] {
-            let cell = ThemedTableViewCell(style: setting.style, reuseIdentifier: nil)
-            setting.onConfigureCell(cell)
-            cell.backgroundColor = Theme.tableView.rowBackground
-            return cell
+            let identifier = Identifier + "_\(setting.style.rawValue)"
+            var cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? ThemedTableViewCell
+            if cell == nil {
+                cell = ThemedTableViewCell(style: setting.style, reuseIdentifier: identifier)
+            }
+            setting.onConfigureCell(cell!)
+            cell!.backgroundColor = Theme.tableView.rowBackground
+            return cell!
         }
         return super.tableView(tableView, cellForRowAt: indexPath)
     }

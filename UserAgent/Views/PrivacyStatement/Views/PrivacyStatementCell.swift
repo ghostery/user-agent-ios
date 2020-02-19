@@ -59,7 +59,7 @@ class PrivacyStatementCell: ThemedTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         self.titleLabel.snp.updateConstraints { (make) in
-            make.left.equalTo(self.iconImageView.snp.right).offset(PrivacyStatementCellUI.labelLeftOffset)
+            make.leading.equalTo(self.iconImageView.snp.trailing).offset(PrivacyStatementCellUI.labelLeftOffset)
         }
     }
 

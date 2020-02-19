@@ -16,17 +16,21 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
 
     lazy var titleLabel: UILabel = {
         let label = self.createLabel()
-        label.setContentHuggingPriority(.required, for: .horizontal)
-        label.setContentCompressionResistancePriority(.required, for: .horizontal)
+        label.setContentHuggingPriority(UILayoutPriority(251.0), for: .horizontal)
+        label.setContentHuggingPriority(UILayoutPriority(250.0), for: .vertical)
         return label
     }()
 
     lazy var detailLabel: UILabel = {
-        return self.createLabel()
+        let label = self.createLabel()
+        label.setContentHuggingPriority(UILayoutPriority(251.0), for: .horizontal)
+        label.setContentHuggingPriority(UILayoutPriority(250.0), for: .vertical)
+        return label
     }()
 
     var iconImage: UIImage? {
         didSet {
+            self.iconImageView.image = self.iconImage
             if self.iconImage == nil {
                 self.iconImageView.snp.updateConstraints { (make) in
                     make.width.equalTo(0)
@@ -44,7 +48,6 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
         icon.contentMode = .scaleAspectFit
         icon.clipsToBounds = true
         icon.layer.cornerRadius = ThemedTableViewCellUX.CornerRadius
-        icon.setContentHuggingPriority(.required, for: .horizontal)
         icon.setContentCompressionResistancePriority(.required, for: .horizontal)
         return icon
     }()
@@ -81,7 +84,7 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
     private func setup(style: UITableViewCell.CellStyle) {
         self.contentView.addSubview(self.iconImageView)
         self.iconImageView.snp.makeConstraints { (make) in
-            make.left.equalTo(ThemedTableViewCellUX.CellSideOffset / 2)
+            make.leading.equalToSuperview().offset(ThemedTableViewCellUX.CellSideOffset / 2)
             make.centerY.equalToSuperview()
             make.width.equalTo(0)
             make.height.equalTo(ThemedTableViewCellUX.IconSize)
@@ -89,28 +92,30 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
 
         self.contentView.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(self.iconImageView.snp.right).offset(ThemedTableViewCellUX.TitleLabelOffset / 2)
+            make.leading.equalTo(self.iconImageView.snp.trailing).offset(ThemedTableViewCellUX.TitleLabelOffset / 2)
             if style == .subtitle {
                 make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset)
-                make.right.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
+                make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
             } else {
-                make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset)
-                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
+                make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                make.centerY.equalToSuperview()
             }
         }
-
         self.contentView.addSubview(self.detailLabel)
         self.detailLabel.snp.makeConstraints { (make) in
             if style == .subtitle {
-                make.left.equalTo(self.titleLabel)
-                make.right.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
+                make.leading.equalTo(self.titleLabel.snp.leading)
+                make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
                 make.top.equalTo(self.titleLabel.snp.bottom)
                 make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
             } else {
-                make.left.equalTo(self.titleLabel.snp.right).offset(2 * ThemedTableViewCellUX.TitleLabelOffset)
-                make.right.equalToSuperview().offset(-ThemedTableViewCellUX.TitleLabelOffset)
-                make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset)
-                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
+                make.leading.greaterThanOrEqualTo(self.titleLabel.snp.trailing).offset(2 * ThemedTableViewCellUX.TitleLabelOffset)
+                make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.TitleLabelOffset)
+                make.centerY.equalToSuperview()
+                make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                make.width.equalTo(self.titleLabel.snp.width).multipliedBy(0.7).priority(200)
             }
         }
         if style == .subtitle {
@@ -126,6 +131,7 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
 
