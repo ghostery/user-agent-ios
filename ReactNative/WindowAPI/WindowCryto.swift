@@ -46,8 +46,32 @@ extension Data {
     }
 }
 
+class WindowCryptoBase: NSObject {
+    @objc(requiresMainQueueSetup)
+    static func requiresMainQueueSetup() -> Bool {
+        return false
+    }
+}
+
 @objc(WindowCrypto)
-class WindowCrypto: NSObject {
+class WindowCrypto: WindowCryptoBase {
+    @objc(digest:data:resolve:reject:)
+    public func digest(
+        algorighm: NSString,
+        data: NSString,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+    }
+}
+
+@available(iOS 13.0, *)
+@objc(WindowCrypto)
+class WindowCrypto13: WindowCryptoBase {
+    private var privateKeys: [P256.KeyAgreement.PrivateKey] = []
+    private var publicKeys: [P256.KeyAgreement.PrivateKey] = []
+
     @objc(digest:data:resolve:reject:)
     public func digest(
         algorighm: NSString,
@@ -56,18 +80,13 @@ class WindowCrypto: NSObject {
         reject: @escaping RCTPromiseRejectBlock
     ) {
         if algorighm == "SHA-256" {
-            if #available(iOS 13.0, *) {
-                guard let data = Data(hexString: data as String) else {
-                    reject("E_data", "Data in wrong format", nil)
-                    return
-                }
-                let hash = SHA256.hash(data: data)
-                let hexHash = hash.compactMap { String(format: "%02x", $0) }.joined()
-                resolve(hexHash)
-            } else {
-                reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+            guard let data = Data(hexString: data as String) else {
+                reject("E_data", "Data in wrong format", nil)
                 return
             }
+            let hash = SHA256.hash(data: data)
+            let hexHash = hash.compactMap { String(format: "%02x", $0) }.joined()
+            resolve(hexHash)
         } else {
             reject("E_algorithm", "Algorithm is not supported", nil)
         }
@@ -83,8 +102,11 @@ class WindowCrypto: NSObject {
         resolve(random.toHexString())
     }
 
-    @objc(requiresMainQueueSetup)
-    static func requiresMainQueueSetup() -> Bool {
-        return false
+    @objc(generateKey:reject:)
+    public func generateKey(
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
     }
 }
