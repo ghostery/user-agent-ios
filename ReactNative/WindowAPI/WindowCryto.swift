@@ -46,31 +46,49 @@ extension Data {
     }
 }
 
-class WindowCryptoBase: NSObject {
-    @objc(requiresMainQueueSetup)
-    static func requiresMainQueueSetup() -> Bool {
-        return false
-    }
+private protocol KeyStoreProtocol {
+    func create() -> Int
+    func getKey(_ id: Int) -> Data?
 }
 
-@objc(WindowCrypto)
-class WindowCrypto: WindowCryptoBase {
-    @objc(digest:data:resolve:reject:)
-    public func digest(
-        algorighm: NSString,
-        data: NSString,
-        resolve: @escaping RCTPromiseResolveBlock,
-        reject: @escaping RCTPromiseRejectBlock
-    ) {
-        reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
-    }
+private class KeyStoreStub: KeyStoreProtocol {
+    func create() -> Int { return 0 }
+    func getKey(_ id: Int) -> Data? { return nil }
 }
 
 @available(iOS 13.0, *)
-@objc(WindowCrypto)
-class WindowCrypto13: WindowCryptoBase {
+private class KeyStore: KeyStoreProtocol {
     private var privateKeys: [P256.KeyAgreement.PrivateKey] = []
-    private var publicKeys: [P256.KeyAgreement.PrivateKey] = []
+    private var publicKeys: [P256.KeyAgreement.PublicKey] = []
+
+    func create() -> Int {
+        let privateKey = P256.KeyAgreement.PrivateKey()
+        let publicKey = privateKey.publicKey
+
+        self.privateKeys.append(privateKey)
+        self.publicKeys.append(publicKey)
+
+        return self.publicKeys.count - 1
+    }
+
+    func getKey(_ id: Int) -> Data? {
+        if id >= self.publicKeys.count {
+            return nil
+        }
+        let key = self.publicKeys[id]
+        return key.rawRepresentation
+    }
+}
+
+@objc(WindowCrypto)
+class WindowCrypto: NSObject {
+    private lazy var keyStore: KeyStoreProtocol = {
+        if #available(iOS 13.0, *) {
+            return KeyStore()
+        } else {
+            return KeyStoreStub()
+        }
+    }()
 
     @objc(digest:data:resolve:reject:)
     public func digest(
@@ -79,6 +97,11 @@ class WindowCrypto13: WindowCryptoBase {
         resolve: @escaping RCTPromiseResolveBlock,
         reject: @escaping RCTPromiseRejectBlock
     ) {
+        guard #available(iOS 13.0, *) else {
+            reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+            return
+        }
+
         if algorighm == "SHA-256" {
             guard let data = Data(hexString: data as String) else {
                 reject("E_data", "Data in wrong format", nil)
@@ -107,6 +130,33 @@ class WindowCrypto13: WindowCryptoBase {
         resolve: @escaping RCTPromiseResolveBlock,
         reject: @escaping RCTPromiseRejectBlock
     ) {
-        reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+        guard #available(iOS 13.0, *) else {
+            reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+            return
+        }
+
+        let id = self.keyStore.create()
+        resolve(id)
+    }
+
+    @objc(exportKey:resolve:reject:)
+    public func exportKey(
+        id: NSInteger,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        guard #available(iOS 13.0, *) else {
+            reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+            return
+        }
+
+        if let key = self.keyStore.getKey(id as Int) {
+            resolve(key.toHexString())
+        }
+    }
+
+    @objc(requiresMainQueueSetup)
+    static func requiresMainQueueSetup() -> Bool {
+        return false
     }
 }

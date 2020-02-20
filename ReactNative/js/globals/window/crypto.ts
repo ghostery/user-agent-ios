@@ -61,6 +61,13 @@ class RandomPool {
 
 const randomPool = new RandomPool();
 
+interface CryptoKey {
+  extractable: boolean;
+  type: 'public' | 'private';
+  usages: string[];
+  id: number;
+}
+
 type TypedArray = ArrayBuffer | Uint8Array | Uint16Array | Uint32Array;
 export const crypto = {
   getRandomValues(a: TypedArray) {
@@ -93,8 +100,55 @@ export const crypto = {
       );
       return hexStringToByteArray(hexHash);
     },
+    async generateKey(
+      algorithm: { name: string; namedCurve: string },
+      extractable: boolean,
+      keyUsages: string[],
+    ): Promise<{
+      privateKey: CryptoKey;
+      publicKey: CryptoKey;
+    }> {
+      const { name, namedCurve } = algorithm;
+      if (name !== 'ECDH' || namedCurve !== 'P-256') {
+        throw new Error(
+          'crypto.subtle.generateKey - unsuported algorithm type',
+        );
+      }
+      const keyId = await NativeModules.WindowCrypto.generateKey();
+
+      return {
+        publicKey: {
+          extractable,
+          type: 'public',
+          usages: keyUsages,
+          id: keyId,
+        },
+        privateKey: {
+          extractable,
+          type: 'private',
+          usages: keyUsages,
+          id: keyId,
+        },
+      };
+    },
+    async exportKey(format: string, key: CryptoKey): Promise<ArrayBuffer> {
+      const rawKey = await NativeModules.WindowCrypto.exportKey(key.id);
+      return hexStringToByteArray(rawKey);
+    },
   },
 };
+
+(async function test() {
+  const { publicKey, privateKey } = await crypto.subtle.generateKey(
+    { name: 'ECDH', namedCurve: 'P-256' },
+    true,
+    ['deriveKey'],
+  );
+
+  const rawPublicKey = await crypto.subtle.exportKey('raw', publicKey);
+
+  console.warn('xxxx exported', new Uint8Array(rawPublicKey))
+})();
 
 export const seedRandom = async () => {
   return randomPool.fetchEntropy(1024 * 64);
