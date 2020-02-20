@@ -63,9 +63,14 @@ const randomPool = new RandomPool();
 
 interface CryptoKey {
   extractable: boolean;
-  type: 'public' | 'private';
+  type?: 'public' | 'private';
   usages: string[];
   id: number;
+}
+
+interface Algorithm {
+  name: string;
+  namedCurve: string;
 }
 
 type TypedArray = ArrayBuffer | Uint8Array | Uint16Array | Uint32Array;
@@ -101,7 +106,7 @@ export const crypto = {
       return hexStringToByteArray(hexHash);
     },
     async generateKey(
-      algorithm: { name: string; namedCurve: string },
+      algorithm: Algorithm,
       extractable: boolean,
       keyUsages: string[],
     ): Promise<{
@@ -114,26 +119,41 @@ export const crypto = {
           'crypto.subtle.generateKey - unsuported algorithm type',
         );
       }
-      const keyId = await NativeModules.WindowCrypto.generateKey();
+      const { privateKeyId, publicKeyId } = await NativeModules.WindowCrypto.generateKey();
 
       return {
         publicKey: {
           extractable,
           type: 'public',
           usages: keyUsages,
-          id: keyId,
+          id: publicKeyId,
         },
         privateKey: {
           extractable,
           type: 'private',
           usages: keyUsages,
-          id: keyId,
+          id: privateKeyId,
         },
       };
     },
     async exportKey(format: string, key: CryptoKey): Promise<ArrayBuffer> {
       const rawKey = await NativeModules.WindowCrypto.exportKey(key.id);
       return hexStringToByteArray(rawKey);
+    },
+    async importKey(
+      format: string,
+      keyData: Uint8Array,
+      algorithm: Algorithm,
+      extractable: boolean,
+      usages: string[],
+    ): Promise<CryptoKey> {
+      const hexString = arrayBufferToHexString(keyData.buffer);
+      const id = await NativeModules.WindowCrypto.importKey(hexString);
+      return {
+        extractable,
+        usages,
+        id,
+      };
     },
   },
 };
@@ -146,8 +166,19 @@ export const crypto = {
   );
 
   const rawPublicKey = await crypto.subtle.exportKey('raw', publicKey);
+  const rawPublicKeyArray = new Uint8Array(rawPublicKey);
+  console.warn('xxxx exported', rawPublicKeyArray);
 
-  console.warn('xxxx exported', new Uint8Array(rawPublicKey))
+  const publicKey2 = await crypto.subtle.importKey(
+    'raw',
+    rawPublicKeyArray,
+    { name: 'ECDH', namedCurve: 'P-256' },
+    false,
+    [],
+  );
+  const rawPublicKey2 = await crypto.subtle.exportKey('raw', publicKey2);
+  const rawPublicKeyArray2 = new Uint8Array(rawPublicKey2);
+  console.warn('xxxx exported2', rawPublicKeyArray2);
 })();
 
 export const seedRandom = async () => {

@@ -46,49 +46,26 @@ extension Data {
     }
 }
 
-private protocol KeyStoreProtocol {
-    func create() -> Int
-    func getKey(_ id: Int) -> Data?
-}
+private class KeyStore {
+    private var keys: [Data] = []
 
-private class KeyStoreStub: KeyStoreProtocol {
-    func create() -> Int { return 0 }
-    func getKey(_ id: Int) -> Data? { return nil }
-}
-
-@available(iOS 13.0, *)
-private class KeyStore: KeyStoreProtocol {
-    private var privateKeys: [P256.KeyAgreement.PrivateKey] = []
-    private var publicKeys: [P256.KeyAgreement.PublicKey] = []
-
-    func create() -> Int {
-        let privateKey = P256.KeyAgreement.PrivateKey()
-        let publicKey = privateKey.publicKey
-
-        self.privateKeys.append(privateKey)
-        self.publicKeys.append(publicKey)
-
-        return self.publicKeys.count - 1
+    func importKey(_ key: Data) -> Int {
+        self.keys.append(key)
+        return self.keys.count - 1
     }
 
-    func getKey(_ id: Int) -> Data? {
-        if id >= self.publicKeys.count {
+    func exportKey(_ id: Int) -> Data? {
+        if id >= self.keys.count {
             return nil
         }
-        let key = self.publicKeys[id]
-        return key.rawRepresentation
+        let key = self.keys[id]
+        return key
     }
 }
 
 @objc(WindowCrypto)
 class WindowCrypto: NSObject {
-    private lazy var keyStore: KeyStoreProtocol = {
-        if #available(iOS 13.0, *) {
-            return KeyStore()
-        } else {
-            return KeyStoreStub()
-        }
-    }()
+    private var keyStore = KeyStore()
 
     @objc(digest:data:resolve:reject:)
     public func digest(
@@ -134,9 +111,15 @@ class WindowCrypto: NSObject {
             reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
             return
         }
+        let privateKey = P256.KeyAgreement.PrivateKey()
+        let publicKey = privateKey.publicKey
+        let privateKeyId = self.keyStore.importKey(privateKey.rawRepresentation)
+        let publicKeyId = self.keyStore.importKey(publicKey.rawRepresentation)
 
-        let id = self.keyStore.create()
-        resolve(id)
+        resolve([
+            "privateKeyId": privateKeyId,
+            "publicKeyId": publicKeyId,
+        ])
     }
 
     @objc(exportKey:resolve:reject:)
@@ -150,9 +133,29 @@ class WindowCrypto: NSObject {
             return
         }
 
-        if let key = self.keyStore.getKey(id as Int) {
+        if let key = self.keyStore.exportKey(id as Int) {
             resolve(key.toHexString())
         }
+    }
+
+    @objc(importKey:resolve:reject:)
+    public func importKey(
+        key: NSString,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        guard #available(iOS 13.0, *) else {
+            reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+            return
+        }
+
+        guard let rawKey = Data(hexString: key as String) else {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+
+        let id = self.keyStore.importKey(rawKey)
+        resolve(id)
     }
 
     @objc(requiresMainQueueSetup)
