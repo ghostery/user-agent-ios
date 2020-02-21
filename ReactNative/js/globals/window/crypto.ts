@@ -203,6 +203,26 @@ export const crypto = {
       );
       return hexStringToByteArray(encryptedDataHexString);
     },
+    async decrypt(
+      algorithm: Algorithm,
+      key: CryptoKey,
+      data: Uint8Array,
+    ): Promise<ArrayBuffer> {
+      if (!algorithm.iv) {
+        throw new Error('No iv');
+      }
+      const hexString = arrayBufferToHexString(data.buffer);
+      const dataHexString = hexString.slice(0, -8);
+      const tagHexString = hexString.slice(-8);
+      const ivHexString = arrayBufferToHexString(algorithm.iv);
+      const encryptedDataHexString = await NativeModules.WindowCrypto.decrypt(
+        key.id,
+        ivHexString,
+        tagHexString,
+        dataHexString,
+      );
+      return hexStringToByteArray(encryptedDataHexString);
+    },
   },
 };
 
@@ -287,9 +307,18 @@ export const crypto = {
   const ciphertext = await crypto.subtle.encrypt(
     { name: 'AES-GCM', iv, tagLength: 128 },
     secret,
-    toUtf8(''),
+    toUtf8('hello world'),
   );
-  console.warn('encrypted', new Uint8Array(ciphertext).length);
+  const ciphertextArray = new Uint8Array(ciphertext);
+  console.warn('encrypted', ciphertextArray.length);
+  const decrypted = fromUtf8(
+    await crypto.subtle.decrypt(
+      { name: 'AES-GCM', iv, tagLength: 128 },
+      secret,
+      ciphertextArray,
+    ),
+  );
+  console.warn('decrypted', decrypted);
 })();
 
 export const seedRandom = async () => {

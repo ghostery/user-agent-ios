@@ -247,6 +247,52 @@ class WindowCrypto: NSObject {
         }
     }
 
+    @objc(decrypt:iv:tag:data:resolve:reject:)
+    public func decrypt(
+        keyId: NSInteger,
+        iv: NSString,
+        tag: NSString,
+        data: NSString,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        guard #available(iOS 13.0, *) else {
+            reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+            return
+        }
+
+        guard let sharedSecret = self.keyStore.exportKey(keyId as Int) else {
+            reject("E_data", "No such key", nil)
+            return
+        }
+
+        guard let cipher = Data(hexString: data as String) else {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+
+        guard let iv = Data(hexString: iv as String) else {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+
+        guard let tag = Data(hexString: tag as String) else {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+
+        let symmetricKey = SymmetricKey(data: sharedSecret)
+        do {
+            let nonce = try AES.GCM.Nonce(data: iv)
+            let box = try AES.GCM.SealedBox(nonce: nonce, ciphertext: cipher, tag: tag)
+            let decryptedData = try AES.GCM.open(box, using: symmetricKey)
+            resolve(decryptedData.toHexString())
+        } catch {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+    }
+
     @objc(requiresMainQueueSetup)
     static func requiresMainQueueSetup() -> Bool {
         return false
