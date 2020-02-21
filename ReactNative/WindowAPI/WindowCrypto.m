@@ -15,5 +15,6 @@ RCT_EXTERN_METHOD(generateEntropy:(NSInteger)count resolve:(RCTPromiseResolveBlo
 RCT_EXTERN_METHOD(generateKey:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 RCT_EXTERN_METHOD(exportKey:(NSInteger)id resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 RCT_EXTERN_METHOD(importKey:(NSString)key resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(deriveKey:(NSString)privateKey publicKey:(NSString)publicKey resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 
 @end

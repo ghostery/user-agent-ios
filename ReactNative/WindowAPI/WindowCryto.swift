@@ -158,6 +158,50 @@ class WindowCrypto: NSObject {
         resolve(id)
     }
 
+    @objc(deriveKey:publicKey:resolve:reject:)
+    public func deriveKey(
+        privateKey: NSString,
+        publicKey: NSString,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        guard #available(iOS 13.0, *) else {
+            reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+            return
+        }
+
+        guard let rawPrivateKey = Data(hexString: privateKey as String) else {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+
+        guard let rawPublicKey = Data(hexString: publicKey as String) else {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+
+        do {
+            let p256PrivateKey = try P256.KeyAgreement.PrivateKey(rawRepresentation: rawPrivateKey)
+            let p256PublicKey = try P256.KeyAgreement.PublicKey(rawRepresentation: rawPublicKey)
+
+            let sharedSecret = try p256PrivateKey.sharedSecretFromKeyAgreement(with: p256PublicKey)
+
+            var rawSharedSecret: Data?
+            sharedSecret.withUnsafeBytes { bytes in
+                rawSharedSecret = Data(bytes)
+            }
+            guard let sharedKey = rawSharedSecret else {
+                reject("E_data", "Data in wrong format", nil)
+                return
+            }
+            let id = self.keyStore.importKey(sharedKey)
+            resolve(id)
+        } catch {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+    }
+
     @objc(requiresMainQueueSetup)
     static func requiresMainQueueSetup() -> Bool {
         return false

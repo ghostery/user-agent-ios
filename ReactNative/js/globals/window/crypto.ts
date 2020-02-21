@@ -70,7 +70,9 @@ interface CryptoKey {
 
 interface Algorithm {
   name: string;
-  namedCurve: string;
+  namedCurve?: string;
+  public?: Uint8Array;
+  length?: number;
 }
 
 type TypedArray = ArrayBuffer | Uint8Array | Uint16Array | Uint32Array;
@@ -119,7 +121,10 @@ export const crypto = {
           'crypto.subtle.generateKey - unsuported algorithm type',
         );
       }
-      const { privateKeyId, publicKeyId } = await NativeModules.WindowCrypto.generateKey();
+      const {
+        privateKeyId,
+        publicKeyId,
+      } = await NativeModules.WindowCrypto.generateKey();
 
       return {
         publicKey: {
@@ -155,30 +160,87 @@ export const crypto = {
         id,
       };
     },
+    async deriveKey(
+      algorithm: Algorithm,
+      baseKey: Uint8Array,
+      derivedKeyAlgorithm: Algorithm,
+      extractable: boolean,
+      keyUsages: string[],
+    ): Promise<CryptoKey> {
+      if (!algorithm.public) {
+        throw new Error('new key');
+      }
+      const privateKeyHexString = arrayBufferToHexString(baseKey.buffer);
+      const publicKeyHexString = arrayBufferToHexString(
+        algorithm.public.buffer,
+      );
+      const id = await NativeModules.WindowCrypto.deriveKey(
+        privateKeyHexString,
+        publicKeyHexString,
+      );
+      return {
+        extractable,
+        usages: keyUsages,
+        id,
+      };
+    },
   },
 };
 
 (async function test() {
-  const { publicKey, privateKey } = await crypto.subtle.generateKey(
+  const {
+    publicKey: bobPublic,
+    privateKey: bobPrivate,
+  } = await crypto.subtle.generateKey(
     { name: 'ECDH', namedCurve: 'P-256' },
     true,
     ['deriveKey'],
   );
-
-  const rawPublicKey = await crypto.subtle.exportKey('raw', publicKey);
-  const rawPublicKeyArray = new Uint8Array(rawPublicKey);
-  console.warn('xxxx exported', rawPublicKeyArray);
-
-  const publicKey2 = await crypto.subtle.importKey(
-    'raw',
-    rawPublicKeyArray,
+  const {
+    publicKey: alicePublic,
+    privateKey: alicePrivate,
+  } = await crypto.subtle.generateKey(
     { name: 'ECDH', namedCurve: 'P-256' },
-    false,
-    [],
+    true,
+    ['deriveKey'],
   );
-  const rawPublicKey2 = await crypto.subtle.exportKey('raw', publicKey2);
-  const rawPublicKeyArray2 = new Uint8Array(rawPublicKey2);
-  console.warn('xxxx exported2', rawPublicKeyArray2);
+  const bobPublicRaw = await crypto.subtle.exportKey('raw', bobPublic);
+  const bobPublicArray = new Uint8Array(bobPublicRaw);
+  const alicePrivateRaw = await crypto.subtle.exportKey('raw', alicePrivate);
+  const alicePrivateArray = new Uint8Array(alicePrivateRaw);
+
+  // testing import and export
+  {
+    console.warn('Bob public original', bobPublicArray);
+
+    const bobPublicCopy = await crypto.subtle.importKey(
+      'raw',
+      bobPublicArray,
+      { name: 'ECDH', namedCurve: 'P-256' },
+      false,
+      [],
+    );
+    const bobPublicCopyRaw = await crypto.subtle.exportKey(
+      'raw',
+      bobPublicCopy,
+    );
+    const bobPublicCopyArray = new Uint8Array(bobPublicCopyRaw);
+    console.warn('Bob public imported', bobPublicCopyArray);
+  }
+
+  const aliceDerivedKey = await crypto.subtle.deriveKey(
+    { name: 'ECDH', namedCurve: 'P-256', public: bobPublicArray },
+    alicePrivateArray,
+    { name: 'AES-GCM', length: 256 },
+    true,
+    ['encrypt', 'decrypt'],
+  );
+  const aliceDerivedKeyRaw = await crypto.subtle.exportKey(
+    'raw',
+    aliceDerivedKey,
+  );
+  const aliceDerivedKeyArray = new Uint8Array(aliceDerivedKeyRaw);
+  console.warn("XXXX", aliceDerivedKeyArray.length);
 })();
 
 export const seedRandom = async () => {
