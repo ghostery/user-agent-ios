@@ -73,6 +73,8 @@ interface Algorithm {
   namedCurve?: string;
   public?: Uint8Array;
   length?: number;
+  iv?: TypedArray;
+  tagLength?: number;
 }
 
 type TypedArray = ArrayBuffer | Uint8Array | Uint16Array | Uint32Array;
@@ -184,10 +186,41 @@ export const crypto = {
         id,
       };
     },
+    async encrypt(
+      algorithm: Algorithm,
+      key: CryptoKey,
+      data: Uint8Array,
+    ): Promise<ArrayBuffer> {
+      if (!algorithm.iv) {
+        throw new Error('No iv');
+      }
+      const dataHexString = arrayBufferToHexString(data.buffer);
+      const ivHexString = arrayBufferToHexString(algorithm.iv);
+      const encryptedDataHexString = await NativeModules.WindowCrypto.encrypt(
+        key.id,
+        ivHexString,
+        dataHexString,
+      );
+      return hexStringToByteArray(encryptedDataHexString);
+    },
   },
 };
 
 (async function test() {
+  async function sha256(data) {
+    return new Uint8Array(
+      await crypto.subtle.digest({ name: 'SHA-256' }, data),
+    );
+  }
+
+  function toUtf8(text) {
+    return new TextEncoder().encode(text);
+  }
+
+  function fromUtf8(buffer) {
+    return new TextDecoder().decode(buffer);
+  }
+
   const {
     publicKey: bobPublic,
     privateKey: bobPrivate,
@@ -240,7 +273,23 @@ export const crypto = {
     aliceDerivedKey,
   );
   const aliceDerivedKeyArray = new Uint8Array(aliceDerivedKeyRaw);
-  console.warn("XXXX", aliceDerivedKeyArray.length);
+  console.warn('XXXX', aliceDerivedKeyArray.length);
+
+  const raw128bitKey = (await sha256(aliceDerivedKeyArray)).subarray(0, 16);
+  const secret = await crypto.subtle.importKey(
+    'raw',
+    raw128bitKey,
+    { name: 'AES-GCM', length: 128 },
+    false,
+    ['encrypt', 'decrypt'],
+  );
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ciphertext = await crypto.subtle.encrypt(
+    { name: 'AES-GCM', iv, tagLength: 128 },
+    secret,
+    toUtf8(''),
+  );
+  console.warn('encrypted', new Uint8Array(ciphertext).length);
 })();
 
 export const seedRandom = async () => {

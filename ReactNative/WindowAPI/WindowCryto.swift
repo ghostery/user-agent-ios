@@ -63,9 +63,15 @@ private class KeyStore {
     }
 }
 
+private struct Secret {
+    var privateKeyId: Int
+    var publicKeyId: Int
+}
+
 @objc(WindowCrypto)
 class WindowCrypto: NSObject {
     private var keyStore = KeyStore()
+    private var secretStore: [Int: Secret] = [:]
 
     @objc(digest:data:resolve:reject:)
     public func digest(
@@ -196,6 +202,45 @@ class WindowCrypto: NSObject {
             }
             let id = self.keyStore.importKey(sharedKey)
             resolve(id)
+        } catch {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+    }
+
+    @objc(encrypt:iv:data:resolve:reject:)
+    public func encrypt(
+        keyId: NSInteger,
+        iv: NSString,
+        data: NSString,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        guard #available(iOS 13.0, *) else {
+            reject("E_crypto", "Crypto operations are not support for iOS older than 13", nil)
+            return
+        }
+
+        guard let sharedSecret = self.keyStore.exportKey(keyId as Int) else {
+            reject("E_data", "No such key", nil)
+            return
+        }
+
+        guard let message = Data(hexString: data as String) else {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+
+        guard let iv = Data(hexString: iv as String) else {
+            reject("E_data", "Data in wrong format", nil)
+            return
+        }
+
+        let symmetricKey = SymmetricKey(data: sharedSecret)
+        do {
+            let nonce = try AES.GCM.Nonce(data: iv)
+            let box = try AES.GCM.seal(message, using: symmetricKey, nonce: nonce)
+            resolve(box.ciphertext.toHexString())
         } catch {
             reject("E_data", "Data in wrong format", nil)
             return

@@ -16,5 +16,6 @@ RCT_EXTERN_METHOD(generateKey:(RCTPromiseResolveBlock)resolve reject:(RCTPromise
 RCT_EXTERN_METHOD(exportKey:(NSInteger)id resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 RCT_EXTERN_METHOD(importKey:(NSString)key resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 RCT_EXTERN_METHOD(deriveKey:(NSString)privateKey publicKey:(NSString)publicKey resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
+RCT_EXTERN_METHOD(encrypt:(NSInteger)keyId iv:(NSString)iv data:(NSString)data resolve:(RCTPromiseResolveBlock)resolve reject:(RCTPromiseRejectBlock)reject)
 
 @end
