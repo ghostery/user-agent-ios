@@ -108,9 +108,6 @@
 		2B76E43D23A12DE4001CF20E /* PrivacyStatement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */; };
 		2B76E43F23A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
 		2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
-		2B8577952403A0E50052D6C7 /* CliqzRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2B8577922403A0E50052D6C7 /* CliqzRelease.xcconfig */; };
-		2B8577962403A0E50052D6C7 /* CliqzDebug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2B8577932403A0E50052D6C7 /* CliqzDebug.xcconfig */; };
-		2B8577972403A0E50052D6C7 /* CliqzAdHoc.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2B8577942403A0E50052D6C7 /* CliqzAdHoc.xcconfig */; };
 		2B8DDBA323A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
 		2B8DDBA423A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
 		2B8DDBAC23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */; };
@@ -129,34 +126,21 @@
 		2BC457FF23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */; };
 		2BC4580523F1385900057204 /* PhotonActionSheetCollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */; };
 		2BC4580623F1385900057204 /* PhotonActionSheetCollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */; };
-		2BC4664923C45CAF008CF508 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BC4664723C45C80008CF508 /* InfoPlist.strings */; };
 		2BD02D3823BA3375001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
-		2BD02D3D23BA3381001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
 		2BD02D3E23BA33A3001539F0 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
-		2BD02D3F23BA33A4001539F0 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
-		2BD02D4823BA3698001539F0 /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4423BA3698001539F0 /* Ghostery.xcassets */; };
-		2BD02D4923BA3698001539F0 /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4623BA3698001539F0 /* cliqz.xcassets */; };
+		2BD02D4923BA3698001539F0 /* OpenIn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4623BA3698001539F0 /* OpenIn.xcassets */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
-		2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2BE258F523BA2B5B0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BE258DF23BA2B4A0022ED28 /* OpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* OpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
-		2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
 		2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
-		2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
-		2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		2BE2590623BA2C510022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2591023BA2FD40022ED28 /* InfoPlist.strings */; };
 		2BE2591223BA312A0022ED28 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
-		2BE2591323BA312B0022ED28 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
 		2BE2591423BA31370022ED28 /* PanelDataObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68F36971EA694000048CF44 /* PanelDataObservers.swift */; };
-		2BE2591523BA31370022ED28 /* PanelDataObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68F36971EA694000048CF44 /* PanelDataObservers.swift */; };
 		2BE2591623BA313C0022ED28 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
-		2BE2591723BA313C0022ED28 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
 		2BE2591823BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
-		2BE2591923BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
 		2BE2591A23BA314D0022ED28 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
-		2BE2591B23BA314E0022ED28 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
 		2BE9C93123E169450074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9C93223E1C5B60074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BEB1A7D23F5388E008A0F01 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
@@ -253,22 +237,6 @@
 		464E6839234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464E683C234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
-		464F67662326AFB70090D0B5 /* Punycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B2AC11D41F02D00429414 /* Punycode.swift */; };
-		464F67672326AFB70090D0B5 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
-		464F67682326AFB70090D0B5 /* URIFixup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C744CC1A687D6C004CE85D /* URIFixup.swift */; };
-		464F676A2326AFB70090D0B5 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
-		464F676D2326AFB70090D0B5 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
-		464F676E2326AFB70090D0B5 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8708D291A0970990051AB07 /* ShareViewController.swift */; };
-		464F676F2326AFB70090D0B5 /* UXConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB940747208134AF00702E05 /* UXConstants.swift */; };
-		464F67702326AFB70090D0B5 /* PanelDataObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68F36971EA694000048CF44 /* PanelDataObservers.swift */; };
-		464F67712326AFB70090D0B5 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
-		464F67732326AFB70090D0B5 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CD749216CF86B004FF5B0 /* InstructionsViewController.swift */; };
-		464F67742326AFB70090D0B5 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41A7D4A1A1BE04500245963 /* InitialViewController.swift */; };
-		464F67762326AFB70090D0B5 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
-		464F67772326AFB70090D0B5 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
-		464F67782326AFB70090D0B5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
-		464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */; };
-		464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
 		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46569CC623CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
 		46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
@@ -368,7 +336,6 @@
 		6669B5E2211418A200CA117B /* WebsiteDataSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669B5E1211418A200CA117B /* WebsiteDataSearchResultsViewController.swift */; };
 		66CE54A820FCF6CF00CC310B /* WebsiteDataManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CE54A720FCF6CF00CC310B /* WebsiteDataManagementViewController.swift */; };
 		6AAEAD894737287DE69FE0CE /* Pods_StorageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F8D7E381A676F5A7F73446 /* Pods_StorageTests.framework */; };
-		6AF077C2300636D4F960E462 /* Pods_GhosteryShareTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4215C7E8E5CD5534FD54D4 /* Pods_GhosteryShareTo.framework */; };
 		6B064B9E955F05E7483746FA /* PrivateBrowsing.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEEC42F589C10B5A25A90238 /* PrivateBrowsing.strings */; };
 		742A56391D80B54A00BDB803 /* PhotonActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742A56381D80B54A00BDB803 /* PhotonActionSheet.swift */; };
 		744ED5611DBFEB8D00A2B5BE /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
@@ -607,11 +574,9 @@
 		ACC6EC4A2327F4B6000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
 		ACC6EC4D2327F584000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
 		ACC6EC502327F9FC000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
-		ACC6EC512327FA0B000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
 		ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5623290C1A000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
-		ACC6EC5723290C1A000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5F2329460B000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
 		ACC6EC602329460F000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5D232945F0000F5499 /* colors.xcassets */; };
 		ACC6EC612329485E000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
@@ -623,7 +588,6 @@
 		ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */; };
 		B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
 		B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
-		B4198C6C45B52D15B6C38C39 /* Pods_GhosteryOpenIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C38EFDC756B3283B41ACF1 /* Pods_GhosteryOpenIn.framework */; };
 		C2EDC31C6828A137B57F370B /* Pods_SharedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
@@ -638,7 +602,6 @@
 		C50ED2B62326AB1100EE71B8 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2B52326AB1100EE71B8 /* brand.xcassets */; };
 		C50ED2BE2326B18200EE71B8 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2BC2326B17C00EE71B8 /* brand.xcassets */; };
 		C50ED2C42327F1D700EE71B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
-		C50ED2C52327F1D700EE71B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
 		C50ED2CA2328EA3900EE71B8 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2C92328EA3800EE71B8 /* BaseTestCase.swift */; };
 		C50ED2CC2328EAA600EE71B8 /* FxScreenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2CB2328EAA500EE71B8 /* FxScreenGraph.swift */; };
 		C50ED2DC2328F99C00EE71B8 /* ScreenGraphEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2D12328F99C00EE71B8 /* ScreenGraphEdge.swift */; };
@@ -678,8 +641,7 @@
 		C5B83E5E239F9EB0003687AC /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */; };
 		C5B83E62239FA44F003687AC /* PrivacyStatementHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */; };
 		C5B83E66239FA589003687AC /* PrivacyStatementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E65239FA589003687AC /* PrivacyStatementData.swift */; };
-		C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3412359B30B00CB359A /* cliqz.xcassets */; };
-		C5C7D3442359B31D00CB359A /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3432359B31D00CB359A /* Ghostery.xcassets */; };
+		C5C7D3422359B30B00CB359A /* ShareTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3412359B30B00CB359A /* ShareTo.xcassets */; };
 		C5D1EB4C23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */; };
 		C5D1EB4D23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */; };
 		C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B53233112CD00D3F31F /* Bookmarks.swift */; };
@@ -922,7 +884,7 @@
 		F84B21DA1A090F8100AAB793 /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84B21D91A090F8100AAB793 /* ClientTests.swift */; };
 		F84B22041A0910F600AAB793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84B21E51A0910F600AAB793 /* AppDelegate.swift */; };
 		F84B220B1A0910F600AAB793 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F84B21EF1A0910F600AAB793 /* Images.xcassets */; };
-		F84B22541A0920C600AAB793 /* CliqzShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* CliqzShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F84B22541A0920C600AAB793 /* ShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* ShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8708D2E1A0970B70051AB07 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
 		F8708D321A0970B70051AB07 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8708D291A0970990051AB07 /* ShareViewController.swift */; };
 		FA6B2AC21D41F02D00429414 /* Punycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B2AC11D41F02D00429414 /* Punycode.swift */; };
@@ -967,13 +929,6 @@
 			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
 			remoteInfo = Storage;
 		};
-		2BD02D3B23BA337E001539F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
-			remoteInfo = Storage;
-		};
 		2BE258DD23BA2B4A0022ED28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -981,21 +936,7 @@
 			remoteGlobalIDString = 2BE258D223BA2B4A0022ED28;
 			remoteInfo = CliqzOpenIn;
 		};
-		2BE258F323BA2B5B0022ED28 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BE258E823BA2B5B0022ED28;
-			remoteInfo = GhostryOpenIn;
-		};
 		2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
-			remoteInfo = Shared;
-		};
-		2BE2590323BA2C440022ED28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
 			proxyType = 1;
@@ -1050,27 +991,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = F84B21BD1A090F8100AAB793;
 			remoteInfo = Client;
-		};
-		464F67612326AFB70090D0B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
-			remoteInfo = Shared;
-		};
-		464F67632326AFB70090D0B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
-			remoteInfo = Storage;
-		};
-		464F678C232793F00090D0B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 464F675F2326AFB70090D0B5;
-			remoteInfo = GhosteryShareTo;
 		};
 		7B9BF92E1E435DE400CB24F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1154,7 +1074,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2BE258F523BA2B5B0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */,
 				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -1192,8 +1111,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F84B22541A0920C600AAB793 /* CliqzShareTo.appex in Embed App Extensions */,
-				2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */,
+				F84B22541A0920C600AAB793 /* ShareTo.appex in Embed App Extensions */,
+				2BE258DF23BA2B4A0022ED28 /* OpenIn.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1283,6 +1202,23 @@
 		2B8577922403A0E50052D6C7 /* CliqzRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = CliqzRelease.xcconfig; sourceTree = "<group>"; };
 		2B8577932403A0E50052D6C7 /* CliqzDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = CliqzDebug.xcconfig; sourceTree = "<group>"; };
 		2B8577942403A0E50052D6C7 /* CliqzAdHoc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = CliqzAdHoc.xcconfig; sourceTree = "<group>"; };
+		2B8577982403B4860052D6C7 /* OpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenIn.entitlements; sourceTree = "<group>"; };
+		2B8577992403B4860052D6C7 /* ShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareTo.entitlements; sourceTree = "<group>"; };
+		2B85779C2403B5020052D6C7 /* GhosteryDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryDebug.xcconfig; sourceTree = "<group>"; };
+		2B85779E2403B5020052D6C7 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
+		2B85779F2403B5020052D6C7 /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
+		2B8577A02403B5020052D6C7 /* GhosteryRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryRelease.xcconfig; sourceTree = "<group>"; };
+		2B8577A12403B5020052D6C7 /* GhosteryAdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryAdHoc.xcconfig; sourceTree = "<group>"; };
+		2B8577A32403B51B0052D6C7 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
+		2B8577A42403B51B0052D6C7 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
+		2B8577A62403B7A90052D6C7 /* GhosteryShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GhosteryShareTo.xcassets; sourceTree = "<group>"; };
+		2B8577A72403B7A90052D6C7 /* GhosteryOpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GhosteryOpenIn.xcassets; sourceTree = "<group>"; };
+		2B8577A92403B7B20052D6C7 /* CliqzShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CliqzShareTo.xcassets; sourceTree = "<group>"; };
+		2B8577AA2403B7B20052D6C7 /* CliqzOpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CliqzOpenIn.xcassets; sourceTree = "<group>"; };
+		2B8577AD2403C1FC0052D6C7 /* CliqzOpenInen */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = CliqzOpenInen; path = CliqzOpenInen.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577AE2403C1FC0052D6C7 /* CliqzOpenInde */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = CliqzOpenInde; path = CliqzOpenInde.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577B12403C2170052D6C7 /* GhosteryOpenInen */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = GhosteryOpenInen; path = GhosteryOpenInen.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577B22403C2170052D6C7 /* GhosteryOpenInde */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = GhosteryOpenInde; path = GhosteryOpenInde.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyStatement.xcassets; sourceTree = "<group>"; };
 		2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementSettingCell.swift; sourceTree = "<group>"; };
 		2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementDisclosureCell.swift; sourceTree = "<group>"; };
@@ -1292,18 +1228,12 @@
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionCell.swift; sourceTree = "<group>"; };
 		2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionItemCell.swift; sourceTree = "<group>"; };
-		2BC4664623C45C80008CF508 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2BC4664823C45C81008CF508 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2BD02D4023BA34B0001539F0 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
-		2BD02D4123BA34B7001539F0 /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
-		2BD02D4423BA3698001539F0 /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
-		2BD02D4623BA3698001539F0 /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
+		2BD02D4623BA3698001539F0 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
 		2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		2BE258C223BA1DFF0022ED28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2BE258C423BA1DFF0022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GhosteryOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE258D323BA2B4A0022ED28 /* OpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE2590F23BA2FD40022ED28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE2591123BA2FD60022ED28 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBrowserStartShowSettingsViewController.swift; sourceTree = "<group>"; };
@@ -1422,7 +1352,6 @@
 		46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyIndicatorView.swift; sourceTree = "<group>"; };
 		46828D902341F23300E7D8A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UserAgent.strings; sourceTree = "<group>"; };
 		46828D922341F23800E7D8A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/UserAgent.strings; sourceTree = "<group>"; };
-		46947784232A982100129B51 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
 		46947785232A983500129B51 /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
 		46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompletion.swift; sourceTree = "<group>"; };
 		46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCompletion.m; sourceTree = "<group>"; };
@@ -1590,7 +1519,6 @@
 		C520FF592388218A0097BA0C /* effective_tld_names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = effective_tld_names.swift; sourceTree = "<group>"; };
 		C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		C53E464C232299C4005B2DA6 /* Cliqz.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Cliqz.entitlements; sourceTree = "<group>"; };
-		C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
 		C56ED496233B692B006A63B1 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		C56ED49D233B712F006A63B1 /* InterceptorFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorFeature.swift; sourceTree = "<group>"; };
 		C56ED4A0233B8ACD006A63B1 /* AntiPhishingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiPhishingPolicy.swift; sourceTree = "<group>"; };
@@ -1604,8 +1532,7 @@
 		C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementHeaderView.swift; sourceTree = "<group>"; };
 		C5B83E65239FA589003687AC /* PrivacyStatementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementData.swift; sourceTree = "<group>"; };
-		C5C7D3412359B30B00CB359A /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
-		C5C7D3432359B31D00CB359A /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
+		C5C7D3412359B30B00CB359A /* ShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShareTo.xcassets; sourceTree = "<group>"; };
 		C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CliqzRefreshControl.swift; sourceTree = "<group>"; };
 		C5E94B53233112CD00D3F31F /* Bookmarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		C5E94B54233112CD00D3F31F /* BookmarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
@@ -1878,7 +1805,7 @@
 		F84B21E51A0910F600AAB793 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F84B21EF1A0910F600AAB793 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F84B22431A09165600AAB793 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F84B22491A0920C600AAB793 /* CliqzShareTo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzShareTo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F84B22491A0920C600AAB793 /* ShareTo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareTo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8708D251A0970990051AB07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F8708D261A0970990051AB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8708D291A0970990051AB07 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -1940,16 +1867,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE258E623BA2B5B0022ED28 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BD02D3D23BA3381001539F0 /* Storage.framework in Frameworks */,
-				2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */,
-				B4198C6C45B52D15B6C38C39 /* Pods_GhosteryOpenIn.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2FCAE2161ABB51F800877008 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1981,17 +1898,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		464F67752326AFB70090D0B5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				464F67762326AFB70090D0B5 /* Shared.framework in Frameworks */,
-				464F67772326AFB70090D0B5 /* Storage.framework in Frameworks */,
-				464F67782326AFB70090D0B5 /* ImageIO.framework in Frameworks */,
-				6AF077C2300636D4F960E462 /* Pods_GhosteryShareTo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2231,6 +2137,7 @@
 		2B85778D2403A0170052D6C7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				2B85779A2403B5020052D6C7 /* Ghostery */,
 				2B8577912403A0E50052D6C7 /* Cliqz */,
 				2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */,
 				2B85778F2403A0170052D6C7 /* Debug.xcconfig */,
@@ -2242,11 +2149,79 @@
 		2B8577912403A0E50052D6C7 /* Cliqz */ = {
 			isa = PBXGroup;
 			children = (
+				2B8577AB2403C1FC0052D6C7 /* InfoPlists */,
+				2B8577A82403B7B20052D6C7 /* Assets */,
+				2B8577A22403B51B0052D6C7 /* Entitlements */,
 				2B8577922403A0E50052D6C7 /* CliqzRelease.xcconfig */,
 				2B8577932403A0E50052D6C7 /* CliqzDebug.xcconfig */,
 				2B8577942403A0E50052D6C7 /* CliqzAdHoc.xcconfig */,
 			);
 			path = Cliqz;
+			sourceTree = "<group>";
+		};
+		2B85779A2403B5020052D6C7 /* Ghostery */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577AF2403C2170052D6C7 /* InfoPlists */,
+				2B8577A52403B7A90052D6C7 /* Assets */,
+				2B85779D2403B5020052D6C7 /* Entitlements */,
+				2B85779C2403B5020052D6C7 /* GhosteryDebug.xcconfig */,
+				2B8577A02403B5020052D6C7 /* GhosteryRelease.xcconfig */,
+				2B8577A12403B5020052D6C7 /* GhosteryAdHoc.xcconfig */,
+			);
+			path = Ghostery;
+			sourceTree = "<group>";
+		};
+		2B85779D2403B5020052D6C7 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B85779E2403B5020052D6C7 /* GhosteryShareTo.entitlements */,
+				2B85779F2403B5020052D6C7 /* GhosteryOpenIn.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		2B8577A22403B51B0052D6C7 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577A32403B51B0052D6C7 /* CliqzShareTo.entitlements */,
+				2B8577A42403B51B0052D6C7 /* CliqzOpenIn.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		2B8577A52403B7A90052D6C7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577A62403B7A90052D6C7 /* GhosteryShareTo.xcassets */,
+				2B8577A72403B7A90052D6C7 /* GhosteryOpenIn.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2B8577A82403B7B20052D6C7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577A92403B7B20052D6C7 /* CliqzShareTo.xcassets */,
+				2B8577AA2403B7B20052D6C7 /* CliqzOpenIn.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2B8577AB2403C1FC0052D6C7 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577AC2403C1FC0052D6C7 /* InfoPlist.strings */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		2B8577AF2403C2170052D6C7 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577B02403C2170052D6C7 /* InfoPlist.strings */,
+			);
+			path = InfoPlists;
 			sourceTree = "<group>";
 		};
 		2BC4580023F1382900057204 /* CollectionCell */ = {
@@ -2258,37 +2233,11 @@
 			path = CollectionCell;
 			sourceTree = "<group>";
 		};
-		2BD02D4223BA3698001539F0 /* Branding */ = {
-			isa = PBXGroup;
-			children = (
-				2BD02D4323BA3698001539F0 /* Ghostery */,
-				2BD02D4523BA3698001539F0 /* Cliqz */,
-			);
-			path = Branding;
-			sourceTree = "<group>";
-		};
-		2BD02D4323BA3698001539F0 /* Ghostery */ = {
-			isa = PBXGroup;
-			children = (
-				2BD02D4423BA3698001539F0 /* Ghostery.xcassets */,
-				2BC4664723C45C80008CF508 /* InfoPlist.strings */,
-			);
-			path = Ghostery;
-			sourceTree = "<group>";
-		};
-		2BD02D4523BA3698001539F0 /* Cliqz */ = {
-			isa = PBXGroup;
-			children = (
-				2BD02D4623BA3698001539F0 /* cliqz.xcassets */,
-				2BE2591023BA2FD40022ED28 /* InfoPlist.strings */,
-			);
-			path = Cliqz;
-			sourceTree = "<group>";
-		};
 		2BE2586E23BA0C800022ED28 /* OpenIn */ = {
 			isa = PBXGroup;
 			children = (
-				2BD02D4223BA3698001539F0 /* Branding */,
+				2BE2591023BA2FD40022ED28 /* InfoPlist.strings */,
+				2BD02D4623BA3698001539F0 /* OpenIn.xcassets */,
 				2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */,
 				2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */,
 				2BE258C423BA1DFF0022ED28 /* Info.plist */,
@@ -2885,31 +2834,6 @@
 			path = ChatBubble;
 			sourceTree = "<group>";
 		};
-		C5C7D33E2359B25E00CB359A /* Branding */ = {
-			isa = PBXGroup;
-			children = (
-				C5C7D3402359B27700CB359A /* Cliqz */,
-				C5C7D33F2359B27100CB359A /* Ghostery */,
-			);
-			path = Branding;
-			sourceTree = "<group>";
-		};
-		C5C7D33F2359B27100CB359A /* Ghostery */ = {
-			isa = PBXGroup;
-			children = (
-				C5C7D3432359B31D00CB359A /* Ghostery.xcassets */,
-			);
-			path = Ghostery;
-			sourceTree = "<group>";
-		};
-		C5C7D3402359B27700CB359A /* Cliqz */ = {
-			isa = PBXGroup;
-			children = (
-				C5C7D3412359B30B00CB359A /* cliqz.xcassets */,
-			);
-			path = Cliqz;
-			sourceTree = "<group>";
-		};
 		C5D1EB4A23BB7C0900C19728 /* RefreshControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -3145,10 +3069,8 @@
 		E40A18F61EDC73D5006B7F28 /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */,
-				46947784232A982100129B51 /* GhosteryShareTo.entitlements */,
-				2BD02D4023BA34B0001539F0 /* CliqzOpenIn.entitlements */,
-				2BD02D4123BA34B7001539F0 /* GhosteryOpenIn.entitlements */,
+				2B8577982403B4860052D6C7 /* OpenIn.entitlements */,
+				2B8577992403B4860052D6C7 /* ShareTo.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -3412,7 +3334,7 @@
 			children = (
 				F84B21BE1A090F8100AAB793 /* UserAgent.app */,
 				F84B21D31A090F8100AAB793 /* UserAgentTests.xctest */,
-				F84B22491A0920C600AAB793 /* CliqzShareTo.appex */,
+				F84B22491A0920C600AAB793 /* ShareTo.appex */,
 				288A2D861AB8B3260023ABC3 /* Shared.framework */,
 				2FCAE21A1ABB51F800877008 /* Storage.framework */,
 				2FCAE2241ABB51F800877008 /* StorageTests.xctest */,
@@ -3420,8 +3342,7 @@
 				3BFE4B071D342FB800DDF53F /* XCUITests.xctest */,
 				3B43E3D01D95C48D00BBA9DB /* StoragePerfTests.xctest */,
 				ACB7384723042BAB00FA5626 /* UserAgent.app */,
-				2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */,
-				2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */,
+				2BE258D323BA2B4A0022ED28 /* OpenIn.appex */,
 				049DBAD623E4587B00D2D38D /* Widgets.framework */,
 				049DBADE23E4587B00D2D38D /* WidgetsTests.xctest */,
 			);
@@ -3576,7 +3497,7 @@
 		F8708D241A0970990051AB07 /* ShareTo */ = {
 			isa = PBXGroup;
 			children = (
-				C5C7D33E2359B25E00CB359A /* Branding */,
+				C5C7D3412359B30B00CB359A /* ShareTo.xcassets */,
 				EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */,
 				F8708D251A0970990051AB07 /* Images.xcassets */,
 				F8708D261A0970990051AB07 /* Info.plist */,
@@ -3656,9 +3577,9 @@
 			productReference = 288A2D861AB8B3260023ABC3 /* Shared.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */ = {
+		2BE258D223BA2B4A0022ED28 /* OpenIn */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */;
+			buildConfigurationList = 2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "OpenIn" */;
 			buildPhases = (
 				F02AE97D9BDAA327ACA4698A /* [CP] Check Pods Manifest.lock */,
 				2BE258CF23BA2B4A0022ED28 /* Sources */,
@@ -3671,29 +3592,9 @@
 				2BD02D3A23BA337A001539F0 /* PBXTargetDependency */,
 				2BE2590223BA2C3D0022ED28 /* PBXTargetDependency */,
 			);
-			name = CliqzOpenIn;
+			name = OpenIn;
 			productName = CliqzOpenIn;
-			productReference = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BE258F623BA2B5B0022ED28 /* Build configuration list for PBXNativeTarget "GhosteryOpenIn" */;
-			buildPhases = (
-				CCA3E03648F149AB8EFBCD68 /* [CP] Check Pods Manifest.lock */,
-				2BE258E523BA2B5B0022ED28 /* Sources */,
-				2BE258E623BA2B5B0022ED28 /* Frameworks */,
-				2BE258E723BA2B5B0022ED28 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BD02D3C23BA337E001539F0 /* PBXTargetDependency */,
-				2BE2590423BA2C440022ED28 /* PBXTargetDependency */,
-			);
-			name = GhosteryOpenIn;
-			productName = GhostryOpenIn;
-			productReference = 2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */;
+			productReference = 2BE258D323BA2B4A0022ED28 /* OpenIn.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		2FCAE2191ABB51F800877008 /* Storage */ = {
@@ -3772,25 +3673,6 @@
 			productReference = 3BFE4B071D342FB800DDF53F /* XCUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		464F675F2326AFB70090D0B5 /* GhosteryShareTo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 464F67812326AFB70090D0B5 /* Build configuration list for PBXNativeTarget "GhosteryShareTo" */;
-			buildPhases = (
-				464F67642326AFB70090D0B5 /* [CP] Check Pods Manifest.lock */,
-				464F67652326AFB70090D0B5 /* Sources */,
-				464F67752326AFB70090D0B5 /* Frameworks */,
-				464F677A2326AFB70090D0B5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				464F67602326AFB70090D0B5 /* PBXTargetDependency */,
-				464F67622326AFB70090D0B5 /* PBXTargetDependency */,
-			);
-			name = GhosteryShareTo;
-			productName = ShareToFirefox;
-			productType = "com.apple.product-type.app-extension";
-		};
 		ACB7371123042BAB00FA5626 /* Ghostery */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACB7384323042BAB00FA5626 /* Build configuration list for PBXNativeTarget "Ghostery" */;
@@ -3813,8 +3695,6 @@
 				ACB7371223042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371423042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371A23042BAB00FA5626 /* PBXTargetDependency */,
-				464F678D232793F00090D0B5 /* PBXTargetDependency */,
-				2BE258F423BA2B5B0022ED28 /* PBXTargetDependency */,
 				049DBB0F23E45C4F00D2D38D /* PBXTargetDependency */,
 			);
 			name = Ghostery;
@@ -3895,9 +3775,9 @@
 			productReference = F84B21D31A090F8100AAB793 /* UserAgentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F84B22481A0920C600AAB793 /* CliqzShareTo */ = {
+		F84B22481A0920C600AAB793 /* ShareTo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F84B22551A0920C600AAB793 /* Build configuration list for PBXNativeTarget "CliqzShareTo" */;
+			buildConfigurationList = F84B22551A0920C600AAB793 /* Build configuration list for PBXNativeTarget "ShareTo" */;
 			buildPhases = (
 				A467568D6D49706CEF502133 /* [CP] Check Pods Manifest.lock */,
 				F84B22451A0920C600AAB793 /* Sources */,
@@ -3910,9 +3790,9 @@
 				D09A0CF11FAA2C7E009A0273 /* PBXTargetDependency */,
 				2F9A72321ABB856100F9F05D /* PBXTargetDependency */,
 			);
-			name = CliqzShareTo;
+			name = ShareTo;
 			productName = ShareToFirefox;
-			productReference = F84B22491A0920C600AAB793 /* CliqzShareTo.appex */;
+			productReference = F84B22491A0920C600AAB793 /* ShareTo.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -3946,11 +3826,6 @@
 						DevelopmentTeam = 2UYYSSHVUH;
 						ProvisioningStyle = Automatic;
 					};
-					2BE258E823BA2B5B0022ED28 = {
-						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = HPY23A294X;
-						ProvisioningStyle = Automatic;
-					};
 					2FCAE2191ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 2UYYSSHVUH;
@@ -3973,18 +3848,6 @@
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						TestTargetID = F84B21BD1A090F8100AAB793;
-					};
-					464F675F2326AFB70090D0B5 = {
-						DevelopmentTeam = HPY23A294X;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-							com.apple.Keychain = {
-								enabled = 1;
-							};
-						};
 					};
 					ACB7371123042BAB00FA5626 = {
 						DevelopmentTeam = HPY23A294X;
@@ -4058,6 +3921,14 @@
 				en,
 				Base,
 				de,
+				CliqzOpenInen,
+				cliqzopeninen,
+				CliqzOpenInde,
+				cliqzopeninde,
+				GhosteryOpenInen,
+				ghosteryopeninen,
+				GhosteryOpenInde,
+				ghosteryopeninde,
 			);
 			mainGroup = F84B21B51A090F8100AAB793;
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
@@ -4066,10 +3937,8 @@
 			targets = (
 				F84B21BD1A090F8100AAB793 /* Cliqz */,
 				ACB7371123042BAB00FA5626 /* Ghostery */,
-				F84B22481A0920C600AAB793 /* CliqzShareTo */,
-				464F675F2326AFB70090D0B5 /* GhosteryShareTo */,
-				2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */,
-				2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */,
+				F84B22481A0920C600AAB793 /* ShareTo */,
+				2BE258D223BA2B4A0022ED28 /* OpenIn */,
 				288A2D851AB8B3260023ABC3 /* Shared */,
 				2FCAE2191ABB51F800877008 /* Storage */,
 				F84B21D21A090F8100AAB793 /* ClientTests */,
@@ -4110,18 +3979,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */,
-				2BD02D4923BA3698001539F0 /* cliqz.xcassets in Resources */,
+				2BD02D4923BA3698001539F0 /* OpenIn.xcassets in Resources */,
 				2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BE258E723BA2B5B0022ED28 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */,
-				2BC4664923C45CAF008CF508 /* InfoPlist.strings in Resources */,
-				2BD02D4823BA3698001539F0 /* Ghostery.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4153,16 +4012,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		464F677A2326AFB70090D0B5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */,
-				464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */,
-				C5C7D3442359B31D00CB359A /* Ghostery.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4227,10 +4076,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38A1EE01CB458EC0080C842 /* CertError.html in Resources */,
-				2B8577962403A0E50052D6C7 /* CliqzDebug.xcconfig in Resources */,
 				460C247623EB0D3200D922B0 /* safari-popups-network.json in Resources */,
 				0BA1E0301B051A07007675AF /* NetError.css in Resources */,
-				2B8577972403A0E50052D6C7 /* CliqzAdHoc.xcconfig in Resources */,
 				2B8DDBA323A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */,
 				F84B220B1A0910F600AAB793 /* Images.xcassets in Resources */,
 				F35B8D2B1D6380EA008E3D61 /* SessionRestore.html in Resources */,
@@ -4262,7 +4109,6 @@
 				ACB6D4322306AC35002D64E6 /* InfoPlist.strings in Resources */,
 				E4D6BEB91A0930EC00F538BD /* LaunchScreen.xib in Resources */,
 				D03F8F23200EAC1F003C2224 /* AllFramesAtDocumentStart.js in Resources */,
-				2B8577952403A0E50052D6C7 /* CliqzRelease.xcconfig in Resources */,
 				46CA610223180E1A0010CE6B /* Icons.xcassets in Resources */,
 				ACD654792360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */,
 				834A40198503DEA0CC1E7FBA /* Shared.strings in Resources */,
@@ -4302,7 +4148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */,
+				C5C7D3422359B30B00CB359A /* ShareTo.xcassets in Resources */,
 				EBE7635920ADCB7600E27F2D /* SendTo.xcassets in Resources */,
 				F8708D2E1A0970B70051AB07 /* Images.xcassets in Resources */,
 				C50ED2A723269F2A00EE71B8 /* ShareTo.strings in Resources */,
@@ -4436,28 +4282,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		464F67642326AFB70090D0B5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GhosteryShareTo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		46C41EDB230EC92000CE54D2 /* Start React Native Server */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4771,28 +4595,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCA3E03648F149AB8EFBCD68 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GhosteryOpenIn-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D42DE2E8C41FB257F60E5509 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -5044,20 +4846,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE258E523BA2B5B0022ED28 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BE2591523BA31370022ED28 /* PanelDataObservers.swift in Sources */,
-				2BE2591B23BA314E0022ED28 /* OpenSearch.swift in Sources */,
-				2BE2591723BA313C0022ED28 /* SearchEngines.swift in Sources */,
-				2BE2591923BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */,
-				2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */,
-				2BD02D3F23BA33A4001539F0 /* DefaultSearchPrefs.swift in Sources */,
-				2BE2591323BA312B0022ED28 /* Profile.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2FCAE2151ABB51F800877008 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5164,27 +4952,6 @@
 				2C8C07771E7800EA00DC1237 /* FindInPageTest.swift in Sources */,
 				2CB56E3F1E926BFB00AF7586 /* ToolbarTest.swift in Sources */,
 				2C3406C81E719F00000FD889 /* SettingsTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		464F67652326AFB70090D0B5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				464F67662326AFB70090D0B5 /* Punycode.swift in Sources */,
-				ACC6EC5723290C1A000F5499 /* UIColor+Blending.swift in Sources */,
-				C50ED2C52327F1D700EE71B8 /* Profile.swift in Sources */,
-				464F67672326AFB70090D0B5 /* SearchEngines.swift in Sources */,
-				464F67682326AFB70090D0B5 /* URIFixup.swift in Sources */,
-				464F676A2326AFB70090D0B5 /* OpenSearch.swift in Sources */,
-				464F676D2326AFB70090D0B5 /* DefaultSearchPrefs.swift in Sources */,
-				464F676E2326AFB70090D0B5 /* ShareViewController.swift in Sources */,
-				ACC6EC512327FA0B000F5499 /* Colors.swift in Sources */,
-				464F676F2326AFB70090D0B5 /* UXConstants.swift in Sources */,
-				464F67702326AFB70090D0B5 /* PanelDataObservers.swift in Sources */,
-				464F67712326AFB70090D0B5 /* NSUserDefaultsPrefs.swift in Sources */,
-				464F67732326AFB70090D0B5 /* InstructionsViewController.swift in Sources */,
-				464F67742326AFB70090D0B5 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5817,30 +5584,15 @@
 			target = 2FCAE2191ABB51F800877008 /* Storage */;
 			targetProxy = 2BD02D3923BA337A001539F0 /* PBXContainerItemProxy */;
 		};
-		2BD02D3C23BA337E001539F0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2FCAE2191ABB51F800877008 /* Storage */;
-			targetProxy = 2BD02D3B23BA337E001539F0 /* PBXContainerItemProxy */;
-		};
 		2BE258DE23BA2B4A0022ED28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */;
+			target = 2BE258D223BA2B4A0022ED28 /* OpenIn */;
 			targetProxy = 2BE258DD23BA2B4A0022ED28 /* PBXContainerItemProxy */;
-		};
-		2BE258F423BA2B5B0022ED28 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */;
-			targetProxy = 2BE258F323BA2B5B0022ED28 /* PBXContainerItemProxy */;
 		};
 		2BE2590223BA2C3D0022ED28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 288A2D851AB8B3260023ABC3 /* Shared */;
 			targetProxy = 2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */;
-		};
-		2BE2590423BA2C440022ED28 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 288A2D851AB8B3260023ABC3 /* Shared */;
-			targetProxy = 2BE2590323BA2C440022ED28 /* PBXContainerItemProxy */;
 		};
 		2F9A72321ABB856100F9F05D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5877,21 +5629,6 @@
 			target = F84B21BD1A090F8100AAB793 /* Cliqz */;
 			targetProxy = 3BFE4B0C1D342FB900DDF53F /* PBXContainerItemProxy */;
 		};
-		464F67602326AFB70090D0B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 288A2D851AB8B3260023ABC3 /* Shared */;
-			targetProxy = 464F67612326AFB70090D0B5 /* PBXContainerItemProxy */;
-		};
-		464F67622326AFB70090D0B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2FCAE2191ABB51F800877008 /* Storage */;
-			targetProxy = 464F67632326AFB70090D0B5 /* PBXContainerItemProxy */;
-		};
-		464F678D232793F00090D0B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 464F675F2326AFB70090D0B5 /* GhosteryShareTo */;
-			targetProxy = 464F678C232793F00090D0B5 /* PBXContainerItemProxy */;
-		};
 		7B9BF92F1E435DE400CB24F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2FCAE2231ABB51F800877008 /* StorageTests */;
@@ -5909,7 +5646,7 @@
 		};
 		ACB7371A23042BAB00FA5626 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F84B22481A0920C600AAB793 /* CliqzShareTo */;
+			target = F84B22481A0920C600AAB793 /* ShareTo */;
 			targetProxy = ACB7371B23042BAB00FA5626 /* PBXContainerItemProxy */;
 		};
 		D09A0CF11FAA2C7E009A0273 /* PBXTargetDependency */ = {
@@ -5934,7 +5671,7 @@
 		};
 		F84B22521A0920C600AAB793 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F84B22481A0920C600AAB793 /* CliqzShareTo */;
+			target = F84B22481A0920C600AAB793 /* ShareTo */;
 			targetProxy = F84B22511A0920C600AAB793 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -5976,11 +5713,20 @@
 			name = PrivacyStatement.strings;
 			sourceTree = "<group>";
 		};
-		2BC4664723C45C80008CF508 /* InfoPlist.strings */ = {
+		2B8577AC2403C1FC0052D6C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2BC4664623C45C80008CF508 /* en */,
-				2BC4664823C45C81008CF508 /* de */,
+				2B8577AD2403C1FC0052D6C7 /* CliqzOpenInen */,
+				2B8577AE2403C1FC0052D6C7 /* CliqzOpenInde */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2B8577B02403C2170052D6C7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B8577B12403C2170052D6C7 /* GhosteryOpenInen */,
+				2B8577B22403C2170052D6C7 /* GhosteryOpenInde */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -6413,13 +6159,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -6432,7 +6179,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
@@ -6449,13 +6196,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6464,7 +6212,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6480,13 +6228,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6495,7 +6244,7 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -6511,13 +6260,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6526,134 +6276,9 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = CI;
-		};
-		2BE258F723BA2B5B0022ED28 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D44E83F051DF59487144EF9 /* Pods-GhosteryOpenIn.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 2.0.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2BE258F823BA2B5B0022ED28 /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 374F6BEE52BB79659128C4E8 /* Pods-GhosteryOpenIn.adhoc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = HPY23A294X;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 2.0.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Adhoc;
-		};
-		2BE258F923BA2B5B0022ED28 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FBEEFF3F9AD7E7E5ABCE59D /* Pods-GhosteryOpenIn.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = HPY23A294X;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 2.0.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		2BE258FA23BA2B5B0022ED28 /* CI */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30172CAA2DB5FD8130686402 /* Pods-GhosteryOpenIn.ci.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = HPY23A294X;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 2.0.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -6908,78 +6533,6 @@
 			};
 			name = Release;
 		};
-		464F67822326AFB70090D0B5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C08972A2444371DCFB40EAD5 /* Pods-GhosteryShareTo.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Extensions/ShareTo/Ghostery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 2.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.ShareTo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		464F67832326AFB70090D0B5 /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29FDDD173651239132A7DE8D /* Pods-GhosteryShareTo.adhoc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Extensions/ShareTo/Ghostery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 2.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.ShareTo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Adhoc;
-		};
-		464F67842326AFB70090D0B5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF5AF44BEA3C37F0E4E7F88E /* Pods-GhosteryShareTo.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Extensions/ShareTo/Ghostery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 2.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.ShareTo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		4691B216237C0CE000D71F4D /* CI */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B8577902403A0170052D6C7 /* Release.xcconfig */;
@@ -7065,6 +6618,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -7083,7 +6637,7 @@
 				INFOPLIST_FILE = Branding/Cliqz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -7104,6 +6658,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -7122,13 +6677,14 @@
 				INFOPLIST_FILE = Branding/Ghostery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7142,7 +6698,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -7150,33 +6707,9 @@
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = CI;
-		};
-		4691B21A237C0CE000D71F4D /* CI */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0F9095D0E5C1E4F653D53B0 /* Pods-GhosteryShareTo.ci.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Extensions/ShareTo/Ghostery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 2.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.ShareTo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -7481,6 +7014,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -7498,7 +7032,7 @@
 				INFOPLIST_FILE = Branding/Cliqz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -7535,7 +7069,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -7543,7 +7078,7 @@
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -7773,6 +7308,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -7790,6 +7326,7 @@
 				INFOPLIST_FILE = Branding/Ghostery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -7812,7 +7349,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7826,6 +7363,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -7843,6 +7381,7 @@
 				INFOPLIST_FILE = Branding/Ghostery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -7865,7 +7404,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7879,6 +7418,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -7897,13 +7437,14 @@
 				INFOPLIST_FILE = Branding/Ghostery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7995,6 +7536,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -8013,7 +7555,7 @@
 				INFOPLIST_FILE = Branding/Cliqz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -8057,7 +7599,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -8065,7 +7608,7 @@
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -8277,6 +7820,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -8294,7 +7838,7 @@
 				INFOPLIST_FILE = Branding/Cliqz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -8350,7 +7894,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -8358,7 +7903,7 @@
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -8404,24 +7949,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */ = {
+		2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "OpenIn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BE258E123BA2B4A0022ED28 /* Debug */,
 				2BE258E223BA2B4A0022ED28 /* Adhoc */,
 				2BE258E323BA2B4A0022ED28 /* Release */,
 				2BE258E423BA2B4A0022ED28 /* CI */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2BE258F623BA2B5B0022ED28 /* Build configuration list for PBXNativeTarget "GhosteryOpenIn" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BE258F723BA2B5B0022ED28 /* Debug */,
-				2BE258F823BA2B5B0022ED28 /* Adhoc */,
-				2BE258F923BA2B5B0022ED28 /* Release */,
-				2BE258FA23BA2B5B0022ED28 /* CI */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -8466,17 +8000,6 @@
 				ACB7370E2304289100FA5626 /* Adhoc */,
 				3BFE4B0F1D342FB900DDF53F /* Release */,
 				4691B221237C0CE000D71F4D /* CI */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		464F67812326AFB70090D0B5 /* Build configuration list for PBXNativeTarget "GhosteryShareTo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				464F67822326AFB70090D0B5 /* Debug */,
-				464F67832326AFB70090D0B5 /* Adhoc */,
-				464F67842326AFB70090D0B5 /* Release */,
-				4691B21A237C0CE000D71F4D /* CI */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -8536,7 +8059,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F84B22551A0920C600AAB793 /* Build configuration list for PBXNativeTarget "CliqzShareTo" */ = {
+		F84B22551A0920C600AAB793 /* Build configuration list for PBXNativeTarget "ShareTo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F84B22561A0920C600AAB793 /* Debug */,

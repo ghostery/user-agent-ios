@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2BE258D223BA2B4A0022ED28"
-               BuildableName = "CliqzOpenIn.appex"
-               BlueprintName = "CliqzOpenIn"
+               BuildableName = "OpenIn.appex"
+               BlueprintName = "OpenIn"
                ReferencedContainer = "container:UserAgent.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
