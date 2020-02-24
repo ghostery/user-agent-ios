@@ -43,9 +43,6 @@ signedInUser.json
 
 # Generated config file
 MozBuildID.xcconfig
-Debug.xcconfig
-AdHoc.xcconfig
-Release.xcconfig
 
 # Python
 __pycache__
