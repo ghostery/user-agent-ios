@@ -22,13 +22,17 @@ cp -rf ${BRAND_PATH}/Entitlements/${TARGETNAME}OpenIn.entitlements ${ENTITLEMENT
 SHARE_TO_PATH=${PROJECT_DIR}/Extensions/ShareTo
 
 # Replacing ShareTo assets according target
+rm -rf ${SHARE_TO_PATH}/ShareTo.xcassets
 cp -rf ${BRAND_PATH}/Assets/ShareTo.xcassets ${SHARE_TO_PATH}/
 
 # OpenIn folder path
 OPEN_IN_PATH=${PROJECT_DIR}/Extensions/OpenIn
 
-# Replacing OpenIn assets and InfoPlist.strings according target
+# Replacing OpenIn assets according target
+rm -rf ${OPEN_IN_PATH}/OpenIn.xcassets
 cp -rf ${BRAND_PATH}/Assets/OpenIn.xcassets ${OPEN_IN_PATH}/
+
+# Replacing OpenIn assets and InfoPlist.strings according target
 cp -rf ${BRAND_PATH}/InfoPlists/de.lproj/InfoPlist.strings ${OPEN_IN_PATH}/de.lproj/InfoPlist.strings
 cp -rf ${BRAND_PATH}/InfoPlists/en.lproj/InfoPlist.strings ${OPEN_IN_PATH}/en.lproj/InfoPlist.strings
 

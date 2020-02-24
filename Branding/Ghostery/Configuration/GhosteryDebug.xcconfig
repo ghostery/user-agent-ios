@@ -2,7 +2,7 @@
 BUNDLE_DISPLAY_NAME = Ghostery α
 
 // Bundle Identifier
-APP_BUNDLE_ID = com.ghostery
+APP_BUNDLE_ID = com.ghostery.debug
 
 // Marketing version
 APP_MARKETING_VERSION = 2.0.0

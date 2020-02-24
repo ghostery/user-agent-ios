@@ -6,17 +6,12 @@ APPS = {
     scheme: "Cliqz",
     configuration: "Release",
 
-    app_group_identifier: "group.com.cliqz",
-
-    app_identifier: "com.cliqz",
     provisioning_profile: "16efba72-233d-42af-9d30-2119f0a5b854",
     provisioning_profile_name: "match AppStore com.cliqz",
 
-    share_to_identifier: "com.cliqz.ShareTo",
     share_to_provisioning_profile: "2bbfa6d3-0e13-4a69-ab75-07fb76dc8a49",
     share_to_provisioning_profile_name: "match AppStore com.cliqz.ShareTo",
 
-    open_in_identifier: "com.cliqz.OpenIn",
     open_in_provisioning_profile: "1f8b6a38-cbd6-4cf4-a1bb-df83f419e6c6",
     open_in_provisioning_profile_name: "match AppStore com.cliqz.OpenIn",
 
@@ -25,20 +20,15 @@ APPS = {
   },
   "CliqzNightly" => {
     target: "Cliqz",
-    scheme: "Cliqz Nightly",
+    scheme: "Cliqz",
     configuration: "Adhoc",
 
-    app_group_identifier: "group.com.cliqz.browser.nightly",
-
-    app_identifier: "com.cliqz.browser.nightly",
     provisioning_profile: "0d0c370e-d393-40af-a704-42def1331441",
     provisioning_profile_name: "match AppStore com.cliqz.browser.nightly",
 
-    share_to_identifier: "com.cliqz.browser.nightly.ShareTo",
     share_to_provisioning_profile: "93a334ed-4bb7-4121-b7d1-326fe0546dec",
     share_to_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.ShareTo",
 
-    open_in_identifier: "com.cliqz.browser.nightly.OpenIn",
     open_in_provisioning_profile: "3f191f93-a559-43d8-a1ab-666dd0306362",
     open_in_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.OpenIn",
 
@@ -112,39 +102,6 @@ platform :ios do
       block: proc do |plist|
         plist["SentryDSN"] = ENV["SENTRY_DSN"]
       end
-    )
-
-    update_app_identifier(
-      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Branding/#{app.target}/Info.plist",
-      app_identifier: app.app_identifier
-    )
-
-    update_app_identifier(
-      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Extensions/ShareTo/Info.plist",
-      app_identifier: app.share_to_identifier
-    )
-
-    update_app_identifier(
-      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Extensions/OpenIn/Info.plist",
-      app_identifier: app.open_in_identifier
-    )
-
-    update_app_group_identifiers(
-      entitlements_file: "Client/Entitlements/#{app.target}.entitlements",
-      app_group_identifiers: [app.app_group_identifier]
-    )
-
-    update_app_group_identifiers(
-      entitlements_file: "Extensions/Entitlements/#{app.target}ShareTo.entitlements",
-      app_group_identifiers: [app.app_group_identifier]
-    )
-
-    update_app_group_identifiers(
-      entitlements_file: "Extensions/Entitlements/#{app.target}OpenIn.entitlements",
-      app_group_identifiers: [app.app_group_identifier]
     )
 
     disable_automatic_code_signing(
