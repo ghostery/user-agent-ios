@@ -1,0 +1,11 @@
+// Display name
+BUNDLE_DISPLAY_NAME = $(TARGET_NAME) α
+
+// Bundle Identifier
+APP_BUNDLE_ID = com.cliqz
+
+// URL Scheme
+CLIQZ_URL_SCHEME = $(TARGET_NAME)
+
+// User Activity Types
+USER_ACTIVITY_TYPES= $(APP_BUNDLE_ID).activity.types.debug
