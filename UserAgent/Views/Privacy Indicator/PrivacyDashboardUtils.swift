@@ -58,7 +58,7 @@ enum PrivacyDashboardUtils {
         }
         private func setupForStat() {
             self.textColor = Theme.textField.textAndTint
-            self.numberOfLines = 2
+            self.numberOfLines = 3
             self.lineBreakMode = .byWordWrapping
             self.setContentCompressionResistancePriority(.required, for: .horizontal)
         }
