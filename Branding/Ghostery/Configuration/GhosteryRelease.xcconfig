@@ -1,5 +1,5 @@
 // Display name
-BUNDLE_DISPLAY_NAME = Ghostery α
+BUNDLE_DISPLAY_NAME = Ghostery
 
 // Bundle Identifier
 APP_BUNDLE_ID = com.ghostery
@@ -8,7 +8,7 @@ APP_BUNDLE_ID = com.ghostery
 APP_MARKETING_VERSION = 2.0.0
 
 // URL Scheme
-CLIQZ_URL_SCHEME = $(TARGET_NAME)
+CLIQZ_URL_SCHEME = $(BUNDLE_DISPLAY_NAME)
 
 // User Activity Types
-USER_ACTIVITY_TYPES= $(APP_BUNDLE_ID).activity.types.debug
+USER_ACTIVITY_TYPES= $(APP_BUNDLE_ID).activity.types

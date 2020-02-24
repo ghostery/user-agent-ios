@@ -1199,26 +1199,26 @@
 		2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AdHoc.xcconfig; sourceTree = "<group>"; };
 		2B85778F2403A0170052D6C7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		2B8577902403A0170052D6C7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		2B8577922403A0E50052D6C7 /* CliqzRelease.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = CliqzRelease.xcconfig; sourceTree = "<group>"; };
-		2B8577932403A0E50052D6C7 /* CliqzDebug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = CliqzDebug.xcconfig; sourceTree = "<group>"; };
-		2B8577942403A0E50052D6C7 /* CliqzAdHoc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = CliqzAdHoc.xcconfig; sourceTree = "<group>"; };
 		2B8577982403B4860052D6C7 /* OpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenIn.entitlements; sourceTree = "<group>"; };
 		2B8577992403B4860052D6C7 /* ShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareTo.entitlements; sourceTree = "<group>"; };
-		2B85779C2403B5020052D6C7 /* GhosteryDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryDebug.xcconfig; sourceTree = "<group>"; };
-		2B85779E2403B5020052D6C7 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
-		2B85779F2403B5020052D6C7 /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
-		2B8577A02403B5020052D6C7 /* GhosteryRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryRelease.xcconfig; sourceTree = "<group>"; };
-		2B8577A12403B5020052D6C7 /* GhosteryAdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryAdHoc.xcconfig; sourceTree = "<group>"; };
-		2B8577A32403B51B0052D6C7 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
-		2B8577A42403B51B0052D6C7 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
-		2B8577A62403B7A90052D6C7 /* GhosteryShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GhosteryShareTo.xcassets; sourceTree = "<group>"; };
-		2B8577A72403B7A90052D6C7 /* GhosteryOpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GhosteryOpenIn.xcassets; sourceTree = "<group>"; };
-		2B8577A92403B7B20052D6C7 /* CliqzShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CliqzShareTo.xcassets; sourceTree = "<group>"; };
-		2B8577AA2403B7B20052D6C7 /* CliqzOpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CliqzOpenIn.xcassets; sourceTree = "<group>"; };
-		2B8577AD2403C1FC0052D6C7 /* CliqzOpenInen */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = CliqzOpenInen; path = CliqzOpenInen.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2B8577AE2403C1FC0052D6C7 /* CliqzOpenInde */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = CliqzOpenInde; path = CliqzOpenInde.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2B8577B12403C2170052D6C7 /* GhosteryOpenInen */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = GhosteryOpenInen; path = GhosteryOpenInen.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2B8577B22403C2170052D6C7 /* GhosteryOpenInde */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = GhosteryOpenInde; path = GhosteryOpenInde.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577B82403E90B0052D6C7 /* GhosteryDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryDebug.xcconfig; sourceTree = "<group>"; };
+		2B8577BA2403E90B0052D6C7 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
+		2B8577BB2403E90B0052D6C7 /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
+		2B8577BC2403E90B0052D6C7 /* GhosteryRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryRelease.xcconfig; sourceTree = "<group>"; };
+		2B8577BE2403E90B0052D6C7 /* ShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShareTo.xcassets; sourceTree = "<group>"; };
+		2B8577BF2403E90B0052D6C7 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
+		2B8577C02403E90B0052D6C7 /* GhosteryAdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryAdHoc.xcconfig; sourceTree = "<group>"; };
+		2B8577C22403E9150052D6C7 /* CliqzRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzRelease.xcconfig; sourceTree = "<group>"; };
+		2B8577C32403E9150052D6C7 /* CliqzDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzDebug.xcconfig; sourceTree = "<group>"; };
+		2B8577C42403E9150052D6C7 /* CliqzAdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzAdHoc.xcconfig; sourceTree = "<group>"; };
+		2B8577CA2403E9150052D6C7 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
+		2B8577CB2403E9150052D6C7 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
+		2B8577D72403EB0F0052D6C7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577D82403EB0F0052D6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577DC2403EB530052D6C7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577DD2403EB530052D6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577DF2403EB6A0052D6C7 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
+		2B8577E02403EB6A0052D6C7 /* ShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShareTo.xcassets; sourceTree = "<group>"; };
 		2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyStatement.xcassets; sourceTree = "<group>"; };
 		2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementSettingCell.swift; sourceTree = "<group>"; };
 		2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementDisclosureCell.swift; sourceTree = "<group>"; };
@@ -2137,8 +2137,6 @@
 		2B85778D2403A0170052D6C7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				2B85779A2403B5020052D6C7 /* Ghostery */,
-				2B8577912403A0E50052D6C7 /* Cliqz */,
 				2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */,
 				2B85778F2403A0170052D6C7 /* Debug.xcconfig */,
 				2B8577902403A0170052D6C7 /* Release.xcconfig */,
@@ -2146,80 +2144,80 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		2B8577912403A0E50052D6C7 /* Cliqz */ = {
+		2B8577B32403E90B0052D6C7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577AB2403C1FC0052D6C7 /* InfoPlists */,
-				2B8577A82403B7B20052D6C7 /* Assets */,
-				2B8577A22403B51B0052D6C7 /* Entitlements */,
-				2B8577922403A0E50052D6C7 /* CliqzRelease.xcconfig */,
-				2B8577932403A0E50052D6C7 /* CliqzDebug.xcconfig */,
-				2B8577942403A0E50052D6C7 /* CliqzAdHoc.xcconfig */,
+				2B8577D52403EB0F0052D6C7 /* InfoPlists */,
+				2B8577B92403E90B0052D6C7 /* Entitlements */,
+				2B8577BD2403E90B0052D6C7 /* Assets */,
+				2B8577B82403E90B0052D6C7 /* GhosteryDebug.xcconfig */,
+				2B8577C02403E90B0052D6C7 /* GhosteryAdHoc.xcconfig */,
+				2B8577BC2403E90B0052D6C7 /* GhosteryRelease.xcconfig */,
 			);
-			path = Cliqz;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
-		2B85779A2403B5020052D6C7 /* Ghostery */ = {
+		2B8577B92403E90B0052D6C7 /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577AF2403C2170052D6C7 /* InfoPlists */,
-				2B8577A52403B7A90052D6C7 /* Assets */,
-				2B85779D2403B5020052D6C7 /* Entitlements */,
-				2B85779C2403B5020052D6C7 /* GhosteryDebug.xcconfig */,
-				2B8577A02403B5020052D6C7 /* GhosteryRelease.xcconfig */,
-				2B8577A12403B5020052D6C7 /* GhosteryAdHoc.xcconfig */,
-			);
-			path = Ghostery;
-			sourceTree = "<group>";
-		};
-		2B85779D2403B5020052D6C7 /* Entitlements */ = {
-			isa = PBXGroup;
-			children = (
-				2B85779E2403B5020052D6C7 /* GhosteryShareTo.entitlements */,
-				2B85779F2403B5020052D6C7 /* GhosteryOpenIn.entitlements */,
+				2B8577BA2403E90B0052D6C7 /* GhosteryShareTo.entitlements */,
+				2B8577BB2403E90B0052D6C7 /* GhosteryOpenIn.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
 		};
-		2B8577A22403B51B0052D6C7 /* Entitlements */ = {
+		2B8577BD2403E90B0052D6C7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577A32403B51B0052D6C7 /* CliqzShareTo.entitlements */,
-				2B8577A42403B51B0052D6C7 /* CliqzOpenIn.entitlements */,
+				2B8577BE2403E90B0052D6C7 /* ShareTo.xcassets */,
+				2B8577BF2403E90B0052D6C7 /* OpenIn.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2B8577C12403E9150052D6C7 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577DA2403EB530052D6C7 /* InfoPlists */,
+				2B8577C92403E9150052D6C7 /* Entitlements */,
+				2B8577CC2403E9150052D6C7 /* Assets */,
+				2B8577C32403E9150052D6C7 /* CliqzDebug.xcconfig */,
+				2B8577C42403E9150052D6C7 /* CliqzAdHoc.xcconfig */,
+				2B8577C22403E9150052D6C7 /* CliqzRelease.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		2B8577C92403E9150052D6C7 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577CA2403E9150052D6C7 /* CliqzShareTo.entitlements */,
+				2B8577CB2403E9150052D6C7 /* CliqzOpenIn.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
 		};
-		2B8577A52403B7A90052D6C7 /* Assets */ = {
+		2B8577CC2403E9150052D6C7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577A62403B7A90052D6C7 /* GhosteryShareTo.xcassets */,
-				2B8577A72403B7A90052D6C7 /* GhosteryOpenIn.xcassets */,
+				2B8577DF2403EB6A0052D6C7 /* OpenIn.xcassets */,
+				2B8577E02403EB6A0052D6C7 /* ShareTo.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		2B8577A82403B7B20052D6C7 /* Assets */ = {
+		2B8577D52403EB0F0052D6C7 /* InfoPlists */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577A92403B7B20052D6C7 /* CliqzShareTo.xcassets */,
-				2B8577AA2403B7B20052D6C7 /* CliqzOpenIn.xcassets */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		2B8577AB2403C1FC0052D6C7 /* InfoPlists */ = {
-			isa = PBXGroup;
-			children = (
-				2B8577AC2403C1FC0052D6C7 /* InfoPlist.strings */,
+				2B8577D62403EB0F0052D6C7 /* InfoPlist.strings */,
 			);
 			path = InfoPlists;
 			sourceTree = "<group>";
 		};
-		2B8577AF2403C2170052D6C7 /* InfoPlists */ = {
+		2B8577DA2403EB530052D6C7 /* InfoPlists */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577B02403C2170052D6C7 /* InfoPlist.strings */,
+				2B8577DB2403EB530052D6C7 /* InfoPlist.strings */,
 			);
 			path = InfoPlists;
 			sourceTree = "<group>";
@@ -2724,6 +2722,7 @@
 		C50ED2B12326AA8F00EE71B8 /* Cliqz */ = {
 			isa = PBXGroup;
 			children = (
+				2B8577C12403E9150052D6C7 /* Configuration */,
 				F84B22431A09165600AAB793 /* Info.plist */,
 				C50ED2B52326AB1100EE71B8 /* brand.xcassets */,
 				ACC6EC492327F4B6000F5499 /* Colors.swift */,
@@ -2736,6 +2735,7 @@
 		C50ED2B22326AA9400EE71B8 /* Ghostery */ = {
 			isa = PBXGroup;
 			children = (
+				2B8577B32403E90B0052D6C7 /* Configuration */,
 				ACB7398123042D9300FA5626 /* Info.plist */,
 				C50ED2BC2326B17C00EE71B8 /* brand.xcassets */,
 				ACC6EC4F2327F9FC000F5499 /* Colors.swift */,
@@ -3922,13 +3922,9 @@
 				Base,
 				de,
 				CliqzOpenInen,
-				cliqzopeninen,
 				CliqzOpenInde,
-				cliqzopeninde,
 				GhosteryOpenInen,
-				ghosteryopeninen,
 				GhosteryOpenInde,
-				ghosteryopeninde,
 			);
 			mainGroup = F84B21B51A090F8100AAB793;
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
@@ -5713,20 +5709,20 @@
 			name = PrivacyStatement.strings;
 			sourceTree = "<group>";
 		};
-		2B8577AC2403C1FC0052D6C7 /* InfoPlist.strings */ = {
+		2B8577D62403EB0F0052D6C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2B8577AD2403C1FC0052D6C7 /* CliqzOpenInen */,
-				2B8577AE2403C1FC0052D6C7 /* CliqzOpenInde */,
+				2B8577D72403EB0F0052D6C7 /* de */,
+				2B8577D82403EB0F0052D6C7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		2B8577B02403C2170052D6C7 /* InfoPlist.strings */ = {
+		2B8577DB2403EB530052D6C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2B8577B12403C2170052D6C7 /* GhosteryOpenInen */,
-				2B8577B22403C2170052D6C7 /* GhosteryOpenInde */,
+				2B8577DC2403EB530052D6C7 /* de */,
+				2B8577DD2403EB530052D6C7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -6599,7 +6595,7 @@
 					"-lxml2",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = CI;
@@ -6997,7 +6993,7 @@
 					"-lxml2",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
@@ -7518,7 +7514,7 @@
 					"-lxml2",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
@@ -7802,7 +7798,7 @@
 					"-lxml2",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
