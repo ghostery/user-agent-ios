@@ -1,10 +1,21 @@
 #!/bin/sh
 # Passing target name as an argument.
 TARGETNAME=$1
+PROJECTPATH=$2
+
+if [ -z "${PROJECTPATH}" ]; then
+    echo "Project path is empty!"
+    exit 1
+fi
+
+if [ -z "${TARGETNAME}" ]; then
+    echo "Target name is empty!"
+    exit 1
+fi
 
 # Configuration folder path
-CONFIG_PATH=${PROJECT_DIR}/Client/Configuration
-BRAND_PATH=${PROJECT_DIR}/Branding/${TARGETNAME}/Configuration
+CONFIG_PATH=${PROJECTPATH}/Client/Configuration
+BRAND_PATH=${PROJECTPATH}/Branding/${TARGETNAME}/Configuration
 
 # Replacing Debug/AdHoc/Release xcconfig files according target
 mkdir -p ${CONFIG_PATH}
@@ -13,7 +24,7 @@ cp -rf ${BRAND_PATH}/${TARGETNAME}AdHoc.xcconfig ${CONFIG_PATH}/AdHoc.xcconfig
 cp -rf ${BRAND_PATH}/${TARGETNAME}Release.xcconfig ${CONFIG_PATH}/Release.xcconfig
 
 # Entitlments folder path
-ENTITLEMENTS_PATH=${PROJECT_DIR}/Extensions/Entitlements
+ENTITLEMENTS_PATH=${PROJECTPATH}/Extensions/Entitlements
 
 # Replacing ShareTo/OpenIn entitlement files according target
 mkdir -p ${ENTITLEMENTS_PATH}
@@ -21,14 +32,14 @@ cp -rf ${BRAND_PATH}/Entitlements/${TARGETNAME}ShareTo.entitlements ${ENTITLEMEN
 cp -rf ${BRAND_PATH}/Entitlements/${TARGETNAME}OpenIn.entitlements ${ENTITLEMENTS_PATH}/OpenIn.entitlements
 
 # ShareTo folder path
-SHARE_TO_PATH=${PROJECT_DIR}/Extensions/ShareTo
+SHARE_TO_PATH=${PROJECTPATH}/Extensions/ShareTo
 
 # Replacing ShareTo assets according target
 rm -rf ${SHARE_TO_PATH}/ShareTo.xcassets
 cp -rf ${BRAND_PATH}/Assets/ShareTo.xcassets ${SHARE_TO_PATH}/
 
 # OpenIn folder path
-OPEN_IN_PATH=${PROJECT_DIR}/Extensions/OpenIn
+OPEN_IN_PATH=${PROJECTPATH}/Extensions/OpenIn
 
 # Replacing OpenIn assets according target
 rm -rf ${OPEN_IN_PATH}/OpenIn.xcassets
