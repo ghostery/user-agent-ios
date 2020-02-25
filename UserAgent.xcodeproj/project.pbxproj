@@ -6612,7 +6612,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E22F73B054C710E99D11A013 /* Pods-Cliqz.ci.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
@@ -6652,7 +6652,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 193A856AFA9BC908427E33A5 /* Pods-Ghostery.ci.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
@@ -7008,7 +7008,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8EF4515D84F7B934A5318AEC /* Pods-Cliqz.adhoc.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
@@ -7302,7 +7302,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E856F0CC31F0A2760F95EEF6 /* Pods-Ghostery.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
@@ -7357,7 +7357,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D45B6D4541A6B664D8744B18 /* Pods-Ghostery.adhoc.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
@@ -7412,7 +7412,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2BCFD3D477938E531ED275F /* Pods-Ghostery.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
@@ -7530,7 +7530,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B59430F5B45D4B4809786C3 /* Pods-Cliqz.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
@@ -7814,7 +7814,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F80048466CE6947783A54A4E /* Pods-Cliqz.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
