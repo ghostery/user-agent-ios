@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;exec &gt; ${PROJECT_DIR}/prebuild.log 2&gt;&amp;1&#10;sh ${PROJECT_DIR}/Branding/setup.sh Cliqz&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;sh ${PROJECT_DIR}/Branding/setup.sh Cliqz&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
