@@ -10,14 +10,12 @@ import Foundation
 
 class UseCases {
 
-    var tabUseCases: TabUseCases
     var contextMenu: ContextMenuUseCase
     var openLink: OpenLinkUseCases
 
     init(tabManager: TabManager, profile: Profile, browserViewController: BrowserViewController) {
-        self.tabUseCases = TabUseCases(tabManager: tabManager)
         self.openLink = OpenLinkUseCases(tabManager: tabManager, browserViewController: browserViewController)
-        self.contextMenu = ContextMenuUseCase(profile: profile, browserViewController: browserViewController)
+        self.contextMenu = ContextMenuUseCase(profile: profile, openLink: self.openLink)
     }
 
 }

@@ -74,8 +74,6 @@
 		2B473CEE23952A2700442059 /* BloomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CEC23952A2700442059 /* BloomFilter.swift */; };
 		2B473CF1239637DE00442059 /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF0239637DE00442059 /* UseCases.swift */; };
 		2B473CF2239637DE00442059 /* UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF0239637DE00442059 /* UseCases.swift */; };
-		2B473CF42396387B00442059 /* TabBarUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF32396387B00442059 /* TabBarUseCases.swift */; };
-		2B473CF52396387B00442059 /* TabBarUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CF32396387B00442059 /* TabBarUseCases.swift */; };
 		2B4DFF2223CF0777001145AF /* BrowserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2123CF0777001145AF /* BrowserSearch.swift */; };
 		2B4DFF2323CF0777001145AF /* BrowserSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2123CF0777001145AF /* BrowserSearch.swift */; };
 		2B4DFF2523CF07E1001145AF /* BrowserSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DFF2423CF07E1001145AF /* BrowserSearch.m */; };
@@ -1257,7 +1255,6 @@
 		2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabDefaulViewSettingsViewController.swift; sourceTree = "<group>"; };
 		2B473CEC23952A2700442059 /* BloomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomFilter.swift; sourceTree = "<group>"; };
 		2B473CF0239637DE00442059 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
-		2B473CF32396387B00442059 /* TabBarUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUseCases.swift; sourceTree = "<group>"; };
 		2B4DFF2123CF0777001145AF /* BrowserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSearch.swift; sourceTree = "<group>"; };
 		2B4DFF2423CF07E1001145AF /* BrowserSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserSearch.m; sourceTree = "<group>"; };
 		2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinkUseCases.swift; sourceTree = "<group>"; };
@@ -2194,7 +2191,6 @@
 			isa = PBXGroup;
 			children = (
 				2B473CF0239637DE00442059 /* UseCases.swift */,
-				2B473CF32396387B00442059 /* TabBarUseCases.swift */,
 				C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */,
 				2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */,
 			);
@@ -5385,7 +5381,6 @@
 				ACB737CB23042BAB00FA5626 /* NewTabAccessors.swift in Sources */,
 				ACB737CC23042BAB00FA5626 /* Tab.swift in Sources */,
 				ACB737CE23042BAB00FA5626 /* CustomSearchViewController.swift in Sources */,
-				2B473CF52396387B00442059 /* TabBarUseCases.swift in Sources */,
 				ACB737D023042BAB00FA5626 /* GradientProgressBar.swift in Sources */,
 				ACB737D223042BAB00FA5626 /* URIFixup.swift in Sources */,
 				ACB737D323042BAB00FA5626 /* ReadabilityService.swift in Sources */,
@@ -5667,7 +5662,6 @@
 				2B8DDBB923A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */,
 				3B6889C51D66950E002AC85E /* UIImageColors.swift in Sources */,
 				392ED7E41D0AEF56009D9B62 /* NewTabAccessors.swift in Sources */,
-				2B473CF42396387B00442059 /* TabBarUseCases.swift in Sources */,
 				D3A9949D1A3686BD008AD1AC /* Tab.swift in Sources */,
 				3B39EDCB1E16E1AA00EF029F /* CustomSearchViewController.swift in Sources */,
 				D863C8F21F68BFC20058D95F /* GradientProgressBar.swift in Sources */,

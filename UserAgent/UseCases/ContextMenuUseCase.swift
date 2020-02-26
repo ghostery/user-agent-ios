@@ -24,11 +24,11 @@ public typealias ContextMenuActionCompletion = () -> Void
 
 class ContextMenuUseCase {
     private let profile: Profile
-    private let browserViewController: BrowserViewController
+    private var openLink: OpenLinkUseCases
 
-    init(profile: Profile, browserViewController: BrowserViewController) {
+    init(profile: Profile, openLink: OpenLinkUseCases) {
         self.profile = profile
-        self.browserViewController = browserViewController
+        self.openLink = openLink
     }
 
     func present(for site: Site, withQuery query: String? = nil, withActions actions: [ContextMenuActions], on viewController: UIViewController, completion: @escaping ContextMenuActionCompletion) {
@@ -119,7 +119,7 @@ class ContextMenuUseCase {
 
     private func createActionOpenInNewTab(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let actionSheetItem = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewTab, iconString: "quick_action_new_tab") { action in
-            self.browserViewController.openURLInNewTab(url: site.tileURL, isPrivate: false)
+            self.openLink.openNewTab(url: site.tileURL)
             actionCompletion()
         }
         return actionSheetItem
@@ -127,7 +127,7 @@ class ContextMenuUseCase {
 
     private func createActionOpenInNewPrivateTab(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let actionSheetItem = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewPrivateTab, iconString: "forgetMode") { action in
-            self.browserViewController.openURLInNewTab(url: site.tileURL, isPrivate: true)
+            self.openLink.openNewPrivateTab(url: site.tileURL)
             actionCompletion()
         }
         return actionSheetItem
