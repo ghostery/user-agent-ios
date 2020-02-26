@@ -97,7 +97,7 @@ def main_app
   gcdwebserver
 end
 
-def share_to
+def extensions
   snapkit
   swiftyjson
   fuzi
@@ -124,20 +124,12 @@ target 'Storage' do
   end
 end
 
-target 'CliqzShareTo' do
-  share_to
+target 'ShareTo' do
+  extensions
 end
 
-target 'GhosteryShareTo' do
-  share_to
-end
-
-target 'CliqzOpenIn' do
-  share_to
-end
-
-target 'GhosteryOpenIn' do
-  share_to
+target 'OpenIn' do
+  extensions
 end
 
 target 'StoragePerfTests' do
