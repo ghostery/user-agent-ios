@@ -145,6 +145,7 @@ platform :ios do
       clean: true,
       disable_xcpretty: true,
       scheme: app.scheme,
+      configuration: app.configuration,
       skip_profile_detection: true,
       codesigning_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
       export_method: "app-store",
