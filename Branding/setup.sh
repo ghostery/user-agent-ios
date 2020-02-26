@@ -24,12 +24,19 @@ cp -rf ${BRAND_PATH}/${TARGETNAME}AdHoc.xcconfig ${CONFIG_PATH}/AdHoc.xcconfig
 cp -rf ${BRAND_PATH}/${TARGETNAME}Release.xcconfig ${CONFIG_PATH}/Release.xcconfig
 
 # Entitlments folder path
-ENTITLEMENTS_PATH=${PROJECTPATH}/Extensions/Entitlements
+SHARETO_ENTITLEMENTS_PATH=${PROJECTPATH}/Extensions/ShareTo/Entitlements
+OPENIN_ENTITLEMENTS_PATH=${PROJECTPATH}/Extensions/OpenIn/Entitlements
 
 # Replacing ShareTo/OpenIn entitlement files according target
-mkdir -p ${ENTITLEMENTS_PATH}
-cp -rf ${BRAND_PATH}/Entitlements/${TARGETNAME}ShareTo.entitlements ${ENTITLEMENTS_PATH}/ShareTo.entitlements
-cp -rf ${BRAND_PATH}/Entitlements/${TARGETNAME}OpenIn.entitlements ${ENTITLEMENTS_PATH}/OpenIn.entitlements
+mkdir -p ${SHARETO_ENTITLEMENTS_PATH}
+cp -rf ${BRAND_PATH}/Entitlements/ShareTo/${TARGETNAME}ShareTo.entitlements ${SHARETO_ENTITLEMENTS_PATH}/ShareTo.entitlements
+cp -rf ${BRAND_PATH}/Entitlements/ShareTo/${TARGETNAME}ShareToAdHoc.entitlements ${SHARETO_ENTITLEMENTS_PATH}/ShareToAdHoc.entitlements
+cp -rf ${BRAND_PATH}/Entitlements/ShareTo/${TARGETNAME}ShareToDebug.entitlements ${SHARETO_ENTITLEMENTS_PATH}/ShareToDebug.entitlements
+
+mkdir -p ${OPENIN_ENTITLEMENTS_PATH}
+cp -rf ${BRAND_PATH}/Entitlements/OpenIn/${TARGETNAME}OpenIn.entitlements ${OPENIN_ENTITLEMENTS_PATH}/OpenIn.entitlements
+cp -rf ${BRAND_PATH}/Entitlements/OpenIn/${TARGETNAME}OpenInAdHoc.entitlements ${OPENIN_ENTITLEMENTS_PATH}/OpenInAdHoc.entitlements
+cp -rf ${BRAND_PATH}/Entitlements/OpenIn/${TARGETNAME}OpenInDebug.entitlements ${OPENIN_ENTITLEMENTS_PATH}/OpenInDebug.entitlements
 
 # ShareTo folder path
 SHARE_TO_PATH=${PROJECTPATH}/Extensions/ShareTo

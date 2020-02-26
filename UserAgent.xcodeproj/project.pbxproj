@@ -1182,6 +1182,30 @@
 		2B473CEC23952A2700442059 /* BloomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomFilter.swift; sourceTree = "<group>"; };
 		2B473CF0239637DE00442059 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
 		2B473CF32396387B00442059 /* TabBarUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarUseCases.swift; sourceTree = "<group>"; };
+		2B47DAC82406758A00AD6D4C /* ShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareTo.entitlements; sourceTree = "<group>"; };
+		2B47DAC92406758A00AD6D4C /* ShareToDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareToDebug.entitlements; sourceTree = "<group>"; };
+		2B47DACA2406758A00AD6D4C /* ShareToAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareToAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DACC2406759600AD6D4C /* OpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenIn.entitlements; sourceTree = "<group>"; };
+		2B47DACD2406759600AD6D4C /* OpenInAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenInAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DACE2406759600AD6D4C /* OpenInDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenInDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAD9240677A300AD6D4C /* Cliqz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cliqz.entitlements; sourceTree = "<group>"; };
+		2B47DADA240677A300AD6D4C /* CliqzDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzDebug.entitlements; sourceTree = "<group>"; };
+		2B47DADB240677A300AD6D4C /* CliqzAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DADD240677A300AD6D4C /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
+		2B47DADE240677A300AD6D4C /* GhosteryAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DADF240677A300AD6D4C /* GhosteryDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAE12406783700AD6D4C /* GhosteryShareToDebug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareToDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAE22406783700AD6D4C /* GhosteryShareToAdHoc.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareToAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DAE32406783700AD6D4C /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
+		2B47DAE52406783800AD6D4C /* GhosteryOpenInAdHoc.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenInAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DAE62406783800AD6D4C /* GhosteryOpenInDebug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenInDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAE72406783800AD6D4C /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
+		2B47DAE92406784500AD6D4C /* CliqzOpenInAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenInAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DAEA2406784500AD6D4C /* CliqzOpenInDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenInDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAEB2406784500AD6D4C /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
+		2B47DAED2406784500AD6D4C /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
+		2B47DAEE2406784500AD6D4C /* CliqzShareToDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzShareToDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAEF2406784500AD6D4C /* CliqzShareToAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzShareToAdHoc.entitlements; sourceTree = "<group>"; };
 		2B4DFF2123CF0777001145AF /* BrowserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSearch.swift; sourceTree = "<group>"; };
 		2B4DFF2423CF07E1001145AF /* BrowserSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserSearch.m; sourceTree = "<group>"; };
 		2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinkUseCases.swift; sourceTree = "<group>"; };
@@ -1201,11 +1225,7 @@
 		2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AdHoc.xcconfig; sourceTree = "<group>"; };
 		2B85778F2403A0170052D6C7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		2B8577902403A0170052D6C7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		2B8577982403B4860052D6C7 /* OpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenIn.entitlements; sourceTree = "<group>"; };
-		2B8577992403B4860052D6C7 /* ShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareTo.entitlements; sourceTree = "<group>"; };
 		2B8577B82403E90B0052D6C7 /* GhosteryDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryDebug.xcconfig; sourceTree = "<group>"; };
-		2B8577BA2403E90B0052D6C7 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
-		2B8577BB2403E90B0052D6C7 /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
 		2B8577BC2403E90B0052D6C7 /* GhosteryRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryRelease.xcconfig; sourceTree = "<group>"; };
 		2B8577BE2403E90B0052D6C7 /* ShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShareTo.xcassets; sourceTree = "<group>"; };
 		2B8577BF2403E90B0052D6C7 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
@@ -1213,8 +1233,6 @@
 		2B8577C22403E9150052D6C7 /* CliqzRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzRelease.xcconfig; sourceTree = "<group>"; };
 		2B8577C32403E9150052D6C7 /* CliqzDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzDebug.xcconfig; sourceTree = "<group>"; };
 		2B8577C42403E9150052D6C7 /* CliqzAdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzAdHoc.xcconfig; sourceTree = "<group>"; };
-		2B8577CA2403E9150052D6C7 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
-		2B8577CB2403E9150052D6C7 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
 		2B8577D72403EB0F0052D6C7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B8577D82403EB0F0052D6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B8577DC2403EB530052D6C7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1355,7 +1373,6 @@
 		46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyIndicatorView.swift; sourceTree = "<group>"; };
 		46828D902341F23300E7D8A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UserAgent.strings; sourceTree = "<group>"; };
 		46828D922341F23800E7D8A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/UserAgent.strings; sourceTree = "<group>"; };
-		46947785232A983500129B51 /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
 		46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompletion.swift; sourceTree = "<group>"; };
 		46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCompletion.m; sourceTree = "<group>"; };
 		46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+PrivateBrowsing.swift"; sourceTree = "<group>"; };
@@ -1521,7 +1538,6 @@
 		C50ED2ED232914B100EE71B8 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
 		C520FF592388218A0097BA0C /* effective_tld_names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = effective_tld_names.swift; sourceTree = "<group>"; };
 		C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsTableViewCell.swift; sourceTree = "<group>"; };
-		C53E464C232299C4005B2DA6 /* Cliqz.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Cliqz.entitlements; sourceTree = "<group>"; };
 		C56ED496233B692B006A63B1 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		C56ED49D233B712F006A63B1 /* InterceptorFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorFeature.swift; sourceTree = "<group>"; };
 		C56ED4A0233B8ACD006A63B1 /* AntiPhishingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiPhishingPolicy.swift; sourceTree = "<group>"; };
@@ -2123,6 +2139,86 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		2B47DAC72406758A00AD6D4C /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DACA2406758A00AD6D4C /* ShareToAdHoc.entitlements */,
+				2B47DAC92406758A00AD6D4C /* ShareToDebug.entitlements */,
+				2B47DAC82406758A00AD6D4C /* ShareTo.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		2B47DACB2406759600AD6D4C /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DACD2406759600AD6D4C /* OpenInAdHoc.entitlements */,
+				2B47DACE2406759600AD6D4C /* OpenInDebug.entitlements */,
+				2B47DACC2406759600AD6D4C /* OpenIn.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		2B47DAD8240677A300AD6D4C /* Cliqz */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAD9240677A300AD6D4C /* Cliqz.entitlements */,
+				2B47DADA240677A300AD6D4C /* CliqzDebug.entitlements */,
+				2B47DADB240677A300AD6D4C /* CliqzAdHoc.entitlements */,
+			);
+			path = Cliqz;
+			sourceTree = "<group>";
+		};
+		2B47DADC240677A300AD6D4C /* Ghostery */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DADD240677A300AD6D4C /* Ghostery.entitlements */,
+				2B47DADE240677A300AD6D4C /* GhosteryAdHoc.entitlements */,
+				2B47DADF240677A300AD6D4C /* GhosteryDebug.entitlements */,
+			);
+			path = Ghostery;
+			sourceTree = "<group>";
+		};
+		2B47DAE02406783700AD6D4C /* ShareTo */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAE22406783700AD6D4C /* GhosteryShareToAdHoc.entitlements */,
+				2B47DAE12406783700AD6D4C /* GhosteryShareToDebug.entitlements */,
+				2B47DAE32406783700AD6D4C /* GhosteryShareTo.entitlements */,
+			);
+			path = ShareTo;
+			sourceTree = "<group>";
+		};
+		2B47DAE42406783800AD6D4C /* OpenIn */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAE52406783800AD6D4C /* GhosteryOpenInAdHoc.entitlements */,
+				2B47DAE62406783800AD6D4C /* GhosteryOpenInDebug.entitlements */,
+				2B47DAE72406783800AD6D4C /* GhosteryOpenIn.entitlements */,
+			);
+			path = OpenIn;
+			sourceTree = "<group>";
+		};
+		2B47DAE82406784500AD6D4C /* OpenIn */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAE92406784500AD6D4C /* CliqzOpenInAdHoc.entitlements */,
+				2B47DAEA2406784500AD6D4C /* CliqzOpenInDebug.entitlements */,
+				2B47DAEB2406784500AD6D4C /* CliqzOpenIn.entitlements */,
+			);
+			path = OpenIn;
+			sourceTree = "<group>";
+		};
+		2B47DAEC2406784500AD6D4C /* ShareTo */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAEF2406784500AD6D4C /* CliqzShareToAdHoc.entitlements */,
+				2B47DAEE2406784500AD6D4C /* CliqzShareToDebug.entitlements */,
+				2B47DAED2406784500AD6D4C /* CliqzShareTo.entitlements */,
+			);
+			path = ShareTo;
+			sourceTree = "<group>";
+		};
 		2B516D27238BAC8B006D6B57 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -2170,8 +2266,8 @@
 		2B8577B92403E90B0052D6C7 /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577BA2403E90B0052D6C7 /* GhosteryShareTo.entitlements */,
-				2B8577BB2403E90B0052D6C7 /* GhosteryOpenIn.entitlements */,
+				2B47DAE42406783800AD6D4C /* OpenIn */,
+				2B47DAE02406783700AD6D4C /* ShareTo */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -2201,8 +2297,8 @@
 		2B8577C92403E9150052D6C7 /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577CA2403E9150052D6C7 /* CliqzShareTo.entitlements */,
-				2B8577CB2403E9150052D6C7 /* CliqzOpenIn.entitlements */,
+				2B47DAE82406784500AD6D4C /* OpenIn */,
+				2B47DAEC2406784500AD6D4C /* ShareTo */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -2244,6 +2340,7 @@
 		2BE2586E23BA0C800022ED28 /* OpenIn */ = {
 			isa = PBXGroup;
 			children = (
+				2B47DACB2406759600AD6D4C /* Entitlements */,
 				2BE2591023BA2FD40022ED28 /* InfoPlist.strings */,
 				2BD02D4623BA3698001539F0 /* OpenIn.xcassets */,
 				2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */,
@@ -3076,15 +3173,6 @@
 			path = Browser;
 			sourceTree = "<group>";
 		};
-		E40A18F61EDC73D5006B7F28 /* Entitlements */ = {
-			isa = PBXGroup;
-			children = (
-				2B8577982403B4860052D6C7 /* OpenIn.entitlements */,
-				2B8577992403B4860052D6C7 /* ShareTo.entitlements */,
-			);
-			path = Entitlements;
-			sourceTree = "<group>";
-		};
 		E49943F31AE6879C00BF9DE4 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -3192,8 +3280,8 @@
 		E689C6FF1E0C716F008BAADB /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				C53E464C232299C4005B2DA6 /* Cliqz.entitlements */,
-				46947785232A983500129B51 /* Ghostery.entitlements */,
+				2B47DAD8240677A300AD6D4C /* Cliqz */,
+				2B47DADC240677A300AD6D4C /* Ghostery */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -3497,7 +3585,6 @@
 		F8708D1E1A0970990051AB07 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E40A18F61EDC73D5006B7F28 /* Entitlements */,
 				F8708D241A0970990051AB07 /* ShareTo */,
 				2BE2586E23BA0C800022ED28 /* OpenIn */,
 			);
@@ -3507,6 +3594,7 @@
 		F8708D241A0970990051AB07 /* ShareTo */ = {
 			isa = PBXGroup;
 			children = (
+				2B47DAC72406758A00AD6D4C /* Entitlements */,
 				C5C7D3412359B30B00CB359A /* ShareTo.xcassets */,
 				EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */,
 				F8708D251A0970990051AB07 /* Images.xcassets */,
@@ -6172,7 +6260,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/OpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenInDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -6209,7 +6297,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/OpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenInAdHoc.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6241,7 +6329,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/OpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6273,7 +6361,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/OpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6625,7 +6713,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -6665,7 +6753,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -6705,7 +6793,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/ShareTo.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -7021,7 +7109,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/CliqzAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -7076,7 +7164,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/ShareTo.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareToAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -7315,7 +7403,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/GhosteryDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -7370,7 +7458,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/GhosteryAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -7425,7 +7513,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -7543,7 +7631,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -7606,7 +7694,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/ShareTo.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -7827,7 +7915,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/CliqzDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -7901,7 +7989,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/ShareTo.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareToDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";

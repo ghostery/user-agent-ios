@@ -73,9 +73,9 @@ Brewfile.lock.json
 Client/Configuration/Debug.xcconfig
 Client/Configuration/AdHoc.xcconfig
 Client/Configuration/Release.xcconfig
-Extensions/Entitlements/ShareTo.entitlements
-Extensions/Entitlements/OpenIn.entitlements
+Extensions/ShareTo/Entitlements/
 Extensions/ShareTo/ShareTo.xcassets/
+Extensions/OpenIn/Entitlements/
 Extensions/OpenIn/OpenIn.xcassets/
 Extensions/OpenIn/de.lproj/
 Extensions/OpenIn/en.lproj/
