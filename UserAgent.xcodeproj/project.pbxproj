@@ -124,34 +124,21 @@
 		2BC457FF23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */; };
 		2BC4580523F1385900057204 /* PhotonActionSheetCollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */; };
 		2BC4580623F1385900057204 /* PhotonActionSheetCollectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */; };
-		2BC4664923C45CAF008CF508 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BC4664723C45C80008CF508 /* InfoPlist.strings */; };
 		2BD02D3823BA3375001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
-		2BD02D3D23BA3381001539F0 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
 		2BD02D3E23BA33A3001539F0 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
-		2BD02D3F23BA33A4001539F0 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
-		2BD02D4823BA3698001539F0 /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4423BA3698001539F0 /* Ghostery.xcassets */; };
-		2BD02D4923BA3698001539F0 /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4623BA3698001539F0 /* cliqz.xcassets */; };
+		2BD02D4923BA3698001539F0 /* OpenIn.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD02D4623BA3698001539F0 /* OpenIn.xcassets */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
-		2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2BE258F523BA2B5B0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BE258DF23BA2B4A0022ED28 /* OpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* OpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
-		2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
 		2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
-		2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
-		2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		2BE2590623BA2C510022ED28 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
 		2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE2591023BA2FD40022ED28 /* InfoPlist.strings */; };
 		2BE2591223BA312A0022ED28 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
-		2BE2591323BA312B0022ED28 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
 		2BE2591423BA31370022ED28 /* PanelDataObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68F36971EA694000048CF44 /* PanelDataObservers.swift */; };
-		2BE2591523BA31370022ED28 /* PanelDataObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68F36971EA694000048CF44 /* PanelDataObservers.swift */; };
 		2BE2591623BA313C0022ED28 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
-		2BE2591723BA313C0022ED28 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
 		2BE2591823BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
-		2BE2591923BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
 		2BE2591A23BA314D0022ED28 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
-		2BE2591B23BA314E0022ED28 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
 		2BE9C93123E169450074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9C93223E1C5B60074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BEB1A7D23F5388E008A0F01 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
@@ -248,22 +235,6 @@
 		464E6839234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464E683C234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
-		464F67662326AFB70090D0B5 /* Punycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B2AC11D41F02D00429414 /* Punycode.swift */; };
-		464F67672326AFB70090D0B5 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
-		464F67682326AFB70090D0B5 /* URIFixup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C744CC1A687D6C004CE85D /* URIFixup.swift */; };
-		464F676A2326AFB70090D0B5 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
-		464F676D2326AFB70090D0B5 /* DefaultSearchPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA24A341FD84D620098F159 /* DefaultSearchPrefs.swift */; };
-		464F676E2326AFB70090D0B5 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8708D291A0970990051AB07 /* ShareViewController.swift */; };
-		464F676F2326AFB70090D0B5 /* UXConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB940747208134AF00702E05 /* UXConstants.swift */; };
-		464F67702326AFB70090D0B5 /* PanelDataObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68F36971EA694000048CF44 /* PanelDataObservers.swift */; };
-		464F67712326AFB70090D0B5 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
-		464F67732326AFB70090D0B5 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04CD749216CF86B004FF5B0 /* InstructionsViewController.swift */; };
-		464F67742326AFB70090D0B5 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41A7D4A1A1BE04500245963 /* InitialViewController.swift */; };
-		464F67762326AFB70090D0B5 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
-		464F67772326AFB70090D0B5 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; };
-		464F67782326AFB70090D0B5 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
-		464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */; };
-		464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
 		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46569CC623CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
 		46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
@@ -352,18 +323,16 @@
 		46FA068823BB7B2400B22F71 /* BrowserTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068623BB7B2400B22F71 /* BrowserTabs.m */; };
 		46FA068A23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */; };
 		46FA068B23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */; };
-		4919E71880C1F5A9BF560687 /* Pods_CliqzOpenIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F81ADA1D2D8D4AEA86F713F /* Pods_CliqzOpenIn.framework */; };
 		4A59B58AD11B5EE1F80BBDEB /* TestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */; };
 		580B0C4221748CFE00448DF8 /* DataManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580B0C4121748CFE00448DF8 /* DataManagementTests.swift */; };
 		59A68D66379CFA85C4EAF00B /* TwoLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A68B1F857A8638598A63A0 /* TwoLineCell.swift */; };
-		5ED2E160267B8BC9C8F5F7A3 /* Pods_CliqzShareTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3A11441C1E7720253FC202 /* Pods_CliqzShareTo.framework */; };
 		63306D3921103EAE00F25400 /* SavedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63306D3821103EAE00F25400 /* SavedTab.swift */; };
 		63306D432110B3CD00F25400 /* TabManagerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63306D422110B3CD00F25400 /* TabManagerStore.swift */; };
 		63306D452110BAF000F25400 /* TabManagerStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63306D442110BAF000F25400 /* TabManagerStoreTests.swift */; };
+		660335E0F23729FE05E618CD /* Pods_ShareTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CF3DFE609D0D680B66408F /* Pods_ShareTo.framework */; };
 		6669B5E2211418A200CA117B /* WebsiteDataSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6669B5E1211418A200CA117B /* WebsiteDataSearchResultsViewController.swift */; };
 		66CE54A820FCF6CF00CC310B /* WebsiteDataManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CE54A720FCF6CF00CC310B /* WebsiteDataManagementViewController.swift */; };
 		6AAEAD894737287DE69FE0CE /* Pods_StorageTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F8D7E381A676F5A7F73446 /* Pods_StorageTests.framework */; };
-		6AF077C2300636D4F960E462 /* Pods_GhosteryShareTo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4215C7E8E5CD5534FD54D4 /* Pods_GhosteryShareTo.framework */; };
 		6B064B9E955F05E7483746FA /* PrivateBrowsing.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEEC42F589C10B5A25A90238 /* PrivateBrowsing.strings */; };
 		742A56391D80B54A00BDB803 /* PhotonActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742A56381D80B54A00BDB803 /* PhotonActionSheet.swift */; };
 		744ED5611DBFEB8D00A2B5BE /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
@@ -375,6 +344,7 @@
 		74B195441CF503FC007F36EF /* RecentlyClosedTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B195431CF503FC007F36EF /* RecentlyClosedTabs.swift */; };
 		74C027451B2A348C001B1E88 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C027441B2A348C001B1E88 /* SessionData.swift */; };
 		74E36D781B71323500D69DA1 /* SettingsContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E36D771B71323500D69DA1 /* SettingsContentViewController.swift */; };
+		7AA0BD61B79CE98ED9591B56 /* Pods_OpenIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AE66E0474080C26967C66B /* Pods_OpenIn.framework */; };
 		7B10AA9F1E3A15020002DD08 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B10AA9E1E3A15020002DD08 /* DataExtensions.swift */; };
 		7B10AABB1E3A1F650002DD08 /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B10AABA1E3A1F650002DD08 /* URLRequestExtensions.swift */; };
 		7B3D9E651E4CBFDB007A50DA /* NSCoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3D9E641E4CBFDB007A50DA /* NSCoderExtensions.swift */; };
@@ -602,11 +572,9 @@
 		ACC6EC4A2327F4B6000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
 		ACC6EC4D2327F584000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
 		ACC6EC502327F9FC000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
-		ACC6EC512327FA0B000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
 		ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5623290C1A000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
-		ACC6EC5723290C1A000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5F2329460B000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
 		ACC6EC602329460F000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5D232945F0000F5499 /* colors.xcassets */; };
 		ACC6EC612329485E000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
@@ -618,7 +586,6 @@
 		ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD654822361D2D2002D2EE0 /* WTMCategory+Dict.swift */; };
 		B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
 		B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
-		B4198C6C45B52D15B6C38C39 /* Pods_GhosteryOpenIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C38EFDC756B3283B41ACF1 /* Pods_GhosteryOpenIn.framework */; };
 		C2EDC31C6828A137B57F370B /* Pods_SharedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
@@ -633,7 +600,6 @@
 		C50ED2B62326AB1100EE71B8 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2B52326AB1100EE71B8 /* brand.xcassets */; };
 		C50ED2BE2326B18200EE71B8 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C50ED2BC2326B17C00EE71B8 /* brand.xcassets */; };
 		C50ED2C42327F1D700EE71B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
-		C50ED2C52327F1D700EE71B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34DC84D1A16C40C00D49B7B /* Profile.swift */; };
 		C50ED2CA2328EA3900EE71B8 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2C92328EA3800EE71B8 /* BaseTestCase.swift */; };
 		C50ED2CC2328EAA600EE71B8 /* FxScreenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2CB2328EAA500EE71B8 /* FxScreenGraph.swift */; };
 		C50ED2DC2328F99C00EE71B8 /* ScreenGraphEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2D12328F99C00EE71B8 /* ScreenGraphEdge.swift */; };
@@ -673,8 +639,7 @@
 		C5B83E5E239F9EB0003687AC /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */; };
 		C5B83E62239FA44F003687AC /* PrivacyStatementHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */; };
 		C5B83E66239FA589003687AC /* PrivacyStatementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E65239FA589003687AC /* PrivacyStatementData.swift */; };
-		C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3412359B30B00CB359A /* cliqz.xcassets */; };
-		C5C7D3442359B31D00CB359A /* Ghostery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3432359B31D00CB359A /* Ghostery.xcassets */; };
+		C5C7D3422359B30B00CB359A /* ShareTo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5C7D3412359B30B00CB359A /* ShareTo.xcassets */; };
 		C5D1EB4C23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */; };
 		C5D1EB4D23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */; };
 		C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E94B53233112CD00D3F31F /* Bookmarks.swift */; };
@@ -917,7 +882,7 @@
 		F84B21DA1A090F8100AAB793 /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84B21D91A090F8100AAB793 /* ClientTests.swift */; };
 		F84B22041A0910F600AAB793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84B21E51A0910F600AAB793 /* AppDelegate.swift */; };
 		F84B220B1A0910F600AAB793 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F84B21EF1A0910F600AAB793 /* Images.xcassets */; };
-		F84B22541A0920C600AAB793 /* CliqzShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* CliqzShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F84B22541A0920C600AAB793 /* ShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* ShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F8708D2E1A0970B70051AB07 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8708D251A0970990051AB07 /* Images.xcassets */; };
 		F8708D321A0970B70051AB07 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8708D291A0970990051AB07 /* ShareViewController.swift */; };
 		FA6B2AC21D41F02D00429414 /* Punycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B2AC11D41F02D00429414 /* Punycode.swift */; };
@@ -962,13 +927,6 @@
 			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
 			remoteInfo = Storage;
 		};
-		2BD02D3B23BA337E001539F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
-			remoteInfo = Storage;
-		};
 		2BE258DD23BA2B4A0022ED28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -976,21 +934,7 @@
 			remoteGlobalIDString = 2BE258D223BA2B4A0022ED28;
 			remoteInfo = CliqzOpenIn;
 		};
-		2BE258F323BA2B5B0022ED28 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BE258E823BA2B5B0022ED28;
-			remoteInfo = GhostryOpenIn;
-		};
 		2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
-			remoteInfo = Shared;
-		};
-		2BE2590323BA2C440022ED28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
 			proxyType = 1;
@@ -1045,27 +989,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = F84B21BD1A090F8100AAB793;
 			remoteInfo = Client;
-		};
-		464F67612326AFB70090D0B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
-			remoteInfo = Shared;
-		};
-		464F67632326AFB70090D0B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2FCAE2191ABB51F800877008;
-			remoteInfo = Storage;
-		};
-		464F678C232793F00090D0B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 464F675F2326AFB70090D0B5;
-			remoteInfo = GhosteryShareTo;
 		};
 		7B9BF92E1E435DE400CB24F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1149,7 +1072,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2BE258F523BA2B5B0022ED28 /* GhosteryOpenIn.appex in Embed App Extensions */,
 				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -1187,8 +1109,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F84B22541A0920C600AAB793 /* CliqzShareTo.appex in Embed App Extensions */,
-				2BE258DF23BA2B4A0022ED28 /* CliqzOpenIn.appex in Embed App Extensions */,
+				F84B22541A0920C600AAB793 /* ShareTo.appex in Embed App Extensions */,
+				2BE258DF23BA2B4A0022ED28 /* OpenIn.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1228,6 +1150,8 @@
 		10D644E8A387ADDE68FE9C90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Search.strings; sourceTree = "<group>"; };
 		160F43EF8BED72EBBC4770EA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ErrorPages.strings; sourceTree = "<group>"; };
 		193A856AFA9BC908427E33A5 /* Pods-Ghostery.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghostery.ci.xcconfig"; path = "Target Support Files/Pods-Ghostery/Pods-Ghostery.ci.xcconfig"; sourceTree = "<group>"; };
+		1E78F209B9DF15AA93A83449 /* Pods-OpenIn.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIn.adhoc.xcconfig"; path = "Target Support Files/Pods-OpenIn/Pods-OpenIn.adhoc.xcconfig"; sourceTree = "<group>"; };
+		206D3535CE2C292003B52507 /* Pods-ShareTo.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTo.ci.xcconfig"; path = "Target Support Files/Pods-ShareTo/Pods-ShareTo.ci.xcconfig"; sourceTree = "<group>"; };
 		22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		235465CE0354CACB06B20133 /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		23F8D7E381A676F5A7F73446 /* Pods_StorageTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1255,6 +1179,30 @@
 		2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabDefaulViewSettingsViewController.swift; sourceTree = "<group>"; };
 		2B473CEC23952A2700442059 /* BloomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomFilter.swift; sourceTree = "<group>"; };
 		2B473CF0239637DE00442059 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
+		2B47DAC82406758A00AD6D4C /* ShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareTo.entitlements; sourceTree = "<group>"; };
+		2B47DAC92406758A00AD6D4C /* ShareToDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareToDebug.entitlements; sourceTree = "<group>"; };
+		2B47DACA2406758A00AD6D4C /* ShareToAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareToAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DACC2406759600AD6D4C /* OpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenIn.entitlements; sourceTree = "<group>"; };
+		2B47DACD2406759600AD6D4C /* OpenInAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenInAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DACE2406759600AD6D4C /* OpenInDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenInDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAD9240677A300AD6D4C /* Cliqz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cliqz.entitlements; sourceTree = "<group>"; };
+		2B47DADA240677A300AD6D4C /* CliqzDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzDebug.entitlements; sourceTree = "<group>"; };
+		2B47DADB240677A300AD6D4C /* CliqzAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DADD240677A300AD6D4C /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
+		2B47DADE240677A300AD6D4C /* GhosteryAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DADF240677A300AD6D4C /* GhosteryDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAE12406783700AD6D4C /* GhosteryShareToDebug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareToDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAE22406783700AD6D4C /* GhosteryShareToAdHoc.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareToAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DAE32406783700AD6D4C /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
+		2B47DAE52406783800AD6D4C /* GhosteryOpenInAdHoc.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenInAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DAE62406783800AD6D4C /* GhosteryOpenInDebug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenInDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAE72406783800AD6D4C /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
+		2B47DAE92406784500AD6D4C /* CliqzOpenInAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenInAdHoc.entitlements; sourceTree = "<group>"; };
+		2B47DAEA2406784500AD6D4C /* CliqzOpenInDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenInDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAEB2406784500AD6D4C /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
+		2B47DAED2406784500AD6D4C /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
+		2B47DAEE2406784500AD6D4C /* CliqzShareToDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzShareToDebug.entitlements; sourceTree = "<group>"; };
+		2B47DAEF2406784500AD6D4C /* CliqzShareToAdHoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzShareToAdHoc.entitlements; sourceTree = "<group>"; };
 		2B4DFF2123CF0777001145AF /* BrowserSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserSearch.swift; sourceTree = "<group>"; };
 		2B4DFF2423CF07E1001145AF /* BrowserSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserSearch.m; sourceTree = "<group>"; };
 		2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinkUseCases.swift; sourceTree = "<group>"; };
@@ -1271,6 +1219,23 @@
 		2B76E43823A12AE3001CF20E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrivacyStatement.strings; sourceTree = "<group>"; };
 		2B76E43A23A12AEA001CF20E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivacyStatement.strings; sourceTree = "<group>"; };
 		2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleViewCell.swift; sourceTree = "<group>"; };
+		2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AdHoc.xcconfig; sourceTree = "<group>"; };
+		2B85778F2403A0170052D6C7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		2B8577902403A0170052D6C7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		2B8577B82403E90B0052D6C7 /* GhosteryDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryDebug.xcconfig; sourceTree = "<group>"; };
+		2B8577BC2403E90B0052D6C7 /* GhosteryRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryRelease.xcconfig; sourceTree = "<group>"; };
+		2B8577BE2403E90B0052D6C7 /* ShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShareTo.xcassets; sourceTree = "<group>"; };
+		2B8577BF2403E90B0052D6C7 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
+		2B8577C02403E90B0052D6C7 /* GhosteryAdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = GhosteryAdHoc.xcconfig; sourceTree = "<group>"; };
+		2B8577C22403E9150052D6C7 /* CliqzRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzRelease.xcconfig; sourceTree = "<group>"; };
+		2B8577C32403E9150052D6C7 /* CliqzDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzDebug.xcconfig; sourceTree = "<group>"; };
+		2B8577C42403E9150052D6C7 /* CliqzAdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzAdHoc.xcconfig; sourceTree = "<group>"; };
+		2B8577D72403EB0F0052D6C7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577D82403EB0F0052D6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577DC2403EB530052D6C7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577DD2403EB530052D6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2B8577DF2403EB6A0052D6C7 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
+		2B8577E02403EB6A0052D6C7 /* ShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShareTo.xcassets; sourceTree = "<group>"; };
 		2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyStatement.xcassets; sourceTree = "<group>"; };
 		2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementSettingCell.swift; sourceTree = "<group>"; };
 		2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementDisclosureCell.swift; sourceTree = "<group>"; };
@@ -1280,18 +1245,12 @@
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionCell.swift; sourceTree = "<group>"; };
 		2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionItemCell.swift; sourceTree = "<group>"; };
-		2BC4664623C45C80008CF508 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2BC4664823C45C81008CF508 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2BD02D4023BA34B0001539F0 /* CliqzOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzOpenIn.entitlements; sourceTree = "<group>"; };
-		2BD02D4123BA34B7001539F0 /* GhosteryOpenIn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryOpenIn.entitlements; sourceTree = "<group>"; };
-		2BD02D4423BA3698001539F0 /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
-		2BD02D4623BA3698001539F0 /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
+		2BD02D4623BA3698001539F0 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
 		2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		2BE258C223BA1DFF0022ED28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2BE258C423BA1DFF0022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GhosteryOpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BE258D323BA2B4A0022ED28 /* OpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE2590F23BA2FD40022ED28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE2591123BA2FD60022ED28 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBrowserStartShowSettingsViewController.swift; sourceTree = "<group>"; };
@@ -1379,6 +1338,7 @@
 		3C654F7A97B0D1D4F714ED85 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		3D71C89D1F5703A1008D8646 /* CopiedLinksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopiedLinksTests.swift; sourceTree = "<group>"; };
 		3D9CAA1B1EFCD655002434DD /* ClipBoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipBoardTests.swift; sourceTree = "<group>"; };
+		3E174732E1AE050726D91E40 /* Pods-OpenIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIn.release.xcconfig"; path = "Target Support Files/Pods-OpenIn/Pods-OpenIn.release.xcconfig"; sourceTree = "<group>"; };
 		4063430C93211557F15DA9AA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Shared.strings; sourceTree = "<group>"; };
 		460C247523EB0D3200D922B0 /* safari-popups-network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-network.json"; sourceTree = "<group>"; };
 		460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsFeatureReactNativeModule.swift; sourceTree = "<group>"; };
@@ -1410,8 +1370,6 @@
 		46828D88233E213A00E7D8A3 /* PrivacyIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyIndicatorView.swift; sourceTree = "<group>"; };
 		46828D902341F23300E7D8A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UserAgent.strings; sourceTree = "<group>"; };
 		46828D922341F23800E7D8A3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/UserAgent.strings; sourceTree = "<group>"; };
-		46947784232A982100129B51 /* GhosteryShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GhosteryShareTo.entitlements; sourceTree = "<group>"; };
-		46947785232A983500129B51 /* Ghostery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ghostery.entitlements; sourceTree = "<group>"; };
 		46A4C4D22347757800F4BCE0 /* AutoCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompletion.swift; sourceTree = "<group>"; };
 		46A4C4D5234775A800F4BCE0 /* AutoCompletion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoCompletion.m; sourceTree = "<group>"; };
 		46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+PrivateBrowsing.swift"; sourceTree = "<group>"; };
@@ -1466,7 +1424,6 @@
 		6669B5E1211418A200CA117B /* WebsiteDataSearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDataSearchResultsViewController.swift; sourceTree = "<group>"; };
 		66CE54A720FCF6CF00CC310B /* WebsiteDataManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDataManagementViewController.swift; sourceTree = "<group>"; };
 		68B446D680B574F87C4AC7D0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Menu.strings; sourceTree = "<group>"; };
-		6A3A11441C1E7720253FC202 /* Pods_CliqzShareTo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CliqzShareTo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BBE3A285FC46D1FD28E892D /* Pods-CliqzShareTo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CliqzShareTo.debug.xcconfig"; path = "Target Support Files/Pods-CliqzShareTo/Pods-CliqzShareTo.debug.xcconfig"; sourceTree = "<group>"; };
 		6DB049AD1D5D6F0C878D8CF4 /* Pods_ClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBED9E52BDFA24D807D7FCC /* Pods_Lumen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lumen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1498,8 +1455,8 @@
 		7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncQueue.swift; sourceTree = "<group>"; };
 		7D0948E3A5BB6267D54A25A4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Search.strings; sourceTree = "<group>"; };
 		7EB3449484DF7F9135AB619E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
-		7F81ADA1D2D8D4AEA86F713F /* Pods_CliqzOpenIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CliqzOpenIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FB34881BBA574733B969540 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ClearPrivateDataConfirm.strings; sourceTree = "<group>"; };
+		80AE66E0474080C26967C66B /* Pods_OpenIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8348811D348D6B8BFE462A58 /* Pods-StorageTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageTests.debug.xcconfig"; path = "Target Support Files/Pods-StorageTests/Pods-StorageTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84ABA3E805A19707DE49E5EB /* Pods-ShareTo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTo.debug.xcconfig"; path = "Target Support Files/Pods-ShareTo/Pods-ShareTo.debug.xcconfig"; sourceTree = "<group>"; };
 		88B2443E98359B04EE78C80E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intro.strings; sourceTree = "<group>"; };
@@ -1517,6 +1474,7 @@
 		A83E5B181C1DA8BF0026D912 /* image.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = image.gif; sourceTree = "<group>"; };
 		A83E5B191C1DA8BF0026D912 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		A83E5B1C1C1DA8D80026D912 /* UIPasteboardExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPasteboardExtensionsTests.swift; sourceTree = "<group>"; };
+		AB66669E356CE016AF6D75B7 /* Pods-OpenIn.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIn.ci.xcconfig"; path = "Target Support Files/Pods-OpenIn/Pods-OpenIn.ci.xcconfig"; sourceTree = "<group>"; };
 		AB6FF2698BCC5B9E5E6A685C /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABBF3643A363A265DF18EC61 /* Pods-Lumen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.release.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.release.xcconfig"; sourceTree = "<group>"; };
 		AC33579B2387F2CC00693969 /* Strings+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Storage.swift"; sourceTree = "<group>"; };
@@ -1577,8 +1535,6 @@
 		C50ED2ED232914B100EE71B8 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
 		C520FF592388218A0097BA0C /* effective_tld_names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = effective_tld_names.swift; sourceTree = "<group>"; };
 		C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsTableViewCell.swift; sourceTree = "<group>"; };
-		C53E464C232299C4005B2DA6 /* Cliqz.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Cliqz.entitlements; sourceTree = "<group>"; };
-		C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = CliqzShareTo.entitlements; sourceTree = "<group>"; };
 		C56ED496233B692B006A63B1 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		C56ED49D233B712F006A63B1 /* InterceptorFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorFeature.swift; sourceTree = "<group>"; };
 		C56ED4A0233B8ACD006A63B1 /* AntiPhishingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiPhishingPolicy.swift; sourceTree = "<group>"; };
@@ -1592,14 +1548,14 @@
 		C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementHeaderView.swift; sourceTree = "<group>"; };
 		C5B83E65239FA589003687AC /* PrivacyStatementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementData.swift; sourceTree = "<group>"; };
-		C5C7D3412359B30B00CB359A /* cliqz.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = cliqz.xcassets; sourceTree = "<group>"; };
-		C5C7D3432359B31D00CB359A /* Ghostery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ghostery.xcassets; sourceTree = "<group>"; };
+		C5C7D3412359B30B00CB359A /* ShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShareTo.xcassets; sourceTree = "<group>"; };
 		C5D1EB4B23BB7D7200C19728 /* CliqzRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CliqzRefreshControl.swift; sourceTree = "<group>"; };
 		C5E94B53233112CD00D3F31F /* Bookmarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		C5E94B54233112CD00D3F31F /* BookmarksModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
 		C5E94B56233112CD00D3F31F /* Trees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trees.swift; sourceTree = "<group>"; };
 		C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuUseCase.swift; sourceTree = "<group>"; };
 		C62CE646A71600AB2E55CF4C /* Pods-StoragePerfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoragePerfTests.debug.xcconfig"; path = "Target Support Files/Pods-StoragePerfTests/Pods-StoragePerfTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C7A9436A55DCEF66F6049B28 /* Pods-OpenIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIn.debug.xcconfig"; path = "Target Support Files/Pods-OpenIn/Pods-OpenIn.debug.xcconfig"; sourceTree = "<group>"; };
 		C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewSwizzled.swift; sourceTree = "<group>"; };
 		C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Tab+ChangeUserAgent.swift"; sourceTree = "<group>"; };
 		C8DFFE482294AAB600296DB1 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
@@ -1685,6 +1641,7 @@
 		D3BF8CBC1B7472FA0007AFE6 /* DiskImageStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskImageStoreTests.swift; sourceTree = "<group>"; };
 		D3C3696D1CC6B78800348A61 /* LocalRequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalRequestHelper.swift; sourceTree = "<group>"; };
 		D3C744CC1A687D6C004CE85D /* URIFixup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URIFixup.swift; sourceTree = "<group>"; };
+		D3CF3DFE609D0D680B66408F /* Pods_ShareTo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareTo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D488581ABB54CD00A93597 /* FileAccessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileAccessorTests.swift; sourceTree = "<group>"; };
 		D3E8EEE71B97A87A001900FB /* ClearPrivateDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearPrivateDataTableViewController.swift; sourceTree = "<group>"; };
 		D3FA777A1A43B2990010CD32 /* SearchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTests.swift; sourceTree = "<group>"; };
@@ -1742,8 +1699,6 @@
 		E4E0BB171AFBC9E4008D6260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4E25CCA1CA99E7400D0F088 /* HexExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexExtensionsTests.swift; sourceTree = "<group>"; };
 		E4E7EB6C1C4AED5E0094275D /* SupportUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportUtilsTests.swift; sourceTree = "<group>"; };
-		E60961861B62B8A700DD640F /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Configuration/Debug.xcconfig; sourceTree = "<group>"; };
-		E60961891B62B8C800DD640F /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Configuration/Release.xcconfig; sourceTree = "<group>"; };
 		E61453BD1B750A1700C3F9D7 /* RollingFileLoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollingFileLoggerTests.swift; sourceTree = "<group>"; };
 		E6231C001B90A44F005ABB0D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		E6231C041B90A472005ABB0D /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
@@ -1823,7 +1778,6 @@
 		E6F9650C1B2F1CF20034B023 /* SharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F9650F1B2F1CF20034B023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6F9653B1B2F1D5D0034B023 /* NSURLExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtensionsTests.swift; sourceTree = "<group>"; };
-		E6FCC43C1C40565200DF6113 /* AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AdHoc.xcconfig; path = Configuration/AdHoc.xcconfig; sourceTree = "<group>"; };
 		E6FF6AC91D873CFF0070C294 /* PageMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageMetadata.swift; sourceTree = "<group>"; };
 		E78165CAC02269DD00B7CF08 /* Pods-Storage.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storage.adhoc.xcconfig"; path = "Target Support Files/Pods-Storage/Pods-Storage.adhoc.xcconfig"; sourceTree = "<group>"; };
 		E856F0CC31F0A2760F95EEF6 /* Pods-Ghostery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghostery.debug.xcconfig"; path = "Target Support Files/Pods-Ghostery/Pods-Ghostery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1869,7 +1823,7 @@
 		F84B21E51A0910F600AAB793 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F84B21EF1A0910F600AAB793 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F84B22431A09165600AAB793 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F84B22491A0920C600AAB793 /* CliqzShareTo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CliqzShareTo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F84B22491A0920C600AAB793 /* ShareTo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareTo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8708D251A0970990051AB07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F8708D261A0970990051AB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8708D291A0970990051AB07 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -1927,17 +1881,7 @@
 			files = (
 				2BD02D3823BA3375001539F0 /* Storage.framework in Frameworks */,
 				2BE2590623BA2C510022ED28 /* Shared.framework in Frameworks */,
-				4919E71880C1F5A9BF560687 /* Pods_CliqzOpenIn.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BE258E623BA2B5B0022ED28 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BD02D3D23BA3381001539F0 /* Storage.framework in Frameworks */,
-				2BE2590523BA2C4B0022ED28 /* Shared.framework in Frameworks */,
-				B4198C6C45B52D15B6C38C39 /* Pods_GhosteryOpenIn.framework in Frameworks */,
+				7AA0BD61B79CE98ED9591B56 /* Pods_OpenIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1972,17 +1916,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		464F67752326AFB70090D0B5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				464F67762326AFB70090D0B5 /* Shared.framework in Frameworks */,
-				464F67772326AFB70090D0B5 /* Storage.framework in Frameworks */,
-				464F67782326AFB70090D0B5 /* ImageIO.framework in Frameworks */,
-				6AF077C2300636D4F960E462 /* Pods_GhosteryShareTo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2029,7 +1962,7 @@
 				28C8D1391AD4CE9100F62011 /* Shared.framework in Frameworks */,
 				28C8D11D1AD4CE8900F62011 /* Storage.framework in Frameworks */,
 				0B75AEA91AC20FB20015E5DC /* ImageIO.framework in Frameworks */,
-				5ED2E160267B8BC9C8F5F7A3 /* Pods_CliqzShareTo.framework in Frameworks */,
+				660335E0F23729FE05E618CD /* Pods_ShareTo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2135,6 +2068,11 @@
 				374F6BEE52BB79659128C4E8 /* Pods-GhosteryOpenIn.adhoc.xcconfig */,
 				0FBEEFF3F9AD7E7E5ABCE59D /* Pods-GhosteryOpenIn.release.xcconfig */,
 				30172CAA2DB5FD8130686402 /* Pods-GhosteryOpenIn.ci.xcconfig */,
+				C7A9436A55DCEF66F6049B28 /* Pods-OpenIn.debug.xcconfig */,
+				1E78F209B9DF15AA93A83449 /* Pods-OpenIn.adhoc.xcconfig */,
+				3E174732E1AE050726D91E40 /* Pods-OpenIn.release.xcconfig */,
+				AB66669E356CE016AF6D75B7 /* Pods-OpenIn.ci.xcconfig */,
+				206D3535CE2C292003B52507 /* Pods-ShareTo.ci.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2197,6 +2135,86 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		2B47DAC72406758A00AD6D4C /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DACA2406758A00AD6D4C /* ShareToAdHoc.entitlements */,
+				2B47DAC92406758A00AD6D4C /* ShareToDebug.entitlements */,
+				2B47DAC82406758A00AD6D4C /* ShareTo.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		2B47DACB2406759600AD6D4C /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DACD2406759600AD6D4C /* OpenInAdHoc.entitlements */,
+				2B47DACE2406759600AD6D4C /* OpenInDebug.entitlements */,
+				2B47DACC2406759600AD6D4C /* OpenIn.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		2B47DAD8240677A300AD6D4C /* Cliqz */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAD9240677A300AD6D4C /* Cliqz.entitlements */,
+				2B47DADA240677A300AD6D4C /* CliqzDebug.entitlements */,
+				2B47DADB240677A300AD6D4C /* CliqzAdHoc.entitlements */,
+			);
+			path = Cliqz;
+			sourceTree = "<group>";
+		};
+		2B47DADC240677A300AD6D4C /* Ghostery */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DADD240677A300AD6D4C /* Ghostery.entitlements */,
+				2B47DADE240677A300AD6D4C /* GhosteryAdHoc.entitlements */,
+				2B47DADF240677A300AD6D4C /* GhosteryDebug.entitlements */,
+			);
+			path = Ghostery;
+			sourceTree = "<group>";
+		};
+		2B47DAE02406783700AD6D4C /* ShareTo */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAE22406783700AD6D4C /* GhosteryShareToAdHoc.entitlements */,
+				2B47DAE12406783700AD6D4C /* GhosteryShareToDebug.entitlements */,
+				2B47DAE32406783700AD6D4C /* GhosteryShareTo.entitlements */,
+			);
+			path = ShareTo;
+			sourceTree = "<group>";
+		};
+		2B47DAE42406783800AD6D4C /* OpenIn */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAE52406783800AD6D4C /* GhosteryOpenInAdHoc.entitlements */,
+				2B47DAE62406783800AD6D4C /* GhosteryOpenInDebug.entitlements */,
+				2B47DAE72406783800AD6D4C /* GhosteryOpenIn.entitlements */,
+			);
+			path = OpenIn;
+			sourceTree = "<group>";
+		};
+		2B47DAE82406784500AD6D4C /* OpenIn */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAE92406784500AD6D4C /* CliqzOpenInAdHoc.entitlements */,
+				2B47DAEA2406784500AD6D4C /* CliqzOpenInDebug.entitlements */,
+				2B47DAEB2406784500AD6D4C /* CliqzOpenIn.entitlements */,
+			);
+			path = OpenIn;
+			sourceTree = "<group>";
+		};
+		2B47DAEC2406784500AD6D4C /* ShareTo */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAEF2406784500AD6D4C /* CliqzShareToAdHoc.entitlements */,
+				2B47DAEE2406784500AD6D4C /* CliqzShareToDebug.entitlements */,
+				2B47DAED2406784500AD6D4C /* CliqzShareTo.entitlements */,
+			);
+			path = ShareTo;
+			sourceTree = "<group>";
+		};
 		2B516D27238BAC8B006D6B57 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -2218,6 +2236,94 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2B85778D2403A0170052D6C7 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */,
+				2B85778F2403A0170052D6C7 /* Debug.xcconfig */,
+				2B8577902403A0170052D6C7 /* Release.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		2B8577B32403E90B0052D6C7 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577D52403EB0F0052D6C7 /* InfoPlists */,
+				2B8577B92403E90B0052D6C7 /* Entitlements */,
+				2B8577BD2403E90B0052D6C7 /* Assets */,
+				2B8577B82403E90B0052D6C7 /* GhosteryDebug.xcconfig */,
+				2B8577C02403E90B0052D6C7 /* GhosteryAdHoc.xcconfig */,
+				2B8577BC2403E90B0052D6C7 /* GhosteryRelease.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		2B8577B92403E90B0052D6C7 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAE42406783800AD6D4C /* OpenIn */,
+				2B47DAE02406783700AD6D4C /* ShareTo */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		2B8577BD2403E90B0052D6C7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577BE2403E90B0052D6C7 /* ShareTo.xcassets */,
+				2B8577BF2403E90B0052D6C7 /* OpenIn.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2B8577C12403E9150052D6C7 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577DA2403EB530052D6C7 /* InfoPlists */,
+				2B8577C92403E9150052D6C7 /* Entitlements */,
+				2B8577CC2403E9150052D6C7 /* Assets */,
+				2B8577C32403E9150052D6C7 /* CliqzDebug.xcconfig */,
+				2B8577C42403E9150052D6C7 /* CliqzAdHoc.xcconfig */,
+				2B8577C22403E9150052D6C7 /* CliqzRelease.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		2B8577C92403E9150052D6C7 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				2B47DAE82406784500AD6D4C /* OpenIn */,
+				2B47DAEC2406784500AD6D4C /* ShareTo */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		2B8577CC2403E9150052D6C7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577DF2403EB6A0052D6C7 /* OpenIn.xcassets */,
+				2B8577E02403EB6A0052D6C7 /* ShareTo.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		2B8577D52403EB0F0052D6C7 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577D62403EB0F0052D6C7 /* InfoPlist.strings */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		2B8577DA2403EB530052D6C7 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				2B8577DB2403EB530052D6C7 /* InfoPlist.strings */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
 		2BC4580023F1382900057204 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2227,37 +2333,12 @@
 			path = CollectionCell;
 			sourceTree = "<group>";
 		};
-		2BD02D4223BA3698001539F0 /* Branding */ = {
-			isa = PBXGroup;
-			children = (
-				2BD02D4323BA3698001539F0 /* Ghostery */,
-				2BD02D4523BA3698001539F0 /* Cliqz */,
-			);
-			path = Branding;
-			sourceTree = "<group>";
-		};
-		2BD02D4323BA3698001539F0 /* Ghostery */ = {
-			isa = PBXGroup;
-			children = (
-				2BD02D4423BA3698001539F0 /* Ghostery.xcassets */,
-				2BC4664723C45C80008CF508 /* InfoPlist.strings */,
-			);
-			path = Ghostery;
-			sourceTree = "<group>";
-		};
-		2BD02D4523BA3698001539F0 /* Cliqz */ = {
-			isa = PBXGroup;
-			children = (
-				2BD02D4623BA3698001539F0 /* cliqz.xcassets */,
-				2BE2591023BA2FD40022ED28 /* InfoPlist.strings */,
-			);
-			path = Cliqz;
-			sourceTree = "<group>";
-		};
 		2BE2586E23BA0C800022ED28 /* OpenIn */ = {
 			isa = PBXGroup;
 			children = (
-				2BD02D4223BA3698001539F0 /* Branding */,
+				2B47DACB2406759600AD6D4C /* Entitlements */,
+				2BE2591023BA2FD40022ED28 /* InfoPlist.strings */,
+				2BD02D4623BA3698001539F0 /* OpenIn.xcassets */,
 				2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */,
 				2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */,
 				2BE258C423BA1DFF0022ED28 /* Info.plist */,
@@ -2639,12 +2720,12 @@
 				AB6FF2698BCC5B9E5E6A685C /* Pods_Shared.framework */,
 				9904147345ED9D11B5E3967D /* Pods_Storage.framework */,
 				23F8D7E381A676F5A7F73446 /* Pods_StorageTests.framework */,
-				6A3A11441C1E7720253FC202 /* Pods_CliqzShareTo.framework */,
 				5D4215C7E8E5CD5534FD54D4 /* Pods_GhosteryShareTo.framework */,
 				22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */,
 				A1B2E098D858B5632CD21ECE /* Pods_StoragePerfTests.framework */,
-				7F81ADA1D2D8D4AEA86F713F /* Pods_CliqzOpenIn.framework */,
 				56C38EFDC756B3283B41ACF1 /* Pods_GhosteryOpenIn.framework */,
+				80AE66E0474080C26967C66B /* Pods_OpenIn.framework */,
+				D3CF3DFE609D0D680B66408F /* Pods_ShareTo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2744,6 +2825,7 @@
 		C50ED2B12326AA8F00EE71B8 /* Cliqz */ = {
 			isa = PBXGroup;
 			children = (
+				2B8577C12403E9150052D6C7 /* Configuration */,
 				F84B22431A09165600AAB793 /* Info.plist */,
 				C50ED2B52326AB1100EE71B8 /* brand.xcassets */,
 				ACC6EC492327F4B6000F5499 /* Colors.swift */,
@@ -2756,6 +2838,7 @@
 		C50ED2B22326AA9400EE71B8 /* Ghostery */ = {
 			isa = PBXGroup;
 			children = (
+				2B8577B32403E90B0052D6C7 /* Configuration */,
 				ACB7398123042D9300FA5626 /* Info.plist */,
 				C50ED2BC2326B17C00EE71B8 /* brand.xcassets */,
 				ACC6EC4F2327F9FC000F5499 /* Colors.swift */,
@@ -2852,31 +2935,6 @@
 				C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */,
 			);
 			path = ChatBubble;
-			sourceTree = "<group>";
-		};
-		C5C7D33E2359B25E00CB359A /* Branding */ = {
-			isa = PBXGroup;
-			children = (
-				C5C7D3402359B27700CB359A /* Cliqz */,
-				C5C7D33F2359B27100CB359A /* Ghostery */,
-			);
-			path = Branding;
-			sourceTree = "<group>";
-		};
-		C5C7D33F2359B27100CB359A /* Ghostery */ = {
-			isa = PBXGroup;
-			children = (
-				C5C7D3432359B31D00CB359A /* Ghostery.xcassets */,
-			);
-			path = Ghostery;
-			sourceTree = "<group>";
-		};
-		C5C7D3402359B27700CB359A /* Cliqz */ = {
-			isa = PBXGroup;
-			children = (
-				C5C7D3412359B30B00CB359A /* cliqz.xcassets */,
-			);
-			path = Cliqz;
 			sourceTree = "<group>";
 		};
 		C5D1EB4A23BB7C0900C19728 /* RefreshControl */ = {
@@ -3111,17 +3169,6 @@
 			path = Browser;
 			sourceTree = "<group>";
 		};
-		E40A18F61EDC73D5006B7F28 /* Entitlements */ = {
-			isa = PBXGroup;
-			children = (
-				C53E464D232299CD005B2DA6 /* CliqzShareTo.entitlements */,
-				46947784232A982100129B51 /* GhosteryShareTo.entitlements */,
-				2BD02D4023BA34B0001539F0 /* CliqzOpenIn.entitlements */,
-				2BD02D4123BA34B7001539F0 /* GhosteryOpenIn.entitlements */,
-			);
-			path = Entitlements;
-			sourceTree = "<group>";
-		};
 		E49943F31AE6879C00BF9DE4 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -3181,16 +3228,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E60961841B62B7E100DD640F /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				E60961861B62B8A700DD640F /* Debug.xcconfig */,
-				E6FCC43C1C40565200DF6113 /* AdHoc.xcconfig */,
-				E60961891B62B8C800DD640F /* Release.xcconfig */,
-			);
-			name = Configuration;
-			sourceTree = "<group>";
-		};
 		E65075551E37F714006961AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -3239,8 +3276,8 @@
 		E689C6FF1E0C716F008BAADB /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
-				C53E464C232299C4005B2DA6 /* Cliqz.entitlements */,
-				46947785232A983500129B51 /* Ghostery.entitlements */,
+				2B47DAD8240677A300AD6D4C /* Cliqz */,
+				2B47DADC240677A300AD6D4C /* Ghostery */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -3391,7 +3428,7 @@
 			children = (
 				F84B21BE1A090F8100AAB793 /* UserAgent.app */,
 				F84B21D31A090F8100AAB793 /* UserAgentTests.xctest */,
-				F84B22491A0920C600AAB793 /* CliqzShareTo.appex */,
+				F84B22491A0920C600AAB793 /* ShareTo.appex */,
 				288A2D861AB8B3260023ABC3 /* Shared.framework */,
 				2FCAE21A1ABB51F800877008 /* Storage.framework */,
 				2FCAE2241ABB51F800877008 /* StorageTests.xctest */,
@@ -3399,8 +3436,7 @@
 				3BFE4B071D342FB800DDF53F /* XCUITests.xctest */,
 				3B43E3D01D95C48D00BBA9DB /* StoragePerfTests.xctest */,
 				ACB7384723042BAB00FA5626 /* UserAgent.app */,
-				2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */,
-				2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */,
+				2BE258D323BA2B4A0022ED28 /* OpenIn.appex */,
 				049DBAD623E4587B00D2D38D /* Widgets.framework */,
 				049DBADE23E4587B00D2D38D /* WidgetsTests.xctest */,
 			);
@@ -3410,15 +3446,15 @@
 		F84B21C01A090F8100AAB793 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */,
 				F84B21EB1A0910F600AAB793 /* Assets */,
+				2B85778D2403A0170052D6C7 /* Configuration */,
 				F84B21E41A0910F600AAB793 /* Application */,
-				E60961841B62B7E100DD640F /* Configuration */,
 				E689C6FF1E0C716F008BAADB /* Entitlements */,
 				28EADE5C1AFC3A6D007FB2FB /* Extensions */,
 				F84B21F11A0910F600AAB793 /* Frontend */,
 				39A359BD1BFCCE7B006B9E87 /* Helpers */,
 				E65075551E37F714006961AC /* Utils */,
+				7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */,
 				74821FFD1DB6D3AC00EEEA72 /* MailSchemes.plist */,
 			);
 			path = Client;
@@ -3545,7 +3581,6 @@
 		F8708D1E1A0970990051AB07 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E40A18F61EDC73D5006B7F28 /* Entitlements */,
 				F8708D241A0970990051AB07 /* ShareTo */,
 				2BE2586E23BA0C800022ED28 /* OpenIn */,
 			);
@@ -3555,7 +3590,8 @@
 		F8708D241A0970990051AB07 /* ShareTo */ = {
 			isa = PBXGroup;
 			children = (
-				C5C7D33E2359B25E00CB359A /* Branding */,
+				2B47DAC72406758A00AD6D4C /* Entitlements */,
+				C5C7D3412359B30B00CB359A /* ShareTo.xcassets */,
 				EBE7634F20ADCB7500E27F2D /* SendTo.xcassets */,
 				F8708D251A0970990051AB07 /* Images.xcassets */,
 				F8708D261A0970990051AB07 /* Info.plist */,
@@ -3635,9 +3671,9 @@
 			productReference = 288A2D861AB8B3260023ABC3 /* Shared.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */ = {
+		2BE258D223BA2B4A0022ED28 /* OpenIn */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */;
+			buildConfigurationList = 2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "OpenIn" */;
 			buildPhases = (
 				F02AE97D9BDAA327ACA4698A /* [CP] Check Pods Manifest.lock */,
 				2BE258CF23BA2B4A0022ED28 /* Sources */,
@@ -3650,29 +3686,9 @@
 				2BD02D3A23BA337A001539F0 /* PBXTargetDependency */,
 				2BE2590223BA2C3D0022ED28 /* PBXTargetDependency */,
 			);
-			name = CliqzOpenIn;
+			name = OpenIn;
 			productName = CliqzOpenIn;
-			productReference = 2BE258D323BA2B4A0022ED28 /* CliqzOpenIn.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BE258F623BA2B5B0022ED28 /* Build configuration list for PBXNativeTarget "GhosteryOpenIn" */;
-			buildPhases = (
-				CCA3E03648F149AB8EFBCD68 /* [CP] Check Pods Manifest.lock */,
-				2BE258E523BA2B5B0022ED28 /* Sources */,
-				2BE258E623BA2B5B0022ED28 /* Frameworks */,
-				2BE258E723BA2B5B0022ED28 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BD02D3C23BA337E001539F0 /* PBXTargetDependency */,
-				2BE2590423BA2C440022ED28 /* PBXTargetDependency */,
-			);
-			name = GhosteryOpenIn;
-			productName = GhostryOpenIn;
-			productReference = 2BE258E923BA2B5B0022ED28 /* GhosteryOpenIn.appex */;
+			productReference = 2BE258D323BA2B4A0022ED28 /* OpenIn.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		2FCAE2191ABB51F800877008 /* Storage */ = {
@@ -3751,25 +3767,6 @@
 			productReference = 3BFE4B071D342FB800DDF53F /* XCUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		464F675F2326AFB70090D0B5 /* GhosteryShareTo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 464F67812326AFB70090D0B5 /* Build configuration list for PBXNativeTarget "GhosteryShareTo" */;
-			buildPhases = (
-				464F67642326AFB70090D0B5 /* [CP] Check Pods Manifest.lock */,
-				464F67652326AFB70090D0B5 /* Sources */,
-				464F67752326AFB70090D0B5 /* Frameworks */,
-				464F677A2326AFB70090D0B5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				464F67602326AFB70090D0B5 /* PBXTargetDependency */,
-				464F67622326AFB70090D0B5 /* PBXTargetDependency */,
-			);
-			name = GhosteryShareTo;
-			productName = ShareToFirefox;
-			productType = "com.apple.product-type.app-extension";
-		};
 		ACB7371123042BAB00FA5626 /* Ghostery */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACB7384323042BAB00FA5626 /* Build configuration list for PBXNativeTarget "Ghostery" */;
@@ -3792,8 +3789,6 @@
 				ACB7371223042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371423042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371A23042BAB00FA5626 /* PBXTargetDependency */,
-				464F678D232793F00090D0B5 /* PBXTargetDependency */,
-				2BE258F423BA2B5B0022ED28 /* PBXTargetDependency */,
 				049DBB0F23E45C4F00D2D38D /* PBXTargetDependency */,
 			);
 			name = Ghostery;
@@ -3874,9 +3869,9 @@
 			productReference = F84B21D31A090F8100AAB793 /* UserAgentTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F84B22481A0920C600AAB793 /* CliqzShareTo */ = {
+		F84B22481A0920C600AAB793 /* ShareTo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F84B22551A0920C600AAB793 /* Build configuration list for PBXNativeTarget "CliqzShareTo" */;
+			buildConfigurationList = F84B22551A0920C600AAB793 /* Build configuration list for PBXNativeTarget "ShareTo" */;
 			buildPhases = (
 				A467568D6D49706CEF502133 /* [CP] Check Pods Manifest.lock */,
 				F84B22451A0920C600AAB793 /* Sources */,
@@ -3889,9 +3884,9 @@
 				D09A0CF11FAA2C7E009A0273 /* PBXTargetDependency */,
 				2F9A72321ABB856100F9F05D /* PBXTargetDependency */,
 			);
-			name = CliqzShareTo;
+			name = ShareTo;
 			productName = ShareToFirefox;
-			productReference = F84B22491A0920C600AAB793 /* CliqzShareTo.appex */;
+			productReference = F84B22491A0920C600AAB793 /* ShareTo.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -3925,11 +3920,6 @@
 						DevelopmentTeam = 2UYYSSHVUH;
 						ProvisioningStyle = Automatic;
 					};
-					2BE258E823BA2B5B0022ED28 = {
-						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = HPY23A294X;
-						ProvisioningStyle = Automatic;
-					};
 					2FCAE2191ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 2UYYSSHVUH;
@@ -3952,18 +3942,6 @@
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						TestTargetID = F84B21BD1A090F8100AAB793;
-					};
-					464F675F2326AFB70090D0B5 = {
-						DevelopmentTeam = HPY23A294X;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-							com.apple.Keychain = {
-								enabled = 1;
-							};
-						};
 					};
 					ACB7371123042BAB00FA5626 = {
 						DevelopmentTeam = HPY23A294X;
@@ -4037,6 +4015,10 @@
 				en,
 				Base,
 				de,
+				CliqzOpenInen,
+				CliqzOpenInde,
+				GhosteryOpenInen,
+				GhosteryOpenInde,
 			);
 			mainGroup = F84B21B51A090F8100AAB793;
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
@@ -4045,10 +4027,8 @@
 			targets = (
 				F84B21BD1A090F8100AAB793 /* Cliqz */,
 				ACB7371123042BAB00FA5626 /* Ghostery */,
-				F84B22481A0920C600AAB793 /* CliqzShareTo */,
-				464F675F2326AFB70090D0B5 /* GhosteryShareTo */,
-				2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */,
-				2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */,
+				F84B22481A0920C600AAB793 /* ShareTo */,
+				2BE258D223BA2B4A0022ED28 /* OpenIn */,
 				288A2D851AB8B3260023ABC3 /* Shared */,
 				2FCAE2191ABB51F800877008 /* Storage */,
 				F84B21D21A090F8100AAB793 /* ClientTests */,
@@ -4089,18 +4069,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BE2590D23BA2FD40022ED28 /* InfoPlist.strings in Resources */,
-				2BD02D4923BA3698001539F0 /* cliqz.xcassets in Resources */,
+				2BD02D4923BA3698001539F0 /* OpenIn.xcassets in Resources */,
 				2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BE258E723BA2B5B0022ED28 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BE2590023BA2B780022ED28 /* MainInterface.storyboard in Resources */,
-				2BC4664923C45CAF008CF508 /* InfoPlist.strings in Resources */,
-				2BD02D4823BA3698001539F0 /* Ghostery.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4132,16 +4102,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		464F677A2326AFB70090D0B5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				464F677D2326AFB70090D0B5 /* SendTo.xcassets in Resources */,
-				464F677E2326AFB70090D0B5 /* Images.xcassets in Resources */,
-				C5C7D3442359B31D00CB359A /* Ghostery.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4278,7 +4238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5C7D3422359B30B00CB359A /* cliqz.xcassets in Resources */,
+				C5C7D3422359B30B00CB359A /* ShareTo.xcassets in Resources */,
 				EBE7635920ADCB7600E27F2D /* SendTo.xcassets in Resources */,
 				F8708D2E1A0970B70051AB07 /* Images.xcassets in Resources */,
 				C50ED2A723269F2A00EE71B8 /* ShareTo.strings in Resources */,
@@ -4413,28 +4373,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		464F67642326AFB70090D0B5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GhosteryShareTo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		46C41EDB230EC92000CE54D2 /* Start React Native Server */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4508,7 +4446,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CliqzShareTo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ShareTo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4747,28 +4685,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCA3E03648F149AB8EFBCD68 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GhosteryOpenIn-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D42DE2E8C41FB257F60E5509 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4820,7 +4736,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CliqzOpenIn-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-OpenIn-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5020,20 +4936,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BE258E523BA2B5B0022ED28 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BE2591523BA31370022ED28 /* PanelDataObservers.swift in Sources */,
-				2BE2591B23BA314E0022ED28 /* OpenSearch.swift in Sources */,
-				2BE2591723BA313C0022ED28 /* SearchEngines.swift in Sources */,
-				2BE2591923BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */,
-				2BE258FE23BA2B750022ED28 /* ActionViewController.swift in Sources */,
-				2BD02D3F23BA33A4001539F0 /* DefaultSearchPrefs.swift in Sources */,
-				2BE2591323BA312B0022ED28 /* Profile.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2FCAE2151ABB51F800877008 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5140,27 +5042,6 @@
 				2C8C07771E7800EA00DC1237 /* FindInPageTest.swift in Sources */,
 				2CB56E3F1E926BFB00AF7586 /* ToolbarTest.swift in Sources */,
 				2C3406C81E719F00000FD889 /* SettingsTest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		464F67652326AFB70090D0B5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				464F67662326AFB70090D0B5 /* Punycode.swift in Sources */,
-				ACC6EC5723290C1A000F5499 /* UIColor+Blending.swift in Sources */,
-				C50ED2C52327F1D700EE71B8 /* Profile.swift in Sources */,
-				464F67672326AFB70090D0B5 /* SearchEngines.swift in Sources */,
-				464F67682326AFB70090D0B5 /* URIFixup.swift in Sources */,
-				464F676A2326AFB70090D0B5 /* OpenSearch.swift in Sources */,
-				464F676D2326AFB70090D0B5 /* DefaultSearchPrefs.swift in Sources */,
-				464F676E2326AFB70090D0B5 /* ShareViewController.swift in Sources */,
-				ACC6EC512327FA0B000F5499 /* Colors.swift in Sources */,
-				464F676F2326AFB70090D0B5 /* UXConstants.swift in Sources */,
-				464F67702326AFB70090D0B5 /* PanelDataObservers.swift in Sources */,
-				464F67712326AFB70090D0B5 /* NSUserDefaultsPrefs.swift in Sources */,
-				464F67732326AFB70090D0B5 /* InstructionsViewController.swift in Sources */,
-				464F67742326AFB70090D0B5 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5791,30 +5672,15 @@
 			target = 2FCAE2191ABB51F800877008 /* Storage */;
 			targetProxy = 2BD02D3923BA337A001539F0 /* PBXContainerItemProxy */;
 		};
-		2BD02D3C23BA337E001539F0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2FCAE2191ABB51F800877008 /* Storage */;
-			targetProxy = 2BD02D3B23BA337E001539F0 /* PBXContainerItemProxy */;
-		};
 		2BE258DE23BA2B4A0022ED28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2BE258D223BA2B4A0022ED28 /* CliqzOpenIn */;
+			target = 2BE258D223BA2B4A0022ED28 /* OpenIn */;
 			targetProxy = 2BE258DD23BA2B4A0022ED28 /* PBXContainerItemProxy */;
-		};
-		2BE258F423BA2B5B0022ED28 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BE258E823BA2B5B0022ED28 /* GhosteryOpenIn */;
-			targetProxy = 2BE258F323BA2B5B0022ED28 /* PBXContainerItemProxy */;
 		};
 		2BE2590223BA2C3D0022ED28 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 288A2D851AB8B3260023ABC3 /* Shared */;
 			targetProxy = 2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */;
-		};
-		2BE2590423BA2C440022ED28 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 288A2D851AB8B3260023ABC3 /* Shared */;
-			targetProxy = 2BE2590323BA2C440022ED28 /* PBXContainerItemProxy */;
 		};
 		2F9A72321ABB856100F9F05D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -5851,21 +5717,6 @@
 			target = F84B21BD1A090F8100AAB793 /* Cliqz */;
 			targetProxy = 3BFE4B0C1D342FB900DDF53F /* PBXContainerItemProxy */;
 		};
-		464F67602326AFB70090D0B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 288A2D851AB8B3260023ABC3 /* Shared */;
-			targetProxy = 464F67612326AFB70090D0B5 /* PBXContainerItemProxy */;
-		};
-		464F67622326AFB70090D0B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2FCAE2191ABB51F800877008 /* Storage */;
-			targetProxy = 464F67632326AFB70090D0B5 /* PBXContainerItemProxy */;
-		};
-		464F678D232793F00090D0B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 464F675F2326AFB70090D0B5 /* GhosteryShareTo */;
-			targetProxy = 464F678C232793F00090D0B5 /* PBXContainerItemProxy */;
-		};
 		7B9BF92F1E435DE400CB24F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2FCAE2231ABB51F800877008 /* StorageTests */;
@@ -5883,7 +5734,7 @@
 		};
 		ACB7371A23042BAB00FA5626 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F84B22481A0920C600AAB793 /* CliqzShareTo */;
+			target = F84B22481A0920C600AAB793 /* ShareTo */;
 			targetProxy = ACB7371B23042BAB00FA5626 /* PBXContainerItemProxy */;
 		};
 		D09A0CF11FAA2C7E009A0273 /* PBXTargetDependency */ = {
@@ -5908,7 +5759,7 @@
 		};
 		F84B22521A0920C600AAB793 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F84B22481A0920C600AAB793 /* CliqzShareTo */;
+			target = F84B22481A0920C600AAB793 /* ShareTo */;
 			targetProxy = F84B22511A0920C600AAB793 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -5950,11 +5801,20 @@
 			name = PrivacyStatement.strings;
 			sourceTree = "<group>";
 		};
-		2BC4664723C45C80008CF508 /* InfoPlist.strings */ = {
+		2B8577D62403EB0F0052D6C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2BC4664623C45C80008CF508 /* en */,
-				2BC4664823C45C81008CF508 /* de */,
+				2B8577D72403EB0F0052D6C7 /* de */,
+				2B8577D82403EB0F0052D6C7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2B8577DB2403EB530052D6C7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B8577DC2403EB530052D6C7 /* de */,
+				2B8577DD2403EB530052D6C7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -6383,17 +6243,18 @@
 		};
 		2BE258E123BA2B4A0022ED28 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D79D731EFCFB2526BEBEF1E /* Pods-CliqzOpenIn.debug.xcconfig */;
+			baseConfigurationReference = C7A9436A55DCEF66F6049B28 /* Pods-OpenIn.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenInDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -6406,10 +6267,10 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.OpenIn;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -6419,17 +6280,18 @@
 		};
 		2BE258E223BA2B4A0022ED28 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA225D399EC0760BC5459012 /* Pods-CliqzOpenIn.adhoc.xcconfig */;
+			baseConfigurationReference = 1E78F209B9DF15AA93A83449 /* Pods-OpenIn.adhoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenInAdHoc.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6438,9 +6300,9 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.OpenIn;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -6450,17 +6312,18 @@
 		};
 		2BE258E323BA2B4A0022ED28 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3B755B44D4BC3C58E373260 /* Pods-CliqzOpenIn.release.xcconfig */;
+			baseConfigurationReference = 3E174732E1AE050726D91E40 /* Pods-OpenIn.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6469,9 +6332,9 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.OpenIn;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -6481,17 +6344,18 @@
 		};
 		2BE258E423BA2B4A0022ED28 /* CI */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 995C8D2FDD6F86A0854F6336 /* Pods-CliqzOpenIn.ci.xcconfig */;
+			baseConfigurationReference = AB66669E356CE016AF6D75B7 /* Pods-OpenIn.ci.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/CliqzOpenIn.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6500,134 +6364,9 @@
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.OpenIn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = CI;
-		};
-		2BE258F723BA2B5B0022ED28 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D44E83F051DF59487144EF9 /* Pods-GhosteryOpenIn.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 2.0.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2BE258F823BA2B5B0022ED28 /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 374F6BEE52BB79659128C4E8 /* Pods-GhosteryOpenIn.adhoc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = HPY23A294X;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 2.0.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Adhoc;
-		};
-		2BE258F923BA2B5B0022ED28 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FBEEFF3F9AD7E7E5ABCE59D /* Pods-GhosteryOpenIn.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = HPY23A294X;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 2.0.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		2BE258FA23BA2B5B0022ED28 /* CI */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30172CAA2DB5FD8130686402 /* Pods-GhosteryOpenIn.ci.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/GhosteryOpenIn.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = HPY23A294X;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 2.0.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.GhostryOpenIn;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -6882,81 +6621,9 @@
 			};
 			name = Release;
 		};
-		464F67822326AFB70090D0B5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C08972A2444371DCFB40EAD5 /* Pods-GhosteryShareTo.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Extensions/ShareTo/Ghostery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 2.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.ShareTo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		464F67832326AFB70090D0B5 /* Adhoc */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29FDDD173651239132A7DE8D /* Pods-GhosteryShareTo.adhoc.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Extensions/ShareTo/Ghostery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 2.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.ShareTo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Adhoc;
-		};
-		464F67842326AFB70090D0B5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF5AF44BEA3C37F0E4E7F88E /* Pods-GhosteryShareTo.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Extensions/ShareTo/Ghostery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 2.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.ShareTo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		4691B216237C0CE000D71F4D /* CI */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E60961891B62B8C800DD640F /* Release.xcconfig */;
+			baseConfigurationReference = 2B8577902403A0170052D6C7 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -7020,7 +6687,7 @@
 					"-lxml2",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = CI;
@@ -7037,9 +6704,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E22F73B054C710E99D11A013 /* Pods-Cliqz.ci.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -7057,14 +6725,14 @@
 				INFOPLIST_FILE = Branding/Cliqz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7076,9 +6744,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 193A856AFA9BC908427E33A5 /* Pods-Ghostery.ci.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -7096,13 +6765,14 @@
 				INFOPLIST_FILE = Branding/Ghostery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7112,11 +6782,12 @@
 		};
 		4691B219237C0CE000D71F4D /* CI */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54730E8ED9A99BCE89FE3ADE /* Pods-CliqzShareTo.ci.xcconfig */;
+			baseConfigurationReference = 206D3535CE2C292003B52507 /* Pods-ShareTo.ci.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -7124,33 +6795,9 @@
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ShareTo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = CI;
-		};
-		4691B21A237C0CE000D71F4D /* CI */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0F9095D0E5C1E4F653D53B0 /* Pods-GhosteryShareTo.ci.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/GhosteryShareTo.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Extensions/ShareTo/Ghostery-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 2.0.0;
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery.ShareTo;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -7370,12 +7017,12 @@
 		};
 		ACB737042304289100FA5626 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* AdHoc.xcconfig */;
+			baseConfigurationReference = 2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				APP_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER).nightly";
+				APP_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -7438,7 +7085,7 @@
 					"-lxml2",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
@@ -7453,9 +7100,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8EF4515D84F7B934A5318AEC /* Pods-Cliqz.adhoc.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/CliqzAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -7472,7 +7120,7 @@
 				INFOPLIST_FILE = Branding/Cliqz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -7495,7 +7143,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7505,11 +7153,12 @@
 		};
 		ACB737072304289100FA5626 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74E4ADD2403DBD51D091B0CE /* Pods-CliqzShareTo.adhoc.xcconfig */;
+			baseConfigurationReference = E0C3FD153335C4EA455E6A78 /* Pods-ShareTo.adhoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareToAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -7517,9 +7166,9 @@
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ShareTo;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -7745,9 +7394,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E856F0CC31F0A2760F95EEF6 /* Pods-Ghostery.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/GhosteryDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -7764,6 +7414,7 @@
 				INFOPLIST_FILE = Branding/Ghostery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -7786,7 +7437,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7798,9 +7449,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D45B6D4541A6B664D8744B18 /* Pods-Ghostery.adhoc.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/GhosteryAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -7817,6 +7469,7 @@
 				INFOPLIST_FILE = Branding/Ghostery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -7839,7 +7492,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7851,9 +7504,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2BCFD3D477938E531ED275F /* Pods-Ghostery.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -7871,13 +7525,14 @@
 				INFOPLIST_FILE = Branding/Ghostery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.evidon.Ghostery;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7887,7 +7542,7 @@
 		};
 		E448FC9D1AEE7A6000869B6C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E60961891B62B8C800DD640F /* Release.xcconfig */;
+			baseConfigurationReference = 2B8577902403A0170052D6C7 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -7951,7 +7606,7 @@
 					"-lxml2",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Storage/modules";
@@ -7967,9 +7622,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B59430F5B45D4B4809786C3 /* Pods-Cliqz.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -7987,14 +7643,14 @@
 				INFOPLIST_FILE = Branding/Cliqz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -8027,11 +7683,12 @@
 		};
 		E448FCA01AEE7A6000869B6C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE0A866E61E43DDC2E7E528B /* Pods-CliqzShareTo.release.xcconfig */;
+			baseConfigurationReference = 35F86BE2E8E4AE3FA002A620 /* Pods-ShareTo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -8039,9 +7696,9 @@
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ShareTo;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -8164,12 +7821,12 @@
 		};
 		F84B21DB1A090F8100AAB793 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E60961861B62B8A700DD640F /* Debug.xcconfig */;
+			baseConfigurationReference = 2B85778F2403A0170052D6C7 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				APP_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER).debug";
+				APP_BUNDLE_ID = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -8233,7 +7890,7 @@
 					"-lxml2",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_ID)";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -8249,9 +7906,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F80048466CE6947783A54A4E /* Pods-Cliqz.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/CliqzDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -8268,7 +7926,7 @@
 				INFOPLIST_FILE = Branding/Cliqz/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -8291,7 +7949,7 @@
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -8320,11 +7978,12 @@
 		};
 		F84B22561A0920C600AAB793 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BBE3A285FC46D1FD28E892D /* Pods-CliqzShareTo.debug.xcconfig */;
+			baseConfigurationReference = 84ABA3E805A19707DE49E5EB /* Pods-ShareTo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/CliqzShareTo.entitlements";
+				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareToDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
@@ -8332,9 +7991,9 @@
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../../Frameworks $(inherited)";
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.ShareTo;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -8378,24 +8037,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "CliqzOpenIn" */ = {
+		2BE258E023BA2B4A0022ED28 /* Build configuration list for PBXNativeTarget "OpenIn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BE258E123BA2B4A0022ED28 /* Debug */,
 				2BE258E223BA2B4A0022ED28 /* Adhoc */,
 				2BE258E323BA2B4A0022ED28 /* Release */,
 				2BE258E423BA2B4A0022ED28 /* CI */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2BE258F623BA2B5B0022ED28 /* Build configuration list for PBXNativeTarget "GhosteryOpenIn" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BE258F723BA2B5B0022ED28 /* Debug */,
-				2BE258F823BA2B5B0022ED28 /* Adhoc */,
-				2BE258F923BA2B5B0022ED28 /* Release */,
-				2BE258FA23BA2B5B0022ED28 /* CI */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -8440,17 +8088,6 @@
 				ACB7370E2304289100FA5626 /* Adhoc */,
 				3BFE4B0F1D342FB900DDF53F /* Release */,
 				4691B221237C0CE000D71F4D /* CI */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		464F67812326AFB70090D0B5 /* Build configuration list for PBXNativeTarget "GhosteryShareTo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				464F67822326AFB70090D0B5 /* Debug */,
-				464F67832326AFB70090D0B5 /* Adhoc */,
-				464F67842326AFB70090D0B5 /* Release */,
-				4691B21A237C0CE000D71F4D /* CI */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -8510,7 +8147,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F84B22551A0920C600AAB793 /* Build configuration list for PBXNativeTarget "CliqzShareTo" */ = {
+		F84B22551A0920C600AAB793 /* Build configuration list for PBXNativeTarget "ShareTo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F84B22561A0920C600AAB793 /* Debug */,

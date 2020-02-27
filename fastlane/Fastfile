@@ -25,7 +25,7 @@ APPS = {
   },
   "CliqzNightly" => {
     target: "Cliqz",
-    scheme: "Cliqz Nightly",
+    scheme: "Cliqz",
     configuration: "Adhoc",
 
     app_group_identifier: "group.com.cliqz.browser.nightly",
@@ -114,39 +114,6 @@ platform :ios do
       end
     )
 
-    update_app_identifier(
-      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Branding/#{app.target}/Info.plist",
-      app_identifier: app.app_identifier
-    )
-
-    update_app_identifier(
-      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Extensions/ShareTo/Info.plist",
-      app_identifier: app.share_to_identifier
-    )
-
-    update_app_identifier(
-      xcodeproj: "UserAgent.xcodeproj", # Optional path to xcodeproj, will use the first .xcodeproj if not set
-      plist_path: "./Extensions/OpenIn/Info.plist",
-      app_identifier: app.open_in_identifier
-    )
-
-    update_app_group_identifiers(
-      entitlements_file: "Client/Entitlements/#{app.target}.entitlements",
-      app_group_identifiers: [app.app_group_identifier]
-    )
-
-    update_app_group_identifiers(
-      entitlements_file: "Extensions/Entitlements/#{app.target}ShareTo.entitlements",
-      app_group_identifiers: [app.app_group_identifier]
-    )
-
-    update_app_group_identifiers(
-      entitlements_file: "Extensions/Entitlements/#{app.target}OpenIn.entitlements",
-      app_group_identifiers: [app.app_group_identifier]
-    )
-
     disable_automatic_code_signing(
       path: "UserAgent.xcodeproj",
       code_sign_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
@@ -178,6 +145,7 @@ platform :ios do
       clean: true,
       disable_xcpretty: true,
       scheme: app.scheme,
+      configuration: app.configuration,
       skip_profile_detection: true,
       codesigning_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
       export_method: "app-store",

@@ -1,0 +1,14 @@
+// Display name
+BUNDLE_DISPLAY_NAME = Ghostery β
+
+// Bundle Identifier
+APP_BUNDLE_ID = com.ghostery.browser.nightly
+
+// Marketing version
+APP_MARKETING_VERSION = 2.0.0
+
+// URL Scheme
+CLIQZ_URL_SCHEME = $(BUNDLE_DISPLAY_NAME)Nightly
+
+// User Activity Types
+USER_ACTIVITY_TYPES= $(APP_BUNDLE_ID).activity.types
