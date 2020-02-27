@@ -16,15 +16,19 @@ enum ContextMenuActions {
     case pin
     case removeTopSite
     case deleteFromHistory
+    case openInNewTab
+    case openInNewPrivateTab
 }
 
 public typealias ContextMenuActionCompletion = () -> Void
 
 class ContextMenuUseCase {
-    private var profile: Profile!
+    private let profile: Profile
+    private var openLink: OpenLinkUseCases
 
-    init(profile: Profile) {
+    init(profile: Profile, openLink: OpenLinkUseCases) {
         self.profile = profile
+        self.openLink = openLink
     }
 
     func present(for site: Site, withQuery query: String? = nil, withActions actions: [ContextMenuActions], on viewController: UIViewController, completion: @escaping ContextMenuActionCompletion) {
@@ -65,6 +69,10 @@ class ContextMenuUseCase {
             return self.createActionRemoveTopSite(site: site, actionCompletion: completion)
         case .deleteFromHistory:
             return self.createActionDeleteFromHistory(site: site, actionCompletion: completion)
+        case .openInNewTab:
+            return self.createActionOpenInNewTab(site: site, actionCompletion: completion)
+        case .openInNewPrivateTab:
+            return self.createActionOpenInNewPrivateTab(site: site, actionCompletion: completion)
         }
     }
 
@@ -108,4 +116,21 @@ class ContextMenuUseCase {
         }
         return removeFromTopSite
     }
+
+    private func createActionOpenInNewTab(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
+        let actionSheetItem = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewTab, iconString: "quick_action_new_tab") { action in
+            self.openLink.openNewTab(url: site.tileURL)
+            actionCompletion()
+        }
+        return actionSheetItem
+    }
+
+    private func createActionOpenInNewPrivateTab(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
+        let actionSheetItem = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewPrivateTab, iconString: "forgetMode") { action in
+            self.openLink.openNewPrivateTab(url: site.tileURL)
+            actionCompletion()
+        }
+        return actionSheetItem
+    }
+
 }

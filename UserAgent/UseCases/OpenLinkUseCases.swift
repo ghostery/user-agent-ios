@@ -65,4 +65,18 @@ class OpenLinkUseCases {
         }
     }
 
+    // MARK: - New Tab Methods
+
+    func openNewTab(url: URL? = nil) {
+        guard let url = url else { return }
+        self.browserViewController.switchToTabForURLOrOpen(url, isPrivate: false, isPrivileged: true)
+    }
+
+    // MARK: - New Private Tab Methods
+
+    func openNewPrivateTab(url: URL? = nil) {
+        guard let url = url else { return }
+        self.browserViewController.switchToTabForURLOrOpen(url, isPrivate: true, isPrivileged: true)
+    }
+
 }
