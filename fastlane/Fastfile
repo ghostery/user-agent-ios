@@ -54,6 +54,7 @@ def get_app(options)
 end
 
 platform :ios do
+
   lane :lint do
     swiftlint(
       executable: "Pods/SwiftLint/swiftlint",
@@ -82,10 +83,9 @@ platform :ios do
       verbose: true
     )
 
-    version = get_version_number(
-      xcodeproj: "UserAgent.xcodeproj",
-      target: app.target,
-    )
+    configuration_file = "../Branding/#{app.target}/Configuration/#{app.target}#{app.configuration}.xcconfig"
+    configuration = Xcodeproj::Config.new(configuration_file)
+    version = configuration.attributes['APP_MARKETING_VERSION']
 
     previous_version = 0
 
