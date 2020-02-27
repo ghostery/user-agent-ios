@@ -8,7 +8,7 @@ APP_BUNDLE_ID = com.ghostery
 APP_MARKETING_VERSION = 2.0.0
 
 // URL Scheme
-CLIQZ_URL_SCHEME = $(BUNDLE_DISPLAY_NAME)
+CLIQZ_URL_SCHEME = Ghostery
 
 // User Activity Types
 USER_ACTIVITY_TYPES= $(APP_BUNDLE_ID).activity.types
