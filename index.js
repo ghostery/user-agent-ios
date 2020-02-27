@@ -9,6 +9,7 @@ import React from 'react';
 import { AppRegistry, YellowBox, NativeModules } from 'react-native';
 import './ReactNative/js/setup-globals';
 import App from 'browser-core-user-agent-ios/build/modules/core/app';
+import config from 'browser-core-user-agent-ios/build/modules/core/config';
 import inject from 'browser-core-user-agent-ios/build/modules/core/kord/inject';
 import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
@@ -31,7 +32,20 @@ prefs.set('tabSearchEnabled', true);
 
 const app = new App({
   browser: global.browser,
-  debug: NativeModules.Constants.isDebug || NativeModules.Constants.isCI
+  debug: NativeModules.Constants.isDebug || NativeModules.Constants.isCI,
+  config: {
+    ...config,
+    settings: {
+      ...config.settings,
+      telemetry: {
+        demographics: {
+          brand: 'cliqz',
+          name: `browser:${NativeModules.Constants.bundleIdentifier}`,
+          platform: 'ios',
+        },
+      },
+    },
+  },
 });
 const appReady = app.start();
 
