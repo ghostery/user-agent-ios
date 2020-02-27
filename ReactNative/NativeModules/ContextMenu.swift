@@ -17,14 +17,10 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
         let rawUrl = url_str as String
         guard let url = URL(string: rawUrl) else { return }
 
-        var actions: [ContextMenuActions] = []
+        var actions: [ContextMenuActions] = [.openInNewTab, .openInNewPrivateTab]
 
         if isHistory {
             actions += [.deleteFromHistory]
-        }
-
-        if actions.isEmpty {
-            return
         }
 
         self.withAppDelegate { appDel in
