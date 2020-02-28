@@ -125,7 +125,7 @@ class ContextMenuUseCase {
         let title = String(format: Strings.HomePanel.ContextMenu.DeleteAllTraces, host)
         let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "action_delete") { action in
             self.profile.history.removeAllHistoryForURLDomain(site.url).uponQueue(.main) { result in
-                CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [site.url])
+                CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [host])
                 actionCompletion()
             }
         }
