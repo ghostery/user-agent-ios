@@ -21,6 +21,7 @@ public protocol BrowserHistory {
     @discardableResult func addLocalVisit(_ visit: SiteVisit) -> Success
     func clearHistory() -> Success
     @discardableResult func removeHistoryForURL(_ url: String) -> Success
+    @discardableResult func removeAllHistoryForURLDomain(_ url: String) -> Success
     func removeHistoryFromDate(_ date: Date) -> Success
     func removeSiteFromTopSites(_ site: Site) -> Success
     func removeHostFromTopSites(_ host: String) -> Success

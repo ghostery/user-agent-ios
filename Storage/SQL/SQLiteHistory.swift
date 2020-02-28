@@ -452,6 +452,20 @@ extension SQLiteHistory: BrowserHistory {
         ])
     }
 
+    public func removeAllHistoryForURLDomain(_ url: String) -> Success {
+        guard let host = url.asURL?.normalizedHost else {
+            return succeed()
+        }
+        let args: Args = [host]
+        let deleteVisits = "DELETE FROM visits WHERE siteID IN (SELECT history.id FROM history JOIN domains ON history.domain_id = domains.id WHERE domains.domain = ?)"
+        let deleteHistory = "DELETE FROM history WHERE domain_id IN (SELECT domains.id FROM domains WHERE domains.domain = ?)"
+        let deleteDomains = "DELETE FROM domains WHERE domains.domain = ?"
+        return db.run([
+            (sql: deleteVisits, args: args),
+            (sql: deleteHistory, args: args),
+            (sql: deleteDomains, args: args)])
+    }
+
     public func removeHistoryFromDate(_ date: Date) -> Success {
         let visitTimestamp = date.toMicrosecondTimestamp()
 

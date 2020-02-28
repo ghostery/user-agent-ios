@@ -20,7 +20,7 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
         var actions: [ContextMenuActions] = [.openInNewTab, .openInNewPrivateTab]
 
         if isHistory {
-            actions += [.deleteFromHistory]
+            actions += [.deleteFromHistory, .deleteAllTraces]
         }
 
         self.withAppDelegate { appDel in

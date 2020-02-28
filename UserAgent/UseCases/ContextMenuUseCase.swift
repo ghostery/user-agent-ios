@@ -16,6 +16,7 @@ enum ContextMenuActions {
     case pin
     case removeTopSite
     case deleteFromHistory
+    case deleteAllTraces
     case openInNewTab
     case openInNewPrivateTab
 }
@@ -69,6 +70,8 @@ class ContextMenuUseCase {
             return self.createActionRemoveTopSite(site: site, actionCompletion: completion)
         case .deleteFromHistory:
             return self.createActionDeleteFromHistory(site: site, actionCompletion: completion)
+        case .deleteAllTraces:
+            return self.createActionDeleteAllTraces(site: site, actionCompletion: completion)
         case .openInNewTab:
             return self.createActionOpenInNewTab(site: site, actionCompletion: completion)
         case .openInNewPrivateTab:
@@ -110,6 +113,18 @@ class ContextMenuUseCase {
     private func createActionDeleteFromHistory(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let removeFromTopSite = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.DeleteFromHistory, iconString: "action_delete") { action in
             self.profile.history.removeHistoryForURL(site.url).uponQueue(.main) { result in
+                CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [site.url])
+                actionCompletion()
+            }
+        }
+        return removeFromTopSite
+    }
+
+    private func createActionDeleteAllTraces(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
+        let host = site.url.asURL?.normalizedHost ?? site.url
+        let title = String(format: Strings.HomePanel.ContextMenu.DeleteAllTraces, host)
+        let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "action_delete") { action in
+            self.profile.history.removeAllHistoryForURLDomain(site.url).uponQueue(.main) { result in
                 CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [site.url])
                 actionCompletion()
             }

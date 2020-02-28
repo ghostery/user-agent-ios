@@ -99,7 +99,7 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
             switch notification.name {
             case .NewsSettingsDidChange:
-                self.refresh()
+                self.topSitesView.refresh()
             case .NewTabPageDefaultViewSettingsDidChange:
                 self.switchToDefaultSegment()
             default:
