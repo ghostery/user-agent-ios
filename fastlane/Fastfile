@@ -53,6 +53,12 @@ def get_app(options)
   OpenStruct.new(app)
 end
 
+def get_version(app)
+  configuration_file = "../Branding/#{app.target}/Configuration/#{app.target}#{app.configuration}.xcconfig"
+  configuration = Xcodeproj::Config.new(configuration_file)
+  configuration.attributes['APP_MARKETING_VERSION']
+end
+
 platform :ios do
 
   lane :lint do
@@ -83,9 +89,7 @@ platform :ios do
       verbose: true
     )
 
-    configuration_file = "../Branding/#{app.target}/Configuration/#{app.target}#{app.configuration}.xcconfig"
-    configuration = Xcodeproj::Config.new(configuration_file)
-    version = configuration.attributes['APP_MARKETING_VERSION']
+    version = get_version(app)
 
     previous_version = 0
 
@@ -163,6 +167,7 @@ platform :ios do
 
   lane :Upload do |options|
     app = get_app(options)
+    version = get_version(app)
 
     changelog = read_changelog
 
@@ -173,7 +178,8 @@ platform :ios do
       app_identifier: app.app_identifier,
     )
 
-    download_dsyms(app_identifier: app.app_identifier)
+    download_dsyms(version: version, app_identifier: app.app_identifier)
+
     sentry_upload_dsym(
       auth_token: ENV["SENTRY_AUTH_TOKEN"],
       org_slug: 'cliqz',

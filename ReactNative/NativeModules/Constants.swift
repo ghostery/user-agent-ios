@@ -16,6 +16,8 @@ class Constants: NSObject {
             "isDebug": self.isDebug,
             "isCI": self.isCI,
             "userAgent": UserAgent.getUserAgent(),
+            "bundleIdentifier": AppInfo.applicationBundle.bundleIdentifier ?? "",
+            "version": AppInfo.appVersion,
         ]
     }
 
