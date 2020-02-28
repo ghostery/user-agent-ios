@@ -240,7 +240,7 @@ class WindowCrypto: NSObject {
         do {
             let nonce = try AES.GCM.Nonce(data: iv)
             let box = try AES.GCM.seal(message, using: symmetricKey, nonce: nonce)
-            resolve(box.ciphertext.toHexString())
+            resolve(box.ciphertext.toHexString() + box.tag.toHexString())
         } catch {
             reject("E_data", "Data in wrong format", nil)
             return
@@ -284,7 +284,13 @@ class WindowCrypto: NSObject {
         let symmetricKey = SymmetricKey(data: sharedSecret)
         do {
             let nonce = try AES.GCM.Nonce(data: iv)
-            let box = try AES.GCM.SealedBox(nonce: nonce, ciphertext: cipher, tag: tag)
+            let box: AES.GCM.SealedBox
+            do {
+                box = try AES.GCM.SealedBox(nonce: nonce, ciphertext: cipher, tag: tag)
+            } catch {
+                reject("E_data", "Data in wrong format", nil)
+                return
+            }
             let decryptedData = try AES.GCM.open(box, using: symmetricKey)
             resolve(decryptedData.toHexString())
         } catch {

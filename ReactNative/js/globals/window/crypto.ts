@@ -212,8 +212,8 @@ export const crypto = {
         throw new Error('No iv');
       }
       const hexString = arrayBufferToHexString(data.buffer);
-      const dataHexString = hexString.slice(0, -8);
-      const tagHexString = hexString.slice(-8);
+      const dataHexString = hexString.slice(0, -32);
+      const tagHexString = hexString.slice(-32);
       const ivHexString = arrayBufferToHexString(algorithm.iv);
       const encryptedDataHexString = await NativeModules.WindowCrypto.decrypt(
         key.id,
@@ -264,8 +264,6 @@ export const crypto = {
 
   // testing import and export
   {
-    console.warn('Bob public original', bobPublicArray);
-
     const bobPublicCopy = await crypto.subtle.importKey(
       'raw',
       bobPublicArray,
@@ -278,7 +276,6 @@ export const crypto = {
       bobPublicCopy,
     );
     const bobPublicCopyArray = new Uint8Array(bobPublicCopyRaw);
-    console.warn('Bob public imported', bobPublicCopyArray);
   }
 
   const aliceDerivedKey = await crypto.subtle.deriveKey(
