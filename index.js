@@ -30,6 +30,7 @@ YellowBox.ignoreWarnings([
 moment.locale(NativeModules.LocaleConstants.lang);
 
 prefs.set('tabSearchEnabled', true);
+prefs.set('modules.autoconsent.enabled', false);
 
 const app = new App({
   browser: global.browser,

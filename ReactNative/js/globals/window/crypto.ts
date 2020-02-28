@@ -71,7 +71,7 @@ interface CryptoKey {
 interface Algorithm {
   name: string;
   namedCurve?: string;
-  public?: Uint8Array;
+  public?: CryptoKey;
   length?: number;
   iv?: TypedArray;
   tagLength?: number;
@@ -164,7 +164,7 @@ export const crypto = {
     },
     async deriveKey(
       algorithm: Algorithm,
-      baseKey: Uint8Array,
+      baseKey: CryptoKey,
       derivedKeyAlgorithm: Algorithm,
       extractable: boolean,
       keyUsages: string[],
@@ -172,10 +172,15 @@ export const crypto = {
       if (!algorithm.public) {
         throw new Error('new key');
       }
-      const privateKeyHexString = arrayBufferToHexString(baseKey.buffer);
-      const publicKeyHexString = arrayBufferToHexString(
-        algorithm.public.buffer,
+      const privateKeyHexString = await NativeModules.WindowCrypto.exportKey(
+        baseKey.id,
       );
+      let publicKeyHexString = await NativeModules.WindowCrypto.exportKey(
+        algorithm.public.id,
+      );
+      if (publicKeyHexString.length === 130) {
+        publicKeyHexString = publicKeyHexString.slice(2);
+      }
       const id = await NativeModules.WindowCrypto.deriveKey(
         privateKeyHexString,
         publicKeyHexString,
@@ -279,8 +284,8 @@ export const crypto = {
   }
 
   const aliceDerivedKey = await crypto.subtle.deriveKey(
-    { name: 'ECDH', namedCurve: 'P-256', public: bobPublicArray },
-    alicePrivateArray,
+    { name: 'ECDH', namedCurve: 'P-256', public: bobPublic },
+    alicePrivate,
     { name: 'AES-GCM', length: 256 },
     true,
     ['encrypt', 'decrypt'],
@@ -290,7 +295,6 @@ export const crypto = {
     aliceDerivedKey,
   );
   const aliceDerivedKeyArray = new Uint8Array(aliceDerivedKeyRaw);
-  console.warn('XXXX', aliceDerivedKeyArray.length);
 
   const raw128bitKey = (await sha256(aliceDerivedKeyArray)).subarray(0, 16);
   const secret = await crypto.subtle.importKey(
@@ -307,7 +311,6 @@ export const crypto = {
     toUtf8('hello world'),
   );
   const ciphertextArray = new Uint8Array(ciphertext);
-  console.warn('encrypted', ciphertextArray.length);
   const decrypted = fromUtf8(
     await crypto.subtle.decrypt(
       { name: 'AES-GCM', iv, tagLength: 128 },

@@ -9,7 +9,11 @@ import { crypto } from './globals/window/crypto';
 window.DOMParser = DOMParser;
 if (Platform.OS === 'ios' && Platform.Version >= 13) {
   // window.crypto cannot be reassigned in Chrome, so those APIs have to be tested in Safari
-  window.crypto = crypto;
+  try {
+    window.crypto = crypto;
+  } catch (e) {
+    // breaks debugging in Chrome
+  }
 }
 
 const browser = {
