@@ -36,6 +36,7 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
                 // redo query
                 let query = searchContorller.searchQuery
                 searchContorller.searchQuery = query
+                appDel.browserViewController?.homeViewController?.refreshHistory()
             }
         }
     }
@@ -72,7 +73,7 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
                     withActions: actions,
                     on: appDel.browserViewController
                 ) {
-                    appDel.browserViewController?.homeViewController?.refresh()
+                    appDel.browserViewController?.homeViewController?.refreshTopSites()
                 }
             }
         }
