@@ -452,7 +452,7 @@ extension SQLiteHistory: BrowserHistory {
         ])
     }
 
-    public func removeAllHistoryForURLDomain(_ url: String) -> Success {
+    public func removeAllTracesForDomain(_ url: String) -> Success {
         guard let host = url.asURL?.normalizedHost else {
             return succeed()
         }
