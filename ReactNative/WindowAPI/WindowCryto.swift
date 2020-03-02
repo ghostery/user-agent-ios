@@ -299,6 +299,17 @@ class WindowCrypto: NSObject {
         }
     }
 
+    @objc
+    func constantsToExport() -> [String: Any]! {
+        var isAvailable = false
+        if #available(iOS 13.0, *) {
+            isAvailable = true
+        }
+        return [
+            "isAvailable": isAvailable,
+        ]
+    }
+
     @objc(requiresMainQueueSetup)
     static func requiresMainQueueSetup() -> Bool {
         return false

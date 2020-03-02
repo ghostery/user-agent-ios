@@ -160,7 +160,6 @@ export const crypto = {
     ): Promise<CryptoKey> {
       const hexString = toHexString(keyData);
       const id = await NativeModules.WindowCrypto.importKey(hexString);
-      console.warn("IMPORT", keyData.length ,keyData.buffer.byteLength, hexString.length, hexString)
       return {
         extractable,
         usages,
@@ -183,6 +182,7 @@ export const crypto = {
       let publicKeyHexString = await NativeModules.WindowCrypto.exportKey(
         algorithm.public.id,
       );
+      // removing leading "04" which is type information
       if (publicKeyHexString.length === 130) {
         publicKeyHexString = publicKeyHexString.slice(2);
       }
@@ -236,96 +236,99 @@ export const crypto = {
   },
 };
 
-(async function test() {
-  async function sha256(data) {
-    return new Uint8Array(
-      await crypto.subtle.digest({ name: 'SHA-256' }, data),
-    );
-  }
+//
+// Testing code
+//
+// (async function test() {
+//   async function sha256(data) {
+//     return new Uint8Array(
+//       await crypto.subtle.digest({ name: 'SHA-256' }, data),
+//     );
+//   }
 
-  function toUtf8(text) {
-    return new TextEncoder().encode(text);
-  }
+//   function toUtf8(text) {
+//     return new TextEncoder().encode(text);
+//   }
 
-  function fromUtf8(buffer) {
-    return new TextDecoder().decode(buffer);
-  }
+//   function fromUtf8(buffer) {
+//     return new TextDecoder().decode(buffer);
+//   }
 
-  const {
-    publicKey: bobPublic,
-    privateKey: bobPrivate,
-  } = await crypto.subtle.generateKey(
-    { name: 'ECDH', namedCurve: 'P-256' },
-    true,
-    ['deriveKey'],
-  );
-  const {
-    publicKey: alicePublic,
-    privateKey: alicePrivate,
-  } = await crypto.subtle.generateKey(
-    { name: 'ECDH', namedCurve: 'P-256' },
-    true,
-    ['deriveKey'],
-  );
-  const bobPublicRaw = await crypto.subtle.exportKey('raw', bobPublic);
-  const bobPublicArray = new Uint8Array(bobPublicRaw);
-  const alicePrivateRaw = await crypto.subtle.exportKey('raw', alicePrivate);
-  const alicePrivateArray = new Uint8Array(alicePrivateRaw);
+//   const {
+//     publicKey: bobPublic,
+//     privateKey: bobPrivate,
+//   } = await crypto.subtle.generateKey(
+//     { name: 'ECDH', namedCurve: 'P-256' },
+//     true,
+//     ['deriveKey'],
+//   );
+//   const {
+//     publicKey: alicePublic,
+//     privateKey: alicePrivate,
+//   } = await crypto.subtle.generateKey(
+//     { name: 'ECDH', namedCurve: 'P-256' },
+//     true,
+//     ['deriveKey'],
+//   );
+//   const bobPublicRaw = await crypto.subtle.exportKey('raw', bobPublic);
+//   const bobPublicArray = new Uint8Array(bobPublicRaw);
+//   const alicePrivateRaw = await crypto.subtle.exportKey('raw', alicePrivate);
+//   const alicePrivateArray = new Uint8Array(alicePrivateRaw);
 
-  // testing import and export
-  {
-    const bobPublicCopy = await crypto.subtle.importKey(
-      'raw',
-      bobPublicArray,
-      { name: 'ECDH', namedCurve: 'P-256' },
-      false,
-      [],
-    );
-    const bobPublicCopyRaw = await crypto.subtle.exportKey(
-      'raw',
-      bobPublicCopy,
-    );
-    const bobPublicCopyArray = new Uint8Array(bobPublicCopyRaw);
-  }
+//   // testing import and export
+//   {
+//     const bobPublicCopy = await crypto.subtle.importKey(
+//       'raw',
+//       bobPublicArray,
+//       { name: 'ECDH', namedCurve: 'P-256' },
+//       false,
+//       [],
+//     );
+//     const bobPublicCopyRaw = await crypto.subtle.exportKey(
+//       'raw',
+//       bobPublicCopy,
+//     );
+//     const bobPublicCopyArray = new Uint8Array(bobPublicCopyRaw);
+//   }
 
-  const aliceDerivedKey = await crypto.subtle.deriveKey(
-    { name: 'ECDH', namedCurve: 'P-256', public: bobPublic },
-    alicePrivate,
-    { name: 'AES-GCM', length: 256 },
-    true,
-    ['encrypt', 'decrypt'],
-  );
-  const aliceDerivedKeyRaw = await crypto.subtle.exportKey(
-    'raw',
-    aliceDerivedKey,
-  );
-  const aliceDerivedKeyArray = new Uint8Array(aliceDerivedKeyRaw);
+//   const aliceDerivedKey = await crypto.subtle.deriveKey(
+//     { name: 'ECDH', namedCurve: 'P-256', public: bobPublic },
+//     alicePrivate,
+//     { name: 'AES-GCM', length: 256 },
+//     true,
+//     ['encrypt', 'decrypt'],
+//   );
+//   const aliceDerivedKeyRaw = await crypto.subtle.exportKey(
+//     'raw',
+//     aliceDerivedKey,
+//   );
+//   const aliceDerivedKeyArray = new Uint8Array(aliceDerivedKeyRaw);
 
-  const raw128bitKey = (await sha256(aliceDerivedKeyArray)).subarray(0, 16);
-  console.warn("RAW", raw128bitKey.length, raw128bitKey);
-  const secret = await crypto.subtle.importKey(
-    'raw',
-    raw128bitKey,
-    { name: 'AES-GCM', length: 128 },
-    false,
-    ['encrypt', 'decrypt'],
-  );
-  const iv = crypto.getRandomValues(new Uint8Array(12));
-  const ciphertext = await crypto.subtle.encrypt(
-    { name: 'AES-GCM', iv, tagLength: 128 },
-    secret,
-    toUtf8('hello world'),
-  );
-  const ciphertextArray = new Uint8Array(ciphertext);
-  const decrypted = fromUtf8(
-    await crypto.subtle.decrypt(
-      { name: 'AES-GCM', iv, tagLength: 128 },
-      secret,
-      ciphertextArray,
-    ),
-  );
-  console.warn('decrypted', decrypted);
-})();
+//   const raw128bitKey = (await sha256(aliceDerivedKeyArray)).subarray(0, 16);
+//   console.warn("RAW", raw128bitKey.length, raw128bitKey);
+//   const secret = await crypto.subtle.importKey(
+//     'raw',
+//     raw128bitKey,
+//     { name: 'AES-GCM', length: 128 },
+//     false,
+//     ['encrypt', 'decrypt'],
+//   );
+//   const iv = crypto.getRandomValues(new Uint8Array(12));
+//   const ciphertext = await crypto.subtle.encrypt(
+//     { name: 'AES-GCM', iv, tagLength: 128 },
+//     secret,
+//     toUtf8('hello world'),
+//   );
+//   const ciphertextArray = new Uint8Array(ciphertext);
+//   const decrypted = fromUtf8(
+//     await crypto.subtle.decrypt(
+//       { name: 'AES-GCM', iv, tagLength: 128 },
+//       secret,
+//       ciphertextArray,
+//     ),
+//   );
+//   console.warn('decrypted', decrypted);
+// })();
 
 export const seedRandom = async () => {
   return randomPool.fetchEntropy(1024 * 64);

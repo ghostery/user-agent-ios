@@ -7,7 +7,7 @@ import { DOMParser } from './globals/window/DOMParser';
 import { crypto } from './globals/window/crypto';
 
 window.DOMParser = DOMParser;
-if (Platform.OS === 'ios' && Platform.Version >= 13) {
+if (NativeModules.WindowCrypto.isAvailable) {
   // window.crypto cannot be reassigned in Chrome, so those APIs have to be tested in Safari
   try {
     window.crypto = crypto;

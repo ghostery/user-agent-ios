@@ -49,10 +49,11 @@ const app = new App({
     },
   },
 });
+
 const appReady = new Promise(resolve => {
   (async () => {
     try {
-      if (Platform.OS === 'ios' && Platform.Version >= 13) {
+      if (NativeModules.WindowCrypto.isAvailable) {
         await seedRandom();
       }
     } catch (e) {
