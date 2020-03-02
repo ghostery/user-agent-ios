@@ -225,6 +225,9 @@ export const crypto = {
       if (!algorithm.iv) {
         throw new Error('No iv');
       }
+      // crypto.subtle represents the results of AES-GCM-128 as one array, while cryptokit expects
+      // ciphertext and tag to come as separate arguments. crypto.subtle will put the tag at the end,
+      // so we can split it of. The tag is 128 bits long, which is 16 bytes, or 32 bytes in hex-representation.
       const hexString = toHexString(data);
       const dataHexString = hexString.slice(0, -32);
       const tagHexString = hexString.slice(-32);
