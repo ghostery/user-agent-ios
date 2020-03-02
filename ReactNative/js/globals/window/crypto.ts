@@ -183,6 +183,10 @@ export const crypto = {
         algorithm.public.id,
       );
       // removing leading "04" which is type information
+      // (background: In crypto.subtle, P-256 curve points are represented as 65 bytes:
+      // the type (0x04 == non-compressed representation), and a pair of (x,y) coordinates (each 32 bytes).
+      // In the native API (cryptokit), the type is implicitly non-compressed; instead it only expect the (x,y) coordinates.
+      // See also: https://tools.ietf.org/id/draft-jivsov-ecc-compact-05.html#rfc.section.3 )
       if (publicKeyHexString.length === 130) {
         publicKeyHexString = publicKeyHexString.slice(2);
       }
