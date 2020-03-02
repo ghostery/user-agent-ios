@@ -1,9 +1,10 @@
 import { NativeModules } from 'react-native';
 
+const toHexString = (bytes: Uint8Array) =>
+  bytes.reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
+
 function arrayBufferToHexString(buffer: ArrayBuffer) {
-  return Array.prototype.map
-    .call(new Uint8Array(buffer), x => `00${x.toString(16)}`.slice(-2))
-    .join('');
+  return toHexString(new Uint8Array(buffer));
 }
 
 function hexStringToByteArray(hexString: string): ArrayBuffer {
@@ -144,7 +145,10 @@ export const crypto = {
       };
     },
     async exportKey(format: string, key: CryptoKey): Promise<ArrayBuffer> {
-      const rawKey = await NativeModules.WindowCrypto.exportKey(key.id);
+      let rawKey = await NativeModules.WindowCrypto.exportKey(key.id);
+      if (key.type === 'public') {
+        rawKey = `04${rawKey}`;
+      }
       return hexStringToByteArray(rawKey);
     },
     async importKey(
@@ -154,8 +158,9 @@ export const crypto = {
       extractable: boolean,
       usages: string[],
     ): Promise<CryptoKey> {
-      const hexString = arrayBufferToHexString(keyData.buffer);
+      const hexString = toHexString(keyData);
       const id = await NativeModules.WindowCrypto.importKey(hexString);
+      console.warn("IMPORT", keyData.length ,keyData.buffer.byteLength, hexString.length, hexString)
       return {
         extractable,
         usages,
@@ -199,7 +204,7 @@ export const crypto = {
       if (!algorithm.iv) {
         throw new Error('No iv');
       }
-      const dataHexString = arrayBufferToHexString(data.buffer);
+      const dataHexString = toHexString(data);
       const ivHexString = arrayBufferToHexString(algorithm.iv);
       const encryptedDataHexString = await NativeModules.WindowCrypto.encrypt(
         key.id,
@@ -216,7 +221,7 @@ export const crypto = {
       if (!algorithm.iv) {
         throw new Error('No iv');
       }
-      const hexString = arrayBufferToHexString(data.buffer);
+      const hexString = toHexString(data);
       const dataHexString = hexString.slice(0, -32);
       const tagHexString = hexString.slice(-32);
       const ivHexString = arrayBufferToHexString(algorithm.iv);
@@ -297,6 +302,7 @@ export const crypto = {
   const aliceDerivedKeyArray = new Uint8Array(aliceDerivedKeyRaw);
 
   const raw128bitKey = (await sha256(aliceDerivedKeyArray)).subarray(0, 16);
+  console.warn("RAW", raw128bitKey.length, raw128bitKey);
   const secret = await crypto.subtle.importKey(
     'raw',
     raw128bitKey,
