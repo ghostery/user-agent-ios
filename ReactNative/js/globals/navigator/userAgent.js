@@ -3,7 +3,11 @@ import { NativeModules } from 'react-native';
 const { userAgent } = NativeModules.Constants;
 
 // TODO: investigate who is using it
-global.navigator.userAgent = userAgent;
+try {
+  global.navigator.userAgent = userAgent;
+} catch (e) {
+  // breaks debugging in Chrome
+}
 
 // eslint-disable-next-line no-underscore-dangle
 const _fetch = global.window.fetch;

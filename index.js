@@ -6,7 +6,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import React from 'react';
-import { AppRegistry, YellowBox, NativeModules } from 'react-native';
+import { AppRegistry, YellowBox, NativeModules, Platform } from 'react-native';
 import './ReactNative/js/setup-globals';
 import App from 'browser-core-user-agent-ios/build/modules/core/app';
 import config from 'browser-core-user-agent-ios/build/modules/core/config';
@@ -20,6 +20,7 @@ import BridgeManager from './ReactNative/js/bridge-manager';
 import Logo from './ReactNative/js/components/Logo';
 import { ThemeWrapperComponentProvider } from './ReactNative/js/contexts/theme';
 import moment from './ReactNative/js/services/moment';
+import { seedRandom } from './ReactNative/js/globals/window/crypto';
 
 YellowBox.ignoreWarnings([
   'Warning: componentWillMount',
@@ -29,10 +30,13 @@ YellowBox.ignoreWarnings([
 moment.locale(NativeModules.LocaleConstants.lang);
 
 prefs.set('tabSearchEnabled', true);
+prefs.set('modules.autoconsent.enabled', false);
+
+const isDebug = NativeModules.Constants.isDebug || NativeModules.Constants.isCI;
 
 const app = new App({
   browser: global.browser,
-  debug: NativeModules.Constants.isDebug || NativeModules.Constants.isCI,
+  debug: isDebug,
   config: {
     ...config,
     settings: {
@@ -44,10 +48,24 @@ const app = new App({
           platform: 'ios',
         },
       },
+      HW_CHANNEL: isDebug ? 'ios-debug' : 'ios',
     },
   },
 });
-const appReady = app.start();
+
+const appReady = new Promise(resolve => {
+  (async () => {
+    try {
+      if (NativeModules.WindowCrypto.isAvailable) {
+        await seedRandom();
+      }
+    } catch (e) {
+      // no random, no problem
+    }
+    await app.start();
+    resolve();
+  })();
+});
 
 app.modules['insights'].background.actions['reportStats'] = async function (tabId, stats) {
   await this.db.insertPageStats(tabId, stats);
