@@ -32,9 +32,11 @@ moment.locale(NativeModules.LocaleConstants.lang);
 prefs.set('tabSearchEnabled', true);
 prefs.set('modules.autoconsent.enabled', false);
 
+const isDebug = NativeModules.Constants.isDebug || NativeModules.Constants.isCI;
+
 const app = new App({
   browser: global.browser,
-  debug: NativeModules.Constants.isDebug || NativeModules.Constants.isCI,
+  debug: isDebug,
   config: {
     ...config,
     settings: {
@@ -46,6 +48,7 @@ const app = new App({
           platform: 'ios',
         },
       },
+      HW_CHANNEL: isDebug ? 'ios-debug' : 'ios',
     },
   },
 });
