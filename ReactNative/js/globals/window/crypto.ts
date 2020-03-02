@@ -147,6 +147,8 @@ export const crypto = {
     async exportKey(format: string, key: CryptoKey): Promise<ArrayBuffer> {
       let rawKey = await NativeModules.WindowCrypto.exportKey(key.id);
       if (key.type === 'public') {
+        // crypto.subtle expects the type of the representation (0x04 == non-compressed) in the first byte
+        // (for details, refer to the remarks in deriveKey)
         rawKey = `04${rawKey}`;
       }
       return hexStringToByteArray(rawKey);
