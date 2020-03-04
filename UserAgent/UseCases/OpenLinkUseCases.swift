@@ -69,14 +69,14 @@ class OpenLinkUseCases {
 
     func openNewTab(url: URL? = nil) {
         guard let url = url else { return }
-        self.browserViewController.switchToTabForURLOrOpen(url, isPrivate: false, isPrivileged: true)
+        self.browserViewController.openURLInNewTab(url, isPrivate: false, isPrivileged: true)
     }
 
-    // MARK: - New Private Tab Methods
+    // MARK: - New Forget Mode Tab Methods
 
-    func openNewPrivateTab(url: URL? = nil) {
+    func openNewForgetModeTab(url: URL? = nil) {
         guard let url = url else { return }
-        self.browserViewController.switchToTabForURLOrOpen(url, isPrivate: true, isPrivileged: true)
+        self.browserViewController.openURLInNewTab(url, isPrivate: true, isPrivileged: true)
     }
 
 }
