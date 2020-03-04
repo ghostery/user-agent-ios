@@ -10,21 +10,13 @@ import Foundation
 import React
 import Storage
 
-class HomeView: UIView, ReactViewTheme {
-    private var speedDials: [Site]?
-    private var pinnedSites: [Site]?
-    private var isNewsEnabled = true
-    private var isNewsImagesEnabled = true
+class DomainsView: UIView, ReactViewTheme {
     private lazy var reactView: UIView = {
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
-            moduleName: "Home",
+            moduleName: "History",
             initialProperties: [
                 "theme": Self.getTheme(),
-                "speedDials": self.speedDials!.map { $0.toDict() },
-                "pinnedSites": self.pinnedSites!.map { $0.toDict() },
-                "isNewsEnabled": self.isNewsEnabled,
-                "isNewsImagesEnabled": self.isNewsImagesEnabled,
             ]
         )
 
@@ -36,17 +28,8 @@ class HomeView: UIView, ReactViewTheme {
         super.init(frame: frame)
     }
 
-    convenience init(
-        speedDials: [Site],
-        pinnedSites: [Site],
-        isNewsEnabled: Bool,
-        isNewsImagesEnabled: Bool
-    ) {
+    convenience init() {
         self.init(frame: .zero)
-        self.pinnedSites = pinnedSites
-        self.speedDials = speedDials
-        self.isNewsEnabled = isNewsEnabled
-        self.isNewsImagesEnabled = isNewsImagesEnabled
 
         self.addSubview(self.reactView)
     }

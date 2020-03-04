@@ -11,6 +11,61 @@ import React
 import Shared
 import Storage
 
+class HomeViewNavigationController: UINavigationController {
+    private let homeViewController: HomeViewController!
+
+    var homePanelDelegate: HomePanelDelegate? {
+        didSet {
+            self.homeViewController.homePanelDelegate = homePanelDelegate
+        }
+    }
+
+    init(profile: Profile) {
+        self.homeViewController = HomeViewController(profile: profile)
+        super.init(rootViewController: self.homeViewController)
+        self.setNavigationBarHidden(true, animated: false)
+        self.navigationBar.isTranslucent = false
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented, use init(profile:) instead.")
+    }
+}
+
+extension HomeViewNavigationController: HomeViewControllerProtocol {
+    func refreshTopSites() {
+        self.homeViewController.refreshTopSites()
+    }
+
+    func refreshBookmarks() {
+        self.homeViewController.refreshBookmarks()
+    }
+
+    func refreshHistory() {
+        self.homeViewController.refreshHistory()
+    }
+
+    func applyTheme() {
+        self.homeViewController.applyTheme()
+    }
+
+    func scrollToTop() {
+        self.homeViewController.scrollToTop()
+    }
+
+    func scrollToTop(animated: Bool) {
+        self.homeViewController.scrollToTop(animated: animated)
+    }
+
+    func switchView(segment: HomeViewController.Segment) {
+        self.homeViewController.switchView(segment: segment)
+    }
+
+    func switchViewToDefaultSegment() {
+        self.homeViewController.switchViewToDefaultSegment()
+    }
+}
+
 /// Shows the New Tab view, including Pinned Sites and Top Sites
 class HomeViewController: UIViewController {
     // MARK: Properties
@@ -68,7 +123,7 @@ class HomeViewController: UIViewController {
 
     private lazy var historyView: HistoryView = {
         let historyView = HistoryView(profile: self.profile)
-        historyView.delegate = self
+//        historyView.delegate = self
         return historyView
     }()
 
@@ -94,6 +149,11 @@ class HomeViewController: UIViewController {
         setup()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
     // MARK: - Actions
     @objc private func notificationReceived(_ notification: Notification) {
         DispatchQueue.main.async {
@@ -108,6 +168,11 @@ class HomeViewController: UIViewController {
         }
     }
 
+    func refresh() {
+        self.topSitesView.reloadData()
+        self.bookmarksView.reloadData()
+        self.historyView.reloadData()
+    }
 }
 
 // MARK: - Private Implementation
@@ -201,7 +266,7 @@ extension HomeViewController: HomeViewControllerProtocol {
     func scrollToTop(animated: Bool) {}
 
     func refreshTopSites() {
-        self.topSitesView.refresh()
+        self.topSitesView.reloadData()
     }
 
     func refreshBookmarks() {

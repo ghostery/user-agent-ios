@@ -6,7 +6,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import React from 'react';
-import { AppRegistry, YellowBox, NativeModules, Platform } from 'react-native';
+import { AppRegistry, YellowBox, NativeModules } from 'react-native';
 import './ReactNative/js/setup-globals';
 import App from 'browser-core-user-agent-ios/build/modules/core/app';
 import config from 'browser-core-user-agent-ios/build/modules/core/config';
@@ -15,6 +15,8 @@ import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
 import PrivacyStats from './ReactNative/js/screens/PrivacyStats/index';
+import History from './ReactNative/js/screens/History/index';
+import DomainDetails from './ReactNative/js/screens/DomainDetails/index';
 import SearchResults from './ReactNative/js/screens/SearchResults';
 import BridgeManager from './ReactNative/js/bridge-manager';
 import Logo from './ReactNative/js/components/Logo';
@@ -98,3 +100,6 @@ AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.
 AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults searchModule={inject.module('search')} insightsModule={inject.module('insights')} bridgeManager={bridgeManager} events={events} {...props} />);
 AppRegistry.registerComponent('Logo', () => Logo);
 AppRegistry.registerComponent('PrivacyStats', () => (props) => <PrivacyStats insightsModule={inject.module('insights')} {...props} />);
+AppRegistry.registerComponent('History', () => (props) => <History {...props} />);
+AppRegistry.registerComponent('DomainDetails', () => (props) => <DomainDetails {...props} />);
+
