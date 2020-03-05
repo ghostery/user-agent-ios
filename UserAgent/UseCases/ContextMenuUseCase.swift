@@ -10,6 +10,7 @@ import Foundation
 import Storage
 import Shared
 import CoreSpotlight
+import WebKit
 
 enum ContextMenuActions {
     case unpin
@@ -126,7 +127,12 @@ class ContextMenuUseCase {
         let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "action_delete") { action in
             self.profile.history.removeAllTracesForDomain(site.url).uponQueue(.main) { result in
                 CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [host])
-                actionCompletion()
+                WKWebsiteDataStore.default().fetchDataRecords(ofTypes: CookiesClearable.dataTypes) { (records) in
+                    let filteredRecords = records.filter({ $0.displayName.contains(host) })
+                    WKWebsiteDataStore.default().removeData(ofTypes: CookiesClearable.dataTypes, for: filteredRecords) {
+                        actionCompletion()
+                    }
+                }
             }
         }
         return removeFromTopSite

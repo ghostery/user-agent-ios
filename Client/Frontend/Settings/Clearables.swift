@@ -133,6 +133,9 @@ class SiteDataClearable: Clearable {
 
 // Remove all cookies stored by the site. This includes localStorage, sessionStorage, and WebSQL/IndexedDB.
 class CookiesClearable: Clearable {
+
+    static let dataTypes = Set([WKWebsiteDataTypeCookies, WKWebsiteDataTypeLocalStorage, WKWebsiteDataTypeSessionStorage, WKWebsiteDataTypeWebSQLDatabases, WKWebsiteDataTypeIndexedDBDatabases])
+
     let tabManager: TabManager
     init(tabManager: TabManager) {
         self.tabManager = tabManager
@@ -143,8 +146,7 @@ class CookiesClearable: Clearable {
     }
 
     func clear() -> Success {
-        let dataTypes = Set([WKWebsiteDataTypeCookies, WKWebsiteDataTypeLocalStorage, WKWebsiteDataTypeSessionStorage, WKWebsiteDataTypeWebSQLDatabases, WKWebsiteDataTypeIndexedDBDatabases])
-        WKWebsiteDataStore.default().removeData(ofTypes: dataTypes, modifiedSince: .distantPast, completionHandler: {})
+        WKWebsiteDataStore.default().removeData(ofTypes: CookiesClearable.dataTypes, modifiedSince: .distantPast, completionHandler: {})
 
         log.debug("CookiesClearable succeeded.")
         return succeed()
