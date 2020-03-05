@@ -294,7 +294,10 @@
 "HomePanel.ContextMenu.Bookmark" = "Lesezeichen";
 
 /* The title for the Delete from History context menu action for sites in Home Panels */
-"HomePanel.ContextMenu.DeleteFromHistory" = "Aus Chronik löschen";
+"HomePanel.ContextMenu.DeleteFromHistory" = "URL aus Chronik löschen";
+
+/* The title for the Delete all traces context menu action for sites in Home Panels */
+"HomePanel.ContextMenu.DeleteAllTraces" = "Alle Spuren von %@ löschen";
 
 /* The title for the Open in New Private Tab context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.OpenInNewPrivateTab" = "In neuem Vergessen-Modus Tab öffnen";
