@@ -142,7 +142,7 @@ class ContextMenuUseCase {
 
     private func createActionOpenInNewPrivateTab(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let actionSheetItem = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewPrivateTab, iconString: "forgetMode") { action in
-            self.openLink.openNewPrivateTab(url: site.tileURL)
+            self.openLink.openNewForgetModeTab(url: site.tileURL)
             actionCompletion()
         }
         return actionSheetItem

@@ -211,6 +211,10 @@
 		460C248223F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */; };
 		460C248423F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
 		460C248523F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
+		460C247A23ED73D700D922B0 /* WindowCryto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C247923ED73D700D922B0 /* WindowCryto.swift */; };
+		460C247B23ED73D700D922B0 /* WindowCryto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C247923ED73D700D922B0 /* WindowCryto.swift */; };
+		460C247D23ED73EC00D922B0 /* WindowCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C247C23ED73EC00D922B0 /* WindowCrypto.m */; };
+		460C247E23ED73EC00D922B0 /* WindowCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C247C23ED73EC00D922B0 /* WindowCrypto.m */; };
 		461E5E59234F6891004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E58234F6891004DDE84 /* brand.strings */; };
 		461E5E5B234F68A7004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E5A234F68A7004DDE84 /* brand.strings */; };
 		4620EA492350ABF9004586CF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA482350ABF9004586CF /* Search.swift */; };
@@ -1343,6 +1347,8 @@
 		460C247523EB0D3200D922B0 /* safari-popups-network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-network.json"; sourceTree = "<group>"; };
 		460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsFeatureReactNativeModule.swift; sourceTree = "<group>"; };
 		460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsightsFeatureReactNativeModule.m; sourceTree = "<group>"; };
+		460C247923ED73D700D922B0 /* WindowCryto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowCryto.swift; sourceTree = "<group>"; };
+		460C247C23ED73EC00D922B0 /* WindowCrypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowCrypto.m; sourceTree = "<group>"; };
 		461E5E58234F6891004DDE84 /* brand.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = brand.strings; sourceTree = "<group>"; };
 		461E5E5A234F68A7004DDE84 /* brand.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = brand.strings; sourceTree = "<group>"; };
 		4620EA482350ABF9004586CF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -2550,6 +2556,15 @@
 			path = Insights;
 			sourceTree = "<group>";
 		};
+		460C247823ED73B300D922B0 /* WindowAPI */ = {
+			isa = PBXGroup;
+			children = (
+				460C247923ED73D700D922B0 /* WindowCryto.swift */,
+				460C247C23ED73EC00D922B0 /* WindowCrypto.m */,
+			);
+			path = WindowAPI;
+			sourceTree = "<group>";
+		};
 		463432F6233251F70014A9F0 /* UserAgent */ = {
 			isa = PBXGroup;
 			children = (
@@ -2604,6 +2619,7 @@
 				46442CE9238BE148002E6D85 /* BrowserCore.swift */,
 				463432FA233381C70014A9F0 /* BrowserCoreClient.swift */,
 				46CA610123180E1A0010CE6B /* Icons.xcassets */,
+				460C247823ED73B300D922B0 /* WindowAPI */,
 				46FA068523BB741E00B22F71 /* BrowserAPI */,
 				46CA60D42316B9D00010CE6B /* NativeModules */,
 				46CA610D23190ABD0010CE6B /* NativeUIComponents */,
@@ -5105,6 +5121,7 @@
 				2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */,
 				046C031523ABFE9F00D826E3 /* PrivacyDashboardUtils.swift in Sources */,
 				463432F92332521F0014A9F0 /* Telemetry.swift in Sources */,
+				460C247E23ED73EC00D922B0 /* WindowCrypto.m in Sources */,
 				C53212E423A3EB2900AEC9B2 /* PrivacyStatementData.swift in Sources */,
 				46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */,
 				ACB7374823042BAB00FA5626 /* TestAppDelegate.swift in Sources */,
@@ -5304,6 +5321,7 @@
 				ACB737F323042BAB00FA5626 /* TwoLineCell.swift in Sources */,
 				ACB737F423042BAB00FA5626 /* SettingsLoadingView.swift in Sources */,
 				ACB737F523042BAB00FA5626 /* InstructionsViewController.swift in Sources */,
+				460C247B23ED73D700D922B0 /* WindowCryto.swift in Sources */,
 				ACB737F623042BAB00FA5626 /* IntroViewController.swift in Sources */,
 				46E9660A236B33A1003C23F3 /* Constants.swift in Sources */,
 			);
@@ -5402,6 +5420,7 @@
 				E4CD9E911A6897FB00318571 /* ReaderMode.swift in Sources */,
 				2BC457FE23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */,
 				46CA60E82317E0DC0010CE6B /* LocaleConstants.m in Sources */,
+				460C247D23ED73EC00D922B0 /* WindowCrypto.m in Sources */,
 				74C027451B2A348C001B1E88 /* SessionData.swift in Sources */,
 				D314E7F71A37B98700426A76 /* TabToolbar.swift in Sources */,
 				CEFA977E1FAA6B490016F365 /* SyncContentSettingsViewController.swift in Sources */,
@@ -5450,6 +5469,7 @@
 				E64ED8FA1BC55AE300DAF864 /* UIAlertControllerExtensions.swift in Sources */,
 				39CE74F821A83105007AE4F2 /* TranslationSettingsController.swift in Sources */,
 				460C248123F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */,
+				460C247A23ED73D700D922B0 /* WindowCryto.swift in Sources */,
 				282DA4731A68C1E700A406E2 /* OpenSearch.swift in Sources */,
 				D0625CA8208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift in Sources */,
 				2B8DDBB523A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */,
