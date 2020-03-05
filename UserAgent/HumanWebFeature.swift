@@ -12,7 +12,6 @@ import Shared
 class HumanWebFeature: NSObject {
     private weak var tabManager: TabManager!
     private let queue = DispatchQueue(label: "human-web")
-    private let delayedInteraval = DispatchTimeInterval.seconds(15)
     private var processPendingJobsWorkItem: DispatchWorkItem?
 
     init(tabManager: TabManager) {
@@ -31,7 +30,7 @@ class HumanWebFeature: NSObject {
         self.processPendingJobsWorkItem = workItem
 
         self.queue.asyncAfter(
-            deadline: .now() + delayedInteraval,
+            deadline: .now() + DispatchTimeInterval.seconds(Int.random(in: 10..<20)),
             execute: workItem)
     }
 }
