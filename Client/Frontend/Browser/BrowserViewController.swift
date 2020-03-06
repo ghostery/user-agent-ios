@@ -1651,7 +1651,7 @@ extension BrowserViewController: BookmarkDetailViewControllerDelegate {
 
     func bookmardDetailViewDidSave() {
         self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
-        self.homeViewController?.refresh()
+        self.homeViewController?.refreshBookmarks()
     }
 
 }
