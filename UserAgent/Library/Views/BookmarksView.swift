@@ -106,7 +106,7 @@ class BookmarksView: LibraryView {
     }
 
     override func additionalContextMenuActions(indexPath: IndexPath) -> [PhotonActionSheetItem] {
-        let editBookmark = PhotonActionSheetItem(title: Strings.Bookmarks.BookmarksEditBookmark, iconString: "action_pin", handler: { action in
+        let editBookmark = PhotonActionSheetItem(title: Strings.Bookmarks.BookmarksEditBookmark, iconString: "action_edit", handler: { action in
             guard let source = self.source, let bookmark = source.current[indexPath.row] else {
                 print("Source not set, aborting.")
                 return
