@@ -105,6 +105,23 @@ class BookmarksView: LibraryView {
         return Strings.Bookmarks.PanelEmptyStateTitle
     }
 
+    override func additionalContextMenuActions(indexPath: IndexPath) -> [PhotonActionSheetItem] {
+        let editBookmark = PhotonActionSheetItem(title: Strings.Bookmarks.BookmarksEditBookmark, iconString: "action_pin", handler: { action in
+            guard let source = self.source, let bookmark = source.current[indexPath.row] else {
+                print("Source not set, aborting.")
+                return
+            }
+//            guard let factory = source.modelFactory.value.successValue else {
+//                print("Couldn't get model factory. This is unexpected.")
+//                self.onModelFailure(DatabaseError(description: "Unable to get factory."))
+//                return
+//            }
+//            let specificFactory = factory.factoryForIndex(indexPath.row, inFolder: source.current)
+            self.delegate?.library(wantsToEdit: bookmark)
+        })
+        return [editBookmark]
+    }
+
     func loadData() {
         // If we've not already set a source for this panel, fetch a new model from
         // the root; otherwise, just use the existing source to select a folder.

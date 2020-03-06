@@ -87,6 +87,15 @@
 /* Status label for the empty Bookmarks state. */
 "BookmarksPanel.EmptyState.Title" = "Gespeicherte Lesezeichen erscheinen hier.";
 
+/* The label to edit a bookmark */
+"Bookmarks.EditBookmark.Label" = "Lesezeichen bearbeiten";
+
+/* The label for the Title field when editing a bookmark */
+"Bookmark.DetailFieldTitle.Label" = "Titel";
+
+/* The label for the URL field when editing a bookmark */
+"Bookmark.DetailFieldURL.Label" = "URL";
+
 /* Accessibility label for brightness adjustment slider in Reader Mode display settings */
 "Brightness" = "Helligkeit";
 

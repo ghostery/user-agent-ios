@@ -154,6 +154,16 @@ open class SQLiteBookmarksModelFactory: BookmarksModelFactory {
         log.debug("removeByGUID: \(guid)")
         return self.bookmarks.removeGUIDs([guid])
     }
+
+    open func updateByGUID(_ guid: GUID, title: String, url: String) -> Success {
+//        if self.direction == Direction.buffer {
+//            return deferMaybe(DatabaseError(description: "Refusing to remove GUID from buffer in model."))
+//        }
+//
+//        log.debug("removeByGUID: \(guid)")
+//        return self.bookmarks.removeGUIDs([guid])
+        return succeed()
+    }
 }
 
 class EditableBufferBookmarksSQLiteBookmarksModelFactory: SQLiteBookmarksModelFactory {

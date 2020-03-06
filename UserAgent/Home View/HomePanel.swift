@@ -13,6 +13,7 @@ import Shared
 protocol HomePanelDelegate: AnyObject {
     func homePanelDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool)
     func homePanel(didSelectURL url: URL, visitType: VisitType)
+    func homePanel(wantsToEdit bookmark: BookmarkNode)
 }
 
 enum HomePanelType: Int {
