@@ -10,12 +10,14 @@ import Foundation
 import Storage
 import Shared
 import CoreSpotlight
+import WebKit
 
 enum ContextMenuActions {
     case unpin
     case pin
     case removeTopSite
     case deleteFromHistory
+    case deleteAllTracesForDomain
     case openInNewTab
     case openInNewPrivateTab
 }
@@ -69,6 +71,8 @@ class ContextMenuUseCase {
             return self.createActionRemoveTopSite(site: site, actionCompletion: completion)
         case .deleteFromHistory:
             return self.createActionDeleteFromHistory(site: site, actionCompletion: completion)
+        case .deleteAllTracesForDomain:
+            return self.createActionDeleteAllTraces(site: site, actionCompletion: completion)
         case .openInNewTab:
             return self.createActionOpenInNewTab(site: site, actionCompletion: completion)
         case .openInNewPrivateTab:
@@ -112,6 +116,23 @@ class ContextMenuUseCase {
             self.profile.history.removeHistoryForURL(site.url).uponQueue(.main) { result in
                 CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [site.url])
                 actionCompletion()
+            }
+        }
+        return removeFromTopSite
+    }
+
+    private func createActionDeleteAllTraces(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
+        let host = site.url.asURL?.normalizedHost ?? site.url
+        let title = String(format: Strings.HomePanel.ContextMenu.DeleteAllTraces, host)
+        let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "action_delete") { action in
+            self.profile.history.removeAllTracesForDomain(site.url).uponQueue(.main) { result in
+                CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [host])
+                WKWebsiteDataStore.default().fetchDataRecords(ofTypes: CookiesClearable.dataTypes) { (records) in
+                    let filteredRecords = records.filter({ $0.displayName.contains(host) })
+                    WKWebsiteDataStore.default().removeData(ofTypes: CookiesClearable.dataTypes, for: filteredRecords) {
+                        actionCompletion()
+                    }
+                }
             }
         }
         return removeFromTopSite

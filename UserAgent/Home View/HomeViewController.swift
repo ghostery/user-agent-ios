@@ -99,7 +99,7 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
             switch notification.name {
             case .NewsSettingsDidChange:
-                self.refresh()
+                self.refreshTopSites()
             case .NewTabPageDefaultViewSettingsDidChange:
                 self.switchToDefaultSegment()
             default:
@@ -108,11 +108,6 @@ class HomeViewController: UIViewController {
         }
     }
 
-    func refresh() {
-        self.topSitesView.refresh()
-        self.bookmarksView.reloadData()
-        self.historyView.reloadData()
-    }
 }
 
 // MARK: - Private Implementation
@@ -202,13 +197,21 @@ extension HomeViewController: HomeViewControllerProtocol {
         self.switchToDefaultSegment()
     }
 
-    func scrollToTop() {
+    func scrollToTop() {}
+    func scrollToTop(animated: Bool) {}
 
+    func refreshTopSites() {
+        self.topSitesView.refresh()
     }
 
-    func scrollToTop(animated: Bool) {
-
+    func refreshBookmarks() {
+        self.bookmarksView.reloadData()
     }
+
+    func refreshHistory() {
+        self.historyView.reloadData()
+    }
+
 }
 
 extension HomeViewController: LibraryViewDelegate {

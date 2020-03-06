@@ -73,6 +73,7 @@ extension Strings {
             public static let Bookmark = NSLocalizedString("HomePanel.ContextMenu.Bookmark", comment: "The title for the Bookmark context menu action for sites in Home Panels")
             public static let RemoveBookmark = NSLocalizedString("HomePanel.ContextMenu.RemoveBookmark", comment: "The title for the Remove Bookmark context menu action for sites in Home Panels")
             public static let DeleteFromHistory = NSLocalizedString("HomePanel.ContextMenu.DeleteFromHistory", comment: "The title for the Delete from History context menu action for sites in Home Panels")
+            public static let DeleteAllTraces = NSLocalizedString("HomePanel.ContextMenu.DeleteAllTraces", comment: "The title for the Delete all traces context menu action for sites in Home Panels")
             public static let Share = NSLocalizedString("HomePanel.ContextMenu.Share", comment: "The title for the Share context menu action for sites in Home Panels")
             public static let Remove = NSLocalizedString("HomePanel.ContextMenu.Remove", comment: "The title for the Remove context menu action for sites in Home Panels")
         }
