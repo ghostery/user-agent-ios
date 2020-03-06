@@ -45,8 +45,6 @@ class BookmarkDetailViewController: SiteTableViewController {
     // Non-editable field(s) that all BookmarkNodes have.
     let bookmarkNodeGUID: GUID
 
-    var modelFactory: BookmarksModelFactory!
-
     // Editable field(s) that only BookmarkItems and
     // BookmarkFolders have.
     var bookmarkItemOrFolderTitle: String?
@@ -58,9 +56,8 @@ class BookmarkDetailViewController: SiteTableViewController {
         return Int(floor((view.frame.width - BookmarkDetailViewControllerUX.MinIndentedContentWidth) / BookmarkDetailViewControllerUX.IndentationWidth))
     }
 
-    init(profile: Profile, bookmarkNode: BookmarkNode/*, modelFactory: BookmarksModelFactory*/) {
+    init(profile: Profile, bookmarkNode: BookmarkNode) {
         self.bookmarkNodeGUID = bookmarkNode.guid
-//        self.modelFactory = modelFactory
         super.init(profile: profile)
 
         self.tableView.accessibilityIdentifier = "Bookmark Detail"
@@ -125,7 +122,7 @@ class BookmarkDetailViewController: SiteTableViewController {
         guard let title = self.bookmarkItemOrFolderTitle, let url = self.bookmarkItemURL else {
             return deferMaybe(BookmarkDetailViewControllerError())
         }
-        return self.modelFactory.updateByGUID(self.bookmarkNodeGUID, title: title, url: url)
+        return self.profile.bookmarks.modelFactory >>== { $0.updateByGUID(self.bookmarkNodeGUID, title: title, url: url) }
     }
 
     // MARK: UITableViewDataSource | UITableViewDelegate

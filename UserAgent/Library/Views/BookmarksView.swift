@@ -111,12 +111,6 @@ class BookmarksView: LibraryView {
                 print("Source not set, aborting.")
                 return
             }
-//            guard let factory = source.modelFactory.value.successValue else {
-//                print("Couldn't get model factory. This is unexpected.")
-//                self.onModelFailure(DatabaseError(description: "Unable to get factory."))
-//                return
-//            }
-//            let specificFactory = factory.factoryForIndex(indexPath.row, inFolder: source.current)
             self.delegate?.library(wantsToEdit: bookmark)
         })
         return [editBookmark]
