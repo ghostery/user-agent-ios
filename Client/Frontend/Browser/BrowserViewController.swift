@@ -1625,10 +1625,6 @@ extension BrowserViewController: HomePanelDelegate {
         self.openURLInNewTab(url: url, isPrivate: isPrivate)
     }
 
-    func homePanel(wantsToPresent viewController: UIViewController) {
-        self.present(viewController, animated: true)
-    }
-
     func homePanel(wantsToEdit bookmark: BookmarkNode) {
         let viewController = BookmarkDetailViewController(profile: self.profile, bookmarkNode: bookmark)
         viewController.delegate = self
