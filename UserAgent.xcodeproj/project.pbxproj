@@ -6792,7 +6792,7 @@
 					"-ObjC",
 					"-lxml2",
 					"-weak_framework",
-					CrytoKit,
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -7461,7 +7461,7 @@
 					"-framework",
 					CoreMedia,
 					"-weak_framework",
-					CrytoKit,
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -7560,7 +7560,7 @@
 					"-ObjC",
 					"-lxml2",
 					"-weak_framework",
-					CrytoKit,
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
