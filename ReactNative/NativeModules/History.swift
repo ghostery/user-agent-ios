@@ -13,13 +13,13 @@ class History: NSObject, NativeModuleBase {
     func getTopSites(resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) {
         self.withAppDelegate { appDel in
             guard let profile = appDel.profile else {
-                reject("profile", "Profile not loaded", NSError())
+                reject("profile", "Profile not loaded", nil)
                 return
             }
 
             profile.history.getTopSitesWithLimit(20).upon { topsites in
                 guard let mySites = topsites.successValue?.asArray() else {
-                    reject("history", "Top sites db access error", NSError())
+                    reject("history", "Top sites db access error", nil)
                     return
                 }
 
@@ -50,13 +50,13 @@ class History: NSObject, NativeModuleBase {
     ) {
         self.withAppDelegate { appDel in
             guard let profile = appDel.profile else {
-                reject("profile", "Profile not loaded", NSError())
+                reject("profile", "Profile not loaded", nil)
                 return
             }
 
             profile.history.getDomainsByLastVisit(limit: limit, offset: offset).upon { domains in
                 guard let domains = domains.successValue?.asArray() else {
-                    reject("history", "Domains db access error", NSError())
+                    reject("history", "Domains db access error", nil)
                     return
                 }
 
@@ -75,7 +75,7 @@ class History: NSObject, NativeModuleBase {
     ) {
         self.withAppDelegate { appDel in
             guard let profile = appDel.profile else {
-                reject("profile", "Profile not loaded", NSError())
+                reject("profile", "Profile not loaded", nil)
                 return
             }
 
@@ -85,7 +85,7 @@ class History: NSObject, NativeModuleBase {
                 domainName: domainName as String
             ).upon { sites in
                 guard let sites = sites.successValue?.asArray() else {
-                    reject("history", "Visits db access error", NSError())
+                    reject("history", "Visits db access error", nil)
                     return
                 }
 
