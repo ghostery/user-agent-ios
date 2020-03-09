@@ -19,8 +19,7 @@ private class ReactNativeBridgeDelegate: NSObject, RCTBridgeDelegate {
         #if DEBUG
             return URL(string: "http://localhost:8081/index.widget.bundle?platform=ios")
         #else
-            return RCTBundleURLProvider.sharedSettings()?.jsBundleURL(
-                forBundleRoot: "index.widget", fallbackResource: nil)
+            return Bundle.main.url(forResource: "main", withExtension: "jsbundle")
         #endif
     }
 }

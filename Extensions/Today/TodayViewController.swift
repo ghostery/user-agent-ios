@@ -16,16 +16,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let reactView = RCTRootView(
-            bridge: ReactNativeBridge.sharedInstance.bridge,
-            moduleName: "Today",
-            initialProperties: [:]
-        )
-
-        reactView.backgroundColor = .clear
-
-        self.view = reactView
-
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
     }
 
@@ -43,6 +33,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
+
+        let reactView = RCTRootView(
+            bridge: ReactNativeBridge.sharedInstance.bridge,
+            moduleName: "Today",
+            initialProperties: [:]
+        )
+
+        reactView.backgroundColor = .clear
+
+        self.view = reactView
 
         completionHandler(NCUpdateResult.newData)
     }

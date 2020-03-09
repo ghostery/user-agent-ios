@@ -7976,7 +7976,7 @@
 					"-ObjC",
 					"-lxml2",
 					"-weak_framework",
-					CrytopKit,
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
