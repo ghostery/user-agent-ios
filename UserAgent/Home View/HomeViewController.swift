@@ -172,12 +172,6 @@ class HomeViewController: UIViewController {
             }
         }
     }
-
-    func refresh() {
-        self.topSitesView.reloadData()
-        self.bookmarksView.reloadData()
-        self.historyView.reloadData()
-    }
 }
 
 // MARK: - Private Implementation
