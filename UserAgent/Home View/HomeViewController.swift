@@ -12,7 +12,7 @@ import Shared
 import Storage
 
 class HomeViewNavigationController: UINavigationController {
-    private let homeViewController: HomeViewController?
+    private var homeViewController: HomeViewController?
 
     var homePanelDelegate: HomePanelDelegate? {
         didSet {
@@ -21,8 +21,9 @@ class HomeViewNavigationController: UINavigationController {
     }
 
     init(profile: Profile) {
-        self.homeViewController = HomeViewController(profile: profile)
-        super.init(rootViewController: self.homeViewController!)
+        let homeViewController = HomeViewController(profile: profile)
+        super.init(rootViewController: homeViewController)
+        self.homeViewController = homeViewController
         self.setNavigationBarHidden(true, animated: false)
         self.navigationBar.isTranslucent = false
     }
@@ -128,7 +129,6 @@ class HomeViewController: UIViewController {
 
     private lazy var historyView: HistoryView = {
         let historyView = HistoryView(profile: self.profile)
-//        historyView.delegate = self
         return historyView
     }()
 
