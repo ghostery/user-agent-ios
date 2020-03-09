@@ -41,7 +41,9 @@ protocol HomeViewControllerProtocol: Themeable {
     func removeFromParent()
     func switchView(segment: HomeViewController.Segment)
     func switchViewToDefaultSegment()
-    func refresh()
+    func refreshTopSites()
+    func refreshBookmarks()
+    func refreshHistory()
 }
 
 class BrowserViewController: UIViewController {

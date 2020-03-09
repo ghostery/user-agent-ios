@@ -18,6 +18,7 @@ class MockableHistory: BrowserHistory, SyncableHistory {
     func clearHistory() -> Success { fatalError() }
     func removeHistoryFromDate(_ date: Date) -> Success { fatalError() }
     func removeHistoryForURL(_ url: String) -> Success { fatalError() }
+    func removeAllTracesForDomain(_ url: String) -> Success { fatalError() }
     func removeSiteFromTopSites(_ site: Site) -> Success { fatalError() }
     func removeHostFromTopSites(_ host: String) -> Success { fatalError() }
     func clearTopSitesCache() -> Success { fatalError() }

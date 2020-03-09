@@ -210,14 +210,14 @@
 		3D9CAA1C1EFCD655002434DD /* ClipBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9CAA1B1EFCD655002434DD /* ClipBoardTests.swift */; };
 		460C247623EB0D3200D922B0 /* safari-popups-network.json in Resources */ = {isa = PBXBuildFile; fileRef = 460C247523EB0D3200D922B0 /* safari-popups-network.json */; };
 		460C247723EB0D3200D922B0 /* safari-popups-network.json in Resources */ = {isa = PBXBuildFile; fileRef = 460C247523EB0D3200D922B0 /* safari-popups-network.json */; };
-		460C248123F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */; };
-		460C248223F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */; };
-		460C248423F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
-		460C248523F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
 		460C247A23ED73D700D922B0 /* WindowCryto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C247923ED73D700D922B0 /* WindowCryto.swift */; };
 		460C247B23ED73D700D922B0 /* WindowCryto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C247923ED73D700D922B0 /* WindowCryto.swift */; };
 		460C247D23ED73EC00D922B0 /* WindowCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C247C23ED73EC00D922B0 /* WindowCrypto.m */; };
 		460C247E23ED73EC00D922B0 /* WindowCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C247C23ED73EC00D922B0 /* WindowCrypto.m */; };
+		460C248123F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */; };
+		460C248223F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */; };
+		460C248423F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
+		460C248523F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
 		461E5E59234F6891004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E58234F6891004DDE84 /* brand.strings */; };
 		461E5E5B234F68A7004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E5A234F68A7004DDE84 /* brand.strings */; };
 		4620EA492350ABF9004586CF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA482350ABF9004586CF /* Search.swift */; };
@@ -1359,10 +1359,10 @@
 		3E174732E1AE050726D91E40 /* Pods-OpenIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenIn.release.xcconfig"; path = "Target Support Files/Pods-OpenIn/Pods-OpenIn.release.xcconfig"; sourceTree = "<group>"; };
 		4063430C93211557F15DA9AA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Shared.strings; sourceTree = "<group>"; };
 		460C247523EB0D3200D922B0 /* safari-popups-network.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-network.json"; sourceTree = "<group>"; };
-		460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsFeatureReactNativeModule.swift; sourceTree = "<group>"; };
-		460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsightsFeatureReactNativeModule.m; sourceTree = "<group>"; };
 		460C247923ED73D700D922B0 /* WindowCryto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowCryto.swift; sourceTree = "<group>"; };
 		460C247C23ED73EC00D922B0 /* WindowCrypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowCrypto.m; sourceTree = "<group>"; };
+		460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsFeatureReactNativeModule.swift; sourceTree = "<group>"; };
+		460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InsightsFeatureReactNativeModule.m; sourceTree = "<group>"; };
 		461E5E58234F6891004DDE84 /* brand.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = brand.strings; sourceTree = "<group>"; };
 		461E5E5A234F68A7004DDE84 /* brand.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = brand.strings; sourceTree = "<group>"; };
 		4620EA482350ABF9004586CF /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -2577,6 +2577,15 @@
 			path = XCUITests;
 			sourceTree = "<group>";
 		};
+		460C247823ED73B300D922B0 /* WindowAPI */ = {
+			isa = PBXGroup;
+			children = (
+				460C247923ED73D700D922B0 /* WindowCryto.swift */,
+				460C247C23ED73EC00D922B0 /* WindowCrypto.m */,
+			);
+			path = WindowAPI;
+			sourceTree = "<group>";
+		};
 		460C247F23F18BB600D922B0 /* Insights */ = {
 			isa = PBXGroup;
 			children = (
@@ -2585,15 +2594,6 @@
 				460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */,
 			);
 			path = Insights;
-			sourceTree = "<group>";
-		};
-		460C247823ED73B300D922B0 /* WindowAPI */ = {
-			isa = PBXGroup;
-			children = (
-				460C247923ED73D700D922B0 /* WindowCryto.swift */,
-				460C247C23ED73EC00D922B0 /* WindowCrypto.m */,
-			);
-			path = WindowAPI;
 			sourceTree = "<group>";
 		};
 		463432F6233251F70014A9F0 /* UserAgent */ = {
@@ -6935,6 +6935,8 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
+					"-weak_framework",
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -6975,6 +6977,8 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
+					"-weak_framework",
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -7346,6 +7350,8 @@
 					AVFoundation,
 					"-framework",
 					CoreMedia,
+					"-weak_framework",
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -7640,6 +7646,8 @@
 					AVFoundation,
 					"-framework",
 					CoreMedia,
+					"-weak_framework",
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -7695,6 +7703,8 @@
 					AVFoundation,
 					"-framework",
 					CoreMedia,
+					"-weak_framework",
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -7735,6 +7745,8 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
+					"-weak_framework",
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -7853,6 +7865,8 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
+					"-weak_framework",
+					CrytopKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
@@ -8152,6 +8166,8 @@
 					AVFoundation,
 					"-framework",
 					CoreMedia,
+					"-weak_framework",
+					CryptoKit,
 					"$(inherited)",
 				);
 				OTHER_SWIFT_FLAGS = "-DAPP_TARGET_CLIENT $(inherited)";
