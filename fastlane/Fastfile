@@ -20,6 +20,10 @@ APPS = {
     open_in_provisioning_profile: "1f8b6a38-cbd6-4cf4-a1bb-df83f419e6c6",
     open_in_provisioning_profile_name: "match AppStore com.cliqz.OpenIn",
 
+    today_identifier: "com.cliqz.Today",
+    today_provisioning_profile: "f3d5ad52-4a14-40df-bdb3-eecdc8d5a905",
+    today_provisioning_profile_name: "match AppStore com.cliqz.Today",
+
     sentry_slug: "cliqz-ios",
     match_branch: "browser-ios",
   },
@@ -41,6 +45,10 @@ APPS = {
     open_in_identifier: "com.cliqz.browser.nightly.OpenIn",
     open_in_provisioning_profile: "3f191f93-a559-43d8-a1ab-666dd0306362",
     open_in_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.OpenIn",
+
+    today_identifier: "com.cliqz.browser.nightly.Today",
+    today_provisioning_profile: "46a08be3-c465-4747-86b2-324fd73ab5cc",
+    today_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.Today",
 
     sentry_slug: "cliqznighly-ios",
     match_branch: "cliqz-browser-nightly",
@@ -84,7 +92,7 @@ platform :ios do
       keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
       keychain_password: ENV["MATCH_PASSWORD"],
       git_branch: app.match_branch,
-      app_identifier: [app.app_identifier, app.share_to_identifier, app.open_in_identifier],
+      app_identifier: [app.app_identifier, app.share_to_identifier, app.open_in_identifier, app.today_identifier],
       readonly: true,
       verbose: true
     )
@@ -144,6 +152,13 @@ platform :ios do
       build_configuration: app.configuration,
     )
 
+    update_project_provisioning(
+      xcodeproj: "UserAgent.xcodeproj",
+      profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/#{app.today_provisioning_profile}.mobileprovision",
+      target_filter: "Today",
+      build_configuration: app.configuration,
+    )
+
     build_app(
       workspace: "UserAgent.xcworkspace",
       clean: true,
@@ -160,6 +175,7 @@ platform :ios do
           app.app_identifier => app.provisioning_profile_name,
           app.share_to_identifier => app.share_to_provisioning_profile_name,
           app.open_in_identifier => app.open_in_provisioning_profile_name,
+          app.today_identifier => app.today_provisioning_profile_name,
         }
       }
     )
