@@ -152,6 +152,13 @@ platform :ios do
       build_configuration: app.configuration,
     )
 
+    update_project_provisioning(
+      xcodeproj: "UserAgent.xcodeproj",
+      profile: "/Users/vagrant/Library/MobileDevice/Provisioning Profiles/#{app.today_provisioning_profile}.mobileprovision",
+      target_filter: "Today",
+      build_configuration: app.configuration,
+    )
+
     build_app(
       workspace: "UserAgent.xcworkspace",
       clean: true,
