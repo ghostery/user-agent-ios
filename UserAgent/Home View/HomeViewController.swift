@@ -12,19 +12,24 @@ import Shared
 import Storage
 
 class HomeViewNavigationController: UINavigationController {
-    private let homeViewController: HomeViewController!
+    private let homeViewController: HomeViewController?
 
     var homePanelDelegate: HomePanelDelegate? {
         didSet {
-            self.homeViewController.homePanelDelegate = homePanelDelegate
+            self.homeViewController?.homePanelDelegate = homePanelDelegate
         }
     }
 
     init(profile: Profile) {
         self.homeViewController = HomeViewController(profile: profile)
-        super.init(rootViewController: self.homeViewController)
+        super.init(rootViewController: self.homeViewController!)
         self.setNavigationBarHidden(true, animated: false)
         self.navigationBar.isTranslucent = false
+    }
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.homeViewController = nil
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,35 +39,35 @@ class HomeViewNavigationController: UINavigationController {
 
 extension HomeViewNavigationController: HomeViewControllerProtocol {
     func refreshTopSites() {
-        self.homeViewController.refreshTopSites()
+        self.homeViewController?.refreshTopSites()
     }
 
     func refreshBookmarks() {
-        self.homeViewController.refreshBookmarks()
+        self.homeViewController?.refreshBookmarks()
     }
 
     func refreshHistory() {
-        self.homeViewController.refreshHistory()
+        self.homeViewController?.refreshHistory()
     }
 
     func applyTheme() {
-        self.homeViewController.applyTheme()
+        self.homeViewController?.applyTheme()
     }
 
     func scrollToTop() {
-        self.homeViewController.scrollToTop()
+        self.homeViewController?.scrollToTop()
     }
 
     func scrollToTop(animated: Bool) {
-        self.homeViewController.scrollToTop(animated: animated)
+        self.homeViewController?.scrollToTop(animated: animated)
     }
 
     func switchView(segment: HomeViewController.Segment) {
-        self.homeViewController.switchView(segment: segment)
+        self.homeViewController?.switchView(segment: segment)
     }
 
     func switchViewToDefaultSegment() {
-        self.homeViewController.switchViewToDefaultSegment()
+        self.homeViewController?.switchViewToDefaultSegment()
     }
 }
 
