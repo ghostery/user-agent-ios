@@ -8,12 +8,33 @@
 
 import UIKit
 import NotificationCenter
+import React
 
+@objc(TodayViewController)
 class TodayViewController: UIViewController, NCWidgetProviding {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        let reactView = RCTRootView(
+            bridge: ReactNativeBridge.sharedInstance.bridge,
+            moduleName: "Today",
+            initialProperties: [:]
+        )
+
+        reactView.backgroundColor = .clear
+
+        self.view = reactView
+
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+    }
+
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .expanded {
+            preferredContentSize = CGSize(width: maxSize.width, height: 300)
+        } else {
+            preferredContentSize = maxSize
+        }
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
