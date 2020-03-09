@@ -11,6 +11,14 @@
 @interface RCT_EXTERN_MODULE(ContextMenu, NSObject)
 
 RCT_EXTERN_METHOD(speedDial:(nonnull NSString *)url isPinned:(BOOL)isPinned)
-RCT_EXTERN_METHOD(result:(nonnull NSString *)url title:(nonnull NSString)title isHistory:(BOOL)isHistory query:(nonnull NSString)query)
+RCT_EXTERN_METHOD(result:(nonnull NSString *)url
+                  title:(nonnull NSString)title
+                  isHistory:(BOOL)isHistory
+                  query:(nonnull NSString)query)
+RCT_EXTERN_METHOD(visit:(nonnull NSString *)url
+                  title:(nonnull NSString)title
+                  isHistory:(BOOL)isHistory
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
 
 @end

@@ -96,8 +96,6 @@
 		2B516D34238BAC8B006D6B57 /* LibraryContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2B238BAC8B006D6B57 /* LibraryContextMenu.swift */; };
 		2B516D35238BAC8B006D6B57 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2C238BAC8B006D6B57 /* LibraryView.swift */; };
 		2B516D36238BAC8B006D6B57 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2C238BAC8B006D6B57 /* LibraryView.swift */; };
-		2B516D37238BAC8B006D6B57 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2D238BAC8B006D6B57 /* HistoryView.swift */; };
-		2B516D38238BAC8B006D6B57 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2D238BAC8B006D6B57 /* HistoryView.swift */; };
 		2B516D39238BAC8B006D6B57 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2E238BAC8B006D6B57 /* BookmarksView.swift */; };
 		2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2E238BAC8B006D6B57 /* BookmarksView.swift */; };
 		2B516D3C238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */; };
@@ -243,6 +241,21 @@
 		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464E683C234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		46504060240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
+		46504061240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
+		46504063240FC2520086CFAF /* BaseReactHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504062240FC2520086CFAF /* BaseReactHomeView.swift */; };
+		46504064240FC2520086CFAF /* BaseReactHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504062240FC2520086CFAF /* BaseReactHomeView.swift */; };
+		46504066240FC5FD0086CFAF /* DomainsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504065240FC5FD0086CFAF /* DomainsView.swift */; };
+		46504067240FC5FD0086CFAF /* DomainsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504065240FC5FD0086CFAF /* DomainsView.swift */; };
+		4650406A241138260086CFAF /* BrowserCoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504069241138260086CFAF /* BrowserCoreViewController.swift */; };
+		4650406B241138260086CFAF /* BrowserCoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504069241138260086CFAF /* BrowserCoreViewController.swift */; };
+		4650406D241138590086CFAF /* HomeViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650406C241138590086CFAF /* HomeViewNavigation.swift */; };
+		4650406E241138590086CFAF /* HomeViewNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650406C241138590086CFAF /* HomeViewNavigation.swift */; };
+		465040702411386F0086CFAF /* HomeViewNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4650406F2411386F0086CFAF /* HomeViewNavigation.m */; };
+		465040712411386F0086CFAF /* HomeViewNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4650406F2411386F0086CFAF /* HomeViewNavigation.m */; };
+		4650407324125AC20086CFAF /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650407224125AC20086CFAF /* Domain.swift */; };
+		465040752412F47B0086CFAF /* HistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465040742412F47B0086CFAF /* HistoryUseCase.swift */; };
+		465040762412F47B0086CFAF /* HistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465040742412F47B0086CFAF /* HistoryUseCase.swift */; };
 		46569CC623CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
 		46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */; };
 		46569CCB23CC902C00224DC2 /* ControlCenter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46569CCE23CC902C00224DC2 /* ControlCenter.strings */; };
@@ -1230,7 +1243,6 @@
 		2B516D2A238BAC8B006D6B57 /* DownloadsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadsView.swift; sourceTree = "<group>"; };
 		2B516D2B238BAC8B006D6B57 /* LibraryContextMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryContextMenu.swift; sourceTree = "<group>"; };
 		2B516D2C238BAC8B006D6B57 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
-		2B516D2D238BAC8B006D6B57 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		2B516D2E238BAC8B006D6B57 /* BookmarksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+DownloadsDelegate.swift"; sourceTree = "<group>"; };
 		2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+PrivacyStatement.swift"; sourceTree = "<group>"; };
@@ -1376,6 +1388,14 @@
 		46442CED238BE61D002E6D85 /* HumanWebFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanWebFeature.swift; sourceTree = "<group>"; };
 		464E6837234B75E300ABAC43 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		464E683A234CB06200ABAC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4650405F240FC1E80086CFAF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		46504062240FC2520086CFAF /* BaseReactHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseReactHomeView.swift; sourceTree = "<group>"; };
+		46504065240FC5FD0086CFAF /* DomainsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainsView.swift; sourceTree = "<group>"; };
+		46504069241138260086CFAF /* BrowserCoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCoreViewController.swift; sourceTree = "<group>"; };
+		4650406C241138590086CFAF /* HomeViewNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewNavigation.swift; sourceTree = "<group>"; };
+		4650406F2411386F0086CFAF /* HomeViewNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewNavigation.m; sourceTree = "<group>"; };
+		4650407224125AC20086CFAF /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
+		465040742412F47B0086CFAF /* HistoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryUseCase.swift; sourceTree = "<group>"; };
 		46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatsView.swift; sourceTree = "<group>"; };
 		46569CCD23CC902C00224DC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ControlCenter.strings; sourceTree = "<group>"; };
 		46569CCF23CC903100224DC2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ControlCenter.strings; sourceTree = "<group>"; };
@@ -2168,6 +2188,7 @@
 				2B473CF0239637DE00442059 /* UseCases.swift */,
 				C5F986B023A384CB006E006A /* ContextMenuUseCase.swift */,
 				2B4DFF2723CF18BF001145AF /* OpenLinkUseCases.swift */,
+				465040742412F47B0086CFAF /* HistoryUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -2267,7 +2288,6 @@
 				2B516D2A238BAC8B006D6B57 /* DownloadsView.swift */,
 				2B516D2B238BAC8B006D6B57 /* LibraryContextMenu.swift */,
 				2B516D2C238BAC8B006D6B57 /* LibraryView.swift */,
-				2B516D2D238BAC8B006D6B57 /* HistoryView.swift */,
 				2B516D2E238BAC8B006D6B57 /* BookmarksView.swift */,
 			);
 			path = Views;
@@ -2440,6 +2460,7 @@
 				285D3B671B4380B70035FD22 /* Queue.swift */,
 				E6FF6AC91D873CFF0070C294 /* PageMetadata.swift */,
 				2829D39F1C2F0AD400DCF931 /* Sharing.swift */,
+				4650407224125AC20086CFAF /* Domain.swift */,
 				2FCAE2481ABB531100877008 /* Site.swift */,
 				0B54BD181B698B7C004C822C /* SuggestedSites.swift */,
 				7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */,
@@ -2619,8 +2640,19 @@
 				464E6837234B75E300ABAC43 /* LogoView.swift */,
 				464E683A234CB06200ABAC43 /* HomeView.swift */,
 				46569CC523CA5BA800224DC2 /* PrivacyStatsView.swift */,
+				46504065240FC5FD0086CFAF /* DomainsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		46504068240FC98A0086CFAF /* Segments */ = {
+			isa = PBXGroup;
+			children = (
+				46504062240FC2520086CFAF /* BaseReactHomeView.swift */,
+				AC65328A2344E3D000FC7ADB /* TopSitesView.swift */,
+				4650405F240FC1E80086CFAF /* HistoryView.swift */,
+			);
+			path = Segments;
 			sourceTree = "<group>";
 		};
 		46828D87233E213A00E7D8A3 /* Views */ = {
@@ -2673,10 +2705,12 @@
 				46CA60DB2316CED70010CE6B /* BrowserActions.swift */,
 				46E9660B236B33C1003C23F3 /* Constants.m */,
 				46E96608236B33A1003C23F3 /* Constants.swift */,
-				46ECCD1F23A384EF002E761C /* ContextMenu.swift */,
 				46ECCD2223A3850D002E761C /* ContextMenu.m */,
+				46ECCD1F23A384EF002E761C /* ContextMenu.swift */,
 				46CA60D72316BB3A0010CE6B /* History.m */,
 				46CA60D52316B9EE0010CE6B /* History.swift */,
+				4650406F2411386F0086CFAF /* HomeViewNavigation.m */,
+				4650406C241138590086CFAF /* HomeViewNavigation.swift */,
 				46CA60F52317E5D10010CE6B /* JSBridge.m */,
 				46CA60F12317E4780010CE6B /* JSBridge.swift */,
 				46CA60E72317E0DC0010CE6B /* LocaleConstants.m */,
@@ -2691,6 +2725,7 @@
 			isa = PBXGroup;
 			children = (
 				46CA60D0231554980010CE6B /* SearchResultsViewController.swift */,
+				46504069241138260086CFAF /* BrowserCoreViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2801,9 +2836,9 @@
 		AC65328C2347674D00FC7ADB /* Home View */ = {
 			isa = PBXGroup;
 			children = (
+				46504068240FC98A0086CFAF /* Segments */,
 				46C41EDD230EE4DF00CE54D2 /* HomeViewController.swift */,
 				C59DC480234CB255005CA848 /* HomePanel.swift */,
-				AC65328A2344E3D000FC7ADB /* TopSitesView.swift */,
 			);
 			path = "Home View";
 			sourceTree = "<group>";
@@ -5037,6 +5072,7 @@
 				C5B4863B23328F03001F2E39 /* SQLiteBookmarksSyncing.swift in Sources */,
 				C5E94B5A233112CD00D3F31F /* Trees.swift in Sources */,
 				E65075C21E37F956006961AC /* ExtensionUtils.swift in Sources */,
+				4650407324125AC20086CFAF /* Domain.swift in Sources */,
 				C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */,
 				7BF5A1EA1B41640500EA9DD8 /* SyncQueue.swift in Sources */,
 				E677F0541D94247300ECF1FB /* Metadata.swift in Sources */,
@@ -5145,7 +5181,6 @@
 				ACB7372523042BAB00FA5626 /* AppSettingsOptions.swift in Sources */,
 				ACB7372A23042BAB00FA5626 /* ReaderModeStyleViewController.swift in Sources */,
 				C5D1EB4D23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */,
-				2B516D38238BAC8B006D6B57 /* HistoryView.swift in Sources */,
 				ACB7372B23042BAB00FA5626 /* UserScriptManager.swift in Sources */,
 				460C248523F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */,
 				2BFB7C3A238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
@@ -5165,6 +5200,7 @@
 				2B4DFF2623CF07E1001145AF /* BrowserSearch.m in Sources */,
 				2B4DFF2923CF18BF001145AF /* OpenLinkUseCases.swift in Sources */,
 				ACB7373523042BAB00FA5626 /* BrowserViewController+ReaderMode.swift in Sources */,
+				465040712411386F0086CFAF /* HomeViewNavigation.m in Sources */,
 				46ECCD2123A384F0002E761C /* ContextMenu.swift in Sources */,
 				ACB7373623042BAB00FA5626 /* PhotonActionSheetWidgets.swift in Sources */,
 				C56ED498233B692B006A63B1 /* Interceptor.swift in Sources */,
@@ -5215,6 +5251,7 @@
 				ACB7375123042BAB00FA5626 /* SessionData.swift in Sources */,
 				ACB7375223042BAB00FA5626 /* TabToolbar.swift in Sources */,
 				ACB7375323042BAB00FA5626 /* SyncContentSettingsViewController.swift in Sources */,
+				46504061240FC1E80086CFAF /* HistoryView.swift in Sources */,
 				2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */,
 				ACB7375623042BAB00FA5626 /* TopTabsViews.swift in Sources */,
 				ACB7375923042BAB00FA5626 /* FocusHelper.swift in Sources */,
@@ -5273,6 +5310,7 @@
 				ACB7378D23042BAB00FA5626 /* AppDelegate.swift in Sources */,
 				ACB7378E23042BAB00FA5626 /* UIImageViewAligned.m in Sources */,
 				ACD654842361D55C002D2EE0 /* WTMCategory+Dict.swift in Sources */,
+				4650406B241138260086CFAF /* BrowserCoreViewController.swift in Sources */,
 				ACB7378F23042BAB00FA5626 /* BrowserPrompts.swift in Sources */,
 				46828D8A233E213A00E7D8A3 /* PrivacyIndicatorView.swift in Sources */,
 				ACB7379223042BAB00FA5626 /* ButtonToast.swift in Sources */,
@@ -5293,6 +5331,7 @@
 				ACB7379F23042BAB00FA5626 /* DefaultSearchPrefs.swift in Sources */,
 				ACB737A023042BAB00FA5626 /* MenuHelper.swift in Sources */,
 				ACB737A223042BAB00FA5626 /* WebsiteDataManagementViewController.swift in Sources */,
+				46504064240FC2520086CFAF /* BaseReactHomeView.swift in Sources */,
 				ACB737A523042BAB00FA5626 /* TabEventHandler.swift in Sources */,
 				ACB737A623042BAB00FA5626 /* ReaderModeBarView.swift in Sources */,
 				ACB737A723042BAB00FA5626 /* SiriSettingsViewController.swift in Sources */,
@@ -5301,6 +5340,7 @@
 				ACB737A923042BAB00FA5626 /* PhotonActionSheetProtocol.swift in Sources */,
 				2B516D30238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */,
 				46CA60E12316CF300010CE6B /* BrowserActions.m in Sources */,
+				465040762412F47B0086CFAF /* HistoryUseCase.swift in Sources */,
 				ACB737AA23042BAB00FA5626 /* NSURLExtensionsMailTo.swift in Sources */,
 				C59DC482234CB255005CA848 /* HomePanel.swift in Sources */,
 				2B473CEE23952A2700442059 /* BloomFilter.swift in Sources */,
@@ -5323,6 +5363,7 @@
 				C56ED49F233B712F006A63B1 /* InterceptorFeature.swift in Sources */,
 				ACB737BD23042BAB00FA5626 /* BrowserViewController+TabToolbarDelegate.swift in Sources */,
 				C56ED4A2233B8ACD006A63B1 /* AntiPhishingPolicy.swift in Sources */,
+				46504067240FC5FD0086CFAF /* DomainsView.swift in Sources */,
 				ACB737BE23042BAB00FA5626 /* NSUserDefaultsPrefs.swift in Sources */,
 				ACB737BF23042BAB00FA5626 /* SwipeAnimator.swift in Sources */,
 				ACB737C023042BAB00FA5626 /* SimpleToast.swift in Sources */,
@@ -5359,6 +5400,7 @@
 				2BE9C93223E1C5B60074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */,
 				ACB737D623042BAB00FA5626 /* BrowserViewController.swift in Sources */,
 				46CA60E32316D4A80010CE6B /* History.swift in Sources */,
+				4650406E241138590086CFAF /* HomeViewNavigation.swift in Sources */,
 				ACB737DB23042BAB00FA5626 /* DownloadQueue.swift in Sources */,
 				ACB737E023042BAB00FA5626 /* BackForwardListViewController.swift in Sources */,
 				ACB737E123042BAB00FA5626 /* ShareExtensionHelper.swift in Sources */,
@@ -5429,7 +5471,6 @@
 				ACD654832361D2D2002D2EE0 /* WTMCategory+Dict.swift in Sources */,
 				C5D1EB4C23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */,
 				D029A04920A62DB0001DB72F /* TemporaryDocument.swift in Sources */,
-				2B516D37238BAC8B006D6B57 /* HistoryView.swift in Sources */,
 				2B4DFF2523CF07E1001145AF /* BrowserSearch.m in Sources */,
 				E692E3371C46E86A009D1240 /* AppSettingsOptions.swift in Sources */,
 				2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
@@ -5452,6 +5493,7 @@
 				EBA3B2CD2268F27500728BDB /* PhotonActionSheetWidgets.swift in Sources */,
 				D3C3696E1CC6B78800348A61 /* LocalRequestHelper.swift in Sources */,
 				C56ED497233B692B006A63B1 /* Interceptor.swift in Sources */,
+				4650406D241138590086CFAF /* HomeViewNavigation.swift in Sources */,
 				46CA60D62316B9EE0010CE6B /* History.swift in Sources */,
 				E4B423DD1ABA0318007E66C8 /* ReaderModeHandlers.swift in Sources */,
 				D308E4E41A5306F500842685 /* SearchEngines.swift in Sources */,
@@ -5486,6 +5528,7 @@
 				46442CEA238BE148002E6D85 /* BrowserCore.swift in Sources */,
 				46BBFA672358B13A00283594 /* BrowserCliqz.m in Sources */,
 				2B427C7223D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift in Sources */,
+				465040752412F47B0086CFAF /* HistoryUseCase.swift in Sources */,
 				C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */,
 				460C248423F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */,
 				DD31E0FB1B382B520077078A /* TabPrintPageRenderer.swift in Sources */,
@@ -5503,6 +5546,7 @@
 				0BB5B2881AC0A2B90052877D /* SnackBar.swift in Sources */,
 				EBC4869F2195F58300CDA48D /* SessionRestoreHandler.swift in Sources */,
 				7BEFC6801BFF68C30059C952 /* QuickActions.swift in Sources */,
+				46504066240FC5FD0086CFAF /* DomainsView.swift in Sources */,
 				46CA60F62317E5D10010CE6B /* JSBridge.m in Sources */,
 				D0C95E36200FDC5500E4E51C /* MetadataParserHelper.swift in Sources */,
 				2B516D35238BAC8B006D6B57 /* LibraryView.swift in Sources */,
@@ -5524,9 +5568,11 @@
 				D3BA7E0E1B0E934F00153782 /* ContextMenuHelper.swift in Sources */,
 				E660BE061BB0666D009AC090 /* InnerStrokedView.swift in Sources */,
 				46CA60E02316CF300010CE6B /* BrowserActions.m in Sources */,
+				46504060240FC1E80086CFAF /* HistoryView.swift in Sources */,
 				C5B83E62239FA44F003687AC /* PrivacyStatementHeaderView.swift in Sources */,
 				7BA8D1C71BA037F500C8AE9E /* OpenInHelper.swift in Sources */,
 				2B4EFBDB2399233A007A10E0 /* News.swift in Sources */,
+				4650406A241138260086CFAF /* BrowserCoreViewController.swift in Sources */,
 				E4B423BE1AB9FE6A007E66C8 /* ReaderModeCache.swift in Sources */,
 				396CDB55203C5B870034A3A3 /* TabTrayController+KeyCommands.swift in Sources */,
 				74E36D781B71323500D69DA1 /* SettingsContentViewController.swift in Sources */,
@@ -5541,6 +5587,7 @@
 				E64ED8FA1BC55AE300DAF864 /* UIAlertControllerExtensions.swift in Sources */,
 				39CE74F821A83105007AE4F2 /* TranslationSettingsController.swift in Sources */,
 				460C248123F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */,
+				46504063240FC2520086CFAF /* BaseReactHomeView.swift in Sources */,
 				460C247A23ED73D700D922B0 /* WindowCryto.swift in Sources */,
 				282DA4731A68C1E700A406E2 /* OpenSearch.swift in Sources */,
 				D0625CA8208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift in Sources */,
@@ -5646,6 +5693,7 @@
 				ACC6EC4A2327F4B6000F5499 /* Colors.swift in Sources */,
 				46CA60DC2316CED70010CE6B /* BrowserActions.swift in Sources */,
 				D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */,
+				465040702411386F0086CFAF /* HomeViewNavigation.m in Sources */,
 				2BEB1A7D23F5388E008A0F01 /* FileDownloadActivity.swift in Sources */,
 				46CA60EE2317E1390010CE6B /* NativeDrawable.m in Sources */,
 				C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */,

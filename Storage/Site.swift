@@ -60,4 +60,11 @@ open class Site: Identifiable {
         self.bookmarked = bookmarked
     }
 
+    public func toDict() -> [String: Any] {
+        return [
+            "url": self.url,
+            "title": self.title,
+            "visitedAt": self.latestVisit?.date ?? 0,
+        ]
+    }
 }

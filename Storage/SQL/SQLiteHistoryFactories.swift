@@ -71,4 +71,10 @@ extension SQLiteHistory {
         site.metadata = pageMetadataColumnFactory(row)
         return site
     }
+
+    class func domainFactory(_ row: SDRow) -> Domain {
+        return Domain(
+            name: row["domain"] as! String,
+            latestVisitDate: row.getTimestamp("latestVisitDate") ?? 0)
+    }
 }

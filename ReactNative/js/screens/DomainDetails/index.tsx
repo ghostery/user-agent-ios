@@ -1,0 +1,133 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { StyleSheet, NativeModules } from 'react-native';
+import { GiftedChat } from 'react-native-gifted-chat';
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'red',
+  },
+  url: {
+    color: 'rgb(26, 13, 171)',
+    textDecorationLine: 'underline',
+  },
+});
+
+interface Visit {
+  url: string;
+  title: string;
+  visitedAt: number;
+}
+
+const PAGE_SIZE = 15;
+
+const useVisits = (domain: string): [Visit[], any, any] => {
+  const [visits, setVisits] = useState<Visit[]>([]);
+  const [page, setPage] = useState(0);
+  const [lastLoadedPage, setLastLoadedPage] = useState(-1);
+
+  const loadMore = () => {
+    if (page === lastLoadedPage) {
+      setPage(page + 1);
+    }
+  };
+
+  useEffect(() => {
+    const fetchVisits = async () => {
+      let data: Visit[] = [];
+      try {
+        data = await NativeModules.History.getVisits(
+          domain,
+          PAGE_SIZE,
+          page * PAGE_SIZE,
+        );
+      } catch (e) {
+        // In case of the problems with db
+      }
+      setVisits(prevState => {
+        return [...prevState, ...data];
+      });
+      if (data.length > 0) {
+        setLastLoadedPage(page);
+      }
+    };
+
+    if (page !== lastLoadedPage) {
+      fetchVisits();
+    }
+  }, [page, domain, lastLoadedPage, setVisits]);
+
+  const removeVisit = (visitedAt: number) => {
+    setVisits(prevState => {
+      const visitToRemoveIndex = prevState.findIndex(
+        visit => visit.visitedAt === visitedAt,
+      );
+
+      return [
+        ...prevState.slice(0, visitToRemoveIndex),
+        ...prevState.slice(visitToRemoveIndex + 1),
+      ];
+    });
+  };
+
+  return [visits, loadMore, removeVisit];
+};
+
+const user = {
+  _id: -1,
+};
+
+export default ({ domain }: { domain: string }) => {
+  const [visits, loadMore, removeVisit] = useVisits(domain);
+  const history = useMemo(
+    () =>
+      visits.map(visit => ({
+        _id: visit.visitedAt,
+        url: visit.url,
+        text: [visit.title, visit.url].join('\n'),
+        createdAt: visit.visitedAt / 1000,
+        user,
+      })),
+    [visits],
+  );
+
+  function handleUrlPress(url: string) {
+    NativeModules.BrowserActions.openLink(url, '');
+  }
+
+  async function onLongPress(context: any, message: any) {
+    const { action } = await NativeModules.ContextMenu.visit(
+      message.url,
+      message.text.split('\n')[0],
+      true,
+    );
+    if (action === 'deleteFromHistory') {
+      removeVisit(message.createdAt * 1000);
+    }
+  }
+  const parsePatterns = () => [
+    {
+      type: 'url',
+      style: styles.url,
+      onPress: handleUrlPress,
+    },
+  ];
+
+  const renderEmpty = () => null;
+
+  return (
+    <GiftedChat
+      messages={history}
+      renderInputToolbar={renderEmpty}
+      renderComposer={renderEmpty}
+      renderLoading={renderEmpty}
+      minInputToolbarHeight={0}
+      onLongPress={onLongPress}
+      parsePatterns={parsePatterns}
+      listViewProps={{
+        onEndReached: loadMore,
+        onEndReachedThreshold: 0.5,
+        initialNumToRender: PAGE_SIZE,
+      }}
+    />
+  );
+};
