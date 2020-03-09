@@ -8,7 +8,10 @@
 
 import Foundation
 import React
+
+#if canImport(CryptoKit)
 import CryptoKit
+#endif
 
 extension Data {
     init?(hexString: String) {
