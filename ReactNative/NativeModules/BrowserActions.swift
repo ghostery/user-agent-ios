@@ -43,7 +43,7 @@ class BrowserActions: NSObject, NativeModuleBase {
         DispatchQueue.main.async {
             if let appDel = UIApplication.shared.delegate as? AppDelegate {
                 if let profile = appDel.profile {
-                    var results: [[String: String]] = []
+                    var results: [[String: Any]] = []
                     let frecentHistory = profile.history.getFrecentHistory()
                     frecentHistory.getSites(matchingSearchQuery: query as String, limit: 100).upon { sites in
                         guard let sites = sites.successValue?.asArray() else {
@@ -51,9 +51,11 @@ class BrowserActions: NSObject, NativeModuleBase {
                         }
 
                         for site in sites {
-                            if let url = URL(string: site.url), !profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query as String) {
-                                let d = ["url": site.url, "title": site.title]
-                                results.append(d)
+                            if
+                                let url = URL(string: site.url),
+                                !profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query as String)
+                            {
+                                results.append(site.toDict())
                             }
                         }
                         callback([results])

@@ -8,6 +8,7 @@
 
 import Foundation
 import Storage
+import React
 
 @objc(ContextMenu)
 class ContextMenuNativeModule: NSObject, NativeModuleBase {
@@ -31,12 +32,44 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
                 withQuery: query as String,
                 withActions: actions,
                 on: appDel.browserViewController
-            ) {
+            ) { _ in
                 guard let searchContorller = appDel.browserViewController?.searchController else { return }
                 // redo query
                 let query = searchContorller.searchQuery
                 searchContorller.searchQuery = query
                 appDel.browserViewController?.homeViewController?.refreshHistory()
+            }
+        }
+    }
+
+    @objc(visit:title:isHistory:resolve:reject:)
+    public func visit(
+        url_str: NSString,
+        title: NSString,
+        isHistory: Bool,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        let rawUrl = url_str as String
+        guard let url = URL(string: rawUrl) else { return }
+
+        var actions: [ContextMenuActions] = [.openInNewTab, .openInNewPrivateTab]
+
+        if isHistory {
+            actions += [.deleteFromHistory]
+        }
+
+        self.withAppDelegate { appDel in
+            let site = Site(url: url.absoluteString, title: title as String)
+
+            appDel.useCases.contextMenu.present(
+                for: site,
+                withActions: actions,
+                on: appDel.browserViewController
+            ) { action in
+                resolve([
+                    "action": action?.rawValue ?? "",
+                ])
             }
         }
     }
@@ -72,7 +105,7 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
                     for: site,
                     withActions: actions,
                     on: appDel.browserViewController
-                ) {
+                ) { _ in
                     appDel.browserViewController?.homeViewController?.refreshTopSites()
                 }
             }

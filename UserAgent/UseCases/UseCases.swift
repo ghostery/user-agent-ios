@@ -9,13 +9,18 @@
 import Foundation
 
 class UseCases {
-
-    var contextMenu: ContextMenuUseCase
-    var openLink: OpenLinkUseCases
+    let contextMenu: ContextMenuUseCase
+    let openLink: OpenLinkUseCases
+    let history: HistoryUseCase
 
     init(tabManager: TabManager, profile: Profile, browserViewController: BrowserViewController) {
-        self.openLink = OpenLinkUseCases(tabManager: tabManager, browserViewController: browserViewController)
-        self.contextMenu = ContextMenuUseCase(profile: profile, openLink: self.openLink)
+        self.history = HistoryUseCase(profile: profile)
+        self.openLink = OpenLinkUseCases(
+            tabManager: tabManager,
+            browserViewController: browserViewController)
+        self.contextMenu = ContextMenuUseCase(
+            profile: profile,
+            openLink: self.openLink,
+            history: self.history)
     }
-
 }

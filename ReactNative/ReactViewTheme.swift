@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ReactViewTheme {
+protocol ReactViewTheme: Themeable, BrowserCoreClient {
     static func getTheme() -> [String: Any]
 }
 
@@ -35,5 +35,13 @@ extension ReactViewTheme {
             "brandColor": UIColor.CliqzBlue.hexString,
             "brandTintColor": Theme.general.controlTint.hexString,
         ]
+    }
+
+    func applyTheme() {
+        browserCore.callAction(
+            module: "BrowserCore",
+            action: "changeTheme",
+            args: [Self.getTheme()]
+        )
     }
 }

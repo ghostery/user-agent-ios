@@ -12,7 +12,7 @@ import Shared
 import CoreSpotlight
 import WebKit
 
-enum ContextMenuActions {
+public enum ContextMenuActions: String {
     case unpin
     case pin
     case removeTopSite
@@ -22,15 +22,17 @@ enum ContextMenuActions {
     case openInNewPrivateTab
 }
 
-public typealias ContextMenuActionCompletion = () -> Void
+public typealias ContextMenuActionCompletion = (ContextMenuActions?) -> Void
 
 class ContextMenuUseCase {
     private let profile: Profile
-    private var openLink: OpenLinkUseCases
+    private let openLink: OpenLinkUseCases
+    private let history: HistoryUseCase
 
-    init(profile: Profile, openLink: OpenLinkUseCases) {
+    init(profile: Profile, openLink: OpenLinkUseCases, history: HistoryUseCase) {
         self.profile = profile
         self.openLink = openLink
+        self.history = history
     }
 
     func present(for site: Site, withQuery query: String? = nil, withActions actions: [ContextMenuActions], on viewController: UIViewController, completion: @escaping ContextMenuActionCompletion) {
@@ -83,7 +85,7 @@ class ContextMenuUseCase {
     private func createActionUnpin(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let removeTopSitesPin = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.RemovePinTopsite, iconString: "action_unpin") { action in
             self.profile.history.removeFromPinnedTopSites(site).uponQueue(.main) { _ in
-                actionCompletion()
+                actionCompletion(.unpin)
             }
         }
         return removeTopSitesPin
@@ -92,7 +94,7 @@ class ContextMenuUseCase {
     private func createActionPin(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let addPinnedTopSite = PhotonActionSheetItem(title: Strings.ActivityStream.ContextMenu.PinTopsite, iconString: "action_pin") { action in
             self.profile.history.addPinnedTopSite(site).uponQueue(.main) { _ in
-                actionCompletion()
+                actionCompletion(.pin)
             }
         }
         return addPinnedTopSite
@@ -103,7 +105,7 @@ class ContextMenuUseCase {
             if let host = site.tileURL.host {
                 self.profile.history.removeHostFromTopSites(host).uponQueue(.main) { _ in
                     self.profile.panelDataObservers.activityStream.refreshIfNeeded(forceTopSites: true) {
-                        actionCompletion()
+                        actionCompletion(.removeTopSite)
                     }
                 }
             }
@@ -115,7 +117,7 @@ class ContextMenuUseCase {
         let removeFromTopSite = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.DeleteFromHistory, iconString: "action_delete") { action in
             self.profile.history.removeHistoryForURL(site.url).uponQueue(.main) { result in
                 CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [site.url])
-                actionCompletion()
+                actionCompletion(.deleteFromHistory)
             }
         }
         return removeFromTopSite
@@ -125,14 +127,8 @@ class ContextMenuUseCase {
         let host = site.url.asURL?.normalizedHost ?? site.url
         let title = String(format: Strings.HomePanel.ContextMenu.DeleteAllTraces, host)
         let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "action_delete") { action in
-            self.profile.history.removeAllTracesForDomain(site.url).uponQueue(.main) { result in
-                CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [host])
-                WKWebsiteDataStore.default().fetchDataRecords(ofTypes: CookiesClearable.dataTypes) { (records) in
-                    let filteredRecords = records.filter({ $0.displayName.contains(host) })
-                    WKWebsiteDataStore.default().removeData(ofTypes: CookiesClearable.dataTypes, for: filteredRecords) {
-                        actionCompletion()
-                    }
-                }
+            self.history.deleteAllTracesOfDomain(host) {
+                actionCompletion(.deleteAllTracesForDomain)
             }
         }
         return removeFromTopSite
@@ -141,7 +137,7 @@ class ContextMenuUseCase {
     private func createActionOpenInNewTab(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let actionSheetItem = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewTab, iconString: "quick_action_new_tab") { action in
             self.openLink.openNewTab(url: site.tileURL)
-            actionCompletion()
+            actionCompletion(.openInNewTab)
         }
         return actionSheetItem
     }
@@ -149,7 +145,7 @@ class ContextMenuUseCase {
     private func createActionOpenInNewPrivateTab(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let actionSheetItem = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewPrivateTab, iconString: "forgetMode") { action in
             self.openLink.openNewForgetModeTab(url: site.tileURL)
-            actionCompletion()
+            actionCompletion(.openInNewPrivateTab)
         }
         return actionSheetItem
     }

@@ -452,10 +452,7 @@ extension SQLiteHistory: BrowserHistory {
         ])
     }
 
-    public func removeAllTracesForDomain(_ url: String) -> Success {
-        guard let host = url.asURL?.normalizedHost else {
-            return succeed()
-        }
+    public func removeAllTracesForDomain(_ host: String) -> Success {
         let args: Args = [host]
         let deleteVisits = "DELETE FROM visits WHERE siteID IN (SELECT history.id FROM history JOIN domains ON history.domain_id = domains.id WHERE domains.domain = ?)"
         let deleteHistory = "DELETE FROM history WHERE domain_id IN (SELECT domains.id FROM domains WHERE domains.domain = ?)"
@@ -640,8 +637,9 @@ extension SQLiteHistory: BrowserHistory {
         }
     }
 
-    public func getSitesByLastVisit(limit: Int, offset: Int) -> Deferred<Maybe<Cursor<Site>>> {
-        let sql = """
+    public func getSitesByLastVisit(limit: Int, offset: Int, domainName: String? = nil) -> Deferred<Maybe<Cursor<Site>>> {
+        var args: Args = []
+        var sql = """
             SELECT
                 history.id AS historyID, history.url, title, guid, domain_id, domain,
                 coalesce(max(CASE visits.is_local WHEN 1 THEN visits.date ELSE 0 END), 0) AS localVisitDate,
@@ -652,6 +650,18 @@ extension SQLiteHistory: BrowserHistory {
                 INNER JOIN (
                     SELECT siteID, max(date) AS latestVisitDate
                     FROM visits
+        """
+
+        if domainName != nil {
+            sql += """
+                    INNER JOIN history ON visits.siteID = history.id
+                    INNER JOIN domains ON domains.id = history.domain_id
+                    WHERE domains.domain = ?
+            """
+            args.append(domainName)
+        }
+
+        sql += """
                     GROUP BY siteID
                     ORDER BY latestVisitDate DESC
                     LIMIT \(limit)
@@ -664,9 +674,28 @@ extension SQLiteHistory: BrowserHistory {
             WHERE (history.is_deleted = 0)
             GROUP BY history.id
             ORDER BY latestVisits.latestVisitDate DESC
-            """
+        """
 
-        return db.runQueryConcurrently(sql, args: nil, factory: SQLiteHistory.iconHistoryColumnFactory)
+        return db.runQueryConcurrently(sql, args: args, factory: SQLiteHistory.iconHistoryColumnFactory)
+    }
+
+    public func getDomainsByLastVisit(limit: Int, offset: Int) -> Deferred<Maybe<Cursor<Domain>>> {
+        let sql = """
+            SELECT
+               domain,
+               max(visits.date) AS latestVisitDate
+            FROM domains
+            INNER JOIN history ON
+                domains.id = history.domain_id
+            INNER JOIN visits ON
+                visits.siteID = history.id
+            GROUP BY domains.id
+            ORDER BY latestVisitDate DESC
+            LIMIT ?
+            OFFSET ?
+        """
+
+        return db.runQueryConcurrently(sql, args: [limit, offset], factory: SQLiteHistory.domainFactory)
     }
 }
 
