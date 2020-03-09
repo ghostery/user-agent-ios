@@ -771,7 +771,7 @@ class BrowserViewController: UIViewController {
     fileprivate func showUserAgentHome(inline: Bool) {
         homePanelIsInline = inline
         if self.homeViewController == nil {
-            let homeViewController = HomeViewController(profile: profile)
+            let homeViewController = HomeViewNavigationController(profile: profile)
             homeViewController.homePanelDelegate = self
             self.homeViewController = homeViewController
             addChild(homeViewController)
