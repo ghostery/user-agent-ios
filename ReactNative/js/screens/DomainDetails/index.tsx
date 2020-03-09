@@ -33,11 +33,16 @@ const useVisits = (domain: string): [Visit[], any, any] => {
 
   useEffect(() => {
     const fetchVisits = async () => {
-      const data = await NativeModules.History.getVisits(
-        domain,
-        PAGE_SIZE,
-        page * PAGE_SIZE,
-      );
+      let data: Visit[] = [];
+      try {
+        data = await NativeModules.History.getVisits(
+          domain,
+          PAGE_SIZE,
+          page * PAGE_SIZE,
+        );
+      } catch (e) {
+        // In case of the problems with db
+      }
       setVisits(prevState => {
         return [...prevState, ...data];
       });

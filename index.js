@@ -102,4 +102,3 @@ AppRegistry.registerComponent('Logo', () => Logo);
 AppRegistry.registerComponent('PrivacyStats', () => (props) => <PrivacyStats insightsModule={inject.module('insights')} {...props} />);
 AppRegistry.registerComponent('History', () => (props) => <History {...props} />);
 AppRegistry.registerComponent('DomainDetails', () => (props) => <DomainDetails {...props} />);
-

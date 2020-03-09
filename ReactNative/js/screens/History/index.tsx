@@ -65,10 +65,15 @@ const useDomains = (): [Domain[], any, any] => {
 
   useEffect(() => {
     const fetchDomains = async () => {
-      const data = await NativeModules.History.getDomains(
-        PAGE_SIZE,
-        page * PAGE_SIZE,
-      );
+      let data: Domain[] = [];
+      try {
+        data = await NativeModules.History.getDomains(
+          PAGE_SIZE,
+          page * PAGE_SIZE,
+        );
+      } catch (e) {
+        // In case of the problems with db
+      }
       setDomains(prevState => {
         return [...prevState, ...data];
       });
