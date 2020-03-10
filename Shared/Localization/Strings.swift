@@ -289,6 +289,9 @@ extension Strings {
     public struct Bookmarks {
         public static let Title = NSLocalizedString("Bookmarks.Title.Label", comment: "The label for the title of a bookmark")
         public static let PanelEmptyStateTitle = NSLocalizedString("BookmarksPanel.EmptyState.Title", comment: "Status label for the empty Bookmarks state.")
+        public static let BookmarksEditBookmark = NSLocalizedString("Bookmarks.EditBookmark.Label", comment: "The label to edit a bookmark")
+        public static let BookmarkDetailFieldTitle = NSLocalizedString("Bookmark.DetailFieldTitle.Label", comment: "The label for the Title field when editing a bookmark")
+        public static let BookmarkDetailFieldURL = NSLocalizedString("Bookmark.DetailFieldURL.Label", comment: "The label for the URL field when editing a bookmark")
     }
 
     // MARK: - Tabs

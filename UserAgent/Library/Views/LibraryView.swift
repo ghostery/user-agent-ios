@@ -39,6 +39,11 @@ protocol LibraryViewDelegate: AnyObject {
     func libraryDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool)
     func library(didSelectURL url: URL, visitType: VisitType)
     func library(wantsToPresent viewController: UIViewController)
+    func library(wantsToEdit bookmark: BookmarkNode)
+}
+
+extension LibraryViewDelegate {
+    func library(wantsToEdit bookmark: BookmarkNode) {}
 }
 
 class LibraryView: UIView, Themeable {
@@ -117,6 +122,10 @@ class LibraryView: UIView, Themeable {
 
     func reloadData() {
         fatalError("Subclass must overide this method")
+    }
+
+    func additionalContextMenuActions(indexPath: IndexPath) -> [PhotonActionSheetItem] {
+        return []
     }
 
 }
@@ -266,6 +275,7 @@ extension LibraryView: LibraryContextMenu {
         })
         actions.append(pinTopSite)
         actions.append(removeAction)
+        actions.append(contentsOf: self.additionalContextMenuActions(indexPath: indexPath))
         return actions
     }
 

@@ -1624,6 +1624,32 @@ extension BrowserViewController: HomePanelDelegate {
     func homePanelDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
         self.openURLInNewTab(url: url, isPrivate: isPrivate)
     }
+
+    func homePanel(wantsToEdit bookmark: BookmarkNode) {
+        let viewController = BookmarkDetailViewController(profile: self.profile, bookmarkNode: bookmark)
+        viewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: viewController)
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+            navigationController.presentationController?.delegate = self
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+        }
+        self.present(navigationController, animated: true)
+    }
+}
+
+extension BrowserViewController: BookmarkDetailViewControllerDelegate {
+
+    func bookmardDetailViewDidCancel() {
+        self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
+    }
+
+    func bookmardDetailViewDidSave() {
+        self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
+        self.homeViewController?.refreshBookmarks()
+    }
+
 }
 
 extension BrowserViewController: TabManagerDelegate {

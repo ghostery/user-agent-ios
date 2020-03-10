@@ -292,6 +292,10 @@ extension HomeViewController: LibraryViewDelegate {
         self.present(viewController, animated: true)
     }
 
+    func library(wantsToEdit bookmark: BookmarkNode) {
+        self.homePanelDelegate?.homePanel(wantsToEdit: bookmark)
+    }
+
 }
 
 extension HomeViewController: UIDocumentInteractionControllerDelegate {

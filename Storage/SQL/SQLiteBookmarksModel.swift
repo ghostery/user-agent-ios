@@ -154,6 +154,15 @@ open class SQLiteBookmarksModelFactory: BookmarksModelFactory {
         log.debug("removeByGUID: \(guid)")
         return self.bookmarks.removeGUIDs([guid])
     }
+
+    open func updateByGUID(_ guid: GUID, title: String, url: String) -> Success {
+        if self.direction == Direction.buffer {
+            return deferMaybe(DatabaseError(description: "Refusing to update GUID from buffer in model."))
+        }
+
+        log.debug("updateByGUID: \(guid) title: \(title) url: \(url)")
+        return self.bookmarks.updateGUID(guid, title: title, url: url)
+    }
 }
 
 class EditableBufferBookmarksSQLiteBookmarksModelFactory: SQLiteBookmarksModelFactory {
@@ -287,6 +296,16 @@ extension SQLiteBookmarks {
         log.warning("CALLING clearBookmarks -- this should only be used from tests.")
         return self.db.run([
             ("DELETE FROM bookmarksLocal WHERE parentid IS NOT ?", [BookmarkRoots.RootGUID]),
+        ])
+    }
+
+    public func updateGUID(_ guid: GUID, title: String, url: String) -> Success {
+        if url.lengthOfBytes(using: .utf8) > AppConstants.DB_URL_LENGTH_MAX {
+            return deferMaybe(BookmarkURLTooLargeError())
+        }
+        let title = title.truncateToUTF8ByteCount(AppConstants.DB_TITLE_LENGTH_MAX)
+        return self.db.run([
+            ("UPDATE bookmarksLocal SET title = ?, bmkUri = ? WHERE guid = ?", [title, url, guid]),
         ])
     }
 
