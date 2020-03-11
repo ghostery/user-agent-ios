@@ -171,6 +171,9 @@
                   Identifier = "BrowsingPDFTests">
                </Test>
                <Test
+                  Identifier = "ClipBoardTests/testClipboardPasteAndGo()">
+               </Test>
+               <Test
                   Identifier = "CopiedLinksTests">
                </Test>
                <Test

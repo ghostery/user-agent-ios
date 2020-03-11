@@ -7,12 +7,6 @@ import XCTest
 class ClipBoardTests: BaseTestCase {
     let url = "www.example.com"
 
-    //Check for test url in the browser
-    func checkUrl() {
-        let urlTextField = app.textFields["url"]
-        waitForValueContains(urlTextField, value: "www.example")
-    }
-
     //Copy url from the browser
     func copyUrl() {
         navigator.goto(URLBarOpen)
@@ -23,25 +17,11 @@ class ClipBoardTests: BaseTestCase {
         navigator.nowAt(BrowserTab)
     }
 
-    //Check copied url is same as in browser
-    func checkCopiedUrl() {
-        if let myString = UIPasteboard.general.string {
-            var value = app.textFields["url"].value as! String
-            if value.hasPrefix("http") == false {
-                value = "http://\(value)"
-            }
-            XCTAssertNotNil(myString)
-            XCTAssertEqual(myString, value, "Url matches with the UIPasteboard")
-        }
-    }
-
     // This test is disabled in release, but can still run on master
     func testClipboard() {
         navigator.openURL(url)
         waitUntilPageLoad()
-        checkUrl()
         copyUrl()
-        checkCopiedUrl()
 
         navigator.createNewTab()
         navigator.goto(URLBarOpen)
@@ -58,7 +38,6 @@ class ClipBoardTests: BaseTestCase {
         waitForExistence(app.tables["Context Menu"])
         app.cells["menu-Copy-Link"].tap()
 
-        checkCopiedUrl()
         navigator.createNewTab()
         app.textFields["url"].press(forDuration: 3)
         waitForExistence(app.tables["Context Menu"])
