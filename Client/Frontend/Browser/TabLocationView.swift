@@ -41,13 +41,18 @@ class TabLocationView: UIView {
     fileprivate let menuBadge = BadgeWithBackdrop(imageName: "menuBadge", backdropCircleSize: 32)
 
     @objc dynamic var baseURLFontColor: UIColor = TabLocationViewUX.BaseURLFontColor {
-        didSet { updateTextWithURL() }
+        didSet { updateTextWithURL(text: self.url?.publicSuffix(additionalPartCount: 1)) }
     }
 
     var url: URL? {
         didSet {
             self.updateLockImageView()
-            self.updateTextWithURL()
+            self.updateTextWithURL(text: self.url?.publicSuffix(additionalPartCount: 1))
+            if self.url == nil {
+                self.urlTextLabelAlignLeft(duration: 0.0)
+            } else {
+                self.urlTextLabelAlignCenter(duration: 0.0)
+            }
             self.updateStackViewSpacing()
             self.pageOptionsButton.isHidden = (self.url == nil)
             self.privacyIndicator.isHidden = self.url == nil
@@ -60,25 +65,16 @@ class TabLocationView: UIView {
         return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: Theme.textField.placeholder])
     }()
 
-    lazy var urlTextField: UITextField = {
-        let urlTextField = DisplayTextField()
-
-        // Prevent the field from compressing the toolbar buttons on the 4S in landscape.
-        urlTextField.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 250), for: .horizontal)
-        urlTextField.attributedPlaceholder = self.placeholder
-        urlTextField.accessibilityIdentifier = "url"
-        urlTextField.accessibilityActionsSource = self
-        urlTextField.font = UIConstants.DefaultChromeFont
-        urlTextField.backgroundColor = .clear
-        urlTextField.accessibilityLabel = "Address Bar"
-
-        // Remove the default drop interaction from the URL text field so that our
-        // custom drop interaction on the BVC can accept dropped URLs.
-        if let dropInteraction = urlTextField.textDropInteraction {
-            urlTextField.removeInteraction(dropInteraction)
-        }
-
-        return urlTextField
+    lazy var urlTextLabel: UILabel = {
+        let label = DisplayTextLabel()
+        label.accessibilityIdentifier = "url"
+        label.accessibilityActionsSource = self
+        label.font = UIConstants.DefaultChromeFont
+        label.backgroundColor = .clear
+        label.accessibilityLabel = "Address Bar"
+        label.textAlignment = .left
+        label.textColor = Theme.textField.placeholder
+        return label
     }()
 
     fileprivate lazy var lockImageView: UIImageView = {
@@ -147,7 +143,23 @@ class TabLocationView: UIView {
             make.width.equalTo(3)
         }
 
-        let subviews = [frontSpaceView, privacyIndicator, privacyIndicatorSeparator, lockImageView, urlTextField, pageOptionsButton]
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.addSubview(urlTextLabel)
+        self.urlTextLabel.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.right.lessThanOrEqualToSuperview()
+        }
+        view.addSubview(lockImageView)
+        self.lockImageView.snp.makeConstraints { (make) in
+            make.left.greaterThanOrEqualToSuperview()
+            make.right.equalTo(self.urlTextLabel.snp.left)
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo((self.url == nil ? 0 : TabLocationViewUX.StatusIconSize))
+            make.height.equalTo(TabLocationViewUX.ButtonSize)
+        }
+        let subviews = [frontSpaceView, privacyIndicator, privacyIndicatorSeparator, view, pageOptionsButton]
         contentView = UIStackView(arrangedSubviews: subviews)
         contentView.distribution = .fill
         contentView.alignment = .center
@@ -155,11 +167,6 @@ class TabLocationView: UIView {
 
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(self)
-        }
-
-        lockImageView.snp.makeConstraints { make in
-            make.width.equalTo(TabLocationViewUX.StatusIconSize)
-            make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
 
         privacyIndicator.snp.makeConstraints { make in
@@ -191,7 +198,7 @@ class TabLocationView: UIView {
 
     override var accessibilityElements: [Any]? {
         get {
-            return [lockImageView, urlTextField, pageOptionsButton].filter { !$0.isHidden }
+            return [lockImageView, urlTextLabel, pageOptionsButton].filter { !$0.isHidden }
         }
         set {
             super.accessibilityElements = newValue
@@ -199,7 +206,7 @@ class TabLocationView: UIView {
     }
 
     func overrideAccessibility(enabled: Bool) {
-        [lockImageView, urlTextField, pageOptionsButton].forEach {
+        [lockImageView, urlTextLabel, pageOptionsButton].forEach {
             $0.isAccessibilityElement = enabled
         }
     }
@@ -219,14 +226,92 @@ class TabLocationView: UIView {
     }
 
     @objc func tapLocation(_ recognizer: UITapGestureRecognizer) {
-        delegate?.tabLocationViewDidTapLocation(self)
+        self.animateToBecomeFirstResponder {
+            self.delegate?.tabLocationViewDidTapLocation(self)
+        }
     }
 
-    fileprivate func updateTextWithURL() {
-        urlTextField.text = url?.absoluteString
-        // remove https:// (the scheme) from the url when displaying
-        if let scheme = url?.scheme, let range = url?.absoluteString.range(of: "\(scheme)://") {
-            urlTextField.text = url?.absoluteString.replacingCharacters(in: range, with: "")
+    func animateToBecomeFirstResponder(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
+        self.backgroundColor = Theme.textField.backgroundInOverlay
+        self.urlTextLabelAlignLeft(duration: duration, completion: completion)
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.duration = duration
+        self.urlTextLabel.layer.add(animation, forKey: "kCATransitionFade")
+        self.updateTextWithURL(text: self.url?.absoluteString)
+    }
+
+    func animateToResignFirstResponder(duration: TimeInterval = 0.2) {
+        guard let url = self.url else {
+            return
+        }
+        self.backgroundColor = Theme.textField.background
+        self.urlTextLabelAlignCenter(duration: duration)
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.fade
+        animation.duration = duration
+        self.urlTextLabel.layer.add(animation, forKey: "kCATransitionFade")
+        self.updateTextWithURL(text: url.publicSuffix(additionalPartCount: 1))
+    }
+
+    private func urlTextLabelAlignCenter(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
+        self.contentView.insertArrangedSubview(self.privacyIndicator, at: 1)
+        self.urlTextLabel.snp.remakeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.right.lessThanOrEqualToSuperview()
+        }
+        self.lockImageView.snp.remakeConstraints { (make) in
+            make.left.greaterThanOrEqualToSuperview()
+            make.right.equalTo(self.urlTextLabel.snp.left)
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(self.url == nil ? 0 : TabLocationViewUX.StatusIconSize)
+            make.height.equalTo(TabLocationViewUX.ButtonSize)
+        }
+        UIView.animate(withDuration: duration, animations: {
+            self.lockImageView.isHidden = false
+            self.contentView.layoutIfNeeded()
+        }) { (_) in
+            completion?()
+        }
+    }
+
+    private func urlTextLabelAlignLeft(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
+        self.privacyIndicator.removeFromSuperview()
+        self.urlTextLabel.snp.remakeConstraints { (make) in
+            make.right.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+        }
+        self.lockImageView.snp.remakeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.right.equalTo(self.urlTextLabel.snp.left)
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(0)
+            make.height.equalTo(TabLocationViewUX.ButtonSize)
+        }
+        if duration != 0.0 {
+            UIView.animate(withDuration: duration, animations: {
+                self.lockImageView.isHidden = true
+                self.contentView.layoutIfNeeded()
+            }) { (_) in
+                completion?()
+            }
+        } else {
+            completion?()
+        }
+    }
+
+    fileprivate func updateTextWithURL(text: String?) {
+        if let text = text {
+            self.urlTextLabel.text = text
+            self.urlTextLabel.sizeToFit()
+            self.urlTextLabel.textColor = Theme.textField.textAndTint
+        } else {
+            self.urlTextLabel.attributedText = self.placeholder
+            self.urlTextLabel.sizeToFit()
+            self.urlTextLabel.textColor = Theme.textField.placeholder
         }
     }
 
@@ -272,7 +357,7 @@ extension TabLocationView: UIDragInteractionDelegate {
 
 extension TabLocationView: AccessibilityActionsSource {
     func accessibilityCustomActionsForView(_ view: UIView) -> [UIAccessibilityCustomAction]? {
-        if view === urlTextField {
+        if view === urlTextLabel {
             return delegate?.tabLocationViewLocationAccessibilityActions(self)
         }
         return nil
@@ -282,7 +367,7 @@ extension TabLocationView: AccessibilityActionsSource {
 extension TabLocationView: Themeable {
     func applyTheme() {
         backgroundColor = Theme.textField.background
-        urlTextField.textColor = Theme.textField.textAndTint
+        urlTextLabel.textColor = self.url == nil ? Theme.textField.placeholder : Theme.textField.textAndTint
 
         pageOptionsButton.selectedTintColor = Theme.urlbar.pageOptionsSelected
         pageOptionsButton.unselectedTintColor = Theme.urlbar.pageOptionsUnselected
@@ -318,7 +403,7 @@ extension TabLocationView: TabEventHandler {
     }
 }
 
-private class DisplayTextField: UITextField {
+private class DisplayTextLabel: UILabel {
     weak var accessibilityActionsSource: AccessibilityActionsSource?
 
     override var accessibilityCustomActions: [UIAccessibilityCustomAction]? {
@@ -330,7 +415,4 @@ private class DisplayTextField: UITextField {
         }
     }
 
-    fileprivate override var canBecomeFirstResponder: Bool {
-        return false
-    }
 }
