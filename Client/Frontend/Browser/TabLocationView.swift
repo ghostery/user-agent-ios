@@ -47,12 +47,12 @@ class TabLocationView: UIView {
     var url: URL? {
         didSet {
             self.updateLockImageView()
-            self.updateTextWithURL(text: self.url?.publicSuffix(additionalPartCount: 1))
             if self.url == nil {
                 self.urlTextLabelAlignLeft(duration: 0.0)
             } else {
                 self.urlTextLabelAlignCenter(duration: 0.0)
             }
+            self.updateTextWithURL(text: self.url?.publicSuffix(additionalPartCount: 1))
             self.updateStackViewSpacing()
             self.pageOptionsButton.isHidden = (self.url == nil)
             self.privacyIndicator.isHidden = self.url == nil
@@ -144,6 +144,7 @@ class TabLocationView: UIView {
         }
 
         let view = UIView()
+        view.clipsToBounds = true
         view.backgroundColor = .clear
         view.addSubview(urlTextLabel)
         self.urlTextLabel.snp.makeConstraints { (make) in
@@ -236,7 +237,8 @@ class TabLocationView: UIView {
         self.urlTextLabelAlignLeft(duration: duration, completion: completion)
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        animation.type = CATransitionType.fade
+        animation.type = .fade
+        animation.subtype = .fromTop
         animation.duration = duration
         self.urlTextLabel.layer.add(animation, forKey: "kCATransitionFade")
         self.updateTextWithURL(text: self.url?.absoluteString)
@@ -246,11 +248,11 @@ class TabLocationView: UIView {
         guard let url = self.url else {
             return
         }
-        self.backgroundColor = Theme.textField.background
         self.urlTextLabelAlignCenter(duration: duration)
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        animation.type = CATransitionType.fade
+        animation.type = .fade
+        animation.subtype = .fromTop
         animation.duration = duration
         self.urlTextLabel.layer.add(animation, forKey: "kCATransitionFade")
         self.updateTextWithURL(text: url.publicSuffix(additionalPartCount: 1))
@@ -286,7 +288,7 @@ class TabLocationView: UIView {
         }
         self.lockImageView.snp.remakeConstraints { (make) in
             make.left.equalToSuperview()
-            make.right.equalTo(self.urlTextLabel.snp.left)
+            make.right.equalTo(self.urlTextLabel.snp.left).offset(self.url == nil ? 0 : -4)
             make.top.bottom.equalToSuperview()
             make.width.equalTo(0)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
@@ -306,11 +308,9 @@ class TabLocationView: UIView {
     fileprivate func updateTextWithURL(text: String?) {
         if let text = text {
             self.urlTextLabel.text = text
-            self.urlTextLabel.sizeToFit()
             self.urlTextLabel.textColor = Theme.textField.textAndTint
         } else {
             self.urlTextLabel.attributedText = self.placeholder
-            self.urlTextLabel.sizeToFit()
             self.urlTextLabel.textColor = Theme.textField.placeholder
         }
     }
