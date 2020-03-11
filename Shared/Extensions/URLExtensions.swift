@@ -275,6 +275,10 @@ extension URL {
         return host.flatMap { publicSuffixFromHost($0, withAdditionalParts: 0) }
     }
 
+    public func publicSuffix(additionalPartCount: Int) -> String? {
+        return host.flatMap { publicSuffixFromHost($0, withAdditionalParts: additionalPartCount) }
+    }
+
     public func isWebPage(includeDataURIs: Bool = true) -> Bool {
         let schemes = includeDataURIs ? ["http", "https", "data"] : ["http", "https"]
         return scheme.map { schemes.contains($0) } ?? false

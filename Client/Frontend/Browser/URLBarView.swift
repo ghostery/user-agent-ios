@@ -497,6 +497,7 @@ class URLBarView: UIView {
                 self.setLocation(locationText, search: search)
             }
         } else {
+            self.locationTextField?.text = locationText
             DispatchQueue.main.async {
                 self.locationTextField?.becomeFirstResponder()
                 // Need to set location again so text could be immediately selected.
@@ -556,7 +557,7 @@ class URLBarView: UIView {
         } else {
             // Shrink the editable text field back to the size of the location view before hiding it.
             locationTextField?.snp.remakeConstraints { make in
-                make.edges.equalTo(self.locationView.urlTextField)
+                make.edges.equalTo(self.locationView.urlTextLabel)
             }
             cancelButton.snp.remakeConstraints { make in
                 make.centerY.equalTo(self.locationContainer)
@@ -747,6 +748,11 @@ extension URLBarView: AutocompleteTextFieldDelegate {
             self.delegate?.urlBar(self, didSubmitText: pasteboardContents, completion: nil)
         }
     }
+
+    func autocompleteDidEndEditing(_ autocompleteTextField: AutocompleteTextField) {
+        self.locationView.animateToResignFirstResponder()
+    }
+
 }
 
 extension URLBarView: Themeable {

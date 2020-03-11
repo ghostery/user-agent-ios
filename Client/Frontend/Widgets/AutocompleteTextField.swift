@@ -15,6 +15,7 @@ protocol AutocompleteTextFieldDelegate: AnyObject {
     func autocompleteTextFieldShouldClear(_ autocompleteTextField: AutocompleteTextField) -> Bool
     func autocompleteTextFieldDidCancel(_ autocompleteTextField: AutocompleteTextField)
     func autocompletePasteAndGo(_ autocompleteTextField: AutocompleteTextField)
+    func autocompleteDidEndEditing(_ autocompleteTextField: AutocompleteTextField)
 }
 
 class AutocompleteTextField: UITextField, UITextFieldDelegate {
@@ -256,6 +257,10 @@ class AutocompleteTextField: UITextField, UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         removeCompletion()
         return autocompleteDelegate?.autocompleteTextFieldShouldClear(self) ?? true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.autocompleteDelegate?.autocompleteDidEndEditing(self)
     }
 
     override func setMarkedText(_ markedText: String?, selectedRange: NSRange) {

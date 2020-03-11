@@ -773,6 +773,7 @@ class BrowserViewController: UIViewController {
         if self.homeViewController == nil {
             let homeViewController = HomeViewNavigationController(profile: profile)
             homeViewController.homePanelDelegate = self
+            homeViewController.view.alpha = 0.0
             self.homeViewController = homeViewController
             addChild(homeViewController)
             view.addSubview(homeViewController.view)
@@ -785,7 +786,7 @@ class BrowserViewController: UIViewController {
         // because there may be a hide animation running and we want to be sure
         // to override its results.
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            self.homeViewController?.view.alpha = 1
+            self.homeViewController?.view.alpha = 1.0
         }, completion: { finished in
             if finished {
                 self.webViewContainer.accessibilityElementsHidden = true
