@@ -33,16 +33,19 @@ const useSnippet = city => {
   useEffect(() => {
     const fetchWeather = async () => {
       const query = encodeURIComponent(`weather ${city}`);
-      const searchResultsResponse = await fetch(
-        `${CONFIG.settings.RESULTS_PROVIDER}${query}`,
+
+      fetch(`${CONFIG.settings.RESULTS_PROVIDER}${query}`).then(
+        searchResultsResponse => {
+          searchResultsResponse.json().then(searchResults => {
+            if (
+              searchResults.results[0] &&
+              searchResults.results[0].template === 'weatherEZ'
+            ) {
+              setSnippet(searchResults.results[0].snippet);
+            }
+          });
+        },
       );
-      const searchResults = await searchResultsResponse.json();
-      if (
-        searchResults.results[0] &&
-        searchResults.results[0].template === 'weatherEZ'
-      ) {
-        setSnippet(searchResults.results[0].snippet);
-      }
     };
     fetchWeather(city);
   }, [city]);
