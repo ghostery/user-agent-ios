@@ -25,6 +25,7 @@ extension UIColor {
 
     /// System Colors
     static let defaultBackground = UIColor(named: "Background")!
+    static let homeBackground = UIColor(named: "HomeScreenBackground")!
     static let DarkGrey = UIColor(named: "DarkGrey")!
     static let TextHighlightBlue = UIColor(named: "TextHighlightBlue")!
     static let ForgetMode = UIColor(named: "ForgetMode")!

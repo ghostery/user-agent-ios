@@ -829,7 +829,7 @@ class TabCell: UICollectionViewCell, Themeable {
         let view = UIView()
         view.layer.cornerRadius = TabTrayControllerUX.CornerRadius
         view.clipsToBounds = true
-        view.backgroundColor = Theme.tabTray.cellBackground
+        view.backgroundColor = Theme.browser.background
         return view
     }()
 
@@ -929,8 +929,8 @@ class TabCell: UICollectionViewCell, Themeable {
     }
 
     func applyTheme() {
-        self.backgroundHolder.backgroundColor = Theme.tabTray.cellBackground
-        self.screenshotView.backgroundColor = Theme.browser.background
+        self.backgroundHolder.backgroundColor = Theme.browser.background
+        self.screenshotView.backgroundColor = Theme.tabTray.cellBackground
         self.titleText.textColor = Theme.tabTray.tabTitleText
         self.closeButton.tintColor = Theme.tabTray.cellCloseButton
         self.title.effect = UIBlurEffect(style: Theme.tabTray.tabTitleBlur)
