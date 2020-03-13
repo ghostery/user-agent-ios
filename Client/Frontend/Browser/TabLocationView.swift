@@ -30,6 +30,7 @@ private struct TabLocationViewUX {
     static let TPIconSize: CGFloat = 24
     static let ButtonSize: CGFloat = 44
     static let URLBarPadding = 4
+    static let PISeparator: CGFloat = 3
 }
 
 class TabLocationView: UIView {
@@ -140,7 +141,7 @@ class TabLocationView: UIView {
 
         let privacyIndicatorSeparator = UIView()
         privacyIndicatorSeparator.snp.makeConstraints { make in
-            make.width.equalTo(3)
+            make.width.equalTo(TabLocationViewUX.PISeparator)
         }
 
         let view = UIView()
@@ -148,7 +149,9 @@ class TabLocationView: UIView {
         view.backgroundColor = .clear
         view.addSubview(urlTextLabel)
         self.urlTextLabel.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
+            let imageSize = self.lockImageView.image?.size.width ?? TabLocationViewUX.StatusIconSize
+            let diff = TabLocationViewUX.ButtonSize - TabLocationViewUX.TPIconSize - TabLocationViewUX.Spacing - TabLocationViewUX.PISeparator
+            make.centerX.equalToSuperview().offset((imageSize + diff) / 2)
             make.top.bottom.equalToSuperview()
             make.right.lessThanOrEqualToSuperview()
         }
@@ -167,7 +170,8 @@ class TabLocationView: UIView {
         addSubview(contentView)
 
         contentView.snp.makeConstraints { make in
-            make.edges.equalTo(self)
+            make.top.equalTo(self).offset(-2)
+            make.left.bottom.right.equalTo(self)
         }
 
         privacyIndicator.snp.makeConstraints { make in
@@ -261,7 +265,9 @@ class TabLocationView: UIView {
     private func urlTextLabelAlignCenter(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
         self.contentView.insertArrangedSubview(self.privacyIndicator, at: 1)
         self.urlTextLabel.snp.remakeConstraints { (make) in
-            make.centerX.equalToSuperview()
+            let imageSize = self.lockImageView.image?.size.width ?? TabLocationViewUX.StatusIconSize
+            let diff = TabLocationViewUX.ButtonSize - TabLocationViewUX.TPIconSize - TabLocationViewUX.Spacing - TabLocationViewUX.PISeparator
+            make.centerX.equalToSuperview().offset((imageSize + diff) / 2)
             make.top.bottom.equalToSuperview()
             make.right.lessThanOrEqualToSuperview()
         }
