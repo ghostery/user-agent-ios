@@ -248,7 +248,7 @@ private extension HomeViewController {
 // MARK: - HomeViewControllerProtocol
 extension HomeViewController: HomeViewControllerProtocol {
     func applyTheme() {
-        view.backgroundColor = Theme.browser.background
+        view.backgroundColor = Theme.browser.homeBackground
         self.allViews.forEach({ ($0 as? Themeable)?.applyTheme() })
     }
 

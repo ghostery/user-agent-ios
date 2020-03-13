@@ -136,6 +136,7 @@ class URLBarColor {
 
 class BrowserColor {
     var background: UIColor { return UIColor.defaultBackground }
+    var homeBackground: UIColor { return UIColor.homeBackground }
     var urlBarDivider: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
     var tint: UIColor { return Theme.defaultTextAndTint }
 }
