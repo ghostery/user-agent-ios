@@ -166,7 +166,7 @@ class TabTrayColor {
         }
     }
     var background: UIColor { return UIColor.DarkGrey }
-    var cellBackground: UIColor { return UIColor.defaultBackground }
+    var cellBackground: UIColor { return UIColor.Grey30 }
     var toolbar: UIColor { return UIColor.defaultBackground }
     var toolbarButtonTint: UIColor { return Theme.defaultTextAndTint }
     var privateModeLearnMore: UIColor { return UIColor.Grey70 }
