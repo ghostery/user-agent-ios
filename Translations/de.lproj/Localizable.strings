@@ -843,7 +843,7 @@
 "Settings.SendUsage.Message" = "%@ ist bestrebt, nur die Informationen zu sammeln, mit denen wir %@ anbieten und für alle Nutzer verbessern können.";
 
 /* The title for the setting to send usage data. */
-"Settings.SendUsage.Title" = "Interaktions-Statisken";
+"Settings.SendUsage.Title" = "Interaktions-Statistiken";
 
 /* The title for the human web setting. */
 "Settings.HumanWeb.Title" = "Human Web";
