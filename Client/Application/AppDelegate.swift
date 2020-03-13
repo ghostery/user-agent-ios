@@ -11,6 +11,7 @@ import SDWebImage
 import LocalAuthentication
 import CoreSpotlight
 import UserNotifications
+import StoreKit
 
 private let log = Logger.browserLogger
 
@@ -180,7 +181,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
-
+        self.askForReview()
         UNUserNotificationCenter.current().delegate = self
         SentTabAction.registerActions()
         UIScrollView.doBadSwizzleStuff()
@@ -385,6 +386,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         SDWebImageDownloader.shared.setValue(firefoxUA, forHTTPHeaderField: "User-Agent")
         //SDWebImage is setting accept headers that report we support webp. We don't
         SDWebImageDownloader.shared.setValue("image/*;q=0.8", forHTTPHeaderField: "Accept")
+    }
+
+    private func shouldAskForReview() -> Bool {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyyMMdd"
+        let today = dateformat.string(from: Date())
+        guard UserAgentConstants.installDate != today else {
+            self.profile?.prefs.setBool(false, forKey: PrefsKeys.ShowAppReview)
+            return false
+        }
+        let showAppReview = self.profile?.prefs.boolForKey(PrefsKeys.ShowAppReview)
+        guard showAppReview == nil || showAppReview! else {
+            return false
+        }
+        self.profile?.prefs.setBool(false, forKey: PrefsKeys.ShowAppReview)
+        #if DEBUG
+            return true
+        #else
+            let random = Int.random(in: 1...100)
+            guard random <= 5 else {
+                return false
+            }
+            return true
+        #endif
+    }
+
+    private func askForReview() {
+        guard self.shouldAskForReview() else {
+            return
+        }
+        SKStoreReviewController.requestReview()
     }
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {

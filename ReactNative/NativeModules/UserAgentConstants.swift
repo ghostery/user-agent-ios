@@ -17,7 +17,7 @@ class UserAgentConstants: NSObject {
          return [
              "channel": self.channel,
              "appVersion": AppInfo.appVersion,
-             "installDate": self.installDate,
+             "installDate": UserAgentConstants.installDate,
              "appName": AppInfo.displayName,
          ]
     }
@@ -31,7 +31,7 @@ class UserAgentConstants: NSObject {
         return "iOS-\(AppInfo.baseBundleIdentifier)"
     }
 
-    fileprivate var installDate: String {
+    static var installDate: String {
         let installDate: Date
 
         let InstallDateKey = "InstallDateKey"
