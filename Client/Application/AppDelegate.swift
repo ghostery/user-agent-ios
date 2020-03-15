@@ -388,13 +388,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         SDWebImageDownloader.shared.setValue("image/*;q=0.8", forHTTPHeaderField: "Accept")
     }
 
-    fileprivate func askForReview() {
-        guard self.shouldAskForReview() else {
-            return
-        }
-        SKStoreReviewController.requestReview()
-    }
-
     private func shouldAskForReview() -> Bool {
         let dateformat = DateFormatter()
         dateformat.dateFormat = "yyyyMMdd"
@@ -417,6 +410,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             }
             return true
         #endif
+    }
+
+    private func askForReview() {
+        guard self.shouldAskForReview() else {
+            return
+        }
+        SKStoreReviewController.requestReview()
     }
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
