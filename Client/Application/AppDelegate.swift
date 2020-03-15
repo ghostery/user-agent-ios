@@ -408,11 +408,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             return false
         }
         self.profile?.prefs.setBool(false, forKey: PrefsKeys.ShowAppReview)
-        let random = Int.random(in: 1...100)
-        guard random <= 5 else {
-            return false
-        }
-        return true
+        #if DEBUG
+            return true
+        #else
+            let random = Int.random(in: 1...100)
+            guard random <= 5 else {
+                return false
+            }
+            return true
+        #endif
     }
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
