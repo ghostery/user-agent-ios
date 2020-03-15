@@ -134,6 +134,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         guard !self.queries.isEmpty else {
             return
         }
+        HapticFeedback.vibrate()
         let queriesItems = self.getQueriesActions(queries: self.queries, didSelectQuery: { [weak self] (query) in
             self?.urlBar.enterOverlayMode(query, pasted: false, search: true)
         }) { [weak self] (query) in

@@ -108,6 +108,8 @@
 		2B76E43D23A12DE4001CF20E /* PrivacyStatement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */; };
 		2B76E43F23A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
 		2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
+		2B84AF1E241A63EE000626A4 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */; };
+		2B84AF1F241A63EF000626A4 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */; };
 		2B8DDBA323A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
 		2B8DDBA423A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
 		2B8DDBAC23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */; };
@@ -1254,6 +1256,7 @@
 		2B76E43823A12AE3001CF20E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrivacyStatement.strings; sourceTree = "<group>"; };
 		2B76E43A23A12AEA001CF20E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivacyStatement.strings; sourceTree = "<group>"; };
 		2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleViewCell.swift; sourceTree = "<group>"; };
+		2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AdHoc.xcconfig; sourceTree = "<group>"; };
 		2B85778F2403A0170052D6C7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		2B8577902403A0170052D6C7 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
@@ -2561,6 +2564,7 @@
 				39F819C51FD70F5D009E31E4 /* TabEventHandlers.swift */,
 				39A359E31BFCCE94006B9E87 /* UserActivityHandler.swift */,
 				39CE74EF21A6D2B8007AE4F2 /* DocumentServicesHelper.swift */,
+				2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -5240,6 +5244,7 @@
 				ACB7372123042BAB00FA5626 /* AppSettingsTableViewController.swift in Sources */,
 				ACB7372323042BAB00FA5626 /* TemporaryDocument.swift in Sources */,
 				46CA60D92316BB3A0010CE6B /* History.m in Sources */,
+				2B84AF1F241A63EF000626A4 /* HapticFeedback.swift in Sources */,
 				ACB7372523042BAB00FA5626 /* AppSettingsOptions.swift in Sources */,
 				ACB7372A23042BAB00FA5626 /* ReaderModeStyleViewController.swift in Sources */,
 				C5D1EB4D23BB7D7200C19728 /* CliqzRefreshControl.swift in Sources */,
@@ -5526,6 +5531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D04CD74A216CF86B004FF5B0 /* SiriShortcuts.swift in Sources */,
+				2B84AF1E241A63EE000626A4 /* HapticFeedback.swift in Sources */,
 				EB9A179F20E6C1A200B12184 /* ThemedWidgets.swift in Sources */,
 				2B76E43F23A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */,
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
