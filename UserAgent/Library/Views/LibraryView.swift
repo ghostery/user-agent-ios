@@ -94,7 +94,7 @@ class LibraryView: UIView, Themeable {
     }
 
     func applyTheme() {
-        self.tableView.backgroundColor = Theme.tableView.rowBackground
+        self.tableView.backgroundColor = Theme.browser.homeBackground
         self.tableView.separatorColor = Theme.tableView.separator
         self.emptyStateLabel?.textColor = Theme.homePanel.welcomeScreenText
         self.tableView.reloadData()

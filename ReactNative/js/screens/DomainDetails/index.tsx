@@ -1,10 +1,23 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { StyleSheet, NativeModules } from 'react-native';
+import { NativeModules, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
+import { useStyles } from '../../contexts/theme';
+import KeyboardSpacer from './components/KeyboardSpacer';
 
-const styles = StyleSheet.create({
+const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
+
+const getStyle = (theme: {
+  backgroundColor: string;
+  fontSizeLarge: number;
+  fontSizeSmall: number;
+  textColor: string;
+  descriptionColor: string;
+  brandTintColor: string;
+  separatorColor: string;
+}) => ({
   container: {
-    backgroundColor: 'red',
+    backgroundColor: theme.backgroundColor,
+    flex: 1,
   },
   url: {
     color: 'rgb(26, 13, 171)',
@@ -77,6 +90,8 @@ const user = {
 };
 
 export default ({ domain }: { domain: string }) => {
+  const styles = useStyles(getStyle);
+
   const [visits, loadMore, removeVisit] = useVisits(domain);
   const history = useMemo(
     () =>
@@ -101,33 +116,50 @@ export default ({ domain }: { domain: string }) => {
       true,
     );
     if (action === 'deleteFromHistory') {
-      removeVisit(message.createdAt * 1000);
+      const messages = history.filter(item => item.url === message.url);
+      messages.forEach((m: any) => {
+        removeVisit(m.createdAt * 1000);
+      });
     }
   }
+
+  const onLongPressOnUrl = (url: string) => {
+    const message = history.find(m => m.url === url);
+    if (!message) {
+      return;
+    }
+    onLongPress(null, message);
+  };
+
   const parsePatterns = () => [
     {
       type: 'url',
       style: styles.url,
       onPress: handleUrlPress,
+      onLongPress: onLongPressOnUrl,
     },
   ];
 
   const renderEmpty = () => null;
 
   return (
-    <GiftedChat
-      messages={history}
-      renderInputToolbar={renderEmpty}
-      renderComposer={renderEmpty}
-      renderLoading={renderEmpty}
-      minInputToolbarHeight={0}
-      onLongPress={onLongPress}
-      parsePatterns={parsePatterns}
-      listViewProps={{
-        onEndReached: loadMore,
-        onEndReachedThreshold: 0.5,
-        initialNumToRender: PAGE_SIZE,
-      }}
-    />
+    <View style={styles.container}>
+      <GiftedChat
+        messages={history}
+        renderInputToolbar={renderEmpty}
+        renderComposer={renderEmpty}
+        renderLoading={renderEmpty}
+        minInputToolbarHeight={0}
+        onLongPress={onLongPress}
+        parsePatterns={parsePatterns}
+        listViewProps={{
+          onEndReached: loadMore,
+          onEndReachedThreshold: 0.5,
+          initialNumToRender: PAGE_SIZE,
+          onScroll: hideKeyboard,
+        }}
+      />
+      <KeyboardSpacer />
+    </View>
   );
 };

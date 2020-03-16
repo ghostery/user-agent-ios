@@ -2,23 +2,41 @@ import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TouchableWithoutFeedback,
   NativeModules,
 } from 'react-native';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import ListItem from '../../components/ListItem';
 import moment from '../../services/moment';
+import { useStyles } from '../../contexts/theme';
+import t from '../../services/i18n';
+import NativeDrawable from '../../components/NativeDrawable';
 
-const styles = StyleSheet.create({
+const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
+
+const getStyle = (theme: {
+  backgroundColor: string;
+  fontSizeLarge: number;
+  fontSizeSmall: number;
+  textColor: string;
+  tintColor: string;
+  descriptionColor: string;
+  brandTintColor: string;
+  separatorColor: string;
+}) => ({
+  list: {},
   rowFront: {
-    alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: theme.backgroundColor,
     borderBottomColor: 'black',
     borderBottomWidth: 0,
     justifyContent: 'center',
     paddingHorizontal: 7,
     paddingVertical: 3,
+    alignItems: 'stretch',
+  },
+  rowFrontWrapper: {
+    flexDirection: 'row',
+    flexGrow: 1,
   },
   backTextWhite: {
     color: '#FFF',
@@ -42,6 +60,18 @@ const styles = StyleSheet.create({
   backRightBtnRight: {
     backgroundColor: 'red',
     right: 0,
+  },
+  showDetailsIcon: {
+    color: theme.tintColor,
+    width: 20,
+    height: '100%',
+    paddingLeft: 20,
+    transform: [{ rotate: '180deg' }],
+  },
+  showDetailsIconWrapper: {
+    width: 40,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
 });
 
@@ -91,21 +121,38 @@ const useDomains = (): [Domain[], any, any] => {
 };
 
 export default () => {
+  const styles = useStyles(getStyle);
+
   const [domains, loadMore, setDomains] = useDomains();
 
   const renderItem = (data: any) => {
     const { item } = data;
+    const openDomain = () => NativeModules.BrowserActions.openDomain(item.name);
+    const openDomainDetails = () => {
+      hideKeyboard();
+      NativeModules.HomeViewNavigation.showDomainDetails(item.name);
+    };
+
     return (
       <View style={styles.rowFront}>
-        <ListItem
-          url={item.name}
-          title={item.name}
-          displayUrl={moment(item.latestVisitDate / 1000).fromNow()}
-          onPress={() => {
-            NativeModules.HomeViewNavigation.showDomainDetails(item.name);
-          }}
-          label={null}
-        />
+        <View style={styles.rowFrontWrapper}>
+          <ListItem
+            url={item.name}
+            title={item.name}
+            displayUrl={moment(item.latestVisitDate / 1000).fromNow()}
+            onPress={openDomain}
+            label={null}
+          />
+          <TouchableWithoutFeedback onPress={openDomainDetails}>
+            <View style={styles.showDetailsIconWrapper}>
+              <NativeDrawable
+                style={styles.showDetailsIcon}
+                source="goBack"
+                color={styles.showDetailsIcon.color}
+              />
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
       </View>
     );
   };
@@ -126,7 +173,7 @@ export default () => {
       <TouchableWithoutFeedback onPress={onPress}>
         <View style={styles.rowBack}>
           <View style={[styles.backRightBtn, styles.backRightBtnRight]}>
-            <Text style={styles.backTextWhite}>Delete</Text>
+            <Text style={styles.backTextWhite}>{t('Delete')}</Text>
           </View>
         </View>
       </TouchableWithoutFeedback>
@@ -135,6 +182,7 @@ export default () => {
 
   return (
     <SwipeListView
+      style={styles.list}
       data={domains}
       disableRightSwipe
       renderItem={renderItem}
@@ -144,6 +192,8 @@ export default () => {
       onEndReached={loadMore}
       onEndReachedThreshold={0.5}
       initialNumToRender={PAGE_SIZE}
+      recalculateHiddenLayout
+      onScroll={hideKeyboard}
     />
   );
 };

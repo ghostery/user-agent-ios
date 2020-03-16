@@ -8,13 +8,18 @@
 
 import React
 
-class BrowserCoreViewController: UIViewController {
+class BrowserCoreViewController: UIViewController, ReactViewTheme {
     init(_ componentName: String, withArgs args: [String: Any]) {
+        var initialProperties = args
+        if initialProperties["theme"] == nil {
+            initialProperties["theme"] = Self.getTheme()
+        }
+
         super.init(nibName: nil, bundle: nil)
         let view = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: componentName,
-            initialProperties: args
+            initialProperties: initialProperties
         )
         self.view.addSubview(view)
 
@@ -27,8 +32,24 @@ class BrowserCoreViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "goBack"),
+            style: .plain,
+            target: self,
+            action: #selector(backToMain))
+        leftBarButtonItem.imageInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10)
+        leftBarButtonItem.tintColor = Theme.toolbarButton.selectedTint
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
+    @objc func backToMain() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

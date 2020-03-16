@@ -139,6 +139,13 @@ class BrowserColor {
     var homeBackground: UIColor { return UIColor.homeBackground }
     var urlBarDivider: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
     var tint: UIColor { return Theme.defaultTextAndTint }
+    var barBackgroundColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return UIColor.systemGray6
+        } else {
+            return UIColor.Grey20
+        }
+    }
 }
 
 // The back/forward/refresh/menu button (bottom toolbar)

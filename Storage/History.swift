@@ -29,6 +29,7 @@ public protocol BrowserHistory {
     func getSitesByLastVisit(limit: Int, offset: Int, domainName: String?) -> Deferred<Maybe<Cursor<Site>>>
     func getDomainsByLastVisit(limit: Int, offset: Int) -> Deferred<Maybe<Cursor<Domain>>>
     func getTopSitesWithLimit(_ limit: Int) -> Deferred<Maybe<Cursor<Site>>>
+    func getDomainProtocol(_ domainName: String) -> Deferred<Maybe<String>>
     func setTopSitesNeedsInvalidation()
     func setTopSitesCacheSize(_ size: Int32)
     func clearTopSitesCache() -> Success

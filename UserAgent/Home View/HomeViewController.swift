@@ -26,6 +26,7 @@ class HomeViewNavigationController: UINavigationController {
         self.homeViewController = homeViewController
         self.setNavigationBarHidden(true, animated: false)
         self.navigationBar.isTranslucent = false
+        self.navigationBar.barTintColor = UIColor.Grey10
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -106,11 +107,7 @@ class HomeViewController: UIViewController {
         let segmentedControl = UISegmentedControl(items: self.segments.map({ $0.title }))
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         segmentedControl.setContentCompressionResistancePriority(.required, for: .vertical)
-        if #available(iOS 13.0, *) {
-            segmentedControl.backgroundColor = UIColor.systemGray6
-        } else {
-            segmentedControl.backgroundColor = UIColor.Grey20
-        }
+        segmentedControl.backgroundColor = Theme.browser.barBackgroundColor
         return segmentedControl
     }()
 
