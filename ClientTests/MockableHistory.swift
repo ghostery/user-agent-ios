@@ -14,6 +14,7 @@ import Shared
 class MockableHistory: BrowserHistory, SyncableHistory {
     func getFrecentHistory() -> FrecentHistory { fatalError() }
     func getTopSitesWithLimit(_ limit: Int) -> Deferred<Maybe<Cursor<Site>>> { fatalError() }
+    func getDomainProtocol(_ domainName: String) -> Deferred<Maybe<String>> { fatalError() }
     func addLocalVisit(_ visit: SiteVisit) -> Success { fatalError() }
     func clearHistory() -> Success { fatalError() }
     func removeHistoryFromDate(_ date: Date) -> Success { fatalError() }

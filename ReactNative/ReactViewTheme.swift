@@ -20,7 +20,7 @@ extension ReactViewTheme {
         }
         return [
             "mode": mode,
-            "backgroundColor": Theme.textField.backgroundInOverlay.hexString,
+            "backgroundColor": Theme.browser.homeBackground.hexString,
             "textColor": Theme.browser.tint.hexString,
             "descriptionColor": mode == "dark" ? "rgba(255, 255, 255, 0.61)" : "rgba(0, 0, 0, 0.61)",
             "visitedColor": mode == "dark" ? "#BDB6FF" : "#610072",
@@ -29,6 +29,7 @@ extension ReactViewTheme {
             "urlColor": mode == "dark" ? "#6BA573" : "#579D61",
             "linkColor": mode == "dark" ? "#FFFFFF" : "#003172",
             "redColor": "#E64C68",
+            "tintColor": Theme.toolbarButton.selectedTint.hexString,
             "fontSizeSmall": DynamicFontHelper.defaultHelper.SmallSizeRegularWeightAS.pointSize,
             "fontSizeMedium": DynamicFontHelper.defaultHelper.MediumSizeRegularWeightAS.pointSize,
             "fontSizeLarge": DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS.pointSize,

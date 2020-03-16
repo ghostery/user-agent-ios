@@ -22,6 +22,8 @@ class HomeViewNavigation: NSObject, NativeModuleBase {
             let nestedController = BrowserCoreViewController("DomainDetails", withArgs: [
                 "domain": domain,
             ])
+            nestedController.title = domain as String
+            nestedController.navigationItem.backBarButtonItem?.title = ""
             navigation.pushViewController(nestedController, animated: true)
         }
     }

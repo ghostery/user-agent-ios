@@ -614,6 +614,31 @@ extension SQLiteHistory: BrowserHistory {
         return self.db.runQueryConcurrently(topSitesQuery, args: [limit], factory: SQLiteHistory.iconHistoryMetadataColumnFactory)
     }
 
+    public func getDomainProtocol(_ domainName: String) -> Deferred<Maybe<String>> {
+
+        let sql = """
+            SELECT
+                DISTINCT(substr(history.url, 0, instr(history.url, ":"))) as protocol,
+                COUNT(*) as count
+            FROM history
+            INNER JOIN domains ON domains.id = history.domain_id
+            WHERE domains.domain = ?
+                AND history.is_deleted = 0
+            GROUP BY protocol
+            ORDER BY count DESC
+        """
+
+        let factory: (SDRow) -> String = { return $0["protocol"] as! String }
+
+        return db.runQueryConcurrently(sql, args: [domainName], factory: factory)
+            >>== { cursor in
+                if cursor.count == 0 {
+                    return deferMaybe("http")
+                }
+                return deferMaybe(cursor[0]!)
+        }
+    }
+
     public func setTopSitesNeedsInvalidation() {
         prefs.setBool(false, forKey: PrefsKeys.KeyTopSitesCacheIsValid)
     }

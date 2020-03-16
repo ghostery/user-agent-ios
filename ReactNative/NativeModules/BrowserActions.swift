@@ -20,6 +20,26 @@ class BrowserActions: NSObject, NativeModuleBase {
         }
     }
 
+    @objc(openDomain:)
+    public func openDomain(name: NSString) {
+        let domainName = name as String
+        self.withAppDelegate { appDel in
+            guard let profile = appDel.profile else {
+                return
+            }
+
+            profile.history.getDomainProtocol(domainName)
+.uponQueue(.main) { protocolName in
+                guard let protocolName = protocolName.successValue else { return }
+                let url = URL(string: "\(protocolName)://\(domainName)")
+                guard let urlString = url?.absoluteString else {
+                    return
+                }
+                appDel.useCases.openLink.openLink(urlString: urlString, query: "")
+            }
+        }
+    }
+
     @objc(hideKeyboard)
     func hideKeyboard() {
         DispatchQueue.main.async {

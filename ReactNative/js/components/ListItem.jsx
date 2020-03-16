@@ -6,6 +6,7 @@ import { useStyles } from '../contexts/theme';
 const getStyle = theme => ({
   row: {
     flexDirection: 'row',
+    flexGrow: 1,
   },
   firstRow: {
     flexDirection: 'row',
@@ -46,6 +47,13 @@ export default function ListItem({
       <View style={styles.row}>
         <Logo url={url} size={48} />
         <View style={styles.rowText}>
+          <Text
+            numberOfLines={2}
+            style={styles.rowDescription}
+            allowFontScaling={false}
+          >
+            {title}
+          </Text>
           <View style={styles.firstRow}>
             <Text style={styles.rowTitle} allowFontScaling={false}>
               {name}
@@ -56,13 +64,6 @@ export default function ListItem({
               </Text>
             )}
           </View>
-          <Text
-            numberOfLines={2}
-            style={styles.rowDescription}
-            allowFontScaling={false}
-          >
-            {title}
-          </Text>
         </View>
       </View>
     </TouchableWithoutFeedback>
