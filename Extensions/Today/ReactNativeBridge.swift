@@ -12,6 +12,8 @@ class ReactNativeBridge {
     static let sharedInstance = ReactNativeBridge()
 
     lazy var bridge: RCTBridge = RCTBridge(delegate: ReactNativeBridgeDelegate(), launchOptions: nil)
+
+    weak var extensionContext: NSExtensionContext?
 }
 
 private class ReactNativeBridgeDelegate: NSObject, RCTBridgeDelegate {

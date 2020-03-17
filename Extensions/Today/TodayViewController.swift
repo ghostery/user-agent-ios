@@ -17,6 +17,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
 
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+
+        ReactNativeBridge.sharedInstance.extensionContext = self.extensionContext
     }
 
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {

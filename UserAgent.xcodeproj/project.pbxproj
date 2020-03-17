@@ -123,6 +123,7 @@
 		2B8DDBB723A3B84600D2CE7A /* PrivacyStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */; };
 		2B8DDBB923A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
 		2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
+		2BBAA44D242124E0006D8246 /* TodayWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAA44C242124E0006D8246 /* TodayWidgetViewController.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BC457FE23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */; };
 		2BC457FF23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */; };
@@ -1284,6 +1285,7 @@
 		2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementCell.swift; sourceTree = "<group>"; };
 		2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementMessageCell.swift; sourceTree = "<group>"; };
 		2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementFooterView.swift; sourceTree = "<group>"; };
+		2BBAA44C242124E0006D8246 /* TodayWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWidgetViewController.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionCell.swift; sourceTree = "<group>"; };
 		2BC4580423F1385900057204 /* PhotonActionSheetCollectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionItemCell.swift; sourceTree = "<group>"; };
@@ -2478,6 +2480,7 @@
 				2B4EFBD723991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift */,
 				2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */,
 				2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */,
+				2BBAA44C242124E0006D8246 /* TodayWidgetViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -5644,6 +5647,7 @@
 				C4E3983D1D21F1E7004E89BA /* TopTabsViews.swift in Sources */,
 				2B8DDBAF23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */,
 				39F4C10A2045DB2E00746155 /* FocusHelper.swift in Sources */,
+				2BBAA44D242124E0006D8246 /* TodayWidgetViewController.swift in Sources */,
 				E4CD9F2D1A6DC91200318571 /* TabLocationView.swift in Sources */,
 				0BB5B2881AC0A2B90052877D /* SnackBar.swift in Sources */,
 				EBC4869F2195F58300CDA48D /* SessionRestoreHandler.swift in Sources */,
@@ -6567,7 +6571,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.browser.nightly.Today;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -6599,7 +6603,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.Today;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -6630,7 +6634,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.Today;
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

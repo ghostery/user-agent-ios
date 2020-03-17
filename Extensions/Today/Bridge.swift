@@ -21,6 +21,12 @@ class Bridge: RCTEventEmitter {
 
     @objc(configure)
     func configure() {
-        // Deep link settings here
+        guard let scheme = Bundle.main.infoDictionary?["AppURLScheme"] else {
+            return
+        }
+        guard let url = URL(string: "\(scheme)://deep-link?url=/settings/today-widget-setting") else {
+            return
+        }
+        ReactNativeBridge.sharedInstance.extensionContext?.open(url, completionHandler: nil)
     }
 }
