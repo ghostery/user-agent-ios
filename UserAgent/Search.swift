@@ -83,10 +83,10 @@ extension Search: BrowserCoreClient {
             args: []
         ) { (error, result) in
             guard error == nil, let mode = result as? String else {
-                callback(.conservative)
+                callback(.liberal)
                 return
             }
-            callback(AdultFilterMode(rawValue: mode) ?? .conservative)
+            callback(AdultFilterMode(rawValue: mode) ?? .liberal)
         }
     }
 
