@@ -14,6 +14,7 @@ import {
   Image,
   ActivityIndicator,
   Button,
+  NativeModules,
 } from 'react-native';
 import {
   Weather,
@@ -33,6 +34,7 @@ const ImageRenderer = ({ uri, height, width }) => {
   );
 };
 
+const configure = () => NativeModules.Bridge.configure();
 const getMessage = t => t;
 
 const useSnippet = city => {
@@ -61,7 +63,7 @@ const useSnippet = city => {
   return [snippet, loading, fetchWeather];
 };
 
-const TodayWidget = ({ city, theme }) => {
+const TodayWidget = ({ city, theme, i18n }) => {
   const [snippet, loading, update] = useSnippet(city);
   const styles = {
     container: {
@@ -147,7 +149,7 @@ const TodayWidget = ({ city, theme }) => {
   if (!city) {
     return (
       <View style={styles.center}>
-        <Button title="Reload" onPress={update} />
+        <Button title={i18n.configure} onPress={configure} />
       </View>
     );
   }
@@ -159,13 +161,13 @@ const TodayWidget = ({ city, theme }) => {
         <Weather
           data={{ snippet }}
           ImageRenderer={ImageRenderer}
-          moreButtonText={getMessage('expand')}
-          lessButtonText={getMessage('collapse')}
+          moreButtonText={i18n.expand}
+          lessButtonText={i18n.collapse}
           styles={styles}
         />
       ) : (
         <View style={styles.center}>
-          <Button title="Reload" onPress={update} />
+          <Button title={i18n.reload} onPress={update} />
         </View>
       )}
     </View>
