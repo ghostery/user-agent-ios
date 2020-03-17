@@ -163,6 +163,10 @@ open class SQLiteBookmarksModelFactory: BookmarksModelFactory {
         log.debug("updateByGUID: \(guid) title: \(title) url: \(url)")
         return self.bookmarks.updateGUID(guid, title: title, url: url)
     }
+
+    open func clearBookmarks() -> Success {
+        return self.bookmarks.clearBookmarks()
+    }
 }
 
 class EditableBufferBookmarksSQLiteBookmarksModelFactory: SQLiteBookmarksModelFactory {
@@ -291,9 +295,7 @@ extension SQLiteBookmarks {
         return self.db.runQuery(sql, args: args, factory: factory)
     }
 
-    // This is only used from tests.
-    func clearBookmarks() -> Success {
-        log.warning("CALLING clearBookmarks -- this should only be used from tests.")
+    public func clearBookmarks() -> Success {
         return self.db.run([
             ("DELETE FROM bookmarksLocal WHERE parentid IS NOT ?", [BookmarkRoots.RootGUID]),
         ])
