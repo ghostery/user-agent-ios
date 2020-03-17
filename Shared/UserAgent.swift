@@ -90,11 +90,12 @@ public struct CustomUserAgentConstant {
     public static let mobileUserAgent = [
         "paypal.com": defaultMobileUA,
         "yahoo.com": defaultMobileUA,
-        "google.com": defaultMobileUA, ]
+        "lot.com": UserAgentBuilder.defaultMobileUserAgent(withBrand: false).userAgent(),
+    ]
     public static let desktopUserAgent = [
         "paypal.com": customDesktopUA,
         "yahoo.com": customDesktopUA,
-        "google.com": customDesktopUA, ]
+    ]
 }
 
 public struct UserAgentBuilder {
@@ -127,12 +128,23 @@ public struct UserAgentBuilder {
         return uaItems.filter { !$0.isEmptyOrWhitespace() }.joined(separator: " ")
     }
 
-    public static func defaultMobileUserAgent() -> UserAgentBuilder {
-        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(\(UIDevice.current.model); CPU \(UIDevice.current.model) OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: "\(UserAgent.uaFxiOSVersion) \(UserAgent.uaBitMobile) \(UserAgent.uaBitSafari) \(AppInfo.displayName)")
+    public static func defaultMobileUserAgent(withBrand: Bool = true) -> UserAgentBuilder {
+        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(\(UIDevice.current.model); CPU \(UIDevice.current.model) OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: self.extensions(isMobile: true, withBrand: withBrand))
     }
 
-    public static func defaultDesktopUserAgent() -> UserAgentBuilder {
-        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(Macintosh; Intel Mac OS X 10_15)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: "\(UserAgent.uaFxiOSVersion) \(UserAgent.uaBitSafari) \(AppInfo.displayName)")
+    public static func defaultDesktopUserAgent(withBrand: Bool = true) -> UserAgentBuilder {
+        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(Macintosh; Intel Mac OS X 10_15)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: self.extensions(isMobile: false, withBrand: withBrand))
     }
 
+    private static func extensions(isMobile: Bool, withBrand: Bool = true) -> String {
+        var extensions = "\(UserAgent.uaFxiOSVersion)"
+        if isMobile {
+            extensions += " \(UserAgent.uaBitMobile)"
+        }
+        extensions +=  " \(UserAgent.uaBitSafari)"
+        if withBrand {
+            extensions += " \(AppInfo.displayName)"
+        }
+        return extensions
+    }
 }
