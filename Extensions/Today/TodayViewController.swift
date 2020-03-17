@@ -38,7 +38,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "Today",
             initialProperties: [
-                "city": "Munich",
+                "city": self.getCity(),
+                "theme": self.getTheme(),
             ]
         )
 
@@ -49,4 +50,20 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
 
+    private func getTheme() -> [String: String] {
+        var mode = "light"
+        if #available(iOS 13.0, *) {
+            mode = UITraitCollection.current.userInterfaceStyle == .dark ? "dark" : "light"
+        }
+        let textColor = mode == "dark" ? "rgba(255, 255, 255, 0.61)" : "rgba(0, 0, 0, 0.61)"
+        return [
+            "textColor": textColor,
+            "descriptionColor": textColor,
+            "separatorColor": "transparent",
+        ]
+    }
+
+    private func getCity() -> String {
+        return "Munich"
+    }
 }

@@ -61,15 +61,8 @@ const useSnippet = city => {
   return [snippet, loading, fetchWeather];
 };
 
-const TodayWidget = ({ city }) => {
+const TodayWidget = ({ city, theme }) => {
   const [snippet, loading, update] = useSnippet(city);
-
-  const theme = {
-    backgroundColor: 'transparent',
-    textColor: 'black',
-    descriptionColor: 'black',
-    separatorColor: 'transparent',
-  };
   const styles = {
     container: {
       marginVertical: 10,
@@ -84,7 +77,7 @@ const TodayWidget = ({ city }) => {
       marginHorizontal: 7,
     },
     divider: {
-      backgroundColor: theme.backgroundColor,
+      backgroundColor: 'transparent',
     },
     grid: {
       borderLeftColor: theme.separatorColor,
