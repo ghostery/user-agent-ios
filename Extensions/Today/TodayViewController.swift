@@ -47,4 +47,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
 
+    // MARK: - Actions
+
+    @objc func configureButtonAction() {
+        guard let scheme = Bundle.main.infoDictionary?["AppURLScheme"] else {
+            return
+        }
+        guard let url = URL(string: "\(scheme)://deep-link?url=/settings/today-widget-setting") else {
+            return
+        }
+        self.extensionContext?.open(url, completionHandler: nil)
+    }
+
 }
