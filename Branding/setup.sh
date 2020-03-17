@@ -26,6 +26,7 @@ cp -rf ${BRAND_PATH}/${TARGETNAME}Release.xcconfig ${CONFIG_PATH}/Release.xcconf
 # Entitlments folder path
 SHARETO_ENTITLEMENTS_PATH=${PROJECTPATH}/Extensions/ShareTo/Entitlements
 OPENIN_ENTITLEMENTS_PATH=${PROJECTPATH}/Extensions/OpenIn/Entitlements
+TODAY_ENTITLEMENTS_PATH=${PROJECTPATH}/Extensions/Today/Entitlements
 
 # Replacing ShareTo/OpenIn entitlement files according target
 mkdir -p ${SHARETO_ENTITLEMENTS_PATH}
@@ -37,6 +38,11 @@ mkdir -p ${OPENIN_ENTITLEMENTS_PATH}
 cp -rf ${BRAND_PATH}/Entitlements/OpenIn/${TARGETNAME}OpenIn.entitlements ${OPENIN_ENTITLEMENTS_PATH}/OpenIn.entitlements
 cp -rf ${BRAND_PATH}/Entitlements/OpenIn/${TARGETNAME}OpenInAdHoc.entitlements ${OPENIN_ENTITLEMENTS_PATH}/OpenInAdHoc.entitlements
 cp -rf ${BRAND_PATH}/Entitlements/OpenIn/${TARGETNAME}OpenInDebug.entitlements ${OPENIN_ENTITLEMENTS_PATH}/OpenInDebug.entitlements
+
+mkdir -p ${TODAY_ENTITLEMENTS_PATH}
+cp -rf ${BRAND_PATH}/Entitlements/Today/${TARGETNAME}Today.entitlements ${TODAY_ENTITLEMENTS_PATH}/Today.entitlements
+cp -rf ${BRAND_PATH}/Entitlements/Today/${TARGETNAME}TodayAdHoc.entitlements ${TODAY_ENTITLEMENTS_PATH}/TodayAdHoc.entitlements
+cp -rf ${BRAND_PATH}/Entitlements/Today/${TARGETNAME}TodayDebug.entitlements ${TODAY_ENTITLEMENTS_PATH}/TodayDebug.entitlements
 
 # ShareTo folder path
 SHARE_TO_PATH=${PROJECTPATH}/Extensions/ShareTo
@@ -57,4 +63,3 @@ mkdir -p ${OPEN_IN_PATH}/de.lproj
 mkdir -p ${OPEN_IN_PATH}/en.lproj
 cp -rf ${BRAND_PATH}/InfoPlists/de.lproj/InfoPlist.strings ${OPEN_IN_PATH}/de.lproj/InfoPlist.strings
 cp -rf ${BRAND_PATH}/InfoPlists/en.lproj/InfoPlist.strings ${OPEN_IN_PATH}/en.lproj/InfoPlist.strings
-
