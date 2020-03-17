@@ -21,7 +21,7 @@
 "Settings.DataManagement.PrivateData.TrackingProtection" = "Schutz vor Aktivitätenverfolgung";
 
 /* Settings item for clearing browsing storage */
-"Settings.DataManagement.PrivateData.BrowsingStorage" = "Browser Storage";
+"Settings.DataManagement.PrivateData.BrowsingStorage" = "Browserspeicher";
 
 /* Settings item for closing all tabs. */
 "Settings.DataManagement.PrivateData.AllTabs" = "Alle Tabs";

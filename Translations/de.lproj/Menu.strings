@@ -27,7 +27,7 @@
 "Menu.Burn.Title" = "Surfdaten löschen";
 
 /* Label for the button, displayed in the menu, used to close all tabs and clear data. */
-"Menu.CloseAllTabsAndClearData.Title" = "Apply";
+"Menu.CloseAllTabsAndClearData.Title" = "Anwenden";
 
 /* Label for the button, displayed in the menu, used to open the Settings menu. */
 "Menu.OpenSettingsAction.Title" = "Einstel­lungen";
