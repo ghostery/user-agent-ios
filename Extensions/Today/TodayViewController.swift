@@ -37,7 +37,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "Today",
-            initialProperties: [:]
+            initialProperties: [
+                "city": "Munich",
+            ]
         )
 
         reactView.backgroundColor = .clear
