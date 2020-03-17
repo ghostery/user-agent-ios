@@ -275,6 +275,7 @@
 		46569CDC23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */; };
 		465E2AF823D1C66800ECEFA3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2AF723D1C66800ECEFA3 /* Authenticator.swift */; };
 		465E2AF923D1C66800ECEFA3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2AF723D1C66800ECEFA3 /* Authenticator.swift */; };
+		4667B08724210109001A4197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4667B08924210109001A4197 /* InfoPlist.strings */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -1416,6 +1417,11 @@
 		46569CD723CD0F0500224DC2 /* safari-popups-cosmetic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "safari-popups-cosmetic.json"; sourceTree = "<group>"; };
 		46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Popups+Whitelist.swift"; sourceTree = "<group>"; };
 		465E2AF723D1C66800ECEFA3 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		4667B08824210109001A4197 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4667B08A2421010B001A4197 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4667B08B2421029D001A4197 /* Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Today.entitlements; sourceTree = "<group>"; };
+		4667B08C242102ED001A4197 /* TodayDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayDebug.entitlements; sourceTree = "<group>"; };
+		4667B08E2421031E001A4197 /* TodayAdhoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayAdhoc.entitlements; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -2195,9 +2201,11 @@
 		2B0E936A2407A92300ED7703 /* Today */ = {
 			isa = PBXGroup;
 			children = (
+				4667B08D242102FD001A4197 /* Entitlements */,
 				2B0E936B2407A92300ED7703 /* TodayViewController.swift */,
 				2B0E93702407A92300ED7703 /* Info.plist */,
 				46504077241653EB0086CFAF /* ReactNativeBridge.swift */,
+				4667B08924210109001A4197 /* InfoPlist.strings */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -2675,6 +2683,16 @@
 				4650405F240FC1E80086CFAF /* HistoryView.swift */,
 			);
 			path = Segments;
+			sourceTree = "<group>";
+		};
+		4667B08D242102FD001A4197 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				4667B08C242102ED001A4197 /* TodayDebug.entitlements */,
+				4667B08E2421031E001A4197 /* TodayAdhoc.entitlements */,
+				4667B08B2421029D001A4197 /* Today.entitlements */,
+			);
+			path = Entitlements;
 			sourceTree = "<group>";
 		};
 		46828D87233E213A00E7D8A3 /* Views */ = {
@@ -4201,6 +4219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4667B08724210109001A4197 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6060,6 +6079,15 @@
 			name = ControlCenter.strings;
 			sourceTree = "<group>";
 		};
+		4667B08924210109001A4197 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4667B08824210109001A4197 /* en */,
+				4667B08A2421010B001A4197 /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		46828D912341F23300E7D8A3 /* UserAgent.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -6467,6 +6495,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Today/Entitlements/TodayDebug.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -6501,6 +6530,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Today/Entitlements/TodayAdHoc.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6511,7 +6541,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Today";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.browser.nightly.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -6530,6 +6560,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Today/Entitlements/Today.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6540,7 +6571,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Today";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -6559,6 +6590,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = Extensions/Today/Entitlements/TodayAdHoc.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -6569,7 +6601,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Today";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
