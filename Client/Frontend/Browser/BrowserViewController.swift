@@ -299,7 +299,7 @@ class BrowserViewController: UIViewController {
     }
 
     func didPressBurnMenuItem() {
-        let actions = [self.getBurnActions()]
+        let actions = self.getBurnActions(presentableVC: self)
         // force a modal if the menu is being displayed in compact split screen
         let shouldSuppress = !topTabsVisible && UIDevice.current.isPad
         guard let button = UIDevice.current.isPad ? self.urlBar.menuButton : self.toolbar?.menuButton else {

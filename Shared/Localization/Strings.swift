@@ -137,6 +137,10 @@ extension Strings {
                 public static let OfflineWebsiteData = NSLocalizedString("Settings.DataManagement.PrivateData.OfflineWebsiteData", tableName: "ClearPrivateData", comment: "Settings item for clearing website data")
                 public static let Cache = NSLocalizedString("Settings.DataManagement.PrivateData.Cache", tableName: "ClearPrivateData", comment: "Settings item for clearing the cache")
                 public static let BrowsingHistory = NSLocalizedString("Settings.DataManagement.PrivateData.BrowsingHistory", tableName: "ClearPrivateData", comment: "Settings item for clearing browsing history")
+                public static let BrowsingStorage = NSLocalizedString("Settings.DataManagement.PrivateData.BrowsingStorage", tableName: "ClearPrivateData", comment: "Settings item for clearing browsing storage")
+                public static let AllTabs = NSLocalizedString("Settings.DataManagement.PrivateData.AllTabs", tableName: "ClearPrivateData", comment: "Settings item for closing all tabs")
+                public static let Bookmarks = NSLocalizedString("Settings.DataManagement.PrivateData.Bookmarks", tableName: "ClearPrivateData", comment: "Settings item for clear all bookmarks")
+                public static let TopAndPinnedSites = NSLocalizedString("Settings.DataManagement.PrivateData.TopSites", tableName: "ClearPrivateData", comment: "Settings item for clear all TopSites")
             }
         }
         public struct WebsiteData {
