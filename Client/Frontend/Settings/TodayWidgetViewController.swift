@@ -9,8 +9,6 @@
 import UIKit
 import Shared
 
-private let SectionHeaderFooterIdentifier = "SectionHeaderFooterIdentifier"
-
 class TodayWidgetViewController: UIViewController {
 
     var profile: Profile!

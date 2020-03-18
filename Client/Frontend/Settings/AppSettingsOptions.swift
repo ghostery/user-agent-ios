@@ -346,7 +346,7 @@ class TodayWidgetSetting: Setting {
         return NSAttributedString(string: name)
     }
 
-    override var accessibilityIdentifier: String? { return "ClearPrivateData" }
+    override var accessibilityIdentifier: String? { return "TodayWidgetSetting" }
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
