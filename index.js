@@ -88,7 +88,9 @@ app.modules['search'].background.actions['getWeatherLocation'] = async function 
     searchResults.results[0] &&
     searchResults.results[0].template === 'weatherEZ'
   ) {
-    return searchResults.results[0].snippet.extra.api_returned_location;
+    return searchResults.results[0].snippet.extra.api_returned_location
+      .split(',')[0]
+      .trim();
   }
 }.bind(app.modules['search'].background);
 
