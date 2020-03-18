@@ -157,6 +157,7 @@ enum NavigationPath {
             controller.pushViewController(viewController, animated: true)
         case .todayWidgetSetting:
             let viewController = TodayWidgetViewController()
+            viewController.profile = bvc.profile
             controller.pushViewController(viewController, animated: true)
         default:
             break

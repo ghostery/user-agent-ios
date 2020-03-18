@@ -17,7 +17,7 @@ public struct PrefsKeys {
     public static let OnBrowserStartTab = "OnBrowserStartTab"
 
     //Today Widget
-    public static let TodayWidgetWeatherLocation = "profile.WeatherLocation"
+    public static let TodayWidgetWeatherLocation = "WeatherLocation"
 
     //Pull to refresh
     public static let RefreshControlEnabled = "RefreshControlEnabled"
