@@ -21,23 +21,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         ReactNativeBridge.sharedInstance.extensionContext = self.extensionContext
     }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        guard UIApplication.shared.applicationState == .inactive else {
-            return
-        }
-
-        self.applyTheme()
-    }
-
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
             preferredContentSize = CGSize(width: maxSize.width, height: 300)
         } else {
             preferredContentSize = maxSize
         }
-        self.applyTheme()
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -64,15 +53,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
 
-    private func applyTheme() {
-        let bridge = ReactNativeBridge.sharedInstance.bridge.module(for: Bridge.self) as! Bridge
-        bridge.applyTheme(self.getTheme())
-    }
-
     private func getTheme() -> [String: String] {
         var mode = "light"
         if #available(iOS 13.0, *) {
-            mode = UITraitCollection.current.userInterfaceStyle == .dark ? "dark" : "light"
+            mode = self.traitCollection.userInterfaceStyle == .dark ? "dark" : "light"
         }
         let textColor = mode == "dark" ? "rgba(255, 255, 255, 0.61)" : "rgba(0, 0, 0, 0.61)"
         return [
