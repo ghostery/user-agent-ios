@@ -19,10 +19,6 @@ class Bridge: RCTEventEmitter {
         return ["theme"]
     }
 
-    func applyTheme(_ theme: Any) {
-        self.sendEvent(withName: "theme", body: theme)
-    }
-
     @objc(configure)
     func configure() {
         guard let scheme = Bundle.main.infoDictionary?["AppURLScheme"] else {
