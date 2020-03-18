@@ -1274,10 +1274,6 @@
 		2B8577C22403E9150052D6C7 /* CliqzRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzRelease.xcconfig; sourceTree = "<group>"; };
 		2B8577C32403E9150052D6C7 /* CliqzDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzDebug.xcconfig; sourceTree = "<group>"; };
 		2B8577C42403E9150052D6C7 /* CliqzAdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CliqzAdHoc.xcconfig; sourceTree = "<group>"; };
-		2B8577D72403EB0F0052D6C7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2B8577D82403EB0F0052D6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2B8577DC2403EB530052D6C7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2B8577DD2403EB530052D6C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B8577DF2403EB6A0052D6C7 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
 		2B8577E02403EB6A0052D6C7 /* ShareTo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ShareTo.xcassets; sourceTree = "<group>"; };
 		2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyStatement.xcassets; sourceTree = "<group>"; };
@@ -1293,6 +1289,14 @@
 		2BD02D4623BA3698001539F0 /* OpenIn.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OpenIn.xcassets; sourceTree = "<group>"; };
 		2BD1062B2410EB0D00F7F3A8 /* BookmarkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDetailViewController.swift; sourceTree = "<group>"; };
 		2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsSettingsViewController.swift; sourceTree = "<group>"; };
+		2BD8958024223D0C00589165 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD8958124223D0C00589165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD8958624223E4900589165 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD8958824223E4900589165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD8958B24223EBC00589165 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD8958C24223EBC00589165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD8958F24223EBC00589165 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD8959024223EBC00589165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		2BE258C223BA1DFF0022ED28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2BE258C423BA1DFF0022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1301,6 +1305,12 @@
 		2BE2591123BA2FD60022ED28 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBrowserStartShowSettingsViewController.swift; sourceTree = "<group>"; };
 		2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadActivity.swift; sourceTree = "<group>"; };
+		2BF19467242238BD000B5920 /* GhosteryToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryToday.entitlements; sourceTree = "<group>"; };
+		2BF19468242238BD000B5920 /* GhosteryTodayDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryTodayDebug.entitlements; sourceTree = "<group>"; };
+		2BF19469242238BD000B5920 /* GhosteryTodayAdhoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryTodayAdhoc.entitlements; sourceTree = "<group>"; };
+		2BF1946B242238CD000B5920 /* CliqzToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzToday.entitlements; sourceTree = "<group>"; };
+		2BF1946C242238CD000B5920 /* CliqzTodayDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzTodayDebug.entitlements; sourceTree = "<group>"; };
+		2BF1946D242238CD000B5920 /* CliqzTodayAdhoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzTodayAdhoc.entitlements; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
 		2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModeDetector.swift; sourceTree = "<group>"; };
 		2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "adult-domains.bin"; sourceTree = "<group>"; };
@@ -2361,6 +2371,7 @@
 		2B8577B92403E90B0052D6C7 /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
+				2BF19466242238BD000B5920 /* Today */,
 				2B47DAE42406783800AD6D4C /* OpenIn */,
 				2B47DAE02406783700AD6D4C /* ShareTo */,
 			);
@@ -2392,6 +2403,7 @@
 		2B8577C92403E9150052D6C7 /* Entitlements */ = {
 			isa = PBXGroup;
 			children = (
+				2BF1946A242238CD000B5920 /* Today */,
 				2B47DAE82406784500AD6D4C /* OpenIn */,
 				2B47DAEC2406784500AD6D4C /* ShareTo */,
 			);
@@ -2410,7 +2422,8 @@
 		2B8577D52403EB0F0052D6C7 /* InfoPlists */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577D62403EB0F0052D6C7 /* InfoPlist.strings */,
+				2BD8958224223E4900589165 /* Today */,
+				2BD8957E24223D0C00589165 /* OpenIn */,
 			);
 			path = InfoPlists;
 			sourceTree = "<group>";
@@ -2418,7 +2431,8 @@
 		2B8577DA2403EB530052D6C7 /* InfoPlists */ = {
 			isa = PBXGroup;
 			children = (
-				2B8577DB2403EB530052D6C7 /* InfoPlist.strings */,
+				2BD8958924223EBC00589165 /* OpenIn */,
+				2BD8958D24223EBC00589165 /* Today */,
 			);
 			path = InfoPlists;
 			sourceTree = "<group>";
@@ -2432,6 +2446,38 @@
 			path = CollectionCell;
 			sourceTree = "<group>";
 		};
+		2BD8957E24223D0C00589165 /* OpenIn */ = {
+			isa = PBXGroup;
+			children = (
+				2BD8957F24223D0C00589165 /* InfoPlist.strings */,
+			);
+			path = OpenIn;
+			sourceTree = "<group>";
+		};
+		2BD8958224223E4900589165 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				2BD8958524223E4900589165 /* InfoPlist.strings */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		2BD8958924223EBC00589165 /* OpenIn */ = {
+			isa = PBXGroup;
+			children = (
+				2BD8958A24223EBC00589165 /* InfoPlist.strings */,
+			);
+			path = OpenIn;
+			sourceTree = "<group>";
+		};
+		2BD8958D24223EBC00589165 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				2BD8958E24223EBC00589165 /* InfoPlist.strings */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
 		2BE2586E23BA0C800022ED28 /* OpenIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -2443,6 +2489,26 @@
 				2BE258C423BA1DFF0022ED28 /* Info.plist */,
 			);
 			path = OpenIn;
+			sourceTree = "<group>";
+		};
+		2BF19466242238BD000B5920 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				2BF19467242238BD000B5920 /* GhosteryToday.entitlements */,
+				2BF19468242238BD000B5920 /* GhosteryTodayDebug.entitlements */,
+				2BF19469242238BD000B5920 /* GhosteryTodayAdhoc.entitlements */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		2BF1946A242238CD000B5920 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				2BF1946B242238CD000B5920 /* CliqzToday.entitlements */,
+				2BF1946C242238CD000B5920 /* CliqzTodayDebug.entitlements */,
+				2BF1946D242238CD000B5920 /* CliqzTodayAdhoc.entitlements */,
+			);
+			path = Today;
 			sourceTree = "<group>";
 		};
 		2BFB7C34238FA99600CE2E69 /* AutomaticForgetMode */ = {
@@ -6055,20 +6121,38 @@
 			name = PrivacyStatement.strings;
 			sourceTree = "<group>";
 		};
-		2B8577D62403EB0F0052D6C7 /* InfoPlist.strings */ = {
+		2BD8957F24223D0C00589165 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2B8577D72403EB0F0052D6C7 /* de */,
-				2B8577D82403EB0F0052D6C7 /* en */,
+				2BD8958024223D0C00589165 /* de */,
+				2BD8958124223D0C00589165 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		2B8577DB2403EB530052D6C7 /* InfoPlist.strings */ = {
+		2BD8958524223E4900589165 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2B8577DC2403EB530052D6C7 /* de */,
-				2B8577DD2403EB530052D6C7 /* en */,
+				2BD8958624223E4900589165 /* de */,
+				2BD8958824223E4900589165 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2BD8958A24223EBC00589165 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BD8958B24223EBC00589165 /* de */,
+				2BD8958C24223EBC00589165 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2BD8958E24223EBC00589165 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BD8958F24223EBC00589165 /* de */,
+				2BD8959024223EBC00589165 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

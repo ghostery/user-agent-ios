@@ -79,5 +79,8 @@ Extensions/OpenIn/Entitlements/
 Extensions/OpenIn/OpenIn.xcassets/
 Extensions/OpenIn/de.lproj/
 Extensions/OpenIn/en.lproj/
+Extensions/Today/Entitlements/
+Extensions/Today/de.lproj/InfoPlist.strings
+Extensions/Today/en.lproj/InfoPlist.strings
 
 
