@@ -43,5 +43,6 @@ class MockableHistory: BrowserHistory, SyncableHistory {
     func doneApplyingRecordsAfterDownload() -> Success { fatalError() }
     func doneUpdatingMetadataAfterUpload() -> Success { fatalError() }
     func hasSyncedHistory() -> Deferred<Maybe<Bool>> { fatalError() }
+    func clearPinnedSitesCache() -> Success { fatalError() }
 }
 

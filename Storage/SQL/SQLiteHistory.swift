@@ -400,6 +400,11 @@ extension SQLiteHistory: BrowserHistory {
             return self.db.run([("UPDATE domains SET showOnTopSites = 1 WHERE domain = ?", [host])])
         }
     }
+    
+    public func clearPinnedSitesCache() -> Success {
+        let clearPinnedSitesQuery: (String, Args?) = ("DELETE FROM pinned_top_sites", nil)
+        return db.run([clearPinnedSitesQuery])
+    }
 
     public func isPinnedTopSite(_ url: String) -> Deferred<Maybe<Bool>> {
         let sql = """

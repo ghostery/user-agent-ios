@@ -88,13 +88,70 @@ extension PhotonActionSheetProtocol {
         return queryItems
     }
 
-    func getBurnActions() -> [PhotonActionSheetItem] {
-        let closeAllTabsAndClearData = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsAndClearDataTitleString, iconString: "menu-burn") { _ in
-            self.tabManager.removeAllTabs()
-            let userData: [Clearable] = [HistoryClearable(profile: self.profile), CacheClearable(tabManager: self.tabManager), CookiesClearable(tabManager: self.tabManager), SiteDataClearable(tabManager: self.tabManager), PrivacyStatsClearable()]
-            userData.forEach({ _ = $0.clear() })
+    func getBurnActions(presentableVC: PresentableVC) -> [[PhotonActionSheetItem]] {
+        var userData: [String: (Clearable, Bool)] = [
+            "CacheClearable": (CacheClearable(tabManager: self.tabManager), true),
+            "CookiesClearable": (CookiesClearable(tabManager: self.tabManager), true),
+            "SiteDataClearable": (SiteDataClearable(tabManager: self.tabManager), true),
+            "HistoryClearable": (HistoryClearable(profile: self.profile), false),
+            "DownloadedFilesClearable": (DownloadedFilesClearable(), false),
+            "TrackingProtectionClearable": (TrackingProtectionClearable(), false),
+            "PrivacyStatsClearable": (PrivacyStatsClearable(), false),
+        ]
+        func switchSetting(key: String, value: Bool) {
+            userData[key]?.1 = value
         }
-        return [closeAllTabsAndClearData]
+        let text = "\(Strings.Settings.DataManagement.PrivateData.Cache), \(Strings.Settings.DataManagement.PrivateData.Cookies), \(Strings.Settings.DataManagement.PrivateData.OfflineWebsiteData)"
+        let clearBrowserStorage = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.BrowsingStorage, text: text, isEnabled: true, accessory: .Switch) { item in
+            switchSetting(key: "CacheClearable", value: item.isEnabled)
+            switchSetting(key: "CookiesClearable", value: item.isEnabled)
+            switchSetting(key: "SiteDataClearable", value: item.isEnabled)
+        }
+        var closeAllTabsSetting = true
+        let closeAllTabs = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.AllTabs, isEnabled: closeAllTabsSetting, accessory: .Switch) { item in
+            closeAllTabsSetting = item.isEnabled
+        }
+        let clearBrowserHistory = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.BrowsingHistory, isEnabled: false, accessory: .Switch) { item in
+            switchSetting(key: "HistoryClearable", value: item.isEnabled)
+        }
+        var clearTopSitesSetting = false
+        let clearTopSites = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.TopAndPinnedSites, isEnabled: clearTopSitesSetting, accessory: .Switch) { item in
+            clearTopSitesSetting = item.isEnabled
+        }
+        let clearDownloadFiles = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.DownloadedFiles, isEnabled: false, accessory: .Switch) { item in
+            switchSetting(key: "DownloadedFilesClearable", value: item.isEnabled)
+        }
+        let clearAllowList = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.TrackingProtection, isEnabled: false, accessory: .Switch) { item in
+            switchSetting(key: "TrackingProtectionClearable", value: item.isEnabled)
+        }
+        let clearPrivacyStats = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.PrivacyStats, isEnabled: false, accessory: .Switch) { item in
+            switchSetting(key: "PrivacyStatsClearable", value: item.isEnabled)
+        }
+        var clearBookmarksSetting = false
+        let clearBookmarks = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.Bookmarks, isEnabled: clearBookmarksSetting, accessory: .Switch) { item in
+            clearBookmarksSetting = item.isEnabled
+        }
+        let closeAllTabsAndClearData = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsAndClearDataTitleString, iconString: "menu-burn") { _ in
+            if closeAllTabsSetting {
+                self.tabManager.removeAllTabs()
+            }
+            if clearBookmarksSetting {
+                self.profile.bookmarks.modelFactory >>== { $0.clearBookmarks() }
+                (presentableVC as? BrowserViewController)?.homeViewController?.refreshBookmarks()
+            }
+            if clearTopSitesSetting {
+                _ = self.profile.history.clearTopSitesCache()
+                _ = self.profile.history.clearPinnedSitesCache()
+                (presentableVC as? BrowserViewController)?.homeViewController?.refreshTopSites()
+            }
+            userData.forEach { (_, value) in
+                if value.1 {
+                    _ = value.0.clear()
+                }
+            }
+            (presentableVC as? BrowserViewController)?.homeViewController?.refreshHistory()
+        }
+        return [[clearBrowserStorage, closeAllTabs, clearBrowserHistory, clearTopSites, clearDownloadFiles, clearAllowList, clearPrivacyStats, clearBookmarks], [closeAllTabsAndClearData]]
     }
 
     fileprivate func saveFileToDownloads(fileURL: URL, presentableVC: PresentableVC) {

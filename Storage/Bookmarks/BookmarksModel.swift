@@ -154,6 +154,7 @@ public protocol BookmarksModelFactory {
     func removeByGUID(_ guid: GUID) -> Success
     func updateByGUID(_ guid: GUID, title: String, url: String) -> Success
     @discardableResult func removeByURL(_ url: String) -> Success
+    func clearBookmarks() -> Success
 }
 
 /*
