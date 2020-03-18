@@ -65,6 +65,11 @@ class TodayWidgetViewController: UIViewController {
         self.cities = ["Munich", "Berlin", "Humburg", "Frankfurt", "Boon", "Bremen", "Dresden", "Nuremberg", "Leipzig", "Stuttgart", "Cologne", "Dortmund", "Hanover"]
     }
 
+    private func getCityName(query: String, completion: @escaping (String?) -> Void) {
+        Search.getWeatherLocation(query) { city in
+            completion(city)
+        }
+    }
 }
 
 extension TodayWidgetViewController: UITableViewDataSource {

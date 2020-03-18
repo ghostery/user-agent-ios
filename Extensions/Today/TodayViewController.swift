@@ -70,10 +70,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         return UserDefaults(suiteName: "group.\(baseBundleIdentifier)")?.string(forKey: "profile.WeatherLocation")
     }
 
-    private func getCityName(query: String, completion: (String?) -> Void) {
-        completion("Munich")
-    }
-
     private func getTranslations() -> [String: String] {
         return [
             "reload": NSLocalizedString("reload", tableName: "Today", comment: "Reload weather data"),
