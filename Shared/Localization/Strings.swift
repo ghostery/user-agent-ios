@@ -139,6 +139,11 @@ extension Strings {
                 public static let BrowsingHistory = NSLocalizedString("Settings.DataManagement.PrivateData.BrowsingHistory", tableName: "ClearPrivateData", comment: "Settings item for clearing browsing history")
             }
         }
+        public struct TodayWidget {
+            public static let SectionName = NSLocalizedString("Settings.TodayWidget.SectionName", comment: "Label used as an item in Settings.")
+            public static let Title = NSLocalizedString("Settings.TodayWidget.Title", comment: "Title displayed in header of the setting panel.")
+            public static let SearchLabel = NSLocalizedString("Settings.TodayWidget.SearchLabel", comment: "Default text in search bar for Today Widget Setting")
+        }
         public struct WebsiteData {
             public static let Title = NSLocalizedString("Settings.WebsiteData.Title", comment: "Title displayed in header of the Data Management panel.")
             public static let ShowMoreButton = NSLocalizedString("Settings.WebsiteData.ButtonShowMore", comment: "Button shows all websites on website data tableview")
