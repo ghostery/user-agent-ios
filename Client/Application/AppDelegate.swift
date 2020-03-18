@@ -396,8 +396,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             self.profile?.prefs.setBool(false, forKey: PrefsKeys.ShowAppReview)
             return false
         }
-        let showAppReview = self.profile?.prefs.boolForKey(PrefsKeys.ShowAppReview)
-        guard showAppReview == nil || showAppReview! else {
+        guard let showAppReview = self.profile?.prefs.boolForKey(PrefsKeys.ShowAppReview), showAppReview else {
             return false
         }
         self.profile?.prefs.setBool(false, forKey: PrefsKeys.ShowAppReview)

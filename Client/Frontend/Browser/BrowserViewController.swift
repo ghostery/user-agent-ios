@@ -945,6 +945,9 @@ class BrowserViewController: UIViewController {
         if let nav = tab.loadRequest(PrivilegedRequest(url: url) as URLRequest) {
             self.recordNavigationInTab(tab, navigation: nav, visitType: visitType)
         }
+        if self.profile.prefs.boolForKey(PrefsKeys.ShowAppReview) == nil {
+            self.profile.prefs.setBool(true, forKey: PrefsKeys.ShowAppReview)
+        }
     }
 
     func addBookmark(url: String, title: String? = nil, favicon: Favicon? = nil) {
