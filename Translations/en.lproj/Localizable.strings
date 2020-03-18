@@ -763,6 +763,15 @@
 /* Title displayed in header of the setting panel. */
 "Settings.DataManagement.Title" = "Data Management";
 
+/* Label used as an item in Settings. */
+"Settings.TodayWidget.SectionName" = "Today Widget";
+
+/* Title displayed in header of the setting panel. */
+"Settings.TodayWidget.Title" = "Current City";
+
+/* Default text in search bar for Today Widget Setting */
+"Settings.TodayWidget.SearchLabel" = "Search City";
+
 /* Display (theme) settings footer describing how the brightness slider works. */
 "Settings.DisplayTheme.SectionFooter" = "The theme will automatically change based on your display brightness. You can set the threshold where the theme changes. The circle indicates your display's current brightness.";
 

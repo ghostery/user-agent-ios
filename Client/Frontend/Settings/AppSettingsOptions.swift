@@ -332,6 +332,36 @@ class ClearPrivateDataSetting: Setting {
     }
 }
 
+class TodayWidgetSetting: Setting {
+    let profile: Profile
+
+    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
+
+    override var style: UITableViewCell.CellStyle { return .value1 }
+
+    override var status: NSAttributedString? {
+        guard let name = self.profile.prefs.stringForKey(PrefsKeys.TodayWidgetWeatherLocation) else {
+            return nil
+        }
+        return NSAttributedString(string: name)
+    }
+
+    override var accessibilityIdentifier: String? { return "TodayWidgetSetting" }
+
+    init(settings: SettingsTableViewController) {
+        self.profile = settings.profile
+
+        let clearTitle = Strings.Settings.TodayWidget.Title
+        super.init(title: NSAttributedString(string: clearTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+    }
+
+    override func onClick(_ navigationController: UINavigationController?) {
+        let viewController = TodayWidgetViewController()
+        viewController.profile = self.profile
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 class PrivacyPolicySetting: Setting {
     override var title: NSAttributedString? {
         return NSAttributedString(string: NSLocalizedString("Privacy Policy", comment: "Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/"), attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])

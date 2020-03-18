@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/jsx-filename-extension */
 /*!
  * Copyright (c) 2014-present Cliqz GmbH. All rights reserved.
@@ -6,8 +7,16 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import React, { useState, useEffect } from 'react';
-import { AppRegistry, View, Image } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import {
+  AppRegistry,
+  View,
+  Image,
+  ActivityIndicator,
+  Button,
+  NativeModules,
+  NativeEventEmitter,
+} from 'react-native';
 import {
   Weather,
   styles as weatherStyles,
@@ -26,38 +35,37 @@ const ImageRenderer = ({ uri, height, width }) => {
   );
 };
 
-const getMessage = t => t;
+const configure = () => NativeModules.Bridge.configure();
 
 const useSnippet = city => {
   const [snippet, setSnippet] = useState();
-  useEffect(() => {
-    const fetchWeather = async () => {
-      const query = encodeURIComponent(`weather ${city}`);
-      const searchResultsResponse = await fetch(
-        `${CONFIG.settings.RESULTS_PROVIDER}${query}`,
-      );
-      const searchResults = await searchResultsResponse.json();
-      if (
-        searchResults.results[0] &&
-        searchResults.results[0].template === 'weatherEZ'
-      ) {
-        setSnippet(searchResults.results[0].snippet);
-      }
-    };
-    fetchWeather(city);
+  const [loading, setLoading] = useState(true);
+
+  const fetchWeather = useCallback(async () => {
+    setLoading(true);
+    const query = encodeURIComponent(`weather ${city}`);
+    const searchResultsResponse = await fetch(
+      `${CONFIG.settings.RESULTS_PROVIDER}${query}`,
+    );
+    const searchResults = await searchResultsResponse.json();
+    if (
+      searchResults.results[0] &&
+      searchResults.results[0].template === 'weatherEZ'
+    ) {
+      setSnippet(searchResults.results[0].snippet);
+    }
+    setLoading(false);
   }, [city]);
-  return [snippet];
+
+  useEffect(() => {
+    fetchWeather(city);
+  }, [city, fetchWeather]);
+  return [snippet, loading, fetchWeather];
 };
 
-const TodayWidget = () => {
-  const [snippet] = useSnippet('Munich');
+const TodayWidget = ({ city, theme, i18n }) => {
+  const [snippet, loading, update] = useSnippet(city);
 
-  const theme = {
-    backgroundColor: 'transparent',
-    textColor: 'black',
-    descriptionColor: 'black',
-    separatorColor: 'transparent',
-  };
   const styles = {
     container: {
       marginVertical: 10,
@@ -72,7 +80,7 @@ const TodayWidget = () => {
       marginHorizontal: 7,
     },
     divider: {
-      backgroundColor: theme.backgroundColor,
+      backgroundColor: 'transparent',
     },
     grid: {
       borderLeftColor: theme.separatorColor,
@@ -135,17 +143,33 @@ const TodayWidget = () => {
       height: 70,
       marginBottom: 0,
     },
+    center: {
+      marginTop: 30,
+    },
   };
+  if (!city) {
+    return (
+      <View style={styles.center}>
+        <Button title={i18n.configure} onPress={configure} />
+      </View>
+    );
+  }
   return (
     <View>
-      {snippet && (
+      {loading ? (
+        <ActivityIndicator size="large" style={styles.center} />
+      ) : snippet ? (
         <Weather
           data={{ snippet }}
           ImageRenderer={ImageRenderer}
-          moreButtonText={getMessage('expand')}
-          lessButtonText={getMessage('collapse')}
+          moreButtonText={i18n.expand}
+          lessButtonText={i18n.collapse}
           styles={styles}
         />
+      ) : (
+        <View style={styles.center}>
+          <Button title={i18n.reload} onPress={update} />
+        </View>
       )}
     </View>
   );

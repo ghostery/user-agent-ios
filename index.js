@@ -78,6 +78,22 @@ app.modules['insights'].background.actions['getSearchStats'] = async function ()
   return searchStats;
 }.bind(app.modules['insights'].background);
 
+app.modules['search'].background.actions['getWeatherLocation'] = async function (city) {
+  const query = encodeURIComponent(`weather ${city}`);
+  const searchResultsResponse = await fetch(
+    `${config.settings.RESULTS_PROVIDER}${query}`,
+  );
+  const searchResults = await searchResultsResponse.json();
+  if (
+    searchResults.results[0] &&
+    searchResults.results[0].template === 'weatherEZ'
+  ) {
+    return searchResults.results[0].snippet.extra.api_returned_location
+      .split(',')[0]
+      .trim();
+  }
+}.bind(app.modules['search'].background);
+
 global.CLIQZ = {
   app,
 };

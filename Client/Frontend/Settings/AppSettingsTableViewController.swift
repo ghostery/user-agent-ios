@@ -34,6 +34,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         return [
             self.searchSettingSection(),
             self.privacySettingSection(),
+            self.todayWidgetSettingSection(),
             self.generalSettingSection(),
             self.newsSettingSection(),
             self.supportSettingSection(),
@@ -89,6 +90,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
                     FirefoxTabContentBlocker.togglePrivacyDashboardEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
             },
         ]
+        return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)
+    }
+
+    private func todayWidgetSettingSection() -> SettingSection {
+        let privacyTitle = Strings.Settings.TodayWidget.SectionName
+        var privacySettings = [Setting]()
+        privacySettings.append(TodayWidgetSetting(settings: self))
         return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)
     }
 

@@ -25,6 +25,7 @@ enum SettingsPage: String {
     case mailto = "mailto"
     case search = "search"
     case clearPrivateData = "clear-private-data"
+    case todayWidgetSetting = "today-widget-setting"
     case fxa = "fxa"
 }
 
@@ -153,6 +154,10 @@ enum NavigationPath {
             let viewController = ClearPrivateDataTableViewController()
             viewController.profile = bvc.profile
             viewController.tabManager = bvc.tabManager
+            controller.pushViewController(viewController, animated: true)
+        case .todayWidgetSetting:
+            let viewController = TodayWidgetViewController()
+            viewController.profile = bvc.profile
             controller.pushViewController(viewController, animated: true)
         default:
             break

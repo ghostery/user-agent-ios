@@ -763,6 +763,15 @@
 /* Title displayed in header of the setting panel. */
 "Settings.DataManagement.Title" = "Datenverwaltung";
 
+/* Label used as an item in Settings. */
+"Settings.TodayWidget.SectionName" = "Heute-Widget";
+
+/* Title displayed in header of the setting panel. */
+"Settings.TodayWidget.Title" = "Aktuelle Stadt";
+
+/* Default text in search bar for Today Widget Setting */
+"Settings.TodayWidget.SearchLabel" = "Stadt suchen";
+
 /* Display (theme) settings footer describing how the brightness slider works. */
 "Settings.DisplayTheme.SectionFooter" = "Das Theme ändert sich automatisch und passt sich an Ihre Display-Helligkeit an. Sie können die Schwelle festlegen, bei der sich das Theme ändert. Der Kreis zeigt Ihre aktuelle Display-Helligkeit.";
 

@@ -98,4 +98,18 @@ extension Search: BrowserCoreClient {
         )
     }
 
+    public static func getWeatherLocation(_ query: String, callback: @escaping (String?) -> Void) {
+        self.browserCore.callAction(
+            module: "search",
+            action: "getWeatherLocation",
+            args: [query]
+        ) { (error, result) in
+            guard error == nil, let city = result as? String else {
+                callback(nil)
+                return
+            }
+            callback(city)
+        }
+    }
+
 }
