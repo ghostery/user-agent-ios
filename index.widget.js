@@ -15,6 +15,7 @@ import {
   ActivityIndicator,
   Button,
   NativeModules,
+  NativeEventEmitter,
 } from 'react-native';
 import {
   Weather,
@@ -35,7 +36,6 @@ const ImageRenderer = ({ uri, height, width }) => {
 };
 
 const configure = () => NativeModules.Bridge.configure();
-const getMessage = t => t;
 
 const useSnippet = city => {
   const [snippet, setSnippet] = useState();
@@ -63,8 +63,26 @@ const useSnippet = city => {
   return [snippet, loading, fetchWeather];
 };
 
-const TodayWidget = ({ city, theme, i18n }) => {
+const useTheme = _theme => {
+  const [theme, setTheme] = useState(_theme);
+
+  useEffect(() => {
+    const onThemeChange = newTheme => {
+      setTheme(newTheme);
+    };
+    const eventEmitter = new NativeEventEmitter(NativeModules.Bridge);
+    eventEmitter.addListener('theme', onThemeChange);
+    return function cleanup() {
+      eventEmitter.removeListener('theme', onThemeChange);
+    };
+  }, []);
+
+  return [theme];
+};
+
+const TodayWidget = ({ city, theme: _theme, i18n }) => {
   const [snippet, loading, update] = useSnippet(city);
+  const [theme] = useTheme(_theme);
   const styles = {
     container: {
       marginVertical: 10,

@@ -21,6 +21,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         ReactNativeBridge.sharedInstance.extensionContext = self.extensionContext
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        guard UIApplication.shared.applicationState == .inactive else {
+            return
+        }
+
+        self.applyTheme()
+    }
+
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .expanded {
             preferredContentSize = CGSize(width: maxSize.width, height: 300)
@@ -51,6 +61,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.view = reactView
 
         completionHandler(NCUpdateResult.newData)
+    }
+
+    private func applyTheme() {
+        let bridge = ReactNativeBridge.sharedInstance.bridge.module(for: Bridge.self) as! Bridge
+        bridge.applyTheme(self.getTheme())
     }
 
     private func getTheme() -> [String: String] {
