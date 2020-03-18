@@ -280,6 +280,7 @@
 		4667B090242123B1001A4197 /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08F242123B1001A4197 /* Bridge.m */; };
 		4667B092242123EC001A4197 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B091242123EC001A4197 /* Bridge.swift */; };
 		4667B0952421266B001A4197 /* Today.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4667B0972421266B001A4197 /* Today.strings */; };
+		4667B09924221D65001A4197 /* TodayWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAA44C242124E0006D8246 /* TodayWidgetViewController.swift */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D81233D0A4900E7D8A3 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D80233D0A4900E7D8A3 /* MD5.swift */; };
@@ -5365,6 +5366,7 @@
 				ACB7375C23042BAB00FA5626 /* SessionRestoreHandler.swift in Sources */,
 				ACB7375D23042BAB00FA5626 /* QuickActions.swift in Sources */,
 				2B8DDBB723A3B84600D2CE7A /* PrivacyStatementViewController.swift in Sources */,
+				4667B09924221D65001A4197 /* TodayWidgetViewController.swift in Sources */,
 				ACB7375E23042BAB00FA5626 /* MetadataParserHelper.swift in Sources */,
 				ACB7375F23042BAB00FA5626 /* InsetButton.swift in Sources */,
 				2B516D36238BAC8B006D6B57 /* LibraryView.swift in Sources */,
