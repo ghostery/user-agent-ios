@@ -37,6 +37,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         } else {
             preferredContentSize = maxSize
         }
+        self.applyTheme()
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
