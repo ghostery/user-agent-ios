@@ -18,12 +18,10 @@ class TodayWidgetViewController: UIViewController {
     var tableView: UITableView!
     var searchController: UISearchController?
 
-    private var cities: [String]!
     private var searchResult: [String]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getCities()
         self.title = Strings.Settings.TodayWidget.Title
         self.navigationController?.setToolbarHidden(true, animated: false)
 
@@ -61,10 +59,6 @@ class TodayWidgetViewController: UIViewController {
 
     // MARK: - Private methods
 
-    private func getCities() {
-        self.cities = ["Munich", "Berlin", "Humburg", "Frankfurt", "Boon", "Bremen", "Dresden", "Nuremberg", "Leipzig", "Stuttgart", "Cologne", "Dortmund", "Hanover"]
-    }
-
     private func getCityName(query: String, completion: @escaping (String?) -> Void) {
         Search.getWeatherLocation(query) { city in
             completion(city)
@@ -99,9 +93,19 @@ extension TodayWidgetViewController: UITableViewDelegate {
 extension TodayWidgetViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
-        let search: String = searchController.searchBar.text ?? ""
-        self.searchResult = search.count > 2 ? self.cities.filter({ $0.lowercased().contains(search.lowercased()) }) : nil
-        self.tableView.reloadData()
+        guard let query: String = searchController.searchBar.text?.trimmingCharacters(in: .whitespacesAndNewlines), !query.isEmpty else {
+            self.searchResult = nil
+            self.tableView.reloadData()
+            return
+        }
+        self.getCityName(query: query) { (result) in
+            if let city = result {
+                DispatchQueue.main.async {
+                    self.searchResult = [city]
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
 }
