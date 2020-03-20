@@ -95,6 +95,7 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
             make.leading.equalTo(self.iconImageView.snp.trailing).offset(ThemedTableViewCellUX.TitleLabelOffset / 2)
             if style == .subtitle {
                 make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset)
+                make.right.greaterThanOrEqualToSuperview().offset(ThemedTableViewCellUX.CellSideOffset)
                 make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
             } else {
                 make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
@@ -102,20 +103,22 @@ class ThemedTableViewCell: UITableViewCell, Themeable {
                 make.centerY.equalToSuperview()
             }
         }
-        self.contentView.addSubview(self.detailLabel)
-        self.detailLabel.snp.makeConstraints { (make) in
-            if style == .subtitle {
-                make.leading.equalTo(self.titleLabel.snp.leading)
-                make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
-                make.top.equalTo(self.titleLabel.snp.bottom)
-                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
-            } else {
-                make.leading.greaterThanOrEqualTo(self.titleLabel.snp.trailing).offset(2 * ThemedTableViewCellUX.TitleLabelOffset)
-                make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.TitleLabelOffset)
-                make.centerY.equalToSuperview()
-                make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
-                make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
-                make.width.equalTo(self.titleLabel.snp.width).multipliedBy(0.7).priority(200)
+        if style == .subtitle || style == .value1 {
+            self.contentView.addSubview(self.detailLabel)
+            self.detailLabel.snp.makeConstraints { (make) in
+                if style == .subtitle {
+                    make.leading.equalTo(self.titleLabel.snp.leading)
+                    make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.CellSideOffset)
+                    make.top.equalTo(self.titleLabel.snp.bottom)
+                    make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset)
+                } else {
+                    make.leading.equalTo(self.titleLabel.snp.trailing).offset(2 * ThemedTableViewCellUX.TitleLabelOffset)
+                    make.trailing.equalToSuperview().offset(-ThemedTableViewCellUX.TitleLabelOffset)
+                    make.centerY.equalToSuperview()
+                    make.top.equalToSuperview().offset(ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                    make.bottom.equalToSuperview().offset(-ThemedTableViewCellUX.CellTopBottomOffset).priority(251)
+                    make.width.equalTo(self.titleLabel.snp.width).multipliedBy(0.7).priority(200)
+                }
             }
         }
         if style == .subtitle {
