@@ -2207,6 +2207,9 @@ extension BrowserViewController: Themeable {
         self.overlayBackground.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         self.searchBackgroundImageView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         tabManager.tabs.forEach { $0.applyTheme() }
+
+        guard let contentScript = self.tabManager.selectedTab?.getContentScript(name: ReaderMode.name()) else { return }
+        appyThemeForPreferences(profile.prefs, contentScript: contentScript)
     }
 }
 
