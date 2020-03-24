@@ -116,6 +116,7 @@ class SiteTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         tableView.accessibilityIdentifier = "SiteTable"
         tableView.cellLayoutMarginsFollowReadableWidth = false
+        tableView.estimatedRowHeight = SiteTableViewControllerUX.RowHeight
 
         // Set an empty footer to prevent empty cells from appearing in the list.
         tableView.tableFooterView = UIView()
@@ -186,7 +187,7 @@ class SiteTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SiteTableViewControllerUX.RowHeight
+        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, hasFullWidthSeparatorForRowAtIndexPath indexPath: IndexPath) -> Bool {
