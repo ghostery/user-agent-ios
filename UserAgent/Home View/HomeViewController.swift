@@ -210,7 +210,7 @@ private extension HomeViewController {
 
         topSitesView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
-            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.leading.trailing.equalTo(self.view)
         }
 
         bookmarksView.snp.makeConstraints { make in

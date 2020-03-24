@@ -15,22 +15,8 @@ class HomeView: UIView, ReactViewTheme {
     private var pinnedSites: [Site]?
     private var isNewsEnabled = true
     private var isNewsImagesEnabled = true
-    private lazy var reactView: UIView = {
-        let reactView = RCTRootView(
-            bridge: ReactNativeBridge.sharedInstance.bridge,
-            moduleName: "Home",
-            initialProperties: [
-                "theme": Self.getTheme(),
-                "speedDials": self.speedDials!.map { $0.toDict() },
-                "pinnedSites": self.pinnedSites!.map { $0.toDict() },
-                "isNewsEnabled": self.isNewsEnabled,
-                "isNewsImagesEnabled": self.isNewsImagesEnabled,
-            ]
-        )
-
-        reactView.backgroundColor = .clear
-        return reactView
-    }()
+    private var reactView: UIView?
+    private var height: Int?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,8 +33,6 @@ class HomeView: UIView, ReactViewTheme {
         self.speedDials = speedDials
         self.isNewsEnabled = isNewsEnabled
         self.isNewsImagesEnabled = isNewsImagesEnabled
-
-        self.addSubview(self.reactView)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -56,7 +40,38 @@ class HomeView: UIView, ReactViewTheme {
     }
 
     override func layoutSubviews() {
+        let height = Int(self.bounds.height)
+        if height == self.height ?? 0 {
+            super.layoutSubviews()
+            return
+        } else {
+            self.height = height
+        }
+
+        if let reactView = self.reactView {
+            reactView.removeFromSuperview()
+            self.reactView = nil
+        }
+
+        let reactView = RCTRootView(
+            bridge: ReactNativeBridge.sharedInstance.bridge,
+            moduleName: "Home",
+            initialProperties: [
+                "theme": Self.getTheme(),
+                "speedDials": self.speedDials!.map { $0.toDict() },
+                "pinnedSites": self.pinnedSites!.map { $0.toDict() },
+                "isNewsEnabled": self.isNewsEnabled,
+                "isNewsImagesEnabled": self.isNewsImagesEnabled,
+                "height": height,
+            ]
+        )
+
+        reactView.backgroundColor = .clear
+        reactView.frame = self.bounds
+        self.reactView = reactView
+
+        self.addSubview(reactView)
+
         super.layoutSubviews()
-        self.reactView.frame = self.bounds
     }
 }

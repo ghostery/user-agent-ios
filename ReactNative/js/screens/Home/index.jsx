@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   NativeModules,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   View,
   Image,
+  ImageBackground,
+  Text,
 } from 'react-native';
 import { parse } from 'tldts';
 import SpeedDial from '../../components/SpeedDial';
 import News from './components/News';
+import NativeDrawable from '../../components/NativeDrawable';
+import ThemeContext from '../../contexts/theme';
 
 const openSpeedDialLink = speedDial =>
   NativeModules.BrowserActions.openLink(speedDial.url, '');
@@ -25,15 +28,15 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   contentContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
   wrapper: {
     flex: 1,
-    maxWidth: 414,
+    width: 414,
+    alignSelf: 'center',
     flexDirection: 'column',
-    justifyContent: 'space-between',
   },
   header: {
     fontSize: 28,
@@ -42,6 +45,7 @@ const styles = StyleSheet.create({
   },
   speedDialsContainer: {
     marginBottom: 25,
+    width: '100%',
   },
   speedDials: {
     marginTop: 0,
@@ -49,9 +53,6 @@ const styles = StyleSheet.create({
     padding: 0,
     flexDirection: 'row',
     flex: 1,
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    alignSelf: 'center',
     width: '100%',
     justifyContent: 'space-evenly',
   },
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
   logoWrapper: {
     marginTop: 40 - 8,
     marginBottom: 30,
+    width: '100%',
   },
   logo: {
     height: 65,
@@ -103,7 +105,9 @@ export default function Home({
   newsModule,
   isNewsEnabled,
   isNewsImagesEnabled,
+  height,
 }) {
+  const theme = useContext(ThemeContext);
   const pinnedDomains = new Set([...pinnedSites.map(s => parse(s.url).domain)]);
   const dials = [
     ...pinnedSites.map(dial => ({ ...dial, pinned: true })),
@@ -113,32 +117,53 @@ export default function Home({
   const secondRow = dials.slice(4, 8);
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <View style={styles.safeArea}>
       <ScrollView
         style={styles.container}
         onScroll={hideKeyboard}
+        scrollEventThrottle={1}
         contentContainerStyle={styles.contentContainer}
       >
-        <View style={styles.wrapper}>
-          <View style={styles.logoWrapper}>
-            <Image
-              style={styles.logo}
-              source={{ uri: 'logo' }}
-              resizeMode="contain"
-            />
+        <ImageBackground
+          source={{url: 'https://cdn.cliqz.com/serp/background/simon-rae-9teLSxO0-Ac-unsplash_mobile.jpg'}}
+          style={{width: '100%', minHeight: height, flex: 1 }}
+        >
+          <View style={[styles.wrapper, { justifyContent: 'space-evenly'}]}>
+            <View style={styles.logoWrapper}>
+              <Image
+                style={styles.logo}
+                source={{ uri: 'logo' }}
+                resizeMode="contain"
+              />
+            </View>
+            <View style={{ paddingHorizontal: 10, marginBottom: 30, width: '100%' }}>
+              <View style={{ height: 40, widht: '100%', paddingHorizontal: 20, borderRadius: 40, backgroundColor: 'white', flexDirection: 'row'}}>
+                <Text style={{ alignSelf: 'center', flexGrow: 1, color: theme.descriptionColor }}>Search Privately</Text>
+                <View style={{ justifySelf: 'flex-end', width: 20, height: '100%'}}>
+                  <NativeDrawable
+                    style={{ height: '100%' }}
+                    color={theme.brandColor}
+                    source="search"
+                  />
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.speedDialsContainer}>
+              <SpeedDialRow dials={firstRow} />
+              <SpeedDialRow dials={secondRow} />
+            </View>
           </View>
-          <View style={styles.speedDialsContainer}>
-            <SpeedDialRow dials={firstRow} />
-            <SpeedDialRow dials={secondRow} />
-          </View>
-          {isNewsEnabled && (
+        </ImageBackground>
+        {isNewsEnabled && (
+          <View style={styles.wrapper}>
             <News
               newsModule={newsModule}
               isImagesEnabled={isNewsImagesEnabled}
             />
-          )}
-        </View>
+          </View>
+        )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
