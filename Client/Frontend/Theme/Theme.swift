@@ -325,7 +325,7 @@ class SnackBarColor {
 
 class GeneralColor {
     var MobilePrivatePurple: UIColor { return UIColor.Grey70 }
-    var faviconBackground: UIColor { return UIColor.Grey20 }
+    var faviconBackground: UIColor { return UIColor.Grey60 }
     var passcodeDot: UIColor { return UIColor.Grey60 }
     var highlightBlue: UIColor { return UIColor.Blue40 }
     var destructiveRed: UIColor { return UIColor.BrightRed }
