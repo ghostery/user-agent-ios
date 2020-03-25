@@ -1,35 +1,38 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
-import FastImage from 'react-native-fast-image'
+import { View, StyleSheet, Platform } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 const DAY_OF_MONTH = new Date().getDate();
 const BACKGROUND_URL = `https://cdn.cliqz.com/serp/configs/config_${DAY_OF_MONTH}.json`;
-let backgroundSource;
+let cachedBackgroundUrl;
 
 const useBackgroundImage = () => {
-  const [source, setSource] = useState();
+  const [url, setUrl] = useState();
   useEffect(() => {
     const fetchBackground = async () => {
-      const response = await fetch(BACKGROUND_URL);
-      const backgrounds = await response.json();
-      const mobileBackground =
-        backgrounds.backgrounds_mobile && backgrounds.backgrounds_mobile[0];
-      if (mobileBackground) {
-        setSource(mobileBackground.url);
-        backgroundSource = mobileBackground.url;
+      const responseData = await fetch(BACKGROUND_URL);
+      const responseJSON = await responseData.json();
+      const backgrounds = Platform.isPad
+        ? responseJSON.backgrounds
+        : responseJSON.backgrounds_mobile;
+      const backgroundIndex = Math.floor(Math.random() * backgrounds.length);
+      const background = backgrounds[backgroundIndex];
+      if (background) {
+        setUrl(background.url);
+        cachedBackgroundUrl = background.url;
       }
     };
 
-    if (!backgroundSource) {
+    if (!cachedBackgroundUrl) {
       fetchBackground();
     }
   });
 
-  return source;
+  return url;
 };
 
 export default ({ height, children }) => {
-  const backgroundImageUrl = useBackgroundImage();
+  const backgroundUrl = useBackgroundImage();
   const style = useMemo(
     () => ({
       width: '100%',
@@ -44,7 +47,7 @@ export default ({ height, children }) => {
       <FastImage
         style={StyleSheet.absoluteFill}
         source={{
-          uri: backgroundImageUrl || backgroundSource,
+          uri: backgroundUrl || cachedBackgroundUrl,
           priority: FastImage.priority.normal,
         }}
       />
