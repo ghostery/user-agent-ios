@@ -15,7 +15,48 @@ class HomeView: UIView, ReactViewTheme {
     private var pinnedSites: [Site]?
     private var isNewsEnabled = true
     private var isNewsImagesEnabled = true
-    private lazy var reactView: UIView = {
+    private var reactView: UIView?
+    private var height: Int?
+    private var toolbarHeight: CGFloat
+
+    override init(frame: CGRect) {
+        self.toolbarHeight = 0
+        super.init(frame: frame)
+    }
+
+    convenience init(
+        toolbarHeight: CGFloat,
+        speedDials: [Site],
+        pinnedSites: [Site],
+        isNewsEnabled: Bool,
+        isNewsImagesEnabled: Bool
+    ) {
+        self.init(frame: .zero)
+        self.toolbarHeight = toolbarHeight
+        self.pinnedSites = pinnedSites
+        self.speedDials = speedDials
+        self.isNewsEnabled = isNewsEnabled
+        self.isNewsImagesEnabled = isNewsImagesEnabled
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("This class does not support NSCoding")
+    }
+
+    override func layoutSubviews() {
+        let height = Int(self.bounds.height)
+        if height == self.height ?? 0 {
+            super.layoutSubviews()
+            return
+        } else {
+            self.height = height
+        }
+
+        if let reactView = self.reactView {
+            reactView.removeFromSuperview()
+            self.reactView = nil
+        }
+
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "Home",
@@ -25,38 +66,17 @@ class HomeView: UIView, ReactViewTheme {
                 "pinnedSites": self.pinnedSites!.map { $0.toDict() },
                 "isNewsEnabled": self.isNewsEnabled,
                 "isNewsImagesEnabled": self.isNewsImagesEnabled,
+                "height": height,
+                "toolbarHeight": self.toolbarHeight,
             ]
         )
 
         reactView.backgroundColor = .clear
-        return reactView
-    }()
+        reactView.frame = self.bounds
+        self.reactView = reactView
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+        self.addSubview(reactView)
 
-    convenience init(
-        speedDials: [Site],
-        pinnedSites: [Site],
-        isNewsEnabled: Bool,
-        isNewsImagesEnabled: Bool
-    ) {
-        self.init(frame: .zero)
-        self.pinnedSites = pinnedSites
-        self.speedDials = speedDials
-        self.isNewsEnabled = isNewsEnabled
-        self.isNewsImagesEnabled = isNewsImagesEnabled
-
-        self.addSubview(self.reactView)
-    }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("This class does not support NSCoding")
-    }
-
-    override func layoutSubviews() {
         super.layoutSubviews()
-        self.reactView.frame = self.bounds
     }
 }

@@ -27,6 +27,7 @@ class TopSitesView: BaseReactHomeView {
             }.compactMap { $0 }
 
             let homeView = HomeView(
+                toolbarHeight: self.toolbarHeight,
                 speedDials: speedDials,
                 pinnedSites: pinned.successValue?.asArray() ?? [],
                 isNewsEnabled: self.profile.prefs.boolForKey(PrefsKeys.NewTabNewsEnabled) ?? true,

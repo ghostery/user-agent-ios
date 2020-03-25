@@ -747,11 +747,14 @@ class BrowserViewController: UIViewController {
         homeViewController?.view.snp.remakeConstraints { make in
             make.top.equalTo(self.urlBar.snp.bottom)
             make.left.right.equalTo(self.view)
-            if self.homePanelIsInline {
-                make.bottom.equalTo(self.toolbar?.snp.top ?? self.view.snp.bottom)
-            } else {
-                make.bottom.equalTo(self.view.snp.bottom)
-            }
+
+            make.bottom.equalTo(self.view.snp.bottom)
+        }
+
+        if self.homePanelIsInline {
+            self.view.bringSubviewToFront(self.footer)
+        } else {
+            self.view.sendSubviewToBack(self.footer)
         }
 
         alertStackView.snp.remakeConstraints { make in
@@ -771,7 +774,7 @@ class BrowserViewController: UIViewController {
     fileprivate func showUserAgentHome(inline: Bool) {
         homePanelIsInline = inline
         if self.homeViewController == nil {
-            let homeViewController = HomeViewNavigationController(profile: profile)
+            let homeViewController = HomeViewNavigationController(profile: profile, toolbarHeight: self.toolbar?.bounds.height ?? 80)
             homeViewController.homePanelDelegate = self
             homeViewController.view.alpha = 0.0
             self.homeViewController = homeViewController

@@ -20,7 +20,7 @@ const getStyles = theme => ({
   },
   label: {
     marginTop: 5,
-    color: theme.textColor,
+    color: theme.separatorColor,
     fontSize: 12,
   },
   pin: {

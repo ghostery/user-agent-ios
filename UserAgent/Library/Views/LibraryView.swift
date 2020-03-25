@@ -151,7 +151,7 @@ extension LibraryView {
         self.tableView.cellLayoutMarginsFollowReadableWidth = false
 
         // Set an empty footer to prevent empty cells from appearing in the list.
-        self.tableView.tableFooterView = UIView()
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
 
     private func createEmptyStateOverlayView() -> UIView {

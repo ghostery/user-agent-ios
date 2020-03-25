@@ -24,7 +24,7 @@ class ToolbarTests: BaseTestCase {
      * Tests landscape page navigation enablement with the URL bar with tab switching.
      */
     func testLandscapeNavigationWithTabSwitch() {
-        let urlPlaceholder = "Search or enter address"
+        let urlPlaceholder = "Search Privately" 
         XCTAssert(app.textFields["url"].exists)
         let defaultValuePlaceholder = app.textFields["url"].placeholderValue!
 

@@ -11,13 +11,15 @@ import Foundation
 /// Displays Top Sites and Pinned Sites in a React Native View
 class BaseReactHomeView: UIView {
     // MARK: - Properties
-    var profile: Profile
+    internal var profile: Profile
+    internal let toolbarHeight: CGFloat
 
     internal var reactView: Themeable?
 
     // MARK: - Initialization
-    init(profile: Profile) {
+    init(profile: Profile, toolbarHeight: CGFloat) {
         self.profile = profile
+        self.toolbarHeight = toolbarHeight
         super.init(frame: .zero)
         setup()
     }

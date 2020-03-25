@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import ListItem from '../../components/ListItem';
+import ToolbarArea from '../../components/ToolbarArea';
 import moment from '../../services/moment';
 import { useStyles } from '../../contexts/theme';
 import t from '../../services/i18n';
@@ -120,17 +121,24 @@ const useDomains = (): [Domain[], any, any] => {
   return [domains, loadMore, setDomains];
 };
 
-export default () => {
+export default ({ toolbarHeight }: { toolbarHeight: number }) => {
   const styles = useStyles(getStyle);
 
   const [domains, loadMore, setDomains] = useDomains();
+
+  const ToolbarAreaComponent = useCallback(() => {
+    return <ToolbarArea height={toolbarHeight} />;
+  }, [toolbarHeight]);
 
   const renderItem = (data: any) => {
     const { item } = data;
     const openDomain = () => NativeModules.BrowserActions.openDomain(item.name);
     const openDomainDetails = () => {
       hideKeyboard();
-      NativeModules.HomeViewNavigation.showDomainDetails(item.name);
+      NativeModules.HomeViewNavigation.showDomainDetails(
+        item.name,
+        toolbarHeight,
+      );
     };
 
     return (
@@ -181,19 +189,22 @@ export default () => {
   };
 
   return (
-    <SwipeListView
-      style={styles.list}
-      data={domains}
-      disableRightSwipe
-      renderItem={renderItem}
-      keyExtractor={keyExtractor}
-      renderHiddenItem={renderHiddenItem}
-      rightOpenValue={-75}
-      onEndReached={loadMore}
-      onEndReachedThreshold={0.5}
-      initialNumToRender={PAGE_SIZE}
-      recalculateHiddenLayout
-      onScroll={hideKeyboard}
-    />
+    <View>
+      <SwipeListView
+        style={styles.list}
+        data={domains}
+        disableRightSwipe
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+        renderHiddenItem={renderHiddenItem}
+        rightOpenValue={-75}
+        onEndReached={loadMore}
+        onEndReachedThreshold={0.5}
+        initialNumToRender={PAGE_SIZE}
+        recalculateHiddenLayout
+        onScroll={hideKeyboard}
+        ListFooterComponent={ToolbarAreaComponent}
+      />
+    </View>
   );
 };
