@@ -3,7 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import XCTest
-import Shared
 
 let website_1 = ["url": "www.mozilla.org", "label": "Internet for people, not profit — Mozilla", "value": "mozilla.org"]
 let website_2 = ["url": "www.example.com", "label": "Example", "value": "example", "link": "More information...", "moreLinkLongPressUrl": "http://www.iana.org/domains/example", "moreLinkLongPressInfo": "iana"]
@@ -25,7 +24,7 @@ private var isTablet: Bool {
 class NavigationTest: BaseTestCase {
     func testNavigation() {
         navigator.goto(URLBarOpen)
-        let urlPlaceholder = Strings.UrlBar.Placeholder
+        let urlPlaceholder = "Search Privately"
         XCTAssert(app.textFields["url"].exists)
         let defaultValuePlaceholder = app.textFields["url"].placeholderValue!
 
