@@ -1,7 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {
+  View,
+  Text,
+  NativeModules,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import NativeDrawable from '../../../components/NativeDrawable';
 import { useStyles } from '../../../contexts/theme';
+import t from '../../../services/i18n';
+
+const startSearch = () => NativeModules.BrowserActions.startSearch();
 
 const getStyles = theme => ({
   container: {
@@ -31,15 +39,17 @@ export default () => {
   const styles = useStyles(getStyles);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Search Privately</Text>
-      <View style={styles.iconWrapper}>
-        <NativeDrawable
-          style={styles.icon}
-          color={styles.icon.color}
-          source="search"
-        />
+    <TouchableWithoutFeedback onPress={startSearch}>
+      <View style={styles.container}>
+        <Text style={styles.text}>{t('UrlBar.Placeholder')}</Text>
+        <View style={styles.iconWrapper}>
+          <NativeDrawable
+            style={styles.icon}
+            color={styles.icon.color}
+            source="search"
+          />
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };

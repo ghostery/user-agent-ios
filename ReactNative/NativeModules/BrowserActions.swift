@@ -47,6 +47,14 @@ class BrowserActions: NSObject, NativeModuleBase {
         }
     }
 
+    @objc(startSearch)
+    func startSearch() {
+        self.withAppDelegate { appDel in
+            _ = appDel.browserViewController.focusLocationTextField(
+                forTab: appDel.browserViewController.tabManager.selectedTab)
+        }
+    }
+
     @objc(showQuerySuggestions:suggestions:)
     func showQuerySuggestions(query: NSString?, suggestions: NSArray?) {
         guard let query = query, let suggestions = suggestions else {

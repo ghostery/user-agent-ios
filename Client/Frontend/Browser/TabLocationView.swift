@@ -62,8 +62,9 @@ class TabLocationView: UIView {
     }
 
     lazy var placeholder: NSAttributedString = {
-        let placeholderText = NSLocalizedString("Search or enter address", comment: "The text shown in the URL bar on about:home")
-        return NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: Theme.textField.placeholder])
+        return NSAttributedString(
+            string: Strings.UrlBar.Placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: Theme.textField.placeholder])
     }()
 
     lazy var urlTextLabel: UILabel = {
