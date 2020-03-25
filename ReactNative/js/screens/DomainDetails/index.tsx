@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { NativeModules, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { useStyles } from '../../contexts/theme';
+import ToolbarArea from '../../components/ToolbarArea';
 import KeyboardSpacer from './components/KeyboardSpacer';
 
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
@@ -89,7 +90,13 @@ const user = {
   _id: -1,
 };
 
-export default ({ domain }: { domain: string }) => {
+export default ({
+  domain,
+  toolbarHeight,
+}: {
+  domain: string;
+  toolbarHeight: number;
+}) => {
   const styles = useStyles(getStyle);
 
   const [visits, loadMore, removeVisit] = useVisits(domain);
@@ -160,6 +167,7 @@ export default ({ domain }: { domain: string }) => {
         }}
       />
       <KeyboardSpacer />
+      <ToolbarArea height={toolbarHeight} />
     </View>
   );
 };

@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 import {
   NativeModules,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   View,
   Image,
 } from 'react-native';
 import { parse } from 'tldts';
-import SpeedDial from '../../components/SpeedDial';
+import ToolbarArea from '../../components/ToolbarArea';
 import News from './components/News';
+import SpeedDialRow from './components/SpeedDialsRow';
+import UrlBar from './components/UrlBar';
+import Background from './components/Background';
 
-const openSpeedDialLink = speedDial =>
-  NativeModules.BrowserActions.openLink(speedDial.url, '');
-const longPressSpeedDial = speedDial =>
-  NativeModules.ContextMenu.speedDial(speedDial.url, speedDial.pinned || false);
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
 const styles = StyleSheet.create({
@@ -25,77 +23,44 @@ const styles = StyleSheet.create({
     marginTop: 0,
   },
   contentContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
   wrapper: {
     flex: 1,
-    maxWidth: 414,
+    width: 414,
+    alignSelf: 'center',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
   },
-  header: {
-    fontSize: 28,
-    marginLeft: 12,
-    marginRight: 12,
+  newsWrapper: {
+    flex: 1,
+    width: 414,
+    alignSelf: 'center',
+    flexDirection: 'column',
   },
   speedDialsContainer: {
     marginBottom: 25,
-  },
-  speedDials: {
-    marginTop: 0,
-    marginBottom: 0,
-    padding: 0,
-    flexDirection: 'row',
-    flex: 1,
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    alignSelf: 'center',
     width: '100%',
-    justifyContent: 'space-evenly',
-  },
-  speedDial: {
-    flex: 0,
-    marginVertical: 10,
-    width: 80,
   },
   logoWrapper: {
     marginTop: 40 - 8,
     marginBottom: 30,
+    width: '100%',
   },
   logo: {
     height: 65,
   },
+  urlBarWrapper: {
+    paddingHorizontal: 10,
+    marginBottom: 30,
+    width: '100%',
+  },
+  footer: {
+    height: 80,
+  },
 });
-
-const EmptySpeedDial = () => <View style={styles.speedDial} />;
-
-const SpeedDialRow = ({ dials, limit = 4 }) => {
-  if (dials.length === 0) {
-    return null;
-  }
-  const emptyCount = limit - dials.length < 0 ? 0 : limit - dials.length;
-  const allDials = [
-    ...dials.map(dial => (
-      <SpeedDial
-        key={dial.url}
-        styles={{
-          container: styles.speedDial,
-        }}
-        speedDial={dial}
-        onPress={openSpeedDialLink}
-        onLongPress={longPressSpeedDial}
-      />
-    )),
-    Array(emptyCount)
-      .fill(null)
-      // eslint-disable-next-line react/no-array-index-key
-      .map((_, i) => <EmptySpeedDial key={i} />),
-  ];
-
-  return <View style={styles.speedDials}>{allDials}</View>;
-};
 
 export default function Home({
   speedDials,
@@ -103,22 +68,28 @@ export default function Home({
   newsModule,
   isNewsEnabled,
   isNewsImagesEnabled,
+  height,
+  toolbarHeight,
 }) {
-  const pinnedDomains = new Set([...pinnedSites.map(s => parse(s.url).domain)]);
-  const dials = [
-    ...pinnedSites.map(dial => ({ ...dial, pinned: true })),
-    ...speedDials.filter(dial => !pinnedDomains.has(parse(dial.url).domain)),
-  ].slice(0, 8);
-  const firstRow = dials.slice(0, 4);
-  const secondRow = dials.slice(4, 8);
+  const [firstRow, secondRow] = useMemo(() => {
+    const pinnedDomains = new Set([
+      ...pinnedSites.map(s => parse(s.url).domain),
+    ]);
+    const dials = [
+      ...pinnedSites.map(dial => ({ ...dial, pinned: true })),
+      ...speedDials.filter(dial => !pinnedDomains.has(parse(dial.url).domain)),
+    ].slice(0, 8);
+    return [dials.slice(0, 4), dials.slice(4, 8)];
+  }, [pinnedSites, speedDials]);
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <ScrollView
-        style={styles.container}
-        onScroll={hideKeyboard}
-        contentContainerStyle={styles.contentContainer}
-      >
+    <ScrollView
+      style={styles.container}
+      onScroll={hideKeyboard}
+      scrollEventThrottle={1}
+      contentContainerStyle={styles.contentContainer}
+    >
+      <Background height={height}>
         <View style={styles.wrapper}>
           <View style={styles.logoWrapper}>
             <Image
@@ -127,18 +98,24 @@ export default function Home({
               resizeMode="contain"
             />
           </View>
+
+          <View style={styles.urlBarWrapper}>
+            <UrlBar />
+          </View>
+
           <View style={styles.speedDialsContainer}>
             <SpeedDialRow dials={firstRow} />
             <SpeedDialRow dials={secondRow} />
           </View>
-          {isNewsEnabled && (
-            <News
-              newsModule={newsModule}
-              isImagesEnabled={isNewsImagesEnabled}
-            />
-          )}
         </View>
-      </ScrollView>
-    </SafeAreaView>
+        <ToolbarArea height={toolbarHeight} />
+      </Background>
+      {isNewsEnabled && (
+        <View style={styles.newsWrapper}>
+          <News newsModule={newsModule} isImagesEnabled={isNewsImagesEnabled} />
+        </View>
+      )}
+      <ToolbarArea height={toolbarHeight} />
+    </ScrollView>
   );
 }

@@ -24,7 +24,7 @@ class BrowserCoreViewController: UIViewController, ReactViewTheme {
         self.view.addSubview(view)
 
         view.snp.makeConstraints { make in
-            make.top.left.right.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            make.top.left.right.bottom.equalTo(self.view)
         }
     }
 

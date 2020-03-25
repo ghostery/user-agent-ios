@@ -11,12 +11,14 @@ import React
 import Storage
 
 class DomainsView: UIView, ReactViewTheme {
+    var toolbarHeight: CGFloat
     private lazy var reactView: UIView = {
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "History",
             initialProperties: [
                 "theme": Self.getTheme(),
+                "toolbarHeight": self.toolbarHeight,
             ]
         )
 
@@ -25,12 +27,13 @@ class DomainsView: UIView, ReactViewTheme {
     }()
 
     override init(frame: CGRect) {
+        self.toolbarHeight = 0
         super.init(frame: frame)
     }
 
-    convenience init() {
+    convenience init(toolbarHeight: CGFloat) {
         self.init(frame: .zero)
-
+        self.toolbarHeight = toolbarHeight
         self.addSubview(self.reactView)
     }
 

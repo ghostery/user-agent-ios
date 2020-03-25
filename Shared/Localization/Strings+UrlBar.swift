@@ -6,11 +6,10 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-#import <Foundation/Foundation.h>
-#import <React/RCTBridgeModule.h>
+import Foundation
 
-@interface RCT_EXTERN_MODULE(HomeViewNavigation, NSObject)
-
-RCT_EXTERN_METHOD(showDomainDetails:(nonnull NSString *)domain toolbarHeight:(nonnull NSNumber)toolbarHeight)
-
-@end
+extension Strings {
+    public struct UrlBar {
+        public static let Placeholder = NSLocalizedString("UrlBar.Placeholder", comment: "The text shown in the URL bar on about:home")
+    }
+}

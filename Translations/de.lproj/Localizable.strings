@@ -622,7 +622,7 @@
 "Search" = "Suche";
 
 /* The text shown in the URL bar on about:home */
-"Search or enter address" = "Suchen oder Adresse eingeben";
+"UrlBar.Placeholder" = "Anonym suchen";
 
 /* The message that asks the user to Add the search provider explaining where the search engine will appear */
 "Search.ThirdPartyEngines.AddMessage" = "Die neue Suchmaschine erscheint in der Schnellsuchleiste.";
