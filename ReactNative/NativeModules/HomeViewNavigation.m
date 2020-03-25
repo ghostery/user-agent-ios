@@ -11,6 +11,6 @@
 
 @interface RCT_EXTERN_MODULE(HomeViewNavigation, NSObject)
 
-RCT_EXTERN_METHOD(showDomainDetails:(nonnull NSString *)domain)
+RCT_EXTERN_METHOD(showDomainDetails:(nonnull NSString *)domain toolbarHeight:(nonnull NSNumber)toolbarHeight)
 
 @end

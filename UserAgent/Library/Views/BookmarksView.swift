@@ -11,6 +11,8 @@ import Storage
 import UIKit
 
 class BookmarksView: LibraryView {
+    private let toolbarHeight: CGFloat
+
     // MARK: - UX constants.
     private struct BookmarksPanelUX {
         static let IconBorderWidth: CGFloat = 0.5
@@ -28,9 +30,19 @@ class BookmarksView: LibraryView {
     private let BookmarkSeparatorCellIdentifier = "BookmarkSeparatorIdentifier"
     private let BookmarkFolderHeaderViewIdentifier = "BookmarkFolderHeaderIdentifier"
 
+    init(profile: Profile, toolbarHeight: CGFloat) {
+        self.toolbarHeight = toolbarHeight
+        super.init(profile: profile)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Initialization
     override func setup() {
         super.setup()
+        self.tableView.contentInset.bottom = self.toolbarHeight
         self.tableView.accessibilityIdentifier = Strings.Bookmarks.Title
         self.tableView.addGestureRecognizer(self.longPressRecognizer)
         self.loadData()
@@ -175,7 +187,7 @@ private extension BookmarksView {
             }
         } else {
             self.tableView.alwaysBounceVertical = true
-            self.tableView.tableFooterView = UIView()
+            self.tableView.tableFooterView = UIView(frame: .zero)
         }
     }
 

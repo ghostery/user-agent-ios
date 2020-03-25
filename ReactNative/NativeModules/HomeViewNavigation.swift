@@ -13,14 +13,15 @@ class HomeViewNavigation: NSObject, NativeModuleBase {
         return false
     }
 
-    @objc(showDomainDetails:)
-    func showDomainDetails(domain: NSString) {
+    @objc(showDomainDetails:toolbarHeight:)
+    func showDomainDetails(domain: NSString, toolbarHeight: NSNumber) {
         self.withAppDelegate { appDel in
             guard let navigation = appDel.browserViewController.homeViewController as? UINavigationController else {
                 return
             }
             let nestedController = BrowserCoreViewController("DomainDetails", withArgs: [
                 "domain": domain,
+                "toolbarHeight": toolbarHeight,
             ])
             nestedController.title = domain as String
             nestedController.navigationItem.backBarButtonItem?.title = ""

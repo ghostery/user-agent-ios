@@ -17,18 +17,22 @@ class HomeView: UIView, ReactViewTheme {
     private var isNewsImagesEnabled = true
     private var reactView: UIView?
     private var height: Int?
+    private var toolbarHeight: CGFloat
 
     override init(frame: CGRect) {
+        self.toolbarHeight = 0
         super.init(frame: frame)
     }
 
     convenience init(
+        toolbarHeight: CGFloat,
         speedDials: [Site],
         pinnedSites: [Site],
         isNewsEnabled: Bool,
         isNewsImagesEnabled: Bool
     ) {
         self.init(frame: .zero)
+        self.toolbarHeight = toolbarHeight
         self.pinnedSites = pinnedSites
         self.speedDials = speedDials
         self.isNewsEnabled = isNewsEnabled
@@ -63,6 +67,7 @@ class HomeView: UIView, ReactViewTheme {
                 "isNewsEnabled": self.isNewsEnabled,
                 "isNewsImagesEnabled": self.isNewsImagesEnabled,
                 "height": height,
+                "toolbarHeight": self.toolbarHeight,
             ]
         )
 

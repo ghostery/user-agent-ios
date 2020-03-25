@@ -20,8 +20,8 @@ class HomeViewNavigationController: UINavigationController {
         }
     }
 
-    init(profile: Profile) {
-        let homeViewController = HomeViewController(profile: profile)
+    init(profile: Profile, toolbarHeight: CGFloat) {
+        let homeViewController = HomeViewController(profile: profile, toolbarHeight: toolbarHeight)
         super.init(rootViewController: homeViewController)
         self.homeViewController = homeViewController
         self.setNavigationBarHidden(true, animated: false)
@@ -79,6 +79,7 @@ class HomeViewController: UIViewController {
     weak var homePanelDelegate: HomePanelDelegate?
 
     fileprivate let profile: Profile
+    fileprivate let toolbarHeight: CGFloat
 
     enum Segment: Int32 {
         case topSites = 0
@@ -114,24 +115,25 @@ class HomeViewController: UIViewController {
     private lazy var allViews: [UIView] = { return [topSitesView, bookmarksView, historyView] }()
 
     private lazy var topSitesView: TopSitesView = {
-        let topSitesView = TopSitesView(profile: self.profile)
+        let topSitesView = TopSitesView(profile: self.profile, toolbarHeight: self.toolbarHeight)
         return topSitesView
     }()
 
     private lazy var bookmarksView: BookmarksView = {
-        let bookmarksView = BookmarksView(profile: self.profile)
+        let bookmarksView = BookmarksView(profile: self.profile, toolbarHeight: self.toolbarHeight)
         bookmarksView.delegate = self
         return bookmarksView
     }()
 
     private lazy var historyView: HistoryView = {
-        let historyView = HistoryView(profile: self.profile)
+        let historyView = HistoryView(profile: self.profile, toolbarHeight: self.toolbarHeight)
         return historyView
     }()
 
     // MARK: - Initialization
-    init(profile: Profile) {
+    init(profile: Profile, toolbarHeight: CGFloat) {
         self.profile = profile
+        self.toolbarHeight = toolbarHeight
         super.init(nibName: nil, bundle: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: .NewsSettingsDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: .NewTabPageDefaultViewSettingsDidChange, object: nil)
@@ -210,17 +212,20 @@ private extension HomeViewController {
 
         topSitesView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
-            make.bottom.leading.trailing.equalTo(self.view)
+            make.bottom.left.right.equalTo(self.view)
+            make.bottom.bottom.equalTo(self.view)
         }
 
         bookmarksView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
-            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.left.right.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.bottom.equalTo(self.view)
         }
 
         historyView.snp.makeConstraints { make in
             make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
-            make.bottom.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.left.right.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.bottom.equalTo(self.view)
         }
 
     }

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import {
   NativeModules,
   ScrollView,
@@ -7,6 +7,7 @@ import {
   Image,
 } from 'react-native';
 import { parse } from 'tldts';
+import ToolbarArea from '../../components/ToolbarArea';
 import News from './components/News';
 import SpeedDialRow from './components/SpeedDialsRow';
 import UrlBar from './components/UrlBar';
@@ -68,6 +69,7 @@ export default function Home({
   isNewsEnabled,
   isNewsImagesEnabled,
   height,
+  toolbarHeight,
 }) {
   const [firstRow, secondRow] = useMemo(() => {
     const pinnedDomains = new Set([
@@ -106,13 +108,14 @@ export default function Home({
             <SpeedDialRow dials={secondRow} />
           </View>
         </View>
+        <ToolbarArea height={toolbarHeight} />
       </Background>
       {isNewsEnabled && (
         <View style={styles.newsWrapper}>
           <News newsModule={newsModule} isImagesEnabled={isNewsImagesEnabled} />
         </View>
       )}
-      <View style={styles.footer} />
+      <ToolbarArea height={toolbarHeight} />
     </ScrollView>
   );
 }

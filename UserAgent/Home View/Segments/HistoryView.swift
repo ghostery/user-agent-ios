@@ -12,7 +12,7 @@ import Storage
 
 class HistoryView: BaseReactHomeView {
     override func setup() {
-        let view = DomainsView()
+        let view = DomainsView(toolbarHeight: self.toolbarHeight)
 
         addSubview(view)
 
