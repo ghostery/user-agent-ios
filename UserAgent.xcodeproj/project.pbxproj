@@ -72,6 +72,10 @@
 		2B22E67B23F683A7000A39E6 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
 		2B2EA06A235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B2EA06B235F087100FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
+		2B308AC4242B2B4A009AF3D1 /* Siri.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B308ABD242B2B4A009AF3D1 /* Siri.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2B308ACB242B2B8F009AF3D1 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2B308ACA242B2B8F009AF3D1 /* Intents.intentdefinition */; };
+		2B308ACC242B2D55009AF3D1 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 2B308ACA242B2B8F009AF3D1 /* Intents.intentdefinition */; };
+		2B308AD0242B2DC1009AF3D1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B308ACE242B2DC1009AF3D1 /* IntentHandler.swift */; };
 		2B427C7223D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */; };
 		2B427C7323D6E76500BF1308 /* NewTabDefaulViewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */; };
 		2B473CED23952A2700442059 /* BloomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B473CEC23952A2700442059 /* BloomFilter.swift */; };
@@ -960,6 +964,13 @@
 			remoteGlobalIDString = 2B0E93672407A92300ED7703;
 			remoteInfo = Today;
 		};
+		2B308AC2242B2B4A009AF3D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B308ABC242B2B4A009AF3D1;
+			remoteInfo = Siri;
+		};
 		2BD02D3923BA337A001539F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -1150,6 +1161,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				F84B22541A0920C600AAB793 /* ShareTo.appex in Embed App Extensions */,
+				2B308AC4242B2B4A009AF3D1 /* Siri.appex in Embed App Extensions */,
 				2B0E93732407A92300ED7703 /* Today.appex in Embed App Extensions */,
 				2BE258DF23BA2B4A0022ED28 /* OpenIn.appex in Embed App Extensions */,
 			);
@@ -1221,6 +1233,10 @@
 		2B0E936B2407A92300ED7703 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		2B0E93702407A92300ED7703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Tracking+Whitelist.swift"; sourceTree = "<group>"; };
+		2B308ABD242B2B4A009AF3D1 /* Siri.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Siri.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B308ACA242B2B8F009AF3D1 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		2B308ACE242B2DC1009AF3D1 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		2B308ACF242B2DC1009AF3D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabDefaulViewSettingsViewController.swift; sourceTree = "<group>"; };
 		2B473CEC23952A2700442059 /* BloomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomFilter.swift; sourceTree = "<group>"; };
 		2B473CF0239637DE00442059 /* UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCases.swift; sourceTree = "<group>"; };
@@ -1966,6 +1982,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2B308ABA242B2B4A009AF3D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BE258D023BA2B4A0022ED28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2233,6 +2256,15 @@
 				4667B0972421266B001A4197 /* Today.strings */,
 			);
 			path = Today;
+			sourceTree = "<group>";
+		};
+		2B308ACD242B2DC1009AF3D1 /* Siri */ = {
+			isa = PBXGroup;
+			children = (
+				2B308ACE242B2DC1009AF3D1 /* IntentHandler.swift */,
+				2B308ACF242B2DC1009AF3D1 /* Info.plist */,
+			);
+			path = Siri;
 			sourceTree = "<group>";
 		};
 		2B473CEF239637D000442059 /* UseCases */ = {
@@ -3036,6 +3068,7 @@
 				ACC6EC492327F4B6000F5499 /* Colors.swift */,
 				ACC6EC5E232945FF000F5499 /* colors.xcassets */,
 				461E5E5A234F68A7004DDE84 /* brand.strings */,
+				2B308ACA242B2B8F009AF3D1 /* Intents.intentdefinition */,
 			);
 			path = Cliqz;
 			sourceTree = "<group>";
@@ -3645,6 +3678,7 @@
 				049DBAD623E4587B00D2D38D /* Widgets.framework */,
 				049DBADE23E4587B00D2D38D /* WidgetsTests.xctest */,
 				2B0E93682407A92300ED7703 /* Today.appex */,
+				2B308ABD242B2B4A009AF3D1 /* Siri.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3787,6 +3821,7 @@
 		F8708D1E1A0970990051AB07 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2B308ACD242B2DC1009AF3D1 /* Siri */,
 				2B0E936A2407A92300ED7703 /* Today */,
 				F8708D241A0970990051AB07 /* ShareTo */,
 				2BE2586E23BA0C800022ED28 /* OpenIn */,
@@ -3896,6 +3931,23 @@
 			name = Today;
 			productName = Today;
 			productReference = 2B0E93682407A92300ED7703 /* Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		2B308ABC242B2B4A009AF3D1 /* Siri */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B308AC9242B2B4A009AF3D1 /* Build configuration list for PBXNativeTarget "Siri" */;
+			buildPhases = (
+				2B308AB9242B2B4A009AF3D1 /* Sources */,
+				2B308ABA242B2B4A009AF3D1 /* Frameworks */,
+				2B308ABB242B2B4A009AF3D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Siri;
+			productName = Siri;
+			productReference = 2B308ABD242B2B4A009AF3D1 /* Siri.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		2BE258D223BA2B4A0022ED28 /* OpenIn */ = {
@@ -4069,6 +4121,7 @@
 				2BE258DE23BA2B4A0022ED28 /* PBXTargetDependency */,
 				049DBB0B23E45C4500D2D38D /* PBXTargetDependency */,
 				2B0E93722407A92300ED7703 /* PBXTargetDependency */,
+				2B308AC3242B2B4A009AF3D1 /* PBXTargetDependency */,
 			);
 			name = Cliqz;
 			productName = Client;
@@ -4147,6 +4200,11 @@
 						CreatedOnToolsVersion = 11.3.1;
 						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1130;
+						ProvisioningStyle = Automatic;
+					};
+					2B308ABC242B2B4A009AF3D1 = {
+						CreatedOnToolsVersion = 11.3.1;
+						DevelopmentTeam = 2UYYSSHVUH;
 						ProvisioningStyle = Automatic;
 					};
 					2BE258D223BA2B4A0022ED28 = {
@@ -4264,6 +4322,7 @@
 				F84B22481A0920C600AAB793 /* ShareTo */,
 				2BE258D223BA2B4A0022ED28 /* OpenIn */,
 				2B0E93672407A92300ED7703 /* Today */,
+				2B308ABC242B2B4A009AF3D1 /* Siri */,
 				288A2D851AB8B3260023ABC3 /* Shared */,
 				2FCAE2191ABB51F800877008 /* Storage */,
 				049DBAD523E4587B00D2D38D /* Widgets */,
@@ -4305,6 +4364,13 @@
 			files = (
 				4667B0952421266B001A4197 /* Today.strings in Resources */,
 				4667B08724210109001A4197 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B308ABB242B2B4A009AF3D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5217,6 +5283,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2B308AB9242B2B4A009AF3D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B308AD0242B2DC1009AF3D1 /* IntentHandler.swift in Sources */,
+				2B308ACC242B2D55009AF3D1 /* Intents.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2BE258CF23BA2B4A0022ED28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5651,6 +5726,7 @@
 				E692E3371C46E86A009D1240 /* AppSettingsOptions.swift in Sources */,
 				2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
 				E4CD9F6D1A77DD2800318571 /* ReaderModeStyleViewController.swift in Sources */,
+				2B308ACB242B2B8F009AF3D1 /* Intents.intentdefinition in Sources */,
 				2B4DFF2823CF18BF001145AF /* OpenLinkUseCases.swift in Sources */,
 				D0FCF7F51FE45842004A7995 /* UserScriptManager.swift in Sources */,
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
@@ -5990,6 +6066,11 @@
 			isa = PBXTargetDependency;
 			target = 2B0E93672407A92300ED7703 /* Today */;
 			targetProxy = 2B0E93712407A92300ED7703 /* PBXContainerItemProxy */;
+		};
+		2B308AC3242B2B4A009AF3D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B308ABC242B2B4A009AF3D1 /* Siri */;
+			targetProxy = 2B308AC2242B2B4A009AF3D1 /* PBXContainerItemProxy */;
 		};
 		2BD02D3A23BA337A001539F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -6725,6 +6806,115 @@
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Today";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = CI;
+		};
+		2B308AC5242B2B4A009AF3D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Extensions/Siri/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.debug.Siri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B308AC6242B2B4A009AF3D1 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/Siri/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.debug.Siri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Adhoc;
+		};
+		2B308AC7242B2B4A009AF3D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/Siri/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.debug.Siri;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2B308AC8242B2B4A009AF3D1 /* CI */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2UYYSSHVUH;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Extensions/Siri/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cliqz.debug.Siri;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -8551,6 +8741,17 @@
 				2B0E93752407A92300ED7703 /* Adhoc */,
 				2B0E93762407A92300ED7703 /* Release */,
 				2B0E93772407A92300ED7703 /* CI */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B308AC9242B2B4A009AF3D1 /* Build configuration list for PBXNativeTarget "Siri" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B308AC5242B2B4A009AF3D1 /* Debug */,
+				2B308AC6242B2B4A009AF3D1 /* Adhoc */,
+				2B308AC7242B2B4A009AF3D1 /* Release */,
+				2B308AC8242B2B4A009AF3D1 /* CI */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

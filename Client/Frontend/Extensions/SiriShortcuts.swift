@@ -9,31 +9,45 @@ import Shared
 
 @available(iOS 12.0, *)
 class SiriShortcuts {
-    enum activityType: String {
-        case openURL = "org.mozilla.ios.Firefox.newTab"
+    enum ActivityType: String {
+        case openURL = "org.cliqz.newTab"
+        case searchWithQliqz = "org.cliqz.searchWithQliqz"
     }
 
-    func getActivity(for type: activityType) -> NSUserActivity? {
+    func getActivity(for type: ActivityType) -> NSUserActivity? {
         switch type {
         case .openURL:
             return openUrlActivity
+        default:
+            return nil
         }
     }
 
     private var openUrlActivity: NSUserActivity? = {
-        let activity = NSUserActivity(activityType: activityType.openURL.rawValue)
+        let activity = NSUserActivity(activityType: ActivityType.openURL.rawValue)
         activity.title = Strings.Settings.Siri.OpenURL
         activity.isEligibleForPrediction = true
         activity.suggestedInvocationPhrase = Strings.Settings.Siri.OpenURL
-        activity.persistentIdentifier = NSUserActivityPersistentIdentifier(activityType.openURL.rawValue)
+        activity.persistentIdentifier = NSUserActivityPersistentIdentifier(ActivityType.openURL.rawValue)
         return activity
     }()
 
-    static func displayAddToSiri(for activityType: activityType, in viewController: UIViewController) {
-        guard let activity = SiriShortcuts().getActivity(for: activityType) else {
-            return
+    static func displayAddToSiri(for activityType: ActivityType, in viewController: UIViewController) {
+        let shortcut: INShortcut
+        switch activityType {
+        case .openURL:
+            guard let activity = SiriShortcuts().getActivity(for: activityType) else {
+                return
+            }
+            shortcut = INShortcut(userActivity: activity)
+        case .searchWithQliqz:
+            let intent = SearchWithQliqzIntent()
+            intent.suggestedInvocationPhrase = Strings.Settings.Siri.SearchWithQliqz
+            guard let intentShortcut = INShortcut(intent: intent) else {
+                return
+            }
+            shortcut = intentShortcut
         }
-        let shortcut = INShortcut(userActivity: activity)
         let addViewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
         addViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         addViewController.delegate = viewController as? INUIAddVoiceShortcutViewControllerDelegate
@@ -47,7 +61,7 @@ class SiriShortcuts {
         viewController.present(editViewController, animated: true, completion: nil)
     }
 
-    static func manageSiri(for activityType: SiriShortcuts.activityType, in viewController: UIViewController) {
+    static func manageSiri(for activityType: SiriShortcuts.ActivityType, in viewController: UIViewController) {
         INVoiceShortcutCenter.shared.getAllVoiceShortcuts { (voiceShortcuts, error) in
             DispatchQueue.main.async {
                 guard let voiceShortcuts = voiceShortcuts else { return }
