@@ -420,12 +420,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         let bvc = BrowserViewController.foregroundBVC()
-        if #available(iOS 12.0, *), let activityType = SiriShortcuts.ActivityType(rawValue: userActivity.activityType) {
+        if #available(iOS 12.0, *), let activityType = SiriActivityTypes(rawValue: userActivity.activityType) {
             switch activityType {
             case .openURL:
                 bvc.openBlankNewTab(focusLocationField: false)
                 return true
-            case .searchWithQliqz:
+            case .searchWith:
                 let query = userActivity.userInfo?["query"] as? String
                 bvc.showSearchInNewTab(query: query)
                 return true

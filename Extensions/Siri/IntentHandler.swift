@@ -13,44 +13,10 @@ class IntentHandler: INExtension {
     override func handler(for intent: INIntent) -> Any {
         // This is the default implementation.  If you want different objects to handle different intents,
         // you can override this and return the handler you want for that particular intent.
-        if intent is SearchWithQliqzIntent {
-            return SearchWithQliqzHandling()
+        if intent is SearchWithIntent {
+            return SearchWithHandling()
         }
         return self
-    }
-
-}
-
-class SearchWithQliqzHandling: NSObject, SearchWithQliqzIntentHandling {
-
-    func resolveQuery(for intent: SearchWithQliqzIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
-        print(intent.query ?? "Empty")
-        guard let query = intent.query, !query.isEmpty else {
-            completion(INStringResolutionResult.needsValue())
-            return
-        }
-        print(query)
-        completion(.success(with: query))
-    }
-
-    func handle(intent: SearchWithQliqzIntent, completion: @escaping (SearchWithQliqzIntentResponse) -> Void) {
-        print(intent.query ?? "Empty handle")
-        guard let query = intent.query, !query.isEmpty else {
-            completion(.init(code: .unspecified, userActivity: nil))
-            return
-        }
-        let activity = NSUserActivity(activityType: "org.cliqz.searchWithQliqz")
-        activity.userInfo = ["query": query]
-        completion(SearchWithQliqzIntentResponse(code: .continueInApp, userActivity: activity))
-    }
-
-    func confirm(intent: SearchWithQliqzIntent, completion: @escaping (SearchWithQliqzIntentResponse) -> Void) {
-        print(intent.query ?? "Empty confirm")
-        guard let query = intent.query, !query.isEmpty else {
-            completion(.init(code: .failure, userActivity: nil))
-            return
-        }
-        completion(.init(code: .success, userActivity: nil))
     }
 
 }

@@ -77,7 +77,7 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>$(USER_ACTIVITY_TYPES)</string>
-		<string>SearchWithQliqzIntent</string>
+		<string>SearchWithIntent</string>
 	</array>
 	<key>SentryDSN</key>
 	<string>$(SENTRY_DSN)</string>

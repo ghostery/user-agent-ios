@@ -43,7 +43,7 @@ class SiriOpenURLSetting: Setting {
 
     override func onClick(_ navigationController: UINavigationController?) {
         if let vc = navigationController?.topViewController {
-            SiriShortcuts.manageSiri(for: SiriShortcuts.ActivityType.openURL, in: vc)
+            SiriShortcuts.manageSiri(for: SiriActivityTypes.openURL, in: vc)
         }
     }
 }
@@ -55,12 +55,12 @@ class SiriSearchWithQliqzSetting: Setting {
     override var accessibilityIdentifier: String? { return "SiriSearchWithQliqzSetting" }
 
     init(settings: SettingsTableViewController) {
-        super.init(title: NSAttributedString(string: Strings.Settings.Siri.SearchWithQliqz, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.Siri.SearchWith + AppInfo.displayName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
         if let vc = navigationController?.topViewController {
-            SiriShortcuts.manageSiri(for: SiriShortcuts.ActivityType.searchWithQliqz, in: vc)
+            SiriShortcuts.manageSiri(for: SiriActivityTypes.searchWith, in: vc)
         }
     }
 }
