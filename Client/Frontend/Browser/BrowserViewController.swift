@@ -1144,6 +1144,7 @@ class BrowserViewController: UIViewController {
         guard let currentViewController = navigationController?.topViewController else {
                 return
         }
+        self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
         currentViewController.dismiss(animated: true, completion: nil)
         if currentViewController != self {
             _ = self.navigationController?.popViewController(animated: true)

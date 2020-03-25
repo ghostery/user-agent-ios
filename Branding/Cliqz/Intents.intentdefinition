@@ -27,10 +27,6 @@
 			<string>nChTLr</string>
 			<key>INIntentIneligibleForSuggestions</key>
 			<true/>
-			<key>INIntentInput</key>
-			<string>query</string>
-			<key>INIntentKeyParameter</key>
-			<string>query</string>
 			<key>INIntentLastParameterTag</key>
 			<integer>1</integer>
 			<key>INIntentManagedParameterCombinations</key>
@@ -40,7 +36,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Search With Cliqz ${query}</string>
+					<string>Search With Cliqz</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>WogcPW</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
