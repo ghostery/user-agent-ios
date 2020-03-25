@@ -747,10 +747,16 @@ class BrowserViewController: UIViewController {
         homeViewController?.view.snp.remakeConstraints { make in
             make.top.equalTo(self.urlBar.snp.bottom)
             make.left.right.equalTo(self.view)
+//            if self.homePanelIsInline {
+//                make.bottom.equalTo(self.toolbar?.snp.top ?? self.view.snp.bottom)
+//            } else {
+//                make.bottom.equalTo(self.view.snp.bottom)
+//            }
+            make.bottom.equalTo(self.view.snp.bottom)
             if self.homePanelIsInline {
-                make.bottom.equalTo(self.toolbar?.snp.top ?? self.view.snp.bottom)
+                self.view.bringSubviewToFront(self.footer)
             } else {
-                make.bottom.equalTo(self.view.snp.bottom)
+                self.view.sendSubviewToBack(self.footer)
             }
         }
 

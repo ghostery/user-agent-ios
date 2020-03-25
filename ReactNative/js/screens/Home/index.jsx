@@ -56,6 +56,9 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     width: '100%',
   },
+  footer: {
+    height: 80,
+  },
 });
 
 export default function Home({
@@ -109,6 +112,7 @@ export default function Home({
           <News newsModule={newsModule} isImagesEnabled={isNewsImagesEnabled} />
         </View>
       )}
+      <View style={styles.footer} />
     </ScrollView>
   );
 }
