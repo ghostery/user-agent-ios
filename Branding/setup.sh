@@ -73,3 +73,11 @@ mkdir -p ${TODAY_PATH}/en.lproj
 cp -rf ${BRAND_PATH}/InfoPlists/Today/de.lproj/InfoPlist.strings ${TODAY_PATH}/de.lproj/InfoPlist.strings
 cp -rf ${BRAND_PATH}/InfoPlists/Today/en.lproj/InfoPlist.strings ${TODAY_PATH}/en.lproj/InfoPlist.strings
 
+# Siri folder path
+SIRI_PATH=${PROJECTPATH}/Extensions/Siri
+
+# Replacing Siri localizations according target
+mkdir -p ${SIRI_PATH}/de.lproj
+mkdir -p ${SIRI_PATH}/en.lproj
+cp -rf ${BRAND_PATH}/Siri/de.lproj/Intents.strings ${SIRI_PATH}/de.lproj/Intents.strings
+cp -rf ${BRAND_PATH}/Siri/en.lproj/Intents.strings ${SIRI_PATH}/en.lproj/Intents.strings
