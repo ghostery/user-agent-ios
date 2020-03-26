@@ -31,7 +31,7 @@ const getStyle = (theme: {
     borderBottomColor: 'black',
     borderBottomWidth: 0,
     justifyContent: 'center',
-    paddingHorizontal: 7,
+    paddingHorizontal: 8,
     paddingVertical: 3,
     alignItems: 'stretch',
   },

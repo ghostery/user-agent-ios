@@ -1,5 +1,6 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo } from 'react';
 import {
+  Dimensions,
   NativeModules,
   ScrollView,
   StyleSheet,
@@ -15,52 +16,55 @@ import Background from './components/Background';
 
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-  container: {
-    marginTop: 0,
-  },
-  contentContainer: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
-  wrapper: {
-    flex: 1,
-    width: 414,
-    alignSelf: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-  },
-  newsWrapper: {
-    flex: 1,
-    width: 414,
-    alignSelf: 'center',
-    flexDirection: 'column',
-  },
-  speedDialsContainer: {
-    marginBottom: 25,
-    width: '100%',
-  },
-  logoWrapper: {
-    marginTop: 40 - 8,
-    marginBottom: 30,
-    width: '100%',
-  },
-  logo: {
-    height: 65,
-  },
-  urlBarWrapper: {
-    paddingHorizontal: 10,
-    marginBottom: 30,
-    width: '100%',
-  },
-  footer: {
-    height: 80,
-  },
-});
+const getStyles = () =>
+  StyleSheet.create({
+    safeArea: {
+      flex: 1,
+    },
+    container: {
+      marginTop: 0,
+    },
+    contentContainer: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
+    },
+    wrapper: {
+      flex: 1,
+      maxWidth: 414,
+      alignSelf: 'center',
+      flexDirection: 'column',
+      justifyContent: 'space-evenly',
+    },
+    newsWrapper: {
+      flex: 1,
+      width: Math.min(
+        Dimensions.get('window').width,
+        Dimensions.get('window').height,
+      ),
+      alignSelf: 'center',
+      paddingHorizontal: 20,
+    },
+    speedDialsContainer: {
+      marginBottom: 25,
+      width: '100%',
+    },
+    logoWrapper: {
+      marginTop: 40 - 8,
+      marginBottom: 30,
+    },
+    logo: {
+      height: 65,
+    },
+    urlBarWrapper: {
+      paddingHorizontal: 10,
+      marginBottom: 30,
+      width: '100%',
+    },
+    footer: {
+      height: 80,
+    },
+  });
 
 export default function Home({
   speedDials,
@@ -71,6 +75,7 @@ export default function Home({
   height,
   toolbarHeight,
 }) {
+  const styles = getStyles();
   const [firstRow, secondRow] = useMemo(() => {
     const pinnedDomains = new Set([
       ...pinnedSites.map(s => parse(s.url).domain),

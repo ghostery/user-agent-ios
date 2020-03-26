@@ -21,9 +21,6 @@ const getStyles = theme =>
       marginBottom: 10,
     },
     item: {
-      marginLeft: 20,
-      marginRight: 20,
-      marginTop: 0,
       marginBottom: 20,
     },
     separator: {
