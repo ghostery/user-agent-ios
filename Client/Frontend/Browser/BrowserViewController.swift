@@ -1132,10 +1132,22 @@ class BrowserViewController: UIViewController {
         }
     }
 
+    func showSearchInNewTab(query: String?) {
+        popToBVC()
+        var isPrivate = false
+        if let selectedTab = self.tabManager.selectedTab {
+            self.screenshotHelper.takeScreenshot(selectedTab)
+            isPrivate = selectedTab.isPrivate
+        }
+        self.tabManager.selectTab(self.tabManager.addTab(isPrivate: isPrivate))
+        self.urlBar.enterOverlayMode(query, pasted: true, search: true)
+    }
+
     fileprivate func popToBVC() {
         guard let currentViewController = navigationController?.topViewController else {
                 return
         }
+        self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
         currentViewController.dismiss(animated: true, completion: nil)
         if currentViewController != self {
             _ = self.navigationController?.popViewController(animated: true)
