@@ -61,6 +61,9 @@ extension BrowserViewController {
             view.insertSubview(readerModeBar, belowSubview: header)
             self.readerModeBar = readerModeBar
             scrollController.readerModeBar = self.readerModeBar
+            if let refreshControl = self.tabManager.selectedTab?.refreshControl {
+                self.view.bringSubviewToFront(refreshControl)
+            }
         }
 
         updateReaderModeBar()

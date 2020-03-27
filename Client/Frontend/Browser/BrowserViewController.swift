@@ -373,6 +373,8 @@ class BrowserViewController: UIViewController {
         // set things up. Make sure to only update the toolbar state if the view is ready for it.
         if isViewLoaded {
             updateToolbarStateForTraitCollection(newCollection, withTransitionCoordinator: coordinator)
+            self.homePanelIsInline = self.shouldShowFooterForTraitCollection(newCollection)
+            self.updateViewConstraints()
         }
 
         displayedPopoverController?.dismiss(animated: true, completion: nil)
@@ -443,6 +445,7 @@ class BrowserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.homePanelIsInline = self.shouldShowFooterForTraitCollection(self.traitCollection)
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActiveNotification), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActiveNotification), name: UIApplication.didBecomeActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackgroundNotification), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -1513,6 +1516,8 @@ extension BrowserViewController: URLBarDelegate {
     func urlBarDidLeaveOverlayMode(_ urlBar: URLBarView) {
         destroySearchController()
         updateInContentHomePanel(tabManager.selectedTab?.url as URL?)
+        self.homePanelIsInline = self.shouldShowFooterForTraitCollection(self.traitCollection)
+        self.updateViewConstraints()
     }
 
     func urlBarDidBeginDragInteraction(_ urlBar: URLBarView) {
