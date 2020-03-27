@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useCallback, useState } from 'react';
 import {
   Dimensions,
   NativeModules,
@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
   Image,
+  findNodeHandle,
 } from 'react-native';
 import { parse } from 'tldts';
 import ToolbarArea from '../../components/ToolbarArea';
@@ -13,11 +14,17 @@ import News from './components/News';
 import SpeedDialRow from './components/SpeedDialsRow';
 import UrlBar from './components/UrlBar';
 import Background from './components/Background';
+import NewsToolbar from './components/NewsToolbar';
 
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
-const getStyles = () =>
-  StyleSheet.create({
+const getStyles = () => {
+  const maxWidth = Math.min(
+    Dimensions.get('window').width,
+    Dimensions.get('window').height,
+  );
+
+  return StyleSheet.create({
     safeArea: {
       flex: 1,
     },
@@ -36,12 +43,15 @@ const getStyles = () =>
       flexDirection: 'column',
       justifyContent: 'space-evenly',
     },
+    newsToolbarWrapper: {
+      width: maxWidth,
+      paddingHorizontal: 20,
+      marginBottom: 20,
+      alignSelf: 'center',
+    },
     newsWrapper: {
       flex: 1,
-      width: Math.min(
-        Dimensions.get('window').width,
-        Dimensions.get('window').height,
-      ),
+      width: maxWidth,
       alignSelf: 'center',
       paddingHorizontal: 20,
     },
@@ -65,6 +75,7 @@ const getStyles = () =>
       height: 80,
     },
   });
+};
 
 export default function Home({
   speedDials,
@@ -75,6 +86,9 @@ export default function Home({
   height,
   toolbarHeight,
 }) {
+  const [showNewsToolbar, setShowNewsToolbar] = useState(true);
+  const scrollViewElement = useRef(null);
+  const newsElement = useRef(null);
   const styles = getStyles();
   const [firstRow, secondRow] = useMemo(() => {
     const pinnedDomains = new Set([
@@ -87,8 +101,23 @@ export default function Home({
     return [dials.slice(0, 4), dials.slice(4, 8)];
   }, [pinnedSites, speedDials]);
 
+  const scrollToNews = useCallback(() => {
+    if (!scrollViewElement.current || !newsElement.current) {
+      return;
+    }
+    scrollViewElement.current.scrollTo({ x: 0, y: 100 });
+    newsElement.current.measureLayout(
+      findNodeHandle(scrollViewElement.current),
+      (x, y) => {
+        scrollViewElement.current.scrollTo({ x, y });
+      },
+    );
+    setShowNewsToolbar(false);
+  }, [scrollViewElement]);
+
   return (
     <ScrollView
+      ref={scrollViewElement}
       style={styles.container}
       onScroll={hideKeyboard}
       scrollEventThrottle={1}
@@ -113,10 +142,14 @@ export default function Home({
             <SpeedDialRow dials={secondRow} />
           </View>
         </View>
+
+        <View style={styles.newsToolbarWrapper}>
+          {showNewsToolbar && <NewsToolbar scrollToNews={scrollToNews} />}
+        </View>
         <ToolbarArea height={toolbarHeight} />
       </Background>
       {isNewsEnabled && (
-        <View style={styles.newsWrapper}>
+        <View style={styles.newsWrapper} ref={newsElement}>
           <News newsModule={newsModule} isImagesEnabled={isNewsImagesEnabled} />
         </View>
       )}

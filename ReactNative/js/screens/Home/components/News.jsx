@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image,
   TouchableWithoutFeedback,
+  Text,
 } from 'react-native';
 import ListItem from '../../../components/ListItem';
 import ThemeContext from '../../../contexts/theme';
@@ -17,8 +18,10 @@ const getStyles = theme =>
       paddingTop: 30,
     },
     image: {
-      height: 200,
-      marginBottom: 10,
+      height: 100,
+      width: 150,
+      flexShrink: 0,
+      marginLeft: 10,
     },
     item: {
       marginBottom: 20,
@@ -27,6 +30,16 @@ const getStyles = theme =>
       marginTop: 20,
       backgroundColor: theme.separatorColor,
       height: 1,
+    },
+    description: {
+      flex: 1,
+      color: theme.textColor,
+      fontSize: 12,
+    },
+    secondRow: {
+      marginTop: 5,
+      flex: 1,
+      flexDirection: 'row',
     },
   });
 
@@ -53,7 +66,7 @@ const useNews = newsModule => {
   return data;
 };
 
-const HiddableImage = (props) => {
+const HiddableImage = props => {
   const { style, source } = props;
   const [isHidden, setHidden] = useState(false, [source]);
   const hide = useCallback(() => setHidden(true), [setHidden]);
@@ -62,9 +75,17 @@ const HiddableImage = (props) => {
     [isHidden],
   );
   return (
-    <Image {...props} style={[style, hiddenStyle]} source={{ uri: source }} onError={hide} />
+    <Image
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+      style={[style, hiddenStyle]}
+      source={{ uri: source }}
+      onError={hide}
+    />
   );
 };
+
+const noop = () => {};
 
 export default function News({ newsModule, isImagesEnabled }) {
   const theme = useContext(ThemeContext);
@@ -75,7 +96,6 @@ export default function News({ newsModule, isImagesEnabled }) {
   if (news.length === 0) {
     return null;
   }
-
   /* eslint-disable prettier/prettier */
   return (
     <View style={styles.container}>
@@ -85,20 +105,25 @@ export default function News({ newsModule, isImagesEnabled }) {
           style={styles.item}
           key={item.url}
         >
-          {isImagesEnabled && item.imageUrl &&
-            <TouchableWithoutFeedback
-              onPress={() => openLink(item.url)}
-            >
-              <HiddableImage style={styles.image} source={item.imageUrl} />
-            </TouchableWithoutFeedback>
-          }
-          <ListItem
-            url={item.url}
-            title={item.title}
-            displayUrl={item.domain}
-            label={item.breaking_label ? NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel'] : null}
-            onPress={() => openLink(item.url)}
-          />
+          <TouchableWithoutFeedback onPress={() => openLink(item.url)}>
+            <View>
+              <ListItem
+                url={item.url}
+                title={item.title}
+                displayUrl={item.domain}
+                label={item.breaking_label ? NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel'] : null}
+                onPress={noop}
+              />
+              <View style={styles.secondRow}>
+                <Text style={styles.description} allowFontScaling={false}>
+                  {item.description}
+                </Text>
+                {isImagesEnabled && item.imageUrl &&
+                  <HiddableImage style={styles.image} source={item.imageUrl} />
+                }
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
           <View style={styles.separator} />
         </View>
       ))}
