@@ -130,7 +130,7 @@ class CliqzRefreshControl: UIView {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard self.isEnabled else {
+        guard self.isEnabled && !(self.scrollView?.isZooming ?? true) else {
             return
         }
         guard let scrollView = self.scrollView, scrollView.contentOffset.y <= 0 else {
