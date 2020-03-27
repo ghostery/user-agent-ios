@@ -13,10 +13,9 @@ const getStyles = theme => ({
     alignItems: 'center',
   },
   circle: {
-    borderColor: theme.separatorColor,
-    borderWidth: 1,
     padding: 20,
     borderRadius: 60,
+    backgroundColor: '#ffffff30',
   },
   label: {
     marginTop: 5,
@@ -37,7 +36,7 @@ const getStyles = theme => ({
   pinIcon: {
     width: 12,
     height: 12,
-    color: theme.textColor,
+    color: '#ffffff',
   },
 });
 
