@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default () => {
+export default ({ scrollToNews }: { scrollToNews: any }) => {
   return (
     <View style={styles.wrapper}>
-      <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={scrollToNews}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>News</Text>
           <NativeDrawable

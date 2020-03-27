@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useCallback, useState } from 'react';
 import {
   Dimensions,
   NativeModules,
@@ -6,6 +6,7 @@ import {
   StyleSheet,
   View,
   Image,
+  findNodeHandle,
 } from 'react-native';
 import { parse } from 'tldts';
 import ToolbarArea from '../../components/ToolbarArea';
@@ -85,6 +86,9 @@ export default function Home({
   height,
   toolbarHeight,
 }) {
+  const [showNewsToolbar, setShowNewsToolbar] = useState(true);
+  const scrollViewElement = useRef(null);
+  const newsElement = useRef(null);
   const styles = getStyles();
   const [firstRow, secondRow] = useMemo(() => {
     const pinnedDomains = new Set([
@@ -97,8 +101,23 @@ export default function Home({
     return [dials.slice(0, 4), dials.slice(4, 8)];
   }, [pinnedSites, speedDials]);
 
+  const scrollToNews = useCallback(() => {
+    if (!scrollViewElement.current || !newsElement.current) {
+      return;
+    }
+    scrollViewElement.current.scrollTo({ x: 0, y: 100 });
+    newsElement.current.measureLayout(
+      findNodeHandle(scrollViewElement.current),
+      (x, y) => {
+        scrollViewElement.current.scrollTo({ x, y });
+      },
+    );
+    setShowNewsToolbar(false);
+  }, [scrollViewElement]);
+
   return (
     <ScrollView
+      ref={scrollViewElement}
       style={styles.container}
       onScroll={hideKeyboard}
       scrollEventThrottle={1}
@@ -125,12 +144,12 @@ export default function Home({
         </View>
 
         <View style={styles.newsToolbarWrapper}>
-          <NewsToolbar />
+          {showNewsToolbar && <NewsToolbar scrollToNews={scrollToNews} />}
         </View>
         <ToolbarArea height={toolbarHeight} />
       </Background>
       {isNewsEnabled && (
-        <View style={styles.newsWrapper}>
+        <View style={styles.newsWrapper} ref={newsElement}>
           <News newsModule={newsModule} isImagesEnabled={isNewsImagesEnabled} />
         </View>
       )}
