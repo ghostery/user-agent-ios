@@ -13,11 +13,17 @@ import News from './components/News';
 import SpeedDialRow from './components/SpeedDialsRow';
 import UrlBar from './components/UrlBar';
 import Background from './components/Background';
+import NewsToolbar from './components/NewsToolbar';
 
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
-const getStyles = () =>
-  StyleSheet.create({
+const getStyles = () => {
+  const maxWidth = Math.min(
+    Dimensions.get('window').width,
+    Dimensions.get('window').height,
+  );
+
+  return StyleSheet.create({
     safeArea: {
       flex: 1,
     },
@@ -36,12 +42,15 @@ const getStyles = () =>
       flexDirection: 'column',
       justifyContent: 'space-evenly',
     },
+    newsToolbarWrapper: {
+      width: maxWidth,
+      paddingHorizontal: 20,
+      marginBottom: 20,
+      alignSelf: 'center',
+    },
     newsWrapper: {
       flex: 1,
-      width: Math.min(
-        Dimensions.get('window').width,
-        Dimensions.get('window').height,
-      ),
+      width: maxWidth,
       alignSelf: 'center',
       paddingHorizontal: 20,
     },
@@ -65,6 +74,7 @@ const getStyles = () =>
       height: 80,
     },
   });
+};
 
 export default function Home({
   speedDials,
@@ -112,6 +122,10 @@ export default function Home({
             <SpeedDialRow dials={firstRow} />
             <SpeedDialRow dials={secondRow} />
           </View>
+        </View>
+
+        <View style={styles.newsToolbarWrapper}>
+          <NewsToolbar />
         </View>
         <ToolbarArea height={toolbarHeight} />
       </Background>
