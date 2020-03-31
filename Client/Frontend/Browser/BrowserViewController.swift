@@ -777,7 +777,9 @@ class BrowserViewController: UIViewController {
     fileprivate func showUserAgentHome(inline: Bool) {
         homePanelIsInline = inline
         if self.homeViewController == nil {
-            let homeViewController = HomeViewNavigationController(profile: profile, toolbarHeight: self.toolbar?.bounds.height ?? 80)
+            let homeViewController = HomeViewNavigationController(
+                profile: profile,
+                toolbarHeight: self.traitCollection.horizontalSizeClass == .compact ? UIConstants.BottomToolbarHeight : 0)
             homeViewController.homePanelDelegate = self
             homeViewController.view.alpha = 0.0
             self.homeViewController = homeViewController
