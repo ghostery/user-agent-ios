@@ -1,0 +1,16 @@
+{
+  "images" : [
+    {
+      "filename" : "mobile-bg-vignette.png",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "mobile-bg-vignette-ipad.png",
+      "idiom" : "ipad"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

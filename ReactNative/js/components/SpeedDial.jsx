@@ -15,7 +15,7 @@ const getStyles = theme => ({
   circle: {
     padding: 20,
     borderRadius: 60,
-    backgroundColor: '#ffffff30',
+    backgroundColor: '#ffffff50',
   },
   label: {
     marginTop: 5,
