@@ -122,6 +122,7 @@ export default function Home({
       onScroll={hideKeyboard}
       scrollEventThrottle={1}
       contentContainerStyle={styles.contentContainer}
+      scrollEnabled={isNewsEnabled}
     >
       <Background height={height}>
         <View style={styles.wrapper}>
@@ -143,9 +144,11 @@ export default function Home({
           </View>
         </View>
 
-        <View style={styles.newsToolbarWrapper}>
-          {showNewsToolbar && <NewsToolbar scrollToNews={scrollToNews} />}
-        </View>
+        {isNewsEnabled && (
+          <View style={styles.newsToolbarWrapper}>
+            {showNewsToolbar && <NewsToolbar scrollToNews={scrollToNews} />}
+          </View>
+        )}
         <ToolbarArea height={toolbarHeight} />
       </Background>
       {isNewsEnabled && (
