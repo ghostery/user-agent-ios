@@ -61,7 +61,6 @@ class BrowserViewController: UIViewController {
     fileprivate(set) var toolbar: TabToolbar?
     var searchController: SearchResultsViewController?
     var screenshotHelper: ScreenshotHelper!
-    fileprivate var homePanelIsInline = false
     var notchAreaCover: UIVisualEffectView = {
         return UIVisualEffectView()
     }()
@@ -373,7 +372,6 @@ class BrowserViewController: UIViewController {
         // set things up. Make sure to only update the toolbar state if the view is ready for it.
         if isViewLoaded {
             updateToolbarStateForTraitCollection(newCollection, withTransitionCoordinator: coordinator)
-            self.homePanelIsInline = self.shouldShowFooterForTraitCollection(newCollection)
             self.updateViewConstraints()
         }
 
@@ -445,7 +443,6 @@ class BrowserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.homePanelIsInline = self.shouldShowFooterForTraitCollection(self.traitCollection)
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActiveNotification), name: UIApplication.willResignActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActiveNotification), name: UIApplication.didBecomeActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackgroundNotification), name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -748,17 +745,18 @@ class BrowserViewController: UIViewController {
         // Remake constraints even if we're already showing the home controller.
         // The home controller may change sizes if we tap the URL bar while on about:home.
         homeViewController?.view.snp.remakeConstraints { make in
-            make.top.equalTo(self.urlBar.snp.bottom)
+            if self.toolbar != nil {
+                make.top.equalTo(self.view.safeArea.top)
+            } else {
+                make.top.equalTo(self.urlBar.snp.bottom)
+            }
+
             make.left.right.equalTo(self.view)
 
             make.bottom.equalTo(self.view.snp.bottom)
         }
 
-        if self.homePanelIsInline {
-            self.view.bringSubviewToFront(self.footer)
-        } else {
-            self.view.sendSubviewToBack(self.footer)
-        }
+        self.view.bringSubviewToFront(self.footer)
 
         alertStackView.snp.remakeConstraints { make in
             make.centerX.equalTo(self.view)
@@ -774,8 +772,7 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    fileprivate func showUserAgentHome(inline: Bool) {
-        homePanelIsInline = inline
+    fileprivate func showHome() {
         if self.homeViewController == nil {
             let homeViewController = HomeViewNavigationController(
                 profile: profile,
@@ -804,7 +801,7 @@ class BrowserViewController: UIViewController {
         view.setNeedsUpdateConstraints()
     }
 
-    fileprivate func hideUserAgentHome() {
+    fileprivate func hideHome() {
         guard let browserHomeViewController = self.homeViewController else {
             return
         }
@@ -830,16 +827,16 @@ class BrowserViewController: UIViewController {
         let isAboutHomeURL = url.flatMap { InternalURL($0)?.isAboutHomeURL } ?? false
         if !urlBar.inOverlayMode {
             guard let url = url else {
-                hideUserAgentHome()
+                hideHome()
                 return
             }
             if isAboutHomeURL {
-                showUserAgentHome(inline: true)
+                showHome()
             } else if !url.absoluteString.hasPrefix("\(InternalURL.baseUrl)/\(SessionRestoreHandler.path)") {
-                hideUserAgentHome()
+                hideHome()
             }
         } else if isAboutHomeURL {
-            showUserAgentHome(inline: false)
+            showHome()
         }
     }
 
@@ -1511,14 +1508,12 @@ extension BrowserViewController: URLBarDelegate {
         if let toast = clipboardBarDisplayHandler?.clipboardToast {
             toast.removeFromSuperview()
         }
-
-        showUserAgentHome(inline: false)
+        hideHome()
     }
 
     func urlBarDidLeaveOverlayMode(_ urlBar: URLBarView) {
         destroySearchController()
         updateInContentHomePanel(tabManager.selectedTab?.url as URL?)
-        self.homePanelIsInline = self.shouldShowFooterForTraitCollection(self.traitCollection)
         self.updateViewConstraints()
     }
 
