@@ -39,8 +39,8 @@ export default () => {
   const styles = useStyles(getStyles);
 
   return (
-    <TouchableWithoutFeedback onPress={startSearch}>
-      <View style={styles.container}>
+    <TouchableWithoutFeedback onPress={startSearch} accessible={false}>
+      <View style={styles.container} testID="urlbar">
         <Text style={styles.text}>{t('UrlBar.Placeholder')}</Text>
         <View style={styles.iconWrapper}>
           <NativeDrawable

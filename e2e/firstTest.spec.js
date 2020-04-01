@@ -22,6 +22,9 @@ describe('Search', function () {
   });
 
   it('start search', async function () {
+    const fakeBar = element(by.id('urlbar'));
+    await expect(fakeBar$).toBeVisible();
+    await fakeBar$.tap();
     const urlbar$ = element(by.id('url'));
     await expect(urlbar$).toBeVisible();
     await urlbar$.tap();
