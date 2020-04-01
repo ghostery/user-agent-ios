@@ -13,7 +13,7 @@ const startSearch = () => NativeModules.BrowserActions.startSearch();
 
 const getStyles = theme => ({
   container: {
-    height: 40,
+    height: 47,
     width: '100%',
     paddingHorizontal: 20,
     borderRadius: 40,

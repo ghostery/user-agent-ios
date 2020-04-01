@@ -24,7 +24,7 @@ const getStyles = toolbarHeight => {
     Dimensions.get('window').height,
   );
 
-  const logoHeight = 50;
+  const logoHeight = 47;
   const newsToolbarHeight = 50;
 
   return StyleSheet.create({
