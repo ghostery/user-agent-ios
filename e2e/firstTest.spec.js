@@ -13,7 +13,7 @@ const passOnboarding = async () => {
   const doneButton$ = element(by.label('PrivacyStatementDone'));
   await waitFor(doneButton$).toBeVisible().withTimeout(2000);
   await doneButton$.tap();
-  await waitFor(element(by.id('url'))).toBeVisible().withTimeout(2000);
+  await waitFor(element(by.id('urlbar'))).toBeVisible().withTimeout(2000);
 }
 
 describe('Search', function () {
@@ -22,13 +22,12 @@ describe('Search', function () {
   });
 
   it('start search', async function () {
-    const fakeBar = element(by.id('urlbar'));
-    await expect(fakeBar$).toBeVisible();
-    await fakeBar$.tap();
-    const urlbar$ = element(by.id('url'));
+    const fakeUrlBar$ = element(by.id('urlbar'));
+    await expect(fakeUrlBar$).toBeVisible();
+    await fakeUrlBar$.tap();
+    const urlbar$ = element(by.id('address'));
     await expect(urlbar$).toBeVisible();
-    await urlbar$.tap();
-    await element(by.id('address')).typeText('www.amazon.de');
+    await urlbar$.typeText('www.amazon.de');
     await waitFor(element(by.text('www.amazon.de')).atIndex(1)).toBeVisible().withTimeout(5000);
   });
 });
