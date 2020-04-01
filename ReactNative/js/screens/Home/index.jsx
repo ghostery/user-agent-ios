@@ -18,11 +18,14 @@ import NewsToolbar from './components/NewsToolbar';
 
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
-const getStyles = () => {
+const getStyles = toolbarHeight => {
   const maxWidth = Math.min(
     Dimensions.get('window').width,
     Dimensions.get('window').height,
   );
+
+  const logoHeight = 50;
+  const newsToolbarHeight = 50;
 
   return StyleSheet.create({
     safeArea: {
@@ -43,36 +46,35 @@ const getStyles = () => {
       flexDirection: 'column',
       justifyContent: 'space-evenly',
     },
+    logoWrapper: {
+      paddingTop: newsToolbarHeight + toolbarHeight,
+      justifyContent: 'flex-end',
+      flexGrow: 1,
+    },
+    logo: {
+      height: logoHeight,
+    },
+    urlBarWrapper: {
+      paddingHorizontal: 10,
+      width: '100%',
+      paddingVertical: logoHeight,
+    },
+    speedDialsContainer: {
+      width: '100%',
+      flexGrow: 1,
+    },
     newsToolbarWrapper: {
       width: maxWidth,
       paddingHorizontal: 20,
-      marginBottom: 20,
       alignSelf: 'center',
+      height: newsToolbarHeight,
+      justifyContent: 'center',
     },
     newsWrapper: {
       flex: 1,
       width: maxWidth,
       alignSelf: 'center',
       paddingHorizontal: 20,
-    },
-    speedDialsContainer: {
-      marginBottom: 25,
-      width: '100%',
-    },
-    logoWrapper: {
-      marginTop: 40 - 8,
-      marginBottom: 30,
-    },
-    logo: {
-      height: 65,
-    },
-    urlBarWrapper: {
-      paddingHorizontal: 10,
-      marginBottom: 30,
-      width: '100%',
-    },
-    footer: {
-      height: 80,
     },
   });
 };
@@ -89,7 +91,7 @@ export default function Home({
   const [showNewsToolbar, setShowNewsToolbar] = useState(true);
   const scrollViewElement = useRef(null);
   const newsElement = useRef(null);
-  const styles = getStyles();
+  const styles = getStyles(toolbarHeight);
   const [firstRow, secondRow] = useMemo(() => {
     const pinnedDomains = new Set([
       ...pinnedSites.map(s => parse(s.url).domain),

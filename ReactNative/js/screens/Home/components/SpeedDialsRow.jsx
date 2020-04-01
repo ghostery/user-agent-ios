@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     padding: 0,
     flexDirection: 'row',
-    flex: 1,
     width: '100%',
     justifyContent: 'space-evenly',
   },

@@ -21,6 +21,7 @@ const getStyles = theme => ({
     marginTop: 5,
     color: theme.separatorColor,
     fontSize: 12,
+    fontWeight: '500',
   },
   pin: {
     position: 'absolute',
