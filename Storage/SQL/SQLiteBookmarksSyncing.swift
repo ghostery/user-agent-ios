@@ -139,8 +139,6 @@ extension SQLiteBookmarks {
             2,
         ]
 
-        let faviconID: Int? = nil
-
         let iconValue = "(SELECT iconID FROM view_icon_for_url WHERE url = ?)"
         args.append(urlString)
 

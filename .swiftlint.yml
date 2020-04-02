@@ -1,4 +1,5 @@
 disabled_rules: # rule identifiers to exclude from running
+  - implicit_getter
   - variable_name
   - file_header
   - type_name

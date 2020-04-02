@@ -68,7 +68,7 @@ extension Data {
         for i in 0..<self.count {
             xoredBytes[i] = selfBytes[i] ^ otherBytes[i]
         }
-        return Data(bytes: UnsafePointer<UInt8>(xoredBytes), count: self.count)
+        return Data(bytes: xoredBytes, count: self.count)
     }
 
 }
