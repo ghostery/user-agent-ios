@@ -12,7 +12,9 @@ import LocalAuthentication
 import CoreSpotlight
 import UserNotifications
 import StoreKit
+#if DEBUG
 import FlipperKit
+#endif
 
 private let log = Logger.browserLogger
 
@@ -179,6 +181,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         return p
     }
 
+    #if DEBUG
     private func setupFlipper(_ application: UIApplication) {
         let client = FlipperClient.shared()
         let layoutDescriptorMapper = SKDescriptorMapper(defaults: ())
@@ -189,9 +192,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         client?.start()
     }
+    #endif
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        #if DEBUG
         self.setupFlipper(application)
+        #endif
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
         self.askForReview()
