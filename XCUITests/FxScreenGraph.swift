@@ -327,7 +327,9 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
                 }
             }
         }
-        makeURLBarAvailable(screenState)
+
+        screenState.tap(app.otherElements["urlbar"], to: URLBarOpen)
+
         screenState.tap(app.buttons["TabToolbar.menuButton"], to: BrowserTabMenu)
 
         if isTablet {
@@ -398,7 +400,7 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
     map.addScreenState(URLBarOpen) { screenState in
         // This is used for opening BrowserTab with default mozilla URL
         // For custom URL, should use Navigator.openNewURL or Navigator.openURL.
-        screenState.gesture(forAction: Action.LoadURLByTyping) { userState in
+        screenState.gesture(forAction: Action.LoadURLByTyping, Action.LoadURL) { userState in
             let url = userState.url ?? defaultURL
             // Workaround BB iOS13 be sure tap happens on url bar
             app.textFields.firstMatch.tap()

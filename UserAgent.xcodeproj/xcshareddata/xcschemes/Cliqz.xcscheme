@@ -171,19 +171,10 @@
                   Identifier = "BrowsingPDFTests">
                </Test>
                <Test
-                  Identifier = "ClipBoardTests/testClipboard()">
-               </Test>
-               <Test
                   Identifier = "ClipBoardTests/testClipboardPasteAndGo()">
                </Test>
                <Test
                   Identifier = "CopiedLinksTests">
-               </Test>
-               <Test
-                  Identifier = "DataManagementTests/testWebSiteDataEnterFirstTime()">
-               </Test>
-               <Test
-                  Identifier = "DataManagementTests/testWebSiteDataOptions()">
                </Test>
                <Test
                   Identifier = "DatabaseFixtureTest">
