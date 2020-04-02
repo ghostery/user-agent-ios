@@ -188,8 +188,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         FlipperKitLayoutComponentKitSupport.setUpWith(layoutDescriptorMapper)
         client?.add(FlipperKitLayoutPlugin(rootNode: application, with: layoutDescriptorMapper!))
         client?.add(FlipperKitNetworkPlugin(networkAdapter: SKIOSNetworkAdapter()))
-        client?.add(FKUserDefaultsPlugin.init(suiteName: "your_suitename"))
-
+        client?.add(FKUserDefaultsPlugin.init(suiteName: AppInfo.sharedContainerIdentifier))
+        client?.add(FlipperKitReactPlugin())
         client?.start()
     }
     #endif

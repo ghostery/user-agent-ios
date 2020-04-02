@@ -59,6 +59,8 @@ PODS:
   - FlipperKit/FlipperKitLayoutTextSearchable (0.35.0)
   - FlipperKit/FlipperKitNetworkPlugin (0.35.0):
     - FlipperKit/Core
+  - FlipperKit/FlipperKitReactPlugin (0.35.0):
+    - FlipperKit/Core
   - FlipperKit/FlipperKitUserDefaultsPlugin (0.35.0):
     - FlipperKit/Core
   - FlipperKit/SKIOSNetworkPlugin (0.35.0):
@@ -362,6 +364,7 @@ DEPENDENCIES:
   - FBReactNativeSpec (from `./node_modules/react-native/Libraries/FBReactNativeSpec`)
   - FlipperKit (~> 0.35.0)
   - FlipperKit/FlipperKitLayoutComponentKitSupport (~> 0.35.0)
+  - FlipperKit/FlipperKitReactPlugin (~> 0.35.0)
   - FlipperKit/FlipperKitUserDefaultsPlugin (~> 0.35.0)
   - FlipperKit/SKIOSNetworkPlugin (~> 0.35.0)
   - Folly (from `./node_modules/react-native/third-party-podspecs/Folly.podspec`)
@@ -563,6 +566,6 @@ SPEC CHECKSUMS:
   Yoga: 9db9ff2025ad21d1ac0a8b3c85d5ac4e7c29d525
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 658cc51e92b01ca436173616fe1ed8518fa48ade
+PODFILE CHECKSUM: dea0507eeb5e7689302c975338378d89c6c0e9d2
 
 COCOAPODS: 1.9.1
