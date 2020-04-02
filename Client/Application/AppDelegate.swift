@@ -12,6 +12,7 @@ import LocalAuthentication
 import CoreSpotlight
 import UserNotifications
 import StoreKit
+import FlipperKit
 
 private let log = Logger.browserLogger
 
@@ -178,7 +179,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         return p
     }
 
+    private func setupFlipper(_ application: UIApplication) {
+        let client = FlipperClient.shared()
+        let layoutDescriptorMapper = SKDescriptorMapper(defaults: ())
+        FlipperKitLayoutComponentKitSupport.setUpWith(layoutDescriptorMapper)
+        client?.add(FlipperKitLayoutPlugin(rootNode: application, with: layoutDescriptorMapper!))
+        client?.add(FlipperKitNetworkPlugin(networkAdapter: SKIOSNetworkAdapter()))
+        client?.add(FKUserDefaultsPlugin.init(suiteName: "your_suitename"))
+
+        client?.start()
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.setupFlipper(application)
         // Override point for customization after application launch.
         var shouldPerformAdditionalDelegateHandling = true
         self.askForReview()
