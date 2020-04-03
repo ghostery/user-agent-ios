@@ -12,6 +12,66 @@ use_frameworks!
 # Then the individual targets are just lists of method calls (see bottom of the file).
 
 ## Definition for individual pods, or groups of pods
+def flipper
+  flipperkit_version = '~> 0.35.0'
+
+  pod 'FlipperKit', flipperkit_version, :configuration => 'Debug'
+  # Layout and network plugins are not yet supported for swift projects
+  pod 'FlipperKit/FlipperKitLayoutComponentKitSupport', flipperkit_version, :configuration => 'Debug'
+  pod 'FlipperKit/SKIOSNetworkPlugin', flipperkit_version, :configuration => 'Debug'
+  pod 'FlipperKit/FlipperKitUserDefaultsPlugin', flipperkit_version, :configuration => 'Debug'
+  pod 'FlipperKit/FlipperKitReactPlugin', flipperkit_version, :configuration => 'Debug'
+end
+
+def flipper_post_install(installer)
+  installer.pods_project.targets.each do |target|
+    if target.name == 'YogaKit'
+      target.build_configurations.each do |config|
+        config.build_settings['SWIFT_VERSION'] = '4.1'
+      end
+    end
+  end
+
+  file_name = Dir.glob("*.xcodeproj")[0]
+  app_project = Xcodeproj::Project.open(file_name)
+  app_project.native_targets.each do |target|
+      target.build_configurations.each do |config|
+        if (config.build_settings['OTHER_SWIFT_FLAGS'])
+          unless config.build_settings['OTHER_SWIFT_FLAGS'].include? '-DFB_SONARKIT_ENABLED'
+            puts 'Adding -DFB_SONARKIT_ENABLED ...'
+            swift_flags = config.build_settings['OTHER_SWIFT_FLAGS']
+            if swift_flags.split.last != '-Xcc'
+              config.build_settings['OTHER_SWIFT_FLAGS'] << ' -Xcc'
+            end
+            config.build_settings['OTHER_SWIFT_FLAGS'] << ' -DFB_SONARKIT_ENABLED'
+          end
+        else
+          puts 'OTHER_SWIFT_FLAGS does not exist thus assigning it to `$(inherited) -Xcc -DFB_SONARKIT_ENABLED`'
+          config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xcc -DFB_SONARKIT_ENABLED'
+        end
+        app_project.save
+      end
+    end
+    installer.pods_project.save
+end
+
+def flipper_pre_install(installer)
+  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+
+  static_framework = ['FlipperKit', 'Flipper', 'Flipper-Folly',
+    'CocoaAsyncSocket', 'ComponentKit', 'Flipper-DoubleConversion',
+    'Flipper-Glog', 'Flipper-PeerTalk', 'Flipper-RSocket', 'YogaKit',
+    'CocoaLibEvent', 'OpenSSL-Universal', 'boost-for-react-native']
+
+  installer.pod_targets.each do |pod|
+    if static_framework.include?(pod.name)
+      def pod.build_type;
+        Pod::BuildType.static_library
+      end
+    end
+  end
+end
+
 def xclogger
   pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
 end
@@ -75,6 +135,7 @@ def react_native
   pod 'ReactCommon/callinvoker', :path => "./node_modules/react-native/ReactCommon"
   pod 'ReactCommon/turbomodule/core', :path => "./node_modules/react-native/ReactCommon"
   pod 'Yoga', :path => './node_modules/react-native/ReactCommon/yoga', :modular_headers => true
+
   pod 'DoubleConversion', :podspec => './node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => './node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => './node_modules/react-native/third-party-podspecs/Folly.podspec'
@@ -95,6 +156,7 @@ def main_app
   xclogger
   react_native
   gcdwebserver
+  flipper
 end
 
 def extensions
@@ -159,10 +221,16 @@ target 'Today' do
   react_native
 end
 
+pre_install do |installer|
+  flipper_pre_install(installer)
+end
+
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'NO'
     end
   end
+
+  flipper_post_install(installer)
 end
