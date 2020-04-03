@@ -338,7 +338,7 @@ class URLBarView: UIView {
             self.locationTextField?.snp.remakeConstraints { make in
                 make.leading.equalTo(self.locationView.snp.leading).offset(15)
                 make.trailing.equalTo(self.cancelButton.snp.leading).offset(-URLBarViewUX.Padding)
-                make.top.equalTo(self.locationView.snp.top)
+                make.top.equalTo(self.locationView.snp.top).offset(2)
                 make.bottom.equalTo(self.locationView.snp.bottom)
             }
         } else {
@@ -402,7 +402,7 @@ class URLBarView: UIView {
         locationTextField.snp.remakeConstraints { make in
             make.leading.equalTo(self.locationView.snp.leading)
             make.trailing.equalTo(self.cancelButton.snp.trailing)
-            make.top.equalTo(self.locationView.snp.top)
+            make.top.equalTo(self.locationView.snp.top).offset(2)
             make.bottom.equalTo(self.locationView.snp.bottom)
         }
         // Disable dragging urls on iPhones because it conflicts with editing the text
@@ -503,12 +503,18 @@ class URLBarView: UIView {
         } else {
             self.locationTextField?.text = locationText
             DispatchQueue.main.async {
-                self.locationTextField?.becomeFirstResponder()
+                guard let textField = self.locationTextField else {
+                    return
+                }
+                textField.becomeFirstResponder()
+                // Moveing text field cursor position to front.
+                textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.beginningOfDocument)
                 // Need to set location again so text could be immediately selected.
                 self.setLocation(locationText, search: search)
-                self.locationTextField?.selectAll(nil)
+                textField.selectAll(nil)
             }
         }
+
     }
 
     func leaveOverlayMode(didCancel cancel: Bool = false) {
@@ -555,13 +561,14 @@ class URLBarView: UIView {
             locationTextField?.snp.remakeConstraints { make in
                 make.leading.equalTo(self.locationView.snp.leading)
                 make.trailing.equalTo(self.cancelButton.snp.trailing)
-                make.top.equalTo(self.locationView.snp.top)
+                make.top.equalTo(self.locationView.snp.top).offset(2)
                 make.bottom.equalTo(self.locationView.snp.bottom)
             }
         } else {
             // Shrink the editable text field back to the size of the location view before hiding it.
             locationTextField?.snp.remakeConstraints { make in
-                make.edges.equalTo(self.locationView.urlTextLabel)
+                make.left.bottom.right.equalTo(self.locationView.urlTextLabel)
+                make.top.equalTo(self.locationView.urlTextLabel).offset(2)
             }
             cancelButton.snp.remakeConstraints { make in
                 make.centerY.equalTo(self.locationContainer)
@@ -828,6 +835,10 @@ class ToolbarTextField: AutocompleteTextField {
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
+        return CGRect(x: bounds.width - bounds.height / 2, y: 0, width: bounds.height / 2, height: bounds.height)
     }
 }
 
