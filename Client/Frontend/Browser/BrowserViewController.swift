@@ -756,7 +756,11 @@ class BrowserViewController: UIViewController {
             make.bottom.equalTo(self.view.snp.bottom)
         }
 
-        self.view.bringSubviewToFront(self.footer)
+        if self.urlBar.inOverlayMode {
+            self.view.sendSubviewToBack(self.footer)
+        } else {
+            self.view.bringSubviewToFront(self.footer)
+        }
 
         alertStackView.snp.remakeConstraints { make in
             make.centerX.equalTo(self.view)
