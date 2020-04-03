@@ -31,6 +31,7 @@ private struct TabLocationViewUX {
     static let ButtonSize: CGFloat = 44
     static let URLBarPadding = 4
     static let PISeparator: CGFloat = 3
+    static let CancelButtonWidth: CGFloat = 36
 }
 
 class TabLocationView: UIView {
@@ -76,6 +77,7 @@ class TabLocationView: UIView {
         label.accessibilityLabel = "Address Bar"
         label.textAlignment = .left
         label.textColor = Theme.textField.placeholder
+        label.lineBreakMode = .byCharWrapping
         return label
     }()
 
@@ -171,7 +173,7 @@ class TabLocationView: UIView {
         addSubview(contentView)
 
         contentView.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(-2)
+            make.top.equalTo(self)
             make.left.bottom.right.equalTo(self)
         }
 
@@ -290,7 +292,7 @@ class TabLocationView: UIView {
     private func urlTextLabelAlignLeft(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
         self.privacyIndicator.removeFromSuperview()
         self.urlTextLabel.snp.remakeConstraints { (make) in
-            make.right.equalToSuperview()
+            make.right.equalToSuperview().offset(-(TabLocationViewUX.CancelButtonWidth + UIConstants.URLBarViewHeight / 2))
             make.top.bottom.equalToSuperview()
         }
         self.lockImageView.snp.remakeConstraints { (make) in

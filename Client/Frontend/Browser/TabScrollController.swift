@@ -191,7 +191,7 @@ private extension TabScrollingController {
 
                 if headerTopOffset == -topScrollHeight && footerBottomOffset == bottomScrollHeight {
                     toolbarState = .collapsed
-                } else if headerTopOffset == 0 {
+                } else if headerTopOffset == 0 && footerBottomOffset == 0 {
                     toolbarState = .visible
                 } else {
                     toolbarState = .animating
