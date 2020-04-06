@@ -89,7 +89,7 @@ node('gideon') {
             }
 
             stage('Bootstrap') {
-                timeout(40) {
+                timeout(60) {
                     ansiColor('xterm') {
                         sh '''#!/bin/bash -l
                             set -e
