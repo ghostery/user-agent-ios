@@ -118,6 +118,7 @@ class TabManager: NSObject {
         }
 
         configuration.setURLSchemeHandler(InternalSchemeHandler(), forURLScheme: InternalURL.scheme)
+        configuration.setURLSchemeHandler(SearchSchemeHandler(), forURLScheme: SearchURL.scheme)
         return configuration
     }
 

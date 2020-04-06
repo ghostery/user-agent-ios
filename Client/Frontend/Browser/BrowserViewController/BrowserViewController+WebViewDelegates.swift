@@ -326,7 +326,7 @@ extension BrowserViewController: WKNavigationDelegate {
             return
         }
 
-        if InternalURL.isValid(url: url) {
+        if InternalURL.isValid(url: url) || SearchURL.isValid(url: url) {
             if navigationAction.navigationType != .backForward, navigationAction.isInternalUnprivileged {
                 log.warning("Denying unprivileged request: \(navigationAction.request)")
                 decisionHandler(.cancel)

@@ -7,6 +7,7 @@
 //
 
 import Storage
+import Shared
 
 private struct MozActionParams: Codable {
     var url: String
@@ -59,10 +60,12 @@ class OpenLinkUseCases {
         guard let tab = self.tabManager.selectedTab else {
             return
         }
-        self.browserViewController.finishEditingAndSubmit(url, visitType: VisitType.link, forTab: tab)
-        if !query.isEmpty {
-            tab.queries[url] = String(query)
-        }
+
+        let searchUrl = SearchURL(
+            domain: url.host ?? "",
+            redirectUrl: url.absoluteString,
+            query: query)
+        self.browserViewController.finishEditingAndSubmit(searchUrl.url, visitType: VisitType.link, forTab: tab)
     }
 
     // MARK: - New Tab Methods

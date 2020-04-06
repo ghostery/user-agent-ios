@@ -7,12 +7,7 @@ import Shared
 extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     func tabToolbarDidPressBack(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
         guard let tab = tabManager.selectedTab else { return }
-        if let url = tab.url, let query = tab.queries[url] {
-            self.urlBar.enterOverlayMode(query, pasted: false, search: true)
-            self.urlBar.onCancelAction = { tab.goBack() }
-        } else {
-            tab.goBack()
-        }
+        tabManager.selectedTab?.goBack()
     }
 
     func tabToolbarDidLongPressBack(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
