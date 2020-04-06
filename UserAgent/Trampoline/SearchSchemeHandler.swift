@@ -20,6 +20,8 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
         // Blank page with a color matching the background of the panels which is displayed for a split-second until the panel shows.
         let bg = Theme.browser.background.hexString
         let searchUrl = SearchURL(url)!
+        let query = searchUrl.query.removingPercentEncoding ?? ""
+        let redirectUrl = searchUrl.redirectUrl.removingPercentEncoding ?? ""
         let title = searchUrl.title
         let didRedirectParam = "redirected"
         let html = """
@@ -45,7 +47,7 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
                 <script>
                     function search() {
                         webkit.messageHandlers.trampoline.postMessage({
-                            query: "\(searchUrl.query)",
+                            query: "\(query)",
                         });
                     }
                     function checkIfRedirected() {
@@ -62,7 +64,7 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
                                 url.search + "&\(didRedirectParam)",
                             );
                             requestAnimationFrame(() => {
-                                window.location.href = "\(searchUrl.redirectUrl)";
+                                window.location.href = "\(redirectUrl)";
                             });
                         } else {
                             search();
@@ -85,7 +87,7 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
             </head>
             <body>
                 <div id="search">
-                    <button onclick="search()">Search for "\(searchUrl.query)"</button>
+                    <button onclick="search()">Search for "\(query)"</button>
                 </div>
             </body>
         </html>
