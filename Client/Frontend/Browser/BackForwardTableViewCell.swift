@@ -46,7 +46,7 @@ class BackForwardTableViewCell: UITableViewCell {
         didSet {
             if let s = site {
                 var url = s.url
-                if InternalURL.isValid(url: s.tileURL) {
+                if InternalURL.isValid(url: s.tileURL) || SearchURL.isValid(url: s.tileURL) {
                     url = Strings.BrandWebsite
                 }
 
@@ -54,7 +54,11 @@ class BackForwardTableViewCell: UITableViewCell {
 
                 var title = s.title
                 if title.isEmpty {
-                    title = s.url
+                    if let fullUrl = URL(string: s.url), let searchUrl = SearchURL(fullUrl) {
+                        title = searchUrl.title
+                    } else {
+                        title = s.url
+                    }
                 }
                 label.text = title
                 setNeedsLayout()

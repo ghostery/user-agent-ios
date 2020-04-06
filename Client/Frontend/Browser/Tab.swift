@@ -94,8 +94,6 @@ class Tab: NSObject {
 
     var consecutiveCrashes: UInt = 0
 
-    var queries: [URL: String] = [:]
-
     var canonicalURL: URL? {
         if let string = pageMetadata?.siteURL,
             let siteURL = URL(string: string) {
@@ -240,7 +238,7 @@ class Tab: NSObject {
         let logoPlaceholderURL = URL(string: Strings.BrandWebsite)!
         let faviconURL = URL(nullableString: self.displayFavicon?.url)
         var logoURL = self.actualURL ?? faviconURL ?? logoPlaceholderURL
-        if InternalURL.isValid(url: logoURL) {
+        if InternalURL.isValid(url: logoURL) || SearchURL.isValid(url: logoURL) {
             logoURL = logoPlaceholderURL
         }
         return logoURL

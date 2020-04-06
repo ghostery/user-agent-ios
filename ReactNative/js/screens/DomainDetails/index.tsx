@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { NativeModules, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
+import { URL } from '@cliqz/url-parser';
 import { useStyles } from '../../contexts/theme';
 import ToolbarArea from '../../components/ToolbarArea';
 import KeyboardSpacer from './components/KeyboardSpacer';
 
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
+const startSearch = (query: String) =>
+  NativeModules.BrowserActions.startSearch(query);
 
 const getStyle = (theme: {
   backgroundColor: string;
@@ -90,6 +93,10 @@ const user = {
   _id: -1,
 };
 
+const searchUser = {
+  _id: 1,
+};
+
 export default ({
   domain,
   toolbarHeight,
@@ -102,13 +109,19 @@ export default ({
   const [visits, loadMore, removeVisit] = useVisits(domain);
   const history = useMemo(
     () =>
-      visits.map(visit => ({
-        _id: visit.visitedAt,
-        url: visit.url,
-        text: [visit.title, visit.url].join('\n'),
-        createdAt: visit.visitedAt / 1000,
-        user,
-      })),
+      visits.map(visit => {
+        const url = new URL(visit.url);
+        const isSearch = url.scheme === 'search';
+        return {
+          _id: visit.visitedAt,
+          url: visit.url,
+          text: isSearch
+            ? `search://${url.searchParams.get('query') || ''}`
+            : [visit.title, visit.url].join('\n'),
+          createdAt: visit.visitedAt / 1000,
+          user: isSearch ? searchUser : user,
+        };
+      }),
     [visits],
   );
 
@@ -145,6 +158,16 @@ export default ({
       onPress: handleUrlPress,
       onLongPress: onLongPressOnUrl,
     },
+    {
+      pattern: /search:\/\/.*/i,
+      renderText(matchingString: String) {
+        return matchingString.split('://')[1];
+      },
+      onLongPress: () => {},
+      onPress: (matchingString: String) => {
+        startSearch(matchingString.split('://')[1]);
+      },
+    },
   ];
 
   const renderEmpty = () => null;
@@ -165,6 +188,7 @@ export default ({
           initialNumToRender: PAGE_SIZE,
           onScroll: hideKeyboard,
         }}
+        user={searchUser}
       />
       <KeyboardSpacer />
       <ToolbarArea height={toolbarHeight} />
