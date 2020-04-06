@@ -164,6 +164,9 @@ class SearchEngines {
             guard let searchTerm = engine.queryForSearchURL(url) else { continue }
             return searchTerm
         }
+        if let url = url, let searchUrl = SearchURL(url) {
+            return searchUrl.query
+        }
         return nil
     }
 
