@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2017-2019 Cliqz GmbH. All rights reserved.
+// Copyright (c) 2017-2020 Cliqz GmbH. All rights reserved.
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -21,27 +21,60 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
         let bg = Theme.browser.background.hexString
         let searchUrl = SearchURL(url)!
         let title = "Search: \(searchUrl.query)"
+        let didRedirectParam = "redirected"
         let html = """
         <!DOCTYPE html>
-            <html style='background-color: \(bg);'>
+            <html>
             <head>
+                <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+                <meta name='apple-mobile-web-app-capable' content='yes' />
                 <title>\(title)</title>
+                <style>
+                    html, body, #search {
+                        background-color: \(bg);
+                        height: 100%;
+                        margin: 0;
+                    }
+                    #search {
+                        display: none;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                    }
+                </style>
                 <script>
+                    function search() {
+                        webkit.messageHandlers.trampoline.postMessage({
+                            query: "\(searchUrl.query)",
+                        });
+                    }
+                    function checkIfRedirected() {
+                        const url = new URL(window.location.href);
+                        const searchParams = new URLSearchParams(url.search);
+                        return searchParams.has("\(didRedirectParam)");
+                    }
                     function run() {
-                        if (!history.state) {
+                        const url = new URL(window.location.href);
+                        if (!checkIfRedirected()) {
                             history.replaceState(
-                                { query: "\(searchUrl.query)" },
+                                {},
                                 "\(title)",
+                                url.search + "&\(didRedirectParam)",
                             );
                             requestAnimationFrame(() => {
                                 window.location.href = "\(searchUrl.redirectUrl)";
                             });
                         } else {
-                            const query = history.state.query;
-                            history.replaceState(null, "\(title)");
-                            webkit.messageHandlers.trampoline.postMessage({
-                                query,
-                            });
+                            search();
+                            const showUi = () => {
+                                const ui = document.querySelector("#search");
+                                ui.style.display = 'flex';
+                            };
+                            if (document.readyState !== 'complete') {
+                                document.addEventListener('load', showUi);
+                            } else {
+                                showUi();
+                            }
                         }
                     }
                     window.addEventListener('popstate', () => {
@@ -51,6 +84,9 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
                 </script>
             </head>
             <body>
+                <div id="search">
+                    <button onclick="search()">Search for "\(searchUrl.query)"</button>
+                </div>
             </body>
         </html>
         """
