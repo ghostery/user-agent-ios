@@ -17,8 +17,10 @@ class OpenLinkUseCases {
 
     private let tabManager: TabManager
     private let browserViewController: BrowserViewController
+    private let profile: Profile
 
-    init(tabManager: TabManager, browserViewController: BrowserViewController) {
+    init(profile: Profile, tabManager: TabManager, browserViewController: BrowserViewController) {
+        self.profile = profile
         self.tabManager = tabManager
         self.browserViewController = browserViewController
     }
@@ -60,12 +62,18 @@ class OpenLinkUseCases {
         guard let tab = self.tabManager.selectedTab else {
             return
         }
+        var finalUrl: URL!
 
-        let searchUrl = SearchURL(
-            domain: url.host ?? "",
-            redirectUrl: url.absoluteString,
-            query: query)
-        self.browserViewController.finishEditingAndSubmit(searchUrl.url, visitType: VisitType.link, forTab: tab)
+        if self.profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query) || query.isEmpty {
+            finalUrl = url
+        } else {
+            let searchUrl = SearchURL(
+                domain: url.host ?? "",
+                redirectUrl: url.absoluteString,
+                query: query)
+            finalUrl = searchUrl.url
+        }
+        self.browserViewController.finishEditingAndSubmit(finalUrl, visitType: VisitType.link, forTab: tab)
     }
 
     // MARK: - New Tab Methods
