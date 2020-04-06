@@ -259,6 +259,8 @@
 		464830EC243B290C0052CC2C /* SearchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830EA243B290C0052CC2C /* SearchURL.swift */; };
 		464830EE243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830ED243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift */; };
 		464830EF243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830ED243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift */; };
+		464830F0243B4E580052CC2C /* SearchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830EA243B290C0052CC2C /* SearchURL.swift */; };
+		464830F1243B4E590052CC2C /* SearchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830EA243B290C0052CC2C /* SearchURL.swift */; };
 		464E6838234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E6839234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
@@ -5374,6 +5376,7 @@
 				2BE2591423BA31370022ED28 /* PanelDataObservers.swift in Sources */,
 				2BE2591A23BA314D0022ED28 /* OpenSearch.swift in Sources */,
 				2BE2591623BA313C0022ED28 /* SearchEngines.swift in Sources */,
+				464830F1243B4E590052CC2C /* SearchURL.swift in Sources */,
 				2BE2591823BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */,
 				2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */,
 				2BD02D3E23BA33A3001539F0 /* DefaultSearchPrefs.swift in Sources */,
@@ -6110,6 +6113,7 @@
 				FA6B2AC41D41F02D00429414 /* Punycode.swift in Sources */,
 				ACC6EC5623290C1A000F5499 /* UIColor+Blending.swift in Sources */,
 				C50ED2C42327F1D700EE71B8 /* Profile.swift in Sources */,
+				464830F0243B4E580052CC2C /* SearchURL.swift in Sources */,
 				D38B2D8A1A8D98D00040E6B5 /* SearchEngines.swift in Sources */,
 				D3C744CF1A687D6C004CE85D /* URIFixup.swift in Sources */,
 				D38B2D8C1A8D98D90040E6B5 /* OpenSearch.swift in Sources */,

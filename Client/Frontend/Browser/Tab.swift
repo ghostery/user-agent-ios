@@ -238,7 +238,7 @@ class Tab: NSObject {
         let logoPlaceholderURL = URL(string: Strings.BrandWebsite)!
         let faviconURL = URL(nullableString: self.displayFavicon?.url)
         var logoURL = self.actualURL ?? faviconURL ?? logoPlaceholderURL
-        if InternalURL.isValid(url: logoURL) {
+        if InternalURL.isValid(url: logoURL) || SearchURL.isValid(url: logoURL) {
             logoURL = logoPlaceholderURL
         }
         return logoURL

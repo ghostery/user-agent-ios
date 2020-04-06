@@ -6,6 +6,8 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
+import Foundation
+
 public struct SearchURL {
     private static let queryItemNameQuery = "query"
     private static let queryItemNameRedirectUrl = "redirectUrl"
@@ -45,5 +47,9 @@ public struct SearchURL {
 
     public var query: String {
         return self.url.getQuery()[Self.queryItemNameQuery] ?? ""
+    }
+
+    public var title: String {
+        return "Search: \(self.query)"
     }
 }
