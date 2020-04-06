@@ -94,7 +94,10 @@ class TabLocationView: UIView {
         if wasHidden != lockImageView.isHidden {
             UIAccessibility.post(notification: UIAccessibility.Notification.layoutChanged, argument: nil)
         }
-        if self.url?.scheme != "https" {
+
+        if self.url?.scheme == SearchURL.scheme {
+            self.lockImageView.image = nil
+        } else if self.url?.scheme != "https" {
             self.lockImageView.image = UIImage.templateImageNamed("lock_not_verified")
         } else {
             self.lockImageView.image = UIImage.templateImageNamed("lock_verified")

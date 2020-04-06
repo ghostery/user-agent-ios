@@ -71,7 +71,7 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
                                 ui.style.display = 'flex';
                             };
                             if (document.readyState !== 'complete') {
-                                document.addEventListener('load', showUi);
+                                document.addEventListener('DOMContentLoaded', showUi);
                             } else {
                                 showUi();
                             }
