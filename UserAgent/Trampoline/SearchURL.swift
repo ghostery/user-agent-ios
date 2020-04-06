@@ -42,11 +42,11 @@ public struct SearchURL {
     }
 
     public var redirectUrl: String {
-        return self.url.getQuery()[Self.queryItemNameRedirectUrl] ?? ""
+        return (self.url.getQuery()[Self.queryItemNameRedirectUrl] ?? "").removingPercentEncoding ?? ""
     }
 
     public var query: String {
-        return self.url.getQuery()[Self.queryItemNameQuery] ?? ""
+        return (self.url.getQuery()[Self.queryItemNameQuery] ?? "").removingPercentEncoding ?? ""
     }
 
     public var title: String {

@@ -20,8 +20,8 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
         // Blank page with a color matching the background of the panels which is displayed for a split-second until the panel shows.
         let bg = Theme.browser.background.hexString
         let searchUrl = SearchURL(url)!
-        let query = searchUrl.query.removingPercentEncoding ?? ""
-        let redirectUrl = searchUrl.redirectUrl.removingPercentEncoding ?? ""
+        let query = searchUrl.query
+        let redirectUrl = searchUrl.redirectUrl
         let title = searchUrl.title
         let didRedirectParam = "redirected"
         let html = """
