@@ -839,8 +839,6 @@ class BrowserViewController: UIViewController {
             } else if !url.absoluteString.hasPrefix("\(InternalURL.baseUrl)/\(SessionRestoreHandler.path)") {
                 hideHome()
             }
-        } else if isAboutHomeURL {
-            showHome()
         }
     }
 
@@ -1235,10 +1233,6 @@ class BrowserViewController: UIViewController {
                 postLocationChangeNotificationForTab(tab, navigation: navigation)
 
                 webView.evaluateJavaScript("\(ReaderModeNamespace).checkReadability()", completionHandler: nil)
-            }
-
-            if urlBar.inOverlayMode, InternalURL.isValid(url: url), url.path.starts(with: "/\(AboutHomeHandler.path)") {
-                urlBar.leaveOverlayMode()
             }
 
             TabEvent.post(.didChangeURL(url), for: tab)

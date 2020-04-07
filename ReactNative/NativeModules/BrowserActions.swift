@@ -53,7 +53,7 @@ class BrowserActions: NSObject, NativeModuleBase {
             let query = query as String
             _ = appDel.browserViewController.focusLocationTextField(
                 forTab: appDel.browserViewController.tabManager.selectedTab,
-                setSearchText: query) 
+                setSearchText: query)
         }
     }
 
