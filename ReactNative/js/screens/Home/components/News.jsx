@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useMemo, useContext } from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import {
   NativeModules,
   View,
@@ -8,7 +8,7 @@ import {
   Text,
 } from 'react-native';
 import Logo from '../../../components/Logo';
-import ThemeContext from '../../../contexts/theme';
+import { withTheme } from '../../../contexts/theme';
 
 const getStyles = theme =>
   StyleSheet.create({
@@ -39,6 +39,7 @@ const getStyles = theme =>
     title: {
       fontWeight: '600',
       marginBottom: 10,
+      color: theme.textColor,
     },
     description: {
       flex: 1,
@@ -105,8 +106,7 @@ const HiddableImage = props => {
   );
 };
 
-export default function News({ newsModule, isImagesEnabled }) {
-  const theme = useContext(ThemeContext);
+function News({ newsModule, isImagesEnabled, theme }) {
   const news = useNews(newsModule);
 
   const styles = useMemo(() => getStyles(theme), [theme]);
@@ -159,3 +159,5 @@ export default function News({ newsModule, isImagesEnabled }) {
   );
   /* eslint-enable prettier/prettier */
 }
+
+export default withTheme(News);

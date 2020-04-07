@@ -14,7 +14,7 @@ class BaseReactHomeView: UIView {
     internal var profile: Profile
     internal let toolbarHeight: CGFloat
 
-    internal var reactView: Themeable?
+    internal var reactView: UIView?
 
     // MARK: - Initialization
     init(profile: Profile, toolbarHeight: CGFloat) {
@@ -39,12 +39,5 @@ class BaseReactHomeView: UIView {
 
     func setup() {
 
-    }
-}
-
-// MARK: - Themeable
-extension BaseReactHomeView: Themeable {
-    func applyTheme() {
-        self.reactView?.applyTheme()
     }
 }

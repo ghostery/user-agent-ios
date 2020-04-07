@@ -10,14 +10,13 @@ import Foundation
 import React
 import Storage
 
-class DomainsView: UIView, ReactViewTheme {
+class DomainsView: UIView {
     var toolbarHeight: CGFloat
     private lazy var reactView: UIView = {
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "History",
             initialProperties: [
-                "theme": Self.getTheme(),
                 "toolbarHeight": self.toolbarHeight,
             ]
         )

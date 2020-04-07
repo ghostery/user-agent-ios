@@ -9,16 +9,14 @@
 import Foundation
 import React
 
-class PrivacyStatsView: UIView, PhotonCustomViewCellContent, ReactViewTheme {
+class PrivacyStatsView: UIView, PhotonCustomViewCellContent {
     var onSizeChange: (() -> Void)?
 
     private lazy var reactView: RCTRootView = {
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "PrivacyStats",
-            initialProperties: [
-                "theme": Self.getTheme(),
-            ]
+            initialProperties: [:]
         )
 
         reactView.delegate = self
