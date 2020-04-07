@@ -69,10 +69,16 @@ const getStyles = toolbarHeight => {
       alignSelf: 'center',
       height: newsToolbarHeight,
       justifyContent: 'center',
+      backgroundColor: '#00000055',
+    },
+    newsToolbarWrapperInternal: {
+      width: 380,
+      alignSelf: 'center',
+      paddingHorizontal: 10,
     },
     newsWrapper: {
       flex: 1,
-      width: maxWidth,
+      width: 360,
       alignSelf: 'center',
       paddingHorizontal: 20,
     },
@@ -88,7 +94,6 @@ export default function Home({
   height,
   toolbarHeight,
 }) {
-  const [showNewsToolbar, setShowNewsToolbar] = useState(true);
   const scrollViewElement = useRef(null);
   const newsElement = useRef(null);
   const styles = getStyles(toolbarHeight);
@@ -114,7 +119,6 @@ export default function Home({
         scrollViewElement.current.scrollTo({ x, y });
       },
     );
-    setShowNewsToolbar(false);
   }, [scrollViewElement]);
 
   return (
@@ -126,7 +130,7 @@ export default function Home({
       contentContainerStyle={styles.contentContainer}
       scrollEnabled={isNewsEnabled}
     >
-      <Background height={height}>
+      <Background height={height - toolbarHeight}>
         <View style={styles.wrapper}>
           <View style={styles.logoWrapper}>
             <Image
@@ -148,10 +152,11 @@ export default function Home({
 
         {isNewsEnabled && (
           <View style={styles.newsToolbarWrapper}>
-            {showNewsToolbar && <NewsToolbar scrollToNews={scrollToNews} />}
+            <View style={styles.newsToolbarWrapperInternal}>
+              <NewsToolbar scrollToNews={scrollToNews} />
+            </View>
           </View>
         )}
-        <ToolbarArea height={toolbarHeight} />
       </Background>
       {isNewsEnabled && (
         <View style={styles.newsWrapper} ref={newsElement}>
