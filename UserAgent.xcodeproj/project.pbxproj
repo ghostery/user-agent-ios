@@ -157,6 +157,8 @@
 		2BE2591A23BA314D0022ED28 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
 		2BE9C93123E169450074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9C93223E1C5B60074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
+		2BE9D524243C805400553556 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9D523243C805400553556 /* SpeechSynthesizer.swift */; };
+		2BE9D525243C805400553556 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9D523243C805400553556 /* SpeechSynthesizer.swift */; };
 		2BEB1A7D23F5388E008A0F01 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
 		2BFB7C36238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
@@ -1345,6 +1347,7 @@
 		2BE2590F23BA2FD40022ED28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE2591123BA2FD60022ED28 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBrowserStartShowSettingsViewController.swift; sourceTree = "<group>"; };
+		2BE9D523243C805400553556 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadActivity.swift; sourceTree = "<group>"; };
 		2BF19467242238BD000B5920 /* GhosteryToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryToday.entitlements; sourceTree = "<group>"; };
 		2BF19468242238BD000B5920 /* GhosteryTodayDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhosteryTodayDebug.entitlements; sourceTree = "<group>"; };
@@ -2574,6 +2577,14 @@
 			path = OpenIn;
 			sourceTree = "<group>";
 		};
+		2BE9D522243C802B00553556 /* SpeechSynthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				2BE9D523243C805400553556 /* SpeechSynthesizer.swift */,
+			);
+			path = SpeechSynthesizer;
+			sourceTree = "<group>";
+		};
 		2BF19466242238BD000B5920 /* Today */ = {
 			isa = PBXGroup;
 			children = (
@@ -2813,6 +2824,7 @@
 		463432F6233251F70014A9F0 /* UserAgent */ = {
 			isa = PBXGroup;
 			children = (
+				2BE9D522243C802B00553556 /* SpeechSynthesizer */,
 				464830E6243B27270052CC2C /* Trampoline */,
 				460C247F23F18BB600D922B0 /* Insights */,
 				AC65328C2347674D00FC7ADB /* Home View */,
@@ -5717,6 +5729,7 @@
 				46E7DD562361C53D00C8372A /* ReactViewTheme.swift in Sources */,
 				ACB737C523042BAB00FA5626 /* TabManager.swift in Sources */,
 				ACB737C623042BAB00FA5626 /* TopTabsLayout.swift in Sources */,
+				2BE9D525243C805400553556 /* SpeechSynthesizer.swift in Sources */,
 				ACB737C723042BAB00FA5626 /* UIConstants.swift in Sources */,
 				ACB737C823042BAB00FA5626 /* ContentBlocker+Ads+Whitelist.swift in Sources */,
 				C52F2D5823561BFA00146300 /* SearchSettingsTableViewCell.swift in Sources */,
@@ -5999,6 +6012,7 @@
 				463E78F123C773F400C33BB0 /* InsightsFeature.swift in Sources */,
 				EBE26B57220C959D00D1D99A /* BrowserViewController+TabToolbarDelegate.swift in Sources */,
 				46ECCD2323A3850D002E761C /* ContextMenu.m in Sources */,
+				2BE9D524243C805400553556 /* SpeechSynthesizer.swift in Sources */,
 				0BD19A671A25309B0084FBA7 /* NSUserDefaultsPrefs.swift in Sources */,
 				2B516D39238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
 				46ECCD1A23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
