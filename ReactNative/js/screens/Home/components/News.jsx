@@ -65,27 +65,6 @@ const getStyles = theme =>
 
 const openLink = url => NativeModules.BrowserActions.openLink(url, '');
 
-const deepEqualNews = (oldNews, news) => {
-  return oldNews.every((_, index) => {
-    try {
-      return oldNews[index].url === news[index].url;
-    } catch (e) {
-      return false;
-    }
-  });
-};
-
-const useNews = newsModule => {
-  const [data, setData] = useState([]);
-  newsModule.action('getNews').then(({ news }) => {
-    if (data.length === 0 || !deepEqualNews(data, news)) {
-      setData(news);
-    }
-  });
-
-  return data;
-};
-
 const HiddableImage = props => {
   const { style, source } = props;
   const [isHidden, setHidden] = useState(false, [source]);
@@ -105,9 +84,8 @@ const HiddableImage = props => {
   );
 };
 
-export default function News({ newsModule, isImagesEnabled }) {
+export default function News({ news, isImagesEnabled }) {
   const theme = useContext(ThemeContext);
-  const news = useNews(newsModule);
 
   const styles = useMemo(() => getStyles(theme), [theme]);
 

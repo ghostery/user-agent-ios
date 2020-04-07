@@ -34,6 +34,7 @@ class SpeechSynthesizer: NSObject {
     override init() {
         super.init()
         self.speechSynthesizer.delegate = self
+        self.speechSynthesizer.pauseSpeaking(at: .word)
     }
 
     func start(text: String, language: SpeechLanguage) {
