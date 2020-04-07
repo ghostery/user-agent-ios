@@ -110,7 +110,7 @@ bridgeManager.addActionListener(({ module, action, args /* , id */ }) => {
   return false;
 });
 
-AppRegistry.setWrapperComponentProvider(ThemeWrapperComponentProvider(bridgeManager));
+// AppRegistry.setWrapperComponentProvider(ThemeWrapperComponentProvider(bridgeManager));
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component { render() { return null; }});
 AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.module('news')} {...props} />);
 AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults searchModule={inject.module('search')} insightsModule={inject.module('insights')} bridgeManager={bridgeManager} events={events} {...props} />);
