@@ -6,7 +6,7 @@ import Shared
 
 extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     func tabToolbarDidPressBack(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-        guard let tab = tabManager.selectedTab else { return }
+        guard let _ = tabManager.selectedTab else { return }
         tabManager.selectedTab?.goBack()
     }
 
