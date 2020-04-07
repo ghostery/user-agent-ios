@@ -235,7 +235,7 @@ class AutocompleteTextField: UITextField, UITextFieldDelegate {
         label.textAlignment = .left
 
         let enteredTextSize = self.attributedText?.boundingRect(with: self.frame.size, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
-        frame.origin.x = (enteredTextSize?.width.rounded() ?? 0)
+        frame.origin = CGPoint(x: (enteredTextSize?.width.rounded() ?? 0), y: -0.5)
         let defaultCancelButtonWidth: CGFloat = (self.clearButtonMode == .whileEditing) ? 20 : 0
         frame.size.width = self.frame.size.width - frame.origin.x - defaultCancelButtonWidth
         frame.size.height = self.frame.size.height - 1

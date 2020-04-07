@@ -7,7 +7,7 @@ import {
   TouchableWithoutFeedback,
   Text,
 } from 'react-native';
-import ListItem from '../../../components/ListItem';
+import Logo from '../../../components/Logo';
 import ThemeContext from '../../../contexts/theme';
 
 const getStyles = theme =>
@@ -16,12 +16,17 @@ const getStyles = theme =>
       borderTopWidth: 1,
       borderTopColor: theme.separatorColor,
       paddingTop: 30,
+      marginHorizontal: 20,
+    },
+    logoWrapper: {
+      position: 'absolute',
+      top: 10,
+      left: 10,
     },
     image: {
-      height: 100,
-      width: 150,
+      height: 150,
       flexShrink: 0,
-      marginLeft: 10,
+      marginBottom: 10,
     },
     item: {
       marginBottom: 20,
@@ -31,14 +36,29 @@ const getStyles = theme =>
       backgroundColor: theme.separatorColor,
       height: 1,
     },
+    title: {
+      fontWeight: '600',
+      marginBottom: 10,
+    },
     description: {
       flex: 1,
-      color: theme.textColor,
+      color: theme.descriptionColor,
+      fontSize: 12,
+      marginBottom: 10,
+    },
+    domain: {
+      color: theme.descriptionColor,
       fontSize: 12,
     },
     secondRow: {
-      marginTop: 5,
-      flex: 1,
+      flexDirection: 'column',
+    },
+    breaking: {
+      color: theme.redColor,
+      paddingLeft: 10,
+      fontSize: 12,
+    },
+    domainRow: {
       flexDirection: 'row',
     },
   });
@@ -85,8 +105,6 @@ const HiddableImage = props => {
   );
 };
 
-const noop = () => {};
-
 export default function News({ newsModule, isImagesEnabled }) {
   const theme = useContext(ThemeContext);
   const news = useNews(newsModule);
@@ -100,27 +118,37 @@ export default function News({ newsModule, isImagesEnabled }) {
   return (
     <View style={styles.container}>
       {news.map(item => (
-
         <View
           style={styles.item}
           key={item.url}
         >
           <TouchableWithoutFeedback onPress={() => openLink(item.url)}>
             <View>
-              <ListItem
-                url={item.url}
-                title={item.title}
-                displayUrl={item.domain}
-                label={item.breaking_label ? NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel'] : null}
-                onPress={noop}
-              />
+              {isImagesEnabled && item.imageUrl &&
+                <View>
+                  <HiddableImage style={styles.image} source={item.imageUrl} />
+                  <View style={styles.logoWrapper}>
+                    <Logo url={item.url} size={30} />
+                  </View>
+                </View>
+              }
               <View style={styles.secondRow}>
+                <Text style={styles.title} allowFontScaling={false}>
+                  {item.title}
+                </Text>
                 <Text style={styles.description} allowFontScaling={false}>
                   {item.description}
                 </Text>
-                {isImagesEnabled && item.imageUrl &&
-                  <HiddableImage style={styles.image} source={item.imageUrl} />
-                }
+                <View style={styles.domainRow} allowFontScaling={false}>
+                  <Text style={styles.domain} allowFontScaling={false}>
+                    {item.domain}
+                  </Text>
+                  {item.breaking_label && (
+                    <Text style={styles.breaking} allowFontScaling={false}>
+                      {NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel']}
+                    </Text>
+                  )}
+                </View>
               </View>
             </View>
           </TouchableWithoutFeedback>

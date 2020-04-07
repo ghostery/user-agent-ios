@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
-    alignSelf: 'flex-end',
     flexDirection: 'row',
   },
   buttonText: {

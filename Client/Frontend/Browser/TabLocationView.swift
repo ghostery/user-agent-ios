@@ -255,7 +255,7 @@ class TabLocationView: UIView {
     }
 
     func animateToResignFirstResponder(duration: TimeInterval = 0.2) {
-        guard let url = self.url else {
+        guard let _ = self.url else {
             return
         }
         self.urlTextLabelAlignCenter(duration: duration)
