@@ -251,11 +251,21 @@
 		46442CEB238BE148002E6D85 /* BrowserCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46442CE9238BE148002E6D85 /* BrowserCore.swift */; };
 		46442CEE238BE61D002E6D85 /* HumanWebFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46442CED238BE61D002E6D85 /* HumanWebFeature.swift */; };
 		46442CEF238BE61D002E6D85 /* HumanWebFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46442CED238BE61D002E6D85 /* HumanWebFeature.swift */; };
+		464830E4243764F10052CC2C /* SearchSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830E3243764F10052CC2C /* SearchSchemeHandler.swift */; };
+		464830E5243764F10052CC2C /* SearchSchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830E3243764F10052CC2C /* SearchSchemeHandler.swift */; };
+		464830E8243B27540052CC2C /* TrampolineTabContentScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830E7243B27540052CC2C /* TrampolineTabContentScript.swift */; };
+		464830E9243B27540052CC2C /* TrampolineTabContentScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830E7243B27540052CC2C /* TrampolineTabContentScript.swift */; };
+		464830EB243B290C0052CC2C /* SearchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830EA243B290C0052CC2C /* SearchURL.swift */; };
+		464830EC243B290C0052CC2C /* SearchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830EA243B290C0052CC2C /* SearchURL.swift */; };
+		464830EE243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830ED243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift */; };
+		464830EF243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830ED243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift */; };
+		464830F0243B4E580052CC2C /* SearchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830EA243B290C0052CC2C /* SearchURL.swift */; };
+		464830F1243B4E590052CC2C /* SearchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830EA243B290C0052CC2C /* SearchURL.swift */; };
 		464E6838234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E6839234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464E683C234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
-		464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46504060240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
 		46504061240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
 		46504063240FC2520086CFAF /* BaseReactHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504062240FC2520086CFAF /* BaseReactHomeView.swift */; };
@@ -562,7 +572,7 @@
 		ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		ACB737E823042BAB00FA5626 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		ACB737E823042BAB00FA5626 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
 		ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */; };
 		ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6327A631BF6438E008D12E0 /* DebugSettingsBundleOptions.swift */; };
@@ -1129,7 +1139,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */,
+				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1445,6 +1455,10 @@
 		463E78F023C773F400C33BB0 /* InsightsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsFeature.swift; sourceTree = "<group>"; };
 		46442CE9238BE148002E6D85 /* BrowserCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCore.swift; sourceTree = "<group>"; };
 		46442CED238BE61D002E6D85 /* HumanWebFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanWebFeature.swift; sourceTree = "<group>"; };
+		464830E3243764F10052CC2C /* SearchSchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSchemeHandler.swift; sourceTree = "<group>"; };
+		464830E7243B27540052CC2C /* TrampolineTabContentScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrampolineTabContentScript.swift; sourceTree = "<group>"; };
+		464830EA243B290C0052CC2C /* SearchURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchURL.swift; sourceTree = "<group>"; };
+		464830ED243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+TrampolineDelegate.swift"; sourceTree = "<group>"; };
 		464E6837234B75E300ABAC43 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		464E683A234CB06200ABAC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4650405F240FC1E80086CFAF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -2799,6 +2813,7 @@
 		463432F6233251F70014A9F0 /* UserAgent */ = {
 			isa = PBXGroup;
 			children = (
+				464830E6243B27270052CC2C /* Trampoline */,
 				460C247F23F18BB600D922B0 /* Insights */,
 				AC65328C2347674D00FC7ADB /* Home View */,
 				C56ED494233B68C7006A63B1 /* Interceptor */,
@@ -2811,6 +2826,17 @@
 				2B4EFBDA2399233A007A10E0 /* News.swift */,
 			);
 			path = UserAgent;
+			sourceTree = "<group>";
+		};
+		464830E6243B27270052CC2C /* Trampoline */ = {
+			isa = PBXGroup;
+			children = (
+				464830E3243764F10052CC2C /* SearchSchemeHandler.swift */,
+				464830E7243B27540052CC2C /* TrampolineTabContentScript.swift */,
+				464830EA243B290C0052CC2C /* SearchURL.swift */,
+				464830ED243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift */,
+			);
+			path = Trampoline;
 			sourceTree = "<group>";
 		};
 		464E6836234B75C800ABAC43 /* Views */ = {
@@ -3667,8 +3693,8 @@
 			children = (
 				EBC4869B2195F58200CDA48D /* AboutHomeHandler.swift */,
 				EBC4869A2195F58200CDA48D /* ErrorPageHelper.swift */,
-				EBC4869C2195F58300CDA48D /* SessionRestoreHandler.swift */,
 				EBC486982195F46A00CDA48D /* InternalSchemeHandler.swift */,
+				EBC4869C2195F58300CDA48D /* SessionRestoreHandler.swift */,
 			);
 			path = InternalSchemeHandler;
 			sourceTree = "<group>";
@@ -5350,6 +5376,7 @@
 				2BE2591423BA31370022ED28 /* PanelDataObservers.swift in Sources */,
 				2BE2591A23BA314D0022ED28 /* OpenSearch.swift in Sources */,
 				2BE2591623BA313C0022ED28 /* SearchEngines.swift in Sources */,
+				464830F1243B4E590052CC2C /* SearchURL.swift in Sources */,
 				2BE2591823BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */,
 				2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */,
 				2BD02D3E23BA33A3001539F0 /* DefaultSearchPrefs.swift in Sources */,
@@ -5594,6 +5621,7 @@
 				46BE36A32344C9CF00DADCB6 /* QuerySuggestionsInputAccessoryView.swift in Sources */,
 				ACB7377B23042BAB00FA5626 /* PrintHelper.swift in Sources */,
 				46FA068B23BB7B5F00B22F71 /* BrowserTabs.swift in Sources */,
+				464830E9243B27540052CC2C /* TrampolineTabContentScript.swift in Sources */,
 				ACB7377C23042BAB00FA5626 /* UIAlertControllerExtensions.swift in Sources */,
 				46CA610E23190FFD0010CE6B /* ReactViewController.swift in Sources */,
 				ACB7377D23042BAB00FA5626 /* TranslationSettingsController.swift in Sources */,
@@ -5629,6 +5657,7 @@
 				46828D82233D0A4900E7D8A3 /* MD5.swift in Sources */,
 				ACB7379D23042BAB00FA5626 /* BrowserTrayAnimators.swift in Sources */,
 				ACB7379E23042BAB00FA5626 /* AboutHomeHandler.swift in Sources */,
+				464830E5243764F10052CC2C /* SearchSchemeHandler.swift in Sources */,
 				ACB7379F23042BAB00FA5626 /* DefaultSearchPrefs.swift in Sources */,
 				ACB737A023042BAB00FA5626 /* MenuHelper.swift in Sources */,
 				ACB737A223042BAB00FA5626 /* WebsiteDataManagementViewController.swift in Sources */,
@@ -5658,6 +5687,7 @@
 				2B516D34238BAC8B006D6B57 /* LibraryContextMenu.swift in Sources */,
 				ACB737B923042BAB00FA5626 /* Profile.swift in Sources */,
 				ACB737BA23042BAB00FA5626 /* DynamicFontHelper.swift in Sources */,
+				464830EF243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift in Sources */,
 				2B4400EA242BA02300DD26DE /* Intents.intentdefinition in Sources */,
 				ACB737BB23042BAB00FA5626 /* TabTrayButtonExtensions.swift in Sources */,
 				2B4EFBD923991AF3007A10E0 /* NewsLanguagesSettingsViewController.swift in Sources */,
@@ -5674,6 +5704,7 @@
 				ACB737C123042BAB00FA5626 /* TrackingProtectionPageStats.swift in Sources */,
 				2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
 				2B8DDBB323A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */,
+				464830EC243B290C0052CC2C /* SearchURL.swift in Sources */,
 				46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
 				C53212E623A3EB3D00AEC9B2 /* ChatBubbleView.swift in Sources */,
 				46ECCD2723A3864E002E761C /* NativeModuleBase.swift in Sources */,
@@ -5715,7 +5746,7 @@
 				ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
-				ACB737E823042BAB00FA5626 /* BuildFile in Sources */,
+				ACB737E823042BAB00FA5626 /* (null) in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
@@ -5824,6 +5855,7 @@
 				046C031423ABBA2B00D826E3 /* PrivacyDashboardUtils.swift in Sources */,
 				2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */,
 				D3BE7B461B054F8600641031 /* TestAppDelegate.swift in Sources */,
+				464830EE243B2A340052CC2C /* BrowserViewController+TrampolineDelegate.swift in Sources */,
 				463432F82332521F0014A9F0 /* Telemetry.swift in Sources */,
 				46CA60D82316BB3A0010CE6B /* History.m in Sources */,
 				46E96606236B27E6003C23F3 /* UserAgentConstants.m in Sources */,
@@ -5944,7 +5976,9 @@
 				63306D432110B3CD00F25400 /* TabManagerStore.swift in Sources */,
 				D83822001FC7961D00303C12 /* DispatchQueueExtensions.swift in Sources */,
 				D03F8EB22004014E003C2224 /* FaviconHandler.swift in Sources */,
+				464830E4243764F10052CC2C /* SearchSchemeHandler.swift in Sources */,
 				46CA610A231909EF0010CE6B /* ReactNativeBridge.swift in Sources */,
+				464830EB243B290C0052CC2C /* SearchURL.swift in Sources */,
 				EBC486992195F46B00CDA48D /* InternalSchemeHandler.swift in Sources */,
 				2F44FCC51A9E85E900FD20CC /* SettingsTableViewController.swift in Sources */,
 				EBC4869D2195F58300CDA48D /* ErrorPageHelper.swift in Sources */,
@@ -6017,6 +6051,7 @@
 				ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
+				464830E8243B27540052CC2C /* TrampolineTabContentScript.swift in Sources */,
 				46E96603236B2793003C23F3 /* UserAgentConstants.swift in Sources */,
 				C5F986B123A384CB006E006A /* ContextMenuUseCase.swift in Sources */,
 				464E683B234CB06200ABAC43 /* HomeView.swift in Sources */,
@@ -6078,6 +6113,7 @@
 				FA6B2AC41D41F02D00429414 /* Punycode.swift in Sources */,
 				ACC6EC5623290C1A000F5499 /* UIColor+Blending.swift in Sources */,
 				C50ED2C42327F1D700EE71B8 /* Profile.swift in Sources */,
+				464830F0243B4E580052CC2C /* SearchURL.swift in Sources */,
 				D38B2D8A1A8D98D00040E6B5 /* SearchEngines.swift in Sources */,
 				D3C744CF1A687D6C004CE85D /* URIFixup.swift in Sources */,
 				D38B2D8C1A8D98D90040E6B5 /* OpenSearch.swift in Sources */,

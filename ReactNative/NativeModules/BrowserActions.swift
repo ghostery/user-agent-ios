@@ -47,11 +47,13 @@ class BrowserActions: NSObject, NativeModuleBase {
         }
     }
 
-    @objc(startSearch)
-    func startSearch() {
+    @objc(startSearch:)
+    func startSearch(query: NSString) {
         self.withAppDelegate { appDel in
+            let query = query as String
             _ = appDel.browserViewController.focusLocationTextField(
-                forTab: appDel.browserViewController.tabManager.selectedTab)
+                forTab: appDel.browserViewController.tabManager.selectedTab,
+                setSearchText: query) 
         }
     }
 

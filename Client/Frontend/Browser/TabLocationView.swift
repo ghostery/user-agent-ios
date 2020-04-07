@@ -43,7 +43,7 @@ class TabLocationView: UIView {
     fileprivate let menuBadge = BadgeWithBackdrop(imageName: "menuBadge", backdropCircleSize: 32)
 
     @objc dynamic var baseURLFontColor: UIColor = TabLocationViewUX.BaseURLFontColor {
-        didSet { updateTextWithURL(text: self.url?.publicSuffix(additionalPartCount: 1)) }
+        didSet { updateTextWithURL(text: self.urlbarText) }
     }
 
     var url: URL? {
@@ -54,7 +54,7 @@ class TabLocationView: UIView {
             } else {
                 self.urlTextLabelAlignCenter(duration: 0.0)
             }
-            self.updateTextWithURL(text: self.url?.publicSuffix(additionalPartCount: 1))
+            self.updateTextWithURL(text: self.urlbarText)
             self.updateStackViewSpacing()
             self.pageOptionsButton.isHidden = (self.url == nil)
             self.privacyIndicator.isHidden = self.url == nil
@@ -96,7 +96,10 @@ class TabLocationView: UIView {
         if wasHidden != lockImageView.isHidden {
             UIAccessibility.post(notification: UIAccessibility.Notification.layoutChanged, argument: nil)
         }
-        if self.url?.scheme != "https" {
+
+        if self.url?.scheme == SearchURL.scheme {
+            self.lockImageView.image = nil
+        } else if self.url?.scheme != "https" {
             self.lockImageView.image = UIImage.templateImageNamed("lock_not_verified")
         } else {
             self.lockImageView.image = UIImage.templateImageNamed("lock_verified")
@@ -262,7 +265,15 @@ class TabLocationView: UIView {
         animation.subtype = .fromTop
         animation.duration = duration
         self.urlTextLabel.layer.add(animation, forKey: "kCATransitionFade")
-        self.updateTextWithURL(text: url.publicSuffix(additionalPartCount: 1))
+        self.updateTextWithURL(text: self.urlbarText)
+    }
+
+    private var urlbarText: String {
+        guard let url = self.url else { return "" }
+        if let searchUrl = SearchURL(url) {
+            return searchUrl.query
+        }
+        return url.publicSuffix(additionalPartCount: 1) ?? ""
     }
 
     private func urlTextLabelAlignCenter(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {

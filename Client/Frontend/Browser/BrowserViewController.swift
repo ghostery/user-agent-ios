@@ -1573,6 +1573,10 @@ extension BrowserViewController: TabDelegate {
         historyStateHelper.delegate = self
         tab.addContentScript(historyStateHelper, name: HistoryStateHelper.name())
 
+        let trampoline = TrampolineTabContentScript(tab: tab)
+        trampoline.delegate = self
+        tab.addContentScript(trampoline, name: TrampolineTabContentScript.name())
+
         let blocker = FirefoxTabContentBlocker(tab: tab, prefs: profile.prefs)
         tab.contentBlocker = blocker
         tab.addContentScript(blocker, name: FirefoxTabContentBlocker.name())

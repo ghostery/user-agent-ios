@@ -9,7 +9,7 @@ import NativeDrawable from '../../../components/NativeDrawable';
 import { useStyles } from '../../../contexts/theme';
 import t from '../../../services/i18n';
 
-const startSearch = () => NativeModules.BrowserActions.startSearch();
+const startSearch = () => NativeModules.BrowserActions.startSearch('');
 
 const getStyles = theme => ({
   container: {

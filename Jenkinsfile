@@ -133,7 +133,7 @@ node('gideon') {
                     string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
                     string(credentialsId: app.sentryDSN, variable: 'SENTRY_DSN'),
                 ]) {
-                    timeout(20) {
+                    timeout(40) {
                         ansiColor('xterm') {
                             sh """#!/bin/bash -l
                                 set -x

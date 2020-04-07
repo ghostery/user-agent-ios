@@ -136,6 +136,10 @@ class SearchEngines {
         guard let urlHost = (url.host as NSString?)?.deletingPathExtension else {
             return false
         }
+
+        if url.scheme == SearchURL.scheme {
+            return true
+        }
         /// This is a special behavior of Cliqz SERP, which is going to be removed in near future. Until then the App should ignore those urls in history search.
         if let cliqzMQueriesURL = URL(string: "https://beta.cliqz.com/mqueries"), let host = (cliqzMQueriesURL.host as NSString?)?.deletingPathExtension {
             if host + cliqzMQueriesURL.path == urlHost + url.path {
@@ -159,6 +163,9 @@ class SearchEngines {
         for engine in self.searchEnginesIncludedCliqz {
             guard let searchTerm = engine.queryForSearchURL(url) else { continue }
             return searchTerm
+        }
+        if let url = url, let searchUrl = SearchURL(url) {
+            return searchUrl.query
         }
         return nil
     }
