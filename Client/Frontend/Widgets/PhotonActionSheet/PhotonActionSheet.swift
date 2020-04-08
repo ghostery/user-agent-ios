@@ -184,6 +184,12 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
             self.view.setNeedsLayout()
         }
     }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if style == .popover {
+            self.preferredContentSize = self.tableView.contentSize
+        }
+    }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -194,9 +200,6 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
             heightConstraint?.deactivate()
             // The height of the menu should be no more than 85 percent of the screen
             heightConstraint = make.height.equalTo(min(self.tableView.contentSize.height, maxHeight * 0.90)).constraint
-        }
-        if style == .popover {
-            self.preferredContentSize = self.tableView.contentSize
         }
     }
 
@@ -292,9 +295,7 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
                     CATransaction.begin()
                     self?.tableView.beginUpdates()
                     CATransaction.setCompletionBlock {
-                        UIView.animate(withDuration: 5) {
-                            self?.view.setNeedsLayout()
-                        }
+                        self?.view.setNeedsLayout()
                     }
                     self?.tableView.deleteRows(at: [indexPath], with: .left)
                     self?.tableView.endUpdates()
@@ -328,15 +329,13 @@ class PhotonActionSheet: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PhotonCustomViewCell.self), for: indexPath) as! PhotonCustomViewCell
         cell.tintColor = self.tintColor
         cell.customView = action.customView
-        cell.onSizeChange = {
+        cell.onSizeChange = { [weak self] in
             CATransaction.begin()
-            self.tableView.beginUpdates()
             CATransaction.setCompletionBlock {
-                UIView.animate(withDuration: 5) {
-                    self.view.setNeedsLayout()
-                }
+                self?.view.setNeedsLayout()
             }
-            self.tableView.endUpdates()
+            self?.tableView.beginUpdates()
+            self?.tableView.endUpdates()
             CATransaction.commit()
         }
         return cell
