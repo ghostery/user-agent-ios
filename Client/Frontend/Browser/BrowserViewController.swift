@@ -70,6 +70,7 @@ class BrowserViewController: UIViewController {
         effectView.effect = UIBlurEffect(style: .light)
         return effectView
     }()
+    private var blurLayer: UIView?
 
     private var isStatusBarOrientationLandscape: Bool {
         return UIApplication.shared.statusBarOrientation == .landscapeLeft || UIApplication.shared.statusBarOrientation == .landscapeRight
@@ -776,6 +777,32 @@ class BrowserViewController: UIViewController {
         }
     }
 
+    private func showBlur() {
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        //always fill the view
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(blurEffectView)
+        self.blurLayer = blurEffectView
+
+        blurEffectView.snp.makeConstraints { make in
+            make.top.equalTo(self.urlBar.snp.bottom)
+            make.left.right.equalTo(self.view)
+            make.bottom.equalTo(self.view.snp.bottom)
+        }
+        view.bringSubviewToFront(notchAreaCover)
+    }
+
+    private func hideBlur() {
+        self.blurLayer?.removeFromSuperview()
+        self.blurLayer = nil
+        if let home = self.homeViewController?.view {
+            self.view.bringSubviewToFront(home)
+            self.updateViewConstraints()
+        }
+    }
+
     fileprivate func showHome() {
         if self.homeViewController == nil {
             let homeViewController = HomeViewNavigationController(
@@ -855,6 +882,7 @@ class BrowserViewController: UIViewController {
 
     fileprivate func showSearchController() {
         createSearchControllerIfNeeded()
+        self.hideBlur()
 
         guard let searchController = self.searchController else {
             return
@@ -1506,13 +1534,14 @@ extension BrowserViewController: URLBarDelegate {
         if let toast = clipboardBarDisplayHandler?.clipboardToast {
             toast.removeFromSuperview()
         }
-        hideHome()
+        self.showBlur()
     }
 
     func urlBarDidLeaveOverlayMode(_ urlBar: URLBarView) {
         destroySearchController()
         updateInContentHomePanel(tabManager.selectedTab?.url as URL?)
         self.updateViewConstraints()
+        self.hideBlur()
     }
 
     func urlBarDidBeginDragInteraction(_ urlBar: URLBarView) {
