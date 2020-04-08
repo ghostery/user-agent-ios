@@ -15,6 +15,7 @@ import SpeedDialRow from './components/SpeedDialsRow';
 import UrlBar from './components/UrlBar';
 import Background from './components/Background';
 import NewsToolbar from './components/NewsToolbar';
+import useNews from './hooks/news';
 
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
@@ -94,6 +95,7 @@ export default function Home({
   height,
   toolbarHeight,
 }) {
+  const [news, edition] = useNews(newsModule);
   const scrollViewElement = useRef(null);
   const newsElement = useRef(null);
   const styles = getStyles(toolbarHeight);
@@ -153,14 +155,18 @@ export default function Home({
         {isNewsEnabled && (
           <View style={styles.newsToolbarWrapper}>
             <View style={styles.newsToolbarWrapperInternal}>
-              <NewsToolbar scrollToNews={scrollToNews} />
+              <NewsToolbar
+                news={news}
+                scrollToNews={scrollToNews}
+                edition={edition}
+              />
             </View>
           </View>
         )}
       </Background>
       {isNewsEnabled && (
         <View style={styles.newsWrapper} ref={newsElement}>
-          <News newsModule={newsModule} isImagesEnabled={isNewsImagesEnabled} />
+          <News news={news} isImagesEnabled={isNewsImagesEnabled} />
         </View>
       )}
       <ToolbarArea height={toolbarHeight} />

@@ -1,4 +1,9 @@
-import React, { useCallback, useState, useMemo } from 'react';
+import React, {
+  useCallback,
+  useState,
+  useMemo,
+  useContext,
+} from 'react';
 import {
   NativeModules,
   View,
@@ -66,49 +71,24 @@ const getStyles = theme =>
 
 const openLink = url => NativeModules.BrowserActions.openLink(url, '');
 
-const deepEqualNews = (oldNews, news) => {
-  return oldNews.every((_, index) => {
-    try {
-      return oldNews[index].url === news[index].url;
-    } catch (e) {
-      return false;
-    }
-  });
-};
-
-const useNews = newsModule => {
-  const [data, setData] = useState([]);
-  newsModule.action('getNews').then(({ news }) => {
-    if (data.length === 0 || !deepEqualNews(data, news)) {
-      setData(news);
-    }
-  });
-
-  return data;
-};
-
 const HiddableImage = props => {
-  const { style, source } = props;
+  const { style, source, children } = props;
   const [isHidden, setHidden] = useState(false, [source]);
   const hide = useCallback(() => setHidden(true), [setHidden]);
   const hiddenStyle = useMemo(
-    () => (isHidden ? { height: 0, marginBottom: 0 } : null),
+    () => (isHidden ? { height: 0, marginBottom: 0, display: 'none' } : null),
     [isHidden],
   );
   return (
-    <Image
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...props}
-      style={[style, hiddenStyle]}
-      source={{ uri: source }}
-      onError={hide}
-    />
+    <View style={hiddenStyle}>
+      <Image style={style} source={{ uri: source }} onError={hide} />
+      {children}
+    </View>
   );
 };
 
-function News({ newsModule, isImagesEnabled, theme }) {
-  const news = useNews(newsModule);
 
+function News({ news, isImagesEnabled, theme }) {
   const styles = useMemo(() => getStyles(theme), [theme]);
 
   if (news.length === 0) {
@@ -125,12 +105,11 @@ function News({ newsModule, isImagesEnabled, theme }) {
           <TouchableWithoutFeedback onPress={() => openLink(item.url)}>
             <View>
               {isImagesEnabled && item.imageUrl &&
-                <View>
-                  <HiddableImage style={styles.image} source={item.imageUrl} />
+                <HiddableImage style={styles.image} source={item.imageUrl}>
                   <View style={styles.logoWrapper}>
                     <Logo url={item.url} size={30} />
                   </View>
-                </View>
+                </HiddableImage>
               }
               <View style={styles.secondRow}>
                 <Text style={styles.title} allowFontScaling={false}>
