@@ -1,68 +1,41 @@
-import React, { useEffect, useState, useContext, useMemo } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useMemo, useEffect, useState } from 'react';
+import { StyleSheet, useColorScheme, NativeModules } from 'react-native';
 
-const ThemeContext = React.createContext();
+global.currentTheme = null;
+
+export const useTheme = () => {
+  const [theme, setTheme] = useState(
+    global.currentTheme || NativeModules.Constants.initialTheme,
+  );
+  const colorScheme = useColorScheme();
+
+  useEffect(() => {
+    const fetchTheme = async () => {
+      if (!global.currentTheme || global.currentTheme.mode !== colorScheme) {
+        const newTheme = await NativeModules.Constants.getTheme(colorScheme);
+        global.currentTheme = newTheme;
+        setTheme(newTheme);
+      }
+    };
+    fetchTheme();
+  }, [colorScheme]);
+
+  return theme;
+};
 
 export function withTheme(Component) {
   return function ThemeComponent(props) {
-    /* eslint-disable react/jsx-props-no-spreading */
-    return (
-      // eslint-disable-next-line react/jsx-filename-extension
-      <ThemeContext.Consumer>
-        {theme => <Component {...props} theme={theme} />}
-      </ThemeContext.Consumer>
-    );
+    const theme = useTheme();
+    // eslint-disable-next-line react/jsx-filename-extension, react/jsx-props-no-spreading
+    return <Component {...props} theme={theme} />;
   };
-  /* eslint-enable react/jsx-props-no-spreading */
 }
 
-//  would be perfect to avoid a global value here
-let updateTheme = () => {};
-const onAction = ({ module, action, args /* , id */ }) => {
-  if (module === 'BrowserCore' && action === 'changeTheme') {
-    updateTheme(args[0]);
-    return true;
-  }
-  return false;
-};
-
-export const ThemeWrapperComponentProvider = bridgeManager => ({
-  initialProps,
-}) => props => {
-  if (!initialProps.theme) {
-    return props.children;
-  }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [theme, setData] = useState(initialProps.theme, [initialProps.theme]);
-  updateTheme = newTheme => {
-    if (newTheme.mode !== theme.mode) {
-      setData(newTheme);
-    }
-  };
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-    bridgeManager.addActionListener(onAction);
-    return () => {
-      // no need to unload - one listener per app is sufficient
-    };
-  });
-
-  return (
-    <ThemeContext.Provider value={theme}>
-      {props.children}
-    </ThemeContext.Provider>
-  );
-};
-
 export const useStyles = getStyle => {
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const styles = useMemo(() => StyleSheet.create(getStyle(theme)), [
     getStyle,
     theme,
   ]);
   return styles;
 };
-
-export default ThemeContext;

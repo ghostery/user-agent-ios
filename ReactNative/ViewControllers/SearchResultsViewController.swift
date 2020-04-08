@@ -16,7 +16,7 @@ import React
 ///     - add `.view` as a subview to your view
 ///     - add constraints for `.view`
 ///     - ALSO add constraints for `.searchView` (!!!)
-class SearchResultsViewController: UIViewController, ReactViewTheme {
+class SearchResultsViewController: UIViewController {
     public var isLastCharacterRemoved = false
 
     // MARK: Properties
@@ -45,7 +45,7 @@ class SearchResultsViewController: UIViewController, ReactViewTheme {
         RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "SearchResults",
-            initialProperties: ["theme": SearchResultsViewController.getTheme()]
+            initialProperties: [:]
         )
     }()
 
@@ -84,7 +84,6 @@ class SearchResultsViewController: UIViewController, ReactViewTheme {
 extension SearchResultsViewController: Themeable {
     func applyTheme() {
         view.backgroundColor = UIColor.clear
-        updateTheme()
     }
 }
 
@@ -130,13 +129,5 @@ extension SearchResultsViewController: BrowserCoreClient {
             ["entryPoint": ""],
             ["contextId": "mobile-cards"],
         ])
-    }
-
-    private func updateTheme() {
-         browserCore.callAction(
-           module: "BrowserCore",
-           action: "changeTheme",
-           args: [Self.getTheme()]
-         )
     }
 }

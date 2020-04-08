@@ -8,13 +8,10 @@
 
 import React
 
-class BrowserCoreViewController: UIViewController, ReactViewTheme {
+class BrowserCoreViewController: UIViewController {
     init(_ componentName: String, withArgs args: [String: Any]) {
         var initialProperties = args
-        if initialProperties["theme"] == nil {
-            initialProperties["theme"] = Self.getTheme()
-        }
-
+     
         super.init(nibName: nil, bundle: nil)
         let view = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,

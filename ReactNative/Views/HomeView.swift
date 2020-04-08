@@ -10,7 +10,7 @@ import Foundation
 import React
 import Storage
 
-class HomeView: UIView, ReactViewTheme {
+class HomeView: UIView {
     private var speedDials: [Site]?
     private var pinnedSites: [Site]?
     private var isNewsEnabled = true
@@ -61,7 +61,6 @@ class HomeView: UIView, ReactViewTheme {
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "Home",
             initialProperties: [
-                "theme": Self.getTheme(),
                 "speedDials": self.speedDials!.map { $0.toDict() },
                 "pinnedSites": self.pinnedSites!.map { $0.toDict() },
                 "isNewsEnabled": self.isNewsEnabled,
