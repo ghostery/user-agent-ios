@@ -66,24 +66,6 @@ class BrowserActions: NSObject, NativeModuleBase {
         NotificationCenter.default.post(name: QuerySuggestionsInputAccessoryView.ShowSuggestionsNotification, object: ["query": query, "suggestions": suggestions])
     }
 
-    @objc(speakNews:)
-    func speakNews(news: NSArray) {
-        guard let news = news as? [[String: Any]] else { return }
-        let synth = SpeechSynthesizer()
-
-        var text = ""
-        for article in news {
-            text += article["domain"] as! String
-            text += ": "
-            text += article["title"] as! String
-            text += " - "
-            text += article["description"] as! String
-            text += ": "
-        }
-
-        synth.start(text: text, language: .en_us)
-    }
-
     @objc(searchHistory:callback:)
     func searchHistory(query: NSString, callback: @escaping RCTResponseSenderBlock) {
         debugPrint("searchHistory")

@@ -26,6 +26,7 @@ protocol SpeechSynthesizerDelegate: class {
 }
 
 class SpeechSynthesizer: NSObject {
+    public var isReading = false
 
     weak var delegate: SpeechSynthesizerDelegate?
 
@@ -34,7 +35,10 @@ class SpeechSynthesizer: NSObject {
     override init() {
         super.init()
         self.speechSynthesizer.delegate = self
-        self.speechSynthesizer.pauseSpeaking(at: .word)
+    }
+
+    deinit {
+        self.stop()
     }
 
     func start(text: String, language: SpeechLanguage) {
@@ -43,6 +47,7 @@ class SpeechSynthesizer: NSObject {
         }
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: language.rawValue)
+        utterance.postUtteranceDelay = 0.7
         self.speechSynthesizer.speak(utterance)
     }
 
@@ -64,22 +69,27 @@ extension SpeechSynthesizer: AVSpeechSynthesizerDelegate {
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         self.delegate?.speechSynthesizerDidStart()
+        self.isReading = true
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
         self.delegate?.speechSynthesizerDidPause()
+        self.isReading = false
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
         self.delegate?.speechSynthesizerDidCancel()
+        self.isReading = false
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         self.delegate?.speechSynthesizerDidFinish()
+        self.isReading = false
     }
 
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didContinue utterance: AVSpeechUtterance) {
         self.delegate?.speechSynthesizerDidContinue()
+        self.isReading = true
     }
 
 }

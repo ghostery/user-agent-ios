@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   playbackControls: {
-    alignSelf: 'flex-end',
+    flexDirection: 'row',
   },
 });
 
@@ -46,8 +46,14 @@ export default ({
   news: News[];
 }) => {
   const read = useCallback(() => {
-    NativeModules.BrowserActions.speakNews(news);
+    NativeModules.ReadTheNews.read(news);
   }, [news]);
+  const next = useCallback(() => {
+    NativeModules.ReadTheNews.next();
+  }, []);
+  const previous = useCallback(() => {
+    NativeModules.ReadTheNews.previous();
+  }, []);
   return (
     <View style={styles.wrapper}>
       <TouchableWithoutFeedback onPress={scrollToNews}>
@@ -62,7 +68,9 @@ export default ({
       </TouchableWithoutFeedback>
       <View style={styles.spacer} />
       <View style={styles.playbackControls}>
+        <Button title="prev" onPress={previous} />
         <Button title="play" onPress={read} />
+        <Button title="next" onPress={next} />
       </View>
     </View>
   );
