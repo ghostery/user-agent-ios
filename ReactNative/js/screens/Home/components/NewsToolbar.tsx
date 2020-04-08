@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import {
-  TouchableWithoutFeedback,
   View,
   Text,
   StyleSheet,
-  Button,
   NativeModules,
+  TouchableHighlight,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import NativeDrawable from '../../../components/NativeDrawable';
 import { News } from '../hooks/news';
@@ -29,6 +29,13 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
     transform: [{ rotate: '-90deg' }],
+  },
+  playbackButtonIcon: {
+    color: '#ffffff',
+    height: 20,
+    width: 20,
+    alignSelf: 'center',
+    marginLeft: 15,
   },
   spacer: {
     flex: 1,
@@ -56,7 +63,7 @@ export default ({
   }, []);
   return (
     <View style={styles.wrapper}>
-      <TouchableWithoutFeedback onPress={scrollToNews}>
+      <TouchableHighlight onPress={scrollToNews}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>News</Text>
           <NativeDrawable
@@ -65,12 +72,30 @@ export default ({
             color={styles.buttonIcon.color}
           />
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableHighlight>
       <View style={styles.spacer} />
       <View style={styles.playbackControls}>
-        <Button title="prev" onPress={previous} />
-        <Button title="play" onPress={read} />
-        <Button title="next" onPress={next} />
+        <TouchableHighlight onPress={previous}>
+          <NativeDrawable
+            style={styles.playbackButtonIcon}
+            source="nav-back"
+            color={styles.playbackButtonIcon.color}
+          />
+        </TouchableHighlight>
+        <TouchableHighlight onPress={read}>
+          <NativeDrawable
+            style={styles.playbackButtonIcon}
+            source="nav-refresh"
+            color={styles.playbackButtonIcon.color}
+          />
+        </TouchableHighlight>
+        <TouchableHighlight onPress={next}>
+          <NativeDrawable
+            style={styles.playbackButtonIcon}
+            source="nav-forward"
+            color={styles.playbackButtonIcon.color}
+          />
+        </TouchableHighlight>
       </View>
     </View>
   );
