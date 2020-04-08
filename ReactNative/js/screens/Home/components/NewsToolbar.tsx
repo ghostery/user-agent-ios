@@ -79,12 +79,12 @@ export default ({
     }
     NativeModules.ReadTheNews.read(news, language);
   }, [news, edition]);
-  const next = useCallback(() => {
-    NativeModules.ReadTheNews.next();
-  }, []);
-  const previous = useCallback(() => {
-    NativeModules.ReadTheNews.previous();
-  }, []);
+  // const next = useCallback(() => {
+  //   NativeModules.ReadTheNews.next();
+  // }, []);
+  // const previous = useCallback(() => {
+  //   NativeModules.ReadTheNews.previous();
+  // }, []);
   return (
     <View style={styles.wrapper}>
       <TouchableHighlight onPress={scrollToNews}>
@@ -99,27 +99,27 @@ export default ({
       </TouchableHighlight>
       <View style={styles.spacer} />
       <View style={styles.playbackControls}>
-        <TouchableHighlight onPress={previous}>
+        {/* <TouchableHighlight onPress={previous}>
           <NativeDrawable
             style={styles.playbackButtonIcon}
             source="nav-back"
             color={styles.playbackButtonIcon.color}
           />
-        </TouchableHighlight>
+        </TouchableHighlight> */}
         <TouchableHighlight onPress={read}>
           <NativeDrawable
             style={styles.playbackButtonIcon}
-            source="nav-refresh"
+            source="play-pause"
             color={styles.playbackButtonIcon.color}
           />
         </TouchableHighlight>
-        <TouchableHighlight onPress={next}>
+        {/* <TouchableHighlight onPress={next}>
           <NativeDrawable
             style={styles.playbackButtonIcon}
             source="nav-forward"
             color={styles.playbackButtonIcon.color}
           />
-        </TouchableHighlight>
+        </TouchableHighlight> */}
       </View>
     </View>
   );
