@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useCallback, useState } from 'react';
+import React, { useMemo, useRef, useCallback } from 'react';
 import {
   Dimensions,
   NativeModules,

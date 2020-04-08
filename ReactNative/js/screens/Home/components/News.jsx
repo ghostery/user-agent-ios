@@ -3,7 +3,6 @@ import React, {
   useState,
   useMemo,
   useContext,
-  Children,
 } from 'react';
 import {
   NativeModules,
@@ -14,7 +13,7 @@ import {
   Text,
 } from 'react-native';
 import Logo from '../../../components/Logo';
-import ThemeContext from '../../../contexts/theme';
+import { withTheme } from '../../../contexts/theme';
 
 const getStyles = theme =>
   StyleSheet.create({
@@ -45,6 +44,7 @@ const getStyles = theme =>
     title: {
       fontWeight: '600',
       marginBottom: 10,
+      color: theme.textColor,
     },
     description: {
       flex: 1,
@@ -87,9 +87,8 @@ const HiddableImage = props => {
   );
 };
 
-export default function News({ news, isImagesEnabled }) {
-  const theme = useContext(ThemeContext);
 
+function News({ news, isImagesEnabled, theme }) {
   const styles = useMemo(() => getStyles(theme), [theme]);
 
   if (news.length === 0) {
@@ -139,3 +138,5 @@ export default function News({ news, isImagesEnabled }) {
   );
   /* eslint-enable prettier/prettier */
 }
+
+export default withTheme(News);

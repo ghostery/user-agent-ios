@@ -7,17 +7,23 @@
 //
 
 import Shared
+import React
 
 @objc(Constants)
 class Constants: NSObject {
     @objc
     func constantsToExport() -> [String: Any]! {
+        var colorScheme = "light"
+        if #available(iOS 13.0, *) {
+            colorScheme = UITraitCollection.current.userInterfaceStyle == .dark ? "dark" : "light"
+        }
         return [
             "isDebug": self.isDebug,
             "isCI": self.isCI,
             "userAgent": UserAgent.getUserAgent(),
             "bundleIdentifier": AppInfo.applicationBundle.bundleIdentifier ?? "",
             "version": AppInfo.appVersion,
+            "initialTheme": Self.getTheme(mode: colorScheme),
         ]
     }
 
@@ -40,5 +46,35 @@ class Constants: NSObject {
     @objc
     static func requiresMainQueueSetup() -> Bool {
         return false
+    }
+
+    @objc(getTheme:resolve:reject:)
+    func getTheme(
+        mode: String,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        resolve(Self.getTheme(mode: mode))
+    }
+
+    static func getTheme(mode: String) -> [String: Any] {
+        return [
+            "mode": mode,
+            "backgroundColor": Theme.browser.homeBackground.hexString,
+            "textColor": Theme.browser.tint.hexString,
+            "descriptionColor": mode == "dark" ? "rgba(255, 255, 255, 0.61)" : "rgba(0, 0, 0, 0.61)",
+            "visitedColor": mode == "dark" ? "#BDB6FF" : "#610072",
+            "separatorColor": Theme.homePanel.separatorColor.hexString,
+            "unsafeUrlColor": mode == "dark" ? "#BE9681" : "#5D4037",
+            "urlColor": mode == "dark" ? "#6BA573" : "#579D61",
+            "linkColor": mode == "dark" ? "#FFFFFF" : "#003172",
+            "redColor": "#E64C68",
+            "tintColor": Theme.toolbarButton.selectedTint.hexString,
+            "fontSizeSmall": DynamicFontHelper.defaultHelper.SmallSizeRegularWeightAS.pointSize,
+            "fontSizeMedium": DynamicFontHelper.defaultHelper.MediumSizeRegularWeightAS.pointSize,
+            "fontSizeLarge": DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS.pointSize,
+            "brandColor": UIColor.CliqzBlue.hexString,
+            "brandTintColor": Theme.general.controlTint.hexString,
+        ]
     }
 }
