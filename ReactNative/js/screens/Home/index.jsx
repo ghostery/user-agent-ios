@@ -95,7 +95,7 @@ export default function Home({
   height,
   toolbarHeight,
 }) {
-  const news = useNews(newsModule);
+  const [news, edition] = useNews(newsModule);
   const scrollViewElement = useRef(null);
   const newsElement = useRef(null);
   const styles = getStyles(toolbarHeight);
@@ -155,7 +155,11 @@ export default function Home({
         {isNewsEnabled && (
           <View style={styles.newsToolbarWrapper}>
             <View style={styles.newsToolbarWrapperInternal}>
-              <NewsToolbar news={news} scrollToNews={scrollToNews} />
+              <NewsToolbar
+                news={news}
+                scrollToNews={scrollToNews}
+                edition={edition}
+              />
             </View>
           </View>
         )}

@@ -5,7 +5,6 @@ import {
   StyleSheet,
   NativeModules,
   TouchableHighlight,
-  TouchableWithoutFeedback,
 } from 'react-native';
 import NativeDrawable from '../../../components/NativeDrawable';
 import { News } from '../hooks/news';
@@ -48,13 +47,38 @@ const styles = StyleSheet.create({
 export default ({
   scrollToNews,
   news,
+  edition,
 }: {
   scrollToNews: any;
   news: News[];
+  edition: String;
 }) => {
   const read = useCallback(() => {
-    NativeModules.ReadTheNews.read(news);
-  }, [news]);
+    let language;
+    switch (edition) {
+      case 'us':
+      case 'de-tr-en':
+      case 'intl':
+        language = 'en-US';
+        break;
+      case 'gb':
+        language = 'en-GB';
+        break;
+      case 'es':
+        language = 'es-ES';
+        break;
+      case 'it':
+        language = 'it-IT';
+        break;
+      case 'fr':
+        language = 'fr-CA';
+        break;
+      case 'de':
+      default:
+        language = 'de-DE';
+    }
+    NativeModules.ReadTheNews.read(news, language);
+  }, [news, edition]);
   const next = useCallback(() => {
     NativeModules.ReadTheNews.next();
   }, []);

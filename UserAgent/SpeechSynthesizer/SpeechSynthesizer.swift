@@ -8,7 +8,7 @@
 
 import AVFoundation
 
-enum SpeechLanguage: String {
+public enum SpeechLanguage: String {
     case de = "de-DE" // German
     case en_us = "en-US" // English(US)
     case en_gb = "en-GB" // English(GB)

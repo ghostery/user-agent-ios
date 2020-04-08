@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NewsArticle {
+private struct NewsArticle {
     let domain: String
     let title: String
     let description: String
@@ -32,22 +32,27 @@ class ReadTheNews: NSObject {
     private var language: SpeechLanguage = .en_us
     private var isPaused = false
 
-    @objc(read:)
-    func read(news: NSArray) {
+    @objc(read:language:)
+    func read(news: NSArray, language: NSString) {
         guard let news = news as? [[String: Any]] else { return }
 
-        if synth.isReading {
-            synth.pause()
-            self.isPaused = true
-            return
-        } else if self.isPaused {
-            synth.resume()
-            self.isPaused = false
-            return
+        guard let language = SpeechLanguage(rawValue: language as String) else { return }
+
+        if language == self.language {
+            if synth.isReading {
+                synth.pause()
+                self.isPaused = true
+                return
+            } else if self.isPaused {
+                synth.resume()
+                self.isPaused = false
+                return
+            }
         }
 
-        self.language = .en_us
+        self.language = language
         self.index = 0
+        self.isPaused = false
         self.news = news.map { article in NewsArticle(
             domain: article["domain"] as! String,
             title: article["title"] as! String,
@@ -89,6 +94,7 @@ class ReadTheNews: NSObject {
     }
 
     private func read(_ article: NewsArticle) {
+        self.isPaused = false
         self.synth.start(text: article.text, language: self.language)
     }
 }

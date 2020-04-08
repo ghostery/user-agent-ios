@@ -11,7 +11,7 @@
 
 @interface RCT_EXTERN_MODULE(ReadTheNews, NSObject)
 
-RCT_EXTERN_METHOD(read:(NSArray *) news)
+RCT_EXTERN_METHOD(read:(NSArray *) news language:(NSString *)language)
 RCT_EXTERN_METHOD(next)
 RCT_EXTERN_METHOD(previous)
 

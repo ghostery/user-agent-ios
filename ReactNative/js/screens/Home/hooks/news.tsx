@@ -16,11 +16,14 @@ const deepEqualNews = (oldNews: News[], news: News[]) => {
 
 export default (newsModule: any) => {
   const [data, setData] = useState<News[]>([]);
-  newsModule.action('getNews').then(({ news }: { news: News[] }) => {
+  const [edition, setEdition] = useState('de');
+  newsModule.action('getNews').then(async ({ news }: { news: News[] }) => {
+    const lang = await newsModule.action('getLanguage');
     if (data.length === 0 || !deepEqualNews(data, news)) {
       setData(news);
+      setEdition(lang);
     }
   });
 
-  return data;
+  return [data, edition];
 };
