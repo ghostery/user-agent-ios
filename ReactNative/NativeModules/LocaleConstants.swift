@@ -19,6 +19,7 @@ class LocaleConstants: NSObject {
             "ActivityStream.TopSites.SectionTitle": Strings.ActivityStream.TopSites.Title,
             "ActivityStream.PinnedSites.SectionTitle": Strings.ActivityStream.PinnedSitesTitle,
             "ActivityStream.News.BreakingLabel": Strings.ActivityStream.News.BreakingLabel,
+            "ActivityStream.News.Header": Strings.ActivityStream.News.Header,
             "ControlCenter.SearchStats.Title": Strings.ControlCenter.SearchStats.Title,
             "ControlCenter.SearchStats.CliqzSearch": Strings.ControlCenter.SearchStats.CliqzSearch,
             "ControlCenter.SearchStats.OtherSearch": Strings.ControlCenter.SearchStats.OtherSearch,

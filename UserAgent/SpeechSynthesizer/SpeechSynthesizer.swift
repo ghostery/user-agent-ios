@@ -42,8 +42,8 @@ class SpeechSynthesizer: NSObject {
     }
 
     func start(text: String, language: SpeechLanguage) {
-        guard !self.speechSynthesizer.isSpeaking || self.speechSynthesizer.stopSpeaking(at: .immediate) else {
-            return
+        if self.speechSynthesizer.isSpeaking {
+            self.speechSynthesizer.stopSpeaking(at: .immediate)
         }
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: language.rawValue)

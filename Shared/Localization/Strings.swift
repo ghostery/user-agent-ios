@@ -48,6 +48,7 @@ extension Strings {
     public struct ActivityStream {
         public struct News {
             public static let BreakingLabel = NSLocalizedString("ActivityStream.News.BreakingLabel", comment: "")
+            public static let Header = NSLocalizedString("ActivityStream.News.Header", comment: "News section header")
         }
         public struct TopSites {
             public static let Title =  NSLocalizedString("ActivityStream.TopSites.SectionTitle", comment: "Section title label for Top Sites")

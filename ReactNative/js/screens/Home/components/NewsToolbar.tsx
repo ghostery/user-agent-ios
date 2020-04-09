@@ -1,15 +1,11 @@
 import React, { useCallback } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  NativeModules,
-  TouchableHighlight,
-} from 'react-native';
+import { View, Text, NativeModules, TouchableHighlight } from 'react-native';
 import NativeDrawable from '../../../components/NativeDrawable';
+import { useStyles } from '../../../contexts/theme';
+import t from '../../../services/i18n';
 import { News } from '../hooks/news';
 
-const styles = StyleSheet.create({
+const getStyles = (theme: any) => ({
   wrapper: {
     width: '100%',
     flexDirection: 'row',
@@ -22,25 +18,30 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 15,
     marginRight: 5,
+    textTransform: 'uppercase',
   },
   buttonIcon: {
-    color: '#ffffff',
+    color: theme.brandTintColor,
     height: 20,
     width: 20,
-    transform: [{ rotate: '-90deg' }],
   },
   playbackButtonIcon: {
     color: '#ffffff',
     height: 20,
     width: 20,
     alignSelf: 'center',
-    marginLeft: 15,
   },
   spacer: {
     flex: 1,
+    alignItems: 'center',
   },
   playbackControls: {
     flexDirection: 'row',
+  },
+  downIconWrapper: {
+    position: 'absolute',
+    width: '100%',
+    alignItems: 'center',
   },
 });
 
@@ -53,6 +54,7 @@ export default ({
   news: News[];
   edition: String;
 }) => {
+  const styles = useStyles(getStyles);
   const read = useCallback(() => {
     let language;
     switch (edition) {
@@ -79,33 +81,24 @@ export default ({
     }
     NativeModules.ReadTheNews.read(news, language);
   }, [news, edition]);
-  // const next = useCallback(() => {
-  //   NativeModules.ReadTheNews.next();
-  // }, []);
-  // const previous = useCallback(() => {
-  //   NativeModules.ReadTheNews.previous();
-  // }, []);
   return (
     <View style={styles.wrapper}>
+      <View style={styles.downIconWrapper}>
+        <NativeDrawable
+          style={styles.buttonIcon}
+          source="arrow-down"
+          color={styles.buttonIcon.color}
+        />
+      </View>
       <TouchableHighlight onPress={scrollToNews}>
         <View style={styles.button}>
-          <Text style={styles.buttonText}>News</Text>
-          <NativeDrawable
-            style={styles.buttonIcon}
-            source="nav-back"
-            color={styles.buttonIcon.color}
-          />
+          <Text style={styles.buttonText}>
+            {t('ActivityStream.News.Header')}
+          </Text>
         </View>
       </TouchableHighlight>
       <View style={styles.spacer} />
       <View style={styles.playbackControls}>
-        {/* <TouchableHighlight onPress={previous}>
-          <NativeDrawable
-            style={styles.playbackButtonIcon}
-            source="nav-back"
-            color={styles.playbackButtonIcon.color}
-          />
-        </TouchableHighlight> */}
         <TouchableHighlight onPress={read}>
           <NativeDrawable
             style={styles.playbackButtonIcon}
@@ -113,13 +106,6 @@ export default ({
             color={styles.playbackButtonIcon.color}
           />
         </TouchableHighlight>
-        {/* <TouchableHighlight onPress={next}>
-          <NativeDrawable
-            style={styles.playbackButtonIcon}
-            source="nav-forward"
-            color={styles.playbackButtonIcon.color}
-          />
-        </TouchableHighlight> */}
       </View>
     </View>
   );
