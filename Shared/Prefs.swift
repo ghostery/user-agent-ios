@@ -22,6 +22,9 @@ public struct PrefsKeys {
     //Pull to refresh
     public static let RefreshControlEnabled = "RefreshControlEnabled"
 
+    // Contextual Onboarding
+    public static let WipeAllTraces = "WipeAllTraces"
+    
     //News
     public static let NewTabNewsEnabled = "NewTabNewsEnabled"
     public static let NewTabNewsImagesEnabled = "NewTabNewsImagesEnabled"

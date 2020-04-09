@@ -1960,8 +1960,25 @@ extension BrowserViewController: IntroViewControllerDelegate {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
         self.present(navigationController, animated: true)
-   }
+    }
 
+    func presentWipeAllTracesContextualOnboarding() {
+        let value = self.profile.prefs.boolForKey(PrefsKeys.WipeAllTraces)
+        guard value == nil || !value! else {
+            return
+        }
+        let icon = UIImage(named: "wipe-white")
+        let title = Strings.ContextualOnboarding.WipeAllTraces.Title
+        let description = Strings.ContextualOnboarding.WipeAllTraces.Description
+        let detail = ContextualOnboardingDitail(backgroundGradientColors: [.BrightBlue, .DarkBlue], title: title, icon: icon, description: description)
+        self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces)
+    }
+
+    func presentContextualOnboardingViewController(detail: ContextualOnboardingDitail, prefKey: String) {
+        let viewController = ContextualOnboardingViewController(contentDetail: detail, profile: self.profile, prefKey: prefKey)
+        viewController.modalPresentationStyle = self.traitCollection.horizontalSizeClass == .regular ? .formSheet : .overCurrentContext
+        self.present(viewController, animated: true)
+    }
 }
 
 extension BrowserViewController: PrivacyStatementViewControllerDelegate {

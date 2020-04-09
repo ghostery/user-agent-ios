@@ -418,6 +418,15 @@ extension Strings {
         public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
     }
 
+    // MARK: - Contextual Onboarding
+    public struct ContextualOnboarding {
+        public static let DontShowAgain = NSLocalizedString("ContextualOnboarding.DontShowAgain", tableName: "ContextualOnboarding", comment: "Don't show agian button title")
+        public struct WipeAllTraces {
+            public static let Title = NSLocalizedString("ContextualOnboarding.WipeAllTraces.Title", tableName: "ContextualOnboarding", comment: "Title for Wipe All Traces screen")
+            public static let Description = NSLocalizedString("ContextualOnboarding.WipeAllTraces.Description", tableName: "ContextualOnboarding", comment: "Description for Wipe All Traces screen")
+        }
+    }
+
     // MARK: - Menu
     public struct Menu {
         public static let ShowTabsTitleString = NSLocalizedString("Menu.ShowTabs.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the tabs tray")

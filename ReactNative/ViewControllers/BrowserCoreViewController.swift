@@ -10,8 +10,8 @@ import React
 
 class BrowserCoreViewController: UIViewController {
     init(_ componentName: String, withArgs args: [String: Any]) {
-        var initialProperties = args
-     
+        let initialProperties = args
+
         super.init(nibName: nil, bundle: nil)
         let view = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
