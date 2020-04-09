@@ -80,8 +80,8 @@ class ReadTheNews: NSObject {
     func next() {
         synth.stop()
         self.index += 1
-        if self.index >= self.news.count - 1 {
-            self.index = self.news.count - 1
+        if self.index > self.news.count - 1 {
+            self.index = 0
             return
         }
         guard let article = self.news[safe: self.index] else { return }

@@ -44,17 +44,16 @@ const getStyles = theme =>
     title: {
       fontWeight: '600',
       marginBottom: 10,
+      fontSize: 15,
       color: theme.textColor,
     },
     description: {
       flex: 1,
       color: theme.descriptionColor,
-      fontSize: 12,
       marginBottom: 10,
     },
     domain: {
       color: theme.descriptionColor,
-      fontSize: 12,
     },
     secondRow: {
       flexDirection: 'column',
@@ -62,7 +61,6 @@ const getStyles = theme =>
     breaking: {
       color: theme.redColor,
       paddingLeft: 10,
-      fontSize: 12,
     },
     domainRow: {
       flexDirection: 'row',
@@ -112,18 +110,18 @@ function News({ news, isImagesEnabled, theme }) {
                 </HiddableImage>
               }
               <View style={styles.secondRow}>
-                <Text style={styles.title} allowFontScaling={false}>
+                <Text style={styles.title}>
                   {item.title}
                 </Text>
-                <Text style={styles.description} allowFontScaling={false}>
+                <Text style={styles.description}>
                   {item.description}
                 </Text>
-                <View style={styles.domainRow} allowFontScaling={false}>
-                  <Text style={styles.domain} allowFontScaling={false}>
+                <View style={styles.domainRow}>
+                  <Text style={styles.domain}>
                     {item.domain}
                   </Text>
                   {item.breaking_label && (
-                    <Text style={styles.breaking} allowFontScaling={false}>
+                    <Text style={styles.breaking}>
                       {NativeModules.LocaleConstants['ActivityStream.News.BreakingLabel']}
                     </Text>
                   )}
