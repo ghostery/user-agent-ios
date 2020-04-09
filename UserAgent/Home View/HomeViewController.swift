@@ -104,11 +104,26 @@ class HomeViewController: UIViewController {
     }
 
     private let segments: [Segment] = [.topSites, .bookmarks, .history]
+
+    private lazy var segmentedControlWrapper: UIView = {
+        let wrapper = UIView()
+        let effectView = UIVisualEffectView()
+        if #available(iOS 13.0, *) {
+            effectView.effect = UIBlurEffect(style: .systemMaterial)
+        } else {
+            effectView.effect = UIBlurEffect(style: .light)
+        }
+        wrapper.addSubview(effectView)
+        effectView.snp.makeConstraints { make in
+            make.top.bottom.left.right.equalToSuperview()
+        }
+        return wrapper
+    }()
+
     private lazy var segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: self.segments.map({ $0.title }))
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         segmentedControl.setContentCompressionResistancePriority(.required, for: .vertical)
-        segmentedControl.backgroundColor = Theme.browser.barBackgroundColor
         return segmentedControl
     }()
 
@@ -196,7 +211,8 @@ private extension HomeViewController {
     }
 
     func setupConstraints() {
-        view.addSubview(segmentedControl)
+        self.segmentedControlWrapper.addSubview(segmentedControl)
+        view.addSubview(segmentedControlWrapper)
         view.addSubview(topSitesView)
         view.addSubview(bookmarksView)
         view.addSubview(historyView)
@@ -205,29 +221,35 @@ private extension HomeViewController {
 
         segmentedControl.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(margins)
-            make.left.lessThanOrEqualTo(self.view.safeAreaLayoutGuide.snp.leftMargin).offset(margins)
-            make.right.lessThanOrEqualTo(self.view.safeAreaLayoutGuide.snp.rightMargin).offset(-margins)
+            make.left.lessThanOrEqualTo(self.view.safeAreaLayoutGuide).offset(margins)
+            make.right.lessThanOrEqualTo(self.view.safeAreaLayoutGuide).offset(-margins)
+            make.bottom.equalToSuperview().offset(-margins)
+            make.centerX.equalToSuperview()
+        }
+
+        self.segmentedControlWrapper.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
             make.centerX.equalToSuperview()
         }
 
         topSitesView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
+            make.top.equalTo(segmentedControlWrapper.snp.bottom)
             make.bottom.left.right.equalTo(self.view)
             make.bottom.bottom.equalTo(self.view)
         }
 
         bookmarksView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
+            make.top.equalTo(segmentedControlWrapper.snp.bottom)
             make.bottom.left.right.equalTo(self.view.safeAreaLayoutGuide)
             make.bottom.bottom.equalTo(self.view)
         }
 
         historyView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(margins)
+            make.top.equalTo(segmentedControlWrapper.snp.bottom)
             make.bottom.left.right.equalTo(self.view.safeAreaLayoutGuide)
             make.bottom.bottom.equalTo(self.view)
         }
-
     }
 
     @objc

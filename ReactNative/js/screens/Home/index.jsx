@@ -73,9 +73,9 @@ const getStyles = toolbarHeight => {
       backgroundColor: '#00000055',
     },
     newsToolbarWrapperInternal: {
-      width: 380,
+      width: maxWidth,
       alignSelf: 'center',
-      paddingHorizontal: 10,
+      paddingHorizontal: 15,
     },
     newsWrapper: {
       flex: 1,

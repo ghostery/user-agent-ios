@@ -23,7 +23,7 @@ const getStyles = theme => ({
   text: {
     alignSelf: 'center',
     flexGrow: 1,
-    color: theme.descriptionColor,
+    color: '#444444',
   },
   iconWrapper: {
     width: 20,
