@@ -638,6 +638,11 @@ extension URLBarView: TabToolbarProtocol {
         }
     }
 
+    func searchBadge(visible: Bool) {
+        let image = visible ? UIImage.templateImageNamed("AddSearch") : UIImage.templateImageNamed("search")
+        self.searchButton.setImage(image, for: .normal)
+    }
+
     func updateBackStatus(_ canGoBack: Bool) {
         backButton.isEnabled = canGoBack
     }
