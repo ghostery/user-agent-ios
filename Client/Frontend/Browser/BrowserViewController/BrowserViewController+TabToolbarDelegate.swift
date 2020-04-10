@@ -51,7 +51,16 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     }
 
     func tabToolbarDidPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-        self.focusLocationTextField(forTab: self.tabManager.selectedTab)
+        guard let tab = self.tabManager.selectedTab else {
+            return
+        }
+        if tab.isNewTabPage {
+            if !self.urlBar.inOverlayMode {
+                self.focusLocationTextField(forTab: tab)
+            }
+        } else if let homePanelURL = NewTabPage.topSites.url {
+            tab.loadRequest(PrivilegedRequest(url: homePanelURL) as URLRequest)
+        }
     }
 
     func tabToolbarDidLongPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton) {

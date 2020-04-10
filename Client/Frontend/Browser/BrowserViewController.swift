@@ -778,6 +778,9 @@ class BrowserViewController: UIViewController {
     }
 
     private func showBlur() {
+        guard self.blurLayer == nil else {
+            return
+        }
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         //always fill the view
