@@ -275,7 +275,7 @@ class TabLocationView: UIView {
         if let searchUrl = SearchURL(url) {
             return searchUrl.query
         }
-        if url.isHostIPAddress {
+        if url.isHostIPAddress || url.isIPv6 {
             return url.host ?? ""
         }
         return url.publicSuffix(additionalPartCount: 1) ?? ""
