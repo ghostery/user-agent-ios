@@ -284,6 +284,21 @@ extension URL {
         return scheme.map { schemes.contains($0) } ?? false
     }
 
+    public var isHostIPAddress: Bool {
+        guard let host = self.host else {
+            return false
+        }
+        guard host != "localhost" else {
+            return true
+        }
+        let components = host.components(separatedBy: ".")
+        guard components.count == 4 else {
+            return false
+        }
+        let validNumbersCount = components.compactMap({ Int($0) }).filter({ $0 >= 0 && $0 < 256 })
+        return validNumbersCount.count == 4
+    }
+
     public var isIPv6: Bool {
         return host?.contains(":") ?? false
     }
