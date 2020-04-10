@@ -138,8 +138,6 @@
 		2B8DDBB723A3B84600D2CE7A /* PrivacyStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */; };
 		2B8DDBB923A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
 		2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
-		2B9DA343243F485B0054D55A /* DismissAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9DA342243F485B0054D55A /* DismissAnimatedTransitioning.swift */; };
-		2B9DA344243F485B0054D55A /* DismissAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9DA342243F485B0054D55A /* DismissAnimatedTransitioning.swift */; };
 		2BBAA44D242124E0006D8246 /* TodayWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAA44C242124E0006D8246 /* TodayWidgetViewController.swift */; };
 		2BC00EFD234F216100BED6D7 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC00EFB234F212700BED6D7 /* ProfileTest.swift */; };
 		2BC457FE23F135B200057204 /* PhotonActionSheetCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */; };
@@ -1339,7 +1337,6 @@
 		2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementCell.swift; sourceTree = "<group>"; };
 		2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementMessageCell.swift; sourceTree = "<group>"; };
 		2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyStatementFooterView.swift; sourceTree = "<group>"; };
-		2B9DA342243F485B0054D55A /* DismissAnimatedTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		2BBAA44C242124E0006D8246 /* TodayWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWidgetViewController.swift; sourceTree = "<group>"; };
 		2BC00EFB234F212700BED6D7 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
 		2BC457FD23F135B200057204 /* PhotonActionSheetCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonActionSheetCollectionCell.swift; sourceTree = "<group>"; };
@@ -2337,7 +2334,6 @@
 			isa = PBXGroup;
 			children = (
 				2B46494D243EF1DF002913F5 /* ContextualOnboardingViewController.swift */,
-				2B9DA342243F485B0054D55A /* DismissAnimatedTransitioning.swift */,
 				2B32B72A243F693A00607D0A /* GradientView.swift */,
 			);
 			path = ContextualOnboarding;
@@ -5620,7 +5616,6 @@
 				46CA60F72317E5D10010CE6B /* JSBridge.m in Sources */,
 				ACB7374F23042BAB00FA5626 /* ReaderMode.swift in Sources */,
 				ACB7375123042BAB00FA5626 /* SessionData.swift in Sources */,
-				2B9DA344243F485B0054D55A /* DismissAnimatedTransitioning.swift in Sources */,
 				ACB7375223042BAB00FA5626 /* TabToolbar.swift in Sources */,
 				ACB7375323042BAB00FA5626 /* SyncContentSettingsViewController.swift in Sources */,
 				46504061240FC1E80086CFAF /* HistoryView.swift in Sources */,
@@ -5974,7 +5969,6 @@
 				E64ED8FA1BC55AE300DAF864 /* UIAlertControllerExtensions.swift in Sources */,
 				39CE74F821A83105007AE4F2 /* TranslationSettingsController.swift in Sources */,
 				460C248123F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */,
-				2B9DA343243F485B0054D55A /* DismissAnimatedTransitioning.swift in Sources */,
 				464830F3243DC1090052CC2C /* ReadTheNews.m in Sources */,
 				46504063240FC2520086CFAF /* BaseReactHomeView.swift in Sources */,
 				460C247A23ED73D700D922B0 /* WindowCryto.swift in Sources */,

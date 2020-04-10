@@ -8,6 +8,7 @@
 
 import UIKit
 import Shared
+import SnapKit
 
 class ContextualOnboardingDitail {
     let backgroundGradientColors: [UIColor]
@@ -33,6 +34,7 @@ struct ContextualOnboardingUI {
     static let preferredContentWidth: CGFloat = 200.0
     static let swipeViewWidth: CGFloat = 30.0
     static let swipeViewHeight: CGFloat = 5.0
+    static let backgroundAlpha: CGFloat = 0.3
 }
 
 class ContextualOnboardingViewController: UIViewController {
@@ -44,11 +46,12 @@ class ContextualOnboardingViewController: UIViewController {
     private let backgroundView = GradientView()
     private let stackView = UIStackView()
 
+    private var initialTouchPoint: CGPoint = .zero
+    private var backgroundViewBottomConstrint: Constraint!
+
     private var isHorizontalSizeClassRegular: Bool {
         return self.traitCollection.horizontalSizeClass == .regular
     }
-
-    fileprivate var interactor = Interactor()
 
     init(contentDetail: ContextualOnboardingDitail, profile: Profile, prefKey: String) {
         self.detail = contentDetail
@@ -63,9 +66,6 @@ class ContextualOnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !self.isHorizontalSizeClassRegular {
-//            self.transitioningDelegate = self
-        }
         self.configureView()
     }
 
@@ -74,7 +74,7 @@ class ContextualOnboardingViewController: UIViewController {
         self.view.backgroundColor = .clear
         if !self.isHorizontalSizeClassRegular {
             UIView.animate(withDuration: 0.1) {
-                self.view.backgroundColor = UIColor.black.with(alpha: .thirtyPercent)
+                self.view.backgroundColor = UIColor.CliqzBlack.withAlphaComponent(ContextualOnboardingUI.backgroundAlpha)
             }
         }
     }
@@ -100,8 +100,6 @@ class ContextualOnboardingViewController: UIViewController {
     }
 
     @objc func handleGesture(_ sender: UIPanGestureRecognizer) {
-        let percentThreshold: CGFloat = 0.3
-
         let translation = sender.translation(in: view)
         let verticalMovement = translation.y / view.bounds.height
         let downwardMovement = fmaxf(Float(verticalMovement), 0.0)
@@ -110,17 +108,25 @@ class ContextualOnboardingViewController: UIViewController {
 
         switch sender.state {
         case .began:
-            self.interactor.hasStarted = true
-            self.dismiss(animated: true, completion: nil)
+            self.initialTouchPoint = sender.location(in: self.view)
         case .changed:
-            self.interactor.shouldFinish = progress > percentThreshold
-            self.interactor.update(progress)
-        case .cancelled:
-            self.interactor.hasStarted = false
-            self.interactor.cancel()
-        case .ended:
-            self.interactor.hasStarted = false
-            self.interactor.shouldFinish ? self.interactor.finish() : self.interactor.cancel()
+            let point = sender.location(in: self.view)
+            let offset: CGFloat = point.y - self.initialTouchPoint.y
+            self.backgroundViewBottomConstrint.update(offset: max(0, offset))
+            let alpha = ContextualOnboardingUI.backgroundAlpha - ContextualOnboardingUI.backgroundAlpha * progress
+            self.view.backgroundColor = UIColor.CliqzBlack.withAlphaComponent(alpha)
+        case .cancelled, .ended, .failed:
+            let point = sender.location(in: self.view)
+            let backgroundViewY = self.view.frame.height - self.backgroundView.frame.height
+            if point.y - backgroundViewY > self.backgroundView.frame.height * 0.3 {
+                self.dismiss(animated: true)
+            } else {
+                self.backgroundViewBottomConstrint.update(offset: 0)
+                UIView.animate(withDuration: 0.1) {
+                    self.view.backgroundColor = UIColor.CliqzBlack.withAlphaComponent(ContextualOnboardingUI.backgroundAlpha)
+                    self.view.layoutIfNeeded()
+                }
+            }
         default:
             break
         }
@@ -146,14 +152,16 @@ class ContextualOnboardingViewController: UIViewController {
             maskedCorners.update(with: .layerMaxXMinYCorner)
             maskedCorners.update(with: .layerMaxXMaxYCorner)
         }
+        self.backgroundView.clipsToBounds = true
         self.backgroundView.layer.maskedCorners = maskedCorners
         self.backgroundView.layer.cornerRadius = 15
         self.backgroundView.backgroundColor = .BrightBlue
-//        self.backgroundView.drawOptions = .centerTopCenterBottom
-//        self.backgroundView.colors = self.detail?.backgroundGradientColors ?? [.BrightBlue]
+        self.backgroundView.drawOptions = .centerTopCenterBottom
+        self.backgroundView.colors = self.detail?.backgroundGradientColors ?? [.BrightBlue]
         self.view.addSubview(self.backgroundView)
         self.backgroundView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            self.backgroundViewBottomConstrint = make.bottom.equalToSuperview().constraint
             if self.isHorizontalSizeClassRegular {
                 make.top.equalToSuperview()
             } else {
@@ -185,7 +193,7 @@ class ContextualOnboardingViewController: UIViewController {
         self.backgroundView.addSubview(self.stackView)
         self.stackView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-ContextualOnboardingUI.verticalOffset)
+            make.bottom.equalTo(self.backgroundView).offset(-(ContextualOnboardingUI.verticalOffset + self.view.safeAreaInsets.bottom))
             make.top.equalToSuperview().offset(ContextualOnboardingUI.verticalOffset)
         }
     }
@@ -319,18 +327,6 @@ class ContextualOnboardingViewController: UIViewController {
             make.height.equalTo(height)
         }
         self.stackView.addArrangedSubview(view)
-    }
-
-}
-
-extension ContextualOnboardingViewController: UIViewControllerTransitioningDelegate {
-
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return DismissAnimatedTransitioning()
-    }
-
-    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return self.interactor.hasStarted ? self.interactor : nil
     }
 
 }
