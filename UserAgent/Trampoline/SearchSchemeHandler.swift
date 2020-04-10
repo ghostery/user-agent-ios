@@ -9,6 +9,7 @@
 import Foundation
 import WebKit
 import Shared
+import UIKit
 
 class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
     func webView(_ webView: WKWebView, start urlSchemeTask: WKURLSchemeTask) {
@@ -16,6 +17,13 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
             urlSchemeTask.didFailWithError(InternalPageSchemeHandlerError.badURL)
             return
         }
+
+        if !urlSchemeTask.request.isPrivileged,
+            urlSchemeTask.request.mainDocumentURL != urlSchemeTask.request.url,
+            downloadResource(urlSchemeTask: urlSchemeTask) {
+            return
+        }
+
         let response = InternalSchemeHandler.response(forUrl: url)
         // Blank page with a color matching the background of the panels which is displayed for a split-second until the panel shows.
         let bg = Theme.browser.background.hexString
@@ -36,12 +44,21 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
                         background-color: \(bg);
                         height: 100%;
                         margin: 0;
+                        font-family: -apple-system,system-ui,BlinkMacSystemFont;
                     }
                     #search {
                         display: none;
                         align-items: center;
                         justify-content: center;
                         flex-direction: column;
+                    }
+                    #search img {
+                        width: 150px;
+                        height: 150px;
+                        margin-bottom: 40px;
+                    }
+                    #search span {
+                        color: #C1C8CB;
                     }
                 </style>
                 <script>
@@ -87,7 +104,8 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
             </head>
             <body>
                 <div id="search">
-                    <button onclick="search()">Search for "\(query)"</button>
+                    <img src="search://local/trampoline.png"/>
+                    <span>\(Strings.UrlBar.Placeholder)</span>
                 </div>
             </body>
         </html>
@@ -99,6 +117,23 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
         urlSchemeTask.didReceive(response)
         urlSchemeTask.didReceive(data)
         urlSchemeTask.didFinish()
+    }
+
+    private func downloadResource(urlSchemeTask: WKURLSchemeTask) -> Bool {
+        guard let url = urlSchemeTask.request.url else { return false }
+
+        if
+            url.lastPathComponent == "trampoline.png",
+            let res = UIImage.templateImageNamed("trampoline"),
+            let data = res.pngData()
+        {
+            urlSchemeTask.didReceive(URLResponse(url: url, mimeType: nil, expectedContentLength: -1, textEncodingName: nil))
+            urlSchemeTask.didReceive(data)
+            urlSchemeTask.didFinish()
+            return true
+        }
+
+        return false
     }
 
     func webView(_ webView: WKWebView, stop urlSchemeTask: WKURLSchemeTask) {}

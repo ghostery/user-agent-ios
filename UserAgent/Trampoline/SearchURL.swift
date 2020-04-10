@@ -16,8 +16,11 @@ public struct SearchURL {
 
     public let url: URL
 
-    public static func isValid(url: URL) -> Bool {
-        return Self.scheme == url.scheme
+    public static func isValid(url: URL?) -> Bool {
+        if url == nil {
+            return false
+        }
+        return Self.scheme == url?.scheme
     }
 
     public init(domain: String, redirectUrl: String, query: String) {

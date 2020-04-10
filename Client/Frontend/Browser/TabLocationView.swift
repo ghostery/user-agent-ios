@@ -49,15 +49,14 @@ class TabLocationView: UIView {
     var url: URL? {
         didSet {
             self.updateLockImageView()
-            if self.url == nil {
-                self.urlTextLabelAlignLeft(duration: 0.0)
-            } else {
-                self.urlTextLabelAlignCenter(duration: 0.0)
-            }
+
+            self.urlTextLabelAlignCenter(duration: 0.0)
             self.updateTextWithURL(text: self.urlbarText)
             self.updateStackViewSpacing()
-            self.pageOptionsButton.isHidden = (self.url == nil)
-            self.privacyIndicator.isHidden = self.url == nil
+
+            let isInternalURL = self.isInternalURL(self.url)
+            self.pageOptionsButton.isHidden = isInternalURL
+            self.privacyIndicator.isHidden = isInternalURL
             setNeedsUpdateConstraints()
         }
     }
@@ -92,14 +91,13 @@ class TabLocationView: UIView {
 
     fileprivate func updateLockImageView() {
         let wasHidden = lockImageView.isHidden
-        lockImageView.isHidden = (url == nil)
+        lockImageView.isHidden = self.isInternalURL(self.url)
+
         if wasHidden != lockImageView.isHidden {
             UIAccessibility.post(notification: UIAccessibility.Notification.layoutChanged, argument: nil)
         }
 
-        if self.url?.scheme == SearchURL.scheme {
-            self.lockImageView.image = nil
-        } else if self.url?.scheme != "https" {
+        if self.url?.scheme != "https" {
             self.lockImageView.image = UIImage.templateImageNamed("lock_not_verified")
         } else {
             self.lockImageView.image = UIImage.templateImageNamed("lock_verified")
@@ -155,7 +153,7 @@ class TabLocationView: UIView {
         view.backgroundColor = .clear
         view.addSubview(urlTextLabel)
         self.urlTextLabel.snp.makeConstraints { (make) in
-            let imageSize = self.lockImageView.image?.size.width ?? TabLocationViewUX.StatusIconSize
+            let imageSize = self.isInternalURL(self.url) ? 0 : self.lockImageView.image?.size.width ?? TabLocationViewUX.StatusIconSize
             let diff = TabLocationViewUX.ButtonSize - TabLocationViewUX.TPIconSize - TabLocationViewUX.Spacing - TabLocationViewUX.PISeparator
             make.centerX.equalToSuperview().offset((imageSize + diff) / 2)
             make.top.bottom.equalToSuperview()
@@ -166,7 +164,7 @@ class TabLocationView: UIView {
             make.left.greaterThanOrEqualToSuperview()
             make.right.equalTo(self.urlTextLabel.snp.left)
             make.top.bottom.equalToSuperview()
-            make.width.equalTo((self.url == nil ? 0 : TabLocationViewUX.StatusIconSize))
+            make.width.equalTo(self.isInternalURL(self.url) ? 0 : TabLocationViewUX.StatusIconSize)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
         let subviews = [frontSpaceView, privacyIndicator, privacyIndicatorSeparator, view, pageOptionsButton]
@@ -268,6 +266,10 @@ class TabLocationView: UIView {
         self.updateTextWithURL(text: self.urlbarText)
     }
 
+    private func isInternalURL(_ url: URL?) -> Bool {
+        return url == nil || SearchURL.isValid(url: url)
+    }
+
     private var urlbarText: String {
         guard let url = self.url else { return "" }
         if let searchUrl = SearchURL(url) {
@@ -279,7 +281,7 @@ class TabLocationView: UIView {
     private func urlTextLabelAlignCenter(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
         self.contentView.insertArrangedSubview(self.privacyIndicator, at: 1)
         self.urlTextLabel.snp.remakeConstraints { (make) in
-            let imageSize = self.lockImageView.image?.size.width ?? TabLocationViewUX.StatusIconSize
+            let imageSize = self.isInternalURL(self.url) ? 0 : self.lockImageView.image?.size.width ?? TabLocationViewUX.StatusIconSize
             let diff = TabLocationViewUX.ButtonSize - TabLocationViewUX.TPIconSize - TabLocationViewUX.Spacing - TabLocationViewUX.PISeparator
             make.centerX.equalToSuperview().offset((imageSize + diff) / 2)
             make.top.bottom.equalToSuperview()
@@ -289,11 +291,11 @@ class TabLocationView: UIView {
             make.left.greaterThanOrEqualToSuperview()
             make.right.equalTo(self.urlTextLabel.snp.left)
             make.top.bottom.equalToSuperview()
-            make.width.equalTo(self.url == nil ? 0 : TabLocationViewUX.StatusIconSize)
+            make.width.equalTo(self.isInternalURL(self.url) ? 0 : TabLocationViewUX.StatusIconSize)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
         UIView.animate(withDuration: duration, animations: {
-            self.lockImageView.isHidden = false
+            self.lockImageView.isHidden = self.isInternalURL(self.url)
             self.contentView.layoutIfNeeded()
         }) { (_) in
             completion?()
@@ -308,14 +310,14 @@ class TabLocationView: UIView {
         }
         self.lockImageView.snp.remakeConstraints { (make) in
             make.left.equalToSuperview()
-            make.right.equalTo(self.urlTextLabel.snp.left).offset(self.url == nil ? 0 : -4)
+            make.right.equalTo(self.urlTextLabel.snp.left).offset(self.isInternalURL(self.url) ? 0 : -4)
             make.top.bottom.equalToSuperview()
             make.width.equalTo(0)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
         if duration != 0.0 {
             UIView.animate(withDuration: duration, animations: {
-                self.lockImageView.isHidden = true
+                self.lockImageView.isHidden = self.isInternalURL(self.url)
                 self.contentView.layoutIfNeeded()
             }) { (_) in
                 completion?()
@@ -336,7 +338,7 @@ class TabLocationView: UIView {
     }
 
     fileprivate func updateStackViewSpacing() {
-        let leftPadding = self.url == nil ? TabLocationViewUX.PlaceholderLefPadding : TabLocationViewUX.Spacing
+        let leftPadding = self.isInternalURL(self.url) ? 0 : TabLocationViewUX.Spacing
         let frontView = self.contentView.arrangedSubviews.first
         if frontView?.frame.size.width != leftPadding {
             frontView?.snp.remakeConstraints({ (make) in
@@ -387,7 +389,7 @@ extension TabLocationView: AccessibilityActionsSource {
 extension TabLocationView: Themeable {
     func applyTheme() {
         backgroundColor = Theme.textField.background
-        urlTextLabel.textColor = self.url == nil ? Theme.textField.placeholder : Theme.textField.textAndTint
+        urlTextLabel.textColor = self.isInternalURL(self.url) ? Theme.textField.placeholder : Theme.textField.textAndTint
 
         pageOptionsButton.selectedTintColor = Theme.urlbar.pageOptionsSelected
         pageOptionsButton.unselectedTintColor = Theme.urlbar.pageOptionsUnselected
