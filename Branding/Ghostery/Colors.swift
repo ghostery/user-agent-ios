@@ -52,4 +52,11 @@ extension UIColor {
     static let Blue40 = UIColor(named: "Blue40")!
     static let Blue50 = UIColor(named: "Blue50")!
     static let Blue60 = UIColor(named: "Blue60")!
+
+    //Contextual Onboarding Colors
+    static let COLightBlue = UIColor(named: "COLightBlue")!
+    static let CODarkBlue = UIColor(named: "CODarkBlue")!
+    static let COLightRed = UIColor(named: "COLightRed")!
+    static let CODarkRed = UIColor(named: "CODarkRed")!
+
 }

@@ -30,6 +30,7 @@ private struct BrowserViewControllerUX {
     fileprivate static let ShowHeaderTapAreaHeight: CGFloat = 32
     fileprivate static let BookmarkStarAnimationDuration: Double = 0.5
     fileprivate static let BookmarkStarAnimationOffset: CGFloat = 80
+    fileprivate static let WipeContextualOnboardingContentSize: CGSize = CGSize(width: 350, height: 510)
 }
 
 protocol HomeViewControllerProtocol: Themeable {
@@ -1960,8 +1961,26 @@ extension BrowserViewController: IntroViewControllerDelegate {
             navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
         self.present(navigationController, animated: true)
-   }
+    }
 
+    func presentWipeAllTracesContextualOnboarding() {
+        let value = self.profile.prefs.boolForKey(PrefsKeys.WipeAllTraces)
+        guard value == nil || !value! else {
+            return
+        }
+        let icon = UIImage(named: "wipe-white")
+        let title = Strings.ContextualOnboarding.WipeAllTraces.Title
+        let description = Strings.ContextualOnboarding.WipeAllTraces.Description
+        let detail = ContextualOnboardingDitail(backgroundGradientColors: [.COLightBlue, .CODarkBlue], title: title, icon: icon, description: description)
+        self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces, contentSize: BrowserViewControllerUX.WipeContextualOnboardingContentSize)
+    }
+
+    func presentContextualOnboardingViewController(detail: ContextualOnboardingDitail, prefKey: String, contentSize: CGSize) {
+        let viewController = ContextualOnboardingViewController(contentDetail: detail, profile: self.profile, prefKey: prefKey)
+        viewController.modalPresentationStyle = self.traitCollection.horizontalSizeClass == .regular ? .formSheet : .overCurrentContext
+        viewController.preferredContentSize = contentSize
+        self.present(viewController, animated: true)
+    }
 }
 
 extension BrowserViewController: PrivacyStatementViewControllerDelegate {
