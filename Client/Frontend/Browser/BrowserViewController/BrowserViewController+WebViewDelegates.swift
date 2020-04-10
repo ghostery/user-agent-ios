@@ -617,6 +617,8 @@ extension BrowserViewController: WKNavigationDelegate {
 
         if tabManager.selectedTab === tab {
             updateUIForReaderHomeStateForTab(tab)
+            self.toolbar?.searchBadge(visible: !tab.isNewTabPage)
+            self.urlBar.searchBadge(visible: !tab.isNewTabPage)
         }
     }
 

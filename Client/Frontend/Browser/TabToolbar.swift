@@ -23,6 +23,7 @@ protocol TabToolbarProtocol: AnyObject {
     func updateTabCount(_ count: Int, animated: Bool)
     func privateModeBadge(visible: Bool)
     func whatsNeweBadge(visible: Bool)
+    func searchBadge(visible: Bool)
 }
 
 protocol TabToolbarDelegate: AnyObject {
@@ -318,6 +319,11 @@ extension TabToolbar: TabToolbarProtocol {
 
     func whatsNeweBadge(visible: Bool) {
         self.whatsNeweBadge.show(visible)
+    }
+
+    func searchBadge(visible: Bool) {
+        let image = visible ? UIImage.templateImageNamed("AddSearch") : UIImage.templateImageNamed("search")
+        self.searchButton.setImage(image, for: .normal)
     }
 
     func updateBackStatus(_ canGoBack: Bool) {
