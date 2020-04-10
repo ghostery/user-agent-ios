@@ -275,7 +275,25 @@ class TabLocationView: UIView {
         if let searchUrl = SearchURL(url) {
             return searchUrl.query
         }
+        if self.isURLHostIPAddress(url: url) {
+            return url.host ?? ""
+        }
         return url.publicSuffix(additionalPartCount: 1) ?? ""
+    }
+
+    private func isURLHostIPAddress(url: URL) -> Bool {
+        guard let host = url.host else {
+            return false
+        }
+        guard host != "localhost" else {
+            return true
+        }
+        let components = host.components(separatedBy: ".")
+        guard components.count == 4 else {
+            return false
+        }
+        let validNumbersCount = components.compactMap({ Int($0) }).filter({ $0 >= 0 && $0 < 256 })
+        return validNumbersCount.count == 4
     }
 
     private func urlTextLabelAlignCenter(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
