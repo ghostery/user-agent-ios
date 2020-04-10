@@ -307,23 +307,6 @@ extension PhotonActionSheetProtocol {
             domainActions.append(readerModeAction)
         }
 
-        if let url = tab.url {
-            let popupsBlocking = PhotonActionSheetItem(
-                title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
-                iconString: "menu-PopupBlocking",
-                isEnabled: !ContentBlocker.shared.isPopupsAllowListed(url: url),
-                accessory: .Switch
-            ) { action in
-                ContentBlocker.shared.popupsAllowList(
-                    enable: !ContentBlocker.shared.isPopupsAllowListed(url: url),
-                    url: url
-                ) {
-                    tab.reload()
-                }
-            }
-            domainActions.append(popupsBlocking)
-        }
-
         var commonActions = [refreshPage]
 
         // Disable find in page if document is pdf.
@@ -477,7 +460,21 @@ extension PhotonActionSheetProtocol {
             }
         }
 
-        return [trackingProtection, adBlocking]
+        let popupsBlocking = PhotonActionSheetItem(
+            title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
+            iconString: "menu-PopupBlocking",
+            isEnabled: !ContentBlocker.shared.isPopupsAllowListed(url: currentURL),
+            accessory: .Switch
+        ) { action in
+            ContentBlocker.shared.popupsAllowList(
+                enable: !ContentBlocker.shared.isPopupsAllowListed(url: currentURL),
+                url: currentURL
+            ) {
+                tab.reload()
+            }
+        }
+
+        return [trackingProtection, adBlocking, popupsBlocking]
     }
 
     @available(iOS 11.0, *)
