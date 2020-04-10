@@ -141,7 +141,7 @@ class ContextualOnboardingViewController: UIViewController {
         self.configureTitle()
         self.configureIcon()
         self.configureDescription()
-        self.appendEmpty(height: ContextualOnboardingUI.verticalOffset / 2)
+        self.appendEmptyView(height: ContextualOnboardingUI.verticalOffset / 2)
         self.configureBullets()
         self.configureButtons()
     }
@@ -165,7 +165,7 @@ class ContextualOnboardingViewController: UIViewController {
             if self.isHorizontalSizeClassRegular {
                 make.top.equalToSuperview()
             } else {
-                make.top.greaterThanOrEqualToSuperview().offset(self.view.bounds.height * 0.2)
+                make.top.greaterThanOrEqualToSuperview().offset(self.view.bounds.height * 0.05)
             }
         }
         if !self.isHorizontalSizeClassRegular {
@@ -193,7 +193,7 @@ class ContextualOnboardingViewController: UIViewController {
         self.backgroundView.addSubview(self.stackView)
         self.stackView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(self.backgroundView).offset(-2 * (ContextualOnboardingUI.verticalOffset + self.view.safeAreaInsets.bottom))
+            make.bottom.equalTo(self.backgroundView).offset(-(ContextualOnboardingUI.verticalOffset + 2 * self.view.safeAreaInsets.bottom))
             make.top.equalToSuperview().offset(ContextualOnboardingUI.verticalOffset)
         }
     }
@@ -242,7 +242,7 @@ class ContextualOnboardingViewController: UIViewController {
         let label = self.createLabel()
         label.text = description
         label.textColor = .LightSky
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont.systemFont(ofSize: 16)
         view.addSubview(label)
         label.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(ContextualOnboardingUI.horizontalOffset)
@@ -275,7 +275,7 @@ class ContextualOnboardingViewController: UIViewController {
             }
             self.stackView.addArrangedSubview(view)
         }
-        self.appendEmpty(height: ContextualOnboardingUI.verticalOffset / 2)
+        self.appendEmptyView(height: ContextualOnboardingUI.verticalOffset / 2)
     }
 
     private func configureButtons() {
@@ -313,15 +313,14 @@ class ContextualOnboardingViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.adjustsFontSizeToFitWidth = true
         return label
     }
 
     private func appendSeparator() {
-        self.appendEmpty(height: 0.5, color: .DarkGrey)
+        self.appendEmptyView(height: 0.5, color: .DarkGrey)
     }
 
-    private func appendEmpty(height: CGFloat, color: UIColor = .clear) {
+    private func appendEmptyView(height: CGFloat, color: UIColor = .clear) {
         let view = UIView()
         view.backgroundColor = color
         view.snp.makeConstraints { (make) in
