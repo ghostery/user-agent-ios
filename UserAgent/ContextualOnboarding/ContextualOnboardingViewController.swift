@@ -30,7 +30,7 @@ struct ContextualOnboardingUI {
     static let horizontalOffset: CGFloat = 30.0
     static let verticalOffset: CGFloat = 30.0
     static let spacing: CGFloat = 10.0
-    static let minimumHeight: CGFloat = 50.0
+    static let minimumHeight: CGFloat = 40.0
     static let preferredContentWidth: CGFloat = 200.0
     static let swipeViewWidth: CGFloat = 30.0
     static let swipeViewHeight: CGFloat = 5.0
@@ -50,7 +50,7 @@ class ContextualOnboardingViewController: UIViewController {
     private var backgroundViewBottomConstrint: Constraint!
 
     private var isHorizontalSizeClassRegular: Bool {
-        return self.traitCollection.horizontalSizeClass == .regular
+        return UIScreen.main.traitCollection.horizontalSizeClass == .regular
     }
 
     init(contentDetail: ContextualOnboardingDitail, profile: Profile, prefKey: String) {
@@ -157,7 +157,7 @@ class ContextualOnboardingViewController: UIViewController {
         self.backgroundView.layer.cornerRadius = 15
         self.backgroundView.backgroundColor = .BrightBlue
         self.backgroundView.drawOptions = .centerTopCenterBottom
-        self.backgroundView.colors = self.detail?.backgroundGradientColors ?? [.BrightBlue]
+        self.backgroundView.colors = self.detail?.backgroundGradientColors ?? [.COLightBlue, .CODarkBlue]
         self.view.addSubview(self.backgroundView)
         self.backgroundView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
@@ -193,7 +193,7 @@ class ContextualOnboardingViewController: UIViewController {
         self.backgroundView.addSubview(self.stackView)
         self.stackView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(self.backgroundView).offset(-(ContextualOnboardingUI.verticalOffset + self.view.safeAreaInsets.bottom))
+            make.bottom.equalTo(self.backgroundView).offset(-2 * (ContextualOnboardingUI.verticalOffset + self.view.safeAreaInsets.bottom))
             make.top.equalToSuperview().offset(ContextualOnboardingUI.verticalOffset)
         }
     }
@@ -226,7 +226,8 @@ class ContextualOnboardingViewController: UIViewController {
         view.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.bottom.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-ContextualOnboardingUI.spacing)
             make.height.equalTo(3 * ContextualOnboardingUI.minimumHeight / 2)
         }
         self.stackView.addArrangedSubview(view)
