@@ -126,7 +126,7 @@ class ContextMenuUseCase {
     private func createActionDeleteAllTraces(site: Site, actionCompletion: @escaping ContextMenuActionCompletion) -> PhotonActionSheetItem {
         let host = site.url.asURL?.normalizedHost ?? site.url
         let title = String(format: Strings.HomePanel.ContextMenu.DeleteAllTraces, host)
-        let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "action_delete") { action in
+        let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "wipe") { action in
             self.history.deleteAllTracesOfDomain(host) {
                 actionCompletion(.deleteAllTracesForDomain)
             }
