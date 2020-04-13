@@ -216,12 +216,13 @@ class ContextualOnboardingViewController: UIViewController {
     }
 
     private func configureIcon() {
-        guard let icon = self.detail?.icon else {
+        guard let icon = self.detail?.icon?.withRenderingMode(.alwaysTemplate) else {
             return
         }
         let view = UIView()
         view.backgroundColor = .clear
         let imageView = UIImageView(image: icon)
+        imageView.tintColor = .White
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.snp.makeConstraints { (make) in

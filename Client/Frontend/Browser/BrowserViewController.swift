@@ -31,6 +31,7 @@ private struct BrowserViewControllerUX {
     fileprivate static let BookmarkStarAnimationDuration: Double = 0.5
     fileprivate static let BookmarkStarAnimationOffset: CGFloat = 80
     fileprivate static let WipeContextualOnboardingContentSize: CGSize = CGSize(width: 350, height: 510)
+    fileprivate static let AutomaticForgetModeOnboardingContentSize: CGSize = CGSize(width: 350, height: 470)
 }
 
 protocol HomeViewControllerProtocol: Themeable {
@@ -1988,6 +1989,18 @@ extension BrowserViewController: IntroViewControllerDelegate {
         let description = Strings.ContextualOnboarding.WipeAllTraces.Description
         let detail = ContextualOnboardingDitail(backgroundGradientColors: [.COLightBlue, .CODarkBlue], title: title, icon: icon, description: description)
         self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces, contentSize: BrowserViewControllerUX.WipeContextualOnboardingContentSize)
+    }
+
+    func presentAutomaticForgetModeContextualOnboarding() {
+        let value = self.profile.prefs.boolForKey(PrefsKeys.AutomaticForgetMode)
+        guard value == nil || !value! else {
+            return
+        }
+        let icon = UIImage(named: "forgetMode")
+        let title = Strings.ContextualOnboarding.AutomaticForgetMode.Title
+        let description = Strings.ContextualOnboarding.AutomaticForgetMode.Description
+        let detail = ContextualOnboardingDitail(backgroundGradientColors: [.COLightBlue, .CODarkBlue], title: title, icon: icon, description: description)
+        self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces, contentSize: BrowserViewControllerUX.AutomaticForgetModeOnboardingContentSize)
     }
 
     func presentContextualOnboardingViewController(detail: ContextualOnboardingDitail, prefKey: String, contentSize: CGSize) {

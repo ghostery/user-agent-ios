@@ -432,6 +432,10 @@ extension Strings {
             public static let Title = NSLocalizedString("ContextualOnboarding.WipeAllTraces.Title", tableName: "ContextualOnboarding", comment: "Title for Wipe All Traces screen")
             public static let Description = NSLocalizedString("ContextualOnboarding.WipeAllTraces.Description", tableName: "ContextualOnboarding", comment: "Description for Wipe All Traces screen")
         }
+        public struct AutomaticForgetMode {
+            public static let Title = NSLocalizedString("ContextualOnboarding.AutomaticForgotMode.Title", tableName: "ContextualOnboarding", comment: "Title for Automatic forget mode screen")
+            public static let Description = NSLocalizedString("ContextualOnboarding.AutomaticForgotMode.Description", tableName: "ContextualOnboarding", comment: "Description for Automatic forget mode screen")
+        }
     }
 
     // MARK: - Menu
