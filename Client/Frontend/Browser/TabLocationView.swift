@@ -49,12 +49,14 @@ class TabLocationView: UIView {
     var url: URL? {
         didSet {
             self.updateLockImageView()
-
-            self.urlTextLabelAlignCenter(duration: 0.0)
+            let isInternalURL = self.isInternalURL(self.url)
+            if isInternalURL {
+                self.urlTextLabelAlignLeft(duration: 0.0)
+            } else {
+                self.urlTextLabelAlignCenter(duration: 0.0)
+            }
             self.updateTextWithURL(text: self.urlbarText)
             self.updateStackViewSpacing()
-
-            let isInternalURL = self.isInternalURL(self.url)
             self.pageOptionsButton.isHidden = isInternalURL
             self.privacyIndicator.isHidden = isInternalURL
             setNeedsUpdateConstraints()
@@ -174,8 +176,7 @@ class TabLocationView: UIView {
         addSubview(contentView)
 
         contentView.snp.makeConstraints { make in
-            make.top.equalTo(self)
-            make.left.bottom.right.equalTo(self)
+            make.top.left.bottom.right.equalTo(self)
         }
 
         privacyIndicator.snp.makeConstraints { make in
@@ -313,14 +314,14 @@ class TabLocationView: UIView {
         }
         self.lockImageView.snp.remakeConstraints { (make) in
             make.left.equalToSuperview()
-            make.right.equalTo(self.urlTextLabel.snp.left).offset(self.isInternalURL(self.url) ? 0 : -4)
+            make.right.equalTo(self.urlTextLabel.snp.left).offset(self.isInternalURL(self.url) ? -11.5 : -4)
             make.top.bottom.equalToSuperview()
             make.width.equalTo(0)
             make.height.equalTo(TabLocationViewUX.ButtonSize)
         }
+        self.lockImageView.isHidden = true
         if duration != 0.0 {
             UIView.animate(withDuration: duration, animations: {
-                self.lockImageView.isHidden = self.isInternalURL(self.url)
                 self.contentView.layoutIfNeeded()
             }) { (_) in
                 completion?()
@@ -331,7 +332,7 @@ class TabLocationView: UIView {
     }
 
     fileprivate func updateTextWithURL(text: String?) {
-        if let text = text {
+        if let text = text, !text.isEmpty {
             self.urlTextLabel.text = text
             self.urlTextLabel.textColor = Theme.textField.textAndTint
         } else {

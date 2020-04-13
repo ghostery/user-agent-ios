@@ -809,14 +809,22 @@ class BrowserViewController: UIViewController {
             make.bottom.equalTo(self.view.snp.bottom)
         }
         view.bringSubviewToFront(notchAreaCover)
+        self.blurLayer?.alpha = 0.0
+        UIView.animate(withDuration: 0.3) {
+            self.blurLayer?.alpha = 0.98
+        }
     }
 
     private func hideBlur() {
-        self.blurLayer?.removeFromSuperview()
-        self.blurLayer = nil
-        if let home = self.homeViewController?.view {
-            self.view.bringSubviewToFront(home)
-            self.updateViewConstraints()
+        UIView.animate(withDuration: 0.3, animations: {
+            self.blurLayer?.alpha = 0.0
+        }) { (_) in
+            self.blurLayer?.removeFromSuperview()
+            self.blurLayer = nil
+            if let home = self.homeViewController?.view {
+                self.view.bringSubviewToFront(home)
+                self.updateViewConstraints()
+            }
         }
     }
 
