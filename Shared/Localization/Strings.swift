@@ -22,8 +22,9 @@ extension Strings {
         public static let OKString = NSLocalizedString("OK", comment: "OK button")
         public static let CancelString = NSLocalizedString("Cancel", comment: "Label for Cancel button")
         public static let OpenSettingsString = NSLocalizedString("Open Settings", comment: "See http://mzl.la/1G7uHo7")
-        public static let CloseString = NSLocalizedString("Close", comment: "Lable for Close button")
-        public static let DoneString = NSLocalizedString("Done", comment: "Done button on right side of the Downloads view controller title bar")
+        public static let CloseString = NSLocalizedString("Close", comment: "Label for Close button")
+        public static let DoneString = NSLocalizedString("Done", comment: "Label for Done button")
+        public static let SendString = NSLocalizedString("Send", comment: "Label for Send button")
     }
 
     // MARK: - Table date section titles
@@ -417,6 +418,11 @@ extension Strings {
             public static let PopupsBlocking = NSLocalizedString("PrivacyDashboard.Switch.PopupsBlocking", tableName: "UserAgent", comment: "")
         }
         public static let ViewFullReport = NSLocalizedString("PrivacyDashboard.ViewFullReport", tableName: "UserAgent", comment: "")
+        public struct ReportPage {
+            public static let SectionTitle = NSLocalizedString("PrivacyDashboard.ReportPage.SectionTitle", tableName: "UserAgent", comment: "")
+            public static let AlertTitle = NSLocalizedString("PrivacyDashboard.ReportPage.AlertTitle", tableName: "UserAgent", comment: "")
+            public static let AlertMessage = NSLocalizedString("PrivacyDashboard.ReportPage.AlertMessage", tableName: "UserAgent", comment: "")
+        }
     }
 
     // MARK: - Contextual Onboarding

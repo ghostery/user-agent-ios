@@ -104,6 +104,9 @@
 /* Label for Cancel button */
 "Cancel" = "Cancel";
 
+/* Label for Send button */
+"Send" = "Send";
+
 /* Accessibility hint for the color theme setting buttons in reader mode display settings */
 "Changes color theme." = "Changes color theme.";
 

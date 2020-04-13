@@ -403,22 +403,28 @@ extension PhotonActionSheetProtocol {
         let trackerInfo = PhotonActionSheetItem(title: "", customView: trackerInfoView)
 
         // Whotracks.me link
-        guard let baseDomain = blocker.tab?.currentURL()?.baseDomain, let appDel = UIApplication.shared.delegate as? AppDelegate else {
+        guard let url = blocker.tab?.currentURL(), let baseDomain = url.baseDomain, let appDel = UIApplication.shared.delegate as? AppDelegate else {
             return [menuActions, [trackerInfo]]
         }
 
-        let whoTracksMeLink = PhotonActionSheetItem(title: Strings.PrivacyDashboard.ViewFullReport + " ›") { action in
+        let whoTracksMeLink = PhotonActionSheetItem(title: Strings.PrivacyDashboard.ViewFullReport) { action in
             let url = URL(string: "https://whotracks.me/websites/\(baseDomain).html")!
             appDel.browserViewController.homePanel(didSelectURL: url, visitType: VisitType.link)
         }
 
+        let reportPage = PhotonActionSheetItem(title: Strings.PrivacyDashboard.ReportPage.SectionTitle) { action in
+            appDel.browserViewController.presentReportPageScreenFor(url: url)
+        }
+
+        let statisticAndReportPage = PhotonActionSheetItem(title: "", collectionItems: [whoTracksMeLink, reportPage])
+
         if blocker.status == .Disabled {
-            return [[whoTracksMeLink]]
+            return [[statisticAndReportPage]]
         }
         if blocker.stats.total > 0 {
-            return [menuActions, [trackerInfo], [whoTracksMeLink]]
+            return [menuActions, [trackerInfo], [statisticAndReportPage]]
         } else {
-            return [menuActions, [trackerInfo]]
+            return [menuActions, [trackerInfo], [reportPage]]
         }
     }
 
