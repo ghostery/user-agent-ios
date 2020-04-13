@@ -272,6 +272,18 @@ class BrowserViewController: UIViewController {
         self.present(navigationController, animated: true)
     }
 
+    func presentReportPageScreenFor(url: URL) {
+        let message = String(format: Strings.PrivacyDashboard.ReportPage.AlertMessage, url.absoluteString, AppInfo.displayName)
+        let reportPage = UIAlertController(title: Strings.PrivacyDashboard.ReportPage.AlertTitle, message: message, preferredStyle: .alert)
+        reportPage.addAction(UIAlertAction(title: Strings.General.CancelString, style: .cancel, handler: nil))
+        reportPage.addAction(UIAlertAction(title: Strings.General.SendString, style: .default ) { _ in
+//            let userInfo: String = reportPage.textFields?.first?.text ?? ""
+            // TODO: Implement functionality to send user report about web page.
+        })
+        reportPage.addTextField(configurationHandler: nil)
+        self.present(reportPage, animated: true, completion: nil)
+    }
+
     func setPhoneWindowBackground(color: UIColor, animationDuration: TimeInterval? = nil) {
         if UIDevice.current.isPhone {
             if let duration = animationDuration {

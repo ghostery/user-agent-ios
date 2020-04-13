@@ -45,3 +45,10 @@
 
 /* Privacy Dashboard */
 "PrivacyDashboard.ViewFullReport" = "Statistikbericht";
+
+/* Report Page */
+"PrivacyDashboard.ReportPage.SectionTitle" = "Report Page";
+
+"PrivacyDashboard.ReportPage.AlertTitle" = "Do you wish to report a broken page?";
+
+"PrivacyDashboard.ReportPage.AlertMessage" = "You are going to send this url %@ to %@ servers. We won't know it comes from you and no additional information is being shared. We take your privacy seriously.\n\nYou may provide additional information if you suspect why the website is broken.";

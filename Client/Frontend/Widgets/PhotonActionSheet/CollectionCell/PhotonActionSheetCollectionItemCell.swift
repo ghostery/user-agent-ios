@@ -62,9 +62,14 @@ class PhotonActionSheetCollectionItemCell: UICollectionViewCell {
     }
 
     func configure(with item: PhotonActionSheetItem) {
-        self.iconImageView.image = UIImage(named: item.iconString ?? "")?.withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named: item.iconString ?? "")
+        self.iconImageView.image = image?.withRenderingMode(.alwaysTemplate)
         self.titleLabel.textColor = item.accessory == .Text ? titleLabel.textColor.withAlphaComponent(0.6) : titleLabel.textColor
         self.titleLabel.text = item.title
+        self.titleLabel.font = image == nil ? DynamicFontHelper.defaultHelper.LargeSizeRegularWeightAS : DynamicFontHelper.defaultHelper.SmallSizeRegularWeightAS
+        self.iconImageView.snp.updateConstraints { (make) in
+            make.height.equalTo(image == nil ? 0 : PhotonActionSheetCollectionItemCell.IconSize)
+        }
         self.accessibilityIdentifier = item.iconString
         self.accessibilityLabel = item.title
     }
