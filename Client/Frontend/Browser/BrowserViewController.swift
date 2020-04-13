@@ -1913,6 +1913,8 @@ extension BrowserViewController: TabManagerDelegate {
             let count = selectedTab.isPrivate ? tabManager.privateTabs.count : tabManager.normalTabs.count
             toolbar?.updateTabCount(count, animated: animated)
             urlBar.updateTabCount(count, animated: !urlBar.inOverlayMode)
+            self.toolbar?.searchBadge(visible: !selectedTab.isNewTabPage)
+            self.urlBar.searchBadge(visible: !selectedTab.isNewTabPage)
             topTabsViewController?.updateTabCount(count, animated: animated)
         }
     }
