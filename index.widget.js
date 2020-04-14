@@ -15,6 +15,7 @@ import {
   ActivityIndicator,
   Button,
   NativeModules,
+  Settings,
 } from 'react-native';
 import {
   Weather,
@@ -51,18 +52,37 @@ const useSnippet = (city, locale) => {
       searchResults.results[0] &&
       searchResults.results[0].template === 'weatherEZ'
     ) {
-      setSnippet(searchResults.results[0].snippet);
+      const snippetData = searchResults.results[0].snippet;
+      setSnippet(snippetData);
+      Settings.set({
+        weather: {
+          city,
+          snippet: snippetData,
+          timestamp: Date.now(),
+        },
+      });
     }
     setLoading(false);
   }, [city, locale]);
 
   useEffect(() => {
-    fetchWeather(city);
+    const cachedWeather = Settings.get('weather');
+    if (
+      cachedWeather &&
+      cachedWeather.city === city &&
+      cachedWeather.snippet &&
+      cachedWeather.timestamp > Date.now() - 1000 * 60 * 20
+    ) {
+      setSnippet(cachedWeather.snippet);
+      setLoading(false);
+    } else {
+      fetchWeather(city);
+    }
   }, [city, fetchWeather]);
   return [snippet, loading, fetchWeather];
 };
 
-const TodayWidget = ({ city, theme, i18n, lang, locale }) => {
+const TodayWidget = ({ city, theme, i18n, locale }) => {
   const [snippet, loading, update] = useSnippet(city, locale);
 
   const styles = {
