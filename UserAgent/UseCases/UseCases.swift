@@ -8,20 +8,29 @@
 
 import Foundation
 
+protocol UseCasesPresentationViewController: class {
+    func switchOrOpenTabWithURL(_ url: URL)
+    func finishEditingAndSubmit(_ url: URL, forTab tab: Tab)
+    func openURLInNewTab(_ url: URL, isPrivate: Bool)
+    func showWipeAllTracesContextualOnboarding()
+    func showAutomaticForgetModeContextualOnboarding()
+}
+
 class UseCases {
     let contextMenu: ContextMenuUseCase
     let openLink: OpenLinkUseCases
     let history: HistoryUseCase
 
-    init(tabManager: TabManager, profile: Profile, browserViewController: BrowserViewController) {
-        self.history = HistoryUseCase(profile: profile)
+    init(tabManager: TabManager, profile: Profile, viewController: UseCasesPresentationViewController) {
+        self.history = HistoryUseCase(profile: profile, viewController: viewController)
         self.openLink = OpenLinkUseCases(
             profile: profile,
             tabManager: tabManager,
-            browserViewController: browserViewController)
+            viewController: viewController)
         self.contextMenu = ContextMenuUseCase(
             profile: profile,
             openLink: self.openLink,
-            history: self.history)
+            history: self.history,
+            viewController: viewController)
     }
 }

@@ -137,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         browserViewController.restorationIdentifier = NSStringFromClass(BrowserViewController.self)
         browserViewController.restorationClass = AppDelegate.self
 
-        self.useCases = UseCases(tabManager: self.tabManager, profile: self.profile!, browserViewController: self.browserViewController)
+        self.useCases = UseCases(tabManager: self.tabManager, profile: self.profile!, viewController: self.browserViewController)
         self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, ui: self.browserViewController, useCases: self.useCases)
         self.humanWebFeature = HumanWebFeature(tabManager: self.tabManager)
         self.insightsFeature = InsightsFeature(tabManager: self.tabManager)

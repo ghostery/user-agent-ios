@@ -12,9 +12,11 @@ import CoreSpotlight
 
 class HistoryUseCase {
     private let profile: Profile
+    private weak var viewController: UseCasesPresentationViewController?
 
-    init(profile: Profile) {
+    init(profile: Profile, viewController: UseCasesPresentationViewController?) {
         self.profile = profile
+        self.viewController = viewController
     }
 
     func deleteAllTracesOfDomain(_ domainName: String, completion: @escaping () -> Void) {
@@ -26,6 +28,7 @@ class HistoryUseCase {
                     completion()
                 }
             }
+            self.viewController?.showWipeAllTracesContextualOnboarding()
         }
     }
 }

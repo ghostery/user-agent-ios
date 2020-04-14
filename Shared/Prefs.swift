@@ -24,6 +24,7 @@ public struct PrefsKeys {
 
     // Contextual Onboarding
     public static let WipeAllTraces = "WipeAllTraces"
+    public static let AutomaticForgetMode = "AutomaticForgetMode"
 
     //News
     public static let NewTabNewsEnabled = "NewTabNewsEnabled"

@@ -48,6 +48,7 @@ extension InterceptorFeature: InterceptorDelegate {
         case .automaticForgetMode:
             policy.allowListUrl(url)
             self.useCases.openLink.openNewForgetModeTab(url: url)
+            self.useCases.openLink.viewController?.showAutomaticForgetModeContextualOnboarding()
         default:
             break
         }

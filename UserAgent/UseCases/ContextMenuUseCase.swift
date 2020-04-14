@@ -28,11 +28,13 @@ class ContextMenuUseCase {
     private let profile: Profile
     private let openLink: OpenLinkUseCases
     private let history: HistoryUseCase
+    private weak var viewController: UseCasesPresentationViewController?
 
-    init(profile: Profile, openLink: OpenLinkUseCases, history: HistoryUseCase) {
+    init(profile: Profile, openLink: OpenLinkUseCases, history: HistoryUseCase, viewController: UseCasesPresentationViewController?) {
         self.profile = profile
         self.openLink = openLink
         self.history = history
+        self.viewController = viewController
     }
 
     func present(for site: Site, withQuery query: String? = nil, withActions actions: [ContextMenuActions], on viewController: UIViewController, completion: @escaping ContextMenuActionCompletion) {
@@ -129,6 +131,7 @@ class ContextMenuUseCase {
         let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "wipe") { action in
             self.history.deleteAllTracesOfDomain(host) {
                 actionCompletion(.deleteAllTracesForDomain)
+                self.viewController?.showWipeAllTracesContextualOnboarding()
             }
         }
         return removeFromTopSite
