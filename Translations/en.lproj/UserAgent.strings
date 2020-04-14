@@ -47,8 +47,8 @@
 "PrivacyDashboard.ViewFullReport" = "Statistical Report";
 
 /* Report Page */
-"PrivacyDashboard.ReportPage.SectionTitle" = "Report Page";
+"PrivacyDashboard.ReportPage.SectionTitle" = "Report Broken Page";
 
-"PrivacyDashboard.ReportPage.AlertTitle" = "Do you wish to report a broken page?";
+"PrivacyDashboard.ReportPage.AlertTitle" = "Report Broken Page";
 
-"PrivacyDashboard.ReportPage.AlertMessage" = "You are going to send this url %@ to %@ servers. We won't know it comes from you and no additional information is being shared. We take your privacy seriously.\n\nYou may provide additional information if you suspect why the website is broken.";
+"PrivacyDashboard.ReportPage.AlertMessage" = "Report %@ as broken. Your report is anonymous. It is sent to %@ servers, but %@ will not know it came from you.\nYou may provide additional information that could help us fix the broken page. This is optional.";
