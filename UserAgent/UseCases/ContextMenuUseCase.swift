@@ -131,7 +131,7 @@ class ContextMenuUseCase {
         let removeFromTopSite = PhotonActionSheetItem(title: title, iconString: "wipe") { action in
             self.history.deleteAllTracesOfDomain(host) {
                 actionCompletion(.deleteAllTracesForDomain)
-                self.viewController?.showWipeAllTracesInfo()
+                self.viewController?.showWipeAllTracesContextualOnboarding()
             }
         }
         return removeFromTopSite

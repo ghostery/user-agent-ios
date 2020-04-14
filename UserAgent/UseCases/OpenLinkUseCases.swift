@@ -16,7 +16,7 @@ private struct MozActionParams: Codable {
 class OpenLinkUseCases {
 
     private let tabManager: TabManager
-    private weak var viewController: UseCasesPresentationViewController?
+    private (set) weak var viewController: UseCasesPresentationViewController?
     private let profile: Profile
 
     init(profile: Profile, tabManager: TabManager, viewController: UseCasesPresentationViewController?) {

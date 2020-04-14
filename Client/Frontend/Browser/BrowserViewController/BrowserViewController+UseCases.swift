@@ -22,8 +22,12 @@ extension BrowserViewController: UseCasesPresentationViewController {
         self.openURLInNewTab(url, isPrivate: isPrivate, isPrivileged: true)
     }
 
-    func showWipeAllTracesInfo() {
+    func showWipeAllTracesContextualOnboarding() {
         self.presentWipeAllTracesContextualOnboarding()
+    }
+
+    func showAutomaticForgetModeContextualOnboarding() {
+        self.presentAutomaticForgetModeContextualOnboarding()
     }
 
 }

@@ -28,7 +28,7 @@ class HistoryUseCase {
                     completion()
                 }
             }
-            self.viewController?.showWipeAllTracesInfo()
+            self.viewController?.showWipeAllTracesContextualOnboarding()
         }
     }
 }

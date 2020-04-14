@@ -12,7 +12,8 @@ protocol UseCasesPresentationViewController: class {
     func switchOrOpenTabWithURL(_ url: URL)
     func finishEditingAndSubmit(_ url: URL, forTab tab: Tab)
     func openURLInNewTab(_ url: URL, isPrivate: Bool)
-    func showWipeAllTracesInfo()
+    func showWipeAllTracesContextualOnboarding()
+    func showAutomaticForgetModeContextualOnboarding()
 }
 
 class UseCases {
