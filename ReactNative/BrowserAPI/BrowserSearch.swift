@@ -32,7 +32,7 @@ class BrowserSearch: NSObject, NativeModuleBase {
                 return
             }
             if let url = engine.searchURLForQuery(query as String) {
-                appDel.useCases.openLink.openLink(url: url, query: query as String)
+                appDel.useCases.openLink.openLink(url: url, visitType: .link, query: query as String)
             }
         }
     }

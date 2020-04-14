@@ -52,6 +52,7 @@ class BrowserViewController: UIViewController {
     var homeViewController: HomeViewControllerProtocol?
     var webViewContainer: UIView!
     var urlBar: URLBarView!
+    var useCases: UseCases!
     var clipboardBarDisplayHandler: ClipboardBarDisplayHandler?
     var readerModeBar: ReaderModeBarView?
     var readerModeCache: ReaderModeCache
@@ -1525,17 +1526,10 @@ extension BrowserViewController: URLBarDelegate {
                 isForgetMode: currentTab.isPrivate)
             // The user entered a URL, so use it.
             var query = text
-            var finalUrl: URL!
             if let completion = completion {
                 query = text.replaceFirstOccurrence(of: completion, with: "")
             }
-            if self.profile.searchEngines.isSearchEngineRedirectURL(url: fixupURL, query: query) || query.isEmpty {
-                finalUrl = fixupURL
-            } else {
-                let searchUrl = SearchURL(domain: fixupURL.host ?? "", redirectUrl: fixupURL.absoluteString, query: query)
-                finalUrl = searchUrl.url
-            }
-            finishEditingAndSubmit(finalUrl, visitType: VisitType.typed, forTab: currentTab)
+            self.useCases.openLink.openLink(url: fixupURL, visitType: .typed, query: query)
             return
         }
         if !currentTab.isPrivate {

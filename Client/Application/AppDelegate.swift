@@ -142,6 +142,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         self.humanWebFeature = HumanWebFeature(tabManager: self.tabManager)
         self.insightsFeature = InsightsFeature(tabManager: self.tabManager)
 
+        self.browserViewController.useCases = self.useCases
+
         let navigationController = UINavigationController(rootViewController: browserViewController)
         navigationController.delegate = self
         navigationController.isNavigationBarHidden = true

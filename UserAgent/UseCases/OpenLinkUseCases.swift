@@ -54,11 +54,11 @@ class OpenLinkUseCases {
         }
 
         if let url = url {
-            self.openLink(url: url, query: query)
+            self.openLink(url: url, visitType: .link, query: query)
         }
     }
 
-    func openLink(url: URL, query: String) {
+    func openLink(url: URL, visitType: VisitType, query: String) {
         guard let tab = self.tabManager.selectedTab else {
             return
         }
@@ -73,7 +73,7 @@ class OpenLinkUseCases {
                 query: query)
             finalUrl = searchUrl.url
         }
-        self.viewController?.finishEditingAndSubmit(finalUrl, forTab: tab)
+        self.viewController?.submitURL(finalUrl, visitType: visitType, forTab: tab)
     }
 
     // MARK: - New Tab Methods
