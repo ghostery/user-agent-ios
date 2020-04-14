@@ -38,7 +38,6 @@ class ContextMenuNativeModule: NSObject, NativeModuleBase {
                 let query = searchContorller.searchQuery
                 searchContorller.searchQuery = query
                 appDel.browserViewController?.homeViewController?.refreshHistory()
-                appDel.browserViewController?.presentWipeAllTracesContextualOnboarding()
             }
         }
     }

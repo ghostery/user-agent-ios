@@ -70,6 +70,8 @@
 		2B0E93732407A92300ED7703 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B0E93682407A92300ED7703 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2B184F45BDED21008E6376E1 /* ClearHistoryConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */; };
 		2B22E67B23F683A7000A39E6 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
+		2B28FFCB244593910075AF8A /* BrowserViewController+UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */; };
+		2B28FFCC244593910075AF8A /* BrowserViewController+UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */; };
 		2B2EA06A235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B2EA06B235F087100FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B308AC4242B2B4A009AF3D1 /* Siri.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B308ABD242B2B4A009AF3D1 /* Siri.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -1258,6 +1260,7 @@
 		2B0E93682407A92300ED7703 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0E936B2407A92300ED7703 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		2B0E93702407A92300ED7703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+UseCases.swift"; sourceTree = "<group>"; };
 		2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Tracking+Whitelist.swift"; sourceTree = "<group>"; };
 		2B308ABD242B2B4A009AF3D1 /* Siri.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Siri.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B308ACE242B2DC1009AF3D1 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -3304,6 +3307,7 @@
 				C8F457A71F1FD75A000CB895 /* BrowserViewController+WebViewDelegates.swift */,
 				46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */,
 				2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */,
+				2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */,
 			);
 			path = BrowserViewController;
 			sourceTree = "<group>";
@@ -5686,6 +5690,7 @@
 				C56ED4A8233B95BF006A63B1 /* AntiPhishingDetector.swift in Sources */,
 				ACB7379423042BAB00FA5626 /* SearchSuggestClient.swift in Sources */,
 				ACB7379523042BAB00FA5626 /* UIPasteboardExtensions.swift in Sources */,
+				2B28FFCC244593910075AF8A /* BrowserViewController+UseCases.swift in Sources */,
 				ACB7379623042BAB00FA5626 /* NavigationRouter.swift in Sources */,
 				ACB7379723042BAB00FA5626 /* FormPostHelper.swift in Sources */,
 				2B66BE072362E27600D78A88 /* PhotonCustomViewCell.swift in Sources */,
@@ -6004,6 +6009,7 @@
 				C5B83E5C239F9D58003687AC /* PrivacyStatementViewController.swift in Sources */,
 				6669B5E2211418A200CA117B /* WebsiteDataSearchResultsViewController.swift in Sources */,
 				E6D8D5E71B569D70009E5A58 /* BrowserTrayAnimators.swift in Sources */,
+				2B28FFCB244593910075AF8A /* BrowserViewController+UseCases.swift in Sources */,
 				EBC4869E2195F58300CDA48D /* AboutHomeHandler.swift in Sources */,
 				DDA24A431FD84D630098F159 /* DefaultSearchPrefs.swift in Sources */,
 				E65075611E37F77D006961AC /* MenuHelper.swift in Sources */,

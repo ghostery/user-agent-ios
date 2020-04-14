@@ -16,13 +16,13 @@ private struct MozActionParams: Codable {
 class OpenLinkUseCases {
 
     private let tabManager: TabManager
-    private let browserViewController: BrowserViewController
+    private weak var viewController: UseCasesPresentationViewController?
     private let profile: Profile
 
-    init(profile: Profile, tabManager: TabManager, browserViewController: BrowserViewController) {
+    init(profile: Profile, tabManager: TabManager, viewController: UseCasesPresentationViewController?) {
         self.profile = profile
         self.tabManager = tabManager
-        self.browserViewController = browserViewController
+        self.viewController = viewController
     }
 
     // MARK: - Open Link Methods
@@ -42,7 +42,7 @@ class OpenLinkUseCases {
             url = URL(string: mozActionParams.url)
 
             guard let url = url else { return }
-            self.browserViewController.switchToTabForURLOrOpen(url, isPrivileged: true)
+            self.viewController?.switchOrOpenTabWithURL(url)
             return
         }
 
@@ -73,21 +73,21 @@ class OpenLinkUseCases {
                 query: query)
             finalUrl = searchUrl.url
         }
-        self.browserViewController.finishEditingAndSubmit(finalUrl, visitType: VisitType.link, forTab: tab)
+        self.viewController?.finishEditingAndSubmit(finalUrl, forTab: tab)
     }
 
     // MARK: - New Tab Methods
 
     func openNewTab(url: URL? = nil) {
         guard let url = url else { return }
-        self.browserViewController.openURLInNewTab(url, isPrivate: false, isPrivileged: true)
+        self.viewController?.openURLInNewTab(url, isPrivate: false)
     }
 
     // MARK: - New Forget Mode Tab Methods
 
     func openNewForgetModeTab(url: URL? = nil) {
         guard let url = url else { return }
-        self.browserViewController.openURLInNewTab(url, isPrivate: true, isPrivileged: true)
+        self.viewController?.openURLInNewTab(url, isPrivate: true)
     }
 
 }
