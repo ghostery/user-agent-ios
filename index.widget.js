@@ -36,7 +36,7 @@ const ImageRenderer = ({ uri, height, width }) => {
 
 const configure = () => NativeModules.Bridge.configure();
 
-const useSnippet = city => {
+const useSnippet = (city, locale) => {
   const [snippet, setSnippet] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -44,7 +44,7 @@ const useSnippet = city => {
     setLoading(true);
     const query = encodeURIComponent(`weather ${city}`);
     const searchResultsResponse = await fetch(
-      `${CONFIG.settings.RESULTS_PROVIDER}${query}&blocking=1`,
+      `${CONFIG.settings.RESULTS_PROVIDER}${query}&blocking=1&locale=${locale}`,
     );
     const searchResults = await searchResultsResponse.json();
     if (
@@ -54,7 +54,7 @@ const useSnippet = city => {
       setSnippet(searchResults.results[0].snippet);
     }
     setLoading(false);
-  }, [city]);
+  }, [city, locale]);
 
   useEffect(() => {
     fetchWeather(city);
@@ -62,8 +62,8 @@ const useSnippet = city => {
   return [snippet, loading, fetchWeather];
 };
 
-const TodayWidget = ({ city, theme, i18n }) => {
-  const [snippet, loading, update] = useSnippet(city);
+const TodayWidget = ({ city, theme, i18n, lang, locale }) => {
+  const [snippet, loading, update] = useSnippet(city, locale);
 
   const styles = {
     container: {
