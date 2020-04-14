@@ -80,9 +80,9 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
                                 "\(title)",
                                 url.search + "&\(didRedirectParam)",
                             );
-                            requestAnimationFrame(() => {
+                            setTimeout(() => {
                                 window.location.href = "\(redirectUrl)";
-                            });
+                            }, 0);
                         } else {
                             search();
                             const showUi = () => {

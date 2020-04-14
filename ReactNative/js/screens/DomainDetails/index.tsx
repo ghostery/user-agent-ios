@@ -109,19 +109,24 @@ export default ({
   const [visits, loadMore, removeVisit] = useVisits(domain);
   const history = useMemo(
     () =>
-      visits.map(visit => {
-        const url = new URL(visit.url);
-        const isSearch = url.scheme === 'search';
-        return {
-          _id: visit.visitedAt,
-          url: visit.url,
-          text: isSearch
-            ? `search://${url.searchParams.get('query') || ''}`
-            : [visit.title, visit.url].join('\n'),
-          createdAt: visit.visitedAt / 1000,
-          user: isSearch ? searchUser : user,
-        };
-      }),
+      visits
+        .map(visit => {
+          const url = new URL(visit.url);
+          const isSearch = url.scheme === 'search';
+          if (isSearch && url.searchParams.has('redirected')) {
+            return null;
+          }
+          return {
+            _id: visit.visitedAt,
+            url: visit.url,
+            text: isSearch
+              ? `search://${url.searchParams.get('query') || ''}`
+              : [visit.title, visit.url].join('\n'),
+            createdAt: visit.visitedAt / 1000,
+            user: isSearch ? searchUser : user,
+          };
+        })
+        .filter(Boolean),
     [visits],
   );
 
