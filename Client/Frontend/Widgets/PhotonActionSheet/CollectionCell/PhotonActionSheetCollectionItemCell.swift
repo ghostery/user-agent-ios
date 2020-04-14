@@ -16,6 +16,8 @@ class PhotonActionSheetCollectionItemCell: UICollectionViewCell {
     lazy private var titleLabel: UILabel = {
         let label = UILabel()
         label.minimumScaleFactor = 0.5
+        label.numberOfLines = 2
+        label.lineBreakMode = .byWordWrapping
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
