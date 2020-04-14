@@ -1524,7 +1524,18 @@ extension BrowserViewController: URLBarDelegate {
                 completion: completion,
                 isForgetMode: currentTab.isPrivate)
             // The user entered a URL, so use it.
-            finishEditingAndSubmit(fixupURL, visitType: VisitType.typed, forTab: currentTab)
+            var query = text
+            var finalUrl: URL!
+            if let completion = completion {
+                query = text.replaceFirstOccurrence(of: completion, with: "")
+            }
+            if self.profile.searchEngines.isSearchEngineRedirectURL(url: fixupURL, query: query) || query.isEmpty {
+                finalUrl = fixupURL
+            } else {
+                let searchUrl = SearchURL(domain: fixupURL.host ?? "", redirectUrl: fixupURL.absoluteString, query: query)
+                finalUrl = searchUrl.url
+            }
+            finishEditingAndSubmit(finalUrl, visitType: VisitType.typed, forTab: currentTab)
             return
         }
         if !currentTab.isPrivate {
