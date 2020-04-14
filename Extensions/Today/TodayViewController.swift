@@ -43,6 +43,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 "city": self.getCity() as Any,
                 "theme": self.getTheme(),
                 "i18n": self.getTranslations(),
+                "locale": Locale.current.identifier,
             ]
         )
 

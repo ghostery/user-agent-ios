@@ -15,7 +15,7 @@ import {
   ActivityIndicator,
   Button,
   NativeModules,
-  NativeEventEmitter,
+  Settings,
 } from 'react-native';
 import {
   Weather,
@@ -37,7 +37,7 @@ const ImageRenderer = ({ uri, height, width }) => {
 
 const configure = () => NativeModules.Bridge.configure();
 
-const useSnippet = city => {
+const useSnippet = (city, locale) => {
   const [snippet, setSnippet] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -45,26 +45,45 @@ const useSnippet = city => {
     setLoading(true);
     const query = encodeURIComponent(`weather ${city}`);
     const searchResultsResponse = await fetch(
-      `${CONFIG.settings.RESULTS_PROVIDER}${query}`,
+      `${CONFIG.settings.RESULTS_PROVIDER}${query}&blocking=1&locale=${locale}`,
     );
     const searchResults = await searchResultsResponse.json();
     if (
       searchResults.results[0] &&
       searchResults.results[0].template === 'weatherEZ'
     ) {
-      setSnippet(searchResults.results[0].snippet);
+      const snippetData = searchResults.results[0].snippet;
+      setSnippet(snippetData);
+      Settings.set({
+        weather: {
+          city,
+          snippet: snippetData,
+          timestamp: Date.now(),
+        },
+      });
     }
     setLoading(false);
-  }, [city]);
+  }, [city, locale]);
 
   useEffect(() => {
-    fetchWeather(city);
+    const cachedWeather = Settings.get('weather');
+    if (
+      cachedWeather &&
+      cachedWeather.city === city &&
+      cachedWeather.snippet &&
+      cachedWeather.timestamp > Date.now() - 1000 * 60 * 20
+    ) {
+      setSnippet(cachedWeather.snippet);
+      setLoading(false);
+    } else {
+      fetchWeather(city);
+    }
   }, [city, fetchWeather]);
   return [snippet, loading, fetchWeather];
 };
 
-const TodayWidget = ({ city, theme, i18n }) => {
-  const [snippet, loading, update] = useSnippet(city);
+const TodayWidget = ({ city, theme, i18n, locale }) => {
+  const [snippet, loading, update] = useSnippet(city, locale);
 
   const styles = {
     container: {
