@@ -52,6 +52,7 @@ class BrowserViewController: UIViewController {
     var homeViewController: HomeViewControllerProtocol?
     var webViewContainer: UIView!
     var urlBar: URLBarView!
+    var useCases: UseCases!
     var clipboardBarDisplayHandler: ClipboardBarDisplayHandler?
     var readerModeBar: ReaderModeBarView?
     var readerModeCache: ReaderModeCache
@@ -1524,7 +1525,11 @@ extension BrowserViewController: URLBarDelegate {
                 completion: completion,
                 isForgetMode: currentTab.isPrivate)
             // The user entered a URL, so use it.
-            finishEditingAndSubmit(fixupURL, visitType: VisitType.typed, forTab: currentTab)
+            var query = text
+            if let completion = completion {
+                query = text.replaceFirstOccurrence(of: completion, with: "")
+            }
+            self.useCases.openLink.openLink(url: fixupURL, visitType: .typed, query: query)
             return
         }
         if !currentTab.isPrivate {

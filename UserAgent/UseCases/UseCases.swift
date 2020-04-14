@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Storage
 
 protocol UseCasesPresentationViewController: class {
     func switchOrOpenTabWithURL(_ url: URL)
-    func finishEditingAndSubmit(_ url: URL, forTab tab: Tab)
+    func submitURL(_ url: URL, visitType: VisitType, forTab tab: Tab)
     func openURLInNewTab(_ url: URL, isPrivate: Bool)
     func showWipeAllTracesContextualOnboarding()
     func showAutomaticForgetModeContextualOnboarding()

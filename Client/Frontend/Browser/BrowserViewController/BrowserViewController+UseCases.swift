@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Storage
 
 extension BrowserViewController: UseCasesPresentationViewController {
 
@@ -14,8 +15,8 @@ extension BrowserViewController: UseCasesPresentationViewController {
         self.switchToTabForURLOrOpen(url, isPrivileged: true)
     }
 
-    func finishEditingAndSubmit(_ url: URL, forTab tab: Tab) {
-        self.finishEditingAndSubmit(url, visitType: .link, forTab: tab)
+    func submitURL(_ url: URL, visitType: VisitType, forTab tab: Tab) {
+        self.finishEditingAndSubmit(url, visitType: visitType, forTab: tab)
     }
 
     func openURLInNewTab(_ url: URL, isPrivate: Bool) {
