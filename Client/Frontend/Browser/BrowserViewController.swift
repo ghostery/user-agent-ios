@@ -275,7 +275,7 @@ class BrowserViewController: UIViewController {
     }
 
     func presentReportPageScreenFor(url: URL) {
-        let message = String(format: Strings.PrivacyDashboard.ReportPage.AlertMessage, url.absoluteString, AppInfo.displayName)
+        let message = String(format: Strings.PrivacyDashboard.ReportPage.AlertMessage, url.absoluteString, AppInfo.displayName, AppInfo.displayName)
         let reportPage = UIAlertController(title: Strings.PrivacyDashboard.ReportPage.AlertTitle, message: message, preferredStyle: .alert)
         reportPage.addAction(UIAlertAction(title: Strings.General.CancelString, style: .cancel, handler: nil))
         reportPage.addAction(UIAlertAction(title: Strings.General.SendString, style: .default ) { _ in

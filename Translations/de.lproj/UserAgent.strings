@@ -47,8 +47,8 @@
 "PrivacyDashboard.ViewFullReport" = "Statistikbericht";
 
 /* Report Page */
-"PrivacyDashboard.ReportPage.SectionTitle" = "Report Page";
+"PrivacyDashboard.ReportPage.SectionTitle" = "Kaputte Seite melden";
 
-"PrivacyDashboard.ReportPage.AlertTitle" = "Do you wish to report a broken page?";
+"PrivacyDashboard.ReportPage.AlertTitle" = "Kaputte Seite melden";
 
-"PrivacyDashboard.ReportPage.AlertMessage" = "You are going to send this url %@ to %@ servers. We won't know it comes from you and no additional information is being shared. We take your privacy seriously.\n\nYou may provide additional information if you suspect why the website is broken.";
+"PrivacyDashboard.ReportPage.AlertMessage" = "%@ als kaputt melden. Deine Meldung ist anonym. Sie wird an %@ Server gesendet, aber %@ weiß nicht, dass sie von dir kam.\nDu kannst weitere Informationen angeben, um uns dabei zu helfen, die kaputte Seite zu reparieren. Dies ist optional.";
