@@ -15,7 +15,6 @@ import {
   ActivityIndicator,
   Button,
   NativeModules,
-  NativeEventEmitter,
 } from 'react-native';
 import {
   Weather,
@@ -45,7 +44,7 @@ const useSnippet = city => {
     setLoading(true);
     const query = encodeURIComponent(`weather ${city}`);
     const searchResultsResponse = await fetch(
-      `${CONFIG.settings.RESULTS_PROVIDER}${query}`,
+      `${CONFIG.settings.RESULTS_PROVIDER}${query}&blocking=1`,
     );
     const searchResults = await searchResultsResponse.json();
     if (
