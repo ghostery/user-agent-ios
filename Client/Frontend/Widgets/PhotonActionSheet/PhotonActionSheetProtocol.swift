@@ -94,6 +94,7 @@ extension PhotonActionSheetProtocol {
             "CookiesClearable": (CookiesClearable(tabManager: self.tabManager), true),
             "SiteDataClearable": (SiteDataClearable(tabManager: self.tabManager), true),
             "HistoryClearable": (HistoryClearable(profile: self.profile), false),
+            "SearchHistoryClearable": (SearchHistoryClearable(profile: self.profile), false),
             "DownloadedFilesClearable": (DownloadedFilesClearable(), false),
             "TrackingProtectionClearable": (TrackingProtectionClearable(), false),
             "PrivacyStatsClearable": (PrivacyStatsClearable(), false),
@@ -113,6 +114,9 @@ extension PhotonActionSheetProtocol {
         }
         let clearBrowserHistory = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.BrowsingHistory, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "HistoryClearable", value: item.isEnabled)
+        }
+        let clearSearchHistory = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.SearchHistory, isEnabled: false, accessory: .Switch) { item in
+            switchSetting(key: "SearchHistoryClearable", value: item.isEnabled)
         }
         var clearTopSitesSetting = false
         let clearTopSites = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.TopAndPinnedSites, isEnabled: clearTopSitesSetting, accessory: .Switch) { item in
@@ -151,7 +155,7 @@ extension PhotonActionSheetProtocol {
             }
             (presentableVC as? BrowserViewController)?.homeViewController?.refreshHistory()
         }
-        return [[clearBrowserStorage, closeAllTabs, clearBrowserHistory, clearTopSites, clearDownloadFiles, clearAllowList, clearPrivacyStats, clearBookmarks], [closeAllTabsAndClearData]]
+        return [[clearBrowserStorage, closeAllTabs, clearBrowserHistory, clearSearchHistory, clearTopSites, clearDownloadFiles, clearAllowList, clearPrivacyStats, clearBookmarks], [closeAllTabsAndClearData]]
     }
 
     fileprivate func saveFileToDownloads(fileURL: URL, presentableVC: PresentableVC) {

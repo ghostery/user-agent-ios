@@ -203,3 +203,22 @@ class PrivacyStatsClearable: Clearable {
         return result
     }
 }
+
+// Removing search history.
+class SearchHistoryClearable: Clearable {
+    let profile: Profile
+    init(profile: Profile) {
+        self.profile = profile
+    }
+
+    var label: String {
+        return Strings.Settings.DataManagement.PrivateData.SearchHistory
+    }
+
+    func clear() -> Success {
+        return self.profile.history.clearSearchHistory().bindQueue(.main) { success in
+            log.debug("SearchHistoryClearable succeeded: \(success).")
+            return Deferred(value: success)
+        }
+    }
+}
