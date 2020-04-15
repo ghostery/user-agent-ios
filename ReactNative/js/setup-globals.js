@@ -3,6 +3,7 @@ import networkStatus from './globals/browser/networkStatus';
 import tabs from './globals/browser/tabs';
 import search from './globals/browser/search';
 import './globals/navigator/userAgent';
+import './globals/window/FileReader';
 import { DOMParser } from './globals/window/DOMParser';
 import { crypto } from './globals/window/crypto';
 
