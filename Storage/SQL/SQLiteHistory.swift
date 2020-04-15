@@ -503,6 +503,11 @@ extension SQLiteHistory: BrowserHistory {
             >>> effect({ self.db.vacuum() })
     }
 
+    public func clearSearchHistory() -> Success {
+        return db.run("DELETE FROM history WHERE url LIKE \"search://%\"")
+    }
+
+
     func recordVisitedSite(_ site: Site) -> Success {
         // Don't store visits to sites with about: protocols
         if isIgnoredURL(site.url as String) {

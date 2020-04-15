@@ -143,6 +143,7 @@ extension Strings {
                 public static let AllTabs = NSLocalizedString("Settings.DataManagement.PrivateData.AllTabs", tableName: "ClearPrivateData", comment: "Settings item for closing all tabs")
                 public static let Bookmarks = NSLocalizedString("Settings.DataManagement.PrivateData.Bookmarks", tableName: "ClearPrivateData", comment: "Settings item for clear all bookmarks")
                 public static let TopAndPinnedSites = NSLocalizedString("Settings.DataManagement.PrivateData.TopSites", tableName: "ClearPrivateData", comment: "Settings item for clear all TopSites")
+                public static let SearchHistory = NSLocalizedString("Settings.DataManagement.PrivateData.SearchHistory", tableName: "ClearPrivateData", comment: "Settings item for removing search history")
             }
         }
         public struct TodayWidget {
