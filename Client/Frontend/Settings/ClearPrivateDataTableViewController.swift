@@ -31,6 +31,7 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
     fileprivate lazy var clearables: [(clearable: Clearable, checked: DefaultCheckedState)] = {
         var items: [(clearable: Clearable, checked: DefaultCheckedState)] = [
             (HistoryClearable(profile: self.profile), true),
+            (SearchHistoryClearable(profile: self.profile), true),
             (CacheClearable(tabManager: self.tabManager), true),
             (CookiesClearable(tabManager: self.tabManager), true),
             (SiteDataClearable(tabManager: self.tabManager), true),
