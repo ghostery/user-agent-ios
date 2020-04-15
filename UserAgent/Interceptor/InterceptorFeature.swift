@@ -46,9 +46,11 @@ extension InterceptorFeature: InterceptorDelegate {
         case .phishing:
             ui.showAntiPhishingAlert(tab: tab, url: url, policy: policy)
         case .automaticForgetMode:
-            policy.allowListUrl(url)
             self.useCases.openLink.openNewForgetModeTab(url: url)
-            self.useCases.openLink.viewController?.showAutomaticForgetModeContextualOnboarding()
+            self.useCases.viewController?.showAutomaticForgetModeContextualOnboarding()
+            if let query = url.getQuery()["query"] {
+                self.useCases.viewController?.removeQueryFromQueryList(query)
+            }
         default:
             break
         }

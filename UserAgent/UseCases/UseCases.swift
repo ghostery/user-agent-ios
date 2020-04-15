@@ -15,6 +15,7 @@ protocol UseCasesPresentationViewController: class {
     func openURLInNewTab(_ url: URL, isPrivate: Bool)
     func showWipeAllTracesContextualOnboarding()
     func showAutomaticForgetModeContextualOnboarding()
+    func removeQueryFromQueryList(_ query: String)
 }
 
 class UseCases {
@@ -22,7 +23,10 @@ class UseCases {
     let openLink: OpenLinkUseCases
     let history: HistoryUseCase
 
+    weak var viewController: UseCasesPresentationViewController?
+
     init(tabManager: TabManager, profile: Profile, viewController: UseCasesPresentationViewController) {
+        self.viewController = viewController
         self.history = HistoryUseCase(profile: profile, viewController: viewController)
         self.openLink = OpenLinkUseCases(
             profile: profile,
