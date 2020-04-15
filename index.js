@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import { AppRegistry, YellowBox, NativeModules } from 'react-native';
+import './ReactNative/js/fixes';
 import './ReactNative/js/setup-globals';
 import App from 'browser-core-user-agent-ios/build/modules/core/app';
 import config from 'browser-core-user-agent-ios/build/modules/core/config';
@@ -20,7 +21,6 @@ import DomainDetails from './ReactNative/js/screens/DomainDetails/index';
 import SearchResults from './ReactNative/js/screens/SearchResults';
 import BridgeManager from './ReactNative/js/bridge-manager';
 import Logo from './ReactNative/js/components/Logo';
-import { ThemeWrapperComponentProvider } from './ReactNative/js/contexts/theme';
 import moment from './ReactNative/js/services/moment';
 import { seedRandom } from './ReactNative/js/globals/window/crypto';
 

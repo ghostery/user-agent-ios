@@ -1,4 +1,4 @@
-import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
+import { NativeEventEmitter, NativeModules } from 'react-native';
 import networkStatus from './globals/browser/networkStatus';
 import tabs from './globals/browser/tabs';
 import search from './globals/browser/search';
