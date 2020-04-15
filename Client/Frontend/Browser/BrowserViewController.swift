@@ -279,8 +279,28 @@ class BrowserViewController: UIViewController {
         let reportPage = UIAlertController(title: Strings.PrivacyDashboard.ReportPage.AlertTitle, message: message, preferredStyle: .alert)
         reportPage.addAction(UIAlertAction(title: Strings.General.CancelString, style: .cancel, handler: nil))
         reportPage.addAction(UIAlertAction(title: Strings.General.SendString, style: .default ) { _ in
-//            let userInfo: String = reportPage.textFields?.first?.text ?? ""
-            // TODO: Implement functionality to send user report about web page.
+            let encoder = JSONEncoder()
+            let comment =  reportPage.textFields?.first?.text
+            let shortComment = comment?.truncateToUTF8ByteCount(200)
+            let payloadDict = [
+                "url": url.host ?? "",
+                "type": "broken page",
+                "comment": shortComment,
+                "channel": "ios",
+            ]
+            guard
+                let payloadData = try? encoder.encode(payloadDict),
+                let payload = String(data: payloadData, encoding: .utf8)
+            else { return }
+
+            ReactNativeBridge.sharedInstance.browserCore.callAction(module: "hpn-lite", action: "send", args: [
+                [
+                    "action": "report-url",
+                    "method": "POST",
+                    "payload": payload,
+                    "path": "",
+                ],
+            ])
         })
         reportPage.addTextField(configurationHandler: nil)
         self.present(reportPage, animated: true, completion: nil)
