@@ -15,6 +15,7 @@ protocol UseCasesPresentationViewController: class {
     func openURLInNewTab(_ url: URL, isPrivate: Bool)
     func showWipeAllTracesContextualOnboarding()
     func showAutomaticForgetModeContextualOnboarding()
+    func removeQueryFromQueryList(_ query: String)
 }
 
 class UseCases {
