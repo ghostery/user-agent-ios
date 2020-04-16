@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 export interface News {
   url: string;
+  breaking_label: boolean;
 }
 
 const deepEqualNews = (oldNews: News[], news: News[]) => {

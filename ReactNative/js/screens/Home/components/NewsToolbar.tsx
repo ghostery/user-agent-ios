@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { View, Text, NativeModules, TouchableHighlight } from 'react-native';
 import NativeDrawable from '../../../components/NativeDrawable';
 import { useStyles } from '../../../contexts/theme';
@@ -43,6 +43,12 @@ const getStyles = (theme: any) => ({
     width: '100%',
     alignItems: 'center',
   },
+  breakingNewsDot: {
+    height: 7,
+    width: 7,
+    borderRadius: 7,
+    backgroundColor: theme.redColor,
+  },
 });
 
 export default ({
@@ -81,6 +87,10 @@ export default ({
     }
     NativeModules.ReadTheNews.read(news, language);
   }, [news, edition]);
+  const hasBreakingNews = useMemo(
+    () => news.some(article => article.breaking_label),
+    [news],
+  );
   return (
     <View style={styles.wrapper}>
       <View style={styles.downIconWrapper}>
@@ -95,6 +105,7 @@ export default ({
           <Text style={styles.buttonText}>
             {t('ActivityStream.News.Header')}
           </Text>
+          {hasBreakingNews && <View style={styles.breakingNewsDot} />}
         </View>
       </TouchableHighlight>
       <View style={styles.spacer} />

@@ -6,7 +6,7 @@ import Logo from './Logo';
 import NativeDrawable from './NativeDrawable';
 import { withTheme } from '../contexts/theme';
 
-const getStyles = theme => ({
+export const getStyles = theme => ({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -15,7 +15,7 @@ const getStyles = theme => ({
   circle: {
     padding: 20,
     borderRadius: 60,
-    backgroundColor: '#ffffff50',
+    backgroundColor: '#ffffff33',
   },
   label: {
     marginTop: 5,

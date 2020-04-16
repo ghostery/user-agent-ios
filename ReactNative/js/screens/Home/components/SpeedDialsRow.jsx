@@ -1,11 +1,15 @@
 import React from 'react';
-import { View, StyleSheet, NativeModules } from 'react-native';
-import SpeedDial from '../../../components/SpeedDial';
+import { Text, View, StyleSheet, NativeModules } from 'react-native';
+import SpeedDial, {
+  getStyles as getSpeedDialStyle,
+} from '../../../components/SpeedDial';
 
 const openSpeedDialLink = speedDial =>
   NativeModules.BrowserActions.openLink(speedDial.url, '');
 const longPressSpeedDial = speedDial =>
   NativeModules.ContextMenu.speedDial(speedDial.url, speedDial.pinned || false);
+
+const speedDialStyle = getSpeedDialStyle();
 
 const styles = StyleSheet.create({
   speedDials: {
@@ -21,14 +25,22 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     width: 80,
   },
+  logo: {
+    height: 30,
+    width: 30,
+  },
 });
 
-const EmptySpeedDial = () => <View style={styles.speedDial} />;
+const EmptySpeedDial = () => (
+  <View style={[speedDialStyle.container, styles.speedDial]}>
+    <View style={speedDialStyle.circle}>
+      <View style={styles.logo} />
+    </View>
+    <Text style={speedDialStyle.label} />
+  </View>
+);
 
 export default ({ dials, limit = 4 }) => {
-  if (dials.length === 0) {
-    return null;
-  }
   const emptyCount = limit - dials.length < 0 ? 0 : limit - dials.length;
   const allDials = [
     ...dials.map(dial => (
