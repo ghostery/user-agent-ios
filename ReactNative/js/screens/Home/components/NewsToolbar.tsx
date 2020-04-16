@@ -58,10 +58,12 @@ export default ({
   scrollToNews,
   news,
   edition,
+  telemetry,
 }: {
   scrollToNews: any;
   news: News[];
   edition: String;
+  telemetry: any;
 }) => {
   const styles = useStyles(getStyles);
   const read = useCallback(() => {
@@ -88,15 +90,51 @@ export default ({
       default:
         language = 'de-DE';
     }
+    telemetry.push(
+      {
+        component: 'home',
+        view: 'news-toolbar',
+        target: 'read',
+        action: 'click',
+      },
+      'ui.metric.interaction',
+    );
     NativeModules.ReadTheNews.read(news, language);
-  }, [news, edition]);
+  }, [news, edition, telemetry]);
   const hasBreakingNews = useMemo(
     () => news.some(article => article.breaking_label),
     [news],
   );
+  const scrollToNewsTitle = useCallback(() => {
+    telemetry.push(
+      {
+        component: 'home',
+        view: 'news-toolbar',
+        target: 'title',
+        action: 'click',
+      },
+      'ui.metric.interaction',
+    );
+    scrollToNews();
+  }, [scrollToNews, telemetry]);
+  const scrollToNewsDownIcon = useCallback(() => {
+    telemetry.push(
+      {
+        component: 'home',
+        view: 'news-toolbar',
+        target: 'down-icon',
+        action: 'click',
+      },
+      'ui.metric.interaction',
+    );
+    scrollToNews();
+  }, [scrollToNews, telemetry]);
   return (
     <View style={styles.wrapper}>
-      <TouchableHighlight onPress={scrollToNews} style={styles.buttonContainer}>
+      <TouchableHighlight
+        onPress={scrollToNewsTitle}
+        style={styles.buttonContainer}
+      >
         <View style={styles.button}>
           <Text style={styles.buttonText}>
             {t('ActivityStream.News.Header')}
@@ -104,7 +142,10 @@ export default ({
           {hasBreakingNews && <View style={styles.breakingNewsDot} />}
         </View>
       </TouchableHighlight>
-      <TouchableHighlight onPress={scrollToNews} style={styles.downIconWrapper}>
+      <TouchableHighlight
+        onPress={scrollToNewsDownIcon}
+        style={styles.downIconWrapper}
+      >
         <NativeDrawable
           style={styles.buttonIcon}
           source="arrow-down"

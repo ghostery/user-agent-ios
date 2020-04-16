@@ -90,6 +90,7 @@ export default function Home({
   speedDials,
   pinnedSites,
   newsModule,
+  telemetry,
   isNewsEnabled,
   isNewsImagesEnabled,
   height,
@@ -122,13 +123,23 @@ export default function Home({
       },
     );
   }, [scrollViewElement]);
+  const onScroll = useCallback(() => {
+    telemetry.push(
+      {
+        component: 'home',
+        action: 'scroll',
+      },
+      'ui.metric.interaction',
+    );
+    hideKeyboard();
+  }, [telemetry]);
 
   return (
     <ScrollView
       ref={scrollViewElement}
       style={styles.container}
-      onScroll={hideKeyboard}
-      scrollEventThrottle={1}
+      onScroll={onScroll}
+      scrollEventThrottle={0}
       contentContainerStyle={styles.contentContainer}
       scrollEnabled={isNewsEnabled}
     >
@@ -159,6 +170,7 @@ export default function Home({
                 news={news}
                 scrollToNews={scrollToNews}
                 edition={edition}
+                telemetry={telemetry}
               />
             </View>
           </View>
@@ -166,7 +178,11 @@ export default function Home({
       </Background>
       {isNewsEnabled && (
         <View style={styles.newsWrapper} ref={newsElement}>
-          <News news={news} isImagesEnabled={isNewsImagesEnabled} />
+          <News
+            news={news}
+            isImagesEnabled={isNewsImagesEnabled}
+            telemetry={telemetry}
+          />
         </View>
       )}
       <ToolbarArea height={toolbarHeight} />

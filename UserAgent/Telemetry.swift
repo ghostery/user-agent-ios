@@ -10,7 +10,8 @@ import Foundation
 
 class Telemetry {
     static func reportReaderMode() {
-        send(signal: [:], schema: "browser:reader-mode:open")
+        send(signal: ["component": "urlbar", "view": "page-actions", "target": "reader-mode", "action": "click"],
+             schema: "ui.metric.interaction")
     }
 }
 
