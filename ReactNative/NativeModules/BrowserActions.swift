@@ -28,8 +28,7 @@ class BrowserActions: NSObject, NativeModuleBase {
                 return
             }
 
-            profile.history.getDomainProtocol(domainName)
-.uponQueue(.main) { protocolName in
+            profile.history.getDomainProtocol(domainName).uponQueue(.main) { protocolName in
                 guard let protocolName = protocolName.successValue else { return }
                 let url = URL(string: "\(protocolName)://\(domainName)")
                 guard let urlString = url?.absoluteString else {
