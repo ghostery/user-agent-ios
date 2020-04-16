@@ -17,6 +17,18 @@ private let HIDE_ADS_RULE = """
 }
 """
 
+private let HIDE_POPUPS_RULE = """
+{
+    "action": {
+        "type": "ignore-previous-rules"
+    },
+    "trigger": {
+        "url-filter": ".*",
+        "if-domain": ["*www.spiegel.de"]
+    }
+}
+"""
+
 enum BlocklistName: String {
     case advertisingNetwork = "advertisingNetwork"
     case advertisingCosmetic = "advertisingCosmetic"
@@ -302,9 +314,9 @@ extension ContentBlocker {
                     case .trackingNetwork:
                         str = str.replacingCharacters(in: range, with: self.trackingAllowListAsJSON() + "]")
                     case .popupsNetwork:
-                        str = str.replacingCharacters(in: range, with: self.popupsAllowListAsJSON() + "]")
+                        str = str.replacingCharacters(in: range, with: self.popupsAllowListAsJSON() + "," + HIDE_POPUPS_RULE + "]")
                     case .popupsCosmetic:
-                        str = str.replacingCharacters(in: range, with: self.popupsAllowListAsJSON() + "]")
+                        str = str.replacingCharacters(in: range, with: self.popupsAllowListAsJSON() + "," + HIDE_POPUPS_RULE + "]")
                     }
                     self.ruleStore.compileContentRuleList(forIdentifier: item.filename, encodedContentRuleList: str) { rule, error in
                         if let error = error {
