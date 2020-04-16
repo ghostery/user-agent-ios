@@ -10,6 +10,9 @@ const getStyles = (theme: any) => ({
     width: '100%',
     flexDirection: 'row',
   },
+  buttonContainer: {
+    flex: 2,
+  },
   button: {
     alignItems: 'center',
     flexDirection: 'row',
@@ -36,12 +39,12 @@ const getStyles = (theme: any) => ({
     alignItems: 'center',
   },
   playbackControls: {
+    flex: 2,
     flexDirection: 'row',
+    justifyContent: 'flex-end'
   },
   downIconWrapper: {
-    position: 'absolute',
-    width: '100%',
-    alignItems: 'center',
+    flex: 0,
   },
   breakingNewsDot: {
     height: 7,
@@ -93,14 +96,7 @@ export default ({
   );
   return (
     <View style={styles.wrapper}>
-      <View style={styles.downIconWrapper}>
-        <NativeDrawable
-          style={styles.buttonIcon}
-          source="arrow-down"
-          color={styles.buttonIcon.color}
-        />
-      </View>
-      <TouchableHighlight onPress={scrollToNews}>
+      <TouchableHighlight onPress={scrollToNews} style={styles.buttonContainer}>
         <View style={styles.button}>
           <Text style={styles.buttonText}>
             {t('ActivityStream.News.Header')}
@@ -108,7 +104,13 @@ export default ({
           {hasBreakingNews && <View style={styles.breakingNewsDot} />}
         </View>
       </TouchableHighlight>
-      <View style={styles.spacer} />
+      <TouchableHighlight onPress={scrollToNews} style={styles.downIconWrapper}>
+        <NativeDrawable
+          style={styles.buttonIcon}
+          source="arrow-down"
+          color={styles.buttonIcon.color}
+        />
+      </TouchableHighlight>
       <View style={styles.playbackControls}>
         <TouchableHighlight onPress={read}>
           <NativeDrawable
