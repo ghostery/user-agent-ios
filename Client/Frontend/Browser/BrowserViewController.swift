@@ -194,6 +194,7 @@ class BrowserViewController: UIViewController {
                 self.updateDisplayedPopoverProperties?()
                 self.present(popover, animated: true, completion: nil)
             }
+            self.updateViewConstraints()
         }, completion: { _ in
             self.scrollController.setMinimumZoom()
         })
