@@ -634,6 +634,7 @@ extension SQLiteHistory: BrowserHistory {
             INNER JOIN domains ON domains.id = history.domain_id
             WHERE domains.domain = ?
                 AND history.is_deleted = 0
+                AND history.url NOT LIKE 'search://%'
             GROUP BY protocol
             ORDER BY count DESC
         """
