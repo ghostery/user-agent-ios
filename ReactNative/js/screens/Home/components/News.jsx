@@ -85,8 +85,7 @@ const HiddableImage = props => {
   );
 };
 
-
-function News({ news, isImagesEnabled, theme }) {
+function News({ news, isImagesEnabled, theme, telemetry }) {
   const styles = useMemo(() => getStyles(theme), [theme]);
 
   if (news.length === 0) {
@@ -100,7 +99,18 @@ function News({ news, isImagesEnabled, theme }) {
           style={styles.item}
           key={item.url}
         >
-          <TouchableWithoutFeedback onPress={() => openLink(item.url)}>
+          <TouchableWithoutFeedback onPress={() => {
+              telemetry.push(
+                {
+                  component: 'home',
+                  view: 'news',
+                  target: 'article',
+                  action: 'click',
+                },
+                'ui.metric.interaction',
+              );
+              openLink(item.url);
+            }}>
             <View>
               {isImagesEnabled && item.imageUrl &&
                 <HiddableImage style={styles.image} source={item.imageUrl}>

@@ -285,7 +285,7 @@ class BrowserViewController: UIViewController {
             let shortComment = comment?.truncateToUTF8ByteCount(200)
             let payloadDict = [
                 "url": url.host ?? "",
-                "type": "broken page",
+                "type": "INADEQUATE_CONTENT",
                 "comment": shortComment,
                 "channel": "ios",
             ]

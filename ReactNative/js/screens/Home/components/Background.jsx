@@ -1,10 +1,9 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { View, StyleSheet, Platform, Image } from 'react-native';
+import { View, StyleSheet, Platform, Image, Settings } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 const DAY_OF_MONTH = new Date().getDate();
 const BACKGROUND_URL = `https://cdn.cliqz.com/serp/configs/config_${DAY_OF_MONTH}.json`;
-let cachedBackgroundUrl;
 
 const styles = {
   mask: [
@@ -16,7 +15,7 @@ const styles = {
 };
 
 const useBackgroundImage = () => {
-  const [url, setUrl] = useState();
+  const [url, setUrl] = useState(Settings.get('backgroundUrl'));
   useEffect(() => {
     const fetchBackground = async () => {
       const responseData = await fetch(BACKGROUND_URL);
@@ -26,13 +25,18 @@ const useBackgroundImage = () => {
         : responseJSON.backgrounds_mobile;
       const backgroundIndex = Math.floor(Math.random() * backgrounds.length);
       const background = backgrounds[backgroundIndex];
-      if (background) {
+      if (background && background.url !== url) {
         setUrl(background.url);
-        cachedBackgroundUrl = background.url;
+        Settings.set({
+          backgroundUrl: background.url,
+          backgroundTimestamp: Date.now(),
+        });
       }
     };
-
-    if (!cachedBackgroundUrl) {
+    if (
+      !url ||
+      Settings.get('backgroundTimestamp') > Date.now() - 1000 * 60 * 60 * 12 // check every 12h
+    ) {
       fetchBackground();
     }
   });
@@ -50,22 +54,19 @@ export default ({ height, children }) => {
     }),
     [height],
   );
+  const backgroundSource = useMemo(
+    () => ({
+      uri: backgroundUrl,
+      priority: FastImage.priority.normal,
+    }),
+    [backgroundUrl],
+  );
+  const maskSource = useMemo(() => ({ uri: 'mask' }), []);
 
   return (
     <View style={style} accessibilityIgnoresInvertColors>
-      <FastImage
-        style={StyleSheet.absoluteFill}
-        source={{
-          uri: backgroundUrl || cachedBackgroundUrl,
-          priority: FastImage.priority.normal,
-        }}
-      />
-      <Image
-        style={styles.mask}
-        source={{
-          uri: 'mask',
-        }}
-      />
+      <FastImage style={StyleSheet.absoluteFill} source={backgroundSource} />
+      <Image style={styles.mask} source={maskSource} />
       {children}
     </View>
   );

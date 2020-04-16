@@ -111,7 +111,7 @@ bridgeManager.addActionListener(({ module, action, args /* , id */ }) => {
 });
 
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component { render() { return null; }});
-AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.module('news')} {...props} />);
+AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.module('news')} telemetry={inject.service('telemetry', ['push'])} {...props} />);
 AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults searchModule={inject.module('search')} insightsModule={inject.module('insights')} bridgeManager={bridgeManager} events={events} {...props} />);
 AppRegistry.registerComponent('Logo', () => Logo);
 AppRegistry.registerComponent('PrivacyStats', () => (props) => <PrivacyStats insightsModule={inject.module('insights')} {...props} />);
