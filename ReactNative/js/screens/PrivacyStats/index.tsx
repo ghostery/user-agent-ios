@@ -128,7 +128,13 @@ const usePrivacyStats = (insightsModule: BrowserCoreModule) => {
         insightsModule.action('getDashboardStats', ['']),
       ]);
       let { adsBlocked, trackersBlocked } = dashboardStats;
-
+      if (!adsBlocked) {
+        adsBlocked = 0;
+      }
+      if (!trackersBlocked) {
+        trackersBlocked = 0;
+      }
+      
       tabsState.forEach(
         (tabState: { adsBlocked: number; trackersBlocked: number }) => {
           adsBlocked += tabState.adsBlocked;
