@@ -35,7 +35,7 @@ const useBackgroundImage = () => {
     };
     if (
       !url ||
-      Settings.get('backgroundTimestamp') > Date.now() - 1000 * 60 * 60 * 12 // check every 12h
+      Settings.get('backgroundTimestamp') < Date.now() - 1000 * 60 * 60 * 4 // check every 4h
     ) {
       fetchBackground();
     }
