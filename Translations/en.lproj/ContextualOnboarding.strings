@@ -13,7 +13,7 @@
 "ContextualOnboarding.WipeAllTraces.Description" = "You don't want your boss, spouse or partner to see that you've visited a specific website? Don't worry! Your secret is safe with Cliqz: You can easily delete all traces of this site stored in your browser, including history entries and cookies.";
 
 /* Don't show agian button title */
-"ContextualOnboarding.DontShowAgain" = "Don't show agian";
+"ContextualOnboarding.DontShowAgain" = "Don't show again";
 
 /* Title for Automatic forget mode screen */
 "ContextualOnboarding.AutomaticForgotMode.Title" = "Automatic Forget Mode";
