@@ -110,8 +110,24 @@ bridgeManager.addActionListener(({ module, action, args /* , id */ }) => {
   return false;
 });
 
+const telemetry = inject.service('telemetry', ['push']);
+// This is a quick fix for https://github.com/cliqz/user-agent-ios/issues/939
+const safeTelemetry = {
+  async push(...args) {
+    if (!bridgeManager.isAppReady) {
+      await bridgeManager.appReady;
+    }
+    try {
+      await telemetry.push(...args);
+    } catch (e) {
+      // in some cases telemetry may not be initialized propererly
+      // or not initliazed yet
+    }
+  },
+};
+
 AppRegistry.registerComponent('BrowserCore', () => class extends React.Component { render() { return null; }});
-AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.module('news')} telemetry={inject.service('telemetry', ['push'])} {...props} />);
+AppRegistry.registerComponent('Home', () => (props) => <Home newsModule={inject.module('news')} telemetry={safeTelemetry} {...props} />);
 AppRegistry.registerComponent('SearchResults', () => (props) => <SearchResults searchModule={inject.module('search')} insightsModule={inject.module('insights')} bridgeManager={bridgeManager} events={events} {...props} />);
 AppRegistry.registerComponent('Logo', () => Logo);
 AppRegistry.registerComponent('PrivacyStats', () => (props) => <PrivacyStats insightsModule={inject.module('insights')} {...props} />);
