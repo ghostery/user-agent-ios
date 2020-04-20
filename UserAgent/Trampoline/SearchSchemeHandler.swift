@@ -81,8 +81,12 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
                                 url.search + "&\(didRedirectParam)",
                             );
                             setTimeout(() => {
-                                window.location.href = "\(redirectUrl)";
-                            }, 0);
+                                // it takes at least two ticks for WKWebView to permanently commit visit
+                                // into navigation history
+                                setTimeout(() => {
+                                    window.location.href = "\(redirectUrl)";
+                                });
+                            });
                         } else {
                             search();
                             const showUi = () => {
