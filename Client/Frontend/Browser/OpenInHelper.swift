@@ -57,6 +57,11 @@ class DownloadHelper: NSObject, OpenInHelper {
     fileprivate let preflightResponse: URLResponse
     fileprivate let browserViewController: BrowserViewController
 
+    static func requestDownload(url: URL, tab: Tab) {
+        let safeUrl = url.absoluteString.replacingOccurrences(of: "'", with: "%27")
+        tab.webView?.evaluateJavaScript("window.__firefox__.download('\(safeUrl)', '\(UserScriptManager.securityToken)')")
+    }
+
     required init?(request: URLRequest?, response: URLResponse, canShowInWebView: Bool, forceDownload: Bool, browserViewController: BrowserViewController) {
         guard let request = request else {
             return nil
