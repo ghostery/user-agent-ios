@@ -24,7 +24,7 @@ private var isTablet: Bool {
 class NavigationTest: BaseTestCase {
     func testNavigation() {
         navigator.goto(URLBarOpen)
-        let urlPlaceholder = "Search Privately"
+        let urlPlaceholder = "Search or type URL"
         XCTAssert(app.textFields["url"].exists)
         let defaultValuePlaceholder = app.textFields["url"].placeholderValue!
 
