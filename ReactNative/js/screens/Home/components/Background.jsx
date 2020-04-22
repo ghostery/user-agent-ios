@@ -4,7 +4,6 @@ import FastImage from 'react-native-fast-image';
 
 const DAY_OF_MONTH = new Date().getDate();
 const BACKGROUND_URL = `https://cdn.cliqz.com/serp/configs/config_${DAY_OF_MONTH}.json`;
-
 const styles = {
   mask: [
     StyleSheet.absoluteFill,
@@ -13,12 +12,14 @@ const styles = {
     },
   ],
 };
+const fallbackImageSource = { uri: 'home-background' };
+const maskSource = { uri: 'mask' };
 
 const useBackgroundImage = () => {
   const [url, setUrl] = useState(Settings.get('backgroundUrl'));
   useEffect(() => {
     const fetchBackground = async () => {
-      const responseData = await fetch(BACKGROUND_URL);
+      const responseData = await fetch(BACKGROUND_URL, { cache: 'no-cache' });
       const responseJSON = await responseData.json();
       const backgrounds = Platform.isPad
         ? responseJSON.backgrounds
@@ -26,9 +27,10 @@ const useBackgroundImage = () => {
       const backgroundIndex = Math.floor(Math.random() * backgrounds.length);
       const background = backgrounds[backgroundIndex];
       if (background && background.url !== url) {
-        setUrl(background.url);
+        const newUrl = background.url;
+        setUrl(newUrl);
         Settings.set({
-          backgroundUrl: background.url,
+          backgroundUrl: newUrl,
           backgroundTimestamp: Date.now(),
         });
       }
@@ -61,11 +63,18 @@ export default ({ height, children }) => {
     }),
     [backgroundUrl],
   );
-  const maskSource = useMemo(() => ({ uri: 'mask' }), []);
-
+  const [hasError, setError] = useState(false);
   return (
     <View style={style} accessibilityIgnoresInvertColors>
-      <FastImage style={StyleSheet.absoluteFill} source={backgroundSource} />
+      {hasError ? (
+        <Image style={StyleSheet.absoluteFill} source={fallbackImageSource} />
+      ) : (
+        <FastImage
+          style={StyleSheet.absoluteFill}
+          source={backgroundSource}
+          onError={setError}
+        />
+      )}
       <Image style={styles.mask} source={maskSource} />
       {children}
     </View>
