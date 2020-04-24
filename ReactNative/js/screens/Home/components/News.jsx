@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useState,
-  useMemo,
-  useContext,
-} from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import {
   NativeModules,
   View,
@@ -67,8 +62,6 @@ const getStyles = theme =>
     },
   });
 
-const openLink = url => NativeModules.BrowserActions.openLink(url, '');
-
 const HiddableImage = props => {
   const { style, source, children } = props;
   const [isHidden, setHidden] = useState(false, [source]);
@@ -88,9 +81,33 @@ const HiddableImage = props => {
 function News({ news, isImagesEnabled, theme, telemetry }) {
   const styles = useMemo(() => getStyles(theme), [theme]);
 
+  const onClick = useCallback(
+    url => () => {
+      telemetry.push(
+        {
+          component: 'home',
+          view: 'news',
+          target: 'article',
+          action: 'click',
+        },
+        'ui.metric.interaction',
+      );
+      NativeModules.BrowserActions.openLink(url, '');
+    },
+    [telemetry],
+  );
+
+  const onLongPress = useCallback(
+    (url, title) => () => {
+      NativeModules.ContextMenu.visit(url, title, false);
+    },
+    [],
+  );
+
   if (news.length === 0) {
     return null;
   }
+
   /* eslint-disable prettier/prettier */
   return (
     <View style={styles.container}>
@@ -99,18 +116,7 @@ function News({ news, isImagesEnabled, theme, telemetry }) {
           style={styles.item}
           key={item.url}
         >
-          <TouchableWithoutFeedback onPress={() => {
-              telemetry.push(
-                {
-                  component: 'home',
-                  view: 'news',
-                  target: 'article',
-                  action: 'click',
-                },
-                'ui.metric.interaction',
-              );
-              openLink(item.url);
-            }}>
+          <TouchableWithoutFeedback onPress={onClick(item.url)} onLongPress={onLongPress(item.url, item.title)}>
             <View>
               {isImagesEnabled && item.imageUrl &&
                 <HiddableImage style={styles.image} source={item.imageUrl}>
