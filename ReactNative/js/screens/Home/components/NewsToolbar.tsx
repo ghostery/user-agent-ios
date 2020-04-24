@@ -10,12 +10,25 @@ const getStyles = (theme: any) => ({
     width: '100%',
     flexDirection: 'row',
   },
-  buttonContainer: {
-    flex: 2,
+  left: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
   },
-  button: {
+  center: {
+    flex: 0,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  right: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  controlWrapper: {
     alignItems: 'center',
     flexDirection: 'row',
+    padding: 10,
   },
   buttonText: {
     color: 'white',
@@ -33,18 +46,6 @@ const getStyles = (theme: any) => ({
     height: 20,
     width: 20,
     alignSelf: 'center',
-  },
-  spacer: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  playbackControls: {
-    flex: 2,
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
-  },
-  downIconWrapper: {
-    flex: 0,
   },
   breakingNewsDot: {
     height: 7,
@@ -129,36 +130,41 @@ export default ({
     );
     scrollToNews();
   }, [scrollToNews, telemetry]);
+
   return (
     <View style={styles.wrapper}>
-      <TouchableHighlight
-        onPress={scrollToNewsTitle}
-        style={styles.buttonContainer}
-      >
-        <View style={styles.button}>
-          <Text style={styles.buttonText}>
-            {t('ActivityStream.News.Header')}
-          </Text>
-          {hasBreakingNews && <View style={styles.breakingNewsDot} />}
-        </View>
-      </TouchableHighlight>
-      <TouchableHighlight
-        onPress={scrollToNewsDownIcon}
-        style={styles.downIconWrapper}
-      >
-        <NativeDrawable
-          style={styles.buttonIcon}
-          source="arrow-down"
-          color={styles.buttonIcon.color}
-        />
-      </TouchableHighlight>
-      <View style={styles.playbackControls}>
+      <View style={styles.left}>
+        <TouchableHighlight onPress={scrollToNewsTitle}>
+          <View style={styles.controlWrapper}>
+            <Text style={styles.buttonText} allowFontScaling={false}>
+              {t('ActivityStream.News.Header')}
+            </Text>
+            {hasBreakingNews && <View style={styles.breakingNewsDot} />}
+          </View>
+        </TouchableHighlight>
+      </View>
+
+      <View style={styles.center}>
+        <TouchableHighlight onPress={scrollToNewsDownIcon}>
+          <View style={styles.controlWrapper}>
+            <NativeDrawable
+              style={styles.buttonIcon}
+              source="arrow-down"
+              color={styles.buttonIcon.color}
+            />
+          </View>
+        </TouchableHighlight>
+      </View>
+
+      <View style={styles.right}>
         <TouchableHighlight onPress={read}>
-          <NativeDrawable
-            style={styles.playbackButtonIcon}
-            source="play-pause"
-            color={styles.playbackButtonIcon.color}
-          />
+          <View style={styles.controlWrapper}>
+            <NativeDrawable
+              style={styles.playbackButtonIcon}
+              source="play-pause"
+              color={styles.playbackButtonIcon.color}
+            />
+          </View>
         </TouchableHighlight>
       </View>
     </View>
