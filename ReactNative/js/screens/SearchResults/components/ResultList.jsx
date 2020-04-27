@@ -10,6 +10,7 @@ import React from 'react';
 import { View, StyleSheet, NativeModules } from 'react-native';
 import GenericResult from './results/GenericResult';
 import WeatherSnippet from './results/WeatherResult';
+import NavigateToResult from './results/NavigateToResult';
 import { isSwitchToTab } from './helpers';
 
 const styles = StyleSheet.create({
@@ -71,9 +72,18 @@ export default class CardList extends React.PureComponent {
 
   getComponent = ({ result, resultIndex }) => {
     let Component = GenericResult;
+
     switch (result.template) {
       case 'weatherEZ':
         Component = WeatherSnippet;
+        break;
+      default:
+        break;
+    }
+
+    switch (result.type) {
+      case 'navigate-to':
+        Component = NavigateToResult;
         break;
       default:
         break;

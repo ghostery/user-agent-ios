@@ -7,3 +7,38 @@
 
 /* Accessibility label for image of default search engine displayed left to the actual search suggestions from the engine. The parameter substituted for \"%@\" is the name of the search engine. E.g.: Search suggestions from Google */
 "Search suggestions from %@" = "Search suggestions from %@";
+
+"Search.Visit" = "Visit";
+
+/* The message that asks the user to Add the search provider explaining where the search engine will appear */
+"Search.ThirdPartyEngines.AddMessage" = "Die neue Suchmaschine erscheint in der Schnellsuchleiste.";
+
+/* The success message that appears after a user sucessfully adds a new search engine */
+"Search.ThirdPartyEngines.AddSuccess" = "Suchmaschine hinzugefügt!";
+
+/* The title that asks the user to Add the search provider */
+"Search.ThirdPartyEngines.AddTitle" = "Suchmaschine hinzufügen?";
+
+/* The cancel button if you do not want to add a search engine. */
+"Search.ThirdPartyEngines.Cancel" = "Abbrechen";
+
+/* A message explaining fault in custom search engine form. */
+"Search.ThirdPartyEngines.DuplicateErrorMessage" = "Eine Suchmaschine mit diesem Titel oder dieser URL wurde bereits hinzugefügt.";
+
+/* A title stating that we failed to add custom search engine. */
+"Search.ThirdPartyEngines.DuplicateErrorTitle" = "Fehlgeschlagen";
+
+/* A title explaining that we failed to add a search engine */
+"Search.ThirdPartyEngines.FailedMessage" = "Die Suchmaschine konnte nicht hinzugefügt werden.";
+
+/* A title explaining that we failed to add a search engine */
+"Search.ThirdPartyEngines.FailedTitle" = "Fehlgeschlagen";
+
+/* A message explaining fault in custom search engine form. */
+"Search.ThirdPartyEngines.FormErrorMessage" = "Bitte füllen Sie alle Felder korrekt aus.";
+
+/* A title stating that we failed to add custom search engine. */
+"Search.ThirdPartyEngines.FormErrorTitle" = "Fehlgeschlagen";
+
+/* The confirmation button */
+"Search.ThirdPartyEngines.OK" = "OK";
