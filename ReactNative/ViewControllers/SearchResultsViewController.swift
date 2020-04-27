@@ -126,7 +126,6 @@ extension SearchResultsViewController: BrowserCoreClient {
 
     private func stopSearch() {
         browserCore.callAction(module: "search", action: "stopSearch", args: [
-            ["entryPoint": ""],
             ["contextId": "mobile-cards"],
         ])
     }

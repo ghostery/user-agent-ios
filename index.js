@@ -51,6 +51,7 @@ const app = new App({
         },
       },
       HW_CHANNEL: isDebug ? 'ios-debug' : 'ios',
+      RESULTS_PROVIDER_ORDER: ['instant', 'calculator', 'history', 'cliqz', 'querySuggestions'],
     },
   },
 });

@@ -281,23 +281,6 @@ extension Strings {
         public static let ShowPreviousTabTitle = NSLocalizedString("Hotkeys.ShowPreviousTab.DiscoveryTitle", comment: "Label to display in the Discoverability overlay for keyboard shortcuts")
     }
 
-    // MARK: - Third Party Search Engines
-    public struct Search {
-        public struct ThirdPartyEngines {
-            public static let EngineAdded = NSLocalizedString("Search.ThirdPartyEngines.AddSuccess", comment: "The success message that appears after a user sucessfully adds a new search engine")
-            public static let AddTitle = NSLocalizedString("Search.ThirdPartyEngines.AddTitle", comment: "The title that asks the user to Add the search provider")
-            public static let AddMessage = NSLocalizedString("Search.ThirdPartyEngines.AddMessage", comment: "The message that asks the user to Add the search provider explaining where the search engine will appear")
-            public static let CancelButton = NSLocalizedString("Search.ThirdPartyEngines.Cancel", comment: "The cancel button if you do not want to add a search engine.")
-            public static let OkayButton = NSLocalizedString("Search.ThirdPartyEngines.OK", comment: "The confirmation button")
-            public static let FailedTitle = NSLocalizedString("Search.ThirdPartyEngines.FailedTitle", comment: "A title explaining that we failed to add a search engine")
-            public static let FailedMessage = NSLocalizedString("Search.ThirdPartyEngines.FailedMessage", comment: "A title explaining that we failed to add a search engine")
-            public static let FormErrorTitle = NSLocalizedString("Search.ThirdPartyEngines.FormErrorTitle", comment: "A title stating that we failed to add custom search engine.")
-            public static let FormErrorMessage = NSLocalizedString("Search.ThirdPartyEngines.FormErrorMessage", comment: "A message explaining fault in custom search engine form.")
-            public static let DuplicateErrorTitle = NSLocalizedString("Search.ThirdPartyEngines.DuplicateErrorTitle", comment: "A title stating that we failed to add custom search engine.")
-            public static let DuplicateErrorMessage = NSLocalizedString("Search.ThirdPartyEngines.DuplicateErrorMessage", comment: "A message explaining fault in custom search engine form.")
-        }
-    }
-
     // MARK: - Bookmark Management
     public struct Bookmarks {
         public static let Title = NSLocalizedString("Bookmarks.Title.Label", comment: "The label for the title of a bookmark")
