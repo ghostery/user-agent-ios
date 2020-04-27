@@ -137,9 +137,8 @@ function reportSearchStats(insightsModule, searchEngine) {
 function isResultAllowed({ template, provider, type }) {
   return (
     !BLOCKED_TEMPLATES.includes(template) &&
-    type !== 'navigate-to' &&
+    type !== 'supplementary-search' &&
     Boolean(provider) &&
-    provider !== 'instant' &&
     provider !== 'rich-header' // promises sometimes arrive to ui
   );
 }
