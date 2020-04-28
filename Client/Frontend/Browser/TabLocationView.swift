@@ -49,14 +49,15 @@ class TabLocationView: UIView {
     var url: URL? {
         didSet {
             self.updateLockImageView()
-            let isInternalURL = self.isInternalURL(self.url)
-            if isInternalURL {
+            if self.url == nil {
+                // Align left only for placeholder.
                 self.urlTextLabelAlignLeft(duration: 0.0)
             } else {
                 self.urlTextLabelAlignCenter(duration: 0.0)
             }
             self.updateTextWithURL(text: self.urlbarText)
             self.updateStackViewSpacing()
+            let isInternalURL = self.isInternalURL(self.url)
             self.pageOptionsButton.isHidden = isInternalURL
             self.privacyIndicator.isHidden = isInternalURL
             setNeedsUpdateConstraints()
