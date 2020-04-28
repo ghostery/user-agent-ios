@@ -813,7 +813,7 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    private func showBlur() {
+    private func showBlur(animation: Bool = true) {
         guard self.blurLayer == nil else {
             return
         }
@@ -832,7 +832,8 @@ class BrowserViewController: UIViewController {
         }
         view.bringSubviewToFront(notchAreaCover)
         self.blurLayer?.alpha = 0.0
-        UIView.animate(withDuration: 0.3) {
+        let duration = animation ? 0.3 : 0.0
+        UIView.animate(withDuration: duration) {
             self.blurLayer?.alpha = 0.98
         }
     }
@@ -1513,6 +1514,7 @@ extension BrowserViewController: URLBarDelegate {
 
     func urlBar(_ urlBar: URLBarView, didRestoreText text: String) {
         if text.isEmpty {
+            self.showBlur(animation: false)
             hideSearchController()
         } else {
             showSearchController()
@@ -1523,6 +1525,7 @@ extension BrowserViewController: URLBarDelegate {
 
     func urlBar(_ urlBar: URLBarView, didEnterText text: String) {
         if text.isEmpty {
+            self.showBlur(animation: false)
             hideSearchController()
         } else {
             showSearchController()
