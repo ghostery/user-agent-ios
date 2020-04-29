@@ -7,6 +7,7 @@ class PrivacyDashboardView: UIView, PhotonCustomViewCellContent {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.register(self, forTabEvents: .didChangeContentBlocking)
         self.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(0)
         }
@@ -15,6 +16,11 @@ class PrivacyDashboardView: UIView, PhotonCustomViewCellContent {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.onSizeChange?()
     }
 
     var blocker: FirefoxTabContentBlocker? {
@@ -72,7 +78,6 @@ private extension PrivacyDashboardView {
 
     func renderStatsWrapper() -> UIStackView {
         let view = UIStackView()
-        view.alignment = .top
         view.axis = .vertical
         view.spacing = 5
 
@@ -97,11 +102,28 @@ private extension PrivacyDashboardView {
         let value = stats[category, default: 0]
         let color = category.color
         let name = category.localizedName
-        let view = PrivacyDashboardUtils.HStack { () -> (UIView, UILabel, UILabel) in
-            let dot = PrivacyDashboardUtils.Dot(withColor: color)
-            let label = PrivacyDashboardUtils.Label(withType: .stat, name)
-            let number = PrivacyDashboardUtils.Label(withType: .stat, String(value))
-            return (dot, label, number)
+        let dot = PrivacyDashboardUtils.Dot(withColor: color)
+        let label = PrivacyDashboardUtils.Label(withType: .stat, name)
+        let number = PrivacyDashboardUtils.Label(withType: .stat, String(value))
+        number.alpha = 0.7
+        number.textAlignment = .right
+        number.numberOfLines = 1
+        let view = UIView()
+        [dot, label, number].forEach({ view.addSubview($0) })
+        dot.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.top.equalToSuperview()
+        }
+        label.snp.makeConstraints { (make) in
+            make.left.equalTo(dot.snp.right).offset(5)
+            make.top.bottom.equalToSuperview()
+        }
+        number.snp.makeConstraints { (make) in
+            make.left.greaterThanOrEqualTo(label.snp.right).offset(-5)
+            make.top.right.equalToSuperview()
+            // space for keeping three digits [18, 25]
+            make.width.greaterThanOrEqualTo(18)
+            make.width.lessThanOrEqualTo(25)
         }
         wrapper.addArrangedSubview(view)
     }
@@ -155,4 +177,24 @@ private extension PrivacyDashboardView {
         self.renderCounter(withStats: stats)
         self.renderStats(wrapper: statsWrapper, stats: stats)
     }
+}
+
+extension PrivacyDashboardView: TabEventHandler {
+
+    func tabDidChangeContentBlocking(_ tab: Tab) {
+        guard self.blocker?.tab === tab else {
+            return
+        }
+        guard let blocker = self.blocker else { return }
+        self.subviews.forEach { $0.removeFromSuperview() }
+        self.render(
+            status: blocker.status,
+            stats: blocker.stats,
+            domain: blocker.tab?.currentURL()?.baseDomain ?? ""
+        )
+        let (arcs, strike) = PrivacyIndicatorTransformation
+            .transform(status: blocker.status, stats: blocker.stats)
+        self.privacyIndicator.update(arcs: arcs, strike: strike)
+    }
+
 }
