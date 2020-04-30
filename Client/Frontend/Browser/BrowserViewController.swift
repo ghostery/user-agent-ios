@@ -838,16 +838,13 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    private func hideBlur() {
+    private func hideBlur(completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: 0.3, animations: {
             self.blurLayer?.alpha = 0.0
         }) { (_) in
             self.blurLayer?.removeFromSuperview()
             self.blurLayer = nil
-            if let home = self.homeViewController?.view {
-                self.view.bringSubviewToFront(home)
-                self.updateViewConstraints()
-            }
+            completion?()
         }
     }
 
@@ -1592,7 +1589,12 @@ extension BrowserViewController: URLBarDelegate {
         destroySearchController()
         updateInContentHomePanel(tabManager.selectedTab?.url as URL?)
         self.updateViewConstraints()
-        self.hideBlur()
+        self.hideBlur {
+            if let home = self.homeViewController?.view {
+                self.view.bringSubviewToFront(home)
+                self.updateViewConstraints()
+            }
+        }
     }
 
     func urlBarDidBeginDragInteraction(_ urlBar: URLBarView) {
