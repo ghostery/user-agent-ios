@@ -233,8 +233,6 @@ class SearchSetting: Setting {
 
     override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
 
-    override var style: UITableViewCell.CellStyle { return .value1 }
-
     override var accessibilityIdentifier: String? { return "Search" }
 
     init(settings: SettingsTableViewController) {
