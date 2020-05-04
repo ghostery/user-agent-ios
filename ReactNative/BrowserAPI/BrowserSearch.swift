@@ -28,7 +28,7 @@ class BrowserSearch: NSObject, NativeModuleBase {
     @objc(search:name:)
     public func search(query: NSString, name: NSString) {
         self.withAppDelegate { (appDel) in
-            guard let engine = appDel.profile?.searchEngines.searchEnginesIncludedCliqz.first(where: { $0.shortName == name as String }) else {
+            guard let engine = appDel.profile?.searchEngines.orderedEngines.first(where: { $0.shortName == name as String }) else {
                 return
             }
             if let url = engine.searchURLForQuery(query as String) {
