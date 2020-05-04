@@ -277,6 +277,11 @@ private func calculateExpandedCellFrameFromBVC(_ bvc: BrowserViewController) -> 
         return frame
     }
 
+    if bvc.traitCollection.horizontalSizeClass == .compact && (bvc.tabManager.selectedTab?.isNewTabPage ?? false) {
+        frame.origin.y -= bvc.header.frame.height
+        frame.size.height += bvc.header.frame.height
+    }
+
     if let url = bvc.tabManager.selectedTab?.url, bvc.toolbar == nil, let internalPage = InternalURL(url), internalPage.isAboutURL {
         frame.size.height += UIConstants.BottomToolbarHeight
     }
