@@ -27,8 +27,7 @@ class TabPrintPageRenderer: UIPrintPageRenderer {
         self.footerHeight = PrintedPageUX.PageMarginScale * PrintedPageUX.PageInsets
         self.headerHeight = PrintedPageUX.PageMarginScale * PrintedPageUX.PageInsets
 
-        if let tab = self.tab {
-            let formatter = tab.webView!.viewPrintFormatter()
+        if let formatter = self.tab?.webView?.viewPrintFormatter() {
             formatter.perPageContentInsets = UIEdgeInsets(top: PrintedPageUX.PageInsets, left: PrintedPageUX.PageInsets, bottom: PrintedPageUX.PageInsets, right: PrintedPageUX.PageInsets)
             addPrintFormatter(formatter, startingAtPageAt: 0)
         }
