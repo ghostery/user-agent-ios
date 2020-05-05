@@ -143,7 +143,7 @@ private let log = Logger.syncLogger
  * We rely on SQLiteHistory having initialized the favicon table first.
  */
 open class BrowserSchema: Schema {
-    static let DefaultVersion = 41
+    static let DefaultVersion = 42
 
     public var name: String { return "BROWSER" }
     public var version: Int { return BrowserSchema.DefaultVersion }
@@ -688,29 +688,17 @@ open class BrowserSchema: Schema {
         END
         """
     fileprivate let historyAfterUpdateTrigger = """
-        CREATE TRIGGER \(TriggerHistoryAfterUpdate) AFTER UPDATE ON \(TableHistory) BEGIN
-          INSERT INTO \(TableHistoryFTS)(docid, url, title) VALUES (new.rowid, new.url, new.title);
-        END
-        """
-    fileprivate let historyAfterInsertTrigger = """
-        CREATE TRIGGER \(TriggerHistoryAfterInsert) AFTER INSERT ON \(TableHistory) BEGIN
-          INSERT INTO \(TableHistoryFTS)(docid, url, title) VALUES (new.rowid, new.url, new.title);
-        END
-        """
-    fileprivate let historyAfterUpdateTriggerv2 = """
-        DROP TRIGGER \(TriggerHistoryAfterUpdate);
         CREATE TRIGGER \(TriggerHistoryAfterUpdate)
             AFTER UPDATE ON \(TableHistory)
-            WHEN new.url NOT LIKE 'search://'
+            WHEN new.url NOT LIKE 'search%'
         BEGIN
             INSERT INTO \(TableHistoryFTS)(docid, url, title) VALUES (new.rowid, new.url, new.title);
         END
-    """
-    fileprivate let historyAfterInsertTriggerv2 = """
-        DROP TRIGGER \(TriggerHistoryAfterInsert);
+        """
+    fileprivate let historyAfterInsertTrigger = """
         CREATE TRIGGER \(TriggerHistoryAfterInsert)
             AFTER INSERT ON \(TableHistory)
-            WHEN new.url NOT LIKE 'search://'
+            WHEN new.url NOT LIKE 'search%'
         BEGIN
             INSERT INTO \(TableHistoryFTS)(docid, url, title) VALUES (new.rowid, new.url, new.title);
         END
@@ -1433,11 +1421,12 @@ open class BrowserSchema: Schema {
             }
         }
 
-        if from < 41 && to >= 41 {
-            // Create indices on the bookmarks tables for the `keyword` column.
+        if from < 42 && to >= 41 {
             if !self.run(db, queries: [
-                historyAfterUpdateTriggerv2,
-                historyAfterInsertTriggerv2,
+                "DROP TRIGGER \(TriggerHistoryAfterUpdate)",
+                "DROP TRIGGER \(TriggerHistoryAfterInsert)",
+                historyAfterUpdateTrigger,
+                historyAfterInsertTrigger,
             ]) {
                 return false
             }
