@@ -90,12 +90,11 @@ class SearchEnginesTests: XCTestCase {
         // The ordering should have been persisted.
         XCTAssertEqual(engines2.orderedEngines[0].shortName, ExpectedEngineNames[4])
         XCTAssertEqual(engines2.orderedEngines[1].shortName, ExpectedEngineNames[2])
-        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[3])
+        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[1])
 
         // Remaining engines should be appended in alphabetical order.
-        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[3])
-        XCTAssertEqual(engines2.orderedEngines[4].shortName, ExpectedEngineNames[5])
-        XCTAssertEqual(engines2.orderedEngines[5].shortName, ExpectedEngineNames[6])
+        XCTAssertEqual(engines2.orderedEngines[4].shortName, ExpectedEngineNames[3])
+        XCTAssertEqual(engines2.orderedEngines[5].shortName, ExpectedEngineNames[5])
     }
 
     func testQuickSearchEngines() {
