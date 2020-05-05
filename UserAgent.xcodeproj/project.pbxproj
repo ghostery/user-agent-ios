@@ -243,6 +243,7 @@
 		460C248223F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460C248023F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift */; };
 		460C248423F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
 		460C248523F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 460C248323F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m */; };
+		461D753924619B990030F87C /* SearchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464830EA243B290C0052CC2C /* SearchURL.swift */; };
 		461E5E59234F6891004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E58234F6891004DDE84 /* brand.strings */; };
 		461E5E5B234F68A7004DDE84 /* brand.strings in Resources */ = {isa = PBXBuildFile; fileRef = 461E5E5A234F68A7004DDE84 /* brand.strings */; };
 		4620EA492350ABF9004586CF /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620EA482350ABF9004586CF /* Search.swift */; };
@@ -5449,6 +5450,7 @@
 				C5E94B5A233112CD00D3F31F /* Trees.swift in Sources */,
 				E65075C21E37F956006961AC /* ExtensionUtils.swift in Sources */,
 				4650407324125AC20086CFAF /* Domain.swift in Sources */,
+				461D753924619B990030F87C /* SearchURL.swift in Sources */,
 				C5E94B57233112CD00D3F31F /* Bookmarks.swift in Sources */,
 				7BF5A1EA1B41640500EA9DD8 /* SyncQueue.swift in Sources */,
 				E677F0541D94247300ECF1FB /* Metadata.swift in Sources */,
