@@ -10,8 +10,8 @@ import UIKit
 
 class HapticFeedback {
 
-    class func vibrate() {
-        UISelectionFeedbackGenerator().selectionChanged()
+    class func vibrate(style: UIImpactFeedbackGenerator.FeedbackStyle = .heavy) {
+        UIImpactFeedbackGenerator(style: style).impactOccurred()
     }
 
 }

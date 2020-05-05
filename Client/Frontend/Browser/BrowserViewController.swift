@@ -1408,8 +1408,7 @@ extension BrowserViewController: URLBarDelegate {
             return
         }
 
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
+        HapticFeedback.vibrate()
         presentActivityViewController(url, tab: tab, sourceView: button, sourceRect: button.bounds, arrowDirection: .up)
     }
 
@@ -1463,8 +1462,7 @@ extension BrowserViewController: URLBarDelegate {
 
     func urlBarDidLongPressLocation(_ urlBar: URLBarView) {
         let urlActions = self.getLongPressLocationBarActions(with: urlBar)
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
+        HapticFeedback.vibrate()
         self.presentSheetWith(actions: [urlActions], on: self, from: urlBar)
     }
 
