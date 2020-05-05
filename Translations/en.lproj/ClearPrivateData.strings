@@ -17,9 +17,6 @@
 /* Settings item for clearing privacy stats */
 "Settings.DataManagement.PrivateData.PrivacyStats" = "Privacy Protection Stats";
 
-/* Settings item for clearing tracking protection */
-"Settings.DataManagement.PrivateData.TrackingProtection" = "Tracking Protection";
-
 /* Settings item for clearing browsing storage */
 "Settings.DataManagement.PrivateData.BrowsingStorage" = "Browser Storage";
 
