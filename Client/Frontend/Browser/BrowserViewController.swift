@@ -923,8 +923,6 @@ class BrowserViewController: UIViewController {
 
         view.bringSubviewToFront(notchAreaCover)
 
-        homeViewController?.view?.isHidden = true
-
         searchController.didMove(toParent: self)
         self.showOverlayBackground()
     }
@@ -935,7 +933,6 @@ class BrowserViewController: UIViewController {
             searchController.willMove(toParent: nil)
             searchController.view.removeFromSuperview()
             searchController.removeFromParent()
-            homeViewController?.view?.isHidden = false
         }
     }
 
