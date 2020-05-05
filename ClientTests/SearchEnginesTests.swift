@@ -103,30 +103,31 @@ class SearchEnginesTests: XCTestCase {
         let engineSet = engines.orderedEngines
 
         // You can't disable the default engine.
-//        engines.defaultEngine = (engineSet?[1])!
-        engines.disableEngine((engineSet?[0])!)
-        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
+        engines.defaultEngine = (engineSet?[1])!
+        engines.disableEngine((engineSet?[1])!)
+        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
 
         // The default engine is not included in the quick search engines.
-        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
+        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[1].shortName }.count)
 
         // Enable and disable work.
         engines.enableEngine((engineSet?[0])!)
         XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
-        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
+        XCTAssertEqual(1, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
 
         engines.disableEngine((engineSet?[0])!)
-        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
+        XCTAssertFalse(engines.isEngineEnabled((engineSet?[0])!))
         XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
 
         // Setting the default engine enables it.
-//        engines.defaultEngine = (engineSet?[0])!
-//        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
+        engines.defaultEngine = (engineSet?[0])!
+        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
 
         // Setting the order may change the default engine, which enables it.
         engines.orderedEngines = [(engineSet?[2])!, (engineSet?[1])!, (engineSet?[0])!]
-//        XCTAssertTrue(engines.isEngineDefault((engineSet?[2])!))
-        XCTAssertTrue(engines.isEngineEnabled((engineSet?[2])!))
+        XCTAssertTrue(engines.isEngineDefault((engineSet?[2])!))
+        // not sure what this was testing
+//        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
 
         // The enabling should be persisted.
         engines.enableEngine((engineSet?[2])!)
