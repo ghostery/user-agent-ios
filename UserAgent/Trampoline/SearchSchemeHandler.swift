@@ -31,7 +31,7 @@ class SearchSchemeHandler: NSObject, WKURLSchemeHandler {
         let query = searchUrl.query
         let redirectUrl = searchUrl.redirectUrl
         let title = searchUrl.title
-        let didRedirectParam = "redirected"
+        let didRedirectParam = SearchURL.queryItemNameIsRedirected
         let html = """
         <!DOCTYPE html>
             <html>

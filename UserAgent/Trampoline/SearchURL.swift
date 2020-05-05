@@ -11,6 +11,7 @@ import Foundation
 public struct SearchURL {
     private static let queryItemNameQuery = "query"
     private static let queryItemNameRedirectUrl = "redirectUrl"
+    public static let queryItemNameIsRedirected = "redirected"
 
     public static let scheme = "search"
 
@@ -54,5 +55,13 @@ public struct SearchURL {
 
     public var title: String {
         return "Search: \(self.query)"
+    }
+
+    public var isRedirected: Bool {
+        guard
+            let components = URLComponents(url: self.url, resolvingAgainstBaseURL: true),
+            let queryItems = components.queryItems
+        else { return false }
+        return queryItems.contains(URLQueryItem(name: Self.queryItemNameIsRedirected, value: nil))
     }
 }

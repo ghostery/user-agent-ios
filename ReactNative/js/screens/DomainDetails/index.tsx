@@ -113,9 +113,6 @@ export default ({
         .map(visit => {
           const url = new URL(visit.url);
           const isSearch = url.scheme === 'search';
-          if (isSearch && url.searchParams.has('redirected')) {
-            return null;
-          }
           return {
             _id: visit.visitedAt,
             url: visit.url,

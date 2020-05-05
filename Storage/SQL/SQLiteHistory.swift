@@ -32,6 +32,10 @@ public func isIgnoredURL(_ url: URL) -> Bool {
         return true
     }
 
+    if let searchUrl = SearchURL(url), !searchUrl.isRedirected {
+        return true
+    }
+
     return false
 }
 
