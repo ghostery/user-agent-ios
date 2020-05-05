@@ -6,11 +6,19 @@ import UIKit
 import SDWebImage
 import Shared
 
+protocol SearchEnginePickerDelegate: AnyObject {
+    func searchEnginePicker(_ searchEnginePicker: SearchEnginePicker?, didSelectSearchEngine engine: OpenSearchEngine?)
+}
+
 class SearchSettingsTableViewController: ThemedTableViewController {
+    fileprivate let SectionDefault = 0
+    fileprivate let ItemDefaultEngine = 0
+    fileprivate let ItemDefaultSuggestions = 1
     fileprivate let ItemAddCustomSearch = 2
-    fileprivate let NumberOfItemsInSectionDefault = 2
+    // To enabled "Show Search Suggestions" setting change NumberOfItemsInSectionDefault value to 2.
+    fileprivate let NumberOfItemsInSectionDefault = 1
     fileprivate let SectionOrder = 1
-    fileprivate let NumberOfSections = 1
+    fileprivate let NumberOfSections = 2
     fileprivate let IconSize = CGSize(width: OpenSearchEngine.PreferredIconSize, height: OpenSearchEngine.PreferredIconSize)
     fileprivate let SectionHeaderIdentifier = "SectionHeaderIdentifier"
 
@@ -63,52 +71,75 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = indexPath.item
-        if index < model.orderedEngines.count {
-            let engine = model.orderedEngines[index]
-            return self.searchEngineCell(tableView: tableView, engine: engine, index: index)
-        } else {
-            return self.addSearchEngineCell(tableView: tableView)
-        }
-    }
-
-    private func searchEngineCell(tableView: UITableView, engine: OpenSearchEngine, index: Int) -> UITableViewCell {
         let identifier = "SearchSettingsTableViewCell"
-        var cell: SearchSettingsTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "SearchSettingsTableViewCell?") as? SearchSettingsTableViewCell
+        var cell: SearchSettingsTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? SearchSettingsTableViewCell
         if cell == nil {
             cell = SearchSettingsTableViewCell(style: .default, reuseIdentifier: identifier)
         }
+        var engine: OpenSearchEngine!
 
-        cell.showsReorderControl = true
-        let toggle = UISwitchThemed()
-        toggle.onTintColor = Theme.tableView.controlTint
-        toggle.tag = index
-        toggle.addTarget(self, action: #selector(didToggleEngine), for: .valueChanged)
-        toggle.isOn = model.isEngineEnabled(engine)
-        cell.editingAccessoryView = toggle
+        if indexPath.section == SectionDefault {
+            switch indexPath.item {
+            case ItemDefaultEngine:
+                engine = model.defaultEngine
+                cell.editingAccessoryType = .disclosureIndicator
+                cell.accessibilityLabel = NSLocalizedString("Default Search Engine", comment: "Accessibility label for default search engine setting.")
+                cell.accessibilityValue = engine.shortName
+                cell.label.text = engine.shortName
+                if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
+                    cell.updateLogo(url: url.absoluteString)
+                }
+            case ItemDefaultSuggestions:
+                cell.textLabel?.text = NSLocalizedString("Show Search Suggestions", comment: "Label for show search suggestions setting.")
+                let toggle = UISwitchThemed()
+                toggle.onTintColor = Theme.tableView.controlTint
+                toggle.addTarget(self, action: #selector(didToggleSearchSuggestions), for: .valueChanged)
+                toggle.isOn = model.shouldShowSearchSuggestions
+                cell.editingAccessoryView = toggle
+                cell.selectionStyle = .none
+            default:
+                // Should not happen.
+                break
+            }
+        } else {
+            // The default engine is not a quick search engine.
+            let index = indexPath.item + 1
+            if index < model.orderedEngines.count {
+                engine = model.orderedEngines[index]
+                cell.showsReorderControl = true
 
-        cell.label.text = engine.shortName
-        if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
-            cell.updateLogo(url: url.absoluteString)
+                let toggle = UISwitchThemed()
+                toggle.onTintColor = Theme.tableView.controlTint
+                // This is an easy way to get from the toggle control to the corresponding index.
+                toggle.tag = index
+                toggle.addTarget(self, action: #selector(didToggleEngine), for: .valueChanged)
+                toggle.isOn = model.isEngineEnabled(engine)
+
+                cell.editingAccessoryView = toggle
+                cell.label.text = engine.shortName
+                if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
+                    cell.updateLogo(url: url.absoluteString)
+                }
+                cell.selectionStyle = .none
+            } else {
+                let identifier = "ThemedTableViewCell"
+                var cell: ThemedTableViewCell! = tableView.dequeueReusableCell(withIdentifier: identifier) as? ThemedTableViewCell
+                if cell == nil {
+                    cell = ThemedTableViewCell(style: .default, reuseIdentifier: identifier)
+                }
+
+                cell.editingAccessoryType = .disclosureIndicator
+                cell.accessibilityLabel = Strings.Settings.AddCustomEngine.Title
+                cell.accessibilityIdentifier = "customEngineViewButton"
+                cell.titleLabel.text = Strings.Settings.AddCustomEngine.ButtonTitle
+                cell.separatorInset = .zero
+                return cell
+            }
         }
-        cell.selectionStyle = .none
+
         cell.separatorInset = .zero
         return cell
-    }
 
-    private func addSearchEngineCell(tableView: UITableView) -> UITableViewCell {
-        let identifier = "ThemedTableViewCell"
-        var cell: ThemedTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "ThemedTableViewCell?") as? ThemedTableViewCell
-        if cell == nil {
-            cell = ThemedTableViewCell(style: .default, reuseIdentifier: identifier)
-        }
-
-        cell.editingAccessoryType = .disclosureIndicator
-        cell.accessibilityLabel = Strings.Settings.AddCustomEngine.Title
-        cell.accessibilityIdentifier = "customEngineViewButton"
-        cell.titleLabel.text = Strings.Settings.AddCustomEngine.ButtonTitle
-        cell.separatorInset = .zero
-        return cell
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -116,11 +147,25 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.orderedEngines.count + 1
+        if section == SectionDefault {
+            return NumberOfItemsInSectionDefault
+        } else {
+            // The first engine -- the default engine -- is not shown in the quick search engine list.
+            // But the option to add Custom Engine is.
+            return model.orderedEngines.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.item == model.orderedEngines.count {
+        if indexPath.section == SectionDefault && indexPath.item == ItemDefaultEngine {
+            let searchEnginePicker = SearchEnginePicker()
+            // Order alphabetically, so that picker is always consistently ordered.
+            // Every engine is a valid choice for the default engine, even the current default engine.
+            searchEnginePicker.engines = model.orderedEngines.sorted { e, f in e.shortName < f.shortName }
+            searchEnginePicker.delegate = self
+            searchEnginePicker.selectedSearchEngineName = model.defaultEngine.shortName
+            navigationController?.pushViewController(searchEnginePicker, animated: true)
+        } else if indexPath.item + 1 == model.orderedEngines.count {
             let customSearchEngineForm = CustomSearchViewController()
             customSearchEngineForm.profile = self.profile
             customSearchEngineForm.successCallback = {
@@ -134,11 +179,11 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
     // Don't show delete button on the left.
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.item == model.orderedEngines.count {
+        if indexPath.section == SectionDefault || indexPath.item + 1 == model.orderedEngines.count {
             return UITableViewCell.EditingStyle.none
         }
 
-        let index = indexPath.item
+        let index = indexPath.item + 1
         let engine = model.orderedEngines[index]
         return (self.showDeletion && engine.isCustomEngine) ? .delete : .none
     }
@@ -176,7 +221,16 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeaderIdentifier) as! ThemedTableSectionHeaderFooterView
+        var sectionTitle: String
+        if section == SectionDefault {
+            sectionTitle = NSLocalizedString("Default Search Engine", comment: "Title for default search engine settings section.")
+        } else {
+            sectionTitle = NSLocalizedString("Quick-Search Engines", comment: "Title for quick-search engines settings section.")
+        }
+        headerView.titleLabel.text = sectionTitle
+
+        return headerView
     }
 
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -184,13 +238,12 @@ class SearchSettingsTableViewController: ThemedTableViewController {
             return nil
         }
 
-        footerView.showBottomBorder = false
         footerView.applyTheme()
         return footerView
     }
 
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.item == model.orderedEngines.count {
+        if indexPath.section == SectionDefault || indexPath.item + 1 == model.orderedEngines.count {
             return false
         } else {
             return true
@@ -199,8 +252,8 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
     override func tableView(_ tableView: UITableView, moveRowAt indexPath: IndexPath, to newIndexPath: IndexPath) {
         // The first engine (default engine) is not shown in the list, so the indices are off-by-1.
-        let index = indexPath.item
-        let newIndex = newIndexPath.item
+        let index = indexPath.item + 1
+        let newIndex = newIndexPath.item + 1
         let engine = model.orderedEngines.remove(at: index)
         model.orderedEngines.insert(engine, at: newIndex)
         tableView.reloadData()
@@ -208,16 +261,20 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
     // Snap to first or last row of the list of engines.
     override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        // You can't drag or drop on the default engine.
+        if sourceIndexPath.section == SectionDefault || proposedDestinationIndexPath.section == SectionDefault {
+            return sourceIndexPath
+        }
 
         //Can't drag/drop over "Add Custom Engine button"
-        if sourceIndexPath.item == model.orderedEngines.count || proposedDestinationIndexPath.item == model.orderedEngines.count {
+        if sourceIndexPath.item + 1 == model.orderedEngines.count || proposedDestinationIndexPath.item + 1 == model.orderedEngines.count {
             return sourceIndexPath
         }
 
         if sourceIndexPath.section != proposedDestinationIndexPath.section {
             var row = 0
             if sourceIndexPath.section < proposedDestinationIndexPath.section {
-                row = tableView.numberOfRows(inSection: sourceIndexPath.section)
+                row = tableView.numberOfRows(inSection: sourceIndexPath.section) - 1
             }
             return IndexPath(row: row, section: sourceIndexPath.section)
         }
@@ -226,7 +283,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let index = indexPath.item
+            let index = indexPath.item + 1
             let engine = model.orderedEngines[index]
             model.deleteCustomEngine(engine)
             tableView.deleteRows(at: [indexPath], with: .right)
@@ -282,5 +339,15 @@ extension SearchSettingsTableViewController {
 
     @objc func finishEditing() {
         setEditing(false, animated: false)
+    }
+}
+
+extension SearchSettingsTableViewController: SearchEnginePickerDelegate {
+    func searchEnginePicker(_ searchEnginePicker: SearchEnginePicker?, didSelectSearchEngine searchEngine: OpenSearchEngine?) {
+        if let engine = searchEngine {
+            model.defaultEngine = engine
+            self.tableView.reloadData()
+        }
+        _ = navigationController?.popViewController(animated: true)
     }
 }
