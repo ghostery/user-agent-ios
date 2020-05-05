@@ -32,8 +32,7 @@ extension LibraryContextMenu {
         contextMenu.modalPresentationStyle = .overFullScreen
         contextMenu.modalTransitionStyle = .crossDissolve
 
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
+        HapticFeedback.vibrate()
 
         return contextMenu
     }

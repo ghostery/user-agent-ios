@@ -141,8 +141,7 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
             tableView.reloadData()
         case .clearAllButton:
             let alert =  UIAlertController.clearWebsiteDataAlert(okayCallback: clearWebsiteData)
-            let generator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.impactOccurred()
+            HapticFeedback.vibrate()
             present(alert, animated: true, completion: nil)
         }
         tableView.deselectRow(at: indexPath, animated: false)

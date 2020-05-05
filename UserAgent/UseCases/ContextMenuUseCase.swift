@@ -46,8 +46,7 @@ class ContextMenuUseCase {
         }
         let contextMenu = self.createContextMenu(site: site, with: photonAction)
 
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
+        HapticFeedback.vibrate()
 
         viewController.present(contextMenu, animated: true, completion: nil)
     }
