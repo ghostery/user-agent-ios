@@ -133,7 +133,6 @@ extension Strings {
             public static let Title = NSLocalizedString("Settings.DataManagement.Title", comment: "Title displayed in header of the setting panel.")
             public struct PrivateData {
                 public static let PrivacyStats = NSLocalizedString("Settings.DataManagement.PrivateData.PrivacyStats", tableName: "ClearPrivateData", comment: "Settings item for clearing privacy stats")
-                public static let TrackingProtection = NSLocalizedString("Settings.DataManagement.PrivateData.TrackingProtection", tableName: "ClearPrivateData", comment: "Settings item for clearing tracking protection")
                 public static let DownloadedFiles = NSLocalizedString("Settings.DataManagement.PrivateData.DownloadedFiles", tableName: "ClearPrivateData", comment: "Settings item for deleting downloaded files")
                 public static let Cookies = NSLocalizedString("Settings.DataManagement.PrivateData.Cookies", tableName: "ClearPrivateData", comment: "Settings item for clearing cookies")
                 public static let OfflineWebsiteData = NSLocalizedString("Settings.DataManagement.PrivateData.OfflineWebsiteData", tableName: "ClearPrivateData", comment: "Settings item for clearing website data")

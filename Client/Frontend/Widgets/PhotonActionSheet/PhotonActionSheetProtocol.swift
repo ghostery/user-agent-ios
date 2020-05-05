@@ -96,7 +96,6 @@ extension PhotonActionSheetProtocol {
             "HistoryClearable": (HistoryClearable(profile: self.profile), false),
             "SearchHistoryClearable": (SearchHistoryClearable(profile: self.profile), false),
             "DownloadedFilesClearable": (DownloadedFilesClearable(), false),
-            "TrackingProtectionClearable": (TrackingProtectionClearable(), false),
             "PrivacyStatsClearable": (PrivacyStatsClearable(), false),
         ]
         func switchSetting(key: String, value: Bool) {
@@ -125,9 +124,6 @@ extension PhotonActionSheetProtocol {
         let clearDownloadFiles = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.DownloadedFiles, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "DownloadedFilesClearable", value: item.isEnabled)
         }
-        let clearAllowList = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.TrackingProtection, isEnabled: false, accessory: .Switch) { item in
-            switchSetting(key: "TrackingProtectionClearable", value: item.isEnabled)
-        }
         let clearPrivacyStats = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.PrivacyStats, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "PrivacyStatsClearable", value: item.isEnabled)
         }
@@ -155,7 +151,7 @@ extension PhotonActionSheetProtocol {
             }
             (presentableVC as? BrowserViewController)?.homeViewController?.refreshHistory()
         }
-        return [[clearBrowserStorage, closeAllTabs, clearBrowserHistory, clearSearchHistory, clearTopSites, clearDownloadFiles, clearAllowList, clearPrivacyStats, clearBookmarks], [closeAllTabsAndClearData]]
+        return [[clearBrowserStorage, closeAllTabs, clearBrowserHistory, clearSearchHistory, clearTopSites, clearDownloadFiles, clearPrivacyStats, clearBookmarks], [closeAllTabsAndClearData]]
     }
 
     fileprivate func saveFileToDownloads(fileURL: URL, presentableVC: PresentableVC) {
