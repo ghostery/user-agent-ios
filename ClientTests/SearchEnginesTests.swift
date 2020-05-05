@@ -15,7 +15,7 @@ class SearchEnginesTests: XCTestCase {
     func testIncludesExpectedEngines() {
         // Verify that the set of shipped engines includes the expected subset.
         let profile = MockProfile()
-        let engines = SearchEngines(prefs: profile.prefs, files: profile.files).searchEnginesIncludedCliqz
+        let engines = SearchEngines(prefs: profile.prefs, files: profile.files).orderedEngines
         XCTAssertTrue((engines?.count)! >= ExpectedEngineNames.count)
 
         for engineName in ExpectedEngineNames {
@@ -28,7 +28,7 @@ class SearchEnginesTests: XCTestCase {
         let profile = MockProfile()
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
         XCTAssertEqual(engines.defaultEngine.shortName, DefaultSearchEngineName)
-        XCTAssertEqual(engines.searchEnginesIncludedCliqz[0].shortName, DefaultSearchEngineName)
+        XCTAssertEqual(engines.orderedEngines[0].shortName, DefaultSearchEngineName)
     }
 
     func testAddingAndDeletingCustomEngines() {
@@ -46,26 +46,26 @@ class SearchEnginesTests: XCTestCase {
     func testDefaultEngine() {
         let profile = MockProfile()
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
-        let engineSet = engines.searchEnginesIncludedCliqz
+        let engineSet = engines.orderedEngines
 
         engines.defaultEngine = (engineSet?[0])!
         XCTAssertTrue(engines.isEngineDefault((engineSet?[0])!))
         XCTAssertFalse(engines.isEngineDefault((engineSet?[1])!))
         // The first ordered engine is the default.
-        XCTAssertEqual(engines.searchEnginesIncludedCliqz[0].shortName, engineSet?[0].shortName)
+        XCTAssertEqual(engines.orderedEngines[0].shortName, engineSet?[0].shortName)
 
         /* Disabling the following tests as Cliqz doesn't allow to change default search engine.
         engines.defaultEngine = (engineSet?[1])!
         XCTAssertFalse(engines.isEngineDefault((engineSet?[0])!))
         XCTAssertTrue(engines.isEngineDefault((engineSet?[1])!))
         // The first ordered engine is the default.
-        XCTAssertEqual(engines.searchEnginesIncludedCliqz[0].shortName, engineSet?[1].shortName)
+        XCTAssertEqual(engines.orderedEngines[0].shortName, engineSet?[1].shortName)
 
         let engines2 = SearchEngines(prefs: profile.prefs, files: profile.files)
         // The default engine should have been persisted.
         XCTAssertTrue(engines2.isEngineDefault((engineSet?[1])!))
         // The first ordered engine is the default.
-        XCTAssertEqual(engines.searchEnginesIncludedCliqz[0].shortName, engineSet?[1].shortName)
+        XCTAssertEqual(engines.orderedEngines[0].shortName, engineSet?[1].shortName)
          */
     }
 
@@ -74,7 +74,7 @@ class SearchEnginesTests: XCTestCase {
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
 
         engines.orderedEngines = [ExpectedEngineNames[4], ExpectedEngineNames[2], ExpectedEngineNames[0]].map { name in
-            for engine in engines.searchEnginesIncludedCliqz {
+            for engine in engines.orderedEngines {
                 if engine.shortName == name {
                     return engine
                 }
@@ -90,44 +90,44 @@ class SearchEnginesTests: XCTestCase {
         // The ordering should have been persisted.
         XCTAssertEqual(engines2.orderedEngines[0].shortName, ExpectedEngineNames[4])
         XCTAssertEqual(engines2.orderedEngines[1].shortName, ExpectedEngineNames[2])
-        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[3])
+        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[1])
 
         // Remaining engines should be appended in alphabetical order.
-        XCTAssertEqual(engines2.orderedEngines[3].shortName, ExpectedEngineNames[3])
-        XCTAssertEqual(engines2.orderedEngines[4].shortName, ExpectedEngineNames[5])
-        XCTAssertEqual(engines2.orderedEngines[5].shortName, ExpectedEngineNames[6])
+        XCTAssertEqual(engines2.orderedEngines[4].shortName, ExpectedEngineNames[3])
+        XCTAssertEqual(engines2.orderedEngines[5].shortName, ExpectedEngineNames[5])
     }
 
     func testQuickSearchEngines() {
         let profile = MockProfile()
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
-        let engineSet = engines.searchEnginesIncludedCliqz
+        let engineSet = engines.orderedEngines
 
         // You can't disable the default engine.
-//        engines.defaultEngine = (engineSet?[1])!
-        engines.disableEngine((engineSet?[0])!)
-        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
+        engines.defaultEngine = (engineSet?[1])!
+        engines.disableEngine((engineSet?[1])!)
+        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
 
         // The default engine is not included in the quick search engines.
-        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
+        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[1].shortName }.count)
 
         // Enable and disable work.
         engines.enableEngine((engineSet?[0])!)
         XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
-        XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
+        XCTAssertEqual(1, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
 
         engines.disableEngine((engineSet?[0])!)
-        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
+        XCTAssertFalse(engines.isEngineEnabled((engineSet?[0])!))
         XCTAssertEqual(0, engines.quickSearchEngines.filter { engine in engine.shortName == engineSet?[0].shortName }.count)
 
         // Setting the default engine enables it.
-//        engines.defaultEngine = (engineSet?[0])!
-//        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
+        engines.defaultEngine = (engineSet?[0])!
+        XCTAssertTrue(engines.isEngineEnabled((engineSet?[1])!))
 
         // Setting the order may change the default engine, which enables it.
         engines.orderedEngines = [(engineSet?[2])!, (engineSet?[1])!, (engineSet?[0])!]
-//        XCTAssertTrue(engines.isEngineDefault((engineSet?[2])!))
-        XCTAssertTrue(engines.isEngineEnabled((engineSet?[2])!))
+        XCTAssertTrue(engines.isEngineDefault((engineSet?[2])!))
+        // not sure what this was testing
+//        XCTAssertTrue(engines.isEngineEnabled((engineSet?[0])!))
 
         // The enabling should be persisted.
         engines.enableEngine((engineSet?[2])!)

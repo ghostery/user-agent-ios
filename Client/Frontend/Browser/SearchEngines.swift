@@ -37,7 +37,6 @@ private let customSearchEnginesFileName = "customEngines.plist"
 class SearchEngines {
     fileprivate let prefs: Prefs
     fileprivate let fileAccessor: FileAccessor
-    fileprivate var cliqzSearchEngine: OpenSearchEngine?
 
     init(prefs: Prefs, files: FileAccessor) {
         self.prefs = prefs
@@ -45,13 +44,12 @@ class SearchEngines {
         self.shouldShowSearchSuggestions = prefs.boolForKey(ShowSearchSuggestions) ?? true
         self.fileAccessor = files
         self.orderedEngines = getOrderedEngines()
-        self.cliqzSearchEngine = self.getEnginesForLocale().filter({ $0.engineID == "cliqz" }).first
         self.disabledEngineNames = getDisabledEngineNames()
     }
 
     var defaultEngine: OpenSearchEngine {
         get {
-            return self.searchEnginesIncludedCliqz[0]
+            return self.orderedEngines[0]
         }
 
         set(defaultEngine) {
@@ -81,15 +79,8 @@ class SearchEngines {
         }
     }
 
-    var searchEnginesIncludedCliqz: [OpenSearchEngine]! {
-        guard let cliqz = self.cliqzSearchEngine else {
-            return self.orderedEngines
-        }
-        return [cliqz] + self.orderedEngines
-    }
-
     var quickSearchEngines: [OpenSearchEngine]! {
-        return self.searchEnginesIncludedCliqz.filter({ (engine) in !self.isEngineDefault(engine) && self.isEngineEnabled(engine) })
+        return self.orderedEngines.filter({ (engine) in !self.isEngineDefault(engine) && self.isEngineEnabled(engine) })
     }
 
     var shouldShowSearchSuggestions: Bool {
@@ -146,7 +137,7 @@ class SearchEngines {
                 return true
             }
         }
-        for engine in self.searchEnginesIncludedCliqz {
+        for engine in self.orderedEngines {
             guard let searchEngineURL = engine.searchURLForQuery(query as String) else {
                 continue
             }
@@ -160,7 +151,7 @@ class SearchEngines {
     }
 
     func queryForSearchURL(_ url: URL?) -> String? {
-        for engine in self.searchEnginesIncludedCliqz {
+        for engine in self.orderedEngines {
             guard let searchTerm = engine.queryForSearchURL(url) else { continue }
             return searchTerm
         }
@@ -261,7 +252,7 @@ class SearchEngines {
     /// Get all known search engines, possibly as ordered by the user.
     fileprivate func getOrderedEngines() -> [OpenSearchEngine] {
         let defaultSearchEngines = self.getEnginesForLocale()
-        let unorderedEngines = customEngines + defaultSearchEngines.filter({ $0.engineID != "cliqz" })
+        let unorderedEngines = customEngines + defaultSearchEngines
 
         // might not work to change the default.
         guard let orderedEngineNames = prefs.stringArrayForKey(OrderedEngineNames) else {
