@@ -39,6 +39,18 @@ function install() {
     if (url) {
       webkit.messageHandlers.trackingProtectionStats.postMessage({ url: url });
     }
+
+    // If already set, return
+    if (sendUrlsTimeout) return;
+
+    // Send the URLs in batches every 200ms to avoid perf issues 
+    // from calling js-to-native too frequently. 
+    sendUrlsTimeout = setTimeout(() => {
+      sendUrlsTimeout = null;
+      if (sendUrls.length < 1) return;
+      webkit.messageHandlers.trackingProtectionStats.postMessage({ urls: sendUrls });
+      sendUrls = new Array();
+    }, 200);
   }
 
   function onLoadNativeCallback() {
