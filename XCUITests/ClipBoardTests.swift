@@ -10,6 +10,7 @@ class ClipBoardTests: BaseTestCase {
     //Copy url from the browser
     func copyUrl() {
         navigator.goto(URLBarOpen)
+        waitForExistence(app.textFields["address"])
         app.textFields["address"].tap()
         waitForExistence(app.menuItems["Copy"])
         app.menuItems["Copy"].tap()
