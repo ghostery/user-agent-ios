@@ -420,8 +420,8 @@ extension BrowserViewController: WKNavigationDelegate {
                 return
             }
 
-            // Allow certain application types
-            if url.hasPrefix("data:application/pdf") || url.hasPrefix("data:application/json") {
+            // Allow video, and certain application types
+            if url.hasPrefix("data:video/") || url.hasPrefix("data:application/pdf") || url.hasPrefix("data:application/json") {
                 decisionHandler(.allow)
                 return
             }
