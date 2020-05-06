@@ -30,6 +30,8 @@ public struct PrefsKeys {
     public static let NewTabNewsEnabled = "NewTabNewsEnabled"
     public static let NewTabNewsImagesEnabled = "NewTabNewsImagesEnabled"
 
+    public static let ContextMenuShowLinkPreviews = "showLinkPreviews"
+
     public static let NewTabCustomUrlPrefKey = "HomePageURLPref"
     //Activity Stream
     public static let KeyTopSitesCacheIsValid = "topSitesCacheIsValid"

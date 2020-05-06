@@ -798,6 +798,12 @@
 /* Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
 "Settings.OfferClipboardBar.Title" = "Anbieten, kopierte Links zu öffnen";
 
+/* Title of setting to enable link previews when long-pressing links. */
+"Settings.ShowLinkPreivews.Title" = "Link-Vorschauen anzeigen";
+
+/* Description displayed under the ”Show Link Previews” option */
+"Settings.ShowLinkPreviews.Status" = "Beim Gedrückthalten von Links";
+
 /* Title for Open With Settings */
 "Settings.OpenWith.PageTitle" = "E-Mail-Links öffnen mit";
 

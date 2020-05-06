@@ -123,6 +123,9 @@ class AppSettingsTableViewController: SettingsTableViewController {
             BoolSetting(prefs: prefs, prefKey: "showClipboardBar", defaultValue: false,
                         titleText: Strings.Toast.SettingsOfferClipboardBarTitle,
                         statusText: Strings.Toast.SettingsOfferClipboardBarStatus),
+            BoolSetting(prefs: prefs, prefKey: PrefsKeys.ContextMenuShowLinkPreviews, defaultValue: true,
+                        titleText: Strings.Toast.SettingsShowLinkPreviewsTitle,
+                        statusText: Strings.Toast.SettingsShowLinkPreviewsStatus),
         ]
         return SettingSection(title: NSAttributedString(string: Strings.Settings.General.SectionTitle), children: generalSettings)
     }
