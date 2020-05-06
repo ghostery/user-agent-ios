@@ -297,6 +297,8 @@ extension Strings {
         public static let GoButtonTittle = NSLocalizedString("ClipboardToast.GoToCopiedLink.Button", comment: "The button to open a new tab with the copied link")
         public static let SettingsOfferClipboardBarTitle = NSLocalizedString("Settings.OfferClipboardBar.Title", comment: "Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349")
         public static let SettingsOfferClipboardBarStatus = String(format: NSLocalizedString("Settings.OfferClipboardBar.Status", comment: "Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349"), AppInfo.displayName)
+        public static let SettingsShowLinkPreviewsTitle = NSLocalizedString("Settings.ShowLinkPreivews.Title", comment: "Title of setting to enable link previews when long-pressing links.")
+        public static let SettingsShowLinkPreviewsStatus = NSLocalizedString("Settings.ShowLinkPreviews.Status", comment: "Description displayed under the ”Show Link Previews” option")
         public static let NotNowString = NSLocalizedString("Toasts.NotNow", comment: "label for Not Now button")
         public static let AppStoreString = NSLocalizedString("Toasts.OpenAppStore", comment: "Open App Store button")
     }
