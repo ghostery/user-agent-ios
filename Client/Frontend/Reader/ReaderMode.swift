@@ -314,22 +314,20 @@ class ReaderMode: TabContentScript {
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        if let msg = message.body as? [String: Any] {
-            if let messageType = ReaderModeMessageType(rawValue: msg["Type"] as? String ?? "") {
-                switch messageType {
-                case .pageEvent:
-                    if let readerPageEvent = ReaderPageEvent(rawValue: msg["Value"] as? String ?? "Invalid") {
-                        handleReaderPageEvent(readerPageEvent)
-                    }
-                case .stateChange:
-                    if let readerModeState = ReaderModeState(rawValue: msg["Value"] as? String ?? "Invalid") {
-                        handleReaderModeStateChange(readerModeState)
-                    }
-                case .contentParsed:
-                    if let readabilityResult = ReadabilityResult(object: msg["Value"] as AnyObject?) {
-                        handleReaderContentParsed(readabilityResult)
-                    }
-                }
+        guard let msg = message.body as? [String: Any], let type = msg["Type"] as? String, let messageType = ReaderModeMessageType(rawValue: type) else { return }
+
+        switch messageType {
+        case .pageEvent:
+            if let readerPageEvent = ReaderPageEvent(rawValue: msg["Value"] as? String ?? "Invalid") {
+                handleReaderPageEvent(readerPageEvent)
+            }
+        case .stateChange:
+            if let readerModeState = ReaderModeState(rawValue: msg["Value"] as? String ?? "Invalid") {
+                handleReaderModeStateChange(readerModeState)
+            }
+        case .contentParsed:
+            if let readabilityResult = ReadabilityResult(object: msg["Value"] as AnyObject?) {
+                handleReaderContentParsed(readabilityResult)
             }
         }
     }
