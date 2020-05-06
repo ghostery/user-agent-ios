@@ -1422,9 +1422,12 @@ open class BrowserSchema: Schema {
         }
 
         if from < 42 && to >= 41 {
+            // triggers may not be there due to bug https://github.com/cliqz/user-agent-ios/issues/989
+            // thus the result of the query should be ignored
+            _ = self.run(db, queries: ["DROP TRIGGER \(TriggerHistoryAfterUpdate)"])
+            _ = self.run(db, queries: ["DROP TRIGGER \(TriggerHistoryAfterInsert)"])
+
             if !self.run(db, queries: [
-                "DROP TRIGGER \(TriggerHistoryAfterUpdate)",
-                "DROP TRIGGER \(TriggerHistoryAfterInsert)",
                 historyAfterUpdateTrigger,
                 historyAfterInsertTrigger,
             ]) {
