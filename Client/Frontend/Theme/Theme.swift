@@ -332,11 +332,11 @@ class GeneralColor {
     var separator: UIColor { return Theme.defaultSeparator }
     var controlTint: UIColor { return UIColor.BrightBlue }
 
-    var settingsTextPlaceholder: UIColor? {
+    var settingsTextPlaceholder: UIColor {
         if #available(iOS 13.0, *) {
             return UIColor.systemBackground
         } else {
-            return nil
+            return UIColor.Grey40
         }
     }
 }

@@ -336,7 +336,7 @@ class StringSetting: Setting, UITextFieldDelegate {
         }
         let placeholderColor = Theme.general.settingsTextPlaceholder
         textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
-        
+
         cell.tintColor = self.persister.readPersistedValue() != nil ? Theme.tableView.rowActionAccessory : UIColor.clear
         textField.textAlignment = .center
         textField.delegate = self

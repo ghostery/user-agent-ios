@@ -114,16 +114,16 @@ class NavigationTest: BaseTestCase {
         XCTAssertEqual(mailPlaceholder, defaultMailPlaceholder, "The mail placeholder does not show the correct value")
     }
 
-    func testTapSignInShowsFxAFromRemoteTabPanel() {
-        // Open FxAccount from remote tab panel and check the Sign in to Firefox scren
-        navigator.goto(LibraryPanel_SyncedTabs)
-
-        app.tables.buttons["Sign in to Sync"].tap()
-        checkFirefoxSyncScreenShown()
-        
-        app.navigationBars["Client.FxAWebView"].buttons["Close"].tap()
-        navigator.nowAt(LibraryPanel_SyncedTabs)
-    }
+//    func testTapSignInShowsFxAFromRemoteTabPanel() {
+//        // Open FxAccount from remote tab panel and check the Sign in to Firefox scren
+//        navigator.goto(LibraryPanel_SyncedTabs)
+//
+//        app.tables.buttons["Sign in to Sync"].tap()
+//        checkFirefoxSyncScreenShown()
+//        
+//        app.navigationBars["Client.FxAWebView"].buttons["Close"].tap()
+//        navigator.nowAt(LibraryPanel_SyncedTabs)
+//    }
 
     private func checkFirefoxSyncScreenShown() {
         // Disable check, page load issues on iOS13.3 sims, issue #5937
