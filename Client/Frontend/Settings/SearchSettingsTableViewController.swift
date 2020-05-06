@@ -83,7 +83,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
             case ItemDefaultEngine:
                 engine = model.defaultEngine
                 cell.editingAccessoryType = .disclosureIndicator
-                cell.accessibilityLabel = NSLocalizedString("Default Search Engine", comment: "Accessibility label for default search engine setting.")
+                cell.accessibilityLabel = Strings.Settings.AdditionalSearchEngines.DefaultSearchEngine
                 cell.accessibilityValue = engine.shortName
                 cell.label.text = engine.shortName
                 if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
@@ -224,9 +224,9 @@ class SearchSettingsTableViewController: ThemedTableViewController {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeaderIdentifier) as! ThemedTableSectionHeaderFooterView
         var sectionTitle: String
         if section == SectionDefault {
-            sectionTitle = NSLocalizedString("Default Search Engine", comment: "Title for default search engine settings section.")
+            sectionTitle = Strings.Settings.AdditionalSearchEngines.DefaultSearchEngine
         } else {
-            sectionTitle = NSLocalizedString("Quick-Search Engines", comment: "Title for quick-search engines settings section.")
+            sectionTitle = Strings.Settings.AdditionalSearchEngines.SectionTitle
         }
         headerView.titleLabel.text = sectionTitle
 

@@ -41,6 +41,7 @@ public struct PrefsKeys {
 
     public static let AppExtensionTelemetryOpenUrl = "AppExtensionTelemetryOpenUrl"
     public static let AppExtensionTelemetryEventArray = "AppExtensionTelemetryEvents"
+    public static let AdditionalSearchEngines = "Search.AdditionalSearchEngines"
 }
 
 public protocol Prefs {

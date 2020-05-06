@@ -239,6 +239,7 @@ class Results extends React.Component {
       theme: _theme,
       searchModule,
       insightsModule,
+      Features,
     } = this.props;
     const {
       results: allResults,
@@ -319,48 +320,51 @@ class Results extends React.Component {
                 </View>
               </TouchableWithoutFeedback>
             </View>
-
-            <View style={styles.searchEnginesHeader}>
-              <Text style={styles.searchEnginesHeaderText}>
-                {t('search_alternative_search_engines_info')}
-              </Text>
-            </View>
-            <View style={styles.searchEnginesContainer}>
-              {groupBy(searchEngines, 3).map(
-                (searchEnginesGroup, groupIndex) => (
-                  <View
-                    style={styles.searchEnginesGroupContainer}
-                    key={searchEnginesGroup.map(e => e.name).join('')}
-                  >
-                    {searchEnginesGroup.map((searchEngine, engineIndex) => (
-                      <SpeedDial
-                        key={searchEngine.name}
-                        styles={{
-                          label: {
-                            color: 'white',
-                          },
-                          circle: {
-                            borderColor: `${_theme.separatorColor}44`,
-                          },
-                        }}
-                        speedDial={{
-                          pinned: false,
-                          url: searchEngine.favIconUrl,
-                        }}
-                        onPress={() =>
-                          this.openSearchEngineResultsPage(
-                            searchEngine,
-                            query,
-                            // index 0 is "show more results" Cliqz link
-                            1 + groupIndex * 3 + engineIndex,
-                          )
-                        }
-                      />
-                    ))}
-                  </View>
-                ),
-              )}
-            </View>
+            {Features.Search.AdditionalSearchEngines.isEnabled && (
+              <>
+                <View style={styles.searchEnginesHeader}>
+                  <Text style={styles.searchEnginesHeaderText}>
+                    {t('search_alternative_search_engines_info')}
+                  </Text>
+                </View>
+                <View style={styles.searchEnginesContainer}>
+                  {groupBy(searchEngines, 3).map(
+                    (searchEnginesGroup, groupIndex) => (
+                      <View
+                        style={styles.searchEnginesGroupContainer}
+                        key={searchEnginesGroup.map(e => e.name).join('')}
+                      >
+                        {searchEnginesGroup.map((searchEngine, engineIndex) => (
+                          <SpeedDial
+                            key={searchEngine.name}
+                            styles={{
+                              label: {
+                                color: 'white',
+                              },
+                              circle: {
+                                borderColor: `${_theme.separatorColor}44`,
+                              },
+                            }}
+                            speedDial={{
+                              pinned: false,
+                              url: searchEngine.favIconUrl,
+                            }}
+                            onPress={() =>
+                              this.openSearchEngineResultsPage(
+                                searchEngine,
+                                query,
+                                // index 0 is "show more results" Cliqz link
+                                1 + groupIndex * 3 + engineIndex,
+                              )
+                            }
+                          />
+                        ))}
+                      </View>
+                    ),
+                  )}
+                </View>
+              </>
+            )}
           </>
         </ScrollView>
       </View>
