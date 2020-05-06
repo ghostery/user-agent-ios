@@ -2070,7 +2070,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
 
             let downloadAction = UIAlertAction(title: Strings.ContextMenu.DownloadLink, style: .default) { _ in
                 self.pendingDownloadWebView = currentTab.webView
-                DownloadHelper.requestDownload(url: url, tab: currentTab)
+                DownloadContentScript.requestDownload(url: url, tab: currentTab)
             }
             actionSheetController.addAction(downloadAction, accessibilityIdentifier: "linkContextMenu.download")
 
