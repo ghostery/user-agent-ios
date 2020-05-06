@@ -46,6 +46,10 @@ class TabLocationView: UIView {
         didSet { updateTextWithURL(text: self.urlbarText) }
     }
 
+    func showLockIcon(forSecureContent isSecure: Bool) {
+        lockImageView.isHidden = !isSecure
+    }
+
     var url: URL? {
         didSet {
             self.updateLockImageView()
