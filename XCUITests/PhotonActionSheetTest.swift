@@ -31,6 +31,7 @@ class PhotonActionSheetTest: BaseTestCase {
     }
 
     func testShareOptionIsShown() {
+        navigator.goto(BrowserTab)
         navigator.browserPerformAction(.shareOption)
 
         // Wait to see the Share options sheet
@@ -83,19 +84,10 @@ class PhotonActionSheetTest: BaseTestCase {
         navigator.openURL("example.com")
         navigator.goto(PageOptionsMenu)
         app.tables["Context Menu"].staticTexts["Share Page With…"].tap()
-        waitForExistence(app.buttons["Copy"], timeout: 5)
-        let countButtons = app.collectionViews.cells.collectionViews.buttons.count
-        let fennecElement = app.collectionViews.cells.collectionViews.buttons.element(boundBy: 1)
-        // If Fennec has not been configured there are 5 buttons, 6 if it is there already
-        if (countButtons <= 6) {
-            let moreElement = app.collectionViews.cells.collectionViews.containing(.button, identifier:"Reminders").buttons["More"]
-            moreElement.tap()
-            waitForExistence(app.switches["Reminders"])
-            // Tap on Fennec switch
-            app.switches.element(boundBy: 1).tap()
-            app.buttons["Done"].tap()
-            waitForExistence(app.buttons["Copy"])
-        }
+        waitForExistence(app.cells["Copy"], timeout: 5)
+        // This is not ideal but only way to get the element on iPhone 8
+        // for iPhone 11, that would be boundBy: 2
+        let fennecElement = app.collectionViews.scrollViews.cells.element(boundBy: 1)
         fennecElement.tap()
         waitForExistence(app.navigationBars["ShareTo.ShareView"], timeout: 5)
     }
