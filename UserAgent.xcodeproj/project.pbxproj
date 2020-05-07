@@ -2382,26 +2382,6 @@
 			path = Entitlements;
 			sourceTree = "<group>";
 		};
-		2B47DAD8240677A300AD6D4C /* Cliqz */ = {
-			isa = PBXGroup;
-			children = (
-				2B47DAD9240677A300AD6D4C /* Cliqz.entitlements */,
-				2B47DADA240677A300AD6D4C /* CliqzDebug.entitlements */,
-				2B47DADB240677A300AD6D4C /* CliqzAdHoc.entitlements */,
-			);
-			path = Cliqz;
-			sourceTree = "<group>";
-		};
-		2B47DADC240677A300AD6D4C /* Ghostery */ = {
-			isa = PBXGroup;
-			children = (
-				2B47DADD240677A300AD6D4C /* Ghostery.entitlements */,
-				2B47DADE240677A300AD6D4C /* GhosteryAdHoc.entitlements */,
-				2B47DADF240677A300AD6D4C /* GhosteryDebug.entitlements */,
-			);
-			path = Ghostery;
-			sourceTree = "<group>";
-		};
 		2B47DAE02406783700AD6D4C /* ShareTo */ = {
 			isa = PBXGroup;
 			children = (
@@ -2493,6 +2473,9 @@
 				2BF19466242238BD000B5920 /* Today */,
 				2B47DAE42406783800AD6D4C /* OpenIn */,
 				2B47DAE02406783700AD6D4C /* ShareTo */,
+				2B47DADD240677A300AD6D4C /* Ghostery.entitlements */,
+				2B47DADE240677A300AD6D4C /* GhosteryAdHoc.entitlements */,
+				2B47DADF240677A300AD6D4C /* GhosteryDebug.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -2526,6 +2509,9 @@
 				2BF1946A242238CD000B5920 /* Today */,
 				2B47DAE82406784500AD6D4C /* OpenIn */,
 				2B47DAEC2406784500AD6D4C /* ShareTo */,
+				2B47DAD9240677A300AD6D4C /* Cliqz.entitlements */,
+				2B47DADA240677A300AD6D4C /* CliqzDebug.entitlements */,
+				2B47DADB240677A300AD6D4C /* CliqzAdHoc.entitlements */,
 			);
 			path = Entitlements;
 			sourceTree = "<group>";
@@ -3627,15 +3613,6 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
-		E689C6FF1E0C716F008BAADB /* Entitlements */ = {
-			isa = PBXGroup;
-			children = (
-				2B47DAD8240677A300AD6D4C /* Cliqz */,
-				2B47DADC240677A300AD6D4C /* Ghostery */,
-			);
-			path = Entitlements;
-			sourceTree = "<group>";
-		};
 		E699220D1B94E3EF007C480D /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -3805,7 +3782,6 @@
 				F84B21EB1A0910F600AAB793 /* Assets */,
 				2B85778D2403A0170052D6C7 /* Configuration */,
 				F84B21E41A0910F600AAB793 /* Application */,
-				E689C6FF1E0C716F008BAADB /* Entitlements */,
 				28EADE5C1AFC3A6D007FB2FB /* Extensions */,
 				F84B21F11A0910F600AAB793 /* Frontend */,
 				39A359BD1BFCCE7B006B9E87 /* Helpers */,
@@ -7617,7 +7593,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/Cliqz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -7659,7 +7635,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/Ghostery.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -8024,7 +8000,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/CliqzAdHoc.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/CliqzAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -8327,7 +8303,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/GhosteryDebug.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/GhosteryDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -8384,7 +8360,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/GhosteryAdHoc.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/GhosteryAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -8441,7 +8417,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Ghostery/Ghostery.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HPY23A294X;
@@ -8561,7 +8537,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/Cliqz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
@@ -8853,7 +8829,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Client/Entitlements/Cliqz/CliqzDebug.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/CliqzDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UYYSSHVUH;
