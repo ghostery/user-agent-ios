@@ -2483,6 +2483,8 @@
 		2B8577BD2403E90B0052D6C7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C50ED2BC2326B17C00EE71B8 /* brand.xcassets */,
+				ACC6EC5D232945F0000F5499 /* colors.xcassets */,
 				2B8577BE2403E90B0052D6C7 /* ShareTo.xcassets */,
 				2B8577BF2403E90B0052D6C7 /* OpenIn.xcassets */,
 			);
@@ -2519,6 +2521,8 @@
 		2B8577CC2403E9150052D6C7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C50ED2B52326AB1100EE71B8 /* brand.xcassets */,
+				ACC6EC5E232945FF000F5499 /* colors.xcassets */,
 				2B8577DF2403EB6A0052D6C7 /* OpenIn.xcassets */,
 				2B8577E02403EB6A0052D6C7 /* ShareTo.xcassets */,
 			);
@@ -3163,9 +3167,7 @@
 			children = (
 				2B8577C12403E9150052D6C7 /* Configuration */,
 				F84B22431A09165600AAB793 /* Info.plist */,
-				C50ED2B52326AB1100EE71B8 /* brand.xcassets */,
 				ACC6EC492327F4B6000F5499 /* Colors.swift */,
-				ACC6EC5E232945FF000F5499 /* colors.xcassets */,
 				461E5E5A234F68A7004DDE84 /* brand.strings */,
 				466B37252462FF2400747C50 /* Features.swift */,
 			);
@@ -3177,9 +3179,7 @@
 			children = (
 				2B8577B32403E90B0052D6C7 /* Configuration */,
 				ACB7398123042D9300FA5626 /* Info.plist */,
-				C50ED2BC2326B17C00EE71B8 /* brand.xcassets */,
 				ACC6EC4F2327F9FC000F5499 /* Colors.swift */,
-				ACC6EC5D232945F0000F5499 /* colors.xcassets */,
 				461E5E58234F6891004DDE84 /* brand.strings */,
 				466B37272463001D00747C50 /* Features.swift */,
 			);
@@ -7564,7 +7564,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)/include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -7972,7 +7972,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)/include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -8509,7 +8509,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)/include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -8800,7 +8800,7 @@
 					"$(SDKROOT)/usr/include/libxml2",
 					"$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)/include/**",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
