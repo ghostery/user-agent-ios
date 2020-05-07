@@ -13,7 +13,7 @@ class SearchEnginePicker: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = NSLocalizedString("Default Search Engine", comment: "Title for default search engine picker.")
+        navigationItem.title = Strings.Settings.AdditionalSearchEngines.DefaultSearchEngine
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.General.CancelString, style: .plain, target: self, action: #selector(cancel))
     }
 

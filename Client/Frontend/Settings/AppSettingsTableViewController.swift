@@ -59,13 +59,15 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     private func searchSettingSection() -> SettingSection {
         let prefs = self.profile.prefs
-        let searchSettings: [Setting] = [
+        var searchSettings: [Setting] = [
             SearchLanguageSetting(currentRegion: self.searchCurrentRegion, availableRegions: self.searchAvailableRegions),
             BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.Settings.AdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
                 Search.setAdultFilter(filter: value ? .conservative : .liberal)
             },
-            SearchSetting(settings: self),
         ]
+        if Features.Search.AdditionalSearchEngines.isEnabled {
+            searchSettings.append(SearchSetting(settings: self))
+        }
         return SettingSection(title: NSAttributedString(string: Strings.Settings.Search.SectionTitle), children: searchSettings)
     }
 

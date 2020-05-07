@@ -165,6 +165,7 @@ extension Strings {
         }
         public struct AdditionalSearchEngines {
             public static let SectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
+            public static let DefaultSearchEngine = NSLocalizedString("Settings.AdditionalSearchEngines.DefaultEngine", comment: "Description for choosing search engine")
         }
         public struct AddCustomEngine {
             public static let ButtonTitle = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")

@@ -8,6 +8,7 @@
 
 import Foundation
 import React
+import Shared
 
 /// Displays Cliqz Search Results
 ///
@@ -45,7 +46,15 @@ class SearchResultsViewController: UIViewController {
         RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "SearchResults",
-            initialProperties: [:]
+            initialProperties: [
+                "Features": [
+                    "Search": [
+                        "AdditionalSearchEngines": [
+                            "isEnabled": Features.Search.AdditionalSearchEngines.isEnabled,
+                        ],
+                    ],
+                ],
+            ]
         )
     }()
 

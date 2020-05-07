@@ -182,11 +182,6 @@
 /* Accessibility label for button decreasing font size in display settings of reader mode */
 "Decrease text size" = "Text verkleinern";
 
-/* Accessibility label for default search engine setting.
-   Title for default search engine picker.
-   Title for default search engine settings section. */
-"Default Search Engine" = "Standardsuchmaschine";
-
 /* Name for display settings button in reader mode. Display in the meaning of presentation, not monitor. */
 "Display Settings" = "Anzeigeeinstellungen";
 
@@ -704,6 +699,8 @@
 
 /* The placeholder for URL Field when saving a custom search engine */
 "Settings.AddCustomEngine.URLPlaceholder" = "URL (Anfrage durch %s ersetzen)";
+
+"Settings.AdditionalSearchEngines.DefaultSearchEngine" = "Standardsuchmaschine";
 
 /* The button text in Search Settings that opens the Additional Search Engines view. */
 "Settings.AdditionalSearchEngines.SectionName" = "Weitere Suchmaschinen";
