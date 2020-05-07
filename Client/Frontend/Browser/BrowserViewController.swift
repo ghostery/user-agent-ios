@@ -85,7 +85,6 @@ class BrowserViewController: UIViewController {
     lazy var mailtoLinkHandler = MailtoLinkHandler()
 
     fileprivate var customSearchBarButton: UIBarButtonItem?
-    private weak var currentBookmarksKeywordQuery: CancellableDeferred<Maybe<String>>?
 
     // popover rotation handling
     var displayedPopoverController: UIViewController?
@@ -984,7 +983,6 @@ class BrowserViewController: UIViewController {
         if let query = self.searchController?.searchQuery, !tab.isPrivate {
             self.appendQuery(query: query)
         }
-        currentBookmarksKeywordQuery?.cancel()
 
         urlBar.currentURL = url
         urlBar.leaveOverlayMode()
@@ -1503,8 +1501,6 @@ extension BrowserViewController: URLBarDelegate {
     func urlBar(_ urlBar: URLBarView, didSubmitText text: String, completion: String?) {
         guard let currentTab = tabManager.selectedTab else { return }
 
-        currentBookmarksKeywordQuery?.cancel()
-
         if let fixupURL = URIFixup.getURL(text) {
             self.searchController?.reportSelection(
                 query: text,
@@ -1519,10 +1515,18 @@ extension BrowserViewController: URLBarDelegate {
             self.useCases.openLink.openLink(url: fixupURL, visitType: .typed, query: query)
             return
         }
+
         if !currentTab.isPrivate {
             self.appendQuery(query: text)
         }
-        self.urlBar.closeKeyboard()
+
+        switch Features.Search.keyboardReturnKeyBehavior {
+        case .dismiss: self.urlBar.closeKeyboard()
+        case .search:
+            if let url = self.profile.searchEngines.defaultEngine.searchURLForQuery(text) {
+                self.finishEditingAndSubmit(url, visitType: .typed, forTab: currentTab)
+            }
+        }
     }
 
     private func appendQuery(query: String) {

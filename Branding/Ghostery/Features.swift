@@ -14,4 +14,9 @@ extension Features.Search.AdditionalSearchEngines {
             return false
         }
     }
+    public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
+        get {
+            return .search
+        }
+    }
 }
