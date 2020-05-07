@@ -43,16 +43,22 @@ class QuickActions: NSObject {
 
     // MARK: Handling Quick Actions
     @discardableResult
-    func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem, withBrowserViewController bvc: BrowserViewController ) -> Bool {
+    func canHandleShortCutItem(_ shortcutItem: UIApplicationShortcutItem ) -> Bool {
 
         // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
-        guard let shortCutType = ShortcutType(fullType: shortcutItem.type) else { return false }
+        guard let _ = ShortcutType(fullType: shortcutItem.type) else { return false }
+
+        return true
+    }
+
+    func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem, withBrowserViewController bvc: BrowserViewController ) {
+
+        // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
+        guard let shortCutType = ShortcutType(fullType: shortcutItem.type) else { return }
 
         DispatchQueue.main.async {
             self.handleShortCutItemOfType(shortCutType, userData: shortcutItem.userInfo, browserViewController: bvc)
         }
-
-        return true
     }
 
     func filterOutUnsupportedShortcutItems(application: UIApplication) {

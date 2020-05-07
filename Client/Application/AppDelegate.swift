@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     var humanWebFeature: HumanWebFeature!
     var insightsFeature: InsightsFeature!
     var useCases: UseCases!
+    var afterStartupAction: (() -> Void)?
 
     weak var application: UIApplication?
     var launchOptions: [AnyHashable: Any]?
@@ -308,6 +309,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             self.profile?.cleanupHistoryIfNeeded()
         }
+
+        if let callback = self.afterStartupAction {
+            callback()
+            self.afterStartupAction = nil
+        }
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -444,11 +450,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         if #available(iOS 12.0, *), let activityType = SiriActivityTypes(rawValue: userActivity.activityType) {
             switch activityType {
             case .openURL:
-                bvc.openBlankNewTab(focusLocationField: false)
+                self.afterStartupAction = {
+                    bvc.openBlankNewTab(focusLocationField: false)
+                }
                 return true
             case .searchWith:
-                let query = userActivity.userInfo?["query"] as? String
-                bvc.showSearchInNewTab(query: query)
+                self.afterStartupAction = {
+                    let query = userActivity.userInfo?["query"] as? String
+                    self.browserViewController.showSearchInNewTab(query: query)
+                }
                 return true
             }
         }
@@ -461,11 +471,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             // it is recommended that links contain the `deep_link` query parameter. This link will also
             // be url encoded.
             if let deepLink = query["deep_link"]?.removingPercentEncoding, let url = URL(string: deepLink) {
-                bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
+                self.afterStartupAction = {
+                    bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
+                }
                 return true
             }
-
-            bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
+            self.afterStartupAction = {
+                bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
+            }
             return true
         }
 
@@ -475,7 +488,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             if let userInfo = userActivity.userInfo,
                 let urlString = userInfo[CSSearchableItemActivityIdentifier] as? String,
                 let url = URL(string: urlString) {
-                bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
+                self.afterStartupAction = {
+                    bvc.switchToTabForURLOrOpen(url, isPrivileged: true)
+                }
                 return true
             }
         }
@@ -499,9 +514,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     }
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        let handledShortCutItem = QuickActions.sharedInstance.handleShortCutItem(shortcutItem, withBrowserViewController: BrowserViewController.foregroundBVC())
-
-        completionHandler(handledShortCutItem)
+        let handledShortCutItem = QuickActions.sharedInstance.canHandleShortCutItem(shortcutItem)
+        self.afterStartupAction = {
+            QuickActions.sharedInstance.handleShortCutItem(shortcutItem, withBrowserViewController: BrowserViewController.foregroundBVC())
+            completionHandler(handledShortCutItem)
+        }
     }
 }
 
