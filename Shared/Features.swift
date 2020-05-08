@@ -22,6 +22,9 @@ public struct Features {
         public static var keyboardReturnKeyBehavior: KeyboardReturnKeyBehavior {
             return .dismiss
         }
+        public static var defaultEngineName: String {
+            return ""
+        }
     }
     public struct PrivacyDashboard {
         public static var isAntiTrackingEnabled: Bool {
@@ -32,11 +35,6 @@ public struct Features {
         }
         public static var isPopupBlockerEnabled: Bool {
             return true
-        }
-        public static var defaultEngineName: String {
-            get {
-                return ""
-            }
         }
     }
 

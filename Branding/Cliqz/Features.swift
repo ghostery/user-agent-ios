@@ -18,6 +18,9 @@ extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
         return .dismiss
     }
+    public static var defaultEngineName: String {
+        return "Cliqz"
+    }
 }
 
 extension Features.PrivacyDashboard {
@@ -29,10 +32,5 @@ extension Features.PrivacyDashboard {
     }
     public static var isPopupBlockerEnabled: Bool {
         return true
-    }
-    public static var defaultEngineName: String {
-        get {
-            return "Cliqz"
-        }
     }
 }
