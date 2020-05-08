@@ -80,6 +80,9 @@
 /* Accessibility label for the Back button in the tab toolbar. */
 "Back" = "Back";
 
+/* Block pop-up windows setting */
+"Block Pop-up Windows" = "Block Pop-up Windows";
+
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Title";
 
@@ -811,7 +814,7 @@
 "Settings.PrivacyDashboard.AntiTrackingTitle" = "Anti-Tracking";
 
 /* Block pop-up windows setting */
-"Settings.PrivacyDashboard.PopupBlockerTitle" = "Block Pop-up Windows";
+"Settings.PrivacyDashboard.PopupBlockerTitle" = "Pop-up Blocker";
 
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Done.Button" = "Done";

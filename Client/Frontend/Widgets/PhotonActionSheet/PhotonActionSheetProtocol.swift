@@ -419,7 +419,7 @@ extension PhotonActionSheetProtocol {
         let statisticAndReportPage = PhotonActionSheetItem(title: "", collectionItems: [whoTracksMeLink, reportPage])
 
         if blocker.status == .Disabled {
-            return [[statisticAndReportPage]]
+            return [menuActions, [statisticAndReportPage]]
         }
         if blocker.stats.total > 0 {
             return [menuActions, [trackerInfo], [statisticAndReportPage]]
@@ -467,8 +467,7 @@ extension PhotonActionSheetProtocol {
             })
         }
 
-        let blockPopups = self.profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? Features.PrivacyDashboard.isPopupBlockerEnabled
-        if blockPopups {
+        if blocker.isPopupBlockerEnabled {
             menuActions.append(PhotonActionSheetItem(
                 title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
                 iconString: "menu-PopupBlocking",
@@ -492,13 +491,10 @@ extension PhotonActionSheetProtocol {
         guard let blocker = tab.contentBlocker else {
             return []
         }
-
-        switch blocker.status {
-        case .Disabled:
+        if blocker.status == .Disabled && !blocker.isPopupBlockerEnabled {
             return menuActionsForTrackingProtectionDisabled(for: tab, vcDelegate: vcDelegate)
-        default:
-            return menuActionsForTrackingProtectionEnabled(for: tab)
         }
+        return menuActionsForTrackingProtectionEnabled(for: tab)
     }
 
     private func openWhatsNewItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {

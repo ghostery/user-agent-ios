@@ -109,7 +109,7 @@ extension Strings {
             public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
             public static let AdBlockingTitle = NSLocalizedString("Settings.PrivacyDashboard.AdBlockingTitle", comment: "Ad-blocking setting")
             public static let AntiTrackingTitle = NSLocalizedString("Settings.PrivacyDashboard.AntiTrackingTitle", comment: "Anti-tracking setting")
-            public static let PopupBlockerTitle = NSLocalizedString("Settings.PrivacyDashboard.PopupBlockerTitle", comment: "Block pop-up windows setting")
+            public static let PopupBlockerTitle = NSLocalizedString("Settings.PrivacyDashboard.PopupBlockerTitle", comment: "Pop-up Blocker setting")
         }
         public struct General {
             public static let SectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")

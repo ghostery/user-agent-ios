@@ -107,8 +107,8 @@ class AppSettingsTableViewController: SettingsTableViewController {
             },
             BoolSetting(
                 prefs: prefs,
-                prefKey: PrefsKeys.BlockPopups,
-                defaultValue: Features.PrivacyDashboard.isPopupBlockerEnabled,
+                prefKey: PrefsKeys.PopupBlocker,
+                defaultValue: FirefoxTabContentBlocker.isPopupBlockerEnabled(tabManager: self.tabManager),
                 titleText: Strings.Settings.PrivacyDashboard.PopupBlockerTitle),
         ]
         return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)
@@ -127,6 +127,10 @@ class AppSettingsTableViewController: SettingsTableViewController {
             OpenWithSetting(settings: self),
             NewTabPageDefaultViewSetting(settings: self),
             OnBrowserStartShowSetting(settings: self),
+            BoolSetting(prefs: prefs, prefKey: PrefsKeys.RefreshControlEnabled, defaultValue: true,
+                        titleText: Strings.Settings.RefreshControl.SectionName),
+            BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
+                        titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
         ]
 
         if #available(iOS 12.0, *) {

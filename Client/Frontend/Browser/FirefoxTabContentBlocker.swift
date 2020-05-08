@@ -22,6 +22,10 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
         return self.userPrefs.boolForKey(PrefsKeys.Adblocker) ?? Features.PrivacyDashboard.isAdBlockingEnabled
     }
 
+    override var isPopupBlockerEnabled: Bool {
+        return self.userPrefs.boolForKey(PrefsKeys.PopupBlocker) ?? Features.PrivacyDashboard.isPopupBlockerEnabled
+    }
+
     init(tab: ContentBlockerTab, prefs: Prefs) {
         userPrefs = prefs
         super.init(tab: tab)
@@ -57,6 +61,11 @@ extension FirefoxTabContentBlocker {
         ContentBlocker.shared.prefsChanged()
     }
 
+    static func setPopupBlocker(enabled: Bool, prefs: Prefs, tabManager: TabManager) {
+        prefs.setBool(enabled, forKey: PrefsKeys.PopupBlocker)
+        ContentBlocker.shared.prefsChanged()
+    }
+
     static func isAntiTrackingEnabled(tabManager: TabManager) -> Bool {
         guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
         return blocker.isAntiTrackingEnabled
@@ -65,6 +74,11 @@ extension FirefoxTabContentBlocker {
     static func isAdBlockingEnabled(tabManager: TabManager) -> Bool {
         guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
         return blocker.isAdBlockingEnabled
+    }
+
+    static func isPopupBlockerEnabled(tabManager: TabManager) -> Bool {
+        guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
+        return blocker.isPopupBlockerEnabled
     }
 
     static func toggleAntiTrackingEnabled(prefs: Prefs, tabManager: TabManager) {
@@ -76,4 +90,10 @@ extension FirefoxTabContentBlocker {
         let isEnabled = FirefoxTabContentBlocker.isAdBlockingEnabled(tabManager: tabManager)
         self.setAdBlocking(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
     }
+
+    static func togglePopupBlockerEnabled(prefs: Prefs, tabManager: TabManager) {
+        let isEnabled = FirefoxTabContentBlocker.isPopupBlockerEnabled(tabManager: tabManager)
+        self.setPopupBlocker(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
+    }
+
 }

@@ -124,13 +124,13 @@ class TabManager: NSObject {
 
     // A WKWebViewConfiguration used for normal tabs
     lazy fileprivate var configuration: WKWebViewConfiguration = {
-        let blockPopups = profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? Features.PrivacyDashboard.isPopupBlockerEnabled
+        let blockPopups = profile.prefs.boolForKey("blockPopups") ?? true
         return TabManager.makeWebViewConfig(isPrivate: false, blockPopups: blockPopups)
     }()
 
     // A WKWebViewConfiguration used for private mode tabs
     lazy fileprivate var privateConfiguration: WKWebViewConfiguration = {
-        let blockPopups = profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? Features.PrivacyDashboard.isPopupBlockerEnabled
+        let blockPopups = profile.prefs.boolForKey("blockPopups") ?? true
         return TabManager.makeWebViewConfig(isPrivate: true, blockPopups: blockPopups)
     }()
 
@@ -586,7 +586,7 @@ class TabManager: NSObject {
 
     @objc func prefsDidChange() {
         DispatchQueue.main.async {
-            let allowPopups = !(self.profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? Features.PrivacyDashboard.isPopupBlockerEnabled)
+            let allowPopups = !(self.profile.prefs.boolForKey("blockPopups") ?? true)
             let allowPullToRefresh = self.profile.prefs.boolForKey(PrefsKeys.RefreshControlEnabled) ?? true
             // Each tab may have its own configuration, so we should tell each of them in turn.
             for tab in self.tabs {

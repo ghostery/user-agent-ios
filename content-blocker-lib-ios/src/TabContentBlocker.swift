@@ -25,6 +25,10 @@ class TabContentBlocker {
         return false
     }
 
+    var isPopupBlockerEnabled: Bool {
+        return false
+    }
+
     @objc func notifiedTabSetupRequired() {}
 
     func notifyContentBlockingChanged() {}

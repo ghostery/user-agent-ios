@@ -27,7 +27,7 @@ public struct PrefsKeys {
     // Privacy Dashboard
     public static let AntiTracking = "AntiTracking"
     public static let Adblocker = "Adblocker"
-    public static let BlockPopups = "blockPopups"
+    public static let PopupBlocker = "PopupBlocker"
 
     //News
     public static let NewTabNewsEnabled = "NewTabNewsEnabled"
