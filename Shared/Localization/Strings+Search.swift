@@ -24,6 +24,8 @@ extension Strings {
             public static let DuplicateErrorTitle = NSLocalizedString("Search.ThirdPartyEngines.DuplicateErrorTitle", tableName: "Search", comment: "A title stating that we failed to add custom search engine.")
             public static let DuplicateErrorMessage = NSLocalizedString("Search.ThirdPartyEngines.DuplicateErrorMessage", tableName: "Search", comment: "A message explaining fault in custom search engine form.")
         }
-        public static let Visit = NSLocalizedString("Search.Visit", tableName: "Search", comment: "Shown next to navigate-to result")
+        public struct UI {
+            public static let Visit = NSLocalizedString("Search.UI.Visit", tableName: "Search", comment: "Shown next to navigate-to result")
+        }
     }
 }
