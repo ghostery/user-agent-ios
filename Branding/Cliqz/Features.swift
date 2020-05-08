@@ -10,13 +10,21 @@ import Shared
 
 extension Features.Search.AdditionalSearchEngines {
     public static var isEnabled: Bool {
-        get {
-            return true
-        }
+        return true
     }
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
-        get {
-            return .dismiss
-        }
+        return .dismiss
+    }
+}
+
+extension Features.PrivacyDashboard {
+    public static var isAntiTrackingEnabled: Bool {
+        return true
+    }
+    public static var isAdBlockingEnabled: Bool {
+        return true
+    }
+    public static var isPopupBlockerEnabled: Bool {
+        return true
     }
 }

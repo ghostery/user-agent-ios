@@ -108,7 +108,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             BoolSetting(
                 prefs: prefs,
                 prefKey: PrefsKeys.BlockPopups,
-                defaultValue: true,
+                defaultValue: Features.PrivacyDashboard.isPopupBlockerEnabled,
                 titleText: Strings.Settings.PrivacyDashboard.PopupBlockerTitle),
         ]
         return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)

@@ -467,7 +467,7 @@ extension PhotonActionSheetProtocol {
             })
         }
 
-        let blockPopups = self.profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? true
+        let blockPopups = self.profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? Features.PrivacyDashboard.isPopupBlockerEnabled
         if blockPopups {
             menuActions.append(PhotonActionSheetItem(
                 title: Strings.PrivacyDashboard.Switch.PopupsBlocking,

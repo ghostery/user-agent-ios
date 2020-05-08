@@ -15,11 +15,11 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
     }
 
     override var isAntiTrackingEnabled: Bool {
-        return self.userPrefs.boolForKey(PrefsKeys.AntiTracking) ?? true
+        return self.userPrefs.boolForKey(PrefsKeys.AntiTracking) ?? Features.PrivacyDashboard.isAntiTrackingEnabled
     }
 
     override var isAdBlockingEnabled: Bool {
-        return self.userPrefs.boolForKey(PrefsKeys.Adblocker) ?? true
+        return self.userPrefs.boolForKey(PrefsKeys.Adblocker) ?? Features.PrivacyDashboard.isAdBlockingEnabled
     }
 
     init(tab: ContentBlockerTab, prefs: Prefs) {
