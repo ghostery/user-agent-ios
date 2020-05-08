@@ -240,13 +240,13 @@ class SearchEngines {
         }
         let possibilities = possibilitiesForLanguageIdentifier(languageIdentifier)
         let engineNames = defaultSearchPrefs.visibleDefaultEngines(for: possibilities, and: region)
-        let defaultEngineName = defaultSearchPrefs.searchDefault(for: possibilities, and: region)
+        let defaultEngineName = Features.Search.defaultEngineName
         assert(!engineNames.isEmpty, "No search engines")
 
         return engineNames.map({ (name: $0, path: pluginDirectory.appendingPathComponent("\($0).xml").path) })
             .filter({ FileManager.default.fileExists(atPath: $0.path) })
             .compactMap({ parser.parse($0.path, engineID: $0.name) })
-            .sorted { e, _ in e.shortName == defaultEngineName }
+            .sorted { e, _ in e.shortName.caseInsensitivelyEqual(to: defaultEngineName) }
     }
 
     /// Get all known search engines, possibly as ordered by the user.

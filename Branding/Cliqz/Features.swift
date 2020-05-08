@@ -14,9 +14,17 @@ extension Features.Search.AdditionalSearchEngines {
             return true
         }
     }
+}
+
+extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
         get {
             return .dismiss
+        }
+    }
+    public static var defaultEngineName: String {
+        get {
+            return "Cliqz"
         }
     }
 }
