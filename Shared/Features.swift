@@ -26,5 +26,10 @@ public struct Features {
                 return .dismiss
             }
         }
+        public static var defaultEngineName: String {
+            get {
+                return ""
+            }
+        }
     }
 }
