@@ -16,20 +16,26 @@ public struct Features {
         }
         public struct AdditionalSearchEngines {
             public static var isEnabled: Bool {
-                get {
-                    return true
-                }
+                return true
             }
         }
         public static var keyboardReturnKeyBehavior: KeyboardReturnKeyBehavior {
-            get {
-                return .dismiss
-            }
+            return .dismiss
         }
         public static var defaultEngineName: String {
-            get {
-                return ""
-            }
+            return ""
         }
     }
+    public struct PrivacyDashboard {
+        public static var isAntiTrackingEnabled: Bool {
+            return true
+        }
+        public static var isAdBlockingEnabled: Bool {
+            return true
+        }
+        public static var isPopupBlockerEnabled: Bool {
+            return true
+        }
+    }
+
 }

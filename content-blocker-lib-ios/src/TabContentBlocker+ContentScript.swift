@@ -10,7 +10,7 @@ extension TabContentBlocker {
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage) {
-        guard (self.isPrivacyDashboardEnabled),
+        guard (self.isAntiTrackingEnabled || self.isAdBlockingEnabled),
             let body = message.body as? [String: Any],
             let urls = body["urls"] as? [String],
             let mainDocumentUrl = tab?.currentURL() else {
@@ -18,8 +18,8 @@ extension TabContentBlocker {
         }
 
         // Reset the pageStats to make sure the trackingprotection shield icon knows that a page was allowListed
-        let isAdsAllowListed = !self.isPrivacyDashboardEnabled || ContentBlocker.shared.isAdsAllowListed(url: mainDocumentUrl)
-        let isTrackingAllowListed = !self.isPrivacyDashboardEnabled || ContentBlocker.shared.isTrackingAllowListed(url: mainDocumentUrl)
+        let isAdsAllowListed = !self.isAntiTrackingEnabled || ContentBlocker.shared.isAdsAllowListed(url: mainDocumentUrl)
+        let isTrackingAllowListed = !self.isAdBlockingEnabled || ContentBlocker.shared.isTrackingAllowListed(url: mainDocumentUrl)
         guard !isAdsAllowListed || !isTrackingAllowListed else {
             clearPageStats()
             return

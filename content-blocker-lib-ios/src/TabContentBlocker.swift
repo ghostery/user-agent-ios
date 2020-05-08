@@ -17,7 +17,15 @@ protocol ContentBlockerTab: class {
 class TabContentBlocker {
     weak var tab: ContentBlockerTab?
 
-    var isPrivacyDashboardEnabled: Bool {
+    var isAntiTrackingEnabled: Bool {
+        return false
+    }
+
+    var isAdBlockingEnabled: Bool {
+        return false
+    }
+
+    var isPopupBlockerEnabled: Bool {
         return false
     }
 
@@ -26,14 +34,14 @@ class TabContentBlocker {
     func notifyContentBlockingChanged() {}
 
     var status: BlockerStatus {
-        guard self.isPrivacyDashboardEnabled else {
+        guard self.isAntiTrackingEnabled || self.isAdBlockingEnabled else {
             return .Disabled
         }
         guard let url = tab?.currentURL() else {
             return .NoBlockedURLs
         }
-        let isAdBlockAllowListed = self.isPrivacyDashboardEnabled && ContentBlocker.shared.isAdsAllowListed(url: url)
-        let isAntiTrackingAllowListed = self.isPrivacyDashboardEnabled && ContentBlocker.shared.isTrackingAllowListed(url: url)
+        let isAdBlockAllowListed = self.isAdBlockingEnabled && ContentBlocker.shared.isAdsAllowListed(url: url)
+        let isAntiTrackingAllowListed = self.isAntiTrackingEnabled && ContentBlocker.shared.isTrackingAllowListed(url: url)
 
         if stats.total == 0 {
             if isAdBlockAllowListed && isAntiTrackingAllowListed {

@@ -389,9 +389,6 @@
 /* Authentication prompt log in button */
 "Log in" = "Log in";
 
-/* Label for the button, displayed in the menu, used to get more info about Ad blocking */
-"Menu.AdBlocking.Title" = "Ad-blocking";
-
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Bookmark Added";
 
@@ -427,9 +424,6 @@
 
 /* The title for tracking protection settings */
 "Menu.TrackingProtection.ProtectionSettings.Title" = "Protection Settings";
-
-/* Label for the button, displayed in the menu, used to get more info about Tracking Protection */
-"Menu.TrackingProtection.Title" = "Tracking Protection";
 
 /* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
 "Menu.TrackingProtection.TitlePrefix" = "Protections for %@";
@@ -810,9 +804,17 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour. */
 "Settings.OpenWith.SectionName" = "Mail App";
 
-"Settings.PrivacyDashboard.Description" = "Anti-Tracking and Ad-Blocker protect your privacy";
-
+/* Privacy Dashboard Title */
 "Settings.PrivacyDashboard.Title" = "Privacy Dashboard";
+
+/* Ad-blocking setting */
+"Settings.PrivacyDashboard.AdBlockingTitle" = "Ad-blocking";
+
+/* Anti-tracking setting */
+"Settings.PrivacyDashboard.AntiTrackingTitle" = "Anti-Tracking";
+
+/* Block pop-up windows setting */
+"Settings.PrivacyDashboard.PopupBlockerTitle" = "Pop-up Blocker";
 
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Done.Button" = "Done";

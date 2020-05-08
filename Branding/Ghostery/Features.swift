@@ -10,16 +10,12 @@ import Shared
 
 extension Features.Search.AdditionalSearchEngines {
     public static var isEnabled: Bool {
-        get {
-            return false
-        }
+        return false
     }
 }
 
 extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
-        get {
-            return .search
-        }
+        return .search
     }
 }

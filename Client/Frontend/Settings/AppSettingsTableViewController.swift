@@ -34,6 +34,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         return [
             self.searchSettingSection(),
             self.privacySettingSection(),
+            self.privacyDashboardSettingSection(),
             self.todayWidgetSettingSection(),
             self.generalSettingSection(),
             self.newsSettingSection(),
@@ -74,22 +75,39 @@ class AppSettingsTableViewController: SettingsTableViewController {
     private func privacySettingSection() -> SettingSection {
         let prefs = self.profile.prefs
         let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
-        var privacySettings = [Setting]()
-        privacySettings.append(ClearPrivateDataSetting(settings: self))
-        privacySettings += [
+        let privacySettings = [
+            ClearPrivateDataSetting(settings: self),
             BoolSetting(
                 prefs: prefs,
                 prefKey: "settings.closePrivateTabs",
                 defaultValue: false,
                 titleText: Strings.ClosePrivateTabsLabel,
                 statusText: Strings.ClosePrivateTabsDescription),
+        ]
+        return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)
+    }
+
+    private func privacyDashboardSettingSection() -> SettingSection {
+        let prefs = self.profile.prefs
+        let privacyTitle = Strings.Settings.PrivacyDashboard.Title
+        let privacySettings = [
             BoolSetting(
                 prefs: prefs,
-                defaultValue: FirefoxTabContentBlocker.isPrivacyDashboardEnabled(tabManager: self.tabManager),
-                titleText: Strings.Settings.PrivacyDashboard.Title,
-                statusText: Strings.Settings.PrivacyDashboard.Description,
-                enabled: true) { _ in
-                    FirefoxTabContentBlocker.togglePrivacyDashboardEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+                defaultValue: FirefoxTabContentBlocker.isAntiTrackingEnabled(tabManager: self.tabManager),
+                titleText: Strings.Settings.PrivacyDashboard.AntiTrackingTitle) { _ in
+                    FirefoxTabContentBlocker.toggleAntiTrackingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+            },
+            BoolSetting(
+                prefs: prefs,
+                defaultValue: FirefoxTabContentBlocker.isAdBlockingEnabled(tabManager: self.tabManager),
+                titleText: Strings.Settings.PrivacyDashboard.AdBlockingTitle) { _ in
+                    FirefoxTabContentBlocker.toggleAdBlockingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+            },
+            BoolSetting(
+                prefs: prefs,
+                defaultValue: FirefoxTabContentBlocker.isPopupBlockerEnabled(tabManager: self.tabManager),
+                titleText: Strings.Settings.PrivacyDashboard.PopupBlockerTitle) { _ in
+                    FirefoxTabContentBlocker.togglePopupBlockerEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
             },
         ]
         return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)

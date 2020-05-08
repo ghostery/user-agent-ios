@@ -395,7 +395,7 @@ extension PhotonActionSheetProtocol {
         }
 
         // Menu Actions
-        let menuActions = self.menuActions(for: tab)
+        let menuActions = self.menuActions(for: tab, blocker: blocker)
 
         // Tracker Info
         let trackerInfoView = PrivacyDashboardView()
@@ -419,7 +419,7 @@ extension PhotonActionSheetProtocol {
         let statisticAndReportPage = PhotonActionSheetItem(title: "", collectionItems: [whoTracksMeLink, reportPage])
 
         if blocker.status == .Disabled {
-            return [[statisticAndReportPage]]
+            return [menuActions, [statisticAndReportPage]]
         }
         if blocker.stats.total > 0 {
             return [menuActions, [trackerInfo], [statisticAndReportPage]]
@@ -428,59 +428,62 @@ extension PhotonActionSheetProtocol {
         }
     }
 
-    @available(iOS 11.0, *)
-    private func menuActionsForAllowListedSite(for tab: Tab) -> [[PhotonActionSheetItem]] {
-        return [self.menuActions(for: tab)]
-    }
-
-    private func menuActions(for tab: Tab) -> [PhotonActionSheetItem] {
+    private func menuActions(for tab: Tab, blocker: FirefoxTabContentBlocker) -> [PhotonActionSheetItem] {
         guard let currentURL = tab.url else {
             return []
         }
 
-        let trackingProtection = PhotonActionSheetItem(
-            title: Strings.PrivacyDashboard.Switch.AntiTracking,
-            iconString: "menu-TrackingProtection",
-            isEnabled: !ContentBlocker.shared.isTrackingAllowListed(url: currentURL),
-            accessory: .Switch
-        ) { action in
-            ContentBlocker.shared.trackingAllowList(
-                enable: !ContentBlocker.shared.isTrackingAllowListed(url: currentURL),
-                url: currentURL
-            ) {
-                tab.reload()
-            }
+        var menuActions = [PhotonActionSheetItem]()
+
+        if blocker.isAntiTrackingEnabled {
+            menuActions.append(PhotonActionSheetItem(
+                title: Strings.PrivacyDashboard.Switch.AntiTracking,
+                iconString: "menu-TrackingProtection",
+                isEnabled: !ContentBlocker.shared.isTrackingAllowListed(url: currentURL),
+                accessory: .Switch
+            ) { action in
+                ContentBlocker.shared.trackingAllowList(
+                    enable: !ContentBlocker.shared.isTrackingAllowListed(url: currentURL),
+                    url: currentURL
+                ) {
+                    tab.reload()
+                }
+            })
         }
 
-        let adBlocking = PhotonActionSheetItem(
-            title: Strings.PrivacyDashboard.Switch.AdBlock,
-            iconString: "menu-AdBlocking",
-            isEnabled: !ContentBlocker.shared.isAdsAllowListed(url: currentURL),
-            accessory: .Switch
-        ) { action in
-            ContentBlocker.shared.adsAllowList(
-                enable: !ContentBlocker.shared.isAdsAllowListed(url: currentURL),
-                url: currentURL
-            ) {
-                tab.reload()
-            }
+        if blocker.isAdBlockingEnabled {
+            menuActions.append(PhotonActionSheetItem(
+                title: Strings.PrivacyDashboard.Switch.AdBlock,
+                iconString: "menu-AdBlocking",
+                isEnabled: !ContentBlocker.shared.isAdsAllowListed(url: currentURL),
+                accessory: .Switch
+            ) { action in
+                ContentBlocker.shared.adsAllowList(
+                    enable: !ContentBlocker.shared.isAdsAllowListed(url: currentURL),
+                    url: currentURL
+                ) {
+                    tab.reload()
+                }
+            })
         }
 
-        let popupsBlocking = PhotonActionSheetItem(
-            title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
-            iconString: "menu-PopupBlocking",
-            isEnabled: !ContentBlocker.shared.isPopupsAllowListed(url: currentURL),
-            accessory: .Switch
-        ) { action in
-            ContentBlocker.shared.popupsAllowList(
-                enable: !ContentBlocker.shared.isPopupsAllowListed(url: currentURL),
-                url: currentURL
-            ) {
-                tab.reload()
-            }
+        if blocker.isPopupBlockerEnabled {
+            menuActions.append(PhotonActionSheetItem(
+                title: Strings.PrivacyDashboard.Switch.PopupsBlocking,
+                iconString: "menu-PopupBlocking",
+                isEnabled: !ContentBlocker.shared.isPopupsAllowListed(url: currentURL),
+                accessory: .Switch
+            ) { action in
+                ContentBlocker.shared.popupsAllowList(
+                    enable: !ContentBlocker.shared.isPopupsAllowListed(url: currentURL),
+                    url: currentURL
+                ) {
+                    tab.reload()
+                }
+            })
         }
 
-        return [trackingProtection, adBlocking, popupsBlocking]
+        return menuActions
     }
 
     @available(iOS 11.0, *)
@@ -488,13 +491,10 @@ extension PhotonActionSheetProtocol {
         guard let blocker = tab.contentBlocker else {
             return []
         }
-
-        switch blocker.status {
-        case .Disabled:
+        if blocker.status == .Disabled && !blocker.isPopupBlockerEnabled {
             return menuActionsForTrackingProtectionDisabled(for: tab, vcDelegate: vcDelegate)
-        default:
-            return menuActionsForTrackingProtectionEnabled(for: tab)
         }
+        return menuActionsForTrackingProtectionEnabled(for: tab)
     }
 
     private func openWhatsNewItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
