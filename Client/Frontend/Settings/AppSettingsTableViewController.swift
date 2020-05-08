@@ -94,22 +94,21 @@ class AppSettingsTableViewController: SettingsTableViewController {
             BoolSetting(
                 prefs: prefs,
                 defaultValue: FirefoxTabContentBlocker.isAntiTrackingEnabled(tabManager: self.tabManager),
-                titleText: Strings.Settings.PrivacyDashboard.AntiTrackingTitle,
-                enabled: true) { _ in
+                titleText: Strings.Settings.PrivacyDashboard.AntiTrackingTitle) { _ in
                     FirefoxTabContentBlocker.toggleAntiTrackingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
             },
             BoolSetting(
                 prefs: prefs,
                 defaultValue: FirefoxTabContentBlocker.isAdBlockingEnabled(tabManager: self.tabManager),
-                titleText: Strings.Settings.PrivacyDashboard.AdBlockingTitle,
-                enabled: true) { _ in
+                titleText: Strings.Settings.PrivacyDashboard.AdBlockingTitle) { _ in
                     FirefoxTabContentBlocker.toggleAdBlockingEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
             },
             BoolSetting(
                 prefs: prefs,
-                prefKey: PrefsKeys.PopupBlocker,
                 defaultValue: FirefoxTabContentBlocker.isPopupBlockerEnabled(tabManager: self.tabManager),
-                titleText: Strings.Settings.PrivacyDashboard.PopupBlockerTitle),
+                titleText: Strings.Settings.PrivacyDashboard.PopupBlockerTitle) { _ in
+                    FirefoxTabContentBlocker.togglePopupBlockerEnabled(prefs: self.profile.prefs, tabManager: self.tabManager)
+            },
         ]
         return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)
     }

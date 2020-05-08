@@ -34,7 +34,7 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 
     func setupForTab() {
         guard let tab = tab else { return }
-        let isPrivacyDashboardEnabled = self.isAdBlockingEnabled || self.isAntiTrackingEnabled
+        let isPrivacyDashboardEnabled = self.isAdBlockingEnabled || self.isAntiTrackingEnabled || self.isPopupBlockerEnabled
         ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: isPrivacyDashboardEnabled, rules: BlocklistName.all)
     }
 
