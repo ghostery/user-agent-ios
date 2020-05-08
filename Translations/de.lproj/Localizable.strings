@@ -80,9 +80,6 @@
 /* Accessibility label for the Back button in the tab toolbar. */
 "Back" = "Zurück";
 
-/* Block pop-up windows setting */
-"Block Pop-up Windows" = "Pop-up-Fenster blockieren";
-
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Titel";
 
@@ -389,9 +386,6 @@
 /* Authentication prompt log in button */
 "Log in" = "Anmelden";
 
-/* Label for the button, displayed in the menu, used to get more info about Ad blocking */
-"Menu.AdBlocking.Title" = "Werbeblocker";
-
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Lesezeichen hinzugefügt";
 
@@ -427,9 +421,6 @@
 
 /* The title for tracking protection settings */
 "Menu.TrackingProtection.ProtectionSettings.Title" = "Schutzeinstellungen";
-
-/* Label for the button, displayed in the menu, used to get more info about Tracking Protection */
-"Menu.TrackingProtection.Title" = "Anti-Tracking";
 
 /* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
 "Menu.TrackingProtection.TitlePrefix" = "Schutz für %@";
@@ -807,9 +798,17 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour. */
 "Settings.OpenWith.SectionName" = "Mail-App";
 
-"Settings.PrivacyDashboard.Description" = "Anti-Tracking und Werbeblocker schützen deine Privatsphäre";
-
+/* Privacy Dashboard Title */
 "Settings.PrivacyDashboard.Title" = "Datenschutz-Dashboard";
+
+/* Ad-blocking setting */
+"Settings.PrivacyDashboard.AdBlockingTitle" = "Werbeblocker";
+
+/* Anti-tracking setting */
+"Settings.PrivacyDashboard.AntiTrackingTitle" = "Anti-Tracking";
+
+/* Block pop-up windows setting */
+"Settings.PrivacyDashboard.PopupBlockerTitle" = "Pop-up-Fenster blockieren";
 
 /* Button displayed at the top of the search settings. */
 "Settings.Search.Done.Button" = "Fertig";

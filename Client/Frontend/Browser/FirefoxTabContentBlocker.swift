@@ -14,8 +14,12 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
         return "TrackingProtectionStats"
     }
 
-    override var isPrivacyDashboardEnabled: Bool {
-        return self.userPrefs.boolForKey(PrefsKeys.PrivacyDashboardEnabledKey) ?? true
+    override var isAntiTrackingEnabled: Bool {
+        return self.userPrefs.boolForKey(PrefsKeys.AntiTracking) ?? true
+    }
+
+    override var isAdBlockingEnabled: Bool {
+        return self.userPrefs.boolForKey(PrefsKeys.Adblocker) ?? true
     }
 
     init(tab: ContentBlockerTab, prefs: Prefs) {
@@ -26,7 +30,8 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 
     func setupForTab() {
         guard let tab = tab else { return }
-        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: self.isPrivacyDashboardEnabled, rules: BlocklistName.all)
+        let isPrivacyDashboardEnabled = self.isAdBlockingEnabled || self.isAntiTrackingEnabled
+        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: isPrivacyDashboardEnabled, rules: BlocklistName.all)
     }
 
     @objc override func notifiedTabSetupRequired() {
@@ -42,18 +47,33 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 // Static methods to access user prefs for tracking protection
 extension FirefoxTabContentBlocker {
 
-    static func setPrivacyDashboard(enabled: Bool, prefs: Prefs, tabManager: TabManager) {
-        prefs.setBool(enabled, forKey: PrefsKeys.PrivacyDashboardEnabledKey)
+    static func setAntiTracking(enabled: Bool, prefs: Prefs, tabManager: TabManager) {
+        prefs.setBool(enabled, forKey: PrefsKeys.AntiTracking)
         ContentBlocker.shared.prefsChanged()
     }
 
-    static func isPrivacyDashboardEnabled(tabManager: TabManager) -> Bool {
-        guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
-        return blocker.isPrivacyDashboardEnabled
+    static func setAdBlocking(enabled: Bool, prefs: Prefs, tabManager: TabManager) {
+        prefs.setBool(enabled, forKey: PrefsKeys.Adblocker)
+        ContentBlocker.shared.prefsChanged()
     }
 
-    static func togglePrivacyDashboardEnabled(prefs: Prefs, tabManager: TabManager) {
-        let isEnabled = FirefoxTabContentBlocker.isPrivacyDashboardEnabled(tabManager: tabManager)
-        self.setPrivacyDashboard(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
+    static func isAntiTrackingEnabled(tabManager: TabManager) -> Bool {
+        guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
+        return blocker.isAntiTrackingEnabled
+    }
+
+    static func isAdBlockingEnabled(tabManager: TabManager) -> Bool {
+        guard let blocker = tabManager.selectedTab?.contentBlocker else { return false }
+        return blocker.isAdBlockingEnabled
+    }
+
+    static func toggleAntiTrackingEnabled(prefs: Prefs, tabManager: TabManager) {
+        let isEnabled = FirefoxTabContentBlocker.isAntiTrackingEnabled(tabManager: tabManager)
+        self.setAntiTracking(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
+    }
+
+    static func toggleAdBlockingEnabled(prefs: Prefs, tabManager: TabManager) {
+        let isEnabled = FirefoxTabContentBlocker.isAdBlockingEnabled(tabManager: tabManager)
+        self.setAdBlocking(enabled: !isEnabled, prefs: prefs, tabManager: tabManager)
     }
 }

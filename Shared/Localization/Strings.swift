@@ -107,7 +107,9 @@ extension Strings {
     public struct Settings {
         public struct PrivacyDashboard {
             public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
-            public static let Description = NSLocalizedString("Settings.PrivacyDashboard.Description", comment: "Privacy Dashboard Description")
+            public static let AdBlockingTitle = NSLocalizedString("Settings.PrivacyDashboard.AdBlockingTitle", comment: "Ad-blocking setting")
+            public static let AntiTrackingTitle = NSLocalizedString("Settings.PrivacyDashboard.AntiTrackingTitle", comment: "Anti-tracking setting")
+            public static let PopupBlockerTitle = NSLocalizedString("Settings.PrivacyDashboard.PopupBlockerTitle", comment: "Block pop-up windows setting")
         }
         public struct General {
             public static let SectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")
@@ -456,8 +458,6 @@ extension Strings {
         public static let PageActionMenuTitle = NSLocalizedString("Menu.PageActions.Title", comment: "Label for title in page action menu.")
         public static let WhatsNewString = NSLocalizedString("Menu.WhatsNew.Title", comment: "The title for the option to view the What's new page.")
         public static let ShowPageSourceString = NSLocalizedString("Menu.PageSourceAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to show the html page source")
-        public static let TPMenuTitle = NSLocalizedString("Menu.TrackingProtection.Title", value: "Tracking Protection", comment: "Label for the button, displayed in the menu, used to get more info about Tracking Protection")
-        public static let ABMenuTitle = NSLocalizedString("Menu.AdBlocking.Title", value: "Ad-blocking", comment: "Label for the button, displayed in the menu, used to get more info about Ad blocking")
         public static let TPBlockingDescription =  String(format: NSLocalizedString("Menu.TrackingProtectionBlocking.Description", comment: "Description of the Tracking protection menu when TP is blocking parts of the page"), AppInfo.displayName)
         public static let TPNoBlockingDescription = NSLocalizedString("Menu.TrackingProtectionNoBlocking.Description", comment: "The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled.")
         public static let TPBlockingDisabledDescription = NSLocalizedString("Menu.TrackingProtectionBlockingDisabled.Description", comment: "The description of the Tracking Protection menu item when tracking is enabled")

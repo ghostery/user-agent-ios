@@ -124,13 +124,13 @@ class TabManager: NSObject {
 
     // A WKWebViewConfiguration used for normal tabs
     lazy fileprivate var configuration: WKWebViewConfiguration = {
-        let blockPopups = profile.prefs.boolForKey("blockPopups") ?? true
+        let blockPopups = profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? true
         return TabManager.makeWebViewConfig(isPrivate: false, blockPopups: blockPopups)
     }()
 
     // A WKWebViewConfiguration used for private mode tabs
     lazy fileprivate var privateConfiguration: WKWebViewConfiguration = {
-        let blockPopups = profile.prefs.boolForKey("blockPopups") ?? true
+        let blockPopups = profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? true
         return TabManager.makeWebViewConfig(isPrivate: true, blockPopups: blockPopups)
     }()
 
@@ -586,7 +586,7 @@ class TabManager: NSObject {
 
     @objc func prefsDidChange() {
         DispatchQueue.main.async {
-            let allowPopups = !(self.profile.prefs.boolForKey("blockPopups") ?? true)
+            let allowPopups = !(self.profile.prefs.boolForKey(PrefsKeys.BlockPopups) ?? true)
             let allowPullToRefresh = self.profile.prefs.boolForKey(PrefsKeys.RefreshControlEnabled) ?? true
             // Each tab may have its own configuration, so we should tell each of them in turn.
             for tab in self.tabs {
@@ -665,7 +665,7 @@ extension TabManager: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         guard let tab = self[webView] else { return }
 
-        if let tpHelper = tab.contentBlocker, !tpHelper.isPrivacyDashboardEnabled {
+        if let tpHelper = tab.contentBlocker, !tpHelper.isAdBlockingEnabled, !tpHelper.isAntiTrackingEnabled {
             webView.evaluateJavaScript("window.__firefox__.TrackingProtectionStats.setEnabled(false, \(UserScriptManager.securityToken))")
         }
     }
