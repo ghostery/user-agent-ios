@@ -629,16 +629,21 @@ extension SQLiteHistory: BrowserHistory {
     }
 
     public func getDomainProtocol(_ domainName: String) -> Deferred<Maybe<String>> {
-
         let sql = """
             SELECT
-                DISTINCT(substr(history.url, 0, instr(history.url, ":"))) as protocol,
+                DISTINCT(substr(url, 0, instr(url, ":"))) as protocol,
                 COUNT(*) as count
-            FROM history
-            INNER JOIN domains ON domains.id = history.domain_id
-            WHERE domains.domain = ?
-                AND history.is_deleted = 0
-                AND history.url NOT LIKE 'search://%'
+            FROM (
+                SELECT history.url as url
+                FROM visits
+                INNER JOIN history ON visits.siteID = history.id
+                INNER JOIN domains ON domains.id = history.domain_id
+                WHERE domains.domain = ?
+                    AND history.is_deleted = 0
+                    AND history.url NOT LIKE 'search%'
+                ORDER BY visits.date DESC
+                LIMIT 100
+            )
             GROUP BY protocol
             ORDER BY count DESC
         """
