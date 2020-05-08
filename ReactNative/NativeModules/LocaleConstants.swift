@@ -28,7 +28,7 @@ class LocaleConstants: NSObject {
             "ControlCenter.PrivacyProtection.TrackersBlocked": Strings.ControlCenter.PrivacyProtection.TrackersBlocked,
             "Delete": Strings.HistoryPanel.DeleteTitle,
             "UrlBar.Placeholder": Strings.UrlBar.Placeholder,
-            "Search.Visit": Strings.Search.Visit,
+            "Search.UI.Visit": Strings.Search.UI.Visit,
         ]
     }
 

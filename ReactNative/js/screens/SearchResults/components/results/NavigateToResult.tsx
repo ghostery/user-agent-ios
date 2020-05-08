@@ -70,7 +70,7 @@ export default ({
             {friendlyUrl}
           </Text>
           <Text numberOfLines={1} style={styles.description}>
-            — {t('Search.Visit')}
+            — {t('Search.UI.Visit')}
           </Text>
         </View>
       </TouchableWithoutFeedback>
