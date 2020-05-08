@@ -26,6 +26,10 @@ extension Strings {
         }
         public struct UI {
             public static let Visit = NSLocalizedString("Search.UI.Visit", tableName: "Search", comment: "Shown next to navigate-to result")
+            public static let NoResults = NSLocalizedString("Search.UI.NoResults", tableName: "Search", comment: "Info shown when there are no results to show")
+            public static let Footer = NSLocalizedString("Search.UI.Footer", tableName: "Search", comment: "Footer")
+            public static let AdditionalSearchEnginesHeader = NSLocalizedString("Search.UI.AdditionalSearchEnginesHeader", tableName: "Search", comment: "Additional Search Engines header")
+            public static let SwitchToTab = NSLocalizedString("Search.UI.SwitchToTab", tableName: "Search", comment: "Show next to switch to tab result to indicate it's function")
         }
     }
 }
