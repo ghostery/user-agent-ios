@@ -1,6 +1,14 @@
 
 "Search.UI.Visit" = "Visit";
 
+"Search.UI.NoResults" = "No results found";
+
+"Search.UI.Footer" = "More search results";
+
+"Search.UI.AdditionalSearchEnginesHeader" = "Additional Search Engines";
+
+"Search.UI.SwitchToTab" = "SWITCH TO TAB";
+
 /* The message that asks the user to Add the search provider explaining where the search engine will appear */
 "Search.ThirdPartyEngines.AddMessage" = "Die neue Suchmaschine erscheint in der Schnellsuchleiste.";
 

@@ -71,6 +71,15 @@ const LogoComponent = ({ size, url }) => {
   return <Logo size={size} url={url} />;
 };
 
+const translate = key => {
+  switch (key) {
+    case 'search_switch_to_tab':
+      return t('Search.UI.SwitchToTab');
+    default:
+      throw new Error(`Missing translation for key ${key}`);
+  }
+};
+
 const Snippet = ({
   onPress,
   onLongPress,
@@ -89,7 +98,7 @@ const Snippet = ({
       isSelectable={false}
       ImageRendererComponent={ImageRendererComponent}
       LogoComponent={LogoComponent}
-      t={t}
+      t={translate}
       styles={styles}
     />
   );

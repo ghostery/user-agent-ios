@@ -29,6 +29,10 @@ class LocaleConstants: NSObject {
             "Delete": Strings.HistoryPanel.DeleteTitle,
             "UrlBar.Placeholder": Strings.UrlBar.Placeholder,
             "Search.UI.Visit": Strings.Search.UI.Visit,
+            "Search.UI.NoResults": Strings.Search.UI.NoResults,
+            "Search.UI.Footer": Strings.Search.UI.Footer,
+            "Search.UI.AdditionalSearchEnginesHeader": Strings.Search.UI.AdditionalSearchEnginesHeader,
+            "Search.UI.SwitchToTab": Strings.Search.UI.SwitchToTab,
         ]
     }
 

@@ -295,7 +295,7 @@ class Results extends React.Component {
             {results.length === 0 && (
               <View style={styles.noResults}>
                 <Text style={styles.noResultsText}>
-                  {t('search_no_results')}
+                  {t('Search.UI.NoResults')}
                 </Text>
               </View>
             )}
@@ -314,7 +314,7 @@ class Results extends React.Component {
                       color="#ffffff"
                     />
                     <Text style={styles.footerText} allowFontScaling={false}>
-                      {t('search_footer')}
+                      {t('Search.UI.Footer')}
                     </Text>
                   </View>
                 </View>
@@ -324,7 +324,7 @@ class Results extends React.Component {
               <>
                 <View style={styles.searchEnginesHeader}>
                   <Text style={styles.searchEnginesHeaderText}>
-                    {t('search_alternative_search_engines_info')}
+                    {t('Search.UI.AdditionalSearchEnginesHeader')}
                   </Text>
                 </View>
                 <View style={styles.searchEnginesContainer}>
