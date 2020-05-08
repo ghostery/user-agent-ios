@@ -373,6 +373,13 @@ class URLBarView: UIView {
         CATransaction.commit()
     }
 
+    private func getUrlBarReturnKeyType() -> UIReturnKeyType {
+        switch Features.Search.keyboardReturnKeyBehavior {
+        case .dismiss: return .done
+        case .search: return .search
+        }
+    }
+
     private func createLocationTextField() {
         guard locationTextField == nil else { return }
 
@@ -386,7 +393,7 @@ class URLBarView: UIView {
         locationTextField.keyboardType = .webSearch
         locationTextField.autocorrectionType = .no
         locationTextField.autocapitalizationType = .none
-        locationTextField.returnKeyType = .go
+        locationTextField.returnKeyType = self.getUrlBarReturnKeyType()
         locationTextField.clearButtonMode = .whileEditing
         locationTextField.textAlignment = .left
         locationTextField.font = UIConstants.DefaultChromeFont

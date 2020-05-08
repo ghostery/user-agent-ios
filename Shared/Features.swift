@@ -10,11 +10,20 @@ import Foundation
 
 public struct Features {
     public struct Search {
+        public enum KeyboardReturnKeyBehavior {
+            case dismiss
+            case search
+        }
         public struct AdditionalSearchEngines {
             public static var isEnabled: Bool {
                 get {
                     return true
                 }
+            }
+        }
+        public static var keyboardReturnKeyBehavior: KeyboardReturnKeyBehavior {
+            get {
+                return .dismiss
             }
         }
     }
