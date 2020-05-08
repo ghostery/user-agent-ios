@@ -12,6 +12,9 @@ extension Features.Search.AdditionalSearchEngines {
     public static var isEnabled: Bool {
         return false
     }
+}
+
+extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
         return .search
     }

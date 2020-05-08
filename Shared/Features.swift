@@ -33,6 +33,11 @@ public struct Features {
         public static var isPopupBlockerEnabled: Bool {
             return true
         }
+        public static var defaultEngineName: String {
+            get {
+                return ""
+            }
+        }
     }
 
 }

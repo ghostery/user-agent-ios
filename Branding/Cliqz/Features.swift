@@ -12,6 +12,9 @@ extension Features.Search.AdditionalSearchEngines {
     public static var isEnabled: Bool {
         return true
     }
+}
+
+extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
         return .dismiss
     }
@@ -26,5 +29,10 @@ extension Features.PrivacyDashboard {
     }
     public static var isPopupBlockerEnabled: Bool {
         return true
+    }
+    public static var defaultEngineName: String {
+        get {
+            return "Cliqz"
+        }
     }
 }
