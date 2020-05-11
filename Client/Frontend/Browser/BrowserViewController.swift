@@ -297,7 +297,16 @@ class BrowserViewController: UIViewController {
     }
 
     func presentPrivacyStatementViewController() {
-        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation], messageConversations: [Strings.PrivacyStatement.MessageConversation])
+        let settingsConversations = [
+            String(format: Strings.PrivacyStatement.SettingsConversation1, AppInfo.displayName),
+            String(format: Strings.PrivacyStatement.SettingsConversation2, AppInfo.displayName),
+        ]
+        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title,
+                                             sortedSettings: [],
+                                             settingsConversations: settingsConversations,
+                                             repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation],
+                                             privacyConversations: [Strings.PrivacyStatement.PrivacyConversation],
+                                             messageConversations: [Strings.PrivacyStatement.MessageConversation])
         let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
         privacyStatementViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
