@@ -27,6 +27,8 @@ private let KVOs: [KVOConstants] = [
 private let ActionSheetTitleMaxLength = 120
 
 private struct BrowserViewControllerUX {
+    fileprivate static let OnboardingWidth = 375
+    fileprivate static let OnboardingHeight = 667
     fileprivate static let ShowHeaderTapAreaHeight: CGFloat = 32
     fileprivate static let BookmarkStarAnimationDuration: Double = 0.5
     fileprivate static let BookmarkStarAnimationOffset: CGFloat = 80
@@ -1996,7 +1998,7 @@ extension BrowserViewController: OnboardingViewControllerDelegate {
             onboardingViewController.delegate = self
             // On iPad we present it modally in a controller
             if topTabsVisible {
-                onboardingViewController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
+                onboardingViewController.preferredContentSize = CGSize(width: BrowserViewControllerUX.OnboardingWidth, height: BrowserViewControllerUX.OnboardingHeight)
                 onboardingViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
             } else {
                 onboardingViewController.modalPresentationStyle = .fullScreen

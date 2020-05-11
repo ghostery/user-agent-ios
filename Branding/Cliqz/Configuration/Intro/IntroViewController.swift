@@ -7,8 +7,6 @@ import SnapKit
 import Shared
 
 struct IntroUX {
-    static let Width = 375
-    static let Height = 667
     static let MinimumFontScale: CGFloat = 0.5
     static let PagerCenterOffsetFromScrollViewBottom = UIScreen.main.bounds.width <= 320 ? 10 : 20
     static let TitleColor = UIColor(hexString: "#1A1A25")
