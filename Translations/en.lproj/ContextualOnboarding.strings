@@ -10,7 +10,7 @@
 "ContextualOnboarding.WipeAllTraces.Title" = "Delete All Website Traces";
 
 /* Description for Wipe All Traces screen */
-"ContextualOnboarding.WipeAllTraces.Description" = "You don't want your boss, spouse or partner to see that you've visited a specific website? Don't worry! Your secret is safe with Cliqz: You can easily delete all traces of this site stored in your browser, including history entries and cookies.";
+"ContextualOnboarding.WipeAllTraces.Description" = "You don't want your boss, spouse or partner to see that you've visited a specific website? Don't worry! Your secret is safe with %@: You can easily delete all traces of this site stored in your browser, including history entries and cookies.";
 
 /* Don't show agian button title */
 "ContextualOnboarding.DontShowAgain" = "Don't show again";
@@ -19,4 +19,4 @@
 "ContextualOnboarding.AutomaticForgotMode.Title" = "Automatic Forget Mode";
 
 /* Description for Automatic forget mode screen */
-"ContextualOnboarding.AutomaticForgotMode.Description" = "Your spouse or partner may secretly read your private messages, but they'll never know if you've visited any porn sites. Cliqz ensures this with its Automatic Forget Mode feature that prevents adult sites from appearing in your browsing history. You're welcome!";
+"ContextualOnboarding.AutomaticForgotMode.Description" = "Your spouse or partner may secretly read your private messages, but they'll never know if you've visited any porn sites. %@ this with its Automatic Forget Mode feature that prevents adult sites from appearing in your browsing history. You're welcome!";

@@ -9,5 +9,5 @@
 "ControlCenter.PrivacyProtection.AdsBlocked" = "Ads Blocked";
 "ControlCenter.PrivacyProtection.TrackersBlocked" = "Trackers Blocked";
 "ControlCenter.SearchStats.Title" = "Search stats";
-"ControlCenter.SearchStats.CliqzSearch" = "Cliqz Private Search";
+"ControlCenter.SearchStats.CliqzSearch" = "%@ Private Search";
 "ControlCenter.SearchStats.OtherSearch" = "Other";

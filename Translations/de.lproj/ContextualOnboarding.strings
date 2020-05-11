@@ -10,7 +10,7 @@
 "ContextualOnboarding.WipeAllTraces.Title" = "Alle Website-Spuren löschen";
 
 /* Description for Wipe All Traces screen */
-"ContextualOnboarding.WipeAllTraces.Description" = "Du möchtest nicht, dass dein Chef oder Partner sieht, dass du eine bestimmte Website besucht hast? Keine Sorge! Dein Geheimnis ist bei Cliqz sicher: Du kannst alle im Browser hinterlassenen Spuren dieser Website ganz einfach löschen, einschließlich Verlaufseinträge und Cookies.";
+"ContextualOnboarding.WipeAllTraces.Description" = "Du möchtest nicht, dass dein Chef oder Partner sieht, dass du eine bestimmte Website besucht hast? Keine Sorge! Dein Geheimnis ist bei %@ sicher: Du kannst alle im Browser hinterlassenen Spuren dieser Website ganz einfach löschen, einschließlich Verlaufseinträge und Cookies.";
 
 /* Don't show agian button title */
 "ContextualOnboarding.DontShowAgain" = "Nicht mehr anzeigen";
@@ -19,4 +19,4 @@
 "ContextualOnboarding.AutomaticForgotMode.Title" = "Automatischer Vergessen-Modus";
 
 /* Description for Automatic forget mode screen */
-"ContextualOnboarding.AutomaticForgotMode.Description" = "Dein Partner oder deine Partnerin mögen vielleicht heimlich deine privaten Nachrichten lesen, aber sie werden niemals erfahren, ob du irgendwelche Pornoseiten besucht hast. Dafür sorgt der Automatische Vergessen-Modus von Cliqz. Er verhindert, dass nicht jugendfreie Seiten im Browserverlauf auftauchen. Gern geschehen!";
+"ContextualOnboarding.AutomaticForgotMode.Description" = "Dein Partner oder deine Partnerin mögen vielleicht heimlich deine privaten Nachrichten lesen, aber sie werden niemals erfahren, ob du irgendwelche Pornoseiten besucht hast. Dafür sorgt der Automatische Vergessen-Modus von %@. Er verhindert, dass nicht jugendfreie Seiten im Browserverlauf auftauchen. Gern geschehen!";
