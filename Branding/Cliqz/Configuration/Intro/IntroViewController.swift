@@ -29,8 +29,9 @@ protocol IntroViewControllerDelegate: AnyObject {
     func introViewControllerDidFinish(_ introViewController: IntroViewController)
 }
 
-class IntroViewController: UIViewController {
-    weak var delegate: IntroViewControllerDelegate?
+class IntroViewController: UIViewController, OnboardingViewController {
+
+    weak var delegate: OnboardingViewControllerDelegate?
 
     // We need to hang on to views so we can animate and change constraints as we scroll
     var cardViews = [CardView]()
@@ -200,7 +201,7 @@ class IntroViewController: UIViewController {
     }
 
     @objc func startBrowsing() {
-        delegate?.introViewControllerDidFinish(self)
+        self.delegate?.onboardingViewControllerDidFinish(self)
     }
 
     @objc func changePage() {

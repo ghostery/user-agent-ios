@@ -85,7 +85,7 @@ class ClipboardBarDisplayHandler: NSObject {
             !sessionRestored ||
             !firstTabLoaded ||
             isClipboardURLAlreadyDisplayed(copiedURL) ||
-            self.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
+            (Onboarding.isEnabled && self.prefs.intForKey(PrefsKeys.IntroSeen) == nil) {
             return false
         }
         sessionStarted = false

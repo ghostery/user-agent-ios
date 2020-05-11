@@ -294,6 +294,51 @@ class BrowserViewController: UIViewController {
         self.present(reportPage, animated: true, completion: nil)
     }
 
+    func presentPrivacyStatementViewController() {
+        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation], messageConversations: [Strings.PrivacyStatement.MessageConversation])
+        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
+        privacyStatementViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
+        if #available(iOS 13.0, *) {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+            navigationController.presentationController?.delegate = self
+        } else {
+            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+        }
+        self.present(navigationController, animated: true)
+    }
+
+    func presentWipeAllTracesContextualOnboarding() {
+        let value = self.profile.prefs.boolForKey(PrefsKeys.WipeAllTraces)
+        guard value == nil || !value! else {
+            return
+        }
+        let icon = UIImage(named: "wipe-white")
+        let title = Strings.ContextualOnboarding.WipeAllTraces.Title
+        let description = Strings.ContextualOnboarding.WipeAllTraces.Description
+        let detail = ContextualOnboardingDitail(backgroundGradientColors: [.COLightBlue, .CODarkBlue], title: title, icon: icon, description: description)
+        self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces, contentSize: BrowserViewControllerUX.WipeContextualOnboardingContentSize)
+    }
+
+    func presentAutomaticForgetModeContextualOnboarding() {
+        let value = self.profile.prefs.boolForKey(PrefsKeys.AutomaticForgetMode)
+        guard value == nil || !value! else {
+            return
+        }
+        let icon = UIImage(named: "forgetMode")
+        let title = Strings.ContextualOnboarding.AutomaticForgetMode.Title
+        let description = Strings.ContextualOnboarding.AutomaticForgetMode.Description
+        let detail = ContextualOnboardingDitail(backgroundGradientColors: [.COLightBlue, .CODarkBlue], title: title, icon: icon, description: description)
+        self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces, contentSize: BrowserViewControllerUX.AutomaticForgetModeOnboardingContentSize)
+    }
+
+    func presentContextualOnboardingViewController(detail: ContextualOnboardingDitail, prefKey: String, contentSize: CGSize) {
+        let viewController = ContextualOnboardingViewController(contentDetail: detail, profile: self.profile, prefKey: prefKey)
+        viewController.modalPresentationStyle = self.traitCollection.horizontalSizeClass == .regular ? .formSheet : .overCurrentContext
+        viewController.preferredContentSize = contentSize
+        self.present(viewController, animated: true)
+    }
+
     func setPhoneWindowBackground(color: UIColor, animationDuration: TimeInterval? = nil) {
         if UIDevice.current.isPhone {
             if let duration = animationDuration {
@@ -623,7 +668,7 @@ class BrowserViewController: UIViewController {
         // not flash before we present. This change of alpha also participates in the animation when
         // the intro view is dismissed.
         if UIDevice.current.isPhone {
-            self.view.alpha = (profile.prefs.intForKey(PrefsKeys.IntroSeen) != nil) ? 1.0 : 0.0
+            self.view.alpha = (!Onboarding.isEnabled || profile.prefs.intForKey(PrefsKeys.IntroSeen) != nil) ? 1.0 : 0.0
         }
 
         if !displayedRestoreTabsAlert && !cleanlyBackgrounded() && crashedLastLaunch() {
@@ -665,7 +710,7 @@ class BrowserViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        presentIntroViewController()
+        presentOnboarding()
 
         screenshotHelper.viewIsVisible = true
         screenshotHelper.takePendingScreenshots(tabManager.tabs)
@@ -1930,35 +1975,12 @@ extension BrowserViewController: UIPopoverPresentationControllerDelegate {
     }
 }
 
-extension BrowserViewController: IntroViewControllerDelegate {
-    @discardableResult
-    func presentIntroViewController(_ force: Bool = false, animated: Bool = true) -> Bool {
-        if force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil {
-            let introViewController = IntroViewController()
-            introViewController.delegate = self
-            // On iPad we present it modally in a controller
-            if topTabsVisible {
-                introViewController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
-                introViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
-            } else {
-                introViewController.modalPresentationStyle = .fullScreen
-            }
-            present(introViewController, animated: animated) {
-                // On first run (and forced) open up the homepage in the background.
-                if let homePageURL = NewTabPage.topSites.url, let tab = self.tabManager.selectedTab, DeviceInfo.hasConnectivity() {
-                    tab.loadRequest(URLRequest(url: homePageURL))
-                }
-            }
+extension BrowserViewController: OnboardingViewControllerDelegate {
 
-            return true
-        }
-        return false
-    }
-
-    func introViewControllerDidFinish(_ introViewController: IntroViewController) {
+    func onboardingViewControllerDidFinish(_ onboardingViewController: OnboardingViewController) {
         let shouldPresentPrivacyStatement = self.profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil
         self.profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
-        introViewController.dismiss(animated: true) {
+        onboardingViewController.dismiss(animated: true) {
             if self.navigationController?.viewControllers.count ?? 0 > 1 {
                 _ = self.navigationController?.popToRootViewController(animated: true)
             }
@@ -1968,58 +1990,29 @@ extension BrowserViewController: IntroViewControllerDelegate {
         }
     }
 
-    func presentSignInViewController(_ fxaOptions: FxALaunchParams? = nil) {
-        // This method stub is a leftover from when we remoeved the Account and Sync modules
-    }
+    func presentOnboarding(_ force: Bool = false, animated: Bool = true) {
+        if Onboarding.isEnabled && (force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil) {
+            guard let onboardingViewController = Onboarding.presentingViewController() else { return }
+            onboardingViewController.delegate = self
+            // On iPad we present it modally in a controller
+            if topTabsVisible {
+                onboardingViewController.preferredContentSize = CGSize(width: IntroUX.Width, height: IntroUX.Height)
+                onboardingViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+            } else {
+                onboardingViewController.modalPresentationStyle = .fullScreen
+            }
+            present(onboardingViewController, animated: animated) {
+                // On first run (and forced) open up the homepage in the background.
+                if let homePageURL = NewTabPage.topSites.url, let tab = self.tabManager.selectedTab, DeviceInfo.hasConnectivity() {
+                    tab.loadRequest(URLRequest(url: homePageURL))
+                }
+            }
 
-    @objc func dismissSignInViewController() {
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    func presentPrivacyStatementViewController() {
-        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title, sortedSettings: [], settingsConversations: [Strings.PrivacyStatement.SettingsConversation1, Strings.PrivacyStatement.SettingsConversation2], repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation], privacyConversations: [Strings.PrivacyStatement.PrivacyConversation], messageConversations: [Strings.PrivacyStatement.MessageConversation])
-        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
-        privacyStatementViewController.delegate = self
-        let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
-        if #available(iOS 13.0, *) {
-            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
-            navigationController.presentationController?.delegate = self
-        } else {
-            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
-        }
-        self.present(navigationController, animated: true)
-    }
-
-    func presentWipeAllTracesContextualOnboarding() {
-        let value = self.profile.prefs.boolForKey(PrefsKeys.WipeAllTraces)
-        guard value == nil || !value! else {
             return
         }
-        let icon = UIImage(named: "wipe-white")
-        let title = Strings.ContextualOnboarding.WipeAllTraces.Title
-        let description = Strings.ContextualOnboarding.WipeAllTraces.Description
-        let detail = ContextualOnboardingDitail(backgroundGradientColors: [.COLightBlue, .CODarkBlue], title: title, icon: icon, description: description)
-        self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces, contentSize: BrowserViewControllerUX.WipeContextualOnboardingContentSize)
+        return
     }
 
-    func presentAutomaticForgetModeContextualOnboarding() {
-        let value = self.profile.prefs.boolForKey(PrefsKeys.AutomaticForgetMode)
-        guard value == nil || !value! else {
-            return
-        }
-        let icon = UIImage(named: "forgetMode")
-        let title = Strings.ContextualOnboarding.AutomaticForgetMode.Title
-        let description = Strings.ContextualOnboarding.AutomaticForgetMode.Description
-        let detail = ContextualOnboardingDitail(backgroundGradientColors: [.COLightBlue, .CODarkBlue], title: title, icon: icon, description: description)
-        self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces, contentSize: BrowserViewControllerUX.AutomaticForgetModeOnboardingContentSize)
-    }
-
-    func presentContextualOnboardingViewController(detail: ContextualOnboardingDitail, prefKey: String, contentSize: CGSize) {
-        let viewController = ContextualOnboardingViewController(contentDetail: detail, profile: self.profile, prefKey: prefKey)
-        viewController.modalPresentationStyle = self.traitCollection.horizontalSizeClass == .regular ? .formSheet : .overCurrentContext
-        viewController.preferredContentSize = contentSize
-        self.present(viewController, animated: true)
-    }
 }
 
 extension BrowserViewController: PrivacyStatementViewControllerDelegate {
