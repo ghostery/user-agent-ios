@@ -181,13 +181,15 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     private func supportSettingSection() -> SettingSection {
         let prefs = self.profile.prefs
-        let supportSettigns = [
-            ShowIntroductionSetting(settings: self),
+        var supportSettigns = [
             SendFeedbackSetting(),
             HumanWebSetting(prefs: prefs),
             TelemetrySetting(prefs: prefs, attributedStatusText: NSAttributedString(string: Strings.Settings.SendUsage.Message, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
             PrivacyPolicySetting(),
         ]
+        if Onboarding.isEnabled {
+            supportSettigns.insert(ShowIntroductionSetting(settings: self), at: 0)
+        }
         return SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: supportSettigns)
     }
 

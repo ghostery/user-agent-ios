@@ -208,7 +208,7 @@ class ShowIntroductionSetting: Setting {
     override func onClick(_ navigationController: UINavigationController?) {
         navigationController?.dismiss(animated: true, completion: {
             BrowserViewController.foregroundBVC().setPhoneWindowBackground(color: Theme.browser.background)
-            BrowserViewController.foregroundBVC().presentIntroViewController(true)
+            BrowserViewController.foregroundBVC().presentOnboarding(true)
         })
     }
 }

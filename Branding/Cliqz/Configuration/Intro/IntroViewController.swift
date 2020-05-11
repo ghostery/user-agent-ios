@@ -7,8 +7,6 @@ import SnapKit
 import Shared
 
 struct IntroUX {
-    static let Width = 375
-    static let Height = 667
     static let MinimumFontScale: CGFloat = 0.5
     static let PagerCenterOffsetFromScrollViewBottom = UIScreen.main.bounds.width <= 320 ? 10 : 20
     static let TitleColor = UIColor(hexString: "#1A1A25")
@@ -29,8 +27,9 @@ protocol IntroViewControllerDelegate: AnyObject {
     func introViewControllerDidFinish(_ introViewController: IntroViewController)
 }
 
-class IntroViewController: UIViewController {
-    weak var delegate: IntroViewControllerDelegate?
+class IntroViewController: UIViewController, OnboardingViewController {
+
+    weak var delegate: OnboardingViewControllerDelegate?
 
     // We need to hang on to views so we can animate and change constraints as we scroll
     var cardViews = [CardView]()
@@ -200,7 +199,7 @@ class IntroViewController: UIViewController {
     }
 
     @objc func startBrowsing() {
-        delegate?.introViewControllerDidFinish(self)
+        self.delegate?.onboardingViewControllerDidFinish(self)
     }
 
     @objc func changePage() {
