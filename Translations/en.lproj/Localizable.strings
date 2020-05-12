@@ -344,8 +344,8 @@
 /* Label to switch to normal browsing mode */
 "Hotkeys.NormalMode.DiscoveryTitle" = "Normal Browsing Mode";
 
-/* Label to switch to private browsing mode */
-"Hotkeys.PrivateMode.DiscoveryTitle" = "Private Browsing Mode";
+/* Label to switch to forget mode */
+"Hotkeys.PrivateMode.DiscoveryTitle" = "Forget Mode";
 
 /* Label to display in the Discoverability overlay for keyboard shortcuts */
 "Hotkeys.Reload.DiscoveryTitle" = "Reload Page";
@@ -926,7 +926,7 @@
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normal Browsing Mode";
 
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.SwitchToPBM.KeyCodeTitle" = "Private Browsing Mode";
+"TabTray.SwitchToPBM.KeyCodeTitle" = "Forget Mode";
 
 /* Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total. */
 "Tab %@ of %@" = "Tab %1$@ of %2$@";
