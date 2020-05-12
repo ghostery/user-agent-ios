@@ -29,7 +29,7 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>$(CLIQZ_URL_SCHEME)</string>
+				<string>$(USER_AGENT_URL_SCHEME)</string>
 			</array>
 		</dict>
 	</array>
