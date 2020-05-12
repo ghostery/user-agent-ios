@@ -8,7 +8,7 @@ APP_BUNDLE_ID = com.ghostery.browser.nightly
 APP_MARKETING_VERSION = 3.0.0
 
 // URL Scheme
-CLIQZ_URL_SCHEME = GhosteryNightly
+USER_AGENT_URL_SCHEME = GhosteryNightly
 
 // User Activity Types
 USER_ACTIVITY_TYPES= $(APP_BUNDLE_ID).activity.types
