@@ -395,6 +395,8 @@
 /* The title for the button that lets you copy the url from the location bar. */
 "Menu.Copy.Title" = "Adresse kopieren";
 
+"Menu.ClearSearchHistory" = "Suchverlauf löschen";
+
 /* Toast displayed to user after copy url pressed. */
 "Menu.CopyURL.Confirm" = "URL in Zwischenablage kopiert";
 

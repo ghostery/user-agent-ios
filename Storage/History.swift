@@ -20,7 +20,9 @@ open class IgnoredSiteError: MaybeErrorType {
 public protocol BrowserHistory {
     @discardableResult func addLocalVisit(_ visit: SiteVisit) -> Success
     func clearHistory() -> Success
-    func clearSearchHistory() -> Success
+    func clearQueryLog() -> Success
+    func removeQuery(_ query: String) -> Success
+    func getRecentQueries() -> Deferred<Maybe<Cursor<String>>>
     @discardableResult func removeHistoryForURL(_ url: String) -> Success
     @discardableResult func removeAllTracesForDomain(_ url: String) -> Success
     func removeHistoryFromDate(_ date: Date) -> Success

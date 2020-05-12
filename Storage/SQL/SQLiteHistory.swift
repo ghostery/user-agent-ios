@@ -507,10 +507,54 @@ extension SQLiteHistory: BrowserHistory {
             >>> effect({ self.db.vacuum() })
     }
 
-    public func clearSearchHistory() -> Success {
-        return db.run("DELETE FROM history WHERE url LIKE \"search://%\"")
+    public func clearQueryLog() -> Success {
+        return self.removeQueries()
     }
 
+    public func removeQuery(_ query: String) -> Success {
+        return self.removeQueries(query: query)
+    }
+
+    private func removeQueries(query: String? = nil) -> Success {
+        var likeStatement = "search://%"
+
+        if query != nil {
+            let queryURLQueryItem = URLQueryItem(name: SearchURL.queryItemNameQuery,
+                                                 value: query)
+            let queryEncoded = queryURLQueryItem.value ?? ""
+            likeStatement = "search://%query=\(queryEncoded)&redirected"
+        }
+
+        return db.run([
+            (sql: "DELETE FROM visits WHERE siteID = (SELECT id FROM history WHERE url LIKE ?)", args: [likeStatement]),
+            (sql: "DELETE FROM history WHERE url LIKE ?", args: [likeStatement]),
+        ])
+    }
+
+    public func getRecentQueries() -> Deferred<Maybe<Cursor<String>>> {
+        let sql = """
+            SELECT history.url
+            FROM (
+                SELECT siteID
+                FROM visits
+                ORDER BY visits.date DESC
+                LIMIT 100
+            ) as visits
+            INNER JOIN history ON visits.siteID = history.id
+            WHERE url like "search://%"
+        """
+
+        let factory: (SDRow) -> String = {
+            guard
+                let urlString = $0["url"] as? String,
+                let url = URL(string: urlString),
+                let searchURL = SearchURL(url)
+            else { return "" }
+            return searchURL.query
+        }
+
+        return db.runQueryConcurrently(sql, args: [], factory: factory)
+    }
 
     func recordVisitedSite(_ site: Site) -> Success {
         // Don't store visits to sites with about: protocols

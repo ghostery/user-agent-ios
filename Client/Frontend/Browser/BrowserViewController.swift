@@ -132,10 +132,6 @@ class BrowserViewController: UIViewController {
     var topTabsViewController: TopTabsViewController?
     let topTabsContainer = UIView()
 
-    // Keep last 5 queries.
-    // This list will be presented if user will long press on search icon.
-    var queries = [String]()
-
     // Keep track of allowed `URLRequest`s from `webView(_:decidePolicyFor:decisionHandler:)` so
     // that we can obtain the originating `URLRequest` when a `URLResponse` is received. This will
     // allow us to re-trigger the `URLRequest` if the user requests a file to be downloaded.
@@ -1036,10 +1032,6 @@ class BrowserViewController: UIViewController {
        }
 
     func finishEditingAndSubmit(_ url: URL, visitType: VisitType, forTab tab: Tab) {
-        if let query = self.searchController?.searchQuery, !tab.isPrivate {
-            self.appendQuery(query: query)
-        }
-
         urlBar.currentURL = url
         urlBar.leaveOverlayMode()
 
@@ -1572,10 +1564,6 @@ extension BrowserViewController: URLBarDelegate {
             return
         }
 
-        if !currentTab.isPrivate {
-            self.appendQuery(query: text)
-        }
-
         switch Features.Search.keyboardReturnKeyBehavior {
         case .dismiss: self.urlBar.closeKeyboard()
         case .search:
@@ -1583,15 +1571,6 @@ extension BrowserViewController: URLBarDelegate {
                 self.finishEditingAndSubmit(url, visitType: .typed, forTab: currentTab)
             }
         }
-    }
-
-    private func appendQuery(query: String) {
-        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmedQuery.isEmpty && !self.queries.contains(trimmedQuery) else {
-            return
-        }
-        self.queries.insert(trimmedQuery, at: 0)
-        self.queries = Array(self.queries.prefix(5))
     }
 
     fileprivate func submitSearchText(_ text: String, forTab tab: Tab) {

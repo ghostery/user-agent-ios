@@ -114,7 +114,7 @@ extension PhotonActionSheetProtocol {
         let clearBrowserHistory = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.BrowsingHistory, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "HistoryClearable", value: item.isEnabled)
         }
-        let clearSearchHistory = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.SearchHistory, isEnabled: false, accessory: .Switch) { item in
+        let clearQueryLog = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.SearchHistory, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "SearchHistoryClearable", value: item.isEnabled)
         }
         var clearTopSitesSetting = false
@@ -151,7 +151,7 @@ extension PhotonActionSheetProtocol {
             }
             (presentableVC as? BrowserViewController)?.homeViewController?.refreshHistory()
         }
-        return [[clearBrowserStorage, closeAllTabs, clearBrowserHistory, clearSearchHistory, clearTopSites, clearDownloadFiles, clearPrivacyStats, clearBookmarks], [closeAllTabsAndClearData]]
+        return [[clearBrowserStorage, closeAllTabs, clearBrowserHistory, clearQueryLog, clearTopSites, clearDownloadFiles, clearPrivacyStats, clearBookmarks], [closeAllTabsAndClearData]]
     }
 
     fileprivate func saveFileToDownloads(fileURL: URL, presentableVC: PresentableVC) {
