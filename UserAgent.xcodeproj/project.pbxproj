@@ -375,6 +375,9 @@
 		46CA610A231909EF0010CE6B /* ReactNativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */; };
 		46CA610B231909EF0010CE6B /* ReactNativeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */; };
 		46CA610E23190FFD0010CE6B /* ReactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA60D2231555220010CE6B /* ReactViewController.swift */; };
+		46CF5F80246A9B640058D750 /* ShareTo.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F84B22491A0920C600AAB793 /* ShareTo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		46CF5F81246A9B730058D750 /* Siri.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B308ABD242B2B4A009AF3D1 /* Siri.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		46CF5F82246A9B790058D750 /* OpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* OpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46E96603236B2793003C23F3 /* UserAgentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E96602236B2793003C23F3 /* UserAgentConstants.swift */; };
 		46E96604236B2793003C23F3 /* UserAgentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E96602236B2793003C23F3 /* UserAgentConstants.swift */; };
 		46E96606236B27E6003C23F3 /* UserAgentConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E96605236B27E6003C23F3 /* UserAgentConstants.m */; };
@@ -1157,6 +1160,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				46CF5F82246A9B790058D750 /* OpenIn.appex in Embed App Extensions */,
+				46CF5F81246A9B730058D750 /* Siri.appex in Embed App Extensions */,
+				46CF5F80246A9B640058D750 /* ShareTo.appex in Embed App Extensions */,
 				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -1550,6 +1556,7 @@
 		46CA60F52317E5D10010CE6B /* JSBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSBridge.m; sourceTree = "<group>"; };
 		46CA610123180E1A0010CE6B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		46CA6109231909EF0010CE6B /* ReactNativeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactNativeBridge.swift; sourceTree = "<group>"; };
+		46CF5F7F246A99B10058D750 /* setup.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setup.sh; sourceTree = "<group>"; };
 		46E6117D232A51EB006FCADB /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
 		46E96602236B2793003C23F3 /* UserAgentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgentConstants.swift; sourceTree = "<group>"; };
 		46E96605236B27E6003C23F3 /* UserAgentConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAgentConstants.m; sourceTree = "<group>"; };
@@ -3160,6 +3167,7 @@
 		C50ED2B02326AA8500EE71B8 /* Branding */ = {
 			isa = PBXGroup;
 			children = (
+				46CF5F7F246A99B10058D750 /* setup.sh */,
 				C50ED2B22326AA9400EE71B8 /* Ghostery */,
 				C50ED2B12326AA8F00EE71B8 /* Cliqz */,
 			);

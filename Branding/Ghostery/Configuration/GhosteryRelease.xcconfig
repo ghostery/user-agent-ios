@@ -2,10 +2,10 @@
 BUNDLE_DISPLAY_NAME = Ghostery
 
 // Bundle Identifier
-APP_BUNDLE_ID = com.ghostery
+APP_BUNDLE_ID = com.evidon.Ghostery
 
 // Marketing version
-APP_MARKETING_VERSION = 2.0.0
+APP_MARKETING_VERSION = 3.0.0
 
 // URL Scheme
 CLIQZ_URL_SCHEME = Ghostery
