@@ -204,10 +204,11 @@ class TabManager: NSObject {
         return nil
     }
 
-    func getTabFor(_ url: URL) -> Tab? {
+    func getTabFor(_ url: URL, isPrivate: Bool) -> Tab? {
         assert(Thread.isMainThread)
 
         for tab in tabs {
+            guard tab.isPrivate == isPrivate else { continue }
             if let webViewUrl = tab.webView?.url,
                 url.isEqual(webViewUrl) {
                 return tab

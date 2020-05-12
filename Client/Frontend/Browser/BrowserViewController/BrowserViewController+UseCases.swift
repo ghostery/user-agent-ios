@@ -12,7 +12,8 @@ import Storage
 extension BrowserViewController: UseCasesPresentationViewController {
 
     func switchOrOpenTabWithURL(_ url: URL) {
-        self.switchToTabForURLOrOpen(url, isPrivileged: true)
+        let isPrivate = self.tabManager.selectedTab?.isPrivate ?? false
+        self.switchToTabForURLOrOpen(url, isPrivate: isPrivate, isPrivileged: true)
     }
 
     func submitURL(_ url: URL, visitType: VisitType, forTab tab: Tab) {

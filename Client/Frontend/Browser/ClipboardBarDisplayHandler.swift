@@ -99,8 +99,9 @@ class ClipboardBarDisplayHandler: NSObject {
             return true
         }
 
+        let isPrivate = self.tabManager?.selectedTab?.isPrivate ?? false
         if let url = URL(string: clipboardURL),
-            let _ = tabManager?.getTabFor(url) {
+            let _ = tabManager?.getTabFor(url, isPrivate: isPrivate) {
             return true
         }
         return false
