@@ -34,8 +34,18 @@ class FirefoxTabContentBlocker: TabContentBlocker, TabContentScript {
 
     func setupForTab() {
         guard let tab = tab else { return }
+        var rules = [BlocklistName]()
+        if self.isAdBlockingEnabled {
+            rules.append(contentsOf: [.advertisingCosmetic, .advertisingNetwork])
+        }
+        if self.isAntiTrackingEnabled {
+            rules.append(.trackingNetwork)
+        }
+        if self.isPopupBlockerEnabled {
+            rules.append(contentsOf: [.popupsNetwork, .popupsCosmetic])
+        }
         let isPrivacyDashboardEnabled = self.isAdBlockingEnabled || self.isAntiTrackingEnabled || self.isPopupBlockerEnabled
-        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: isPrivacyDashboardEnabled, rules: BlocklistName.all)
+        ContentBlocker.shared.setupTrackingProtection(forTab: tab, isEnabled: isPrivacyDashboardEnabled, rules: rules)
     }
 
     @objc override func notifiedTabSetupRequired() {
