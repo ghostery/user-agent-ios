@@ -840,7 +840,7 @@
 /* The description of the open new tab siri shortcut */
 "Settings.Siri.OpenTabShortcut" = "Open New Tab";
 
-/* The description of the search with cliqz siri shortcut */
+/* The description of the search with siri shortcut */
 "Settings.Siri.SearchWith" = "Search With ";
 
 /* The description that describes what siri shortcuts are */

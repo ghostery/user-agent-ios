@@ -16,7 +16,7 @@
 "PrivacyStatement.ProfileName" = "Krzysztof";
 
 /* Profile title. */
-"PrivacyStatement.ProfileTitle" = "Cliqz iOS Team";
+"PrivacyStatement.ProfileTitle" = "%@ iOS Team";
 
 /* Human Web setting status. */
 "PrivacyStatement.HumanWebStatus" = "Help us build our search engine";
@@ -37,10 +37,10 @@
 "PrivacyStatement.MessageCellTitle" = "Write a message";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation1" = "Hi, I'm building this app. At Cliqz, we build products with privacy by design. And we believe in transparency.";
+"PrivacyStatement.SettingsConversation1" = "Hi, I'm building this app. At %@, we build products with privacy by design. And we believe in transparency.";
 
 /* Conversation static message. */
-"PrivacyStatement.SettingsConversation2" = "The Cliqz browser collects only non-personal data. So we can never identify you—technically guaranteed! Yet, I believe you should decide if you want to even turn that off:";
+"PrivacyStatement.SettingsConversation2" = "The %@ browser collects only non-personal data. So we can never identify you—technically guaranteed! Yet, I believe you should decide if you want to even turn that off:";
 
 /* Conversation static message. */
 "PrivacyStatement.RepositoryConversation" = "Don't just take my word for it—our code is open source!";

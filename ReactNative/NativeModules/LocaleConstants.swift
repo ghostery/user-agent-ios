@@ -21,7 +21,7 @@ class LocaleConstants: NSObject {
             "ActivityStream.News.BreakingLabel": Strings.ActivityStream.News.BreakingLabel,
             "ActivityStream.News.Header": Strings.ActivityStream.News.Header,
             "ControlCenter.SearchStats.Title": Strings.ControlCenter.SearchStats.Title,
-            "ControlCenter.SearchStats.CliqzSearch": Strings.ControlCenter.SearchStats.CliqzSearch,
+            "ControlCenter.SearchStats.CliqzSearch": String(format: Strings.ControlCenter.SearchStats.CliqzSearch, AppInfo.displayName),
             "ControlCenter.SearchStats.OtherSearch": Strings.ControlCenter.SearchStats.OtherSearch,
             "ControlCenter.PrivacyProtection.Title": Strings.ControlCenter.PrivacyProtection.Title,
             "ControlCenter.PrivacyProtection.AdsBlocked": Strings.ControlCenter.PrivacyProtection.AdsBlocked,
