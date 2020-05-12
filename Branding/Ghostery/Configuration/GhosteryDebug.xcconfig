@@ -12,3 +12,5 @@ CLIQZ_URL_SCHEME = GhosteryDebug
 
 // User Activity Types
 USER_ACTIVITY_TYPES= $(APP_BUNDLE_ID).activity.types
+
+DEVELOPMENT_TEAM = HPY23A294X
