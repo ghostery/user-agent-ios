@@ -12,3 +12,5 @@ CLIQZ_URL_SCHEME = CliqzDebug
 
 // User Activity Types
 USER_ACTIVITY_TYPES= $(APP_BUNDLE_ID).activity.types
+
+DEVELOPMENT_TEAM = 2UYYSSHVUH
