@@ -132,20 +132,43 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
     }
 
     func showQueriesList(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-        guard !self.queries.isEmpty else {
-            return
-        }
         HapticFeedback.vibrate()
-        let queriesItems = self.getQueriesActions(queries: self.queries, didSelectQuery: { [weak self] (query) in
-            self?.urlBar.enterOverlayMode(query, pasted: false, search: true)
-        }) { [weak self] (query) in
-            self?.queries = self?.queries.filter({ $0 != query }) ?? []
-            if self?.queries.isEmpty ?? false {
-                self?.presentedViewController?.dismiss(animated: true)
-            }
+
+        self.profile.history.getRecentQueries().uponQueue(.main) { cursor in
+            var queries = (cursor.successValue?.asArray() ?? [])
+                .unique { $0 }
+            queries = Array(queries.prefix(5))
+
+            let queriesItems = self.getQueriesActions(
+                queries: queries,
+                didSelectQuery: { [weak self] (query) in
+                    self?.urlBar.enterOverlayMode(query, pasted: false, search: true)
+                },
+                didRemoveQuery: { [weak self] (query) in
+                    _ = self?.profile.history.removeQuery(query)
+                    queries = queries.filter({ $0 != query })
+                    if queries.isEmpty {
+                        self?.presentedViewController?.dismiss(animated: true)
+                    }
+                }
+            )
+
+            let clearQueryLog = PhotonActionSheetItem(
+                title: Strings.Menu.ClearSearchHistory,
+                iconString: "menu-burn",
+                handler: { [weak self] item in
+                    _ = self?.profile.history.clearQueryLog()
+                    self?.presentedViewController?.dismiss(animated: true)
+                }
+            )
+
+            self.presentSheetWith(
+                actions: [queriesItems, [clearQueryLog]],
+                on: self,
+                from: button,
+                suppressPopover: !self.topTabsVisible && UIDevice.current.isPad
+            )
         }
-        let shouldSuppress = !self.topTabsVisible && UIDevice.current.isPad
-        self.presentSheetWith(actions: [queriesItems], on: self, from: button, suppressPopover: shouldSuppress)
     }
 
 }

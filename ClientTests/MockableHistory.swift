@@ -17,7 +17,9 @@ class MockableHistory: BrowserHistory, SyncableHistory {
     func getDomainProtocol(_ domainName: String) -> Deferred<Maybe<String>> { fatalError() }
     func addLocalVisit(_ visit: SiteVisit) -> Success { fatalError() }
     func clearHistory() -> Success { fatalError() }
-    func clearSearchHistory() -> Success { fatalError() }
+    func clearQueryLog() -> Success { fatalError() }
+    func removeQuery(_ query: String) -> Success { fatalError() }
+    func getRecentQueries() -> Deferred<Maybe<Cursor<String>>> { fatalError() }
     func removeHistoryFromDate(_ date: Date) -> Success { fatalError() }
     func removeHistoryForURL(_ url: String) -> Success { fatalError() }
     func removeAllTracesForDomain(_ url: String) -> Success { fatalError() }

@@ -30,9 +30,4 @@ extension BrowserViewController: UseCasesPresentationViewController {
     func showAutomaticForgetModeContextualOnboarding() {
         self.presentAutomaticForgetModeContextualOnboarding()
     }
-
-    func removeQueryFromQueryList(_ query: String) {
-        self.queries.removeAll(where: { $0 == query })
-    }
-
 }

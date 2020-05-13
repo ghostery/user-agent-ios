@@ -48,9 +48,6 @@ extension InterceptorFeature: InterceptorDelegate {
         case .automaticForgetMode:
             self.useCases.openLink.openNewForgetModeTab(url: url)
             self.useCases.viewController?.showAutomaticForgetModeContextualOnboarding()
-            if let query = url.getQuery()["query"] {
-                self.useCases.viewController?.removeQueryFromQueryList(query)
-            }
         default:
             break
         }

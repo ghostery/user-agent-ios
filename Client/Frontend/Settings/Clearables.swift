@@ -216,7 +216,7 @@ class SearchHistoryClearable: Clearable {
     }
 
     func clear() -> Success {
-        return self.profile.history.clearSearchHistory().bindQueue(.main) { success in
+        return self.profile.history.clearQueryLog().bindQueue(.main) { success in
             log.debug("SearchHistoryClearable succeeded: \(success).")
             return Deferred(value: success)
         }
