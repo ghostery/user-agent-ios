@@ -260,8 +260,7 @@ class Tab: NSObject {
                 webView.allowsLinkPreview = false
             }
 
-            // Night mode enables this by toggling WKWebView.isOpaque, otherwise this has no effect.
-            webView.backgroundColor = .black
+            webView.backgroundColor = Theme.browser.background
 
             // Turning off masking allows the web content to flow outside of the scrollView's frame
             // which allows the content appear beneath the toolbars in the BrowserViewController
