@@ -56,6 +56,7 @@ class QuerySuggestionsInputAccessoryView: UIInputView {
             let suggestions = suggestionsData["suggestions"] as? [String]
         else {
             DispatchQueue.main.async {
+                self.suggestionsView.updateSuggestions(query: "", suggestions: [])
                 self.isHidden = true
             }
             return
