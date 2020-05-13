@@ -6,9 +6,29 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-import Foundation
+import Shared
 
-enum SiriActivityTypes: String {
-    case openURL = "org.cliqz.newTab"
-    case searchWith = "org.cliqz.searchWith"
+enum SiriActivityTypes {
+    case openURL
+    case searchWith
+
+    init?(value: String) {
+        switch value {
+        case "org.\(AppInfo.displayName).newTab":
+            self = .openURL
+        case "org.\(AppInfo.displayName).searchWith":
+            self = .searchWith
+        default:
+            return nil
+        }
+    }
+
+    var value: String {
+        switch self {
+        case .openURL:
+            return "org.\(AppInfo.displayName).newTab"
+        case .searchWith:
+            return "org.\(AppInfo.displayName).searchWith"
+        }
+    }
 }
