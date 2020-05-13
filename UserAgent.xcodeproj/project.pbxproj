@@ -315,6 +315,21 @@
 		46569CDC23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569CDA23CD100E00224DC2 /* ContentBlocker+Popups+Whitelist.swift */; };
 		465E2AF823D1C66800ECEFA3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2AF723D1C66800ECEFA3 /* Authenticator.swift */; };
 		465E2AF923D1C66800ECEFA3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2AF723D1C66800ECEFA3 /* Authenticator.swift */; };
+		4661C36B246C11C300F36302 /* 3DTouchActions.strings in Resources */ = {isa = PBXBuildFile; fileRef = C69A4445A044D7F52824B948 /* 3DTouchActions.strings */; };
+		4661C36C246C11C700F36302 /* ClearHistoryConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */; };
+		4661C36D246C11CB00F36302 /* ClearPrivateData.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A5540EB8DEED346508AE041 /* ClearPrivateData.strings */; };
+		4661C36E246C11CE00F36302 /* ClearPrivateDataConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */; };
+		4661C36F246C11D300F36302 /* ErrorPages.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B144025BB2AFEA7FF2CCC04 /* ErrorPages.strings */; };
+		4661C370246C11D500F36302 /* FindInPage.strings in Resources */ = {isa = PBXBuildFile; fileRef = E178452EA7469EB0EF3611B9 /* FindInPage.strings */; };
+		4661C371246C11D800F36302 /* HistoryPanel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE94446954F6DCEF9FCCDAB /* HistoryPanel.strings */; };
+		4661C372246C11DA00F36302 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 794F44B78C79F0DA5BA91463 /* Localizable.strings */; };
+		4661C373246C11DC00F36302 /* LoginManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89284761B16A536C0985FB01 /* LoginManager.strings */; };
+		4661C374246C11DF00F36302 /* Menu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 187C48DAA7ADAA94202B7F33 /* Menu.strings */; };
+		4661C375246C11E200F36302 /* PrivateBrowsing.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEEC42F589C10B5A25A90238 /* PrivateBrowsing.strings */; };
+		4661C376246C11E700F36302 /* Search.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E430FA4DF366BB519164A /* Search.strings */; };
+		4661C377246C11EB00F36302 /* Shared.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D5C457AA78148172BE8231E /* Shared.strings */; };
+		4661C378246C11ED00F36302 /* Storage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87334596ACEFC08E1CEC3543 /* Storage.strings */; };
+		4661C379246C125F00F36302 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B0E93682407A92300ED7703 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4667B08724210109001A4197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4667B08924210109001A4197 /* InfoPlist.strings */; };
 		4667B090242123B1001A4197 /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08F242123B1001A4197 /* Bridge.m */; };
 		4667B092242123EC001A4197 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B091242123EC001A4197 /* Bridge.swift */; };
@@ -1160,6 +1175,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				4661C379246C125F00F36302 /* Today.appex in Embed App Extensions */,
 				46CF5F82246A9B790058D750 /* OpenIn.appex in Embed App Extensions */,
 				46CF5F81246A9B730058D750 /* Siri.appex in Embed App Extensions */,
 				46CF5F80246A9B640058D750 /* ShareTo.appex in Embed App Extensions */,
@@ -4290,11 +4306,13 @@
 				TargetAttributes = {
 					049DBAD523E4587B00D2D38D = {
 						CreatedOnToolsVersion = 11.3;
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
 						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					049DBADD23E4587B00D2D38D = {
 						CreatedOnToolsVersion = 11.3;
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
 						ProvisioningStyle = Automatic;
 					};
 					288A2D851AB8B3260023ABC3 = {
@@ -4327,23 +4345,26 @@
 					};
 					2FCAE2231ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					3B43E3CF1D95C48D00BBA9DB = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					3BFE4B061D342FB800DDF53F = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					ACB7371123042BAB00FA5626 = {
-						DevelopmentTeam = HPY23A294X;
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -4356,6 +4377,7 @@
 					};
 					E6F9650B1B2F1CF20034B023 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
@@ -4384,6 +4406,7 @@
 					};
 					F84B21D21A090F8100AAB793 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
@@ -4528,9 +4551,11 @@
 				46828D8F2341F23300E7D8A3 /* UserAgent.strings in Resources */,
 				ACB737F823042BAB00FA5626 /* CertError.html in Resources */,
 				ACB737F923042BAB00FA5626 /* NetError.css in Resources */,
+				4661C36B246C11C300F36302 /* 3DTouchActions.strings in Resources */,
 				ACB737FC23042BAB00FA5626 /* Images.xcassets in Resources */,
 				ACB737FD23042BAB00FA5626 /* SessionRestore.html in Resources */,
 				ACB737FF23042BAB00FA5626 /* Menu.xcassets in Resources */,
+				4661C371246C11D800F36302 /* HistoryPanel.strings in Resources */,
 				2B464954243F2003002913F5 /* ContextualOnboarding.strings in Resources */,
 				46569CCC23CC902C00224DC2 /* ControlCenter.strings in Resources */,
 				ACB7380423042BAB00FA5626 /* Reader.html in Resources */,
@@ -4539,13 +4564,18 @@
 				ACB7380623042BAB00FA5626 /* Licenses.html in Resources */,
 				ACB7380723042BAB00FA5626 /* Reader.css in Resources */,
 				ACB7380923042BAB00FA5626 /* AllFramesAtDocumentEnd.js in Resources */,
+				4661C370246C11D500F36302 /* FindInPage.strings in Resources */,
+				4661C374246C11DF00F36302 /* Menu.strings in Resources */,
 				2B76E43D23A12DE4001CF20E /* PrivacyStatement.strings in Resources */,
 				ACB7380B23042BAB00FA5626 /* topdomains.txt in Resources */,
+				4661C378246C11ED00F36302 /* Storage.strings in Resources */,
 				4620EA562354C59F004586CF /* safari-ads-network.json in Resources */,
 				ACB7380D23042BAB00FA5626 /* Settings.xcassets in Resources */,
 				ACD6547A2360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */,
 				46CA610323180E1A0010CE6B /* Icons.xcassets in Resources */,
 				ACB7380E23042BAB00FA5626 /* FocusHelper.js in Resources */,
+				4661C36F246C11D300F36302 /* ErrorPages.strings in Resources */,
+				4661C377246C11EB00F36302 /* Shared.strings in Resources */,
 				ACB7381323042BAB00FA5626 /* MainFrameAtDocumentStart.js in Resources */,
 				ACB7381423042BAB00FA5626 /* SearchPlugins in Resources */,
 				ACB7381523042BAB00FA5626 /* MailSchemes.plist in Resources */,
@@ -4556,17 +4586,24 @@
 				2B8DDBA423A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */,
 				ACB7381B23042BAB00FA5626 /* NetError.html in Resources */,
 				4620EA502354C59F004586CF /* safari-ads-cosmetic.json in Resources */,
+				4661C372246C11DA00F36302 /* Localizable.strings in Resources */,
 				460C247723EB0D3200D922B0 /* safari-popups-network.json in Resources */,
+				4661C36D246C11CB00F36302 /* ClearPrivateData.strings in Resources */,
 				ACB7381C23042BAB00FA5626 /* ReaderViewLoading.html in Resources */,
+				4661C376246C11E700F36302 /* Search.strings in Resources */,
+				4661C36C246C11C700F36302 /* ClearHistoryConfirm.strings in Resources */,
 				2B0360912350B07200273A24 /* tracker_db_v2.json in Resources */,
 				ACB7381E23042BAB00FA5626 /* SendTo.xcassets in Resources */,
+				4661C373246C11DC00F36302 /* LoginManager.strings in Resources */,
 				ACB7382023042BAB00FA5626 /* FxASignIn.js in Resources */,
 				C50ED2BE2326B18200EE71B8 /* brand.xcassets in Resources */,
 				ACB7382223042BAB00FA5626 /* SpotlightHelper.js in Resources */,
+				4661C375246C11E200F36302 /* PrivateBrowsing.strings in Resources */,
 				ACB7382323042BAB00FA5626 /* MainFrameAtDocumentEnd.js in Resources */,
 				ACB7382423042BAB00FA5626 /* LaunchScreen.xib in Resources */,
 				ACB7382623042BAB00FA5626 /* AllFramesAtDocumentStart.js in Resources */,
 				461E5E59234F6891004DDE84 /* brand.strings in Resources */,
+				4661C36E246C11CE00F36302 /* ClearPrivateDataConfirm.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7653,7 +7690,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -7695,7 +7732,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -8321,7 +8358,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/GhosteryDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -8378,7 +8415,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/GhosteryAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -8435,7 +8472,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -8621,7 +8658,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HPY23A294X;
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
