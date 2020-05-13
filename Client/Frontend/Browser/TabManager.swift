@@ -282,9 +282,9 @@ class TabManager: NSObject {
         }
     }
 
-    func addPopupForParentTab(bvc: BrowserViewController, parentTab: Tab, configuration: WKWebViewConfiguration) -> Tab {
+    func addPopupForParentTab(bvc: BrowserViewController, parentTab: Tab, request: URLRequest, configuration: WKWebViewConfiguration) -> Tab {
         var popup = Tab(bvc: bvc, configuration: configuration, isPrivate: parentTab.isPrivate)
-        popup = configureTab(popup, request: nil, afterTab: parentTab, flushToDisk: true, zombie: false, isPopup: true)
+        popup = configureTab(popup, request: request, afterTab: parentTab, flushToDisk: true, zombie: false, isPopup: true)
 
         // Wait momentarily before selecting the new tab, otherwise the parent tab
         // may be unable to set `window.location` on the popup immediately after
