@@ -8,7 +8,41 @@
 
 import Foundation
 
-enum SiriActivityTypes: String {
-    case openURL = "org.cliqz.newTab"
-    case searchWith = "org.cliqz.searchWith"
+enum SiriActivityTypes {
+    case openURL
+    case searchWith
+
+    init?(value: String) {
+        switch value {
+        case "\(Self.baseBundleIdentifier).newTab":
+            self = .openURL
+        case "\(Self.baseBundleIdentifier).searchWith":
+            self = .searchWith
+        default:
+            return nil
+        }
+    }
+
+    var value: String {
+        switch self {
+        case .openURL:
+            return "\(Self.baseBundleIdentifier).newTab"
+        case .searchWith:
+            return "\(Self.baseBundleIdentifier).searchWith"
+        }
+    }
+
+    // MARK: - Private methods
+
+    private static var baseBundleIdentifier: String {
+        let bundle = Bundle.main
+        let packageType = bundle.object(forInfoDictionaryKey: "CFBundlePackageType") as! String
+        let baseBundleIdentifier = bundle.bundleIdentifier!
+        if packageType == "XPC!" {
+            let components = baseBundleIdentifier.components(separatedBy: ".")
+            return components[0..<components.count-1].joined(separator: ".")
+        }
+        return baseBundleIdentifier
+    }
+
 }

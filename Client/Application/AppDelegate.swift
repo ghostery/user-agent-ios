@@ -447,7 +447,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         let bvc = BrowserViewController.foregroundBVC()
-        if #available(iOS 12.0, *), let activityType = SiriActivityTypes(rawValue: userActivity.activityType) {
+        if #available(iOS 12.0, *), let activityType = SiriActivityTypes(value: userActivity.activityType) {
             switch activityType {
             case .openURL:
                 self.afterStartupAction = {

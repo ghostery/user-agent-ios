@@ -23,7 +23,7 @@ class SearchWithHandling: NSObject, SearchWithIntentHandling {
             completion(.init(code: .failure, userActivity: nil))
             return
         }
-        let activity = NSUserActivity(activityType: SiriActivityTypes.searchWith.rawValue)
+        let activity = NSUserActivity(activityType: SiriActivityTypes.searchWith.value)
         activity.userInfo = ["query": query]
         completion(SearchWithIntentResponse(code: .continueInApp, userActivity: activity))
     }
