@@ -672,6 +672,7 @@ open class BrowserSchema: Schema {
         FROM view_awesomebar_bookmarks b LEFT JOIN favicons f ON f.id = b.faviconID
         """
 
+    // Valid only until v42
     // These triggers are used to keep the FTS index of the `history` table
     // in-sync after the initial "rebuild". The source for these triggers comes
     // directly from the SQLite documentation on maintaining external content FTS4
@@ -688,6 +689,11 @@ open class BrowserSchema: Schema {
         END
         """
 
+    // These triggers are used to keep the FTS index of the `history` table
+    // in-sync after the initial "rebuild". The source for these triggers comes
+    // directly from the SQLite documentation on maintaining external content FTS5
+    // tables:
+    // https://www.sqlite.org/fts5.html#external_content_tables
     fileprivate let historyAfterUpdateTrigger = """
         CREATE TRIGGER \(TriggerHistoryAfterUpdate)
             AFTER UPDATE ON \(TableHistory)
