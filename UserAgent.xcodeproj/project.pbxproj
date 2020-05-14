@@ -285,6 +285,7 @@
 		464E6839234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464E683C234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
+		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46504060240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
 		46504061240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
 		46504063240FC2520086CFAF /* BaseReactHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504062240FC2520086CFAF /* BaseReactHomeView.swift */; };
@@ -328,6 +329,7 @@
 		4661C376246C11E700F36302 /* Search.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E430FA4DF366BB519164A /* Search.strings */; };
 		4661C377246C11EB00F36302 /* Shared.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D5C457AA78148172BE8231E /* Shared.strings */; };
 		4661C378246C11ED00F36302 /* Storage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87334596ACEFC08E1CEC3543 /* Storage.strings */; };
+		4661C379246C125F00F36302 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B0E93682407A92300ED7703 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4667B08724210109001A4197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4667B08924210109001A4197 /* InfoPlist.strings */; };
 		4667B090242123B1001A4197 /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08F242123B1001A4197 /* Bridge.m */; };
 		4667B092242123EC001A4197 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B091242123EC001A4197 /* Bridge.swift */; };
@@ -1021,27 +1023,6 @@
 			remoteGlobalIDString = 2B308ABC242B2B4A009AF3D1;
 			remoteInfo = Siri;
 		};
-		2BB0B129246C4191002EA29B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BE258D223BA2B4A0022ED28;
-			remoteInfo = OpenIn;
-		};
-		2BB0B12B246C4191002EA29B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2B308ABC242B2B4A009AF3D1;
-			remoteInfo = Siri;
-		};
-		2BB0B12D246C47BA002EA29B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
-			remoteInfo = Shared;
-		};
 		2BD02D3923BA337A001539F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -1190,13 +1171,15 @@
 		};
 		464F678E232793F00090D0B5 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				4661C379246C125F00F36302 /* Today.appex in Embed App Extensions */,
 				46CF5F82246A9B790058D750 /* OpenIn.appex in Embed App Extensions */,
 				46CF5F81246A9B730058D750 /* Siri.appex in Embed App Extensions */,
 				46CF5F80246A9B640058D750 /* ShareTo.appex in Embed App Extensions */,
+				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4084,7 +4067,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2BB0B12E246C47BA002EA29B /* PBXTargetDependency */,
 			);
 			name = Siri;
 			productName = Siri;
@@ -4208,10 +4190,8 @@
 			dependencies = (
 				ACB7371223042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371423042BAB00FA5626 /* PBXTargetDependency */,
-				049DBB0F23E45C4F00D2D38D /* PBXTargetDependency */,
-				2BB0B12A246C4191002EA29B /* PBXTargetDependency */,
-				2BB0B12C246C4191002EA29B /* PBXTargetDependency */,
 				ACB7371A23042BAB00FA5626 /* PBXTargetDependency */,
+				049DBB0F23E45C4F00D2D38D /* PBXTargetDependency */,
 			);
 			name = Ghostery;
 			productName = Client;
@@ -6282,21 +6262,6 @@
 			target = 2B308ABC242B2B4A009AF3D1 /* Siri */;
 			targetProxy = 2B308AC2242B2B4A009AF3D1 /* PBXContainerItemProxy */;
 		};
-		2BB0B12A246C4191002EA29B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BE258D223BA2B4A0022ED28 /* OpenIn */;
-			targetProxy = 2BB0B129246C4191002EA29B /* PBXContainerItemProxy */;
-		};
-		2BB0B12C246C4191002EA29B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2B308ABC242B2B4A009AF3D1 /* Siri */;
-			targetProxy = 2BB0B12B246C4191002EA29B /* PBXContainerItemProxy */;
-		};
-		2BB0B12E246C47BA002EA29B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 288A2D851AB8B3260023ABC3 /* Shared */;
-			targetProxy = 2BB0B12D246C47BA002EA29B /* PBXContainerItemProxy */;
-		};
 		2BD02D3A23BA337A001539F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2FCAE2191ABB51F800877008 /* Storage */;
@@ -6935,7 +6900,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-                DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -7340,7 +7305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-                DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -7777,7 +7742,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-                DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -7806,7 +7771,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-                DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -8155,7 +8120,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-                DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -8183,7 +8148,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-                DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -8696,7 +8661,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-                DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -8725,7 +8690,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-                DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "${DEVELOPMENT_TEAM}";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
