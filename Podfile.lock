@@ -340,11 +340,6 @@ PODS:
     - Sentry/Core (= 4.3.1)
   - Sentry/Core (4.3.1)
   - SnapKit (5.0.1)
-  - SQLCipher (4.2.0):
-    - SQLCipher/standard (= 4.2.0)
-  - SQLCipher/common (4.2.0)
-  - SQLCipher/standard (4.2.0):
-    - SQLCipher/common
   - sqlite3 (3.27.2):
     - sqlite3/common (= 3.27.2)
   - sqlite3/common (3.27.2)
@@ -401,7 +396,6 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - Sentry (from `https://github.com/getsentry/sentry-cocoa.git`, tag `4.3.1`)
   - SnapKit (~> 5.0.0)
-  - SQLCipher (~> 4.2)
   - sqlite3 (~> 3.27.2)
   - SwiftLint
   - SwiftyJSON (~> 5.0)
@@ -430,7 +424,6 @@ SPEC REPOS:
     - SDWebImage
     - SDWebImageWebPCoder
     - SnapKit
-    - SQLCipher
     - sqlite3
     - SwiftLint
     - SwiftyJSON
@@ -558,7 +551,6 @@ SPEC CHECKSUMS:
   SDWebImageWebPCoder: 36f8f47bd9879a8aea6044765c1351120fd8e3a8
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SQLCipher: 0187a2180ac288ea686b670b7141da62cd013b16
   sqlite3: 80ee60823f7cf9ea4cd36ef7d68ea4a54b20906a
   SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
@@ -566,6 +558,6 @@ SPEC CHECKSUMS:
   Yoga: 9db9ff2025ad21d1ac0a8b3c85d5ac4e7c29d525
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: dea0507eeb5e7689302c975338378d89c6c0e9d2
+PODFILE CHECKSUM: 566b319b3048b631e9d192e1684de1b317f92edb
 
 COCOAPODS: 1.9.1

@@ -82,7 +82,6 @@ end
 
 def sqlite
   pod 'sqlite3', '~> 3.27.2'
-  pod 'SQLCipher', '~> 4.2'
 end
 
 def swiftyjson

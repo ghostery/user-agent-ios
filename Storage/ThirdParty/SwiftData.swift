@@ -430,10 +430,6 @@ open class ConcreteSQLiteDBConnection: SQLiteDBConnection {
         return pragma("user_version", factory: IntFactory) ?? 0
     }
 
-    open var cipherVersion: String? {
-        return pragma("cipher_version", factory: StringFactory)
-    }
-
     fileprivate var sqliteDB: OpaquePointer?
     fileprivate let filename: String
     fileprivate let flags: SwiftData.Flags
@@ -959,17 +955,7 @@ open class ConcreteSQLiteDBConnection: SQLiteDBConnection {
         if status != SQLITE_OK {
             return createErr("During: Opening Database with Flags", status: Int(status))
         }
-        guard let _ = self.cipherVersion else {
-            // XXX: Temporarily remove this assertion until we find a way to
-            // reuse the copy of sqlcipher that comes with the Rust components.
-            // return createErr("Expected SQLCipher, got SQLite", status: Int(-1))
-            log.warning("Database \(self.filename) was not opened with SQLCipher")
-            return nil
-        }
 
-        // Since we're using SQLCipher, ensure that `cipher_memory_security` is
-        // turned off. Otherwise, there is a HUGE performance penalty.
-        _ = pragma("cipher_memory_security=OFF", factory: StringFactory)
         return nil
     }
 
