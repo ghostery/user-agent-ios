@@ -6,7 +6,7 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 //
 
-import Shared
+import Foundation
 
 enum SiriActivityTypes {
     case openURL
@@ -14,9 +14,9 @@ enum SiriActivityTypes {
 
     init?(value: String) {
         switch value {
-        case "org.\(AppInfo.displayName).newTab":
+        case "\(Self.baseBundleIdentifier).newTab":
             self = .openURL
-        case "org.\(AppInfo.displayName).searchWith":
+        case "\(Self.baseBundleIdentifier).searchWith":
             self = .searchWith
         default:
             return nil
@@ -26,9 +26,23 @@ enum SiriActivityTypes {
     var value: String {
         switch self {
         case .openURL:
-            return "org.\(AppInfo.displayName).newTab"
+            return "\(Self.baseBundleIdentifier).newTab"
         case .searchWith:
-            return "org.\(AppInfo.displayName).searchWith"
+            return "\(Self.baseBundleIdentifier).searchWith"
         }
     }
+
+    // MARK: - Private methods
+
+    private static var baseBundleIdentifier: String {
+        let bundle = Bundle.main
+        let packageType = bundle.object(forInfoDictionaryKey: "CFBundlePackageType") as! String
+        let baseBundleIdentifier = bundle.bundleIdentifier!
+        if packageType == "XPC!" {
+            let components = baseBundleIdentifier.components(separatedBy: ".")
+            return components[0..<components.count-1].joined(separator: ".")
+        }
+        return baseBundleIdentifier
+    }
+
 }
