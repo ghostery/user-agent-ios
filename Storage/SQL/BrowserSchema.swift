@@ -63,10 +63,11 @@ let IndexBookmarksMirrorStructureChild = "idx_bookmarksMirrorStructure_child"   
 let IndexPageMetadataCacheKey = "idx_page_metadata_cache_key_uniqueindex" // Added in v19
 let IndexPageMetadataSiteURL = "idx_page_metadata_site_url_uniqueindex" // Added in v21
 
-let TriggerHistoryBeforeUpdate = "t_history_beforeupdate" // Added in v35
-let TriggerHistoryBeforeDelete = "t_history_beforedelete" // Added in v35
-let TriggerHistoryAfterUpdate = "t_history_afterupdate" // Added in v35
-let TriggerHistoryAfterInsert = "t_history_afterinsert" // Added in v35
+let TriggerHistoryBeforeUpdate = "t_history_beforeupdate" // Added in v35, Deleted in v43
+let TriggerHistoryBeforeDelete = "t_history_beforedelete" // Added in v35, Deleted in v43
+let TriggerHistoryAfterUpdate = "t_history_afterupdate" // Added in v35, Changed in v43
+let TriggerHistoryAfterInsert = "t_history_afterinsert" // Added in v35, Changed in v43
+let TriggerHistoryAfterDelete = "t_history_afterdelete" // Added in v43
 
 private let AllTables: [String] = [
     TableDomains,
@@ -128,10 +129,9 @@ private let AllIndices: [String] = [
 ]
 
 private let AllTriggers: [String] = [
-    TriggerHistoryBeforeUpdate,
-    TriggerHistoryBeforeDelete,
     TriggerHistoryAfterUpdate,
     TriggerHistoryAfterInsert,
+    TriggerHistoryAfterDelete,
 ]
 
 private let AllTablesIndicesTriggersAndViews: [String] = AllViews + AllTriggers + AllIndices + AllTables
@@ -390,7 +390,7 @@ open class BrowserSchema: Schema {
     // be incrementally updated after the initial "rebuild" using triggers in
     // order to stay in sync.
     let historyFTSCreate =
-        "CREATE VIRTUAL TABLE \(TableHistoryFTS) USING fts4(content=\"\(TableHistory)\", url, title)"
+        "CREATE VIRTUAL TABLE \(TableHistoryFTS) USING fts5(url, title, content='\(TableHistory)', content_rowid='id')"
 
     // This query rebuilds the FTS index of the `history_fts` table.
     let historyFTSRebuild =
@@ -687,12 +687,14 @@ open class BrowserSchema: Schema {
           DELETE FROM \(TableHistoryFTS) WHERE docid=old.rowid;
         END
         """
+
     fileprivate let historyAfterUpdateTrigger = """
         CREATE TRIGGER \(TriggerHistoryAfterUpdate)
             AFTER UPDATE ON \(TableHistory)
             WHEN new.url NOT LIKE 'search%'
         BEGIN
-            INSERT INTO \(TableHistoryFTS)(docid, url, title) VALUES (new.rowid, new.url, new.title);
+            INSERT INTO \(TableHistoryFTS)(\(TableHistoryFTS), rowid, url, title) VALUES('delete', old.id, old.url, old.title);
+            INSERT INTO \(TableHistoryFTS)(rowid, url, title) VALUES (new.id, new.url, new.title);
         END
         """
     fileprivate let historyAfterInsertTrigger = """
@@ -700,7 +702,15 @@ open class BrowserSchema: Schema {
             AFTER INSERT ON \(TableHistory)
             WHEN new.url NOT LIKE 'search%'
         BEGIN
-            INSERT INTO \(TableHistoryFTS)(docid, url, title) VALUES (new.rowid, new.url, new.title);
+            INSERT INTO \(TableHistoryFTS)(rowid, url, title) VALUES (new.id, new.url, new.title);
+        END
+    """
+    fileprivate let historyAfterDeleteTrigger = """
+        CREATE TRIGGER \(TriggerHistoryAfterDelete)
+            AFTER DELETE ON \(TableHistory)
+            WHEN new.url NOT LIKE 'search%'
+        BEGIN
+            INSERT INTO \(TableHistoryFTS)(\(TableHistoryFTS), rowid, url, title) VALUES('delete', old.id, old.url, old.title);
         END
     """
 
@@ -903,10 +913,9 @@ open class BrowserSchema: Schema {
             indexSiteIDDate,
 
             // Triggers.
-            historyBeforeUpdateTrigger,
-            historyBeforeDeleteTrigger,
-            historyAfterUpdateTrigger,
             historyAfterInsertTrigger,
+            historyAfterDeleteTrigger,
+            historyAfterUpdateTrigger,
 
             // Views.
             self.localBookmarksView,
@@ -1430,6 +1439,23 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 historyAfterUpdateTrigger,
                 historyAfterInsertTrigger,
+            ]) {
+                return false
+            }
+        }
+
+        if from < 43 && to >= 43 {
+            _ = self.run(db, queries: ["DROP TRIGGER \(TriggerHistoryAfterUpdate)"])
+            _ = self.run(db, queries: ["DROP TRIGGER \(TriggerHistoryAfterInsert)"])
+            _ = self.run(db, queries: ["DROP TRIGGER \(TriggerHistoryBeforeDelete)"])
+            _ = self.run(db, queries: ["DROP TRIGGER \(TriggerHistoryBeforeUpdate)"])
+            _ = self.run(db, queries: ["DROP TABLE \(TableHistoryFTS)"])
+
+            if !self.run(db, queries: [
+                historyFTSCreate,
+                historyAfterInsertTrigger,
+                historyAfterDeleteTrigger,
+                historyAfterUpdateTrigger,
             ]) {
                 return false
             }
