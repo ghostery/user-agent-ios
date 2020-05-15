@@ -115,8 +115,8 @@ class TestBrowserDB: XCTestCase {
         XCTAssertNotEqual(inodeA, inodeB)
 
         XCTAssertTrue(files.exists("foo.db.bak.1"))
-        XCTAssertFalse(files.exists("foo.db.bak.1-shm"))
-        XCTAssertFalse(files.exists("foo.db.bak.1-wal"))
+        XCTAssertTrue(files.exists("foo.db.bak.1-shm"))
+        XCTAssertTrue(files.exists("foo.db.bak.1-wal"))
 
         // The right notification was issued.
         XCTAssertEqual("foo.db", (listener.notification?.object as? String))
