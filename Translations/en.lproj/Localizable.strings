@@ -532,9 +532,6 @@
 /* Title of the message shown when the user attempts to navigate to an invalid link. */
 "OpenURL.Error.Title" = "Cannot Open Page";
 
-/* Accessibility label for the Page Options menu button */
-"Page Options Menu" = "Page Options Menu";
-
 /* Accessibility label for the Library panel's bottom toolbar containing a list of the home panels (top sites, bookmarks, history, remote tabs, reading list). */
 "Panel Chooser" = "Panel Chooser";
 
@@ -604,9 +601,6 @@
 
 /* Accessibility hint describing the action performed when a search suggestion is clicked */
 "Searches for the suggestion" = "Searches for the suggestion";
-
-/* Accessibility label for the lock icon, which is only present if the connection is secure */
-"Secure connection" = "Secure connection";
 
 /* Button title for cancelling share screen
    Close button in top navigation bar */

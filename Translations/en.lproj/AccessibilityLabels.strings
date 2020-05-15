@@ -20,3 +20,12 @@
 
 /* Accessibility label for the introduction tour carousel */
 "AccessibilityLabels.Intro.TourCarousel" = "Intro Tour Carousel";
+
+/* Accessibility label for the lock icon, which is only present if the connection is secure */
+"AccessibilityLabels.URLBar.LockImageView" = "Secure connection";
+
+/* Accessibility label for the Page Options menu button */
+"AccessibilityLabels.URLBar.PageOptionsButton" = "Page Options Menu";
+
+/* Accessibility label, associated to the 3D Touch action on the current tab in the tab tray, used to display a larger preview of the tab. */
+"AccessibilityLabels.ForceTouch.Preview" = "Preview of %@";

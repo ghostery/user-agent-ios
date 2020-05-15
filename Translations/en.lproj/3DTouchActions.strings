@@ -1,15 +1,12 @@
 
 /* Label for preview action on Tab Tray Tab to add current tab to Bookmarks */
-"Add to Bookmarks" = "Add to Bookmarks";
+"ForceTouchActions.AddToBookmarks" = "Add to Bookmarks";
 
 /* Label for preview action on Tab Tray Tab to close the current tab */
-"Close Tab" = "Close Tab";
+"ForceTouchActions.CloseTab" = "Close Tab";
 
 /* Label for preview action on Tab Tray Tab to copy the URL of the current tab to clipboard */
-"Copy URL" = "Copy URL";
-
-/* Accessibility label, associated to the 3D Touch action on the current tab in the tab tray, used to display a larger preview of the tab. */
-"Preview of %@" = "Preview of %@";
+"ForceTouchActions.CopyURL" = "Copy URL";
 
 /* Label for preview action on Tab Tray Tab to send the current tab to another device */
-"Send to Device" = "Send to Device";
+"ForceTouchActions.SendToDevice" = "Send to Device";

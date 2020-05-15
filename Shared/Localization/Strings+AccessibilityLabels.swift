@@ -21,6 +21,13 @@ extension Strings {
         public struct ReaderMode {
             public static let DisplaySettings = NSLocalizedString("AccessibilityLabels.ReaderMode.DisplaySettings", tableName: "AccessibilityLabels", comment: "Name for display settings button in reader mode. Display in the meaning of presentation, not monitor.")
         }
+        public struct URLBar {
+            public static let LockImageView = NSLocalizedString("AccessibilityLabels.URLBar.LockImageView", tableName: "AccessibilityLabels", comment: "Accessibility label for the lock icon, which is only present if the connection is secure")
+            public static let PageOptionsButton = NSLocalizedString("AccessibilityLabels.URLBar.PageOptionsButton", tableName: "AccessibilityLabels", comment: "Accessibility label for the Page Options menu button")
+        }
+        public struct ForceTouchActions {
+            public static let Preview = NSLocalizedString("AccessibilityLabels.ForceTouch.Preview", tableName: "AccessibilityLabels", comment: "Accessibility label, associated to the 3D Touch action on the current tab in the tab tray, used to display a larger preview of the tab.")
+        }
         public static let WebContent = NSLocalizedString("AccessibilityLabels.WebContent", tableName: "AccessibilityLabels", comment: "Accessibility label for the main web content view")
     }
 

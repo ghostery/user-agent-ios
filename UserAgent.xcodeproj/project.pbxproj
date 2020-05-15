@@ -169,6 +169,7 @@
 		2BE2591623BA313C0022ED28 /* SearchEngines.swift in Sources */ = {isa = PBXBuildFile; fileRef = D308E4E31A5306F500842685 /* SearchEngines.swift */; };
 		2BE2591823BA31420022ED28 /* NSUserDefaultsPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD19A661A25309B0084FBA7 /* NSUserDefaultsPrefs.swift */; };
 		2BE2591A23BA314D0022ED28 /* OpenSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FA77831A43B2CE0010CD32 /* OpenSearch.swift */; };
+		2BE3BD7A246E9DF90066D0BD /* Strings+ForceTouchActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE3BD79246E9DF90066D0BD /* Strings+ForceTouchActions.swift */; };
 		2BE9C93123E169450074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9C93223E1C5B60074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9D524243C805400553556 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9D523243C805400553556 /* SpeechSynthesizer.swift */; };
@@ -1394,6 +1395,7 @@
 		2BE258D323BA2B4A0022ED28 /* OpenIn.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OpenIn.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE2590F23BA2FD40022ED28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BE2591123BA2FD60022ED28 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BE3BD79246E9DF90066D0BD /* Strings+ForceTouchActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+ForceTouchActions.swift"; sourceTree = "<group>"; };
 		2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBrowserStartShowSettingsViewController.swift; sourceTree = "<group>"; };
 		2BE9D523243C805400553556 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		2BEA07BE246973EE008E1622 /* Strings+Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Intro.swift"; sourceTree = "<group>"; };
@@ -3117,6 +3119,7 @@
 				467781D5242B64CD00B609F0 /* Strings+UrlBar.swift */,
 				2BF5F141246E6CE500837817 /* Strings+AlertController.swift */,
 				2BD94C33246E8AB000CAD463 /* Strings+AccessibilityLabels.swift */,
+				2BE3BD79246E9DF90066D0BD /* Strings+ForceTouchActions.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -5401,6 +5404,7 @@
 				288A2DB51AB8B38D0023ABC3 /* Error.swift in Sources */,
 				E65075A91E37F7AB006961AC /* URLExtensions.swift in Sources */,
 				D054352A226687A400FDE4EF /* UIBarButtonItemExtensions.swift in Sources */,
+				2BE3BD7A246E9DF90066D0BD /* Strings+ForceTouchActions.swift in Sources */,
 				7479B4EF1C5306A200DF000B /* Reachability.swift in Sources */,
 				E65075B31E37F7AB006961AC /* KeyboardHelper.swift in Sources */,
 				E65075AA1E37F7AB006961AC /* URLProtectionSpaceExtensions.swift in Sources */,
