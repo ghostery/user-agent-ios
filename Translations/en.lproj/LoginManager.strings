@@ -8,9 +8,6 @@
 /* Accessibility message e.g. spoken by VoiceOver after the user taps the close button in the search field to clear the search and exit search mode */
 "Clear Search" = "Clear Search";
 
-/* Copy password text selection menu item */
-"Copy" = "Copy";
-
 /* Label describing when the current login was created with the timestamp as the parameter. */
 "Created %@" = "Created %@";
 

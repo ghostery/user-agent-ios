@@ -26,8 +26,5 @@ extension Strings {
             }
             public static let SkipButtonTitle = NSLocalizedString("Intro.Slides.Skip.Title", tableName: "Intro", comment: "Button title for skipping tour.")
         }
-        public struct AccessibilityLabels {
-            public static let TourCarousel = NSLocalizedString("Intro.AccessibilityLabels.TourCarousel", comment: "Accessibility label for the introduction tour carousel")
-        }
     }
 }

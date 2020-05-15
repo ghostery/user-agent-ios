@@ -176,9 +176,6 @@
 /* Accessibility label for button decreasing font size in display settings of reader mode */
 "Decrease text size" = "Text verkleinern";
 
-/* Name for display settings button in reader mode. Display in the meaning of presentation, not monitor. */
-"Display Settings" = "Anzeigeeinstellungen";
-
 /* Done button on left side of the Settings view controller title bar */
 "Done" = "Fertig";
 
@@ -516,6 +513,9 @@
 
 /* OK button */
 "OK" = "OK";
+
+/* Copy password text selection menu item */
+"Copy" = "Kopieren";
 
 /* See http://mzl.la/1LXbDOL */
 "Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Öffnen Sie Artikel in der Leseansicht, indem Sie auf das Buch-Symbol tippen, wenn es in der Titelleiste angezeigt wird.";
@@ -989,9 +989,6 @@
 
 /* Version number of UserAgent shown in settings */
 "Version %@ (%@)" = "Version %1$@ (%2$@)";
-
-/* Accessibility label for the main web content view */
-"Web content" = "Web-Inhalt";
 
 /* See http://mzl.la/1LXbDOL */
 "Welcome to your Reading List" = "Willkommen in Ihrer Leseliste";

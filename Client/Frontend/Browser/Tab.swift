@@ -251,7 +251,7 @@ class Tab: NSObject {
             let webView = TabWebView(frame: .zero, configuration: configuration)
             webView.delegate = self
 
-            webView.accessibilityLabel = NSLocalizedString("Web content", comment: "Accessibility label for the main web content view")
+            webView.accessibilityLabel = Strings.AccessibilityLabels.WebContent
             webView.allowsBackForwardNavigationGestures = true
 
             if #available(iOS 13, *) {

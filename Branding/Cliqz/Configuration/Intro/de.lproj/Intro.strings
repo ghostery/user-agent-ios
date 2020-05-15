@@ -19,6 +19,3 @@
 
 /* Description for the 'Welcome' panel in the First Run tour. */
 "Intro.Slides.Welcome.Description" = "Wir schaffen eine unabhängige europäische Alternative zu den marktbeherrschenden US-Plattformen. Vielen Dank für dein Vertrauen und dass du den Weg in die digitale Ära mit uns gehst.";
-
-/* Accessibility label for the introduction tour carousel */
-"Intro.AccessibilityLabels.TourCarousel" = "Rundgang zur Einführung";

@@ -156,6 +156,9 @@
 		2BD1062D2410EB1000F7F3A8 /* BookmarkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1062B2410EB0D00F7F3A8 /* BookmarkDetailViewController.swift */; };
 		2BD1D96F2358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
 		2BD1D9702358A6FB00B3362E /* SearchResultsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1D96E2358A6FB00B3362E /* SearchResultsSettingsViewController.swift */; };
+		2BD94C31246E8A8500CAD463 /* AccessibilityLabels.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BD94C2F246E8A8200CAD463 /* AccessibilityLabels.strings */; };
+		2BD94C32246E8A8600CAD463 /* AccessibilityLabels.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BD94C2F246E8A8200CAD463 /* AccessibilityLabels.strings */; };
+		2BD94C34246E8AB000CAD463 /* Strings+AccessibilityLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD94C33246E8AB000CAD463 /* Strings+AccessibilityLabels.swift */; };
 		2BE258DF23BA2B4A0022ED28 /* OpenIn.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2BE258D323BA2B4A0022ED28 /* OpenIn.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BE258FD23BA2B750022ED28 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */; };
 		2BE258FF23BA2B780022ED28 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */; };
@@ -491,7 +494,6 @@
 		ACB7373F23042BAB00FA5626 /* DownloadContentScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01017F4219CB6BD009CBB5A /* DownloadContentScript.swift */; };
 		ACB7374023042BAB00FA5626 /* UIScrollViewSwizzled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817B34C1FC609500086018E /* UIScrollViewSwizzled.swift */; };
 		ACB7374123042BAB00FA5626 /* TabEventHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F819C51FD70F5D009E31E4 /* TabEventHandlers.swift */; };
-		ACB7374223042BAB00FA5626 /* SearchInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65607601C08B4E200534B02 /* SearchInputView.swift */; };
 		ACB7374323042BAB00FA5626 /* Punycode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B2AC11D41F02D00429414 /* Punycode.swift */; };
 		ACB7374423042BAB00FA5626 /* TabTrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301AAED1A3A55B70078DD1D /* TabTrayController.swift */; };
 		ACB7374623042BAB00FA5626 /* BrowserViewController+FindInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFDB787211C83A5005CCA2F /* BrowserViewController+FindInPage.swift */; };
@@ -910,7 +912,6 @@
 		E65075C01E37F7AB006961AC /* WeakList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65075911E37F7AB006961AC /* WeakList.swift */; };
 		E65075C21E37F956006961AC /* ExtensionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65075C11E37F956006961AC /* ExtensionUtils.swift */; };
 		E653422D1C5944F90039DD9E /* BrowserPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E653422C1C5944F90039DD9E /* BrowserPrompts.swift */; };
-		E65607611C08B4E200534B02 /* SearchInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65607601C08B4E200534B02 /* SearchInputView.swift */; };
 		E660BDD91BB06521009AC090 /* TabsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660BDD81BB06521009AC090 /* TabsButton.swift */; };
 		E660BE061BB0666D009AC090 /* InnerStrokedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660BE051BB0666D009AC090 /* InnerStrokedView.swift */; };
 		E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
@@ -1384,6 +1385,9 @@
 		2BD8958C24223EBC00589165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BD8958F24223EBC00589165 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2BD8959024223EBC00589165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2BD94C2E246E8A8200CAD463 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/AccessibilityLabels.strings; sourceTree = "<group>"; };
+		2BD94C30246E8A8400CAD463 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AccessibilityLabels.strings; sourceTree = "<group>"; };
+		2BD94C33246E8AB000CAD463 /* Strings+AccessibilityLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+AccessibilityLabels.swift"; sourceTree = "<group>"; };
 		2BE258BF23BA1DFF0022ED28 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		2BE258C223BA1DFF0022ED28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		2BE258C423BA1DFF0022ED28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1932,7 +1936,6 @@
 		E65075911E37F7AB006961AC /* WeakList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakList.swift; sourceTree = "<group>"; };
 		E65075C11E37F956006961AC /* ExtensionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUtils.swift; sourceTree = "<group>"; };
 		E653422C1C5944F90039DD9E /* BrowserPrompts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserPrompts.swift; sourceTree = "<group>"; };
-		E65607601C08B4E200534B02 /* SearchInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchInputView.swift; sourceTree = "<group>"; };
 		E660BDD81BB06521009AC090 /* TabsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsButton.swift; sourceTree = "<group>"; };
 		E660BE051BB0666D009AC090 /* InnerStrokedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerStrokedView.swift; sourceTree = "<group>"; };
 		E6639F171BF11E17002D0853 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -3113,6 +3116,7 @@
 				AC33579B2387F2CC00693969 /* Strings+Storage.swift */,
 				467781D5242B64CD00B609F0 /* Strings+UrlBar.swift */,
 				2BF5F141246E6CE500837817 /* Strings+AlertController.swift */,
+				2BD94C33246E8AB000CAD463 /* Strings+AccessibilityLabels.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -3147,6 +3151,7 @@
 				2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */,
 				2B464956243F2003002913F5 /* ContextualOnboarding.strings */,
 				2BF5F149246E6DFE00837817 /* AlertController.strings */,
+				2BD94C2F246E8A8200CAD463 /* AccessibilityLabels.strings */,
 			);
 			path = Translations;
 			sourceTree = "<group>";
@@ -3442,7 +3447,6 @@
 				E660BE051BB0666D009AC090 /* InnerStrokedView.swift */,
 				0BF1B7E21AC60DEA00A7B407 /* InsetButton.swift */,
 				D0152244229855A8009DE753 /* OneLineCell.swift */,
-				E65607601C08B4E200534B02 /* SearchInputView.swift */,
 				D38A1BEC1A9FA2CA00F6A386 /* SiteTableViewController.swift */,
 				0BB5B2861AC0A2B90052877D /* SnackBar.swift */,
 				E660BDD81BB06521009AC090 /* TabsButton.swift */,
@@ -4569,6 +4573,7 @@
 				ACB7380B23042BAB00FA5626 /* topdomains.txt in Resources */,
 				4661C378246C11ED00F36302 /* Storage.strings in Resources */,
 				4620EA562354C59F004586CF /* safari-ads-network.json in Resources */,
+				2BD94C32246E8A8600CAD463 /* AccessibilityLabels.strings in Resources */,
 				ACB7380D23042BAB00FA5626 /* Settings.xcassets in Resources */,
 				ACD6547A2360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */,
 				46CA610323180E1A0010CE6B /* Icons.xcassets in Resources */,
@@ -4650,6 +4655,7 @@
 				2B464953243F2003002913F5 /* ContextualOnboarding.strings in Resources */,
 				46828D8E2341F23300E7D8A3 /* UserAgent.strings in Resources */,
 				ACB6D4322306AC35002D64E6 /* InfoPlist.strings in Resources */,
+				2BD94C31246E8A8500CAD463 /* AccessibilityLabels.strings in Resources */,
 				E4D6BEB91A0930EC00F538BD /* LaunchScreen.xib in Resources */,
 				D03F8F23200EAC1F003C2224 /* AllFramesAtDocumentStart.js in Resources */,
 				46CA610223180E1A0010CE6B /* Icons.xcassets in Resources */,
@@ -5425,6 +5431,7 @@
 				E65075961E37F7AB006961AC /* AsyncReducer.swift in Sources */,
 				7B9BF91C1E43472E00CB24F4 /* JSONExtensions.swift in Sources */,
 				46569CD323CC90C900224DC2 /* Strings+ControlCenter.swift in Sources */,
+				2BD94C34246E8AB000CAD463 /* Strings+AccessibilityLabels.swift in Sources */,
 				E65075BD1E37F7AB006961AC /* SystemUtils.swift in Sources */,
 				E65075AB1E37F7AB006961AC /* SetExtensions.swift in Sources */,
 			);
@@ -5624,7 +5631,6 @@
 				ACB7373F23042BAB00FA5626 /* DownloadContentScript.swift in Sources */,
 				ACB7374023042BAB00FA5626 /* UIScrollViewSwizzled.swift in Sources */,
 				ACB7374123042BAB00FA5626 /* TabEventHandlers.swift in Sources */,
-				ACB7374223042BAB00FA5626 /* SearchInputView.swift in Sources */,
 				ACB7374323042BAB00FA5626 /* Punycode.swift in Sources */,
 				460C248223F18E6600D922B0 /* InsightsFeatureReactNativeModule.swift in Sources */,
 				46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */,
@@ -5935,7 +5941,6 @@
 				C817B34D1FC609500086018E /* UIScrollViewSwizzled.swift in Sources */,
 				46FA068723BB7B2400B22F71 /* BrowserTabs.m in Sources */,
 				39F819C61FD70F5D009E31E4 /* TabEventHandlers.swift in Sources */,
-				E65607611C08B4E200534B02 /* SearchInputView.swift in Sources */,
 				FA6B2AC21D41F02D00429414 /* Punycode.swift in Sources */,
 				46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */,
 				46B68D31231420DE0091156C /* HomeViewController.swift in Sources */,
@@ -6455,6 +6460,15 @@
 				2BD8959024223EBC00589165 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2BD94C2F246E8A8200CAD463 /* AccessibilityLabels.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BD94C2E246E8A8200CAD463 /* de */,
+				2BD94C30246E8A8400CAD463 /* en */,
+			);
+			name = AccessibilityLabels.strings;
 			sourceTree = "<group>";
 		};
 		2BE258C123BA1DFF0022ED28 /* MainInterface.storyboard */ = {

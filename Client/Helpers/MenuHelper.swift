@@ -41,7 +41,7 @@ open class MenuHelper: NSObject {
         let hidePasswordTitle = NSLocalizedString("Hide", tableName: "LoginManager", comment: "Hide password text selection menu item")
         let hidePasswordItem = UIMenuItem(title: hidePasswordTitle, action: MenuHelper.SelectorHide)
 
-        let copyTitle = NSLocalizedString("Copy", tableName: "LoginManager", comment: "Copy password text selection menu item")
+        let copyTitle = Strings.General.CopyString
         let copyItem = UIMenuItem(title: copyTitle, action: MenuHelper.SelectorCopy)
 
         let openAndFillTitle = NSLocalizedString("Open & Fill", tableName: "LoginManager", comment: "Open and Fill website text selection menu item")

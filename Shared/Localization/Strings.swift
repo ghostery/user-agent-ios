@@ -26,6 +26,7 @@ extension Strings {
         public static let DoneString = NSLocalizedString("Done", comment: "Label for Done button")
         public static let SendString = NSLocalizedString("Send", comment: "Label for Send button")
         public static let NoString = NSLocalizedString("No", comment: "Label for No button")
+        public static let CopyString = NSLocalizedString("Copy", comment: "Label for Copy button")
     }
 
     // MARK: - Table date section titles
@@ -544,5 +545,4 @@ extension Strings {
         public static let SwitchToNonPBMKeyCodeTitle = NSLocalizedString("TabTray.SwitchToNonPBM.KeyCodeTitle", comment: "Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down.")
         public static let SwitchToPBMKeyCodeTitle = NSLocalizedString("TabTray.SwitchToPBM.KeyCodeTitle", comment: "Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down.")
     }
-
 }

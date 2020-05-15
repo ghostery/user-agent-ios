@@ -1,0 +1,22 @@
+/* 
+  AccessibilityLabels.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/15/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Accessibility label for the main web content view */
+"AccessibilityLabels.WebContent" = "Web-Inhalt";
+
+/* Accessibility label for next result button in Find in Page Toolbar. */
+"AccessibilityLabels.FindInPage.Next" = "Nächstes Suchergebnis auf dieser Seite";
+
+/* Accessibility label for previous result button in Find in Page Toolbar. */
+"AccessibilityLabels.FindInPage.Previous" = "Vorheriges Suchergebnis auf dieser Seite";
+
+/* Name for display settings button in reader mode. Display in the meaning of presentation, not monitor. */
+"AccessibilityLabels.ReaderMode.DisplaySettings" = "Anzeigeeinstellungen";
+
+/* Accessibility label for the introduction tour carousel */
+"AccessibilityLabels.Intro.TourCarousel" = "Rundgang zur Einführung";
