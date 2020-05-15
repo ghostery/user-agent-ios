@@ -133,7 +133,7 @@ class URLBarView: UIView {
         let cancelButton = UIButton()
         cancelButton.accessibilityIdentifier = "urlBar-cancel"
         cancelButton.accessibilityLabel = Strings.Hotkeys.BackTitle
-        cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        cancelButton.setTitle(Strings.General.CancelString, for: .normal)
         cancelButton.setTitleColor(Theme.general.controlTint, for: .normal)
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         cancelButton.addTarget(self, action: #selector(didClickCancel), for: .touchUpInside)
@@ -398,8 +398,7 @@ class URLBarView: UIView {
         locationTextField.textAlignment = .left
         locationTextField.font = UIConstants.DefaultChromeFont
         locationTextField.accessibilityIdentifier = "address"
-        locationTextField.accessibilityLabel = NSLocalizedString("Address and Search",
-            comment: "Accessibility label for address and search field, both words (Address, Search) are therefore nouns.")
+        locationTextField.accessibilityLabel = Strings.Accessibility.URLBar.AddressAndSearch
         locationTextField.attributedPlaceholder = self.locationView.placeholder
         locationContainer.addSubview(locationTextField)
         locationTextField.snp.remakeConstraints { make in

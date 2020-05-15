@@ -6,8 +6,6 @@ import Foundation
 import Shared
 import Storage
 
-private let CancelButtonTitle = NSLocalizedString("Cancel", comment: "Label for Cancel button")
-private let LogInButtonTitle  = NSLocalizedString("Log in", comment: "Authentication prompt log in button")
 private let log = Logger.browserLogger
 
 class LoginRecord {
@@ -66,19 +64,19 @@ class Authenticator {
 
         let deferred = Deferred<Maybe<LoginRecord>>()
         let alert: AlertController
-        let title = NSLocalizedString("Authentication required", comment: "Authentication prompt title")
+        let title = Strings.Authenticator.AuthenticationRequired
         if !(protectionSpace.realm?.isEmpty ?? true) {
-            let msg = NSLocalizedString("A username and password are being requested by %@. The site says: %@", comment: "Authentication prompt message with a realm. First parameter is the hostname. Second is the realm string")
+            let msg = Strings.Authenticator.WithSiteMessage
             let formatted = NSString(format: msg as NSString, protectionSpace.host, protectionSpace.realm ?? "") as String
             alert = AlertController(title: title, message: formatted, preferredStyle: .alert)
         } else {
-            let msg = NSLocalizedString("A username and password are being requested by %@.", comment: "Authentication prompt message with no realm. Parameter is the hostname of the site")
+            let msg = Strings.Authenticator.WithoutSiteMessage
             let formatted = NSString(format: msg as NSString, protectionSpace.host) as String
             alert = AlertController(title: title, message: formatted, preferredStyle: .alert)
         }
 
         // Add a button to log in.
-        let action = UIAlertAction(title: LogInButtonTitle,
+        let action = UIAlertAction(title: Strings.Authenticator.LogIn,
                                    style: .default) { (action) -> Void in
                                     guard let user = alert.textFields?[0].text, let pass = alert.textFields?[1].text else { deferred.fill(Maybe(failure: LoginRecordError(description: "Username and Password required"))); return }
 
@@ -88,20 +86,20 @@ class Authenticator {
         alert.addAction(action, accessibilityIdentifier: "authenticationAlert.loginRequired")
 
         // Add a cancel button.
-        let cancel = UIAlertAction(title: CancelButtonTitle, style: .cancel) { (action) -> Void in
+        let cancel = UIAlertAction(title: Strings.General.CancelString, style: .cancel) { (action) -> Void in
             deferred.fill(Maybe(failure: LoginRecordError(description: "Save password cancelled")))
         }
         alert.addAction(cancel, accessibilityIdentifier: "authenticationAlert.cancel")
 
         // Add a username textfield.
         alert.addTextField { (textfield) -> Void in
-            textfield.placeholder = NSLocalizedString("Username", comment: "Username textbox in Authentication prompt")
+            textfield.placeholder = Strings.Authenticator.Username
             textfield.text = credentials?.user
         }
 
         // Add a password textfield.
         alert.addTextField { (textfield) -> Void in
-            textfield.placeholder = NSLocalizedString("Password", comment: "Password textbox in Authentication prompt")
+            textfield.placeholder = Strings.Authenticator.Password
             textfield.isSecureTextEntry = true
             textfield.text = credentials?.password
         }

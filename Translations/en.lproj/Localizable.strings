@@ -5,12 +5,6 @@
 /* Button for smaller reader font size. Keep this extremely short! This is shown in the reader mode toolbar. */
 "-" = "-";
 
-/* Authentication prompt message with no realm. Parameter is the hostname of the site */
-"A username and password are being requested by %@." = "A username and password are being requested by %@.";
-
-/* Authentication prompt message with a realm. First parameter is the hostname. Second is the realm string */
-"A username and password are being requested by %@. The site says: %@" = "A username and password are being requested by %1$@. The site says: %2$@";
-
 /* Button for reader mode font size. Keep this extremely short! This is shown in the reader mode toolbar. */
 "Aa" = "Aa";
 
@@ -50,9 +44,6 @@
 /* Section title label for Top Sites */
 "ActivityStream.TopSites.SectionTitle" = "Top Sites";
 
-/* Accessibility label for the Add Tab button in the Tab Tray. */
-"Add Tab" = "Add Tab";
-
 /* Button to dismiss the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet. */
 "AddPass.Error.Dismiss" = "OK";
 
@@ -62,17 +53,8 @@
 /* Title of the 'Add Pass Failed' alert. See https://support.apple.com/HT204003 for context on Wallet. */
 "AddPass.Error.Title" = "Failed to Add Pass";
 
-/* Accessibility label for address and search field, both words (Address, Search) are therefore nouns. */
-"Address and Search" = "Address and Search";
-
 /* Tile title for Amazon */
 "Amazon" = "Amazon";
-
-/* Authentication prompt title */
-"Authentication required" = "Authentication required";
-
-/* Accessibility label for the Back button in the tab toolbar. */
-"Back" = "Back";
 
 /* Block pop-up windows setting */
 "Block Pop-up Windows" = "Block Pop-up Windows";
@@ -112,12 +94,6 @@
 
 /* Message displayed when the user has a copied link on the clipboard */
 "ClipboardToast.GoToCopiedLink.Title" = "Go to copied link?";
-
-/* Accessibility label for action denoting closing a tab in tab list (tray) */
-"Close" = "Close";
-
-/* Accessibility label (used by assistive technology) notifying the user that the tab is being closed. */
-"Closing tab" = "Closing tab";
 
 /* Accessibility label for Desktop Computer (PC) image in remote tabs list */
 "computer" = "computer";
@@ -257,9 +233,6 @@
 /* Menu item in settings used to open input.mozilla.org where people can submit feedback */
 "FAQ & Support" = "FAQ & Support";
 
-/* Accessibility Label for the tab toolbar Forward button */
-"Forward" = "Forward";
-
 /* Toggle history syncing setting */
 "History" = "History";
 
@@ -370,9 +343,6 @@
 
 /* Message displayed when the reader mode page is loading. This message will appear only when sharing to UserAgent reader mode from another app. */
 "Loading content…" = "Loading content…";
-
-/* Authentication prompt log in button */
-"Log in" = "Log in";
 
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Bookmark Added";
@@ -499,17 +469,11 @@
 /* Description for a date more than a week ago, but less than a month ago. */
 "more than a week ago" = "more than a week ago";
 
-/* Accessibility label for the navigation toolbar displayed at the bottom of the screen. */
-"Navigation Toolbar" = "Navigation Toolbar";
-
 /* Accessibility label for the New Tab button in the tab toolbar. */
 "New Tab" = "New Tab";
 
 /* Restore Tabs Negative Action */
 "No" = "No";
-
-/* Message spoken by VoiceOver to indicate that there are no tabs in the Tabs Tray */
-"No tabs" = "No tabs";
 
 /* OK button */
 "OK" = "OK";
@@ -534,9 +498,6 @@
 
 /* Accessibility label for the Library panel's bottom toolbar containing a list of the home panels (top sites, bookmarks, history, remote tabs, reading list). */
 "Panel Chooser" = "Panel Chooser";
-
-/* Password textbox in Authentication prompt */
-"Password" = "Password";
 
 /* See http://mzl.la/1G7uHo7 */
 "PhotoLibrary.AppWouldLikeAccessMessage" = "This allows you to save the image to your Camera Roll.";
@@ -564,9 +525,6 @@
 
 /* Localized String for German region */
 "region-DE" = "Germany";
-
-/* Accessibility Label for the tab toolbar Reload button */
-"Reload" = "Reload";
 
 /* Refresh title for Refresh Control. */
 "RefreshControl.Reload" = "Reload";
@@ -857,8 +815,8 @@
 /* Title in main app settings for Translation toast settings */
 "Settings.TranslateSnackBar.Title" = "Translation";
 
-/* Button to delete website in search results */
-"Settings.WebsiteData.ButtonDelete" = "Delete";
+/* Label for Delete button */
+"Delete" = "Delete";
 
 /* Button to exit edit website search results */
 "Settings.WebsiteData.ButtonDone" = "Done";
@@ -885,14 +843,8 @@
 /* Show the on-boarding screen again from the settings */
 "Show Tour" = "Show Tour";
 
-/* Accessibility Label for the tab toolbar Stop button */
-"Stop" = "Stop";
-
 /* Support section title */
 "Support" = "Support";
-
-/* Accessibility hint for tab tray's displayed tab. */
-"Swipe right or left with three fingers to close the tab." = "Swipe right or left with three fingers to close the tab.";
 
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normal Browsing Mode";
@@ -900,17 +852,8 @@
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToPBM.KeyCodeTitle" = "Forget Mode";
 
-/* Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total. */
-"Tab %@ of %@" = "Tab %1$@ of %2$@";
-
 /* Hardware shortcut to open the tab tray from a tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.ShowTabTray.KeyCodeTitle" = "Show All Tabs";
-
-/* Message spoken by VoiceOver saying the range of tabs that are currently visible in Tabs Tray, along with the total number of tabs. E.g. \"Tabs 8 to 10 of 15\" says tabs 8, 9 and 10 are visible, out of 15 tabs total. */
-"Tabs %@ to %@ of %@" = "Tabs %1$@ to %2$@ of %3$@";
-
-/* Accessibility label for the Tabs Tray view. */
-"Tabs Tray" = "Tabs Tray";
 
 /* The button to undo the delete all tabs */
 "Tabs.DeleteAllUndo.Button" = "Undo";
@@ -969,20 +912,11 @@
 /* Tile title for Twitter */
 "Twitter" = "Twitter";
 
-/* The menu item that pastes the current contents of the clipboard into the URL bar and navigates to the page */
-"UIMenuItem.PasteGo" = "Paste & Go";
-
-/* Search in New Tab Text selection menu item */
-"UIMenuItem.SearchWithUserAgent" = "Search with %@";
-
 /* Accessibility label for unread article in reading list. It's a past participle - functions as an adjective. */
 "unread" = "unread";
 
 /* Title for UserAgent about:home page in tab history list */
 "UserAgent.HomePage.Title" = "%@ Home Page";
-
-/* Username textbox in Authentication prompt */
-"Username" = "Username";
 
 /* Version number of UserAgent shown in settings */
 "Version %@ (%@)" = "Version %1$@ (%2$@)";

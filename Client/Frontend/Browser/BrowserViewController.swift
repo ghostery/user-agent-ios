@@ -1843,7 +1843,7 @@ extension BrowserViewController: TabManagerDelegate {
                 }
             }
 
-            webView.accessibilityLabel = Strings.AccessibilityLabels.WebContent
+            webView.accessibilityLabel = Strings.Accessibility.WebContent
             webView.accessibilityIdentifier = "contentView"
             webView.accessibilityElementsHidden = false
 

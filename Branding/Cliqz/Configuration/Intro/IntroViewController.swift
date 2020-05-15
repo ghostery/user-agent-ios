@@ -57,7 +57,7 @@ class IntroViewController: UIViewController, OnboardingViewController {
     lazy fileprivate var scrollView: UIScrollView = {
         let sc = UIScrollView()
         sc.backgroundColor = UIColor.clear
-        sc.accessibilityLabel = Strings.AccessibilityLabels.Intro.TourCarousel
+        sc.accessibilityLabel = Strings.Accessibility.Intro.TourCarousel
         sc.delegate = self
         sc.bounces = false
         sc.isPagingEnabled = true

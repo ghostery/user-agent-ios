@@ -12,7 +12,7 @@ extension Strings {
     public struct AlertController {
         public struct RestoreTabs {
             public static let Title = NSLocalizedString("AlertController.RestoreTabs.Title", tableName: "AlertController", comment: "Restore Tabs Prompt Title")
-            public static let Message = String(format: NSLocalizedString("AlertController.RestoreTabs.Message", comment: "Restore Tabs Prompt Description"), AppInfo.displayName)
+            public static let Message = String(format: NSLocalizedString("AlertController.RestoreTabs.Message", tableName: "AlertController", comment: "Restore Tabs Prompt Description"), AppInfo.displayName)
         }
         public struct ClearPrivateData {
             public static let Message = NSLocalizedString("AlertController.ClearPrivateData.Message", tableName: "AlertController", comment: "Description of the confirmation dialog shown when a user tries to clear their private data.")

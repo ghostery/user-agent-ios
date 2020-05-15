@@ -87,14 +87,14 @@ class FindInPageBar: UIView {
 
         previousButton.setImage(UIImage(named: "find_previous"), for: [])
         previousButton.setTitleColor(FindInPageUX.ButtonColor, for: [])
-        previousButton.accessibilityLabel = Strings.AccessibilityLabels.FindInPage.Previous
+        previousButton.accessibilityLabel = Strings.Accessibility.FindInPage.Previous
         previousButton.addTarget(self, action: #selector(didFindPrevious), for: .touchUpInside)
         previousButton.accessibilityIdentifier = "FindInPage.find_previous"
         addSubview(previousButton)
 
         nextButton.setImage(UIImage(named: "find_next"), for: [])
         nextButton.setTitleColor(FindInPageUX.ButtonColor, for: [])
-        nextButton.accessibilityLabel = Strings.AccessibilityLabels.FindInPage.Next
+        nextButton.accessibilityLabel = Strings.Accessibility.FindInPage.Next
         nextButton.addTarget(self, action: #selector(didFindNext), for: .touchUpInside)
         nextButton.accessibilityIdentifier = "FindInPage.find_next"
         addSubview(nextButton)

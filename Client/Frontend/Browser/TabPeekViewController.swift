@@ -118,7 +118,7 @@ class TabPeekViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let webViewAccessibilityLabel = tab?.webView?.accessibilityLabel {
-            previewAccessibilityLabel = String(format: Strings.AccessibilityLabels.ForceTouchActions.Preview, webViewAccessibilityLabel)
+            previewAccessibilityLabel = String(format: Strings.Accessibility.ForceTouchActions.Preview, webViewAccessibilityLabel)
         }
         // if there is no screenshot, load the URL in a web page
         // otherwise just show the screenshot

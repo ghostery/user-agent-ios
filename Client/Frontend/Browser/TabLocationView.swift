@@ -92,7 +92,7 @@ class TabLocationView: UIView {
         lockImageView.tintColor = Theme.textField.textAndTint
         lockImageView.isAccessibilityElement = true
         lockImageView.contentMode = .center
-        lockImageView.accessibilityLabel = Strings.AccessibilityLabels.URLBar.LockImageView
+        lockImageView.accessibilityLabel = Strings.Accessibility.URLBar.LockImageView
         return lockImageView
     }()
 
@@ -124,7 +124,7 @@ class TabLocationView: UIView {
         pageOptionsButton.isAccessibilityElement = true
         pageOptionsButton.isHidden = true
         pageOptionsButton.imageView?.contentMode = .left
-        pageOptionsButton.accessibilityLabel = Strings.AccessibilityLabels.URLBar.PageOptionsButton
+        pageOptionsButton.accessibilityLabel = Strings.Accessibility.URLBar.PageOptionsButton
         pageOptionsButton.accessibilityIdentifier = "TabLocationView.pageOptionsButton"
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressPageOptionsButton))
         pageOptionsButton.addGestureRecognizer(longPressGesture)

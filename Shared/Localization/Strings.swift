@@ -27,6 +27,7 @@ extension Strings {
         public static let SendString = NSLocalizedString("Send", comment: "Label for Send button")
         public static let NoString = NSLocalizedString("No", comment: "Label for No button")
         public static let CopyString = NSLocalizedString("Copy", comment: "Label for Copy button")
+        public static let DeleteString = NSLocalizedString("Delete", comment: "Label for Copy button")
     }
 
     // MARK: - Table date section titles
@@ -102,7 +103,6 @@ extension Strings {
             public static let DownloadsTitle = NSLocalizedString("HomeView.SegmentedControl.Downloads.Title", tableName: "UserAgent", comment: "")
         }
         public static let emptyBookmarksText = NSLocalizedString("Bookmarks you save will show up here.", comment: "Status label for the empty Bookmarks state.")
-        public static let deleteBookmark = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
     }
 
     // MARK: - Settings
@@ -159,7 +159,6 @@ extension Strings {
             public static let ShowMoreButton = NSLocalizedString("Settings.WebsiteData.ButtonShowMore", comment: "Button shows all websites on website data tableview")
             public static let ClearWebsiteDataMessage = NSLocalizedString("Settings.WebsiteData.ConfirmPrompt", comment: "Description of the confirmation dialog shown when a user tries to clear their private data.")
             public static let EditWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonEdit", comment: "Button to edit website search results")
-            public static let DeleteWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDelete", comment: "Button to delete website in search results")
             public static let DoneWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDone", comment: "Button to exit edit website search results")
         }
         public struct Search {
@@ -247,7 +246,6 @@ extension Strings {
     // MARK: - Downloads Panel
     public struct DownloadsPanel {
         public static let EmptyStateTitle = NSLocalizedString("DownloadsPanel.EmptyState.Title", comment: "Title for the Downloads Panel empty state.")
-        public static let DeleteTitle = NSLocalizedString("Delete", comment: "Action button for deleting downloaded files in the Downloads panel.")
         public static let ShareTitle = NSLocalizedString("Share", comment: "Action button for sharing downloaded files in the Downloads panel.")
         public static let DoneTitle = NSLocalizedString("Done", comment: "Done button on right side of the Downloads view controller title bar")
     }
@@ -266,7 +264,6 @@ extension Strings {
         public static let RecentlyClosedTabsButtonTitle = NSLocalizedString("HistoryPanel.RecentlyClosedTabsButton.Title", comment: "Title for the Recently Closed button in the History Panel")
         public static let RecentlyClosedTabsPanelTitle = NSLocalizedString("RecentlyClosedTabsPanel.Title", comment: "Title for the Recently Closed Tabs Panel")
         public static let BrowserHomePage = String(format: NSLocalizedString("UserAgent.HomePage.Title", comment: "Title for firefox about:home page in tab history list"), AppInfo.displayName)
-        public static let DeleteTitle = NSLocalizedString("Delete", tableName: "HistoryPanel", comment: "Action button for deleting history entries in the history panel.")
     }
 
     // MARK: - Hotkeys

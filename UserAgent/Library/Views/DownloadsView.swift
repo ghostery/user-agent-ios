@@ -248,7 +248,7 @@ extension DownloadsView {
 extension DownloadsView {
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteTitle = Strings.DownloadsPanel.DeleteTitle
+        let deleteTitle = Strings.General.DeleteString
         let shareTitle = Strings.DownloadsPanel.ShareTitle
         let delete = UITableViewRowAction(style: .destructive, title: deleteTitle, handler: { (action, indexPath) in
             if let downloadedFile = self.downloadedFileForIndexPath(indexPath) {

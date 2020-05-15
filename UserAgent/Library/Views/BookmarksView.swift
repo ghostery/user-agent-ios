@@ -239,7 +239,7 @@ extension BookmarksView {
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let title = Strings.HomeView.deleteBookmark
+        let title = Strings.General.DeleteString
         let delete = UITableViewRowAction(style: .default, title: title, handler: { (action, indexPath) in
             self.removeSiteForURLAtIndexPath(indexPath)
         })

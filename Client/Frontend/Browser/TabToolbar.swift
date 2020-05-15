@@ -52,10 +52,10 @@ open class TabToolbarHelper: NSObject {
         didSet {
             if loading {
                 toolbar.stopReloadButton.setImage(ImageStop, for: .normal)
-                toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Stop", comment: "Accessibility Label for the tab toolbar Stop button")
+                toolbar.stopReloadButton.accessibilityLabel = Strings.Accessibility.TabToolbar.Stop
             } else {
                 toolbar.stopReloadButton.setImage(ImageReload, for: .normal)
-                toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Reload", comment: "Accessibility Label for the tab toolbar Reload button")
+                toolbar.stopReloadButton.accessibilityLabel = Strings.Accessibility.TabToolbar.Reload
             }
         }
     }
@@ -69,19 +69,19 @@ open class TabToolbarHelper: NSObject {
         super.init()
 
         toolbar.backButton.setImage(UIImage.templateImageNamed("nav-back"), for: .normal)
-        toolbar.backButton.accessibilityLabel = NSLocalizedString("Back", comment: "Accessibility label for the Back button in the tab toolbar.")
+        toolbar.backButton.accessibilityLabel = Strings.Accessibility.TabToolbar.Back
         let longPressGestureBackButton = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressBack))
         toolbar.backButton.addGestureRecognizer(longPressGestureBackButton)
         toolbar.backButton.addTarget(self, action: #selector(didClickBack), for: .touchUpInside)
 
         toolbar.forwardButton.setImage(UIImage.templateImageNamed("nav-forward"), for: .normal)
-        toolbar.forwardButton.accessibilityLabel = NSLocalizedString("Forward", comment: "Accessibility Label for the tab toolbar Forward button")
+        toolbar.forwardButton.accessibilityLabel = Strings.Accessibility.TabToolbar.Forward
         let longPressGestureForwardButton = UILongPressGestureRecognizer(target: self, action: #selector(didLongPressForward))
         toolbar.forwardButton.addGestureRecognizer(longPressGestureForwardButton)
         toolbar.forwardButton.addTarget(self, action: #selector(didClickForward), for: .touchUpInside)
 
         toolbar.stopReloadButton.setImage(UIImage.templateImageNamed("nav-refresh"), for: .normal)
-        toolbar.stopReloadButton.accessibilityLabel = NSLocalizedString("Reload", comment: "Accessibility Label for the tab toolbar Reload button")
+        toolbar.stopReloadButton.accessibilityLabel = Strings.Accessibility.TabToolbar.Reload
         toolbar.stopReloadButton.addTarget(self, action: #selector(didClickStopReload), for: .touchUpInside)
 
         toolbar.searchButton.setImage(UIImage.templateImageNamed("search"), for: .normal)
@@ -286,7 +286,7 @@ class TabToolbar: UIView {
         tabsButton.accessibilityIdentifier = "TabToolbar.tabsButton"
         menuButton.accessibilityIdentifier = "TabToolbar.menuButton"
         accessibilityNavigationStyle = .combined
-        accessibilityLabel = NSLocalizedString("Navigation Toolbar", comment: "Accessibility label for the navigation toolbar displayed at the bottom of the screen.")
+        accessibilityLabel = Strings.Accessibility.TabToolbar.Toolbar
     }
 
     required init(coder aDecoder: NSCoder) {

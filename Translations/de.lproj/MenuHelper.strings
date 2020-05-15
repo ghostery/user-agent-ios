@@ -1,0 +1,17 @@
+/* Text selection menu item */
+"MenuHelper.FindInPage" = "Seite durchsuchen";
+
+/* The menu item that pastes the current contents of the clipboard into the URL bar and navigates to the page */
+"MenuHelper.PasteGo" = "Einfügen & Los";
+
+/* Hide password text selection menu item */
+"MenuHelper.Hide" = "Ausblenden";
+
+/* Open and Fill website text selection menu item */
+"MenuHelper.OpenAndFill" = "Öffnen & ausfüllen";
+
+/* Reveal password text selection menu item */
+"MenuHelper.Reveal" = "Anzeigen";
+
+/* Search in New Tab Text selection menu item */
+"MenuHelper.SearchWithUserAgent" = "Mit %@ suchen";

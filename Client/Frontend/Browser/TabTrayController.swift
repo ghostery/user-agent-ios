@@ -118,7 +118,7 @@ class TabTrayController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabManager.addDelegate(self)
-        view.accessibilityLabel = NSLocalizedString("Tabs Tray", comment: "Accessibility label for the Tabs Tray view.")
+        view.accessibilityLabel = Strings.Accessibility.TabTray.TabsTray
 
         collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = Theme.tabTray.background
@@ -411,7 +411,7 @@ extension TabTrayController: UIScrollViewAccessibilityDelegate {
         }
 
         guard !indexPaths.isEmpty else {
-            return NSLocalizedString("No tabs", comment: "Message spoken by VoiceOver to indicate that there are no tabs in the Tabs Tray")
+            return Strings.Accessibility.TabTray.NoTabs
         }
 
         let firstTab = indexPaths.first!.row + 1
@@ -419,10 +419,10 @@ extension TabTrayController: UIScrollViewAccessibilityDelegate {
         let tabCount = collectionView.numberOfItems(inSection: 0)
 
         if firstTab == lastTab {
-            let format = NSLocalizedString("Tab %@ of %@", comment: "Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total.")
+            let format = Strings.Accessibility.TabTray.SingleTab
             return String(format: format, NSNumber(value: firstTab as Int), NSNumber(value: tabCount as Int))
         } else {
-            let format = NSLocalizedString("Tabs %@ to %@ of %@", comment: "Message spoken by VoiceOver saying the range of tabs that are currently visible in Tabs Tray, along with the total number of tabs. E.g. \"Tabs 8 to 10 of 15\" says tabs 8, 9 and 10 are visible, out of 15 tabs total.")
+            let format = Strings.Accessibility.TabTray.RangeOfTabs
             return String(format: format, NSNumber(value: firstTab as Int), NSNumber(value: lastTab as Int), NSNumber(value: tabCount as Int))
         }
     }
@@ -433,7 +433,7 @@ extension TabTrayController: SwipeAnimatorDelegate {
         guard let tabCell = animator.animatingView as? TabCell, let indexPath = collectionView.indexPath(for: tabCell) else { return }
         if let tab = tabDisplayManager.dataStore.at(indexPath.item) {
             self.removeByButtonOrSwipe(tab: tab, cell: tabCell)
-            UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: NSLocalizedString("Closing tab", comment: "Accessibility label (used by assistive technology) notifying the user that the tab is being closed."))
+            UIAccessibility.post(notification: UIAccessibility.Notification.announcement, argument: Strings.Accessibility.TabTray.ClosingTab)
         }
     }
 
@@ -554,7 +554,7 @@ extension TabTrayController {
 
         let controller = AlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         controller.addAction(UIAlertAction(title: Strings.Menu.CloseAllTabsTitleString, style: .default, handler: { _ in self.closeTabsForCurrentTray() }), accessibilityIdentifier: "TabTrayController.deleteButton.closeAll")
-        controller.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Label for Cancel button"), style: .cancel, handler: nil), accessibilityIdentifier: "TabTrayController.deleteButton.cancel")
+        controller.addAction(UIAlertAction(title: Strings.General.CancelString, style: .cancel, handler: nil), accessibilityIdentifier: "TabTrayController.deleteButton.cancel")
         controller.popoverPresentationController?.sourceView = self.toolbar.doneButton
         controller.popoverPresentationController?.sourceRect = self.toolbar.doneButton.bounds
         self.present(controller, animated: true, completion: nil)
@@ -741,7 +741,7 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
     lazy var addTabButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage.templateImageNamed("nav-add"), for: .normal)
-        button.accessibilityLabel = NSLocalizedString("Add Tab", comment: "Accessibility label for the Add Tab button in the Tab Tray.")
+        button.accessibilityLabel = Strings.Accessibility.TabTray.AddTab
         button.accessibilityIdentifier = "TabTrayController.addTabButton"
         return button
     }()
@@ -885,7 +885,7 @@ class TabCell: UICollectionViewCell, Themeable {
         backgroundHolder.addSubview(self.screenshotView)
 
         self.accessibilityCustomActions = [
-            UIAccessibilityCustomAction(name: NSLocalizedString("Close", comment: "Accessibility label for action denoting closing a tab in tab list (tray)"), target: self.animator, selector: #selector(SwipeAnimator.closeWithoutGesture)),
+            UIAccessibilityCustomAction(name: Strings.Accessibility.TabTray.Close, target: self.animator, selector: #selector(SwipeAnimator.closeWithoutGesture)),
         ]
 
         backgroundHolder.addSubview(title)
@@ -962,7 +962,7 @@ class TabCell: UICollectionViewCell, Themeable {
         }
 
         isAccessibilityElement = true
-        accessibilityHint = NSLocalizedString("Swipe right or left with three fingers to close the tab.", comment: "Accessibility hint for tab tray's displayed tab.")
+        accessibilityHint = Strings.Accessibility.TabTray.Swipe
 
         self.logoView.url = tab.logoURL.absoluteString
 

@@ -14,7 +14,7 @@ enum ReaderModeBarButtonType {
 
     fileprivate var localizedDescription: String {
         switch self {
-        case .settings: return Strings.AccessibilityLabels.ReaderMode.DisplaySettings
+        case .settings: return Strings.Accessibility.ReaderMode.DisplaySettings
         }
     }
 
