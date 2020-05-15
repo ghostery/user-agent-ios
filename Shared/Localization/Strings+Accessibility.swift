@@ -20,6 +20,12 @@ extension Strings {
         }
         public struct ReaderMode {
             public static let DisplaySettings = NSLocalizedString("Accessibility.ReaderMode.DisplaySettings", tableName: "Accessibility", comment: "Name for display settings button in reader mode. Display in the meaning of presentation, not monitor.")
+            public static let ResetFontSize = NSLocalizedString("Accessibility.ReaderMode.ResetFontSize", tableName: "Accessibility", comment: "Accessibility label for button resetting font size in display settings of reader mode")
+            public static let Brightness = NSLocalizedString("Accessibility.ReaderMode.Brightness", tableName: "Accessibility", comment: "Accessibility label for brightness adjustment slider in Reader Mode display settings")
+            public static let ChangesFontType = NSLocalizedString("Accessibility.ReaderMode.ChangesFontType", tableName: "Accessibility", comment: "Accessibility hint for the font type buttons in reader mode display settings")
+            public static let DecreaseTextSize = NSLocalizedString("Accessibility.ReaderMode.DecreaseTextSize", tableName: "Accessibility", comment: "Accessibility label for button decreasing font size in display settings of reader mode")
+            public static let IncreaseTextSize = NSLocalizedString("Accessibility.ReaderMode.IncreaseTextSize", tableName: "Accessibility", comment: "Accessibility label for button increasing font size in display settings of reader mode")
+            public static let ChangesColorTheme = NSLocalizedString("Accessibility.ReaderMode.ChangesColorTheme", tableName: "Accessibility", comment: "Accessibility hint for the color theme setting buttons in reader mode display settings")
         }
         public struct URLBar {
             public static let LockImageView = NSLocalizedString("Accessibility.URLBar.LockImageView", tableName: "Accessibility", comment: "Accessibility label for the lock icon, which is only present if the connection is secure")

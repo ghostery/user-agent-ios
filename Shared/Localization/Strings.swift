@@ -232,17 +232,6 @@ extension Strings {
         public static let FAQAndSupport = NSLocalizedString("FAQ & Support", comment: "Menu item in settings used to open https://cliqz.com/support")
     }
 
-    // MARK: - Error Pages
-    public struct ErrorPages {
-        public static let AdvancedButton = NSLocalizedString("ErrorPages.Advanced.Button", comment: "Label for button to perform advanced actions on the error page")
-        public static let AdvancedWarning1 = NSLocalizedString("ErrorPages.AdvancedWarning1.Text", comment: "Warning text when clicking the Advanced button on error pages")
-        public static let AdvancedWarning2 = NSLocalizedString("ErrorPages.AdvancedWarning2.Text", comment: "Additional warning text when clicking the Advanced button on error pages")
-        public static let CertWarningDescription = NSLocalizedString("ErrorPages.CertWarning.Description", comment: "Warning text on the certificate error page. First argument 'Error Domain', Second - 'App name'")
-        public static let CertWarningTitle = NSLocalizedString("ErrorPages.CertWarning.Title", comment: "Title on the certificate error page")
-        public static let GoBackButton = NSLocalizedString("ErrorPages.GoBack.Button", comment: "Label for button to go back from the error page")
-        public static let VisitOnceButton = NSLocalizedString("ErrorPages.VisitOnce.Button", comment: "Button label to temporarily continue to the site from the certificate error page")
-    }
-
     // MARK: - Downloads Panel
     public struct DownloadsPanel {
         public static let EmptyStateTitle = NSLocalizedString("DownloadsPanel.EmptyState.Title", comment: "Title for the Downloads Panel empty state.")
@@ -372,14 +361,6 @@ extension Strings {
         public struct ViewAction {
             public static let Title = NSLocalizedString("SentTab.ViewAction.title", comment: "Label for an action used to view one or more tabs from a notification.")
         }
-    }
-
-    // MARK: - Reader Mode
-    public struct ReaderMode {
-        public struct Available {
-            public static let VoiceOverAnnouncement = NSLocalizedString("ReaderMode.Available.VoiceOverAnnouncement", comment: "Accessibility message e.g. spoken by VoiceOver when Reader Mode becomes available.")
-        }
-        public static let ResetFontSizeAccessibilityLabel = NSLocalizedString("ReaderMode.ResetFontSizeAccessibilityLabel", comment: "Accessibility label for button resetting font size in display settings of reader mode")
     }
 
     // MARK: - Privacy Dashboard

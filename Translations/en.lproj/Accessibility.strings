@@ -18,6 +18,24 @@
 /* Name for display settings button in reader mode. Display in the meaning of presentation, not monitor. */
 "Accessibility.ReaderMode.DisplaySettings" = "Display Settings";
 
+/* Accessibility label for button resetting font size in display settings of reader mode */
+"Accessibility.ReaderMode.ResetFontSize" = "Reset text size";
+
+/* Accessibility label for brightness adjustment slider in Reader Mode display settings */
+"Accessibility.ReaderMode.Brightness" = "Brightness";
+
+/* Accessibility hint for the font type buttons in reader mode display settings */
+"Accessibility.ReaderMode.ChangesFontType" = "Changes font type.";
+
+/* Accessibility label for button decreasing font size in display settings of reader mode */
+"Accessibility.ReaderMode.DecreaseTextSize" = "Decrease text size";
+
+/* Accessibility label for button increasing font size in display settings of reader mode */
+"Accessibility.ReaderMode.IncreaseTextSize" = "Increase text size";
+
+/* Accessibility hint for the color theme setting buttons in reader mode display settings */
+"Accessibility.ReaderMode.ChangesColorTheme" = "Changes color theme.";
+
 /* Accessibility label for the introduction tour carousel */
 "Accessibility.Intro.TourCarousel" = "Intro Tour Carousel";
 

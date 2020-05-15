@@ -1,0 +1,43 @@
+/* 
+  ReaderMode.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/15/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Message displayed when the reader mode page is loading. This message will appear only when sharing to UserAgent reader mode from another app. */
+"ReaderMode.Loading" = "Inhalt wird geladen…";
+
+/* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
+"ReaderMode.CouldNotBeDisplayed" = "Die Seite konnte nicht in der Leseansicht dargestellt werden.";
+
+/* Link for going to the non-reader page when the reader view could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
+"ReaderMode.OriginalPage" = "Ursprungsseite laden";
+
+/* Error displayed when reader mode cannot be enabled */
+"ReaderMode.Error" = "Fehler beim Umwandeln der Seite";
+
+/* Font type setting in the reading view settings */
+"ReaderMode.SansSerif" = "Sans Serif";
+
+/* Font type setting in the reading view settings */
+"ReaderMode.Serif" = "Serif";
+
+/* Button for larger reader font size. Keep this extremely short! This is shown in the reader mode toolbar. */
+"ReaderMode.Plus" = "+";
+
+/* Button for smaller reader font size. Keep this extremely short! This is shown in the reader mode toolbar. */
+"ReaderMode.Dash" = "-";
+
+/* Button for reader mode font size. Keep this extremely short! This is shown in the reader mode toolbar. */
+"ReaderMode.Aa" = "Aa";
+
+/* Light theme setting in Reading View settings */
+"ReaderMode.Light" = "Hell";
+
+/* Dark theme setting in Reading View settings */
+"ReaderMode.Dark" = "Dunkel";
+
+/* Sepia theme setting in Reading View settings */
+"ReaderMode.Sepia" = "Sepia";
