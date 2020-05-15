@@ -68,7 +68,6 @@
 		2B0E93692407A92300ED7703 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3905274B1C874D35007E0BB7 /* NotificationCenter.framework */; };
 		2B0E936C2407A92300ED7703 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E936B2407A92300ED7703 /* TodayViewController.swift */; };
 		2B0E93732407A92300ED7703 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B0E93682407A92300ED7703 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2B184F45BDED21008E6376E1 /* ClearHistoryConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */; };
 		2B22E67B23F683A7000A39E6 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
 		2B28FFCB244593910075AF8A /* BrowserViewController+UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */; };
 		2B28FFCC244593910075AF8A /* BrowserViewController+UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */; };
@@ -319,9 +318,7 @@
 		465E2AF823D1C66800ECEFA3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2AF723D1C66800ECEFA3 /* Authenticator.swift */; };
 		465E2AF923D1C66800ECEFA3 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E2AF723D1C66800ECEFA3 /* Authenticator.swift */; };
 		4661C36B246C11C300F36302 /* 3DTouchActions.strings in Resources */ = {isa = PBXBuildFile; fileRef = C69A4445A044D7F52824B948 /* 3DTouchActions.strings */; };
-		4661C36C246C11C700F36302 /* ClearHistoryConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */; };
 		4661C36D246C11CB00F36302 /* ClearPrivateData.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9A5540EB8DEED346508AE041 /* ClearPrivateData.strings */; };
-		4661C36E246C11CE00F36302 /* ClearPrivateDataConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */; };
 		4661C36F246C11D300F36302 /* ErrorPages.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B144025BB2AFEA7FF2CCC04 /* ErrorPages.strings */; };
 		4661C370246C11D500F36302 /* FindInPage.strings in Resources */ = {isa = PBXBuildFile; fileRef = E178452EA7469EB0EF3611B9 /* FindInPage.strings */; };
 		4661C371246C11D800F36302 /* HistoryPanel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CE94446954F6DCEF9FCCDAB /* HistoryPanel.strings */; };
@@ -454,7 +451,6 @@
 		7BF5A1EA1B41640500EA9DD8 /* SyncQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */; };
 		7E4146FFA3D6BD8126BB5EB9 /* Menu.strings in Resources */ = {isa = PBXBuildFile; fileRef = 187C48DAA7ADAA94202B7F33 /* Menu.strings */; };
 		834A40198503DEA0CC1E7FBA /* Shared.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D5C457AA78148172BE8231E /* Shared.strings */; };
-		9BDB47EAA0D99EA1732D3E3F /* ClearPrivateDataConfirm.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */; };
 		A3C9447C9B26E53049AC9503 /* 3DTouchActions.strings in Resources */ = {isa = PBXBuildFile; fileRef = C69A4445A044D7F52824B948 /* 3DTouchActions.strings */; };
 		A835425991BEA33554CC85C2 /* Storage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87334596ACEFC08E1CEC3543 /* Storage.strings */; };
 		A83E5AB71C1D993D0026D912 /* UIPasteboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83E5AB61C1D993D0026D912 /* UIPasteboardExtensions.swift */; };
@@ -1455,7 +1451,6 @@
 		318FB6EA1DB5600D0004E40F /* SQLiteHistoryFactories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteHistoryFactories.swift; sourceTree = "<group>"; };
 		31ADB5D91E58CEC300E87909 /* ClipboardBarDisplayHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipboardBarDisplayHandler.swift; sourceTree = "<group>"; };
 		31B072A38A59070074E373FA /* Pods-StorageTests.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageTests.ci.xcconfig"; path = "Target Support Files/Pods-StorageTests/Pods-StorageTests.ci.xcconfig"; sourceTree = "<group>"; };
-		31B643DA9C8453B84462B698 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearPrivateDataConfirm.strings; sourceTree = "<group>"; };
 		325B626FDD9E35A098A7FAC8 /* Pods-Shared.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.ci.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.ci.xcconfig"; sourceTree = "<group>"; };
 		35F86BE2E8E4AE3FA002A620 /* Pods-ShareTo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTo.release.xcconfig"; path = "Target Support Files/Pods-ShareTo/Pods-ShareTo.release.xcconfig"; sourceTree = "<group>"; };
 		3749C637FFAA70760453C3CF /* Pods-ClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClientTests.debug.xcconfig"; path = "Target Support Files/Pods-ClientTests/Pods-ClientTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1592,7 +1587,6 @@
 		46FA068623BB7B2400B22F71 /* BrowserTabs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrowserTabs.m; sourceTree = "<group>"; };
 		46FA068923BB7B5F00B22F71 /* BrowserTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserTabs.swift; sourceTree = "<group>"; };
 		4A59BF410BBD9B3BE71F4C7C /* TestHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHistory.swift; sourceTree = "<group>"; };
-		4E054B1EBBF82FCAB9775A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		52280E16968DC760D8A37957 /* Pods-Lumen.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lumen.adhoc.xcconfig"; path = "Target Support Files/Pods-Lumen/Pods-Lumen.adhoc.xcconfig"; sourceTree = "<group>"; };
 		526508281A8FDBAAA5D03184 /* Pods-SharedTests.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharedTests.ci.xcconfig"; path = "Target Support Files/Pods-SharedTests/Pods-SharedTests.ci.xcconfig"; sourceTree = "<group>"; };
 		54730E8ED9A99BCE89FE3ADE /* Pods-CliqzShareTo.ci.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CliqzShareTo.ci.xcconfig"; path = "Target Support Files/Pods-CliqzShareTo/Pods-CliqzShareTo.ci.xcconfig"; sourceTree = "<group>"; };
@@ -1641,7 +1635,6 @@
 		7BF5A1E91B41640500EA9DD8 /* SyncQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncQueue.swift; sourceTree = "<group>"; };
 		7D0948E3A5BB6267D54A25A4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Search.strings; sourceTree = "<group>"; };
 		7EB3449484DF7F9135AB619E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
-		7FB34881BBA574733B969540 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ClearPrivateDataConfirm.strings; sourceTree = "<group>"; };
 		80AE66E0474080C26967C66B /* Pods_OpenIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8348811D348D6B8BFE462A58 /* Pods-StorageTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageTests.debug.xcconfig"; path = "Target Support Files/Pods-StorageTests/Pods-StorageTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84ABA3E805A19707DE49E5EB /* Pods-ShareTo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareTo.debug.xcconfig"; path = "Target Support Files/Pods-ShareTo/Pods-ShareTo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2002,7 +1995,6 @@
 		F0484C7ABB589C003BD994BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/3DTouchActions.strings; sourceTree = "<group>"; };
 		F35B8D2A1D6380EA008E3D61 /* SessionRestore.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SessionRestore.html; sourceTree = "<group>"; };
 		F35B8D2C1D6383E9008E3D61 /* SessionRestoreHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionRestoreHelper.swift; sourceTree = "<group>"; };
-		F6274B63A55B0983D22CAB53 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		F80048466CE6947783A54A4E /* Pods-Cliqz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cliqz.debug.xcconfig"; path = "Target Support Files/Pods-Cliqz/Pods-Cliqz.debug.xcconfig"; sourceTree = "<group>"; };
 		F84B21BE1A090F8100AAB793 /* UserAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F84B21D31A090F8100AAB793 /* UserAgentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserAgentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3139,9 +3131,7 @@
 			isa = PBXGroup;
 			children = (
 				C69A4445A044D7F52824B948 /* 3DTouchActions.strings */,
-				8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */,
 				9A5540EB8DEED346508AE041 /* ClearPrivateData.strings */,
-				1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */,
 				46569CCE23CC902C00224DC2 /* ControlCenter.strings */,
 				6B144025BB2AFEA7FF2CCC04 /* ErrorPages.strings */,
 				E178452EA7469EB0EF3611B9 /* FindInPage.strings */,
@@ -4600,7 +4590,6 @@
 				4661C36D246C11CB00F36302 /* ClearPrivateData.strings in Resources */,
 				ACB7381C23042BAB00FA5626 /* ReaderViewLoading.html in Resources */,
 				4661C376246C11E700F36302 /* Search.strings in Resources */,
-				4661C36C246C11C700F36302 /* ClearHistoryConfirm.strings in Resources */,
 				2B0360912350B07200273A24 /* tracker_db_v2.json in Resources */,
 				ACB7381E23042BAB00FA5626 /* SendTo.xcassets in Resources */,
 				4661C373246C11DC00F36302 /* LoginManager.strings in Resources */,
@@ -4613,7 +4602,6 @@
 				ACB7382423042BAB00FA5626 /* LaunchScreen.xib in Resources */,
 				ACB7382623042BAB00FA5626 /* AllFramesAtDocumentStart.js in Resources */,
 				461E5E59234F6891004DDE84 /* brand.strings in Resources */,
-				4661C36E246C11CE00F36302 /* ClearPrivateDataConfirm.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4679,10 +4667,8 @@
 				4620EA4F2354C59F004586CF /* safari-ads-cosmetic.json in Resources */,
 				46569CD823CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */,
 				4620EA532354C59F004586CF /* safari-tracking-network.json in Resources */,
-				2B184F45BDED21008E6376E1 /* ClearHistoryConfirm.strings in Resources */,
 				FAAB475499C966BF3A44A105 /* Intro.strings in Resources */,
 				A3C9447C9B26E53049AC9503 /* 3DTouchActions.strings in Resources */,
-				9BDB47EAA0D99EA1732D3E3F /* ClearPrivateDataConfirm.strings in Resources */,
 				0592458C862CA91EE918C61D /* LoginManager.strings in Resources */,
 				D2A849D7850F85EF893FCA90 /* ClearPrivateData.strings in Resources */,
 				EF4B40BBA01663FD7E173475 /* FindInPage.strings in Resources */,
@@ -6389,15 +6375,6 @@
 			name = Shared.strings;
 			sourceTree = "<group>";
 		};
-		1D7449B49B4AA9D0B1639838 /* ClearPrivateDataConfirm.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				31B643DA9C8453B84462B698 /* de */,
-				7FB34881BBA574733B969540 /* en */,
-			);
-			name = ClearPrivateDataConfirm.strings;
-			sourceTree = "<group>";
-		};
 		2B4400ED242BA02300DD26DE /* Intents.intentdefinition */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -6594,15 +6571,6 @@
 				8A71479FAA8317AA24627B04 /* en */,
 			);
 			name = LoginManager.strings;
-			sourceTree = "<group>";
-		};
-		8BFF40A1903B290B5B168107 /* ClearHistoryConfirm.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E054B1EBBF82FCAB9775A34 /* de */,
-				F6274B63A55B0983D22CAB53 /* en */,
-			);
-			name = ClearHistoryConfirm.strings;
 			sourceTree = "<group>";
 		};
 		9A5540EB8DEED346508AE041 /* ClearPrivateData.strings */ = {

@@ -10,9 +10,12 @@ import Foundation
 
 extension Strings {
     public struct AlertController {
-        public static let SendCrash = NSLocalizedString("AlertController.SendCrash", comment: "Message displayed in the crash dialog above the buttons used to select when sending reports")
-        public static let SendReport = NSLocalizedString("AlertController.SendReport", comment: "Used as a button label for crash dialog prompt")
-        public static let AlwaysSend = NSLocalizedString("AlertController.AlwaysSend", comment: "Used as a button label for crash dialog prompt")
-        public static let DontSend = NSLocalizedString("AlertController.DontSend", comment: "Used as a button label for crash dialog prompt")
+        public struct RestoreTabs {
+            public static let Title = NSLocalizedString("AlertController.RestoreTabs.Title", tableName: "AlertController", comment: "Restore Tabs Prompt Title")
+            public static let Message = String(format: NSLocalizedString("AlertController.RestoreTabs.Message", comment: "Restore Tabs Prompt Description"), AppInfo.displayName)
+        }
+        public struct ClearPrivateData {
+            public static let Message = NSLocalizedString("AlertController.ClearPrivateData.Message", tableName: "AlertController", comment: "Description of the confirmation dialog shown when a user tries to clear their private data.")
+        }
     }
 }

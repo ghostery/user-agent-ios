@@ -68,9 +68,6 @@
 /* Tile title for Amazon */
 "Amazon" = "Amazon";
 
-/* Title for prompt displayed to user after the app crashes */
-"App.Crashed" = "Oops! %@ crashed";
-
 /* Authentication prompt title */
 "Authentication required" = "Authentication required";
 
@@ -520,9 +517,6 @@
 /* OK button */
 "OK" = "OK";
 
-/* Restore Tabs Affirmative Action */
-"Okay" = "Okay";
-
 /* See http://mzl.la/1LXbDOL */
 "Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Open articles in Reader View by tapping the book icon when it appears in the title bar.";
 
@@ -594,9 +588,6 @@
 
 /* Accessibility label for button resetting font size in display settings of reader mode */
 "ReaderMode.ResetFontSizeAccessibilityLabel" = "Reset text size";
-
-/* Restore Tabs Prompt Description */
-"Restore.Tabs.After.Crash" = "Looks like %@ crashed previously. Would you like to restore your tabs?";
 
 /* Font type setting in the reading view settings */
 "Sans-serif" = "Sans-serif";
@@ -1007,9 +998,6 @@
 
 /* See http://mzl.la/1LXbDOL */
 "Welcome to your Reading List" = "Welcome to your Reading List";
-
-/* Restore Tabs Prompt Title */
-"Well, this is embarrassing." = "Well, this is embarrassing.";
 
 /* Tile title for Wikipedia */
 "Wikipedia" = "Wikipedia";

@@ -25,6 +25,7 @@ extension Strings {
         public static let CloseString = NSLocalizedString("Close", comment: "Label for Close button")
         public static let DoneString = NSLocalizedString("Done", comment: "Label for Done button")
         public static let SendString = NSLocalizedString("Send", comment: "Label for Send button")
+        public static let NoString = NSLocalizedString("No", comment: "Label for No button")
     }
 
     // MARK: - Table date section titles
@@ -319,10 +320,6 @@ extension Strings {
         public struct OpenURL {
             public static let Title = NSLocalizedString("OpenURL.Error.Title", comment: "Title of the message shown when the user attempts to navigate to an invalid link.")
             public static let Message = String(format: NSLocalizedString("OpenURL.Error.Message", comment: "The message displayed to a user when they try to open a URL that cannot be handled by Firefox, or any external app."), AppInfo.displayName)
-        }
-        public struct App {
-            public static let RestoreTabsAfterCrashMessage = String(format: NSLocalizedString("Restore.Tabs.After.Crash", comment: "Restore Tabs Prompt Description"), AppInfo.displayName)
-            public static let CrashedMessage = String(format: NSLocalizedString("App.Crashed", comment: "App crashed"), AppInfo.displayName)
         }
     }
 
