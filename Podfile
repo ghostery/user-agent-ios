@@ -201,6 +201,7 @@ target 'ClientTests' do
   sdwebimage
   sentry
   gcdwebserver
+  flipper
 end
 
 target 'Shared' do

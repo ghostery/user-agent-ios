@@ -714,7 +714,6 @@ open class BrowserSchema: Schema {
     fileprivate let historyAfterDeleteTrigger = """
         CREATE TRIGGER \(TriggerHistoryAfterDelete)
             AFTER DELETE ON \(TableHistory)
-            WHEN new.url NOT LIKE 'search%'
         BEGIN
             INSERT INTO \(TableHistoryFTS)(\(TableHistoryFTS), rowid, url, title) VALUES('delete', old.id, old.url, old.title);
         END
