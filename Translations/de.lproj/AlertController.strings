@@ -1,0 +1,19 @@
+/* 
+  AlertController.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/15/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Message displayed in the crash dialog above the buttons used to select when sending reports */
+"AlertController.SendCrash" = "Einen Absturzbericht senden, damit wir das Problem beheben kann?";
+
+/* Used as a button label for crash dialog prompt */
+"AlertController.SendReport" = "Bericht senden";
+
+/* Used as a button label for crash dialog prompt */
+"AlertController.AlwaysSend" = "Immer senden";
+
+/* Used as a button label for crash dialog prompt */
+"AlertController.DontSend" = "Nicht senden";

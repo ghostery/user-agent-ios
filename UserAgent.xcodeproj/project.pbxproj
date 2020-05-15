@@ -173,6 +173,9 @@
 		2BE9D525243C805400553556 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9D523243C805400553556 /* SpeechSynthesizer.swift */; };
 		2BEA07BF246973EE008E1622 /* Strings+Intro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEA07BE246973EE008E1622 /* Strings+Intro.swift */; };
 		2BEB1A7D23F5388E008A0F01 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
+		2BF5F142246E6CE500837817 /* Strings+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5F141246E6CE500837817 /* Strings+AlertController.swift */; };
+		2BF5F146246E6DFE00837817 /* AlertController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BF5F149246E6DFE00837817 /* AlertController.strings */; };
+		2BF5F147246E6DFE00837817 /* AlertController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BF5F149246E6DFE00837817 /* AlertController.strings */; };
 		2BFB7C36238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C37238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */; };
 		2BFB7C39238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */; };
@@ -1402,6 +1405,9 @@
 		2BF1946B242238CD000B5920 /* CliqzToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzToday.entitlements; sourceTree = "<group>"; };
 		2BF1946C242238CD000B5920 /* CliqzTodayDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzTodayDebug.entitlements; sourceTree = "<group>"; };
 		2BF1946D242238CD000B5920 /* CliqzTodayAdhoc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CliqzTodayAdhoc.entitlements; sourceTree = "<group>"; };
+		2BF5F141246E6CE500837817 /* Strings+AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+AlertController.swift"; sourceTree = "<group>"; };
+		2BF5F148246E6DFE00837817 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/AlertController.strings; sourceTree = "<group>"; };
+		2BF5F14A246E6E0300837817 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AlertController.strings; sourceTree = "<group>"; };
 		2BFB7C35238FA9A400CE2E69 /* AutomaticForgetModePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModePolicy.swift; sourceTree = "<group>"; };
 		2BFB7C38238FB06300CE2E69 /* AutomaticForgetModeDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomaticForgetModeDetector.swift; sourceTree = "<group>"; };
 		2BFB7C3E239001CB00CE2E69 /* adult-domains.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "adult-domains.bin"; sourceTree = "<group>"; };
@@ -3114,6 +3120,7 @@
 				467C106F24572E66003F7101 /* Strings+Search.swift */,
 				AC33579B2387F2CC00693969 /* Strings+Storage.swift */,
 				467781D5242B64CD00B609F0 /* Strings+UrlBar.swift */,
+				2BF5F141246E6CE500837817 /* Strings+AlertController.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -3149,6 +3156,7 @@
 				46828D912341F23300E7D8A3 /* UserAgent.strings */,
 				2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */,
 				2B464956243F2003002913F5 /* ContextualOnboarding.strings */,
+				2BF5F149246E6DFE00837817 /* AlertController.strings */,
 			);
 			path = Translations;
 			sourceTree = "<group>";
@@ -4306,65 +4314,65 @@
 				TargetAttributes = {
 					049DBAD523E4587B00D2D38D = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					049DBADD23E4587B00D2D38D = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						ProvisioningStyle = Automatic;
 					};
 					288A2D851AB8B3260023ABC3 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					2B0E93672407A92300ED7703 = {
 						CreatedOnToolsVersion = 11.3.1;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					2B308ABC242B2B4A009AF3D1 = {
 						CreatedOnToolsVersion = 11.3.1;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						ProvisioningStyle = Automatic;
 					};
 					2BE258D223BA2B4A0022ED28 = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						ProvisioningStyle = Automatic;
 					};
 					2FCAE2191ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					2FCAE2231ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					3B43E3CF1D95C48D00BBA9DB = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					3BFE4B061D342FB800DDF53F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					ACB7371123042BAB00FA5626 = {
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -4377,13 +4385,13 @@
 					};
 					E6F9650B1B2F1CF20034B023 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					F84B21BD1A090F8100AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -4406,13 +4414,13 @@
 					};
 					F84B21D21A090F8100AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					F84B22481A0920C600AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = "${DEVELOPMENT_TEAM}";
+						DevelopmentTeam = 2UYYSSHVUH;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -4600,6 +4608,7 @@
 				C50ED2BE2326B18200EE71B8 /* brand.xcassets in Resources */,
 				ACB7382223042BAB00FA5626 /* SpotlightHelper.js in Resources */,
 				4661C375246C11E200F36302 /* PrivateBrowsing.strings in Resources */,
+				2BF5F147246E6DFE00837817 /* AlertController.strings in Resources */,
 				ACB7382323042BAB00FA5626 /* MainFrameAtDocumentEnd.js in Resources */,
 				ACB7382423042BAB00FA5626 /* LaunchScreen.xib in Resources */,
 				ACB7382623042BAB00FA5626 /* AllFramesAtDocumentStart.js in Resources */,
@@ -4620,6 +4629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D38A1EE01CB458EC0080C842 /* CertError.html in Resources */,
+				2BF5F146246E6DFE00837817 /* AlertController.strings in Resources */,
 				460C247623EB0D3200D922B0 /* safari-popups-network.json in Resources */,
 				0BA1E0301B051A07007675AF /* NetError.css in Resources */,
 				2B8DDBA323A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */,
@@ -5407,6 +5417,7 @@
 				E65075B61E37F7AB006961AC /* Loader.swift in Sources */,
 				E65075BF1E37F7AB006961AC /* UserAgent.swift in Sources */,
 				E65075C01E37F7AB006961AC /* WeakList.swift in Sources */,
+				2BF5F142246E6CE500837817 /* Strings+AlertController.swift in Sources */,
 				E65075AE1E37F7AB006961AC /* UIImageExtensions.swift in Sources */,
 				E65075A71E37F7AB006961AC /* ScannerExtensions.swift in Sources */,
 				467781D6242B64CD00B609F0 /* Strings+UrlBar.swift in Sources */,
@@ -6484,6 +6495,15 @@
 				2BE2591123BA2FD60022ED28 /* de */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2BF5F149246E6DFE00837817 /* AlertController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BF5F148246E6DFE00837817 /* de */,
+				2BF5F14A246E6E0300837817 /* en */,
+			);
+			name = AlertController.strings;
 			sourceTree = "<group>";
 		};
 		46569CCE23CC902C00224DC2 /* ControlCenter.strings */ = {

@@ -27,24 +27,24 @@ extension UIAlertController {
 
         let alert = UIAlertController(
             title: Strings.Errors.App.CrashedMessage,
-            message: NSLocalizedString("Send a crash report so we can fix the problem?", comment: "Message displayed in the crash dialog above the buttons used to select when sending reports"),
+            message: Strings.AlertController.SendCrash,
             preferredStyle: .alert
         )
 
         let sendReport = UIAlertAction(
-            title: NSLocalizedString("Send Report", comment: "Used as a button label for crash dialog prompt"),
+            title: Strings.AlertController.SendReport,
             style: .default,
             handler: sendReportCallback
         )
 
         let alwaysSend = UIAlertAction(
-            title: NSLocalizedString("Always Send", comment: "Used as a button label for crash dialog prompt"),
+            title: Strings.AlertController.AlwaysSend,
             style: .default,
             handler: alwaysSendCallback
         )
 
         let dontSend = UIAlertAction(
-            title: NSLocalizedString("Don’t Send", comment: "Used as a button label for crash dialog prompt"),
+            title: Strings.AlertController.DontSend,
             style: .default,
             handler: dontSendCallback
         )

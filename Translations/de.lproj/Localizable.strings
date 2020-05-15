@@ -65,9 +65,6 @@
 /* Accessibility label for address and search field, both words (Address, Search) are therefore nouns. */
 "Address and Search" = "Adresse und Suche";
 
-/* Used as a button label for crash dialog prompt */
-"Always Send" = "Immer senden";
-
 /* Tile title for Amazon */
 "Amazon" = "Amazon";
 
@@ -187,9 +184,6 @@
 
 /* Done button on left side of the Settings view controller title bar */
 "Done" = "Fertig";
-
-/* Used as a button label for crash dialog prompt */
-"Don’t Send" = "Nicht senden";
 
 /* Panel accessibility label */
 "Downloads" = "Downloads";
@@ -361,9 +355,6 @@
 
 /* Accessibility label for button increasing font size in display settings of reader mode */
 "Increase text size" = "Text vergrößern";
-
-/* Accessibility label for the introduction tour carousel */
-"Intro Tour Carousel" = "Rundgang zur Einführung";
 
 /* Relative time for a tab that was visited within the last few moments. */
 "just now" = "gerade eben";
@@ -625,12 +616,6 @@
 
 /* Accessibility label for the lock icon, which is only present if the connection is secure */
 "Secure connection" = "Sichere Verbindung";
-
-/* Message displayed in the crash dialog above the buttons used to select when sending reports */
-"Send a crash report so we can fix the problem?" = "Einen Absturzbericht senden, damit wir das Problem beheben kann?";
-
-/* Used as a button label for crash dialog prompt */
-"Send Report" = "Bericht senden";
 
 /* Button title for cancelling share screen
    Close button in top navigation bar */
