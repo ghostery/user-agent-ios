@@ -1,4 +1,3 @@
-
 /* The title for the pinning a topsite action */
 "ActivityStream.ContextMenu.PinTopsite" = "Pin to Top Sites";
 
@@ -14,17 +13,11 @@
 /* Section title label for Top Sites */
 "ActivityStream.TopSites.SectionTitle" = "Top Sites";
 
-/* Button to dismiss the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet. */
-"AddPass.Error.Dismiss" = "OK";
-
 /* Text of the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet. */
 "AddPass.Error.Message" = "An error occured while adding the pass to Wallet. Please try again later.";
 
 /* Title of the 'Add Pass Failed' alert. See https://support.apple.com/HT204003 for context on Wallet. */
 "AddPass.Error.Title" = "Failed to Add Pass";
-
-/* Tile title for Amazon */
-"Amazon" = "Amazon";
 
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Title";
@@ -53,9 +46,6 @@
 /* Message displayed when the user has a copied link on the clipboard */
 "ClipboardToast.GoToCopiedLink.Title" = "Go to copied link?";
 
-/* Accessibility label for Desktop Computer (PC) image in remote tabs list */
-"computer" = "computer";
-
 /* Context menu item for bookmarking a link URL */
 "ContextMenu.BookmarkLinkButtonTitle" = "Bookmark Link";
 
@@ -80,26 +70,8 @@
 /* Context menu item for sharing a link URL */
 "ContextMenu.ShareLinkButtonTitle" = "Share Link";
 
-/* See http://mzl.la/1Qtkf0j */
-"Create an account" = "Create an account";
-
-/* Debug option */
-"Debug: forget Sync auth state" = "Debug: forget Sync auth state";
-
-/* Debug option */
-"Debug: require password" = "Debug: require password";
-
-/* Debug option */
-"Debug: require upgrade" = "Debug: require upgrade";
-
-/* Debug option */
-"Debug: use stage servers" = "Debug: use stage servers";
-
 /* Done button on left side of the Settings view controller title bar */
 "Done" = "Done";
-
-/* Panel accessibility label */
-"Downloads" = "Downloads";
 
 /* The label of the button the user will press to start downloading a file */
 "Downloads.Alert.DownloadNow" = "Download Now";
@@ -142,12 +114,6 @@
 
 /* Question shown to user when tapping an SMS or MailTo link that opens the external app for those. */
 "ExternalLink.AppStore.GenericConfirmationTitle" = "Open this link in external app?";
-
-/* Tile title for Facebook */
-"Facebook" = "Facebook";
-
-/* Toggle history syncing setting */
-"History" = "History";
 
 /* Title for the Back to History button in the History Panel */
 "HistoryPanel.HistoryBackButton.Title" = "History";
@@ -206,9 +172,6 @@
 /* Label to display in the Discoverability overlay for keyboard shortcuts */
 "Hotkeys.ShowPreviousTab.DiscoveryTitle" = "Show Previous Tab";
 
-/* Relative time for a tab that was visited within the last few moments. */
-"just now" = "just now";
-
 /* History tableview section header */
 "Last month" = "Last month";
 
@@ -238,74 +201,11 @@
 /* Toast displayed to the user after a bookmark has been removed. */
 "Menu.RemoveBookmark.Confirm" = "Bookmark Removed";
 
-/* Title on tracking protection menu for blocked items. */
-"Menu.TrackingProtection.BlockedTitle" = "Blocked";
-
-/* Message in menu when no trackers blocked. */
-"Menu.TrackingProtection.NoTrackersBlocked" = "No trackers blocked for this site.";
-
-/* The title for tracking protection settings */
-"Menu.TrackingProtection.ProtectionSettings.Title" = "Protection Settings";
-
-/* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
-"Menu.TrackingProtection.TitlePrefix" = "Protections for %@";
-
-/* The title that shows the number of content cookies blocked */
-"Menu.TrackingProtectionBlockedContent.Title" = "Tracking content";
-
-/* The title that shows the number of social URLs blocked */
-"Menu.TrackingProtectionBlockedSocial.Title" = "Social Trackers";
-
-/* The title that shows the number of cross-site cookies blocked */
-"Menu.TrackingProtectionCrossSiteCookies.Title" = "Cross-Site Tracking Cookies";
-
-/* The title that shows the number of cross-site URLs blocked */
-"Menu.TrackingProtectionCrossSiteTrackers.Title" = "Cross-Site Trackers";
-
-/* The title that shows the number of cryptomining scripts blocked */
-"Menu.TrackingProtectionCryptominersBlocked.Title" = "Cryptominers";
-
-/* Description of content trackers. */
-"Menu.TrackingProtectionDescription.ContentTrackers" = "Websites may load outside ads, videos, and other content that contains hidden trackers. Blocking this can make websites load faster, but some buttons, forms, and login fields, might not work.";
-
-/* Description of cross-site trackers. */
-"Menu.TrackingProtectionDescription.CrossSite" = "These cookies follow you from site to site to gather data about what you do online.";
-
-/* Description of cryptominers. */
-"Menu.TrackingProtectionDescription.Cryptominers" = "Cryptominers secretly use your system's computing power to mine digital money.";
-
-/* Description of fingerprinters. */
-"Menu.TrackingProtectionDescription.Fingerprinters" = "The settings on your browser and computer are unique. Fingerprinters collect a variety of these unique settings to create a profile of you, which can be used to track you as you browse.";
-
-/* Description of social network trackers. */
-"Menu.TrackingProtectionDescription.SocialNetworks" = "Social networks place trackers on other websites to build a more complete and targeted profile of you.";
-
-/* The title that shows the number of fingerprinting scripts blocked */
-"Menu.TrackingProtectionFingerprintersBlocked.Title" = "Fingerprinters";
-
-/* Title for list of domains blocked by category type. eg.  Blocked `CryptoMiners` */
-"Menu.TrackingProtectionListTitle" = "Blocked %@";
-
 /* more info about what tracking protection is about */
 "Menu.TrackingProtectionMoreInfo.Description" = "Privacy Dashboard is disabled";
 
 /* The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled. */
 "Menu.TrackingProtectionNoBlocking.Description" = "No tracking elements detected on this page.";
-
-/* Error for a missing remote error number */
-"Missing error" = "Missing error";
-
-/* Error for a missing remote error message */
-"Missing message" = "Missing message";
-
-/* Accessibility label for Mobile Device image in remote tabs list */
-"mobile device" = "mobile device";
-
-/* Relative date for dates older than a month and less than two months. */
-"more than a month ago" = "more than a month ago";
-
-/* Description for a date more than a week ago, but less than a month ago. */
-"more than a week ago" = "more than a week ago";
 
 /* Restore Tabs Negative Action */
 "No" = "No";
@@ -316,14 +216,8 @@
 /* Copy password text selection menu item */
 "Copy" = "Copy";
 
-/* See http://mzl.la/1LXbDOL */
-"Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Open articles in Reader View by tapping the book icon when it appears in the title bar.";
-
 /* See http://mzl.la/1G7uHo7 */
 "Open Settings" = "Open Settings";
-
-/* Toggle tabs syncing setting */
-"Open Tabs" = "Open Tabs";
 
 /* The message displayed to a user when they try to open a URL that cannot be handled by UserAgent, or any external app. */
 "OpenURL.Error.Message" = "%@ cannot open the page because it has an invalid address.";
@@ -331,29 +225,17 @@
 /* Title of the message shown when the user attempts to navigate to an invalid link. */
 "OpenURL.Error.Title" = "Cannot Open Page";
 
-/* Accessibility label for the Library panel's bottom toolbar containing a list of the home panels (top sites, bookmarks, history, remote tabs, reading list). */
-"Panel Chooser" = "Panel Chooser";
-
 /* See http://mzl.la/1G7uHo7 */
 "PhotoLibrary.AppWouldLikeAccessMessage" = "This allows you to save the image to your Camera Roll.";
 
 /* See http://mzl.la/1G7uHo7 */
 "PhotoLibrary.AppWouldLikeAccessTitle" = "%@ would like to access your Photos";
 
-/* Button for closing the menu action sheet */
-"PhotonMenu.close" = "Close";
-
-/* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
-"read" = "read";
-
 /* Localized String for German region */
 "region-DE" = "Germany";
 
 /* Refresh title for Refresh Control. */
 "RefreshControl.Reload" = "Reload";
-
-/* Title for the button that removes a reading list item */
-"Remove" = "Remove";
 
 /* Cancel button text shown in reopen-alert at home page. */
 "ReopenAlert.Actions.Cancel" = "Cancel";
@@ -364,18 +246,8 @@
 /* Reopen alert title shown at home page. */
 "ReopenAlert.Title" = "Reopen Last Closed Tab";
 
-/* See http://mzl.la/1LXbDOL */
-"Save pages to your Reading List by tapping the book plus icon in the Reader View controls." = "Save pages to your Reading List by tapping the book plus icon in the Reader View controls.";
-
-/* Navigation title for search settings.
-   Open search section of settings */
-"Search" = "Search";
-
 /* The text shown in the URL bar on about:home */
 "UrlBar.Placeholder" = "Search or type URL";
-
-/* Accessibility hint describing the action performed when a search suggestion is clicked */
-"Searches for the suggestion" = "Searches for the suggestion";
 
 /* Message in error prompt explaining why the URL is invalid. */
 "SendTo.Error.Message" = "Only HTTP and HTTPS links can be shared.";
@@ -428,12 +300,6 @@
 /* Hardware shortcut open the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.OpenSelectedTab.KeyCodeTitle" = "Open Selected Tab";
 
-/* Error message in the remote tabs panel */
-"There was a problem accessing tabs from your other devices. Try again in a few moments." = "There was a problem accessing tabs from your other devices. Try again in a few moments.";
-
-/* Relative date for date in past week. */
-"this week" = "this week";
-
 /* label for Not Now button */
 "Toasts.NotNow" = "Not Now";
 
@@ -443,41 +309,17 @@
 /* History tableview section header */
 "Today" = "Today";
 
-/* Relative date for date older than a minute. */
-"today at %@" = "today at %@";
-
 /* Accessibility label for the Menu button. */
 "Toolbar.Menu.AccessibilityLabel" = "Menu";
 
 /* Accessibility label for the Close All Tabs menu button. */
 "Toolbar.Menu.CloseAllTabs" = "Close All Tabs";
 
-/* The title for the empty Top Sites state */
-"TopSites.EmptyState.Title" = "Welcome to Top Sites";
-
 /* Button shown in editing mode to remove this site from the top sites panel. */
 "TopSites.RemovePage.Button" = "Remove page — %@";
-
-/* Tile title for Twitter */
-"Twitter" = "Twitter";
-
-/* Accessibility label for unread article in reading list. It's a past participle - functions as an adjective. */
-"unread" = "unread";
 
 /* Title for UserAgent about:home page in tab history list */
 "UserAgent.HomePage.Title" = "%@ Home Page";
 
-/* See http://mzl.la/1LXbDOL */
-"Welcome to your Reading List" = "Welcome to your Reading List";
-
-/* Tile title for Wikipedia */
-"Wikipedia" = "Wikipedia";
-
 /* History tableview section header */
 "Yesterday" = "Yesterday";
-
-/* Relative date for yesterday. */
-"yesterday" = "yesterday";
-
-/* Tile title for YouTube */
-"YouTube" = "YouTube";

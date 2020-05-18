@@ -80,15 +80,6 @@
 /* Default text in search bar for Today Widget Setting */
 "Settings.TodayWidget.SearchLabel" = "Search City";
 
-/* Display (theme) settings footer describing how the brightness slider works. */
-"Settings.DisplayTheme.SectionFooter" = "The theme will automatically change based on your display brightness. You can set the threshold where the theme changes. The circle indicates your display's current brightness.";
-
-/* Display (theme) settings section title */
-"Settings.DisplayTheme.SectionHeader" = "Theme";
-
-/* Title in main app settings for Display (theme) settings */
-"Settings.DisplayTheme.Title" = "Display";
-
 /* General settings section title */
 "Settings.General.SectionName" = "General";
 
@@ -179,23 +170,8 @@
 /* The option in settings to configure default selected view in new tab */
 "Settings.General.NewTabPageDefaultView.SectionName" = "New Tab";
 
-/* Explanation of basic mode. */
-"Settings.TrackingProtection.Info.BasicTitle" = "Balanced for protection and performance.";
-
-/* The Title on info view which shows a list of all blocked websites */
-"Settings.TrackingProtection.Info.BlocksTitle" = "BLOCKS";
-
-/* Title for tracking protection options section where level can be selected. */
-"Settings.TrackingProtection.ProtectionLevelTitle" = "Protection Level";
-
 /* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
 "Settings.TrackingProtection.SectionName" = "Tracking Protection";
-
-/* Tracking protection settings option for using the basic blocklist. */
-"Settings.TrackingProtectionOption.BasicBlockList" = "Standard (default)";
-
-/* Settings option to specify that Tracking Protection is on */
-"Settings.TrackingProtectionOption.NormalBrowsingLabelOn" = "Enhanced Tracking Protection";
 
 /* Translation settings footer describing how language detection and translation happens. */
 "Settings.TranslateSnackBar.SectionFooter" = "The web page language is detected on the device, and a translation from a remote service is offered.";

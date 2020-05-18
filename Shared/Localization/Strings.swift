@@ -83,11 +83,6 @@ extension Strings {
         }
     }
 
-    // MARK: - PhotonActionSheet Strings
-    public struct PhotonMenu {
-        public static let Close = NSLocalizedString("PhotonMenu.close", comment: "Button for closing the menu action sheet")
-    }
-
     // MARK: - Home View
     public struct HomeView {
         public struct SegmentedControl {
@@ -149,7 +144,6 @@ extension Strings {
         public struct AddPass {
             public static let Title = NSLocalizedString("AddPass.Error.Title", comment: "Title of the 'Add Pass Failed' alert. See https://support.apple.com/HT204003 for context on Wallet.")
             public static let Message = NSLocalizedString("AddPass.Error.Message", comment: "Text of the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
-            public static let Dismiss = NSLocalizedString("AddPass.Error.Dismiss", comment: "Button to dismiss the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet.")
         }
         public struct OpenURL {
             public static let Title = NSLocalizedString("OpenURL.Error.Title", comment: "Title of the message shown when the user attempts to navigate to an invalid link.")

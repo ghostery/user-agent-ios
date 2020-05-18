@@ -80,15 +80,6 @@
 /* Default text in search bar for Today Widget Setting */
 "Settings.TodayWidget.SearchLabel" = "Stadt suchen";
 
-/* Display (theme) settings footer describing how the brightness slider works. */
-"Settings.DisplayTheme.SectionFooter" = "Das Theme ändert sich automatisch und passt sich an Ihre Display-Helligkeit an. Sie können die Schwelle festlegen, bei der sich das Theme ändert. Der Kreis zeigt Ihre aktuelle Display-Helligkeit.";
-
-/* Display (theme) settings section title */
-"Settings.DisplayTheme.SectionHeader" = "Theme";
-
-/* Title in main app settings for Display (theme) settings */
-"Settings.DisplayTheme.Title" = "Anzeige";
-
 /* General settings section title */
 "Settings.General.SectionName" = "Allgemein";
 
@@ -179,23 +170,8 @@
 /* The option in settings to configure default selected view in new tab */
 "Settings.General.NewTabPageDefaultView.SectionName" = "Neuer Tab";
 
-/* Explanation of basic mode. */
-"Settings.TrackingProtection.Info.BasicTitle" = "Ausgewogen für Schutz und Leistung.";
-
-/* The Title on info view which shows a list of all blocked websites */
-"Settings.TrackingProtection.Info.BlocksTitle" = "BLOCKIERT";
-
-/* Title for tracking protection options section where level can be selected. */
-"Settings.TrackingProtection.ProtectionLevelTitle" = "Schutzniveau";
-
 /* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
 "Settings.TrackingProtection.SectionName" = "Schutz vor Aktivitätenverfolgung";
-
-/* Tracking protection settings option for using the basic blocklist. */
-"Settings.TrackingProtectionOption.BasicBlockList" = "Standard";
-
-/* Settings option to specify that Tracking Protection is on */
-"Settings.TrackingProtectionOption.NormalBrowsingLabelOn" = "Verbesserter Tracking-Schutz";
 
 /* Translation settings footer describing how language detection and translation happens. */
 "Settings.TranslateSnackBar.SectionFooter" = "Die Sprache der Webseite wird auf dem Gerät erkannt und ein externer Dienst bietet eine Übersetzung an.";

@@ -24,6 +24,3 @@
 
 /* Shown in error pages on a button that will try to load the page again */
 "ErrorPages.TryAgain" = "Try again";
-
-/* Error message that is shown in settings when there was a problem loading */
-"Could not load page." = "Could not load page.";
