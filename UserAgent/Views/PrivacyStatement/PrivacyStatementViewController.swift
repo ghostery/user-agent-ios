@@ -97,7 +97,7 @@ class PrivacyStatementViewController: UITableViewController {
         viewController.url = url
         viewController.title = title
         let navigationController = UINavigationController(rootViewController: viewController)
-        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.DownloadsPanel.DoneTitle, style: .done, closure: { (_) in
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.General.DoneString, style: .done, closure: { (_) in
             navigationController.dismiss(animated: true)
         })
         if #available(iOS 13.0, *) {

@@ -132,11 +132,6 @@ extension Strings {
         public struct TrackingProtection {
             public static let SectionName = NSLocalizedString("Settings.TrackingProtection.SectionName", tableName: "Settings", comment: "Row in top-level of settings that gets tapped to show the tracking protection settings detail view.")
         }
-        public struct DNT {
-            public static let NotTrackTitle = NSLocalizedString("Settings.DNT.Title", tableName: "Settings", comment: "DNT Settings title")
-            public static let OptionOnWithTP = NSLocalizedString("Settings.DNT.OptionOnWithTP", tableName: "Settings", comment: "DNT Settings option for only turning on when Tracking Protection is also on")
-            public static let OptionAlwaysOn = NSLocalizedString("Settings.DNT.OptionAlwaysOn", tableName: "Settings", comment: "DNT Settings option for always on")
-        }
         public struct TranslateSnackBar {
             public static let SectionHeader = NSLocalizedString("Settings.TranslateSnackBar.SectionHeader", tableName: "Settings", comment: "Translation settings section title")
             public static let SectionFooter = NSLocalizedString("Settings.TranslateSnackBar.SectionFooter", tableName: "Settings", comment: "Translation settings footer describing how language detection and translation happens.")

@@ -11,14 +11,8 @@
 /* Label for the button, displayed in the menu, used to open a new tab */
 "Menu.NewTabAction.Title" = "Neuen Tab öffnen";
 
-/* Accessibility label for the button, displayed in the menu, used to open the Bbookmarks home panel. */
-"Menu.OpenBookmarksAction.AccessibilityLabel" = "Lesezeichen";
-
 /* Accessibility label for the button, displayed in the menu, used to open the Downloads home panel. */
 "Menu.OpenDownloadsAction.AccessibilityLabel" = "Downloads";
-
-/* Accessibility label for the button, displayed in the menu, used to open the History home panel. */
-"Menu.OpenHistoryAction.AccessibilityLabel" = "Chronik";
 
 /* Label for the button, displayed in the menu, used to navigate to the home page. */
 "Menu.OpenHomePageAction.Title" = "Startseite";
@@ -32,17 +26,11 @@
 /* Label for the button, displayed in the menu, used to open the Settings menu. */
 "Menu.OpenSettingsAction.Title" = "Einstel­lungen";
 
-/* Accessibility label for the button, displayed in the menu, used to open the Top Sites home panel. */
-"Menu.OpenTopSitesAction.AccessibilityLabel" = "Meistbesuchte Seiten";
-
 /* Label for the button, displayed in the menu, used to open the What's new page. */
 "Menu.OpenWhatsNewAction.Title" = "Was ist neu";
 
 /* "Label for the button, displayed in the menu, used to open the Privacy Statement." */
 "Menu.OpenPrivacyStatementAction.Title" = "Zum Datenschutz";
-
-/* Label for the button, displayed in the menu, used to show the html page source */
-"Menu.PageSourceAction.Title" = "Seitenquelltext anzeigen";
 
 /* Label for the button, displayed in the menu, used to request the reader mode version of the current website */
 "Menu.ReaderMode.Title" = "Lesemodus";
@@ -52,9 +40,6 @@
 
 /* Label for the button, displayed in the menu, used to open the share dialog. */
 "Menu.SharePageAction.Title" = "Teilen";
-
-/* Label for the button, displayed in the menu, used to open the tabs tray */
-"Menu.ShowTabs.Title" = "Tabs anzeigen";
 
 "Menu.TrackingProtectionAdsBlocked.Title" = "Werbe-Tracker";
 
@@ -81,8 +66,6 @@
 "Menu.TrackingProtectionPornvertisingBlocked.Title" = "Pornvertising";
 
 "Menu.TrackingProtectionSocialBlocked.Title" = "Soziale Tracker";
-
-"Menu.TrackingProtectionTotalBlocked.Title" = "Gesamtzahl blockierter Verfolger";
 
 "Menu.TrackingProtectionUnknownBlocked.Title" = "Unbekannte Tracker";
 

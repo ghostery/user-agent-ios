@@ -30,13 +30,13 @@ class ThirdPartySearchAlerts: UIAlertController {
         )
 
         let noOption = UIAlertAction(
-            title: Strings.Search.ThirdPartyEngines.CancelButton,
+            title: Strings.General.CancelString,
             style: .cancel,
             handler: nil
         )
 
         let okayOption = UIAlertAction(
-            title: Strings.Search.ThirdPartyEngines.OkayButton,
+            title: Strings.General.OKString,
             style: .default,
             handler: okayCallback
         )
@@ -76,7 +76,7 @@ class ThirdPartySearchAlerts: UIAlertController {
         )
 
         let okayOption = UIAlertAction(
-            title: Strings.Search.ThirdPartyEngines.OkayButton,
+            title: Strings.General.OKString,
             style: .default,
             handler: nil
         )

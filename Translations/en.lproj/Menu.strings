@@ -11,14 +11,8 @@
 /* Label for the button, displayed in the menu, used to open a new tab */
 "Menu.NewTabAction.Title" = "Open New Tab";
 
-/* Accessibility label for the button, displayed in the menu, used to open the Bbookmarks home panel. */
-"Menu.OpenBookmarksAction.AccessibilityLabel" = "Bookmarks";
-
 /* Accessibility label for the button, displayed in the menu, used to open the Downloads home panel. */
 "Menu.OpenDownloadsAction.AccessibilityLabel" = "Downloads";
-
-/* Accessibility label for the button, displayed in the menu, used to open the History home panel. */
-"Menu.OpenHistoryAction.AccessibilityLabel" = "History";
 
 /* Label for the button, displayed in the menu, used to navigate to the home page. */
 "Menu.OpenHomePageAction.Title" = "Home";
@@ -32,17 +26,11 @@
 /* Label for the button, displayed in the menu, used to open the Settings menu. */
 "Menu.OpenSettingsAction.Title" = "Settings";
 
-/* Accessibility label for the button, displayed in the menu, used to open the Top Sites home panel. */
-"Menu.OpenTopSitesAction.AccessibilityLabel" = "Top Sites";
-
 /* Label for the button, displayed in the menu, used to open the What's new page. */
 "Menu.OpenWhatsNewAction.Title" = "What's new";
 
 /* "Label for the button, displayed in the menu, used to open the Privacy Statement." */
 "Menu.OpenPrivacyStatementAction.Title" = "About privacy & data";
-
-/* Label for the button, displayed in the menu, used to show the html page source */
-"Menu.PageSourceAction.Title" = "View Page Source";
 
 /* Label for the button, displayed in the menu, used to request the reader mode version of the current website */
 "Menu.ReaderMode.Title" = "Reader Mode";
@@ -52,9 +40,6 @@
 
 /* Label for the button, displayed in the menu, used to open the share dialog. */
 "Menu.SharePageAction.Title" = "Share";
-
-/* Label for the button, displayed in the menu, used to open the tabs tray */
-"Menu.ShowTabs.Title" = "Show Tabs";
 
 "Menu.TrackingProtectionAdsBlocked.Title" = "Ad trackers";
 
@@ -81,8 +66,6 @@
 "Menu.TrackingProtectionPornvertisingBlocked.Title" = "Pornvertising";
 
 "Menu.TrackingProtectionSocialBlocked.Title" = "Social trackers";
-
-"Menu.TrackingProtectionTotalBlocked.Title" = "Total trackers blocked";
 
 "Menu.TrackingProtectionUnknownBlocked.Title" = "Unknown";
 

@@ -89,15 +89,6 @@
 /* Title in main app settings for Display (theme) settings */
 "Settings.DisplayTheme.Title" = "Anzeige";
 
-/* DNT Settings option for always on */
-"Settings.DNT.OptionAlwaysOn" = "Immer";
-
-/* DNT Settings option for only turning on when Tracking Protection is also on */
-"Settings.DNT.OptionOnWithTP" = "Nur bei gleichzeitiger Nutzung des Schutzes vor Aktivitätenverfolgung";
-
-/* DNT Settings title */
-"Settings.DNT.Title" = "Sendet Websites ein Do-Not-Track-Signal, um mitzuteilen, dass Sie nicht verfolgt werden möchten";
-
 /* General settings section title */
 "Settings.General.SectionName" = "Allgemein";
 

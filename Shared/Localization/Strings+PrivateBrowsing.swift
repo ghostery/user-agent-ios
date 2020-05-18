@@ -10,7 +10,6 @@ import Foundation
 
 // PrivateBrowsing {
 extension Strings {
-    public static let PrivateTabsViewButtonTitle = NSLocalizedString("TabsView.Private.Title", tableName: "PrivateBrowsing", comment: "Button displayed at the bottom of the tabs view")
     public static let DoneTabsViewButtonTitle = NSLocalizedString("TabsView.Done.Title", tableName: "PrivateBrowsing", comment: "Button displayed at the bottom of the tabs view")
     public static let PrivateBrowsingEmptyPrivateTabsTitle = NSLocalizedString("Private Browsing", tableName: "PrivateBrowsing", comment: "Title displayed for when there are no open tabs while in private mode")
     public static let PrivateBrowsingEmptyPrivateTabsDescription = String(format: NSLocalizedString("Empty.Private.Tab.Description", tableName: "PrivateBrowsing", comment: "Empty tab title"), AppInfo.displayName)

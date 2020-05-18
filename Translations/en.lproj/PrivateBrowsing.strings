@@ -19,9 +19,6 @@
 /* Button displayed at the bottom of the tabs view. */
 "TabsView.Done.Title" = "Done";
 
-/* Button displayed at the bottom of the tabs view. */
-"TabsView.Private.Title" = "Forget Tabs";
-
 /* Accessiblity hint for toggling on/off private mode */
 "Turns private mode on or off" = "Turns forget mode on or off";
 

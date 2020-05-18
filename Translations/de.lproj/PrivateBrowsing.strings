@@ -19,9 +19,6 @@
 /* Button displayed at the bottom of the tabbar view. */
 "TabsView.Done.Title" = "Fertig";
 
-/* Will be displayed in Tabs view bottom bar. */
-"TabsView.Private.Title" = "Vergessen-Tabs";
-
 /* Accessiblity hint for toggling on/off private mode */
 "Turns private mode on or off" = "Schaltet den Vergessen-Modus an oder aus";
 
