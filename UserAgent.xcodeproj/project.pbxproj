@@ -178,6 +178,7 @@
 		2BE3BD91247270D10066D0BD /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3BD95247270D10066D0BD /* Settings.strings */; };
 		2BE3BD92247270D10066D0BD /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3BD95247270D10066D0BD /* Settings.strings */; };
 		2BE3BD98247272F90066D0BD /* Strings+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE3BD97247272F90066D0BD /* Strings+Settings.swift */; };
+		2BE3BD9A247298490066D0BD /* Strings+Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE3BD99247298490066D0BD /* Strings+Today.swift */; };
 		2BE9C93123E169450074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9C93223E1C5B60074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9D524243C805400553556 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9D523243C805400553556 /* SpeechSynthesizer.swift */; };
@@ -1046,6 +1047,13 @@
 			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
 			remoteInfo = Shared;
 		};
+		2BE3BD9B24729A810066D0BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
+			remoteInfo = Shared;
+		};
 		2F9A72311ABB856100F9F05D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -1405,6 +1413,7 @@
 		2BE3BD94247270D10066D0BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
 		2BE3BD96247270D20066D0BD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Settings.strings; sourceTree = "<group>"; };
 		2BE3BD97247272F90066D0BD /* Strings+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Settings.swift"; sourceTree = "<group>"; };
+		2BE3BD99247298490066D0BD /* Strings+Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Today.swift"; sourceTree = "<group>"; };
 		2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBrowserStartShowSettingsViewController.swift; sourceTree = "<group>"; };
 		2BE9D523243C805400553556 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		2BEA07BE246973EE008E1622 /* Strings+Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Intro.swift"; sourceTree = "<group>"; };
@@ -2343,6 +2352,7 @@
 				4667B08F242123B1001A4197 /* Bridge.m */,
 				4667B091242123EC001A4197 /* Bridge.swift */,
 				4667B0972421266B001A4197 /* Today.strings */,
+				2BE3BD99247298490066D0BD /* Strings+Today.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -4059,6 +4069,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2BE3BD9C24729A810066D0BD /* PBXTargetDependency */,
 			);
 			name = Today;
 			productName = Today;
@@ -5382,6 +5393,7 @@
 				C520FF5A2388218A0097BA0C /* effective_tld_names.swift in Sources */,
 				E693F0D91E9D64BD0086DC17 /* OptionalExtensions.swift in Sources */,
 				AC33579D23882D2900693969 /* Strings+Storage.swift in Sources */,
+				2BE3BD9A247298490066D0BD /* Strings+Today.swift in Sources */,
 				466B372A246301A200747C50 /* Features.swift in Sources */,
 				E65075A01E37F7AB006961AC /* ArrayExtensions.swift in Sources */,
 				467C107024572E66003F7101 /* Strings+Search.swift in Sources */,
@@ -6287,6 +6299,11 @@
 			isa = PBXTargetDependency;
 			target = 288A2D851AB8B3260023ABC3 /* Shared */;
 			targetProxy = 2BE2590123BA2C3D0022ED28 /* PBXContainerItemProxy */;
+		};
+		2BE3BD9C24729A810066D0BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 288A2D851AB8B3260023ABC3 /* Shared */;
+			targetProxy = 2BE3BD9B24729A810066D0BD /* PBXContainerItemProxy */;
 		};
 		2F9A72321ABB856100F9F05D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
