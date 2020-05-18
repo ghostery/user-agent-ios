@@ -175,6 +175,9 @@
 		2BE3BD82246ECDFB0066D0BD /* Strings+ReaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE3BD81246ECDFB0066D0BD /* Strings+ReaderMode.swift */; };
 		2BE3BD87246ED02F0066D0BD /* ReaderMode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3BD8B246ED02F0066D0BD /* ReaderMode.strings */; };
 		2BE3BD88246ED02F0066D0BD /* ReaderMode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3BD8B246ED02F0066D0BD /* ReaderMode.strings */; };
+		2BE3BD91247270D10066D0BD /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3BD95247270D10066D0BD /* Settings.strings */; };
+		2BE3BD92247270D10066D0BD /* Settings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2BE3BD95247270D10066D0BD /* Settings.strings */; };
+		2BE3BD98247272F90066D0BD /* Strings+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE3BD97247272F90066D0BD /* Strings+Settings.swift */; };
 		2BE9C93123E169450074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9C93223E1C5B60074E55E /* OnBrowserStartShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */; };
 		2BE9D524243C805400553556 /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9D523243C805400553556 /* SpeechSynthesizer.swift */; };
@@ -1401,6 +1404,9 @@
 		2BE3BD81246ECDFB0066D0BD /* Strings+ReaderMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+ReaderMode.swift"; sourceTree = "<group>"; };
 		2BE3BD8A246ED02F0066D0BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ReaderMode.strings; sourceTree = "<group>"; };
 		2BE3BD8C246ED0310066D0BD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ReaderMode.strings; sourceTree = "<group>"; };
+		2BE3BD94247270D10066D0BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
+		2BE3BD96247270D20066D0BD /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Settings.strings; sourceTree = "<group>"; };
+		2BE3BD97247272F90066D0BD /* Strings+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Settings.swift"; sourceTree = "<group>"; };
 		2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBrowserStartShowSettingsViewController.swift; sourceTree = "<group>"; };
 		2BE9D523243C805400553556 /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 		2BEA07BE246973EE008E1622 /* Strings+Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Intro.swift"; sourceTree = "<group>"; };
@@ -3122,6 +3128,7 @@
 				2BE3BD7D246EC34A0066D0BD /* Strings+MenuHelper.swift */,
 				2BE3BD7F246EC9C60066D0BD /* Strings+ErrorPages.swift */,
 				2BE3BD81246ECDFB0066D0BD /* Strings+ReaderMode.swift */,
+				2BE3BD97247272F90066D0BD /* Strings+Settings.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -3156,6 +3163,7 @@
 				2BF5F149246E6DFE00837817 /* AlertController.strings */,
 				2BD94C2F246E8A8200CAD463 /* Accessibility.strings */,
 				2BE3BD8B246ED02F0066D0BD /* ReaderMode.strings */,
+				2BE3BD95247270D10066D0BD /* Settings.strings */,
 			);
 			path = Translations;
 			sourceTree = "<group>";
@@ -4572,6 +4580,7 @@
 				ACB7380923042BAB00FA5626 /* AllFramesAtDocumentEnd.js in Resources */,
 				4661C370246C11D500F36302 /* MenuHelper.strings in Resources */,
 				4661C374246C11DF00F36302 /* Menu.strings in Resources */,
+				2BE3BD92247270D10066D0BD /* Settings.strings in Resources */,
 				2B76E43D23A12DE4001CF20E /* PrivacyStatement.strings in Resources */,
 				ACB7380B23042BAB00FA5626 /* topdomains.txt in Resources */,
 				4661C378246C11ED00F36302 /* Storage.strings in Resources */,
@@ -4649,6 +4658,7 @@
 				74821FFE1DB6D3AC00EEEA72 /* MailSchemes.plist in Resources */,
 				D308EE561CBF0BF5006843F2 /* CertError.css in Resources */,
 				2B76E43B23A12DB4001CF20E /* PrivacyStatement.strings in Resources */,
+				2BE3BD91247270D10066D0BD /* Settings.strings in Resources */,
 				0BA1E00E1B03FB0B007675AF /* NetError.html in Resources */,
 				E4A961381AC06FA50069AD6F /* ReaderViewLoading.html in Resources */,
 				EBE7635820ADCB7600E27F2D /* SendTo.xcassets in Resources */,
@@ -5409,6 +5419,7 @@
 				E65075B31E37F7AB006961AC /* KeyboardHelper.swift in Sources */,
 				E65075AA1E37F7AB006961AC /* URLProtectionSpaceExtensions.swift in Sources */,
 				EB7FFFC820A9D38D003E1E34 /* AlertController.swift in Sources */,
+				2BE3BD98247272F90066D0BD /* Strings+Settings.swift in Sources */,
 				E65075BC1E37F7AB006961AC /* SupportUtils.swift in Sources */,
 				E65075B61E37F7AB006961AC /* Loader.swift in Sources */,
 				E65075BF1E37F7AB006961AC /* UserAgent.swift in Sources */,
@@ -6491,6 +6502,15 @@
 				2BE3BD8C246ED0310066D0BD /* de */,
 			);
 			name = ReaderMode.strings;
+			sourceTree = "<group>";
+		};
+		2BE3BD95247270D10066D0BD /* Settings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BE3BD94247270D10066D0BD /* en */,
+				2BE3BD96247270D20066D0BD /* de */,
+			);
+			name = Settings.strings;
 			sourceTree = "<group>";
 		};
 		2BF5F149246E6DFE00837817 /* AlertController.strings */ = {

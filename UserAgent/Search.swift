@@ -26,7 +26,7 @@ public class Search {
         public var available: [Country]
     }
 
-    private static let defaultRegion = Country(key: "de", name: Strings.Settings.SearchResultForLanguage.German)
+    private static let defaultRegion = Country(key: "de", name: Strings.Settings.Search.SearchResultForLanguage.German)
 
     static let defaultConfig = Config(selected: Search.defaultRegion, available: [Search.defaultRegion])
 

@@ -237,7 +237,7 @@ class SearchSetting: Setting {
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
-        super.init(title: NSAttributedString(string: Strings.Settings.AdditionalSearchEngines.SectionTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.Search.AdditionalSearchEngines.SectionTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -265,7 +265,7 @@ class SearchLanguageSetting: Setting {
     init(currentRegion: Search.Country?, availableRegions: [Search.Country]?) {
         self.currentRegion = currentRegion
         self.availableRegions = availableRegions
-        super.init(title: NSAttributedString(string: Strings.Settings.SearchResultForLanguage.Title, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.Search.SearchResultForLanguage.Title, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {

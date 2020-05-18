@@ -28,6 +28,8 @@ extension Strings {
         public static let NoString = NSLocalizedString("No", comment: "Label for No button")
         public static let CopyString = NSLocalizedString("Copy", comment: "Label for Copy button")
         public static let DeleteString = NSLocalizedString("Delete", comment: "Label for Copy button")
+        public static let EditString = NSLocalizedString("Edit", comment: "Label for Edit button")
+        public static let SaveString = NSLocalizedString("Save", comment: "Label for Edit button")
     }
 
     // MARK: - Table date section titles
@@ -103,149 +105,6 @@ extension Strings {
             public static let DownloadsTitle = NSLocalizedString("HomeView.SegmentedControl.Downloads.Title", tableName: "UserAgent", comment: "")
         }
         public static let emptyBookmarksText = NSLocalizedString("Bookmarks you save will show up here.", comment: "Status label for the empty Bookmarks state.")
-    }
-
-    // MARK: - Settings
-    public struct Settings {
-        public struct Sections {
-            public static let Privacy = NSLocalizedString("Settings.Sections.Privacy", comment: "Privacy section title")
-            public static let Support = NSLocalizedString("Settings.Sections.Support", comment: "Support section title")
-            public static let About = NSLocalizedString("Settings.Sections.About", comment: "About settings section title")
-        }
-        public struct PrivacyDashboard {
-            public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
-            public static let AdBlockingTitle = NSLocalizedString("Settings.PrivacyDashboard.AdBlockingTitle", comment: "Ad-blocking setting")
-            public static let AntiTrackingTitle = NSLocalizedString("Settings.PrivacyDashboard.AntiTrackingTitle", comment: "Anti-tracking setting")
-            public static let PopupBlockerTitle = NSLocalizedString("Settings.PrivacyDashboard.PopupBlockerTitle", comment: "Pop-up Blocker setting")
-        }
-        public struct General {
-            public static let SectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")
-            public static let BlockPopUpWindows = NSLocalizedString("Settings.General.BlockPopUpWindows", comment: "Block pop-up windows setting")
-        }
-        public struct News {
-            public struct Language {
-                public static let Title = NSLocalizedString("Settings.News.Language", comment: "The button text in Settings that opens the list of supported news languages.")
-                public static let German = NSLocalizedString("region-DE", comment: "Localized String for German region")
-            }
-            public static let SectionTitle = NSLocalizedString("Settings.News.SectionName", comment: "News settings section title")
-            public static let NewsFromNewTabPage = NSLocalizedString("Settings.News.NewsFromNewTabPage", comment: "Disable news from new tab page")
-            public static let NewsImages = NSLocalizedString("Settings.News.NewsImages", comment: "Disable load of news images")
-        }
-        public struct ClearPrivateData {
-            public static let Title = NSLocalizedString("Settings.ClearPrivateData.Title", comment: "Title displayed in header of the setting panel.")
-            public static let ClearButton = NSLocalizedString("Settings.ClearPrivateData.Clear.Button", comment: "Button in settings that clears private data for the selected items.")
-            public static let ClearAllWebsiteDataButton = NSLocalizedString("Settings.ClearAllWebsiteData.Clear.Button", comment: "Button in Data Management that clears private data for the selected items.")
-            public static let SectionName = NSLocalizedString("Settings.ClearPrivateData.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data.")
-        }
-        public struct DataManagement {
-            public static let SectionName = NSLocalizedString("Settings.DataManagement.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data.")
-            public static let SearchLabel = NSLocalizedString("Settings.DataManagement.SearchLabel", comment: "Default text in search bar for Data Management")
-            public static let Title = NSLocalizedString("Settings.DataManagement.Title", comment: "Title displayed in header of the setting panel.")
-            public struct PrivateData {
-                public static let PrivacyStats = NSLocalizedString("Settings.DataManagement.PrivateData.PrivacyStats", tableName: "ClearPrivateData", comment: "Settings item for clearing privacy stats")
-                public static let DownloadedFiles = NSLocalizedString("Settings.DataManagement.PrivateData.DownloadedFiles", tableName: "ClearPrivateData", comment: "Settings item for deleting downloaded files")
-                public static let Cookies = NSLocalizedString("Settings.DataManagement.PrivateData.Cookies", tableName: "ClearPrivateData", comment: "Settings item for clearing cookies")
-                public static let OfflineWebsiteData = NSLocalizedString("Settings.DataManagement.PrivateData.OfflineWebsiteData", tableName: "ClearPrivateData", comment: "Settings item for clearing website data")
-                public static let Cache = NSLocalizedString("Settings.DataManagement.PrivateData.Cache", tableName: "ClearPrivateData", comment: "Settings item for clearing the cache")
-                public static let BrowsingHistory = NSLocalizedString("Settings.DataManagement.PrivateData.BrowsingHistory", tableName: "ClearPrivateData", comment: "Settings item for clearing browsing history")
-                public static let BrowsingStorage = NSLocalizedString("Settings.DataManagement.PrivateData.BrowsingStorage", tableName: "ClearPrivateData", comment: "Settings item for clearing browsing storage")
-                public static let AllTabs = NSLocalizedString("Settings.DataManagement.PrivateData.AllTabs", tableName: "ClearPrivateData", comment: "Settings item for closing all tabs")
-                public static let Bookmarks = NSLocalizedString("Settings.DataManagement.PrivateData.Bookmarks", tableName: "ClearPrivateData", comment: "Settings item for clear all bookmarks")
-                public static let TopAndPinnedSites = NSLocalizedString("Settings.DataManagement.PrivateData.TopSites", tableName: "ClearPrivateData", comment: "Settings item for clear all TopSites")
-                public static let SearchHistory = NSLocalizedString("Settings.DataManagement.PrivateData.SearchHistory", tableName: "ClearPrivateData", comment: "Settings item for removing search history")
-            }
-        }
-        public struct TodayWidget {
-            public static let SectionName = NSLocalizedString("Settings.TodayWidget.SectionName", comment: "Label used as an item in Settings.")
-            public static let Title = NSLocalizedString("Settings.TodayWidget.Title", comment: "Title displayed in header of the setting panel.")
-            public static let SearchLabel = NSLocalizedString("Settings.TodayWidget.SearchLabel", comment: "Default text in search bar for Today Widget Setting")
-        }
-        public struct WebsiteData {
-            public static let Title = NSLocalizedString("Settings.WebsiteData.Title", comment: "Title displayed in header of the Data Management panel.")
-            public static let ShowMoreButton = NSLocalizedString("Settings.WebsiteData.ButtonShowMore", comment: "Button shows all websites on website data tableview")
-            public static let ClearWebsiteDataMessage = NSLocalizedString("Settings.WebsiteData.ConfirmPrompt", comment: "Description of the confirmation dialog shown when a user tries to clear their private data.")
-            public static let EditWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonEdit", comment: "Button to edit website search results")
-            public static let DoneWebsiteSearchButton = NSLocalizedString("Settings.WebsiteData.ButtonDone", comment: "Button to exit edit website search results")
-        }
-        public struct Search {
-            public static let SectionTitle = NSLocalizedString("Settings.Search.SectionName", comment: "Search settings section title")
-            public static let DoneButton = NSLocalizedString("Settings.Search.Done.Button", comment: "Button displayed at the top of the search settings.")
-            public static let EditButton = NSLocalizedString("Settings.Search.Edit.Button", comment: "Button displayed at the top of the search settings.")
-        }
-        public struct AdditionalSearchEngines {
-            public static let SectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
-            public static let DefaultSearchEngine = NSLocalizedString("Settings.AdditionalSearchEngines.DefaultSearchEngine", comment: "Description for choosing search engine")
-            public static let ItemDefaultEngine = NSLocalizedString("Settings.AdditionalSearchEngines.ItemDefaultEngine", comment: "Label for show search suggestions setting.")
-        }
-        public struct AddCustomEngine {
-            public static let ButtonTitle = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
-            public static let Title = NSLocalizedString("Settings.AddCustomEngine.Title", comment: "The title of the Custom Search Engine view.")
-            public static let TitleFieldSectionTitle = NSLocalizedString("Settings.AddCustomEngine.TitleLabel", comment: "The title for the field which sets the title for a custom search engine.")
-            public static let URLSectionTitle = NSLocalizedString("Settings.AddCustomEngine.URLLabel", comment: "The title for URL Field")
-            public static let TitlePlaceholder = NSLocalizedString("Settings.AddCustomEngine.TitlePlaceholder", comment: "The placeholder for Title Field when saving a custom search engine.")
-            public static let URLPlaceholder = NSLocalizedString("Settings.AddCustomEngine.URLPlaceholder", comment: "The placeholder for URL Field when saving a custom search engine")
-            public static let SaveButtonText = NSLocalizedString("Settings.AddCustomEngine.SaveButtonText", comment: "The text on the Save button when saving a custom search engine")
-        }
-        public struct SearchResultForLanguage {
-            public static let Title = NSLocalizedString("Settings.SearchResultForLanguage", comment: "The button text in Settings that opens the list of supported search languages.")
-            public static let German = NSLocalizedString("region-DE", comment: "Localized String for German region")
-        }
-        public struct NewTab {
-            public static let TopSites = String(format: NSLocalizedString("Settings.NewTab.Option.Home", comment: "Option in settings to show Firefox Home when you open a new tab"), AppInfo.displayName)
-        }
-        public struct OnBrowserStartTab {
-            public static let SectionName = NSLocalizedString("Settings.OnBrowserStartTab.SectionName", comment: "The option in settings to configure first launch tab")
-            public static let LastOpenedTab = NSLocalizedString("Settings.OnBrowserStartTab.LastOpenedTab", comment: "The option in settings to configure first launch to open last opened tab")
-            public static let NewTab = NSLocalizedString("Settings.OnBrowserStartTab.NewTab", comment: "The option in settings to configure first launch to open new tab")
-        }
-        public struct RefreshControl {
-            public static let SectionName = NSLocalizedString("Settings.RefreshControl.SectionName", comment: "The option in settings to enable/disable Refresh Control.")
-        }
-        public struct OpenWith {
-            public static let SectionName = NSLocalizedString("Settings.OpenWith.SectionName", comment: "Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour.")
-            public static let PageTitle = NSLocalizedString("Settings.OpenWith.PageTitle", comment: "Title for Open With Settings")
-        }
-        public struct TrackingProtection {
-            public static let SectionName = NSLocalizedString("Settings.TrackingProtection.SectionName", comment: "Row in top-level of settings that gets tapped to show the tracking protection settings detail view.")
-        }
-        public struct SendUsage {
-            public static let Title = NSLocalizedString("Settings.SendUsage.Title", comment: "The title for the setting to send usage data.")
-            public static let Message = String(format: NSLocalizedString("Settings.SendUsage.Message", comment: "A short description that explains why mozilla collects usage data."), AppInfo.displayName, AppInfo.displayName)
-        }
-        public struct Siri {
-            public static let SectionName = NSLocalizedString("Settings.Siri.SectionName", comment: "The option that takes you to the siri shortcuts settings page")
-            public static let SectionDescription = String(format: NSLocalizedString("Settings.Siri.SectionDescription", comment: "The description that describes what siri shortcuts are"), AppInfo.displayName)
-            public static let OpenURL = NSLocalizedString("Settings.Siri.OpenTabShortcut", comment: "The description of the open new tab siri shortcut")
-            public static let SearchWith = NSLocalizedString("Settings.Siri.SearchWith", comment: "The description of the search with siri shortcut")
-        }
-        public struct NewTabPageDefaultView {
-            public static let SectionName = NSLocalizedString("Settings.NewTabPageDefaultView.SectionName", comment: "The option in settings to configure default selected view in new tab")
-        }
-        public struct DNT {
-            public static let NotTrackTitle = NSLocalizedString("Settings.DNT.Title", comment: "DNT Settings title")
-            public static let OptionOnWithTP = NSLocalizedString("Settings.DNT.OptionOnWithTP", comment: "DNT Settings option for only turning on when Tracking Protection is also on")
-            public static let OptionAlwaysOn = NSLocalizedString("Settings.DNT.OptionAlwaysOn", comment: "DNT Settings option for always on")
-        }
-        public struct TranslateSnackBar {
-            public static let SectionHeader = NSLocalizedString("Settings.TranslateSnackBar.SectionHeader", comment: "Translation settings section title")
-            public static let SectionFooter = NSLocalizedString("Settings.TranslateSnackBar.SectionFooter", comment: "Translation settings footer describing how language detection and translation happens.")
-            public static let Title = NSLocalizedString("Settings.TranslateSnackBar.Title", comment: "Title in main app settings for Translation toast settings")
-            public static let SwitchTitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchTitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
-            public static let SwitchSubtitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchSubtitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
-        }
-        public struct Support {
-            public static let HumanWebTitle = NSLocalizedString("Settings.Support.HumanWebTitle", comment: "The title for the human web setting")
-            public static let FAQAndSupport = NSLocalizedString("Settings.Support.FAQAndSupport", comment: "Menu item in settings used to open https://cliqz.com/support")
-            public static let ShowTour = NSLocalizedString("Settings.Support.ShowTour", comment: "Show the on-boarding screen again from the settings")
-            public static let PrivacyPolicy = NSLocalizedString("Settings.Support.PrivacyPolicy", comment: "Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/")
-        }
-        public struct About {
-            public static let Version = NSLocalizedString("Settings.About.Version", comment: "Version number of Firefox shown in settings")
-            public static let Licenses = NSLocalizedString("Settings.About.Licenses", comment: "Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG")
-        }
-        public static let Title = NSLocalizedString("Settings.Title", comment: "Title in the settings view controller title bar")
-        public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
-        public static let AdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
     }
 
     // MARK: - Downloads Panel

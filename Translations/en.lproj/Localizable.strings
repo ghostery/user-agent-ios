@@ -1,5 +1,3 @@
-/* About settings section title */
-"Settings.Sections.About" = "About";
 
 /* The title for the pinning a topsite action */
 "ActivityStream.ContextMenu.PinTopsite" = "Pin to Top Sites";
@@ -45,9 +43,6 @@
 
 /* Tile title for Amazon */
 "Amazon" = "Amazon";
-
-/* Block pop-up windows setting */
-"Settings.General.BlockPopUpWindows" = "Block Pop-up Windows";
 
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Title";
@@ -181,9 +176,6 @@
 /* Tile title for Facebook */
 "Facebook" = "Facebook";
 
-/* Menu item in settings used to open input.mozilla.org where people can submit feedback */
-"Settings.Support.FAQAndSupport" = "FAQ & Support";
-
 /* Toggle history syncing setting */
 "History" = "History";
 
@@ -279,9 +271,6 @@
 
 /* History tableview section header */
 "Last week" = "Last week";
-
-/* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
-"Settings.About.Licenses" = "Licenses";
 
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Bookmark Added";
@@ -444,12 +433,6 @@
 /* Button for closing the menu action sheet */
 "PhotonMenu.close" = "Close";
 
-/* Privacy section title */
-"Settings.Sections.Privacy" = "Privacy";
-
-/* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
-"Settings.Support.PrivacyPolicy" = "Privacy Policy";
-
 /* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
 "read" = "read";
 
@@ -521,247 +504,14 @@
 /* Label for an action used to view one or more tabs from a notification. */
 "SentTab.ViewAction.title" = "View";
 
-/* Title in the settings view controller title bar */
-"Settings.Title" = "Settings";
-
-/* The button text in Search Settings that opens the Custom Search Engine view. */
-"Settings.AddCustomEngine" = "Add Search Engine";
-
-/* The text on the Save button when saving a custom search engine */
-"Settings.AddCustomEngine.SaveButtonText" = "Save";
-
-/* The title of the  Custom Search Engine view. */
-"Settings.AddCustomEngine.Title" = "Add Search Engine";
-
-/* The title for the field which sets the title for a custom search engine. */
-"Settings.AddCustomEngine.TitleLabel" = "Title";
-
-/* The placeholder for Title Field when saving a custom search engine. */
-"Settings.AddCustomEngine.TitlePlaceholder" = "Search Engine";
-
-/* The title for URL Field */
-"Settings.AddCustomEngine.URLLabel" = "URL";
-
-/* The placeholder for URL Field when saving a custom search engine */
-"Settings.AddCustomEngine.URLPlaceholder" = "URL (Replace Query with %s)";
-
-"Settings.AdditionalSearchEngines.DefaultSearchEngine" = "Default Search Engine";
-
-/* The button text in Search Settings that opens the Additional Search Engines view. */
-"Settings.AdditionalSearchEngines.SectionName" = "Additional search engines";
-
-/* Label for show search suggestions setting. */
-"Settings.AdditionalSearchEngines.ItemDefaultEngine" = "Show Search Suggestions";
-
-/* "Block explicit content" */
-"Settings.AdultFilterMode" = "Block Explicit Content";
-
-/* Button in Data Management that clears private data for the selected items. */
-"Settings.ClearAllWebsiteData.Clear.Button" = "Clear All Website Data";
-
-/* Button in settings that clears private data for the selected items. */
-"Settings.ClearPrivateData.Clear.Button" = "Clear Private Data";
-
-/* Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data. */
-"Settings.ClearPrivateData.SectionName" = "Clear Private Data";
-
-/* Title displayed in header of the setting panel. */
-"Settings.ClearPrivateData.Title" = "Clear Private Data";
-
-/* Copy app version alert shown in settings. */
-"Settings.CopyAppVersion.Title" = "Copied to clipboard";
-
-/* Default text in search bar for Data Management */
-"Settings.DataManagement.SearchLabel" = "Filter Sites";
-
-/* Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data. */
-"Settings.DataManagement.SectionName" = "Data Management";
-
-/* Title displayed in header of the setting panel. */
-"Settings.DataManagement.Title" = "Data Management";
-
-/* Label used as an item in Settings. */
-"Settings.TodayWidget.SectionName" = "Today Widget";
-
-/* Title displayed in header of the setting panel. */
-"Settings.TodayWidget.Title" = "Current City";
-
-/* Default text in search bar for Today Widget Setting */
-"Settings.TodayWidget.SearchLabel" = "Search City";
-
-/* Display (theme) settings footer describing how the brightness slider works. */
-"Settings.DisplayTheme.SectionFooter" = "The theme will automatically change based on your display brightness. You can set the threshold where the theme changes. The circle indicates your display's current brightness.";
-
-/* Display (theme) settings section title */
-"Settings.DisplayTheme.SectionHeader" = "Theme";
-
-/* Title in main app settings for Display (theme) settings */
-"Settings.DisplayTheme.Title" = "Display";
-
-/* DNT Settings option for always on */
-"Settings.DNT.OptionAlwaysOn" = "Always";
-
-/* DNT Settings option for only turning on when Tracking Protection is also on */
-"Settings.DNT.OptionOnWithTP" = "Only when using Tracking Protection";
-
-/* DNT Settings title */
-"Settings.DNT.Title" = "Send websites a Do Not Track signal that you don’t want to be tracked";
-
-/* General settings section title */
-"Settings.General.SectionName" = "General";
-
-/* News settings section title. */
-"Settings.News.SectionName" = "News";
-
-/* The button text in Settings that opens the list of supported news languages. */
-"Settings.News.Language" = "Choose News edition";
-
-/* Disable news from new tab page. */
-"Settings.News.NewsFromNewTabPage" = "Display News";
-
-/* Disable load of news images. */
-"Settings.News.NewsImages" = "Display images";
-
-/* Label used as an item in Settings. When touched it will open a dialog to configure the home page and its uses. */
-"Settings.HomePage.SectionName" = "Homepage";
-
-/* Option in settings to show UserAgent Home when you open a new tab */
-"Settings.NewTab.Option.Home" = "%@ Home";
-
-/* The option in settings to configure first launch tab */
-"Settings.OnBrowserStartTab.SectionName" = "On Browser start show";
-
-/* The option in settings to configure first launch to open last opened tab */
-"Settings.OnBrowserStartTab.LastOpenedTab" = "Last opened Tab";
-
-/* The option in settings to configure first launch to open new tab */
-"Settings.OnBrowserStartTab.NewTab" = "New Tab Page";
-
-/* The option in settings to enable/disable Refresh Control. */
-"Settings.RefreshControl.SectionName" = "Pull to reload";
-
-/* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Status" = "When Opening %@";
-
-/* Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Title" = "Offer to Open Copied Links";
-
-/* Title of setting to enable link previews when long-pressing links. */
-"Settings.ShowLinkPreivews.Title" = "Show Link Previews";
-
-/* Description displayed under the ”Show Link Previews” option */
-"Settings.ShowLinkPreviews.Status" = "When Long-pressing Links";
-
-/* Title for Open With Settings */
-"Settings.OpenWith.PageTitle" = "Open mail links with";
-
-/* Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour. */
-"Settings.OpenWith.SectionName" = "Mail App";
-
-/* Privacy Dashboard Title */
-"Settings.PrivacyDashboard.Title" = "Privacy Dashboard";
-
-/* Ad-blocking setting */
-"Settings.PrivacyDashboard.AdBlockingTitle" = "Ad-blocking";
-
-/* Anti-tracking setting */
-"Settings.PrivacyDashboard.AntiTrackingTitle" = "Anti-Tracking";
-
-/* Block pop-up windows setting */
-"Settings.PrivacyDashboard.PopupBlockerTitle" = "Pop-up Blocker";
-
-/* Button displayed at the top of the search settings. */
-"Settings.Search.Done.Button" = "Done";
-
-/* Button displayed at the top of the search settings. */
-"Settings.Search.Edit.Button" = "Edit";
-
-/* Search settings seciton title */
-"Settings.Search.SectionName" = "Search";
-
-/* The button text in Search Settings that opens the list of supported search languages. */
-"Settings.SearchResultForLanguage" = "Search language";
-
-/* A short description that explains why mozilla collects usage data. */
-"Settings.SendUsage.Message" = "%@ strives to only collect what we need to provide and improve %@ for everyone.";
-
-/* The title for the setting to send usage data. */
-"Settings.SendUsage.Title" = "Send Usage Data";
-
-/* The title for the human web setting. */
-"Settings.Support.HumanWebTitle" = "Human Web";
-
-/* The description of the open new tab siri shortcut */
-"Settings.Siri.OpenTabShortcut" = "Open New Tab";
-
-/* The description of the search with siri shortcut */
-"Settings.Siri.SearchWith" = "Search With ";
-
-/* The description that describes what siri shortcuts are */
-"Settings.Siri.SectionDescription" = "Use Siri shortcuts to quickly open %@ via Siri";
-
-/* The option that takes you to the siri shortcuts settings page */
-"Settings.Siri.SectionName" = "Siri Shortcuts";
-
-/* The option in settings to configure default selected view in new tab */
-"Settings.NewTabPageDefaultView.SectionName" = "New Tab";
-
-/* Explanation of basic mode. */
-"Settings.TrackingProtection.Info.BasicTitle" = "Balanced for protection and performance.";
-
-/* The Title on info view which shows a list of all blocked websites */
-"Settings.TrackingProtection.Info.BlocksTitle" = "BLOCKS";
-
-/* Title for tracking protection options section where level can be selected. */
-"Settings.TrackingProtection.ProtectionLevelTitle" = "Protection Level";
-
-/* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
-"Settings.TrackingProtection.SectionName" = "Tracking Protection";
-
-/* Tracking protection settings option for using the basic blocklist. */
-"Settings.TrackingProtectionOption.BasicBlockList" = "Standard (default)";
-
-/* Settings option to specify that Tracking Protection is on */
-"Settings.TrackingProtectionOption.NormalBrowsingLabelOn" = "Enhanced Tracking Protection";
-
-/* Translation settings footer describing how language detection and translation happens. */
-"Settings.TranslateSnackBar.SectionFooter" = "The web page language is detected on the device, and a translation from a remote service is offered.";
-
-/* Translation settings section title */
-"Settings.TranslateSnackBar.SectionHeader" = "Services";
-
-/* Switch to choose if the language of a page is detected and offer to translate. */
-"Settings.TranslateSnackBar.SwitchSubtitle" = "Offer to translate any site written in a language that is different from your default language.";
-
-/* Switch to choose if the language of a page is detected and offer to translate. */
-"Settings.TranslateSnackBar.SwitchTitle" = "Offer Translation";
-
-/* Title in main app settings for Translation toast settings */
-"Settings.TranslateSnackBar.Title" = "Translation";
-
 /* Label for Delete button */
 "Delete" = "Delete";
 
-/* Button to exit edit website search results */
-"Settings.WebsiteData.ButtonDone" = "Done";
+/* Label for Edit button */
+"Edit" = "Edit";
 
-/* Button to edit website search results */
-"Settings.WebsiteData.ButtonEdit" = "Edit";
-
-/* Button shows all websites on website data tableview */
-"Settings.WebsiteData.ButtonShowMore" = "Show More";
-
-/* Description of the confirmation dialog shown when a user tries to clear their private data. */
-"Settings.WebsiteData.ConfirmPrompt" = "This action will clear all of your website data. It cannot be undone.";
-
-/* Title displayed in header of the Data Management panel. */
-"Settings.WebsiteData.Title" = "Website Data";
-
-/* Show the on-boarding screen again from the settings */
-"Settings.Support.ShowTour" = "Show Tour";
-
-/* Support section title */
-"Settings.Sections.Support" = "Support";
+/* Label for Save button */
+"Save" = "Save";
 
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normal Browsing Mode";
@@ -828,9 +578,6 @@
 
 /* Title for UserAgent about:home page in tab history list */
 "UserAgent.HomePage.Title" = "%@ Home Page";
-
-/* Version number of UserAgent shown in settings */
-"Settings.About.Version" = "Version %1$@ (%2$@)";
 
 /* See http://mzl.la/1LXbDOL */
 "Welcome to your Reading List" = "Welcome to your Reading List";

@@ -13,7 +13,7 @@ class SearchEnginePicker: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = Strings.Settings.AdditionalSearchEngines.DefaultSearchEngine
+        navigationItem.title = Strings.Settings.Search.AdditionalSearchEngines.DefaultSearchEngine
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.General.CancelString, style: .plain, target: self, action: #selector(cancel))
     }
 

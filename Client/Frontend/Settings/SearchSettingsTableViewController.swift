@@ -39,7 +39,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = Strings.Settings.AdditionalSearchEngines.SectionTitle
+        navigationItem.title = Strings.Settings.Search.AdditionalSearchEngines.SectionTitle
 
         // To allow re-ordering the list of search engines at all times.
         tableView.isEditing = true
@@ -50,10 +50,10 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
         // Insert Done button if being presented outside of the Settings Nav stack
         if !(self.navigationController is ThemedNavigationController) {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.Settings.Search.DoneButton, style: .done, target: self, action: #selector(self.dismissAnimated))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.General.DoneString, style: .done, target: self, action: #selector(self.dismissAnimated))
         }
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.Settings.Search.EditButton, style: .plain, target: self,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.General.EditString, style: .plain, target: self,
                                                                  action: #selector(beginEditing))
     }
 
@@ -83,14 +83,14 @@ class SearchSettingsTableViewController: ThemedTableViewController {
             case ItemDefaultEngine:
                 engine = model.defaultEngine
                 cell.editingAccessoryType = .disclosureIndicator
-                cell.accessibilityLabel = Strings.Settings.AdditionalSearchEngines.DefaultSearchEngine
+                cell.accessibilityLabel = Strings.Settings.Search.AdditionalSearchEngines.DefaultSearchEngine
                 cell.accessibilityValue = engine.shortName
                 cell.label.text = engine.shortName
                 if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
                     cell.updateLogo(url: url.absoluteString)
                 }
             case ItemDefaultSuggestions:
-                cell.textLabel?.text = Strings.Settings.AdditionalSearchEngines.ItemDefaultEngine
+                cell.textLabel?.text = Strings.Settings.Search.AdditionalSearchEngines.ItemDefaultEngine
                 let toggle = UISwitchThemed()
                 toggle.onTintColor = Theme.tableView.controlTint
                 toggle.addTarget(self, action: #selector(didToggleSearchSuggestions), for: .valueChanged)
@@ -129,9 +129,9 @@ class SearchSettingsTableViewController: ThemedTableViewController {
                 }
 
                 cell.editingAccessoryType = .disclosureIndicator
-                cell.accessibilityLabel = Strings.Settings.AddCustomEngine.Title
+                cell.accessibilityLabel = Strings.Settings.Search.AddCustomEngine.Title
                 cell.accessibilityIdentifier = "customEngineViewButton"
-                cell.titleLabel.text = Strings.Settings.AddCustomEngine.ButtonTitle
+                cell.titleLabel.text = Strings.Settings.Search.AddCustomEngine.ButtonTitle
                 cell.separatorInset = .zero
                 return cell
             }
@@ -224,9 +224,9 @@ class SearchSettingsTableViewController: ThemedTableViewController {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeaderIdentifier) as! ThemedTableSectionHeaderFooterView
         var sectionTitle: String
         if section == SectionDefault {
-            sectionTitle = Strings.Settings.AdditionalSearchEngines.DefaultSearchEngine
+            sectionTitle = Strings.Settings.Search.AdditionalSearchEngines.DefaultSearchEngine
         } else {
-            sectionTitle = Strings.Settings.AdditionalSearchEngines.SectionTitle
+            sectionTitle = Strings.Settings.Search.AdditionalSearchEngines.SectionTitle
         }
         headerView.titleLabel.text = sectionTitle
 
@@ -300,7 +300,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
         tableView.isEditing = true
         showDeletion = editing
         UIView.performWithoutAnimation {
-            self.navigationItem.rightBarButtonItem?.title = editing ? Strings.Settings.Search.DoneButton : Strings.Settings.Search.EditButton
+            self.navigationItem.rightBarButtonItem?.title = editing ? Strings.General.DoneString : Strings.General.EditString
         }
         navigationItem.rightBarButtonItem?.isEnabled = isEditable
         navigationItem.rightBarButtonItem?.action = editing ?
