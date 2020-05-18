@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03CCC9181AF05E7300DBF30D /* RelativeDatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCC9171AF05E7300DBF30D /* RelativeDatesTests.swift */; };
 		046C031423ABBA2B00D826E3 /* PrivacyDashboardUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C031323ABBA2B00D826E3 /* PrivacyDashboardUtils.swift */; };
 		046C031523ABFE9F00D826E3 /* PrivacyDashboardUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C031323ABBA2B00D826E3 /* PrivacyDashboardUtils.swift */; };
 		049DBADF23E4587B00D2D38D /* Widgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049DBAD623E4587B00D2D38D /* Widgets.framework */; };
@@ -1237,7 +1236,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		03CCC9171AF05E7300DBF30D /* RelativeDatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativeDatesTests.swift; sourceTree = "<group>"; };
 		046C031323ABBA2B00D826E3 /* PrivacyDashboardUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyDashboardUtils.swift; sourceTree = "<group>"; };
 		049DBAD623E4587B00D2D38D /* Widgets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Widgets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		049DBAD823E4587B00D2D38D /* Widgets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Widgets.h; sourceTree = "<group>"; };
@@ -3853,7 +3851,6 @@
 				281B2BE91ADF4D90002917DC /* MockProfile.swift */,
 				E683F0A51E92E0820035D990 /* MockableHistory.swift */,
 				2FDB10921A9FBEC5006CF312 /* PrefsTests.swift */,
-				03CCC9171AF05E7300DBF30D /* RelativeDatesTests.swift */,
 				28D52E081BCDF44100187A1D /* ResetTests.swift */,
 				2F697F7D1A9FD22D009E03AE /* SearchEnginesTests.swift */,
 				D3FA777A1A43B2990010CD32 /* SearchTests.swift */,
@@ -6201,7 +6198,6 @@
 			files = (
 				E4CD9F1D1A6D9C2800318571 /* WebServerTests.swift in Sources */,
 				D3D488591ABB54CD00A93597 /* FileAccessorTests.swift in Sources */,
-				03CCC9181AF05E7300DBF30D /* RelativeDatesTests.swift in Sources */,
 				F84B21DA1A090F8100AAB793 /* ClientTests.swift in Sources */,
 				281B2BEA1ADF4D90002917DC /* MockProfile.swift in Sources */,
 				2F697F7E1A9FD22D009E03AE /* SearchEnginesTests.swift in Sources */,
