@@ -9,11 +9,13 @@ if (webkit.messageHandlers.trackingProtectionStats) {
 }
 
 function install() {
+  let _enabled = true;
+
   Object.defineProperty(window.__firefox__, "TrackingProtectionStats", {
     enumerable: false,
     configurable: false,
     writable: false,
-    value: { enabled: false }
+    value: {}
   });
 
   Object.defineProperty(window.__firefox__.TrackingProtectionStats, "setEnabled", {
@@ -21,30 +23,40 @@ function install() {
     configurable: false,
     writable: false,
     value: function(enabled, securityToken) {
-      if (securityToken !== SECURITY_TOKEN) {
+      if (securityToken !== SECURITY_TOKEN || enabled === _enabled) {
         return;
       }
 
-      if (enabled === window.__firefox__.TrackingProtectionStats.enabled) {
-        return;
-      }
-
-      window.__firefox__.TrackingProtectionStats.enabled = enabled;
+      _enabled = enabled;
 
       injectStatsTracking(enabled);
     }
   })
 
+  let sendUrls = new Array();
+  let sendUrlsTimeout = null;
+
   function sendMessage(url) {
+    if (!_enabled) { return }
+
+    try {
+      let mainDocHost = document.location.host;
+      let u = new URL(url);
+      // First party urls are not blocked
+      if (mainDocHost === u.host) {
+        return
+      }
+    } catch (e) {}
+
     if (url) {
-      webkit.messageHandlers.trackingProtectionStats.postMessage({ url: url });
+      sendUrls.push(url)
     }
 
     // If already set, return
     if (sendUrlsTimeout) return;
 
-    // Send the URLs in batches every 200ms to avoid perf issues 
-    // from calling js-to-native too frequently. 
+    // Send the URLs in batches every 200ms to avoid perf issues
+    // from calling js-to-native too frequently.
     sendUrlsTimeout = setTimeout(() => {
       sendUrlsTimeout = null;
       if (sendUrls.length < 1) return;
@@ -251,8 +263,5 @@ function install() {
     });
   }
 
-  // Default to on because there is a delay in being able to enable/disable
-  // from native, and we don't want to miss events
-  window.__firefox__.TrackingProtectionStats.enabled = true;
   injectStatsTracking(true);
 }
