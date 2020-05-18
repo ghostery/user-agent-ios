@@ -1,5 +1,5 @@
 /* About settings section title */
-"About" = "About";
+"Settings.Sections.About" = "About";
 
 /* The title for the pinning a topsite action */
 "ActivityStream.ContextMenu.PinTopsite" = "Pin to Top Sites";
@@ -47,7 +47,7 @@
 "Amazon" = "Amazon";
 
 /* Block pop-up windows setting */
-"Block Pop-up Windows" = "Block Pop-up Windows";
+"Settings.General.BlockPopUpWindows" = "Block Pop-up Windows";
 
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Title";
@@ -108,9 +108,6 @@
 
 /* Context menu item for sharing a link URL */
 "ContextMenu.ShareLinkButtonTitle" = "Share Link";
-
-/* Error message that is shown in settings when there was a problem loading */
-"Could not load page." = "Could not load page.";
 
 /* See http://mzl.la/1Qtkf0j */
 "Create an account" = "Create an account";
@@ -185,7 +182,7 @@
 "Facebook" = "Facebook";
 
 /* Menu item in settings used to open input.mozilla.org where people can submit feedback */
-"FAQ & Support" = "FAQ & Support";
+"Settings.Support.FAQAndSupport" = "FAQ & Support";
 
 /* Toggle history syncing setting */
 "History" = "History";
@@ -284,7 +281,7 @@
 "Last week" = "Last week";
 
 /* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
-"Licenses" = "Licenses";
+"Settings.About.Licenses" = "Licenses";
 
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Bookmark Added";
@@ -411,9 +408,6 @@
 /* Description for a date more than a week ago, but less than a month ago. */
 "more than a week ago" = "more than a week ago";
 
-/* Accessibility label for the New Tab button in the tab toolbar. */
-"New Tab" = "New Tab";
-
 /* Restore Tabs Negative Action */
 "No" = "No";
 
@@ -451,10 +445,10 @@
 "PhotonMenu.close" = "Close";
 
 /* Privacy section title */
-"Privacy" = "Privacy";
+"Settings.Sections.Privacy" = "Privacy";
 
 /* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
-"Privacy Policy" = "Privacy Policy";
+"Settings.Support.PrivacyPolicy" = "Privacy Policy";
 
 /* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
 "read" = "read";
@@ -528,7 +522,7 @@
 "SentTab.ViewAction.title" = "View";
 
 /* Title in the settings view controller title bar */
-"Settings" = "Settings";
+"Settings.Title" = "Settings";
 
 /* The button text in Search Settings that opens the Custom Search Engine view. */
 "Settings.AddCustomEngine" = "Add Search Engine";
@@ -555,6 +549,9 @@
 
 /* The button text in Search Settings that opens the Additional Search Engines view. */
 "Settings.AdditionalSearchEngines.SectionName" = "Additional search engines";
+
+/* Label for show search suggestions setting. */
+"Settings.AdditionalSearchEngines.ItemDefaultEngine" = "Show Search Suggestions";
 
 /* "Block explicit content" */
 "Settings.AdultFilterMode" = "Block Explicit Content";
@@ -692,7 +689,7 @@
 "Settings.SendUsage.Title" = "Send Usage Data";
 
 /* The title for the human web setting. */
-"Settings.HumanWeb.Title" = "Human Web";
+"Settings.Support.HumanWebTitle" = "Human Web";
 
 /* The description of the open new tab siri shortcut */
 "Settings.Siri.OpenTabShortcut" = "Open New Tab";
@@ -760,18 +757,11 @@
 /* Title displayed in header of the Data Management panel. */
 "Settings.WebsiteData.Title" = "Website Data";
 
-/* Label for show search suggestions setting. */
-"Show Search Suggestions" = "Show Search Suggestions";
-
-/* Accessibility label for the tabs button in the (top) tab toolbar
-   Accessibility Label for the tabs button in the tab toolbar */
-"Show Tabs" = "Show Tabs";
-
 /* Show the on-boarding screen again from the settings */
-"Show Tour" = "Show Tour";
+"Settings.Support.ShowTour" = "Show Tour";
 
 /* Support section title */
-"Support" = "Support";
+"Settings.Sections.Support" = "Support";
 
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normal Browsing Mode";
@@ -840,7 +830,7 @@
 "UserAgent.HomePage.Title" = "%@ Home Page";
 
 /* Version number of UserAgent shown in settings */
-"Version %@ (%@)" = "Version %1$@ (%2$@)";
+"Settings.About.Version" = "Version %1$@ (%2$@)";
 
 /* See http://mzl.la/1LXbDOL */
 "Welcome to your Reading List" = "Welcome to your Reading List";

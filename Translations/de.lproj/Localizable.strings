@@ -1,5 +1,5 @@
 /* About settings section title */
-"About" = "Über";
+"Settings.Sections.About" = "Über";
 
 /* The title for the pinning a topsite action */
 "ActivityStream.ContextMenu.PinTopsite" = "Als meistbesuchte Seite anheften";
@@ -47,7 +47,7 @@
 "Amazon" = "Amazon";
 
 /* Block pop-up windows setting */
-"Block Pop-up Windows" = "Pop-up-Fenster blockieren";
+"Settings.General.BlockPopUpWindows" = "Pop-up-Fenster blockieren";
 
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Titel";
@@ -108,9 +108,6 @@
 
 /* Context menu item for sharing a link URL */
 "ContextMenu.ShareLinkButtonTitle" = "Link teilen";
-
-/* Error message that is shown in settings when there was a problem loading */
-"Could not load page." = "Seite konnte nicht geladen werden.";
 
 /* See http://mzl.la/1Qtkf0j */
 "Create an account" = "Konto erstellen";
@@ -185,7 +182,7 @@
 "Facebook" = "Facebook";
 
 /* Menu item in settings used to open input.mozilla.org where people can submit feedback */
-"FAQ & Support" = "FAQ & Support";
+"Settings.Support.FAQAndSupport" = "FAQ & Support";
 
 /* Toggle history syncing setting */
 "History" = "Chronik";
@@ -284,7 +281,7 @@
 "Last week" = "Letzte Woche";
 
 /* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
-"Licenses" = "Lizenzen";
+"Settings.About.Licenses" = "Lizenzen";
 
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Lesezeichen hinzugefügt";
@@ -411,9 +408,6 @@
 /* Description for a date more than a week ago, but less than a month ago. */
 "more than a week ago" = "vor mehr als einer Woche";
 
-/* Accessibility label for the New Tab button in the tab toolbar. */
-"New Tab" = "Neuer Tab";
-
 /* Restore Tabs Negative Action */
 "No" = "Nein";
 
@@ -451,10 +445,10 @@
 "PhotonMenu.close" = "Schließen";
 
 /* Privacy section title */
-"Privacy" = "Datenschutz";
+"Settings.Sections.Privacy" = "Datenschutz";
 
 /* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
-"Privacy Policy" = "Datenschutzerklärung";
+"Settings.Support.PrivacyPolicy" = "Datenschutzerklärung";
 
 /* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
 "read" = "gelesen";
@@ -528,7 +522,7 @@
 "SentTab.ViewAction.title" = "Ansehen";
 
 /* Title in the settings view controller title bar */
-"Settings" = "Einstellungen";
+"Settings.Title" = "Einstellungen";
 
 /* The button text in Search Settings that opens the Custom Search Engine view. */
 "Settings.AddCustomEngine" = "Suchmaschine hinzufügen";
@@ -555,6 +549,9 @@
 
 /* The button text in Search Settings that opens the Additional Search Engines view. */
 "Settings.AdditionalSearchEngines.SectionName" = "Weitere Suchmaschinen";
+
+/* Label for show search suggestions setting. */
+"Settings.AdditionalSearchEngines.ItemDefaultEngine" = "Suchvorschläge anzeigen";
 
 /* "Enable/Disable adult filter setting" */
 "Settings.AdultFilterMode" = "18+ Seiten blockieren";
@@ -689,7 +686,7 @@
 "Settings.SendUsage.Title" = "Interaktions-Statistiken";
 
 /* The title for the human web setting. */
-"Settings.HumanWeb.Title" = "Human Web";
+"Settings.Support.HumanWebTitle" = "Human Web";
 
 /* The description of the open new tab siri shortcut */
 "Settings.Siri.OpenTabShortcut" = "Neuen Tab öffnen";
@@ -757,18 +754,11 @@
 /* Title displayed in header of the Data Management panel. */
 "Settings.WebsiteData.Title" = "Website-Daten";
 
-/* Label for show search suggestions setting. */
-"Show Search Suggestions" = "Suchvorschläge anzeigen";
-
-/* Accessibility label for the tabs button in the (top) tab toolbar
-   Accessibility Label for the tabs button in the tab toolbar */
-"Show Tabs" = "Tabs anzeigen";
-
 /* Show the on-boarding screen again from the settings */
-"Show Tour" = "Rundgang anzeigen";
+"Settings.Support.ShowTour" = "Rundgang anzeigen";
 
 /* Support section title */
-"Support" = "Hilfe";
+"Settings.Sections.Support" = "Hilfe";
 
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normaler Surf-Modus";
@@ -837,7 +827,7 @@
 "UserAgent.HomePage.Title" = "%@-Startseite";
 
 /* Version number of UserAgent shown in settings */
-"Version %@ (%@)" = "Version %1$@ (%2$@)";
+"Settings.About.Version" = "Version %1$@ (%2$@)";
 
 /* See http://mzl.la/1LXbDOL */
 "Welcome to your Reading List" = "Willkommen in Ihrer Leseliste";

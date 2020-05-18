@@ -51,6 +51,8 @@ extension Strings {
             public static let AddTab = NSLocalizedString("Accessibility.TabTray.AddTab", tableName: "Accessibility", comment: "Accessibility label for the Add Tab button in the Tab Tray.")
             public static let Close = NSLocalizedString("Accessibility.TabTray.Close", tableName: "Accessibility", comment: "Accessibility label for action denoting closing a tab in tab list (tray)")
             public static let Swipe = NSLocalizedString("Accessibility.TabTray.Swipe", tableName: "Accessibility", comment: "Accessibility hint for tab tray's displayed tab.")
+            public static let ShowTabs = NSLocalizedString("Accessibility.TabTray.ShowTabs", tableName: "Accessibility", comment: "Accessibility Label for the tabs button in the tab toolbar")
+            public static let NewTab = NSLocalizedString("Accessibility.TabTray.NewTab", tableName: "Accessibility", comment: "Accessibility label for the New Tab button in the tab toolbar.")
         }
         public static let WebContent = NSLocalizedString("Accessibility.WebContent", tableName: "Accessibility", comment: "Accessibility label for the main web content view")
     }

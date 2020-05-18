@@ -143,7 +143,7 @@ class VersionSetting: Setting {
     override var title: NSAttributedString? {
         let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-        return NSAttributedString(string: String(format: NSLocalizedString("Version %@ (%@)", comment: "Version number of Firefox shown in settings"), appVersion, buildNumber), attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
+        return NSAttributedString(string: String(format: Strings.Settings.About.Version, appVersion, buildNumber), attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -182,7 +182,7 @@ class VersionSetting: Setting {
 // Opens the license page in a new tab
 class LicenseAndAcknowledgementsSetting: Setting {
     override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Licenses", comment: "Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG"), attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
+        return NSAttributedString(string: Strings.Settings.About.Licenses, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
     }
 
     override var url: URL? {
@@ -202,7 +202,7 @@ class ShowIntroductionSetting: Setting {
 
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
-        super.init(title: NSAttributedString(string: NSLocalizedString("Show Tour", comment: "Show the on-boarding screen again from the settings"), attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.Support.ShowTour, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -215,7 +215,7 @@ class ShowIntroductionSetting: Setting {
 
 class SendFeedbackSetting: Setting {
     override var title: NSAttributedString? {
-        return NSAttributedString(string: Strings.Settings.FAQAndSupport, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
+        return NSAttributedString(string: Strings.Settings.Support.FAQAndSupport, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
     }
 
     override var url: URL? {
@@ -362,7 +362,7 @@ class TodayWidgetSetting: Setting {
 
 class PrivacyPolicySetting: Setting {
     override var title: NSAttributedString? {
-        return NSAttributedString(string: NSLocalizedString("Privacy Policy", comment: "Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/"), attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
+        return NSAttributedString(string: Strings.Settings.Support.PrivacyPolicy, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText])
     }
 
     override var url: URL? {

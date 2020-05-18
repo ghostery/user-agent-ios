@@ -14,7 +14,7 @@ class HumanWebSetting: BoolSetting {
         self.init(
             prefs: prefs,
             defaultValue: false,
-            attributedTitleText: NSAttributedString(string: Strings.Settings.HumanWebTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]),
+            attributedTitleText: NSAttributedString(string: Strings.Settings.Support.HumanWebTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]),
             attributedStatusText: attributedStatusText,
             enabled: false
         ) { (value) in

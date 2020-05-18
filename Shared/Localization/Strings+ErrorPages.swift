@@ -20,6 +20,7 @@ extension Strings {
         public static let VisitOnceButton = NSLocalizedString("ErrorPages.VisitOnce.Button", tableName: "ErrorPages", comment: "Button label to temporarily continue to the site from the certificate error page")
         public static let TryAgain = NSLocalizedString("ErrorPages.TryAgain", tableName: "ErrorPages", comment: "Shown in error pages on a button that will try to load the page again")
         public static let OpenInSafari = NSLocalizedString("ErrorPages.OpenInSafari", tableName: "ErrorPages", comment: "Shown in error pages for files that can't be shown and need to be downloaded.")
+        public static let CouldNotLoadPage = NSLocalizedString("ErrorPages.CouldNotLoadPage", tableName: "ErrorPages", comment: "Error message that is shown in settings when there was a problem loading")
     }
 
 }

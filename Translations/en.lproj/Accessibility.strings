@@ -90,3 +90,8 @@
 /* Accessibility hint for tab tray's displayed tab. */
 "Accessibility.TabTray.Swipe" = "Swipe right or left with three fingers to close the tab.";
 
+/* Accessibility label for the tabs button in the (top) tab toolbar. Accessibility Label for the tabs button in the tab toolbar */
+"Accessibility.TabTray.ShowTabs" = "Show Tabs";
+
+/* Accessibility label for the New Tab button in the tab toolbar. */
+"ErrorPages.CouldNotLoadPage" = "New Tab";

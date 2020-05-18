@@ -90,7 +90,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
                     cell.updateLogo(url: url.absoluteString)
                 }
             case ItemDefaultSuggestions:
-                cell.textLabel?.text = NSLocalizedString("Show Search Suggestions", comment: "Label for show search suggestions setting.")
+                cell.textLabel?.text = Strings.Settings.AdditionalSearchEngines.ItemDefaultEngine
                 let toggle = UISwitchThemed()
                 toggle.onTintColor = Theme.tableView.controlTint
                 toggle.addTarget(self, action: #selector(didToggleSearchSuggestions), for: .valueChanged)

@@ -17,7 +17,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = NSLocalizedString("Settings", comment: "Title in the settings view controller title bar")
+        navigationItem.title = Strings.Settings.Title
         navigationItem.rightBarButtonItem?.accessibilityIdentifier = "AppSettingsTableViewController.navigationItem.leftBarButtonItem"
 
         tableView.accessibilityIdentifier = "AppSettingsTableViewController.tableView"
@@ -74,7 +74,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     private func privacySettingSection() -> SettingSection {
         let prefs = self.profile.prefs
-        let privacyTitle = NSLocalizedString("Privacy", comment: "Privacy section title")
+        let privacyTitle = Strings.Settings.Sections.Privacy
         let privacySettings = [
             ClearPrivateDataSetting(settings: self),
             BoolSetting(
@@ -129,7 +129,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             BoolSetting(prefs: prefs, prefKey: PrefsKeys.RefreshControlEnabled, defaultValue: true,
                         titleText: Strings.Settings.RefreshControl.SectionName),
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
-                        titleText: NSLocalizedString("Block Pop-up Windows", comment: "Block pop-up windows setting")),
+                        titleText: Strings.Settings.General.BlockPopUpWindows),
         ]
 
         if #available(iOS 12.0, *) {
@@ -190,7 +190,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         if Onboarding.isEnabled {
             supportSettigns.insert(ShowIntroductionSetting(settings: self), at: 0)
         }
-        return SettingSection(title: NSAttributedString(string: NSLocalizedString("Support", comment: "Support section title")), children: supportSettigns)
+        return SettingSection(title: NSAttributedString(string: Strings.Settings.Sections.Support), children: supportSettigns)
     }
 
     private func aboutSettingSection() -> SettingSection {
@@ -204,7 +204,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             SlowTheDatabase(settings: self),
             SentryIDSetting(settings: self),
         ]
-        return SettingSection(title: NSAttributedString(string: NSLocalizedString("About", comment: "About settings section title")), children: aboutSettings)
+        return SettingSection(title: NSAttributedString(string: Strings.Settings.Sections.About), children: aboutSettings)
     }
 
     // MARK: - Private methods

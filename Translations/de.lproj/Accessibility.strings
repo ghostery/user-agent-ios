@@ -89,3 +89,12 @@
 
 /* Accessibility hint for tab tray's displayed tab. */
 "Accessibility.TabTray.Swipe" = "Wischen Sie mit drei Fingern nach rechts oder links, um den Tab zu schließen.";
+
+/* Accessibility label for the tabs button in the (top) tab toolbar. Accessibility Label for the tabs button in the tab toolbar */
+"Accessibility.TabTray.ShowTabs" = "Tabs anzeigen";
+
+/* Accessibility label for the New Tab button in the tab toolbar. */
+"Accessibility.TabTray.NewTab" = "Neuer Tab";
+
+/* Error message that is shown in settings when there was a problem loading */
+"ErrorPages.CouldNotLoadPage" = "Seite konnte nicht geladen werden.";

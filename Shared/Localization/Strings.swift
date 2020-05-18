@@ -107,6 +107,11 @@ extension Strings {
 
     // MARK: - Settings
     public struct Settings {
+        public struct Sections {
+            public static let Privacy = NSLocalizedString("Settings.Sections.Privacy", comment: "Privacy section title")
+            public static let Support = NSLocalizedString("Settings.Sections.Support", comment: "Support section title")
+            public static let About = NSLocalizedString("Settings.Sections.About", comment: "About settings section title")
+        }
         public struct PrivacyDashboard {
             public static let Title = NSLocalizedString("Settings.PrivacyDashboard.Title", comment: "Privacy Dashboard Title")
             public static let AdBlockingTitle = NSLocalizedString("Settings.PrivacyDashboard.AdBlockingTitle", comment: "Ad-blocking setting")
@@ -115,6 +120,7 @@ extension Strings {
         }
         public struct General {
             public static let SectionTitle = NSLocalizedString("Settings.General.SectionName", comment: "General settings section title")
+            public static let BlockPopUpWindows = NSLocalizedString("Settings.General.BlockPopUpWindows", comment: "Block pop-up windows setting")
         }
         public struct News {
             public struct Language {
@@ -169,6 +175,7 @@ extension Strings {
         public struct AdditionalSearchEngines {
             public static let SectionTitle = NSLocalizedString("Settings.AdditionalSearchEngines.SectionName", comment: "The button text in Search Settings that opens the Additional Search Engines view.")
             public static let DefaultSearchEngine = NSLocalizedString("Settings.AdditionalSearchEngines.DefaultSearchEngine", comment: "Description for choosing search engine")
+            public static let ItemDefaultEngine = NSLocalizedString("Settings.AdditionalSearchEngines.ItemDefaultEngine", comment: "Label for show search suggestions setting.")
         }
         public struct AddCustomEngine {
             public static let ButtonTitle = NSLocalizedString("Settings.AddCustomEngine", comment: "The button text in Search Settings that opens the Custom Search Engine view.")
@@ -226,10 +233,19 @@ extension Strings {
             public static let SwitchTitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchTitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
             public static let SwitchSubtitle = NSLocalizedString("Settings.TranslateSnackBar.SwitchSubtitle", comment: "Switch to choose if the language of a page is detected and offer to translate.")
         }
+        public struct Support {
+            public static let HumanWebTitle = NSLocalizedString("Settings.Support.HumanWebTitle", comment: "The title for the human web setting")
+            public static let FAQAndSupport = NSLocalizedString("Settings.Support.FAQAndSupport", comment: "Menu item in settings used to open https://cliqz.com/support")
+            public static let ShowTour = NSLocalizedString("Settings.Support.ShowTour", comment: "Show the on-boarding screen again from the settings")
+            public static let PrivacyPolicy = NSLocalizedString("Settings.Support.PrivacyPolicy", comment: "Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/")
+        }
+        public struct About {
+            public static let Version = NSLocalizedString("Settings.About.Version", comment: "Version number of Firefox shown in settings")
+            public static let Licenses = NSLocalizedString("Settings.About.Licenses", comment: "Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG")
+        }
+        public static let Title = NSLocalizedString("Settings.Title", comment: "Title in the settings view controller title bar")
         public static let CopyAppVersionAlertTitle = NSLocalizedString("Settings.CopyAppVersion.Title", comment: "Copy app version alert shown in settings.")
         public static let AdultFilterMode = NSLocalizedString("Settings.AdultFilterMode", comment: "Block explicit content")
-        public static let HumanWebTitle = NSLocalizedString("Settings.HumanWeb.Title", comment: "The title for the human web setting")
-        public static let FAQAndSupport = NSLocalizedString("FAQ & Support", comment: "Menu item in settings used to open https://cliqz.com/support")
     }
 
     // MARK: - Downloads Panel
