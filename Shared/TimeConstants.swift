@@ -25,12 +25,6 @@ private let rfc822DateFormatter: DateFormatter = {
     return dateFormatter
 }()
 
-extension TimeInterval {
-    public static func fromMicrosecondTimestamp(_ microsecondTimestamp: MicrosecondTimestamp) -> TimeInterval {
-        return Double(microsecondTimestamp) / 1000000
-    }
-}
-
 extension Timestamp {
     public static func uptimeInMilliseconds() -> Timestamp {
         return Timestamp(DispatchTime.now().uptimeNanoseconds) / 1000000
@@ -56,55 +50,6 @@ extension Date {
 
     public static func fromTimestamp(_ timestamp: Timestamp) -> Date {
         return Date(timeIntervalSince1970: Double(timestamp) / 1000)
-    }
-
-    public static func fromMicrosecondTimestamp(_ microsecondTimestamp: MicrosecondTimestamp) -> Date {
-        return Date(timeIntervalSince1970: Double(microsecondTimestamp) / 1000000)
-    }
-
-    public func toRelativeTimeString(dateStyle: DateFormatter.Style = .short, timeStyle: DateFormatter.Style = .short) -> String {
-        let now = Date()
-
-        let units: Set<Calendar.Component> = [.second, .minute, .day, .weekOfYear, .month, .year, .hour]
-        let components = Calendar.current.dateComponents(units, from: self, to: now)
-
-        if components.year ?? 0 > 0 {
-            return String(format: DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle))
-        }
-
-        if components.month == 1 {
-            return String(format: NSLocalizedString("more than a month ago", comment: "Relative date for dates older than a month and less than two months."))
-        }
-
-        if components.month ?? 0 > 1 {
-            return String(format: DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle))
-        }
-
-        if components.weekOfYear ?? 0 > 0 {
-            return String(format: NSLocalizedString("more than a week ago", comment: "Description for a date more than a week ago, but less than a month ago."))
-        }
-
-        if components.day == 1 {
-            return String(format: NSLocalizedString("yesterday", comment: "Relative date for yesterday."))
-        }
-
-        if components.day ?? 0 > 1 {
-            return String(format: NSLocalizedString("this week", comment: "Relative date for date in past week."), String(describing: components.day))
-        }
-
-        if components.hour ?? 0 > 0 || components.minute ?? 0 > 0 {
-            // Can't have no time specified for this formatting case.
-            let timeStyle = timeStyle != .none ? timeStyle : .short
-            let absoluteTime = DateFormatter.localizedString(from: self, dateStyle: .none, timeStyle: timeStyle)
-            let format = NSLocalizedString("today at %@", comment: "Relative date for date older than a minute.")
-            return String(format: format, absoluteTime)
-        }
-
-        return String(format: NSLocalizedString("just now", comment: "Relative time for a tab that was visited within the last few moments."))
-    }
-
-    public func toRFC822String() -> String {
-        return rfc822DateFormatter.string(from: self)
     }
 }
 
