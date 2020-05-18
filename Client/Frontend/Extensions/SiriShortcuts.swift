@@ -21,9 +21,9 @@ class SiriShortcuts {
 
     private var openUrlActivity: NSUserActivity? = {
         let activity = NSUserActivity(activityType: SiriActivityTypes.openURL.value)
-        activity.title = Strings.Settings.Siri.OpenURL
+        activity.title = Strings.Settings.General.Siri.OpenURL
         activity.isEligibleForPrediction = true
-        activity.suggestedInvocationPhrase = Strings.Settings.Siri.OpenURL
+        activity.suggestedInvocationPhrase = Strings.Settings.General.Siri.OpenURL
         activity.persistentIdentifier = NSUserActivityPersistentIdentifier(SiriActivityTypes.openURL.value)
         return activity
     }()
@@ -38,7 +38,7 @@ class SiriShortcuts {
             shortcut = INShortcut(userActivity: activity)
         case .searchWith:
             let intent = SearchWithIntent()
-            intent.suggestedInvocationPhrase = Strings.Settings.Siri.SearchWith + AppInfo.displayName
+            intent.suggestedInvocationPhrase = Strings.Settings.General.Siri.SearchWith + AppInfo.displayName
             guard let intentShortcut = INShortcut(intent: intent) else {
                 return
             }

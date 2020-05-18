@@ -59,9 +59,9 @@ class TabManager: NSObject {
         var title: String {
             switch self {
             case .lastOpenedTab:
-                return Strings.Settings.OnBrowserStartTab.LastOpenedTab
+                return Strings.Settings.General.OnBrowserStartTab.LastOpenedTab
             case .newTab:
-                return Strings.Settings.OnBrowserStartTab.NewTab
+                return Strings.Settings.General.OnBrowserStartTab.NewTab
             }
         }
 

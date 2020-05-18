@@ -1,7 +1,3 @@
-
-/* Setting for closing private tabs */
-"Close Private Tabs" = "Vergessen-Tabs schließen";
-
 /* Context menu option for opening a link in a new private tab */
 "ContextMenu.OpenInNewPrivateTabButtonTitle" = "In neuem Vergessen-Tab öffnen";
 

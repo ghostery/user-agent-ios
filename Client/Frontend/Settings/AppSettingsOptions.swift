@@ -318,7 +318,7 @@ class ClearPrivateDataSetting: Setting {
         self.profile = settings.profile
         self.tabManager = settings.tabManager
 
-        let clearTitle = Strings.Settings.DataManagement.SectionName
+        let clearTitle = Strings.Settings.Privacy.DataManagement.SectionName
         super.init(title: NSAttributedString(string: clearTitle, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
@@ -385,7 +385,7 @@ class SiriPageSetting: Setting {
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
 
-        super.init(title: NSAttributedString(string: Strings.Settings.Siri.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.General.Siri.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -420,7 +420,7 @@ class OpenWithSetting: Setting {
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
 
-        super.init(title: NSAttributedString(string: Strings.Settings.OpenWith.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.General.OpenWith.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -449,7 +449,7 @@ class NewTabPageDefaultViewSetting: Setting {
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
 
-        super.init(title: NSAttributedString(string: Strings.Settings.NewTabPageDefaultView.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.General.NewTabPageDefaultView.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -485,7 +485,7 @@ class OnBrowserStartShowSetting: Setting {
     init(settings: SettingsTableViewController) {
         self.profile = settings.profile
 
-        super.init(title: NSAttributedString(string: Strings.Settings.OnBrowserStartTab.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.General.OnBrowserStartTab.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {

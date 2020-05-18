@@ -69,7 +69,7 @@ extension UIAlertController {
     class func clearWebsiteDataAlert(okayCallback: @escaping (UIAlertAction) -> Void) -> UIAlertController {
         let alert = UIAlertController(
             title: "",
-            message: Strings.Settings.ClearPrivateData.Title,
+            message: Strings.Settings.Privacy.DataManagement.ClearPrivateData.Title,
             preferredStyle: .alert
         )
 

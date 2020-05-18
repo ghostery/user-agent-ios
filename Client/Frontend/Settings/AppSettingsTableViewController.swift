@@ -74,14 +74,14 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     private func privacySettingSection() -> SettingSection {
         let prefs = self.profile.prefs
-        let privacyTitle = Strings.Settings.Sections.Privacy
+        let privacyTitle = Strings.Settings.Privacy.Title
         let privacySettings = [
             ClearPrivateDataSetting(settings: self),
             BoolSetting(
                 prefs: prefs,
                 prefKey: "settings.closePrivateTabs",
                 defaultValue: false,
-                titleText: Strings.ClosePrivateTabsLabel,
+                titleText: Strings.Settings.Privacy.ClosePrivateTabs,
                 statusText: Strings.ClosePrivateTabsDescription),
         ]
         return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)
@@ -127,7 +127,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             NewTabPageDefaultViewSetting(settings: self),
             OnBrowserStartShowSetting(settings: self),
             BoolSetting(prefs: prefs, prefKey: PrefsKeys.RefreshControlEnabled, defaultValue: true,
-                        titleText: Strings.Settings.RefreshControl.SectionName),
+                        titleText: Strings.Settings.General.RefreshControl),
             BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
                         titleText: Strings.Settings.General.BlockPopUpWindows),
         ]
@@ -141,11 +141,11 @@ class AppSettingsTableViewController: SettingsTableViewController {
         // be changed.
         generalSettings += [
             BoolSetting(prefs: prefs, prefKey: "showClipboardBar", defaultValue: false,
-                        titleText: Strings.Toast.SettingsOfferClipboardBarTitle,
-                        statusText: Strings.Toast.SettingsOfferClipboardBarStatus),
+                        titleText: Strings.Settings.General.OfferClipboardBarTitle,
+                        statusText: Strings.Settings.General.OfferClipboardBarStatus),
             BoolSetting(prefs: prefs, prefKey: PrefsKeys.ContextMenuShowLinkPreviews, defaultValue: true,
-                        titleText: Strings.Toast.SettingsShowLinkPreviewsTitle,
-                        statusText: Strings.Toast.SettingsShowLinkPreviewsStatus),
+                        titleText: Strings.Settings.General.ShowLinkPreviewsTitle,
+                        statusText: Strings.Settings.General.ShowLinkPreviewsStatus),
         ]
         return SettingSection(title: NSAttributedString(string: Strings.Settings.General.SectionTitle), children: generalSettings)
     }
@@ -184,13 +184,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
         var supportSettigns = [
             SendFeedbackSetting(),
             HumanWebSetting(prefs: prefs),
-            TelemetrySetting(prefs: prefs, attributedStatusText: NSAttributedString(string: Strings.Settings.SendUsage.Message, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
+            TelemetrySetting(prefs: prefs, attributedStatusText: NSAttributedString(string: Strings.Settings.Support.SendUsageStatus, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight])),
             PrivacyPolicySetting(),
         ]
         if Onboarding.isEnabled {
             supportSettigns.insert(ShowIntroductionSetting(settings: self), at: 0)
         }
-        return SettingSection(title: NSAttributedString(string: Strings.Settings.Sections.Support), children: supportSettigns)
+        return SettingSection(title: NSAttributedString(string: Strings.Settings.Support.SectionTitle), children: supportSettigns)
     }
 
     private func aboutSettingSection() -> SettingSection {
@@ -204,7 +204,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             SlowTheDatabase(settings: self),
             SentryIDSetting(settings: self),
         ]
-        return SettingSection(title: NSAttributedString(string: Strings.Settings.Sections.About), children: aboutSettings)
+        return SettingSection(title: NSAttributedString(string: Strings.Settings.About.SectionTitle), children: aboutSettings)
     }
 
     // MARK: - Private methods
