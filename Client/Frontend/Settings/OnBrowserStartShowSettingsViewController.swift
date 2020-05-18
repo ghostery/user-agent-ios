@@ -19,7 +19,7 @@ class OnBrowserStartShowSettingsViewController: SettingsTableViewController {
         self.availableStartTabs = availableStartTabs
         super.init(style: .grouped)
         self.profile = profile
-        self.title = Strings.Settings.OnBrowserStartTab.SectionName
+        self.title = Strings.Settings.General.OnBrowserStartTab.SectionName
         self.hasSectionSeparatorLine = false
     }
 

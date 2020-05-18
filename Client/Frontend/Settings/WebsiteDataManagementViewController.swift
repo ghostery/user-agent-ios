@@ -29,7 +29,7 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Strings.Settings.WebsiteData.Title
+        title = Strings.Settings.Privacy.DataManagement.WebsiteData.Title
         navigationController?.setToolbarHidden(true, animated: false)
 
         tableView = UITableView()
@@ -68,7 +68,7 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
 
         searchController.searchResultsUpdater = searchResultsViewController
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = Strings.Settings.DataManagement.SearchLabel
+        searchController.searchBar.placeholder = Strings.Settings.Privacy.DataManagement.SearchLabel
         searchController.searchBar.delegate = self
 
         navigationItem.searchController = searchController
@@ -94,13 +94,13 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
                 cell.titleLabel.text = record.displayName
             }
         case .showMore:
-            cell.titleLabel.text = Strings.Settings.WebsiteData.ShowMoreButton
+            cell.titleLabel.text = Strings.Settings.Privacy.DataManagement.WebsiteData.ShowMoreButton
             cell.titleLabel.textColor = showMoreButtonEnabled ? Theme.general.highlightBlue : UIColor.gray
             cell.accessibilityTraits = UIAccessibilityTraits.button
             cell.accessibilityIdentifier = "ShowMoreWebsiteData"
             showMoreButton = cell
         case .clearAllButton:
-            cell.titleLabel.text = Strings.Settings.ClearPrivateData.ClearAllWebsiteDataButton
+            cell.titleLabel.text = Strings.Settings.Privacy.DataManagement.WebsiteData.ClearAll
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.textColor = Theme.general.destructiveRed
             cell.accessibilityTraits = UIAccessibilityTraits.button
@@ -171,7 +171,7 @@ class WebsiteDataManagementViewController: UIViewController, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SectionHeaderFooterIdentifier) as? ThemedTableSectionHeaderFooterView
-        headerView?.titleLabel.text = section == Section.sites.rawValue ? Strings.Settings.WebsiteData.Title : nil
+        headerView?.titleLabel.text = section == Section.sites.rawValue ? Strings.Settings.Privacy.DataManagement.WebsiteData.Title : nil
         headerView?.showBottomBorder = false
         return headerView
     }

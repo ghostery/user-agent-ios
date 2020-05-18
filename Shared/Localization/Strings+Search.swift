@@ -15,8 +15,6 @@ extension Strings {
             public static let EngineAdded = NSLocalizedString("Search.ThirdPartyEngines.AddSuccess", tableName: "Search", comment: "The success message that appears after a user sucessfully adds a new search engine")
             public static let AddTitle = NSLocalizedString("Search.ThirdPartyEngines.AddTitle", tableName: "Search", comment: "The title that asks the user to Add the search provider")
             public static let AddMessage = NSLocalizedString("Search.ThirdPartyEngines.AddMessage", tableName: "Search", comment: "The message that asks the user to Add the search provider explaining where the search engine will appear")
-            public static let CancelButton = NSLocalizedString("Search.ThirdPartyEngines.Cancel", tableName: "Search", comment: "The cancel button if you do not want to add a search engine.")
-            public static let OkayButton = NSLocalizedString("Search.ThirdPartyEngines.OK", tableName: "Search", comment: "The confirmation button")
             public static let FailedTitle = NSLocalizedString("Search.ThirdPartyEngines.FailedTitle", tableName: "Search", comment: "A title explaining that we failed to add a search engine")
             public static let FailedMessage = NSLocalizedString("Search.ThirdPartyEngines.FailedMessage", tableName: "Search", comment: "A title explaining that we failed to add a search engine")
             public static let FormErrorTitle = NSLocalizedString("Search.ThirdPartyEngines.FormErrorTitle", tableName: "Search", comment: "A title stating that we failed to add custom search engine.")

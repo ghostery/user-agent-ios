@@ -1,6 +1,26 @@
+/* Label for button to perform advanced actions on the error page */
+"ErrorPages.Advanced.Button" = "Erweitert";
+
+/* Warning text when clicking the Advanced button on error pages */
+"ErrorPages.AdvancedWarning1.Text" = "Warnung: Wir können nicht bestätigen, dass Ihre Verbindung zu dieser Website sicher ist.";
+
+/* Additional warning text when clicking the Advanced button on error pages */
+"ErrorPages.AdvancedWarning2.Text" = "Dies kann eine Fehlkonfiguration oder eine Manipulation eines Angreifers sein. Fahren Sie fort, wenn Sie das potenzielle Risiko akzeptieren.";
+
+/* Warning text on the certificate error page */
+"ErrorPages.CertWarning.Description" = "Der Besitzer von %@ hat seine Website falsch konfiguriert. Um Diebstahl Ihrer Daten zu verhindern, verweigert %@ die Verbindung zu dieser Website.";
+
+/* Title on the certificate error page */
+"ErrorPages.CertWarning.Title" = "Dieser Verbindung wird nicht vertraut";
+
+/* Label for button to go back from the error page */
+"ErrorPages.GoBack.Button" = "Zurück";
+
+/* Button label to temporarily continue to the site from the certificate error page */
+"ErrorPages.VisitOnce.Button" = "Website trotzdem besuchen";
 
 /* Shown in error pages for files that can't be shown and need to be downloaded. */
-"Open in Safari" = "In Safari öffnen";
+"ErrorPages.OpenInSafari" = "In Safari öffnen";
 
 /* Shown in error pages on a button that will try to load the page again */
-"Try again" = "Nochmals versuchen";
+"ErrorPages.TryAgain" = "Nochmals versuchen";

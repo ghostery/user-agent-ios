@@ -112,7 +112,7 @@ class InitialViewController: UIViewController {
         getShareItem().uponQueue(.main) { shareItem in
             guard let shareItem = shareItem else {
                 let alert = UIAlertController(title: Strings.SendTo.ErrorTitle, message: Strings.SendTo.ErrorMessage, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: Strings.SendTo.ErrorOKButton, style: .default) { _ in self.finish(afterDelay: 0) })
+                alert.addAction(UIAlertAction(title: Strings.General.OKString, style: .default) { _ in self.finish(afterDelay: 0) })
                 self.present(alert, animated: true, completion: nil)
                 return
             }

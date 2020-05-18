@@ -1,0 +1,97 @@
+/* 
+  Accessibility.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/15/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Accessibility label for the main web content view */
+"Accessibility.WebContent" = "Web content";
+
+/* Accessibility label for next result button in Find in Page Toolbar. */
+"Accessibility.FindInPage.Next" = "Next in-page result";
+
+/* Accessibility label for previous result button in Find in Page Toolbar. */
+"Accessibility.FindInPage.Previous" = "Previous in-page result";
+
+/* Name for display settings button in reader mode. Display in the meaning of presentation, not monitor. */
+"Accessibility.ReaderMode.DisplaySettings" = "Display Settings";
+
+/* Accessibility label for button resetting font size in display settings of reader mode */
+"Accessibility.ReaderMode.ResetFontSize" = "Reset text size";
+
+/* Accessibility label for brightness adjustment slider in Reader Mode display settings */
+"Accessibility.ReaderMode.Brightness" = "Brightness";
+
+/* Accessibility hint for the font type buttons in reader mode display settings */
+"Accessibility.ReaderMode.ChangesFontType" = "Changes font type.";
+
+/* Accessibility label for button decreasing font size in display settings of reader mode */
+"Accessibility.ReaderMode.DecreaseTextSize" = "Decrease text size";
+
+/* Accessibility label for button increasing font size in display settings of reader mode */
+"Accessibility.ReaderMode.IncreaseTextSize" = "Increase text size";
+
+/* Accessibility hint for the color theme setting buttons in reader mode display settings */
+"Accessibility.ReaderMode.ChangesColorTheme" = "Changes color theme.";
+
+/* Accessibility label for the introduction tour carousel */
+"Accessibility.Intro.TourCarousel" = "Intro Tour Carousel";
+
+/* Accessibility label for the lock icon, which is only present if the connection is secure */
+"Accessibility.URLBar.LockImageView" = "Secure connection";
+
+/* Accessibility label for the Page Options menu button */
+"Accessibility.URLBar.PageOptionsButton" = "Page Options Menu";
+
+/* Accessibility label for address and search field, both words (Address, Search) are therefore nouns. */
+"Accessibility.URLBar.AddressAndSearch" = "Address and Search";
+
+/* Accessibility label, associated to the 3D Touch action on the current tab in the tab tray, used to display a larger preview of the tab. */
+"Accessibility.ForceTouch.Preview" = "Preview of %@";
+
+/* Accessibility Label for the tab toolbar Stop button */
+"Accessibility.TabToolbar.Stop" = "Stop";
+
+/* Accessibility Label for the tab toolbar Reload button */
+"Accessibility.TabToolbar.Reload" = "Reload";
+
+/* Accessibility label for the Back button in the tab toolbar. */
+"Accessibility.TabToolbar.Back" = "Back";
+
+/* Accessibility Label for the tab toolbar Forward button */
+"Accessibility.TabToolbar.Forward" = "Forward";
+
+/* Accessibility label for the navigation toolbar displayed at the bottom of the screen. */
+"Accessibility.TabToolbar.Toolbar" = "Navigation Toolbar";
+
+/* Accessibility label for the Tabs Tray view. */
+"Accessibility.TabTray.TabsTray" = "Tabs Tray";
+
+/* Message spoken by VoiceOver to indicate that there are no tabs in the Tabs Tray */
+"Accessibility.TabTray.NoTabs" = "No tabs";
+
+/* Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total. */
+"Accessibility.TabTray.SingleTab" = "Tab %1$@ of %2$@";
+
+/* Message spoken by VoiceOver saying the range of tabs that are currently visible in Tabs Tray, along with the total number of tabs. E.g. \"Tabs 8 to 10 of 15\" says tabs 8, 9 and 10 are visible, out of 15 tabs total. */
+"Accessibility.TabTray.RangeOfTabs" = "Tabs %1$@ to %2$@ of %3$@";
+
+/* Accessibility label (used by assistive technology) notifying the user that the tab is being closed. */
+"Accessibility.TabTray.ClosingTab" = "Closing tab";
+
+/* Accessibility label for the Add Tab button in the Tab Tray. */
+"Accessibility.TabTray.AddTab" = "Add Tab";
+
+/* Accessibility label for action denoting closing a tab in tab list (tray) */
+"Accessibility.TabTray.Close" = "Close";
+
+/* Accessibility hint for tab tray's displayed tab. */
+"Accessibility.TabTray.Swipe" = "Swipe right or left with three fingers to close the tab.";
+
+/* Accessibility label for the tabs button in the (top) tab toolbar. Accessibility Label for the tabs button in the tab toolbar */
+"Accessibility.TabTray.ShowTabs" = "Show Tabs";
+
+/* Accessibility label for the New Tab button in the tab toolbar. */
+"ErrorPages.CouldNotLoadPage" = "New Tab";

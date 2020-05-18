@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 import React
+import Shared
 
 @objc(TodayViewController)
 class TodayViewController: UIViewController, NCWidgetProviding {
@@ -73,10 +74,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     private func getTranslations() -> [String: String] {
         return [
-            "reload": NSLocalizedString("reload", tableName: "Today", comment: "Reload weather data"),
-            "configure": NSLocalizedString("configure", tableName: "Today", comment: "Configure weather widget"),
-            "expand": NSLocalizedString("expand", tableName: "Today", comment: "Show more info"),
-            "collapse": NSLocalizedString("collapse", tableName: "Today", comment: "Show less info"),
+            "reload": Strings.Today.Reload,
+            "configure": Strings.Today.Configure,
+            "expand": Strings.Today.Expand,
+            "collapse": Strings.Today.Collapse,
         ]
     }
 

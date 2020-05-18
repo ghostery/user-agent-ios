@@ -15,7 +15,7 @@ class SiriSettingsViewController: SettingsTableViewController {
         self.prefs = prefs
         super.init(style: .grouped)
 
-        self.title = Strings.Settings.Siri.SectionName
+        self.title = Strings.Settings.General.Siri.SectionName
         hasSectionSeparatorLine = false
     }
 
@@ -26,7 +26,7 @@ class SiriSettingsViewController: SettingsTableViewController {
     override func generateSettings() -> [SettingSection] {
         let setting = SiriOpenURLSetting(settings: self)
         let searchWithQliqzSetting = SiriSearchWithQliqzSetting(settings: self)
-        let firstSection = SettingSection(title: nil, footerTitle: NSAttributedString(string: Strings.Settings.Siri.SectionDescription), children: [setting, searchWithQliqzSetting])
+        let firstSection = SettingSection(title: nil, footerTitle: NSAttributedString(string: Strings.Settings.General.Siri.SectionDescription), children: [setting, searchWithQliqzSetting])
         return [firstSection]
     }
 }
@@ -38,7 +38,7 @@ class SiriOpenURLSetting: Setting {
     override var accessibilityIdentifier: String? { return "SiriSettings" }
 
     init(settings: SettingsTableViewController) {
-        super.init(title: NSAttributedString(string: Strings.Settings.Siri.OpenURL, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.General.Siri.OpenURL, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {
@@ -55,7 +55,7 @@ class SiriSearchWithQliqzSetting: Setting {
     override var accessibilityIdentifier: String? { return "SiriSearchWithQliqzSetting" }
 
     init(settings: SettingsTableViewController) {
-        super.init(title: NSAttributedString(string: Strings.Settings.Siri.SearchWith + AppInfo.displayName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+        super.init(title: NSAttributedString(string: Strings.Settings.General.Siri.SearchWith + AppInfo.displayName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
     }
 
     override func onClick(_ navigationController: UINavigationController?) {

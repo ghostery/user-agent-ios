@@ -1,0 +1,17 @@
+/* Authentication prompt log in button */
+"Authenticator.LogIn" = "Anmelden";
+
+/* Label displayed above the password row in Login Detail View. */
+"Authenticator.Password" = "Passwort";
+
+/* Label displayed above the username row in Login Detail View. */
+"Authenticator.Username" = "Benutzername";
+
+/* Authentication prompt title */
+"Authenticator.AuthenticationRequired" = "Authentifizierung erforderlich";
+
+/* Authentication prompt message with a realm. First parameter is the hostname. Second is the realm string */
+"Authenticator.WithSiteMessage" = "%1$@ verlangt einen Benutzernamen und ein Passwort. Ausgabe der Website: %2$@";
+
+/* Authentication prompt message with no realm. Parameter is the hostname of the site */
+"Authenticator.WithoutSiteMessage" = "%@ verlangt einen Benutzernamen und ein Passwort.";

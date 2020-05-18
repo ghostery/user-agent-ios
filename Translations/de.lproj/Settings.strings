@@ -1,0 +1,252 @@
+/* 
+  Settings.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/18/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Title in the settings view controller title bar */
+"Settings.Title" = "Einstellungen";
+
+/* About settings section title */
+"Settings.About.SectionTitle" = "Über";
+
+/* Block pop-up windows setting */
+"Settings.General.BlockPopUpWindows" = "Pop-up-Fenster blockieren";
+
+/* Menu item in settings used to open input.mozilla.org where people can submit feedback */
+"Settings.Support.FAQAndSupport" = "FAQ & Support";
+
+/* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
+"Settings.About.Licenses" = "Lizenzen";
+
+/* Privacy section title */
+"Settings.Privacy.Title" = "Datenschutz";
+
+/* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
+"Settings.Support.PrivacyPolicy" = "Datenschutzerklärung";
+
+/* The button text in Search Settings that opens the Custom Search Engine view. */
+"Settings.Search.AddCustomEngine.ButtonTitle" = "Suchmaschine hinzufügen";
+
+/* The title of the  Custom Search Engine view. */
+"Settings.Search.AddCustomEngine.Title" = "Suchmaschine hinzufügen";
+
+/* The title for the field which sets the title for a custom search engine. */
+"Settings.Search.AddCustomEngine.TitleLabel" = "Titel";
+
+/* The placeholder for Title Field when saving a custom search engine. */
+"Settings.Search.AddCustomEngine.TitlePlaceholder" = "Suchmaschine";
+
+/* The title for URL Field */
+"Settings.Search.AddCustomEngine.URLLabel" = "URL";
+
+/* The placeholder for URL Field when saving a custom search engine */
+"Settings.Search.AddCustomEngine.URLPlaceholder" = "URL (Anfrage durch %s ersetzen)";
+
+"Settings.Search.AdditionalSearchEngines.DefaultSearchEngine" = "Standardsuchmaschine";
+
+/* The button text in Search Settings that opens the Additional Search Engines view. */
+"Settings.Search.AdditionalSearchEngines.SectionName" = "Weitere Suchmaschinen";
+
+/* Label for show search suggestions setting. */
+"Settings.Search.AdditionalSearchEngines.ItemDefaultEngine" = "Suchvorschläge anzeigen";
+
+/* "Enable/Disable adult filter setting" */
+"Settings.Search.AdultFilterMode" = "18+ Seiten blockieren";
+
+/* Button in Data Management that clears private data for the selected items. */
+"Settings.Privacy.WebsiteData.ClearAll" = "Alle Website-Daten löschen";
+
+/* Button in settings that clears private data for the selected items. */
+"Settings.Privacy.ClearPrivateData.ClearButton" = "Private Daten löschen";
+
+/* Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data. */
+"Settings.Privacy.ClearPrivateData.SectionName" = "Private Daten löschen";
+
+/* Title displayed in header of the setting panel. */
+"Settings.Privacy.ClearPrivateData.Title" = "Private Daten löschen";
+
+/* Copy app version alert shown in settings. */
+"Settings.CopyAppVersion.Title" = "In Zwischenablage kopiert";
+
+/* Label used as an item in Settings. */
+"Settings.TodayWidget.SectionName" = "Heute-Widget";
+
+/* Title displayed in header of the setting panel. */
+"Settings.TodayWidget.Title" = "Aktuelle Stadt";
+
+/* Default text in search bar for Today Widget Setting */
+"Settings.TodayWidget.SearchLabel" = "Stadt suchen";
+
+/* General settings section title */
+"Settings.General.SectionName" = "Allgemein";
+
+/* News settings section title. */
+"Settings.News.SectionName" = "News";
+
+/* The button text in Settings that opens the list of supported news languages. */
+"Settings.News.Language" = "News-Edition wählen";
+
+/* Disable news from new tab page. */
+"Settings.News.NewsFromNewTabPage" = "News anzeigen";
+
+/* Disable load of news images. */
+"Settings.News.NewsImages" = "Bilder anzeigen";
+
+/* Option in settings to show UserAgent Home when you open a new tab */
+"Settings.NewTab.Option.Home" = "%@ Home";
+
+/* The option in settings to configure first launch tab */
+"Settings.General.OnBrowserStartTab.SectionName" = "Beim Browserstart anzeigen";
+
+/* The option in settings to configure first launch to open last opened tab */
+"Settings.General.OnBrowserStartTab.LastOpenedTab" = "Letzter Tab";
+
+/* The option in settings to configure first launch to open new tab */
+"Settings.General.OnBrowserStartTab.NewTab" = "Newtab-Seite";
+
+/* The option in settings to enable/disable Refresh Control. */
+"Settings.General.RefreshControl.SectionName" = "Zum Neuladen nach unten ziehen";
+
+/* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
+"Settings.General.OfferClipboardBarStatus" = "Wenn %@ geöffnet wird";
+
+/* Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
+"Settings.General.OfferClipboardBarTitle" = "Anbieten, kopierte Links zu öffnen";
+
+/* Title of setting to enable link previews when long-pressing links. */
+"Settings.General.ShowLinkPreivewsTitle" = "Link-Vorschauen anzeigen";
+
+/* Description displayed under the ”Show Link Previews” option */
+"Settings.General.ShowLinkPreviewsStatus" = "Beim Gedrückthalten von Links";
+
+/* Title for Open With Settings */
+"Settings.General.OpenWith.PageTitle" = "E-Mail-Links öffnen mit";
+
+/* Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour. */
+"Settings.General.OpenWith.SectionName" = "Mail-App";
+
+/* Privacy Dashboard Title */
+"Settings.PrivacyDashboard.Title" = "Datenschutz-Dashboard";
+
+/* Ad-blocking setting */
+"Settings.PrivacyDashboard.AdBlockingTitle" = "Werbeblocker";
+
+/* Anti-tracking setting */
+"Settings.PrivacyDashboard.AntiTrackingTitle" = "Anti-Tracking";
+
+/* Block pop-up windows setting */
+"Settings.PrivacyDashboard.PopupBlockerTitle" = "Pop-up Blocker";
+
+/* Search settings seciton title */
+"Settings.Search.Title" = "Suche";
+
+/* The button text in Search Settings that opens the list of supported search languages. */
+"Settings.Search.SearchResultForLanguage.Title" = "Suchsprache";
+
+/* A short description that explains why mozilla collects usage data. */
+"Settings.Support.SendUsageStatus" = "%@ ist bestrebt, nur die Informationen zu sammeln, mit denen wir %@ anbieten und für alle Nutzer verbessern können.";
+
+/* The title for the setting to send usage data. */
+"Settings.Support.SendUsageTitle" = "Interaktions-Statistiken";
+
+/* The title for the human web setting. */
+"Settings.Support.HumanWebTitle" = "Human Web";
+
+/* The description of the open new tab siri shortcut */
+"Settings.General.Siri.OpenTabShortcut" = "Neuen Tab öffnen";
+
+/* The description of the search with siri shortcut */
+"Settings.General.Siri.SearchWith" = "Suche mit ";
+
+/* The description that describes what siri shortcuts are */
+"Settings.General.Siri.SectionDescription" = "Siri-Kürzel verwenden, um %@ schnell per Siri zu öffnen";
+
+/* The option that takes you to the siri shortcuts settings page */
+"Settings.General.Siri.SectionName" = "Siri-Kürzel";
+
+/* The option in settings to configure default selected view in new tab */
+"Settings.General.NewTabPageDefaultView.SectionName" = "Neuer Tab";
+
+/* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
+"Settings.TrackingProtection.SectionName" = "Schutz vor Aktivitätenverfolgung";
+
+/* Translation settings footer describing how language detection and translation happens. */
+"Settings.TranslateSnackBar.SectionFooter" = "Die Sprache der Webseite wird auf dem Gerät erkannt und ein externer Dienst bietet eine Übersetzung an.";
+
+/* Translation settings section title */
+"Settings.TranslateSnackBar.SectionHeader" = "Dienste";
+
+/* Switch to choose if the language of a page is detected and offer to translate. */
+"Settings.TranslateSnackBar.SwitchSubtitle" = "Übersetzung von Websites anbieten, die nicht in Ihrer Standardsprache geschrieben sind.";
+
+/* Switch to choose if the language of a page is detected and offer to translate. */
+"Settings.TranslateSnackBar.SwitchTitle" = "Übersetzung anbieten";
+
+/* Title in main app settings for Translation toast settings */
+"Settings.TranslateSnackBar.Title" = "Übersetzung";
+
+/* Button shows all websites on website data tableview */
+"Settings.Privacy.WebsiteData.ButtonShowMore" = "Mehr anzeigen";
+
+/* Description of the confirmation dialog shown when a user tries to clear their private data. */
+"Settings.Privacy.WebsiteData.ConfirmPrompt" = "Diese Aktion löscht alle Ihre Website-Daten. Dies kann nicht rückgängig gemacht werden.";
+
+/* Title displayed in header of the Data Management panel. */
+"Settings.Privacy.WebsiteData.Title" = "Website-Daten";
+
+/* Show the on-boarding screen again from the settings */
+"Settings.Support.ShowTour" = "Rundgang anzeigen";
+
+/* Support section title */
+"Settings.Support.SectionTitle" = "Hilfe";
+
+/* Version number of UserAgent shown in settings */
+"Settings.About.Version" = "Version %1$@ (%2$@)";
+
+/* Settings item for clearing browsing history */
+"Settings.Privacy.DataManagement.PrivateData.BrowsingHistory" = "Besuchte Seiten";
+
+/* Settings item for clearing the cache */
+"Settings.Privacy.DataManagement.PrivateData.Cache" = "Cache";
+
+/* Settings item for clearing cookies */
+"Settings.Privacy.DataManagement.PrivateData.Cookies" = "Cookies";
+
+/* Settings item for deleting downloaded files */
+"Settings.Privacy.DataManagement.PrivateData.DownloadedFiles" = "Heruntergeladene Dateien";
+
+/* Settings item for clearing website data */
+"Settings.Privacy.DataManagement.PrivateData.OfflineWebsiteData" = "Offline-Website-Daten";
+
+/* Settings item for clearing privacy stats */
+"Settings.Privacy.DataManagement.PrivateData.PrivacyStats" = "Privatsphärenschutz Statistiken";
+
+/* Settings item for clearing browsing storage */
+"Settings.Privacy.DataManagement.PrivateData.BrowsingStorage" = "Browserspeicher";
+
+/* Settings item for closing all tabs. */
+"Settings.Privacy.DataManagement.PrivateData.AllTabs" = "Alle Tabs";
+
+/* Settings item for clear all bookmarks */
+"Settings.Privacy.DataManagement.PrivateData.Bookmarks" = "Lesezeichen";
+
+/* Settings item for clear all TopSites */
+"Settings.Privacy.DataManagement.PrivateData.TopSites" = "Meistbesuchte und Angeheftete Seiten";
+
+/* Settings item for removing search history */
+"Settings.Privacy.DataManagement.PrivateData.SearchHistory" = "Suchverlauf";
+
+/* Default text in search bar for Data Management */
+"Settings.Privacy.DataManagement.SearchLabel" = "Websites filtern";
+
+/* Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data. */
+"Settings.Privacy.DataManagement.SectionName" = "Datenverwaltung";
+
+/* Title displayed in header of the setting panel. */
+"Settings.Privacy.DataManagement.Title" = "Datenverwaltung";
+
+/* Setting for closing private tabs */
+"Settings.Privacy.ClosePrivateTabs" = "Vergessen-Tabs schließen";

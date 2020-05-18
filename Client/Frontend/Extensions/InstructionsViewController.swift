@@ -78,7 +78,7 @@ class InstructionsViewController: UIViewController {
         edgesForExtendedLayout = []
         view.backgroundColor = UIColor.White
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.SendTo.CloseButton, style: .done, target: self, action: #selector(close))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Strings.General.CancelString, style: .done, target: self, action: #selector(close))
         navigationItem.leftBarButtonItem?.accessibilityIdentifier = "InstructionsViewController.navigationItem.leftBarButtonItem"
 
         setupHelpView(view,

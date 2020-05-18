@@ -1,0 +1,16 @@
+/* 
+  AlertController.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/15/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Restore Tabs Prompt Title */
+"AlertController.RestoreTabs.Title" = "Entschuldigung, das hätte nicht passieren dürfen.";
+
+/* Restore Tabs Prompt Description */
+"AlertController.RestoreTabs.Message" = "%@ scheint zuvor abgestürzt zu sein. Sollen Ihre Tabs wiederhergestellt werden?";
+
+/* Description of the confirmation dialog shown when a user tries to clear their private data. */
+"AlertController.ClearPrivateData.Message" = "Diese Aktion löscht alle Ihre persönlichen Daten. Dies kann nicht rückgängig gemacht werden.";

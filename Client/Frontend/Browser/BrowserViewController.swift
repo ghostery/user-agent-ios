@@ -1277,7 +1277,7 @@ class BrowserViewController: UIViewController {
         viewController.tabManager = self.tabManager
         viewController.settingsDelegate = self
         let navigationController = ThemedNavigationController(rootViewController: viewController)
-        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Done", comment: "Done button on left side of the Settings view controller title bar"), style: .done, closure: { (_) in
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.General.DoneString, style: .done, closure: { (_) in
             self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
             navigationController.dismiss(animated: true)
         })
@@ -1843,7 +1843,7 @@ extension BrowserViewController: TabManagerDelegate {
                 }
             }
 
-            webView.accessibilityLabel = NSLocalizedString("Web content", comment: "Accessibility label for the main web content view")
+            webView.accessibilityLabel = Strings.Accessibility.WebContent
             webView.accessibilityIdentifier = "contentView"
             webView.accessibilityElementsHidden = false
 

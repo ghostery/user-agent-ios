@@ -1,15 +1,12 @@
 
 /* Label for preview action on Tab Tray Tab to add current tab to Bookmarks */
-"Add to Bookmarks" = "Zu Lesezeichen hinzufügen";
+"ForceTouchActions.AddToBookmarks" = "Zu Lesezeichen hinzufügen";
 
 /* Label for preview action on Tab Tray Tab to close the current tab */
-"Close Tab" = "Tab schließen";
+"ForceTouchActions.CloseTab" = "Tab schließen";
 
 /* Label for preview action on Tab Tray Tab to copy the URL of the current tab to clipboard */
-"Copy URL" = "URL kopieren";
-
-/* Accessibility label, associated to the 3D Touch action on the current tab in the tab tray, used to display a larger preview of the tab. */
-"Preview of %@" = "Vorschau von %@";
+"ForceTouchActions.CopyURL" = "URL kopieren";
 
 /* Label for preview action on Tab Tray Tab to send the current tab to another device */
-"Send to Device" = "An Gerät senden";
+"ForceTouchActions.SendToDevice" = "An Gerät senden";

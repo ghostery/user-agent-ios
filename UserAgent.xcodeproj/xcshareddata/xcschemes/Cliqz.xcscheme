@@ -91,6 +91,9 @@
                   Identifier = "ProfileTest/testNewProfileClearsExistingAuthenticationInfo()">
                </Test>
                <Test
+                  Identifier = "RelativeDatesTests">
+               </Test>
+               <Test
                   Identifier = "SearchTests/testURIFixupPunyCode()">
                </Test>
                <Test

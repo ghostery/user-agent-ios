@@ -15,8 +15,7 @@ class TelemetrySetting: BoolSetting {
             prefs: prefs,
             prefKey: AppConstants.PrefSendUsageData,
             defaultValue: true,
-            attributedTitleText:
-                NSAttributedString(string: Strings.Settings.SendUsage.Title),
+            attributedTitleText: NSAttributedString(string: Strings.Settings.Support.SendUsageTitle),
             attributedStatusText: attributedStatusText
         )
     }

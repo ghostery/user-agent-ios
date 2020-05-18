@@ -1,5 +1,11 @@
+/* Reload weather data */
+"Today.Reload" = "Neu laden";
 
-"reload" = "Neu laden";
-"configure" = "Konfigurieren";
-"expand" = "Mehr";
-"collapse" = "Weniger";
+/* Configure weather widget */
+"Today.Configure" = "Konfigurieren";
+
+/* Show more info */
+"Today.Expand" = "Mehr";
+
+/* Show less info */
+"Today.Collapse" = "Weniger";

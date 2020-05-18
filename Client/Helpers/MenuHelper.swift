@@ -32,26 +32,19 @@ open class MenuHelper: NSObject {
     }
 
     open func setItems() {
-        let pasteAndGoTitle = NSLocalizedString("UIMenuItem.PasteGo", value: "Paste & Go", comment: "The menu item that pastes the current contents of the clipboard into the URL bar and navigates to the page")
-        let pasteAndGoItem = UIMenuItem(title: pasteAndGoTitle, action: MenuHelper.SelectorPasteAndGo)
+        let pasteAndGoItem = UIMenuItem(title: Strings.MenuHelper.PasteGo, action: MenuHelper.SelectorPasteAndGo)
 
-        let revealPasswordTitle = NSLocalizedString("Reveal", tableName: "LoginManager", comment: "Reveal password text selection menu item")
-        let revealPasswordItem = UIMenuItem(title: revealPasswordTitle, action: MenuHelper.SelectorReveal)
+        let revealPasswordItem = UIMenuItem(title: Strings.MenuHelper.Reveal, action: MenuHelper.SelectorReveal)
 
-        let hidePasswordTitle = NSLocalizedString("Hide", tableName: "LoginManager", comment: "Hide password text selection menu item")
-        let hidePasswordItem = UIMenuItem(title: hidePasswordTitle, action: MenuHelper.SelectorHide)
+        let hidePasswordItem = UIMenuItem(title: Strings.MenuHelper.Hide, action: MenuHelper.SelectorHide)
 
-        let copyTitle = NSLocalizedString("Copy", tableName: "LoginManager", comment: "Copy password text selection menu item")
-        let copyItem = UIMenuItem(title: copyTitle, action: MenuHelper.SelectorCopy)
+        let copyItem = UIMenuItem(title: Strings.General.CopyString, action: MenuHelper.SelectorCopy)
 
-        let openAndFillTitle = NSLocalizedString("Open & Fill", tableName: "LoginManager", comment: "Open and Fill website text selection menu item")
-        let openAndFillItem = UIMenuItem(title: openAndFillTitle, action: MenuHelper.SelectorOpenAndFill)
+        let openAndFillItem = UIMenuItem(title: Strings.MenuHelper.OpenAndFill, action: MenuHelper.SelectorOpenAndFill)
 
-        let findInPageTitle = NSLocalizedString("Find in Page", tableName: "FindInPage", comment: "Text selection menu item")
-        let findInPageItem = UIMenuItem(title: findInPageTitle, action: MenuHelper.SelectorFindInPage)
+        let findInPageItem = UIMenuItem(title: Strings.MenuHelper.FindInPage, action: MenuHelper.SelectorFindInPage)
 
-        let searchTitle = String(format: NSLocalizedString("UIMenuItem.SearchWithUserAgent", value: "Search with Firefox", comment: "Search in New Tab Text selection menu item"), AppInfo.displayName)
-        let searchItem = UIMenuItem(title: searchTitle, action: MenuHelper.SelectorSearchWithFirefox)
+        let searchItem = UIMenuItem(title: Strings.MenuHelper.SearchWithUserAgent, action: MenuHelper.SelectorSearchWithFirefox)
 
         if UIPasteboard.general.isCopiedStringValidURL {
             UIMenuController.shared.menuItems = [pasteAndGoItem, copyItem, revealPasswordItem, hidePasswordItem, openAndFillItem, findInPageItem, searchItem]

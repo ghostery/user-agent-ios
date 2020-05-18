@@ -1,36 +1,8 @@
-
-/* Button for larger reader font size. Keep this extremely short! This is shown in the reader mode toolbar. */
-"+" = "+";
-
-/* Button for smaller reader font size. Keep this extremely short! This is shown in the reader mode toolbar. */
-"-" = "-";
-
-/* Authentication prompt message with no realm. Parameter is the hostname of the site */
-"A username and password are being requested by %@." = "A username and password are being requested by %@.";
-
-/* Authentication prompt message with a realm. First parameter is the hostname. Second is the realm string */
-"A username and password are being requested by %@. The site says: %@" = "A username and password are being requested by %1$@. The site says: %2$@";
-
-/* Button for reader mode font size. Keep this extremely short! This is shown in the reader mode toolbar. */
-"Aa" = "Aa";
-
-/* About settings section title */
-"About" = "About";
-
 /* The title for the pinning a topsite action */
 "ActivityStream.ContextMenu.PinTopsite" = "Pin to Top Sites";
 
 /* The title for removing a pinned topsite action */
 "ActivityStream.ContextMenu.RemovePinTopsite" = "Remove Pinned Site";
-
-/* The description of a highlight if it is a site the user has bookmarked */
-"ActivityStream.Highlights.Bookmark" = "Bookmarked";
-
-/* The description of a highlight if it is a site the user has visited */
-"ActivityStream.Highlights.Visited" = "Visited";
-
-/* Section title label for recently bookmarked websites */
-"ActivityStream.NewRecentBookmarks.Title" = "Recent Bookmarks";
 
 "ActivityStream.News.Header" = "News";
 
@@ -38,50 +10,14 @@
 
 "ActivityStream.PinnedSites.SectionTitle" = "Pinned Sites";
 
-/* Section title label for recently visited websites */
-"ActivityStream.RecentHistory.Title" = "Recently Visited";
-
-/* label showing how many rows of topsites are shown. %d represents a number */
-"ActivityStream.TopSites.RowCount" = "Rows: %d";
-
-/* The title for the setting page which lets you select the number of top site rows */
-"ActivityStream.TopSites.RowSettingFooter" = "Set Rows";
-
 /* Section title label for Top Sites */
 "ActivityStream.TopSites.SectionTitle" = "Top Sites";
-
-/* Accessibility label for the Add Tab button in the Tab Tray. */
-"Add Tab" = "Add Tab";
-
-/* Button to dismiss the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet. */
-"AddPass.Error.Dismiss" = "OK";
 
 /* Text of the 'Add Pass Failed' alert.  See https://support.apple.com/HT204003 for context on Wallet. */
 "AddPass.Error.Message" = "An error occured while adding the pass to Wallet. Please try again later.";
 
 /* Title of the 'Add Pass Failed' alert. See https://support.apple.com/HT204003 for context on Wallet. */
 "AddPass.Error.Title" = "Failed to Add Pass";
-
-/* Accessibility label for address and search field, both words (Address, Search) are therefore nouns. */
-"Address and Search" = "Address and Search";
-
-/* Used as a button label for crash dialog prompt */
-"Always Send" = "Always Send";
-
-/* Tile title for Amazon */
-"Amazon" = "Amazon";
-
-/* Title for prompt displayed to user after the app crashes */
-"App.Crashed" = "Oops! %@ crashed";
-
-/* Authentication prompt title */
-"Authentication required" = "Authentication required";
-
-/* Accessibility label for the Back button in the tab toolbar. */
-"Back" = "Back";
-
-/* Block pop-up windows setting */
-"Block Pop-up Windows" = "Block Pop-up Windows";
 
 /* The label for the title of a bookmark */
 "Bookmarks.Title.Label" = "Title";
@@ -98,20 +34,11 @@
 /* The label for the URL field when editing a bookmark */
 "Bookmark.DetailFieldURL.Label" = "URL";
 
-/* Accessibility label for brightness adjustment slider in Reader Mode display settings */
-"Brightness" = "Brightness";
-
 /* Label for Cancel button */
 "Cancel" = "Cancel";
 
 /* Label for Send button */
 "Send" = "Send";
-
-/* Accessibility hint for the color theme setting buttons in reader mode display settings */
-"Changes color theme." = "Changes color theme.";
-
-/* Accessibility hint for the font type buttons in reader mode display settings */
-"Changes font type." = "Changes font type.";
 
 /* The button to open a new tab with the copied link */
 "ClipboardToast.GoToCopiedLink.Button" = "Go";
@@ -119,23 +46,8 @@
 /* Message displayed when the user has a copied link on the clipboard */
 "ClipboardToast.GoToCopiedLink.Title" = "Go to copied link?";
 
-/* Accessibility label for action denoting closing a tab in tab list (tray) */
-"Close" = "Close";
-
-/* Accessibility label (used by assistive technology) notifying the user that the tab is being closed. */
-"Closing tab" = "Closing tab";
-
-/* Accessibility label for Desktop Computer (PC) image in remote tabs list */
-"computer" = "computer";
-
 /* Context menu item for bookmarking a link URL */
 "ContextMenu.BookmarkLinkButtonTitle" = "Bookmark Link";
-
-/* The button text in the Button Toast for switching to a fresh New Tab. */
-"ContextMenu.ButtonToast.NewTabOpened.ButtonText" = "Switch";
-
-/* The label text in the Button Toast for switching to a fresh New Tab. */
-"ContextMenu.ButtonToast.NewTabOpened.LabelText" = "New Tab opened";
 
 /* Context menu item for copying an image to the clipboard */
 "ContextMenu.CopyImageButtonTitle" = "Copy Image";
@@ -158,41 +70,8 @@
 /* Context menu item for sharing a link URL */
 "ContextMenu.ShareLinkButtonTitle" = "Share Link";
 
-/* Error message that is shown in settings when there was a problem loading */
-"Could not load page." = "Could not load page.";
-
-/* See http://mzl.la/1Qtkf0j */
-"Create an account" = "Create an account";
-
-/* Dark theme setting in Reading View settings */
-"Dark" = "Dark";
-
-/* Debug option */
-"Debug: forget Sync auth state" = "Debug: forget Sync auth state";
-
-/* Debug option */
-"Debug: require password" = "Debug: require password";
-
-/* Debug option */
-"Debug: require upgrade" = "Debug: require upgrade";
-
-/* Debug option */
-"Debug: use stage servers" = "Debug: use stage servers";
-
-/* Accessibility label for button decreasing font size in display settings of reader mode */
-"Decrease text size" = "Decrease text size";
-
-/* Name for display settings button in reader mode. Display in the meaning of presentation, not monitor. */
-"Display Settings" = "Display Settings";
-
 /* Done button on left side of the Settings view controller title bar */
 "Done" = "Done";
-
-/* Used as a button label for crash dialog prompt */
-"Don’t Send" = "Don’t Send";
-
-/* Panel accessibility label */
-"Downloads" = "Downloads";
 
 /* The label of the button the user will press to start downloading a file */
 "Downloads.Alert.DownloadNow" = "Download Now";
@@ -209,17 +88,11 @@
 /* Alert dialog title when the user taps the cancel download icon. */
 "Downloads.CancelDialog.Title" = "Cancel Download";
 
-/* The message displayed to a user when they try and perform the download of an asset that UserAgent cannot currently handle. */
-"Downloads.Error.Message" = "Downloads aren’t supported in %@ yet.";
-
 /* The label text in the Download Cancelled toast for showing confirmation that the download was cancelled. */
 "Downloads.Toast.Cancelled.LabelText" = "Download Cancelled";
 
 /* The label text in the Download Failed toast for showing confirmation that the download has failed. */
 "Downloads.Toast.Failed.LabelText" = "Download Failed";
-
-/* The button to retry a failed download from the Download Failed toast. */
-"Downloads.Toast.Failed.RetryButton" = "Retry";
 
 /* The button to open a new tab with the Downloads home panel */
 "Downloads.Toast.GoToDownloads.Button" = "Downloads";
@@ -236,71 +109,14 @@
 /* Title for the Downloads Panel empty state. */
 "DownloadsPanel.EmptyState.Title" = "Downloaded files will show up here.";
 
-/* Label for button to perform advanced actions on the error page */
-"ErrorPages.Advanced.Button" = "Advanced";
-
-/* Warning text when clicking the Advanced button on error pages */
-"ErrorPages.AdvancedWarning1.Text" = "Warning: we can’t confirm your connection to this website is secure.";
-
-/* Additional warning text when clicking the Advanced button on error pages */
-"ErrorPages.AdvancedWarning2.Text" = "It may be a misconfiguration or tampering by an attacker. Proceed if you accept the potential risk.";
-
-/* Warning text on the certificate error page */
-"ErrorPages.CertWarning.Description" = "The owner of %@ has configured their website improperly. To protect your information from being stolen, %@ has not connected to this website.";
-
-/* Title on the certificate error page */
-"ErrorPages.CertWarning.Title" = "This Connection is Untrusted";
-
-/* Label for button to go back from the error page */
-"ErrorPages.GoBack.Button" = "Go Back";
-
-/* Button label to temporarily continue to the site from the certificate error page */
-"ErrorPages.VisitOnce.Button" = "Visit site anyway";
-
 /* Question shown to user when tapping a link that opens the App Store app */
 "ExternalLink.AppStore.ConfirmationTitle" = "Open this link in the App Store?";
 
 /* Question shown to user when tapping an SMS or MailTo link that opens the external app for those. */
 "ExternalLink.AppStore.GenericConfirmationTitle" = "Open this link in external app?";
 
-/* Tile title for Facebook */
-"Facebook" = "Facebook";
-
-/* Menu item in settings used to open input.mozilla.org where people can submit feedback */
-"FAQ & Support" = "FAQ & Support";
-
-/* Accessibility Label for the tab toolbar Forward button */
-"Forward" = "Forward";
-
-/* Toggle history syncing setting */
-"History" = "History";
-
-/* Title for button in the history panel to clear recent history */
-"HistoryPanel.ClearHistoryButtonTitle" = "Clear Recent History…";
-
-/* Button to perform action to clear history for the last hour */
-"HistoryPanel.ClearHistoryMenuOptionTheLastHour" = "The Last Hour";
-
-/* Button to perform action to clear history for today only */
-"HistoryPanel.ClearHistoryMenuOptionToday" = "Today";
-
-/* Button to perform action to clear history for yesterday and today */
-"HistoryPanel.ClearHistoryMenuOptionTodayAndYesterday" = "Today and Yesterday";
-
-/* Title for popup action menu to clear recent history. */
-"HistoryPanel.ClearHistoryMenuTitle" = "Clearing Recent History will remove history, cookies, and other browser data.";
-
-/* Title for the History Panel empty state. */
-"HistoryPanel.EmptyState.Title" = "Websites you’ve visited recently will show up here.";
-
 /* Title for the Back to History button in the History Panel */
 "HistoryPanel.HistoryBackButton.Title" = "History";
-
-/* Title for the Recently Closed button in the History Panel */
-"HistoryPanel.RecentlyClosedTabsButton.Title" = "Recently Closed";
-
-/* The title for the Bookmark context menu action for sites in Home Panels */
-"HomePanel.ContextMenu.Bookmark" = "Bookmark";
 
 /* The title for the Delete from History context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.DeleteFromHistory" = "Delete URL from history";
@@ -319,9 +135,6 @@
 
 /* The title for the Remove Bookmark context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.RemoveBookmark" = "Remove Bookmark";
-
-/* The title for the Share context menu action for sites in Home Panels */
-"HomePanel.ContextMenu.Share" = "Share";
 
 /* Label to display in the Discoverability overlay for keyboard shortcuts */
 "Hotkeys.Back.DiscoveryTitle" = "Back";
@@ -359,35 +172,11 @@
 /* Label to display in the Discoverability overlay for keyboard shortcuts */
 "Hotkeys.ShowPreviousTab.DiscoveryTitle" = "Show Previous Tab";
 
-/* Accessibility label for button increasing font size in display settings of reader mode */
-"Increase text size" = "Increase text size";
-
-/* Accessibility label for the introduction tour carousel */
-"Intro Tour Carousel" = "Intro Tour Carousel";
-
-/* Relative time for a tab that was visited within the last few moments. */
-"just now" = "just now";
-
 /* History tableview section header */
 "Last month" = "Last month";
 
 /* History tableview section header */
 "Last week" = "Last week";
-
-/* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
-"Licenses" = "Licenses";
-
-/* Light theme setting in Reading View settings */
-"Light" = "Light";
-
-/* Link for going to the non-reader page when the reader view could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
-"Load original page" = "Load original page";
-
-/* Message displayed when the reader mode page is loading. This message will appear only when sharing to UserAgent reader mode from another app. */
-"Loading content…" = "Loading content…";
-
-/* Authentication prompt log in button */
-"Log in" = "Log in";
 
 /* Toast displayed to the user after a bookmark has been added. */
 "Menu.AddBookmark.Confirm" = "Bookmark Added";
@@ -409,80 +198,8 @@
 /* The title for the button that lets you paste and go to a URL */
 "Menu.PasteAndGo.Title" = "Paste & Go";
 
-/* Label for the button, displayed in the menu, used to reload the current website without Tracking Protection */
-"Menu.ReloadWithoutTrackingProtection.Title" = "Reload Without Tracking Protection";
-
-/* Label for the button, displayed in the menu, used to reload the current website with Tracking Protection enabled */
-"Menu.ReloadWithTrackingProtection.Title" = "Reload With Tracking Protection";
-
 /* Toast displayed to the user after a bookmark has been removed. */
 "Menu.RemoveBookmark.Confirm" = "Bookmark Removed";
-
-/* Title on tracking protection menu for blocked items. */
-"Menu.TrackingProtection.BlockedTitle" = "Blocked";
-
-/* Message in menu when no trackers blocked. */
-"Menu.TrackingProtection.NoTrackersBlocked" = "No trackers blocked for this site.";
-
-/* The title for tracking protection settings */
-"Menu.TrackingProtection.ProtectionSettings.Title" = "Protection Settings";
-
-/* Title on tracking protection menu showing the domain. eg. Protections for mozilla.org */
-"Menu.TrackingProtection.TitlePrefix" = "Protections for %@";
-
-/* The title that shows the number of content cookies blocked */
-"Menu.TrackingProtectionBlockedContent.Title" = "Tracking content";
-
-/* The title that shows the number of social URLs blocked */
-"Menu.TrackingProtectionBlockedSocial.Title" = "Social Trackers";
-
-/* Description of the Tracking protection menu when TP is blocking parts of the page */
-"Menu.TrackingProtectionBlocking.Description" = "%@ is blocking parts of the page that may track your browsing.";
-
-/* The description of the Tracking Protection menu item when tracking is enabled */
-"Menu.TrackingProtectionBlockingDisabled.Description" = "Block online trackers";
-
-/* The title that shows the number of cross-site cookies blocked */
-"Menu.TrackingProtectionCrossSiteCookies.Title" = "Cross-Site Tracking Cookies";
-
-/* The title that shows the number of cross-site URLs blocked */
-"Menu.TrackingProtectionCrossSiteTrackers.Title" = "Cross-Site Trackers";
-
-/* The title that shows the number of cryptomining scripts blocked */
-"Menu.TrackingProtectionCryptominersBlocked.Title" = "Cryptominers";
-
-/* Description of content trackers. */
-"Menu.TrackingProtectionDescription.ContentTrackers" = "Websites may load outside ads, videos, and other content that contains hidden trackers. Blocking this can make websites load faster, but some buttons, forms, and login fields, might not work.";
-
-/* Description of cross-site trackers. */
-"Menu.TrackingProtectionDescription.CrossSite" = "These cookies follow you from site to site to gather data about what you do online.";
-
-/* Description of cryptominers. */
-"Menu.TrackingProtectionDescription.Cryptominers" = "Cryptominers secretly use your system's computing power to mine digital money.";
-
-/* Description of fingerprinters. */
-"Menu.TrackingProtectionDescription.Fingerprinters" = "The settings on your browser and computer are unique. Fingerprinters collect a variety of these unique settings to create a profile of you, which can be used to track you as you browse.";
-
-/* Description of social network trackers. */
-"Menu.TrackingProtectionDescription.SocialNetworks" = "Social networks place trackers on other websites to build a more complete and targeted profile of you.";
-
-/* The button that disabled TP for a site. */
-"Menu.TrackingProtectionDisable.Title" = "Disable for this site";
-
-/* The confirmation toast once tracking protection has been disabled */
-"Menu.TrackingProtectionDisabled.Title" = "Tracking Protection is now off for this site.";
-
-/* A button to enable tracking protection inside the menu. */
-"Menu.TrackingProtectionEnable.Title" = "Enable Tracking Protection";
-
-/* The confirmation toast once tracking protection has been enabled */
-"Menu.TrackingProtectionEnabled.Title" = "Tracking Protection is now on for this site.";
-
-/* The title that shows the number of fingerprinting scripts blocked */
-"Menu.TrackingProtectionFingerprintersBlocked.Title" = "Fingerprinters";
-
-/* Title for list of domains blocked by category type. eg.  Blocked `CryptoMiners` */
-"Menu.TrackingProtectionListTitle" = "Blocked %@";
 
 /* more info about what tracking protection is about */
 "Menu.TrackingProtectionMoreInfo.Description" = "Privacy Dashboard is disabled";
@@ -490,56 +207,17 @@
 /* The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled. */
 "Menu.TrackingProtectionNoBlocking.Description" = "No tracking elements detected on this page.";
 
-/* label for the menu item to show when the website is allowListed from blocking trackers. */
-"Menu.TrackingProtectionOption.AllowListOnDescription" = "The site includes elements that may track your browsing. You have disabled protection.";
-
-/* label for the menu item that lets you remove a website from the tracking protection allowList */
-"Menu.TrackingProtectionAllowListRemove.Title" = "Enable for this site";
-
-/* The title for the option to view the What's new page. */
-"Menu.WhatsNew.Title" = "What's New";
-
-/* Error for a missing remote error number */
-"Missing error" = "Missing error";
-
-/* Error for a missing remote error message */
-"Missing message" = "Missing message";
-
-/* Accessibility label for Mobile Device image in remote tabs list */
-"mobile device" = "mobile device";
-
-/* Relative date for dates older than a month and less than two months. */
-"more than a month ago" = "more than a month ago";
-
-/* Description for a date more than a week ago, but less than a month ago. */
-"more than a week ago" = "more than a week ago";
-
-/* Accessibility label for the navigation toolbar displayed at the bottom of the screen. */
-"Navigation Toolbar" = "Navigation Toolbar";
-
-/* Accessibility label for the New Tab button in the tab toolbar. */
-"New Tab" = "New Tab";
-
 /* Restore Tabs Negative Action */
 "No" = "No";
-
-/* Message spoken by VoiceOver to indicate that there are no tabs in the Tabs Tray */
-"No tabs" = "No tabs";
 
 /* OK button */
 "OK" = "OK";
 
-/* Restore Tabs Affirmative Action */
-"Okay" = "Okay";
-
-/* See http://mzl.la/1LXbDOL */
-"Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Open articles in Reader View by tapping the book icon when it appears in the title bar.";
+/* Copy password text selection menu item */
+"Copy" = "Copy";
 
 /* See http://mzl.la/1G7uHo7 */
 "Open Settings" = "Open Settings";
-
-/* Toggle tabs syncing setting */
-"Open Tabs" = "Open Tabs";
 
 /* The message displayed to a user when they try to open a URL that cannot be handled by UserAgent, or any external app. */
 "OpenURL.Error.Message" = "%@ cannot open the page because it has an invalid address.";
@@ -547,50 +225,17 @@
 /* Title of the message shown when the user attempts to navigate to an invalid link. */
 "OpenURL.Error.Title" = "Cannot Open Page";
 
-/* Accessibility label for the Page Options menu button */
-"Page Options Menu" = "Page Options Menu";
-
-/* Accessibility label for the Library panel's bottom toolbar containing a list of the home panels (top sites, bookmarks, history, remote tabs, reading list). */
-"Panel Chooser" = "Panel Chooser";
-
-/* Password textbox in Authentication prompt */
-"Password" = "Password";
-
 /* See http://mzl.la/1G7uHo7 */
 "PhotoLibrary.AppWouldLikeAccessMessage" = "This allows you to save the image to your Camera Roll.";
 
 /* See http://mzl.la/1G7uHo7 */
 "PhotoLibrary.AppWouldLikeAccessTitle" = "%@ would like to access your Photos";
 
-/* Button for closing the menu action sheet */
-"PhotonMenu.close" = "Close";
-
-/* Privacy section title */
-"Privacy" = "Privacy";
-
-/* Show UserAgent Browser Privacy Policy page from the Privacy section in the settings.*/
-"Privacy Policy" = "Privacy Policy";
-
-/* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
-"read" = "read";
-
-/* Accessibility message e.g. spoken by VoiceOver when Reader Mode becomes available. */
-"ReaderMode.Available.VoiceOverAnnouncement" = "Reader Mode available";
-
-/* Title for the Recently Closed Tabs Panel */
-"RecentlyClosedTabsPanel.Title" = "Recently Closed";
-
 /* Localized String for German region */
 "region-DE" = "Germany";
 
-/* Accessibility Label for the tab toolbar Reload button */
-"Reload" = "Reload";
-
 /* Refresh title for Refresh Control. */
 "RefreshControl.Reload" = "Reload";
-
-/* Title for the button that removes a reading list item */
-"Remove" = "Remove";
 
 /* Cancel button text shown in reopen-alert at home page. */
 "ReopenAlert.Actions.Cancel" = "Cancel";
@@ -601,58 +246,14 @@
 /* Reopen alert title shown at home page. */
 "ReopenAlert.Title" = "Reopen Last Closed Tab";
 
-/* Accessibility label for button resetting font size in display settings of reader mode */
-"ReaderMode.ResetFontSizeAccessibilityLabel" = "Reset text size";
-
-/* Restore Tabs Prompt Description */
-"Restore.Tabs.After.Crash" = "Looks like %@ crashed previously. Would you like to restore your tabs?";
-
-/* Font type setting in the reading view settings */
-"Sans-serif" = "Sans-serif";
-
-/* See http://mzl.la/1LXbDOL */
-"Save pages to your Reading List by tapping the book plus icon in the Reader View controls." = "Save pages to your Reading List by tapping the book plus icon in the Reader View controls.";
-
-/* Navigation title for search settings.
-   Open search section of settings */
-"Search" = "Search";
-
 /* The text shown in the URL bar on about:home */
 "UrlBar.Placeholder" = "Search or type URL";
-
-/* Accessibility hint describing the action performed when a search suggestion is clicked */
-"Searches for the suggestion" = "Searches for the suggestion";
-
-/* Accessibility label for the lock icon, which is only present if the connection is secure */
-"Secure connection" = "Secure connection";
-
-/* Message displayed in the crash dialog above the buttons used to select when sending reports */
-"Send a crash report so we can fix the problem?" = "Send a crash report so we can fix the problem?";
-
-/* Used as a button label for crash dialog prompt */
-"Send Report" = "Send Report";
-
-/* Button title for cancelling share screen
-   Close button in top navigation bar */
-"SendTo.Cancel.Button" = "Cancel";
-
-/* Header for the list of devices table */
-"SendTo.DeviceList.Text" = "Available devices:";
 
 /* Message in error prompt explaining why the URL is invalid. */
 "SendTo.Error.Message" = "Only HTTP and HTTPS links can be shared.";
 
-/* OK button to dismiss the error prompt. */
-"SendTo.Error.OK.Button" = "OK";
-
 /* Title of error prompt displayed when an invalid URL is shared. */
 "SendTo.Error.Title" = "The link you are trying to share cannot be shared.";
-
-/* Title of the dialog that allows you to send a tab to a different device */
-"SendTo.NavBar.Title" = "Send Tab";
-
-/* Error message shown in the remote tabs panel */
-"SendTo.NoDevicesFound.Message" = "You don’t have any other devices connected to this Firefox Account available to sync.";
 
 /* See http://mzl.la/1ISlXnU */
 "SendTo.NotSignedIn.Message" = "Please open Firefox, go to Settings and sign in to continue.";
@@ -660,269 +261,17 @@
 /* See http://mzl.la/1ISlXnU */
 "SendTo.NotSignedIn.Title" = "You are not signed in to your Firefox Account.";
 
-/* Navigation bar button to Send the current page to a device */
-"SendTo.SendAction.Text" = "Send";
-
 /* Label for an action used to view one or more tabs from a notification. */
 "SentTab.ViewAction.title" = "View";
 
-/* Sepia theme setting in Reading View settings */
-"Sepia" = "Sepia";
+/* Label for Delete button */
+"Delete" = "Delete";
 
-/* Font type setting in the reading view settings */
-"Serif" = "Serif";
+/* Label for Edit button */
+"Edit" = "Edit";
 
-/* Title in the settings view controller title bar */
-"Settings" = "Settings";
-
-/* The button text in Search Settings that opens the Custom Search Engine view. */
-"Settings.AddCustomEngine" = "Add Search Engine";
-
-/* The text on the Save button when saving a custom search engine */
-"Settings.AddCustomEngine.SaveButtonText" = "Save";
-
-/* The title of the  Custom Search Engine view. */
-"Settings.AddCustomEngine.Title" = "Add Search Engine";
-
-/* The title for the field which sets the title for a custom search engine. */
-"Settings.AddCustomEngine.TitleLabel" = "Title";
-
-/* The placeholder for Title Field when saving a custom search engine. */
-"Settings.AddCustomEngine.TitlePlaceholder" = "Search Engine";
-
-/* The title for URL Field */
-"Settings.AddCustomEngine.URLLabel" = "URL";
-
-/* The placeholder for URL Field when saving a custom search engine */
-"Settings.AddCustomEngine.URLPlaceholder" = "URL (Replace Query with %s)";
-
-"Settings.AdditionalSearchEngines.DefaultSearchEngine" = "Default Search Engine";
-
-/* The button text in Search Settings that opens the Additional Search Engines view. */
-"Settings.AdditionalSearchEngines.SectionName" = "Additional search engines";
-
-/* "Block explicit content" */
-"Settings.AdultFilterMode" = "Block Explicit Content";
-
-/* Button in Data Management that clears private data for the selected items. */
-"Settings.ClearAllWebsiteData.Clear.Button" = "Clear All Website Data";
-
-/* Button in settings that clears private data for the selected items. */
-"Settings.ClearPrivateData.Clear.Button" = "Clear Private Data";
-
-/* Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data. */
-"Settings.ClearPrivateData.SectionName" = "Clear Private Data";
-
-/* Title displayed in header of the setting panel. */
-"Settings.ClearPrivateData.Title" = "Clear Private Data";
-
-/* Copy app version alert shown in settings. */
-"Settings.CopyAppVersion.Title" = "Copied to clipboard";
-
-/* Default text in search bar for Data Management */
-"Settings.DataManagement.SearchLabel" = "Filter Sites";
-
-/* Label used as an item in Settings. When touched it will open a dialog prompting the user to make sure they want to clear all of their private data. */
-"Settings.DataManagement.SectionName" = "Data Management";
-
-/* Title displayed in header of the setting panel. */
-"Settings.DataManagement.Title" = "Data Management";
-
-/* Label used as an item in Settings. */
-"Settings.TodayWidget.SectionName" = "Today Widget";
-
-/* Title displayed in header of the setting panel. */
-"Settings.TodayWidget.Title" = "Current City";
-
-/* Default text in search bar for Today Widget Setting */
-"Settings.TodayWidget.SearchLabel" = "Search City";
-
-/* Display (theme) settings footer describing how the brightness slider works. */
-"Settings.DisplayTheme.SectionFooter" = "The theme will automatically change based on your display brightness. You can set the threshold where the theme changes. The circle indicates your display's current brightness.";
-
-/* Display (theme) settings section title */
-"Settings.DisplayTheme.SectionHeader" = "Theme";
-
-/* Title in main app settings for Display (theme) settings */
-"Settings.DisplayTheme.Title" = "Display";
-
-/* DNT Settings option for always on */
-"Settings.DNT.OptionAlwaysOn" = "Always";
-
-/* DNT Settings option for only turning on when Tracking Protection is also on */
-"Settings.DNT.OptionOnWithTP" = "Only when using Tracking Protection";
-
-/* DNT Settings title */
-"Settings.DNT.Title" = "Send websites a Do Not Track signal that you don’t want to be tracked";
-
-/* General settings section title */
-"Settings.General.SectionName" = "General";
-
-/* News settings section title. */
-"Settings.News.SectionName" = "News";
-
-/* The button text in Settings that opens the list of supported news languages. */
-"Settings.News.Language" = "Choose News edition";
-
-/* Disable news from new tab page. */
-"Settings.News.NewsFromNewTabPage" = "Display News";
-
-/* Disable load of news images. */
-"Settings.News.NewsImages" = "Display images";
-
-/* Label used as an item in Settings. When touched it will open a dialog to configure the home page and its uses. */
-"Settings.HomePage.SectionName" = "Homepage";
-
-/* Option in settings to show UserAgent Home when you open a new tab */
-"Settings.NewTab.Option.Home" = "%@ Home";
-
-/* The option in settings to configure first launch tab */
-"Settings.OnBrowserStartTab.SectionName" = "On Browser start show";
-
-/* The option in settings to configure first launch to open last opened tab */
-"Settings.OnBrowserStartTab.LastOpenedTab" = "Last opened Tab";
-
-/* The option in settings to configure first launch to open new tab */
-"Settings.OnBrowserStartTab.NewTab" = "New Tab Page";
-
-/* The option in settings to enable/disable Refresh Control. */
-"Settings.RefreshControl.SectionName" = "Pull to reload";
-
-/* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Status" = "When Opening %@";
-
-/* Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Title" = "Offer to Open Copied Links";
-
-/* Title of setting to enable link previews when long-pressing links. */
-"Settings.ShowLinkPreivews.Title" = "Show Link Previews";
-
-/* Description displayed under the ”Show Link Previews” option */
-"Settings.ShowLinkPreviews.Status" = "When Long-pressing Links";
-
-/* Title for Open With Settings */
-"Settings.OpenWith.PageTitle" = "Open mail links with";
-
-/* Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour. */
-"Settings.OpenWith.SectionName" = "Mail App";
-
-/* Privacy Dashboard Title */
-"Settings.PrivacyDashboard.Title" = "Privacy Dashboard";
-
-/* Ad-blocking setting */
-"Settings.PrivacyDashboard.AdBlockingTitle" = "Ad-blocking";
-
-/* Anti-tracking setting */
-"Settings.PrivacyDashboard.AntiTrackingTitle" = "Anti-Tracking";
-
-/* Block pop-up windows setting */
-"Settings.PrivacyDashboard.PopupBlockerTitle" = "Pop-up Blocker";
-
-/* Button displayed at the top of the search settings. */
-"Settings.Search.Done.Button" = "Done";
-
-/* Button displayed at the top of the search settings. */
-"Settings.Search.Edit.Button" = "Edit";
-
-/* Search settings seciton title */
-"Settings.Search.SectionName" = "Search";
-
-/* The button text in Search Settings that opens the list of supported search languages. */
-"Settings.SearchResultForLanguage" = "Search language";
-
-/* A short description that explains why mozilla collects usage data. */
-"Settings.SendUsage.Message" = "%@ strives to only collect what we need to provide and improve %@ for everyone.";
-
-/* The title for the setting to send usage data. */
-"Settings.SendUsage.Title" = "Send Usage Data";
-
-/* The title for the human web setting. */
-"Settings.HumanWeb.Title" = "Human Web";
-
-/* The description of the open new tab siri shortcut */
-"Settings.Siri.OpenTabShortcut" = "Open New Tab";
-
-/* The description of the search with siri shortcut */
-"Settings.Siri.SearchWith" = "Search With ";
-
-/* The description that describes what siri shortcuts are */
-"Settings.Siri.SectionDescription" = "Use Siri shortcuts to quickly open %@ via Siri";
-
-/* The option that takes you to the siri shortcuts settings page */
-"Settings.Siri.SectionName" = "Siri Shortcuts";
-
-/* The option in settings to configure default selected view in new tab */
-"Settings.NewTabPageDefaultView.SectionName" = "New Tab";
-
-/* Explanation of basic mode. */
-"Settings.TrackingProtection.Info.BasicTitle" = "Balanced for protection and performance.";
-
-/* The Title on info view which shows a list of all blocked websites */
-"Settings.TrackingProtection.Info.BlocksTitle" = "BLOCKS";
-
-/* Title for tracking protection options section where level can be selected. */
-"Settings.TrackingProtection.ProtectionLevelTitle" = "Protection Level";
-
-/* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
-"Settings.TrackingProtection.SectionName" = "Tracking Protection";
-
-/* Tracking protection settings option for using the basic blocklist. */
-"Settings.TrackingProtectionOption.BasicBlockList" = "Standard (default)";
-
-/* Settings option to specify that Tracking Protection is on */
-"Settings.TrackingProtectionOption.NormalBrowsingLabelOn" = "Enhanced Tracking Protection";
-
-/* Translation settings footer describing how language detection and translation happens. */
-"Settings.TranslateSnackBar.SectionFooter" = "The web page language is detected on the device, and a translation from a remote service is offered.";
-
-/* Translation settings section title */
-"Settings.TranslateSnackBar.SectionHeader" = "Services";
-
-/* Switch to choose if the language of a page is detected and offer to translate. */
-"Settings.TranslateSnackBar.SwitchSubtitle" = "Offer to translate any site written in a language that is different from your default language.";
-
-/* Switch to choose if the language of a page is detected and offer to translate. */
-"Settings.TranslateSnackBar.SwitchTitle" = "Offer Translation";
-
-/* Title in main app settings for Translation toast settings */
-"Settings.TranslateSnackBar.Title" = "Translation";
-
-/* Button to delete website in search results */
-"Settings.WebsiteData.ButtonDelete" = "Delete";
-
-/* Button to exit edit website search results */
-"Settings.WebsiteData.ButtonDone" = "Done";
-
-/* Button to edit website search results */
-"Settings.WebsiteData.ButtonEdit" = "Edit";
-
-/* Button shows all websites on website data tableview */
-"Settings.WebsiteData.ButtonShowMore" = "Show More";
-
-/* Description of the confirmation dialog shown when a user tries to clear their private data. */
-"Settings.WebsiteData.ConfirmPrompt" = "This action will clear all of your website data. It cannot be undone.";
-
-/* Title displayed in header of the Data Management panel. */
-"Settings.WebsiteData.Title" = "Website Data";
-
-/* Label for show search suggestions setting. */
-"Show Search Suggestions" = "Show Search Suggestions";
-
-/* Accessibility label for the tabs button in the (top) tab toolbar
-   Accessibility Label for the tabs button in the tab toolbar */
-"Show Tabs" = "Show Tabs";
-
-/* Show the on-boarding screen again from the settings */
-"Show Tour" = "Show Tour";
-
-/* Accessibility Label for the tab toolbar Stop button */
-"Stop" = "Stop";
-
-/* Support section title */
-"Support" = "Support";
-
-/* Accessibility hint for tab tray's displayed tab. */
-"Swipe right or left with three fingers to close the tab." = "Swipe right or left with three fingers to close the tab.";
+/* Label for Save button */
+"Save" = "Save";
 
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normal Browsing Mode";
@@ -930,17 +279,8 @@
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToPBM.KeyCodeTitle" = "Forget Mode";
 
-/* Message spoken by VoiceOver saying the position of the single currently visible tab in Tabs Tray, along with the total number of tabs. E.g. \"Tab 2 of 5\" says that tab 2 is visible (and is the only visible tab), out of 5 tabs total. */
-"Tab %@ of %@" = "Tab %1$@ of %2$@";
-
 /* Hardware shortcut to open the tab tray from a tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.ShowTabTray.KeyCodeTitle" = "Show All Tabs";
-
-/* Message spoken by VoiceOver saying the range of tabs that are currently visible in Tabs Tray, along with the total number of tabs. E.g. \"Tabs 8 to 10 of 15\" says tabs 8, 9 and 10 are visible, out of 15 tabs total. */
-"Tabs %@ to %@ of %@" = "Tabs %1$@ to %2$@ of %3$@";
-
-/* Accessibility label for the Tabs Tray view. */
-"Tabs Tray" = "Tabs Tray";
 
 /* The button to undo the delete all tabs */
 "Tabs.DeleteAllUndo.Button" = "Undo";
@@ -960,18 +300,6 @@
 /* Hardware shortcut open the selected tab from the tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.OpenSelectedTab.KeyCodeTitle" = "Open Selected Tab";
 
-/* Message displayed when the reader mode page could not be loaded. This message will appear only when sharing to UserAgent reader mode from another app. */
-"The page could not be displayed in Reader View." = "The page could not be displayed in Reader View.";
-
-/* Error message in the remote tabs panel */
-"There was a problem accessing tabs from your other devices. Try again in a few moments." = "There was a problem accessing tabs from your other devices. Try again in a few moments.";
-
-/* Error displayed when reader mode cannot be enabled */
-"There was an error converting the page" = "There was an error converting the page";
-
-/* Relative date for date in past week. */
-"this week" = "this week";
-
 /* label for Not Now button */
 "Toasts.NotNow" = "Not Now";
 
@@ -981,59 +309,17 @@
 /* History tableview section header */
 "Today" = "Today";
 
-/* Relative date for date older than a minute. */
-"today at %@" = "today at %@";
-
 /* Accessibility label for the Menu button. */
 "Toolbar.Menu.AccessibilityLabel" = "Menu";
 
 /* Accessibility label for the Close All Tabs menu button. */
 "Toolbar.Menu.CloseAllTabs" = "Close All Tabs";
 
-/* The title for the empty Top Sites state */
-"TopSites.EmptyState.Title" = "Welcome to Top Sites";
-
 /* Button shown in editing mode to remove this site from the top sites panel. */
 "TopSites.RemovePage.Button" = "Remove page — %@";
-
-/* Tile title for Twitter */
-"Twitter" = "Twitter";
-
-/* The menu item that pastes the current contents of the clipboard into the URL bar and navigates to the page */
-"UIMenuItem.PasteGo" = "Paste & Go";
-
-/* Search in New Tab Text selection menu item */
-"UIMenuItem.SearchWithUserAgent" = "Search with %@";
-
-/* Accessibility label for unread article in reading list. It's a past participle - functions as an adjective. */
-"unread" = "unread";
 
 /* Title for UserAgent about:home page in tab history list */
 "UserAgent.HomePage.Title" = "%@ Home Page";
 
-/* Username textbox in Authentication prompt */
-"Username" = "Username";
-
-/* Version number of UserAgent shown in settings */
-"Version %@ (%@)" = "Version %1$@ (%2$@)";
-
-/* Accessibility label for the main web content view */
-"Web content" = "Web content";
-
-/* See http://mzl.la/1LXbDOL */
-"Welcome to your Reading List" = "Welcome to your Reading List";
-
-/* Restore Tabs Prompt Title */
-"Well, this is embarrassing." = "Well, this is embarrassing.";
-
-/* Tile title for Wikipedia */
-"Wikipedia" = "Wikipedia";
-
 /* History tableview section header */
 "Yesterday" = "Yesterday";
-
-/* Relative date for yesterday. */
-"yesterday" = "yesterday";
-
-/* Tile title for YouTube */
-"YouTube" = "YouTube";

@@ -61,7 +61,7 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = Strings.Settings.DataManagement.Title
+        title = Strings.Settings.Privacy.DataManagement.Title
 
         tableView.register(ThemedTableSectionHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: SectionHeaderFooterIdentifier)
 
@@ -76,7 +76,7 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
 
         if indexPath.section == SectionArrow {
             cell.accessoryType = .disclosureIndicator
-            cell.titleLabel.text = Strings.Settings.WebsiteData.Title
+            cell.titleLabel.text = Strings.Settings.Privacy.DataManagement.WebsiteData.Title
             cell.accessibilityIdentifier = "WebsiteData"
             clearButton = cell
         } else if indexPath.section == SectionToggles {
@@ -90,7 +90,7 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
             control.tag = indexPath.item
         } else {
             assert(indexPath.section == SectionButton)
-            cell.titleLabel.text = Strings.Settings.ClearPrivateData.ClearButton
+            cell.titleLabel.text = Strings.Settings.Privacy.DataManagement.ClearPrivateData.ClearButton
             cell.titleLabel.textAlignment = .center
             cell.titleLabel.textColor = Theme.general.destructiveRed
             cell.accessibilityTraits = UIAccessibilityTraits.button
@@ -168,7 +168,7 @@ class ClearPrivateDataTableViewController: ThemedTableViewController {
         headerView?.showTopBorder = false
         var sectionTitle: String?
         if section == SectionToggles {
-            sectionTitle = Strings.Settings.ClearPrivateData.Title
+            sectionTitle = Strings.Settings.Privacy.DataManagement.ClearPrivateData.Title
         } else {
             sectionTitle = nil
         }

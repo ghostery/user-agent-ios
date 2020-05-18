@@ -33,7 +33,7 @@ class HistoryClearable: Clearable {
     }
 
     var label: String {
-        return Strings.Settings.DataManagement.PrivateData.BrowsingHistory
+        return Strings.Settings.Privacy.DataManagement.PrivateData.BrowsingHistory
     }
 
     func clear() -> Success {
@@ -74,7 +74,7 @@ class CacheClearable: Clearable {
     }
 
     var label: String {
-        return Strings.Settings.DataManagement.PrivateData.Cache
+        return Strings.Settings.Privacy.DataManagement.PrivateData.Cache
     }
 
     func clear() -> Success {
@@ -119,7 +119,7 @@ class SiteDataClearable: Clearable {
     }
 
     var label: String {
-        return Strings.Settings.DataManagement.PrivateData.OfflineWebsiteData
+        return Strings.Settings.Privacy.DataManagement.PrivateData.OfflineWebsiteData
     }
 
     func clear() -> Success {
@@ -142,7 +142,7 @@ class CookiesClearable: Clearable {
     }
 
     var label: String {
-        return Strings.Settings.DataManagement.PrivateData.Cookies
+        return Strings.Settings.Privacy.DataManagement.PrivateData.Cookies
     }
 
     func clear() -> Success {
@@ -171,7 +171,7 @@ class TrackingProtectionClearable: Clearable {
 // Clears our downloaded files in the `~/Documents/Downloads` folder.
 class DownloadedFilesClearable: Clearable {
     var label: String {
-        return Strings.Settings.DataManagement.PrivateData.DownloadedFiles
+        return Strings.Settings.Privacy.DataManagement.PrivateData.DownloadedFiles
     }
 
     func clear() -> Success {
@@ -191,7 +191,7 @@ class DownloadedFilesClearable: Clearable {
 // Clears privacy stats.
 class PrivacyStatsClearable: Clearable {
     var label: String {
-        return Strings.Settings.DataManagement.PrivateData.PrivacyStats
+        return Strings.Settings.Privacy.DataManagement.PrivateData.PrivacyStats
     }
 
     func clear() -> Success {
@@ -212,7 +212,7 @@ class SearchHistoryClearable: Clearable {
     }
 
     var label: String {
-        return Strings.Settings.DataManagement.PrivateData.SearchHistory
+        return Strings.Settings.Privacy.DataManagement.PrivateData.SearchHistory
     }
 
     func clear() -> Success {

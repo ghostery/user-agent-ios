@@ -19,7 +19,7 @@ extension PhotonActionSheetProtocol {
     typealias IsPrivateTab = Bool
     typealias URLOpenAction = (URL?, IsPrivateTab) -> Void
 
-    func presentSheetWith(title: String? = nil, actions: [[PhotonActionSheetItem]], on viewController: PresentableVC, from view: UIView, closeButtonTitle: String = Strings.PhotonMenu.Close, suppressPopover: Bool = false) {
+    func presentSheetWith(title: String? = nil, actions: [[PhotonActionSheetItem]], on viewController: PresentableVC, from view: UIView, closeButtonTitle: String = Strings.General.CloseString, suppressPopover: Bool = false) {
         let style: UIModalPresentationStyle = (UIDevice.current.isPad && !suppressPopover) ? .popover : .overCurrentContext
         let sheet = PhotonActionSheet(title: title, actions: actions, closeButtonTitle: closeButtonTitle, style: style)
         sheet.modalPresentationStyle = style
@@ -101,34 +101,34 @@ extension PhotonActionSheetProtocol {
         func switchSetting(key: String, value: Bool) {
             userData[key]?.1 = value
         }
-        let text = "\(Strings.Settings.DataManagement.PrivateData.Cache), \(Strings.Settings.DataManagement.PrivateData.Cookies), \(Strings.Settings.DataManagement.PrivateData.OfflineWebsiteData)"
-        let clearBrowserStorage = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.BrowsingStorage, text: text, isEnabled: true, accessory: .Switch) { item in
+        let text = "\(Strings.Settings.Privacy.DataManagement.PrivateData.Cache), \(Strings.Settings.Privacy.DataManagement.PrivateData.Cookies), \(Strings.Settings.Privacy.DataManagement.PrivateData.OfflineWebsiteData)"
+        let clearBrowserStorage = PhotonActionSheetItem(title: Strings.Settings.Privacy.DataManagement.PrivateData.BrowsingStorage, text: text, isEnabled: true, accessory: .Switch) { item in
             switchSetting(key: "CacheClearable", value: item.isEnabled)
             switchSetting(key: "CookiesClearable", value: item.isEnabled)
             switchSetting(key: "SiteDataClearable", value: item.isEnabled)
         }
         var closeAllTabsSetting = true
-        let closeAllTabs = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.AllTabs, isEnabled: closeAllTabsSetting, accessory: .Switch) { item in
+        let closeAllTabs = PhotonActionSheetItem(title: Strings.Settings.Privacy.DataManagement.PrivateData.AllTabs, isEnabled: closeAllTabsSetting, accessory: .Switch) { item in
             closeAllTabsSetting = item.isEnabled
         }
-        let clearBrowserHistory = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.BrowsingHistory, isEnabled: false, accessory: .Switch) { item in
+        let clearBrowserHistory = PhotonActionSheetItem(title: Strings.Settings.Privacy.DataManagement.PrivateData.BrowsingHistory, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "HistoryClearable", value: item.isEnabled)
         }
-        let clearQueryLog = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.SearchHistory, isEnabled: false, accessory: .Switch) { item in
+        let clearQueryLog = PhotonActionSheetItem(title: Strings.Settings.Privacy.DataManagement.PrivateData.SearchHistory, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "SearchHistoryClearable", value: item.isEnabled)
         }
         var clearTopSitesSetting = false
-        let clearTopSites = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.TopAndPinnedSites, isEnabled: clearTopSitesSetting, accessory: .Switch) { item in
+        let clearTopSites = PhotonActionSheetItem(title: Strings.Settings.Privacy.DataManagement.PrivateData.TopAndPinnedSites, isEnabled: clearTopSitesSetting, accessory: .Switch) { item in
             clearTopSitesSetting = item.isEnabled
         }
-        let clearDownloadFiles = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.DownloadedFiles, isEnabled: false, accessory: .Switch) { item in
+        let clearDownloadFiles = PhotonActionSheetItem(title: Strings.Settings.Privacy.DataManagement.PrivateData.DownloadedFiles, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "DownloadedFilesClearable", value: item.isEnabled)
         }
-        let clearPrivacyStats = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.PrivacyStats, isEnabled: false, accessory: .Switch) { item in
+        let clearPrivacyStats = PhotonActionSheetItem(title: Strings.Settings.Privacy.DataManagement.PrivateData.PrivacyStats, isEnabled: false, accessory: .Switch) { item in
             switchSetting(key: "PrivacyStatsClearable", value: item.isEnabled)
         }
         var clearBookmarksSetting = false
-        let clearBookmarks = PhotonActionSheetItem(title: Strings.Settings.DataManagement.PrivateData.Bookmarks, isEnabled: clearBookmarksSetting, accessory: .Switch) { item in
+        let clearBookmarks = PhotonActionSheetItem(title: Strings.Settings.Privacy.DataManagement.PrivateData.Bookmarks, isEnabled: clearBookmarksSetting, accessory: .Switch) { item in
             clearBookmarksSetting = item.isEnabled
         }
         let closeAllTabsAndClearData = PhotonActionSheetItem(title: Strings.Menu.CloseAllTabsAndClearDataTitleString, iconString: "menu-burn") { _ in

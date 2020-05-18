@@ -18,9 +18,6 @@
 /* The title that asks the user to Add the search provider */
 "Search.ThirdPartyEngines.AddTitle" = "Suchmaschine hinzufügen?";
 
-/* The cancel button if you do not want to add a search engine. */
-"Search.ThirdPartyEngines.Cancel" = "Abbrechen";
-
 /* A message explaining fault in custom search engine form. */
 "Search.ThirdPartyEngines.DuplicateErrorMessage" = "Eine Suchmaschine mit diesem Titel oder dieser URL wurde bereits hinzugefügt.";
 
@@ -38,6 +35,3 @@
 
 /* A title stating that we failed to add custom search engine. */
 "Search.ThirdPartyEngines.FormErrorTitle" = "Fehlgeschlagen";
-
-/* The confirmation button */
-"Search.ThirdPartyEngines.OK" = "OK";

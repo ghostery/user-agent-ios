@@ -97,7 +97,7 @@ class PrivacyStatementViewController: UITableViewController {
         viewController.url = url
         viewController.title = title
         let navigationController = UINavigationController(rootViewController: viewController)
-        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.DownloadsPanel.DoneTitle, style: .done, closure: { (_) in
+        viewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: Strings.General.DoneString, style: .done, closure: { (_) in
             navigationController.dismiss(animated: true)
         })
         if #available(iOS 13.0, *) {
@@ -251,7 +251,7 @@ extension PrivacyStatementViewController {
 extension PrivacyStatementViewController: PrivacyStatementSettingCellDelegate {
 
     func onClickInfoButton() {
-        self.presentWebViewWithPath(path: Strings.HumanWebInfoWebsite, title: Strings.Settings.HumanWebTitle)
+        self.presentWebViewWithPath(path: Strings.HumanWebInfoWebsite, title: Strings.Settings.Support.HumanWebTitle)
     }
 
 }
@@ -262,7 +262,7 @@ extension PrivacyStatementViewController: PrivacyStatementMessageCellDelegate {
         if MFMailComposeViewController.canSendMail() {
             self.presentMailComposer()
         } else {
-            self.presentWebViewWithPath(path: Strings.FeedbackWebsite, title: Strings.Settings.FAQAndSupport)
+            self.presentWebViewWithPath(path: Strings.FeedbackWebsite, title: Strings.Settings.Support.FAQAndSupport)
         }
     }
 
