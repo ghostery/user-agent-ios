@@ -31,16 +31,19 @@ class AppSettingsTableViewController: SettingsTableViewController {
     }
 
     override func generateSettings() -> [SettingSection] {
-        return [
+        var settings = [
             self.searchSettingSection(),
             self.privacySettingSection(),
             self.privacyDashboardSettingSection(),
             self.todayWidgetSettingSection(),
             self.generalSettingSection(),
-            self.newsSettingSection(),
             self.supportSettingSection(),
             self.aboutSettingSection(),
         ]
+        if Features.News.isEnabled {
+            settings.insert(self.newsSettingSection(), at: 5)
+        }
+        return settings
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

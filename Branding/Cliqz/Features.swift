@@ -34,3 +34,9 @@ extension Features.PrivacyDashboard {
         return true
     }
 }
+
+extension Features.News {
+    public static var isEnabled: Bool {
+        return true
+    }
+}
