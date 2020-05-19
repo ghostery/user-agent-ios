@@ -30,8 +30,8 @@ class TopSitesView: BaseReactHomeView {
                 toolbarHeight: self.toolbarHeight,
                 speedDials: speedDials,
                 pinnedSites: pinned.successValue?.asArray() ?? [],
-                isNewsEnabled: self.profile.prefs.boolForKey(PrefsKeys.NewTabNewsEnabled) ?? true,
-                isNewsImagesEnabled: self.profile.prefs.boolForKey(PrefsKeys.NewTabNewsImagesEnabled) ?? true
+                isNewsEnabled: Features.News.isEnabled && (self.profile.prefs.boolForKey(PrefsKeys.NewTabNewsEnabled) ?? true),
+                isNewsImagesEnabled: Features.News.isEnabled && (self.profile.prefs.boolForKey(PrefsKeys.NewTabNewsImagesEnabled) ?? true)
             )
 
             self.addSubview(homeView)

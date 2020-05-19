@@ -37,5 +37,9 @@ public struct Features {
             return true
         }
     }
-
+    public struct News {
+        public static var isEnabled: Bool {
+            return false
+        }
+    }
 }
