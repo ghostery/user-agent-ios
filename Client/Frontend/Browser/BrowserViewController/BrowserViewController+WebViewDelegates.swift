@@ -169,22 +169,26 @@ extension BrowserViewController: WKUIDelegate {
                 let photoAuthorizeStatus = PHPhotoLibrary.authorizationStatus()
                 actions.append(UIAction(title: Strings.ContextMenu.SaveImage, identifier: UIAction.Identifier("linkContextMenu.saveImage")) { _ in
                     let handlePhotoLibraryAuthorized = {
-                        getImageData(url) { data in
-                            PHPhotoLibrary.shared().performChanges({
-                                PHAssetCreationRequest.forAsset().addResource(with: .photo, data: data, options: nil)
-                            })
+                        DispatchQueue.main.async {
+                            getImageData(url) { data in
+                                PHPhotoLibrary.shared().performChanges({
+                                    PHAssetCreationRequest.forAsset().addResource(with: .photo, data: data, options: nil)
+                                })
+                            }
                         }
                     }
 
                     let handlePhotoLibraryDenied = {
-                        let accessDenied = UIAlertController(title: Strings.PhotoLibrary.AppWouldLikeAccessTitle, message: Strings.PhotoLibrary.AppWouldLikeAccessMessage, preferredStyle: .alert)
-                        let dismissAction = UIAlertAction(title: Strings.General.CancelString, style: .default, handler: nil)
-                        accessDenied.addAction(dismissAction)
-                        let settingsAction = UIAlertAction(title: Strings.General.OpenSettingsString, style: .default ) { _ in
-                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:])
+                        DispatchQueue.main.async {
+                            let accessDenied = UIAlertController(title: Strings.PhotoLibrary.AppWouldLikeAccessTitle, message: Strings.PhotoLibrary.AppWouldLikeAccessMessage, preferredStyle: .alert)
+                            let dismissAction = UIAlertAction(title: Strings.General.CancelString, style: .default, handler: nil)
+                            accessDenied.addAction(dismissAction)
+                            let settingsAction = UIAlertAction(title: Strings.General.OpenSettingsString, style: .default ) { _ in
+                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:])
+                            }
+                            accessDenied.addAction(settingsAction)
+                            self.present(accessDenied, animated: true, completion: nil)
                         }
-                        accessDenied.addAction(settingsAction)
-                        self.present(accessDenied, animated: true, completion: nil)
                     }
 
                     if photoAuthorizeStatus == .notDetermined {
