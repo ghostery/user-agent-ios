@@ -102,7 +102,7 @@ extension SearchResultsViewController: BrowserCoreClient {
         let complentionLength = completion?.count ?? 0
         let isAutocompleted = complentionLength > 0
         let offset = query.count - complentionLength
-        guard query.count >= offset else {
+        guard offset > 0 && offset <= query.count  else {
             return
         }
         let completionRange = query.startIndex..<query.index(query.startIndex, offsetBy: offset)
