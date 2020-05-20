@@ -292,27 +292,15 @@ class BrowserViewController: UIViewController {
         self.present(reportPage, animated: true, completion: nil)
     }
 
-    func presentPrivacyStatementViewController() {
-        let settingsConversations = [
-            String(format: Strings.PrivacyStatement.SettingsConversation1, AppInfo.displayName),
-            String(format: Strings.PrivacyStatement.SettingsConversation2, AppInfo.displayName),
-        ]
-        let dataModel = PrivacyStatementData(title: Strings.PrivacyStatement.Title,
-                                             sortedSettings: [],
-                                             settingsConversations: settingsConversations,
-                                             repositoryConversations: [Strings.PrivacyStatement.RepositoryConversation],
-                                             privacyConversations: [Strings.PrivacyStatement.PrivacyConversation],
-                                             messageConversations: [Strings.PrivacyStatement.MessageConversation])
-        let privacyStatementViewController = PrivacyStatementViewController(dataModel: dataModel, prefs: self.profile.prefs)
-        privacyStatementViewController.delegate = self
-        let navigationController = UINavigationController(rootViewController: privacyStatementViewController)
+    func presentDataAndPrivacyViewController() {
+        guard let dataAndPrivacyViewController = DataAndPrivacy.presentingViewController(prefs: self.profile.prefs, delegate: self) else { return }
         if #available(iOS 13.0, *) {
-            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
-            navigationController.presentationController?.delegate = self
+            dataAndPrivacyViewController.modalPresentationStyle = UIDevice.current.isPhone ? .automatic : .formSheet
+            dataAndPrivacyViewController.presentationController?.delegate = self
         } else {
-            navigationController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
+            dataAndPrivacyViewController.modalPresentationStyle = UIDevice.current.isPhone ? .fullScreen : .formSheet
         }
-        self.present(navigationController, animated: true)
+        self.present(dataAndPrivacyViewController, animated: true)
     }
 
     func presentWipeAllTracesContextualOnboarding() {
@@ -1967,23 +1955,22 @@ extension BrowserViewController: UIPopoverPresentationControllerDelegate {
 
 extension BrowserViewController: OnboardingViewControllerDelegate {
 
-    func onboardingViewControllerDidFinish(_ onboardingViewController: OnboardingViewController) {
+    func onboardingViewControllerDidFinish(_ onboardingViewController: UIViewController) {
         let shouldPresentPrivacyStatement = self.profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil
         self.profile.prefs.setInt(1, forKey: PrefsKeys.IntroSeen)
         onboardingViewController.dismiss(animated: true) {
             if self.navigationController?.viewControllers.count ?? 0 > 1 {
                 _ = self.navigationController?.popToRootViewController(animated: true)
             }
-            if shouldPresentPrivacyStatement {
-                self.presentPrivacyStatementViewController()
+            if shouldPresentPrivacyStatement && DataAndPrivacy.isEnabled {
+                self.presentDataAndPrivacyViewController()
             }
         }
     }
 
     func presentOnboarding(_ force: Bool = false, animated: Bool = true) {
         if Onboarding.isEnabled && (force || profile.prefs.intForKey(PrefsKeys.IntroSeen) == nil) {
-            guard let onboardingViewController = Onboarding.presentingViewController() else { return }
-            onboardingViewController.delegate = self
+            guard let onboardingViewController = Onboarding.presentingViewController(delegate: self) else { return }
             // On iPad we present it modally in a controller
             if topTabsVisible {
                 onboardingViewController.preferredContentSize = CGSize(width: BrowserViewControllerUX.OnboardingWidth, height: BrowserViewControllerUX.OnboardingHeight)
@@ -2005,9 +1992,9 @@ extension BrowserViewController: OnboardingViewControllerDelegate {
 
 }
 
-extension BrowserViewController: PrivacyStatementViewControllerDelegate {
+extension BrowserViewController: DataAndPrivacyViewControllerDelegate {
 
-    func privacyStatementViewControllerDidClose() {
+    func dataAndPrivacyViewControllerDidClose() {
         self.setPhoneWindowBackground(color: Theme.browser.background, animationDuration: 1.0)
     }
 

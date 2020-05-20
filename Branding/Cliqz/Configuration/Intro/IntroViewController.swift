@@ -27,7 +27,7 @@ protocol IntroViewControllerDelegate: AnyObject {
     func introViewControllerDidFinish(_ introViewController: IntroViewController)
 }
 
-class IntroViewController: UIViewController, OnboardingViewController {
+class IntroViewController: UIViewController {
 
     weak var delegate: OnboardingViewControllerDelegate?
 

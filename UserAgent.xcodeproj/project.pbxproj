@@ -66,6 +66,9 @@
 		2B0E93692407A92300ED7703 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3905274B1C874D35007E0BB7 /* NotificationCenter.framework */; };
 		2B0E936C2407A92300ED7703 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E936B2407A92300ED7703 /* TodayViewController.swift */; };
 		2B0E93732407A92300ED7703 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B0E93682407A92300ED7703 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2B189393247535EF003DA87D /* DataAndPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B189392247535EF003DA87D /* DataAndPrivacy.swift */; };
+		2B18939524753898003DA87D /* DataAndPrivacy+Cliqz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B18939424753898003DA87D /* DataAndPrivacy+Cliqz.swift */; };
+		2B18939624753C53003DA87D /* Strings+PrivacyStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */; };
 		2B22E67B23F683A7000A39E6 /* FileDownloadActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEB1A7C23F5388E008A0F01 /* FileDownloadActivity.swift */; };
 		2B28FFCB244593910075AF8A /* BrowserViewController+UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */; };
 		2B28FFCC244593910075AF8A /* BrowserViewController+UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */; };
@@ -119,26 +122,16 @@
 		2B66BE072362E27600D78A88 /* PhotonCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */; };
 		2B723CDD2461676E008986E5 /* SearchEnginePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B723CDC2461676E008986E5 /* SearchEnginePicker.swift */; };
 		2B723CDE2461676E008986E5 /* SearchEnginePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B723CDC2461676E008986E5 /* SearchEnginePicker.swift */; };
-		2B76E43423A129DB001CF20E /* Strings+PrivacyStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */; };
 		2B76E43B23A12DB4001CF20E /* PrivacyStatement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */; };
-		2B76E43D23A12DE4001CF20E /* PrivacyStatement.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */; };
 		2B76E43F23A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
-		2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43E23A1313F001CF20E /* ChatBubbleViewCell.swift */; };
 		2B84AF1E241A63EE000626A4 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */; };
 		2B84AF1F241A63EF000626A4 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */; };
 		2B8DDBA323A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
-		2B8DDBA423A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
 		2B8DDBAC23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */; };
-		2B8DDBAD23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAB23A3703200D2CE7A /* PrivacyStatementSettingCell.swift */; };
 		2B8DDBAF23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */; };
-		2B8DDBB023A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBAE23A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift */; };
 		2B8DDBB223A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */; };
-		2B8DDBB323A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB123A3803E00D2CE7A /* PrivacyStatementCell.swift */; };
 		2B8DDBB523A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */; };
-		2B8DDBB623A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB423A389B800D2CE7A /* PrivacyStatementMessageCell.swift */; };
-		2B8DDBB723A3B84600D2CE7A /* PrivacyStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */; };
 		2B8DDBB923A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
-		2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DDBB823A3BF3400D2CE7A /* PrivacyStatementFooterView.swift */; };
 		2B9CE16D2469785F007E8286 /* Onboarding+Cliqz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9CE16C2469785F007E8286 /* Onboarding+Cliqz.swift */; };
 		2B9CE16E246978D7007E8286 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEA07C12469747F008E1622 /* Onboarding.swift */; };
 		2BBAA44D242124E0006D8246 /* TodayWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAA44C242124E0006D8246 /* TodayWidgetViewController.swift */; };
@@ -298,7 +291,7 @@
 		464E6839234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464E683C234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
-		464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		464F678B232793F00090D0B5 /* (null) in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46504060240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
 		46504061240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
 		46504063240FC2520086CFAF /* BaseReactHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504062240FC2520086CFAF /* BaseReactHomeView.swift */; };
@@ -616,7 +609,7 @@
 		ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		ACB737E823042BAB00FA5626 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		ACB737E823042BAB00FA5626 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
 		ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */; };
 		ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6327A631BF6438E008D12E0 /* DebugSettingsBundleOptions.swift */; };
@@ -712,8 +705,6 @@
 		C52F2D52235610C800146300 /* Tab+ChangeUserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */; };
 		C52F2D5723561BFA00146300 /* SearchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */; };
 		C52F2D5823561BFA00146300 /* SearchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */; };
-		C53212E423A3EB2900AEC9B2 /* PrivacyStatementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E65239FA589003687AC /* PrivacyStatementData.swift */; };
-		C53212E523A3EB3900AEC9B2 /* PrivacyStatementHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E61239FA44F003687AC /* PrivacyStatementHeaderView.swift */; };
 		C53212E623A3EB3D00AEC9B2 /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B83E5D239F9EB0003687AC /* ChatBubbleView.swift */; };
 		C56ED497233B692B006A63B1 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ED496233B692B006A63B1 /* Interceptor.swift */; };
 		C56ED498233B692B006A63B1 /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56ED496233B692B006A63B1 /* Interceptor.swift */; };
@@ -1188,7 +1179,7 @@
 				46CF5F82246A9B790058D750 /* OpenIn.appex in Embed App Extensions */,
 				46CF5F81246A9B730058D750 /* Siri.appex in Embed App Extensions */,
 				46CF5F80246A9B640058D750 /* ShareTo.appex in Embed App Extensions */,
-				464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */,
+				464F678B232793F00090D0B5 /* (null) in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1295,6 +1286,8 @@
 		2B0E93682407A92300ED7703 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0E936B2407A92300ED7703 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		2B0E93702407A92300ED7703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B189392247535EF003DA87D /* DataAndPrivacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAndPrivacy.swift; sourceTree = "<group>"; };
+		2B18939424753898003DA87D /* DataAndPrivacy+Cliqz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataAndPrivacy+Cliqz.swift"; sourceTree = "<group>"; };
 		2B28FFCA244593910075AF8A /* BrowserViewController+UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+UseCases.swift"; sourceTree = "<group>"; };
 		2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentBlocker+Tracking+Whitelist.swift"; sourceTree = "<group>"; };
 		2B308ABD242B2B4A009AF3D1 /* Siri.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Siri.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2539,6 +2532,7 @@
 				2B8577C92403E9150052D6C7 /* Entitlements */,
 				2B8577CC2403E9150052D6C7 /* Assets */,
 				E49943F31AE6879C00BF9DE4 /* Intro */,
+				C5B83E5A239F9CF9003687AC /* PrivacyStatement */,
 				2B8577C32403E9150052D6C7 /* CliqzDebug.xcconfig */,
 				2B8577C42403E9150052D6C7 /* CliqzAdHoc.xcconfig */,
 				2B8577C22403E9150052D6C7 /* CliqzRelease.xcconfig */,
@@ -2951,7 +2945,6 @@
 			children = (
 				C5D1EB4A23BB7C0900C19728 /* RefreshControl */,
 				C5B83E67239FD55C003687AC /* ChatBubble */,
-				C5B83E5A239F9CF9003687AC /* PrivacyStatement */,
 				46BE36A42344D32D00DADCB6 /* QuerySuggestions */,
 				ACD654772360926B002D2EE0 /* Privacy Indicator */,
 			);
@@ -3120,7 +3113,6 @@
 				D35210E01CB2F16600FC5DCB /* Strings.swift */,
 				46BBFA6123575B0000283594 /* Strings+Brand.swift */,
 				46569CD023CC90C900224DC2 /* Strings+ControlCenter.swift */,
-				2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */,
 				46BBFA5F23575AEC00283594 /* Strings+PrivateBrowsing.swift */,
 				467C106F24572E66003F7101 /* Strings+Search.swift */,
 				AC33579B2387F2CC00693969 /* Strings+Storage.swift */,
@@ -3161,7 +3153,6 @@
 				5F9E430FA4DF366BB519164A /* Search.strings */,
 				87334596ACEFC08E1CEC3543 /* Storage.strings */,
 				46828D912341F23300E7D8A3 /* UserAgent.strings */,
-				2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */,
 				2B464956243F2003002913F5 /* ContextualOnboarding.strings */,
 				2BF5F149246E6DFE00837817 /* AlertController.strings */,
 				2BD94C2F246E8A8200CAD463 /* Accessibility.strings */,
@@ -3285,8 +3276,11 @@
 			children = (
 				C5B83E60239F9F04003687AC /* Model */,
 				C5B83E5F239F9EFE003687AC /* Views */,
+				2B18939424753898003DA87D /* DataAndPrivacy+Cliqz.swift */,
 				C5B83E5B239F9D58003687AC /* PrivacyStatementViewController.swift */,
+				2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */,
 				2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */,
+				2B76E43923A12AE3001CF20E /* PrivacyStatement.strings */,
 			);
 			path = PrivacyStatement;
 			sourceTree = "<group>";
@@ -3586,6 +3580,7 @@
 				E650756D1E37F7AB006961AC /* DeviceInfo.swift */,
 				466B3729246301A200747C50 /* Features.swift */,
 				2BEA07C12469747F008E1622 /* Onboarding.swift */,
+				2B189392247535EF003DA87D /* DataAndPrivacy.swift */,
 				E65075811E37F7AB006961AC /* FSUtils.h */,
 				E65075821E37F7AB006961AC /* FSUtils.m */,
 				E65075831E37F7AB006961AC /* Functions.swift */,
@@ -4323,65 +4318,65 @@
 				TargetAttributes = {
 					049DBAD523E4587B00D2D38D = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					049DBADD23E4587B00D2D38D = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 					};
 					288A2D851AB8B3260023ABC3 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					2B0E93672407A92300ED7703 = {
 						CreatedOnToolsVersion = 11.3.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					2B308ABC242B2B4A009AF3D1 = {
 						CreatedOnToolsVersion = 11.3.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 					};
 					2BE258D223BA2B4A0022ED28 = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 					};
 					2FCAE2191ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					2FCAE2231ABB51F800877008 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					3B43E3CF1D95C48D00BBA9DB = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					3BFE4B061D342FB800DDF53F = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					ACB7371123042BAB00FA5626 = {
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -4394,13 +4389,13 @@
 					};
 					E6F9650B1B2F1CF20034B023 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					F84B21BD1A090F8100AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -4423,13 +4418,13 @@
 					};
 					F84B21D21A090F8100AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					F84B22481A0920C600AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -4584,7 +4579,6 @@
 				4661C370246C11D500F36302 /* MenuHelper.strings in Resources */,
 				4661C374246C11DF00F36302 /* Menu.strings in Resources */,
 				2BE3BD92247270D10066D0BD /* Settings.strings in Resources */,
-				2B76E43D23A12DE4001CF20E /* PrivacyStatement.strings in Resources */,
 				ACB7380B23042BAB00FA5626 /* topdomains.txt in Resources */,
 				4661C378246C11ED00F36302 /* Storage.strings in Resources */,
 				4620EA562354C59F004586CF /* safari-ads-network.json in Resources */,
@@ -4601,7 +4595,6 @@
 				ACB7381723042BAB00FA5626 /* CertError.css in Resources */,
 				46569CD923CD0F0500224DC2 /* safari-popups-cosmetic.json in Resources */,
 				4620EA542354C59F004586CF /* safari-tracking-network.json in Resources */,
-				2B8DDBA423A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */,
 				ACB7381B23042BAB00FA5626 /* NetError.html in Resources */,
 				4620EA502354C59F004586CF /* safari-ads-cosmetic.json in Resources */,
 				4661C372246C11DA00F36302 /* Localizable.strings in Resources */,
@@ -5409,6 +5402,7 @@
 				E65075931E37F7AB006961AC /* AppConstants.swift in Sources */,
 				E65075B81E37F7AB006961AC /* NotificationConstants.swift in Sources */,
 				E65075AC1E37F7AB006961AC /* StringExtensions.swift in Sources */,
+				2B189393247535EF003DA87D /* DataAndPrivacy.swift in Sources */,
 				E65075951E37F7AB006961AC /* GeneralUtils.swift in Sources */,
 				E683F0C21E93D4E90035D990 /* DictionaryExtensions.swift in Sources */,
 				E650759B1E37F7AB006961AC /* CrashSimulator.m in Sources */,
@@ -5439,7 +5433,6 @@
 				E650759C1E37F7AB006961AC /* DeferredUtils.swift in Sources */,
 				E65075941E37F7AB006961AC /* AppInfo.swift in Sources */,
 				2BE3BD7C246EBDE50066D0BD /* Strings+Authenticator.swift in Sources */,
-				2B76E43423A129DB001CF20E /* Strings+PrivacyStatement.swift in Sources */,
 				D03DCD95211B63D000151ACA /* DateGroupedTableData.swift in Sources */,
 				C8DFFE492294AAB600296DB1 /* NetworkUtils.swift in Sources */,
 				E65075A41E37F7AB006961AC /* NSCharacterSetExtensions.swift in Sources */,
@@ -5620,11 +5613,9 @@
 				460C248523F18E7A00D922B0 /* InsightsFeatureReactNativeModule.m in Sources */,
 				2BFB7C3A238FB06300CE2E69 /* AutomaticForgetModeDetector.swift in Sources */,
 				ACB7372C23042BAB00FA5626 /* ReaderModeUtils.swift in Sources */,
-				2B8DDBB023A37FC300D2CE7A /* PrivacyStatementDisclosureCell.swift in Sources */,
 				ACB7372E23042BAB00FA5626 /* PanelDataObservers.swift in Sources */,
 				ACB7372F23042BAB00FA5626 /* ClipboardBarDisplayHandler.swift in Sources */,
 				ACB7373023042BAB00FA5626 /* HistoryBackButton.swift in Sources */,
-				2B8DDBAD23A3703200D2CE7A /* PrivacyStatementSettingCell.swift in Sources */,
 				ACB7373123042BAB00FA5626 /* Theme.swift in Sources */,
 				ACB7373223042BAB00FA5626 /* OneLineCell.swift in Sources */,
 				ACB7373323042BAB00FA5626 /* FindInPageHelper.swift in Sources */,
@@ -5664,17 +5655,14 @@
 				046C031523ABFE9F00D826E3 /* PrivacyDashboardUtils.swift in Sources */,
 				463432F92332521F0014A9F0 /* Telemetry.swift in Sources */,
 				460C247E23ED73EC00D922B0 /* WindowCrypto.m in Sources */,
-				C53212E423A3EB2900AEC9B2 /* PrivacyStatementData.swift in Sources */,
 				46569CC723CA5BA800224DC2 /* PrivacyStatsView.swift in Sources */,
 				ACB7374823042BAB00FA5626 /* TestAppDelegate.swift in Sources */,
-				2B76E44023A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */,
 				2B4DFF2323CF0777001145AF /* BrowserSearch.swift in Sources */,
 				46569CD623CCC60400224DC2 /* AllowList.swift in Sources */,
 				463432FC2333905D0014A9F0 /* BrowserCoreClient.swift in Sources */,
 				46CA60FF2317F8F60010CE6B /* SearchResultsViewController.swift in Sources */,
 				2BD1062D2410EB1000F7F3A8 /* BookmarkDetailViewController.swift in Sources */,
 				ACB7374A23042BAB00FA5626 /* Clearables.swift in Sources */,
-				2B8DDBB623A389B800D2CE7A /* PrivacyStatementMessageCell.swift in Sources */,
 				46E96607236B27E6003C23F3 /* UserAgentConstants.m in Sources */,
 				46BBFA682358B13A00283594 /* BrowserCliqz.m in Sources */,
 				ACB7374B23042BAB00FA5626 /* MailProviders.swift in Sources */,
@@ -5687,7 +5675,6 @@
 				ACB7375123042BAB00FA5626 /* SessionData.swift in Sources */,
 				ACB7375223042BAB00FA5626 /* TabToolbar.swift in Sources */,
 				46504061240FC1E80086CFAF /* HistoryView.swift in Sources */,
-				2B8DDBBA23A3BF3400D2CE7A /* PrivacyStatementFooterView.swift in Sources */,
 				ACB7375623042BAB00FA5626 /* TopTabsViews.swift in Sources */,
 				ACB7375923042BAB00FA5626 /* FocusHelper.swift in Sources */,
 				C52F2D52235610C800146300 /* Tab+ChangeUserAgent.swift in Sources */,
@@ -5695,7 +5682,6 @@
 				ACB7375B23042BAB00FA5626 /* SnackBar.swift in Sources */,
 				ACB7375C23042BAB00FA5626 /* SessionRestoreHandler.swift in Sources */,
 				ACB7375D23042BAB00FA5626 /* QuickActions.swift in Sources */,
-				2B8DDBB723A3B84600D2CE7A /* PrivacyStatementViewController.swift in Sources */,
 				4667B09924221D65001A4197 /* TodayWidgetViewController.swift in Sources */,
 				ACB7375E23042BAB00FA5626 /* MetadataParserHelper.swift in Sources */,
 				ACB7375F23042BAB00FA5626 /* InsetButton.swift in Sources */,
@@ -5775,7 +5761,6 @@
 				ACB737A623042BAB00FA5626 /* ReaderModeBarView.swift in Sources */,
 				ACB737A723042BAB00FA5626 /* SiriSettingsViewController.swift in Sources */,
 				ACB737A823042BAB00FA5626 /* ContentBlocker.swift in Sources */,
-				C53212E523A3EB3900AEC9B2 /* PrivacyStatementHeaderView.swift in Sources */,
 				ACB737A923042BAB00FA5626 /* PhotonActionSheetProtocol.swift in Sources */,
 				2B516D30238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */,
 				46CA60E12316CF300010CE6B /* BrowserActions.m in Sources */,
@@ -5814,7 +5799,6 @@
 				466B37282463001D00747C50 /* Features.swift in Sources */,
 				2B32B72C243F693A00607D0A /* GradientView.swift in Sources */,
 				2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
-				2B8DDBB323A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */,
 				464830EC243B290C0052CC2C /* SearchURL.swift in Sources */,
 				46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
 				C53212E623A3EB3D00AEC9B2 /* ChatBubbleView.swift in Sources */,
@@ -5858,7 +5842,7 @@
 				ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
-				ACB737E823042BAB00FA5626 /* BuildFile in Sources */,
+				ACB737E823042BAB00FA5626 /* (null) in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
@@ -6005,6 +5989,7 @@
 				0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */,
 				ACD6548123619EEB002D2EE0 /* PrivacyDashboardView.swift in Sources */,
 				D87F84AC20B891160091F2DA /* TabDisplayManager.swift in Sources */,
+				2B18939524753898003DA87D /* DataAndPrivacy+Cliqz.swift in Sources */,
 				D0C95EF6201A55A800E4E51C /* BrowserViewController+UIDropInteractionDelegate.swift in Sources */,
 				46A4C4D32347757800F4BCE0 /* AutoCompletion.swift in Sources */,
 				D31CF65C1CC1959A001D0BD0 /* PrivilegedRequest.swift in Sources */,
@@ -6167,6 +6152,7 @@
 				D04D1B862097859B0074B35F /* DownloadToast.swift in Sources */,
 				2B8DDBB223A3803E00D2CE7A /* PrivacyStatementCell.swift in Sources */,
 				7B844E3D1BBDDB9D00E733A2 /* ChevronView.swift in Sources */,
+				2B18939624753C53003DA87D /* Strings+PrivacyStatement.swift in Sources */,
 				2B516D3C238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				B3E7DC1B234485B9000125D7 /* UIDeviceExtensions.swift in Sources */,
