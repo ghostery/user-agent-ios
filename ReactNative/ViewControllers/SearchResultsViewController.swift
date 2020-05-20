@@ -101,13 +101,10 @@ extension SearchResultsViewController: BrowserCoreClient {
     func reportSelection(query: String, url: URL, completion: String?, isForgetMode: Bool) {
         let complentionLength = completion?.count ?? 0
         let isAutocompleted = complentionLength > 0
-        let offset = query.count - complentionLength
-        guard offset > 0 && offset <= query.count  else {
-            return
+        var queryWithoutCompletion = query
+        if isAutocompleted, let range = query.range(of: completion!, options: .backwards) {
+             queryWithoutCompletion = query.replacingCharacters(in: range, with: "")
         }
-        let completionRange = query.startIndex..<query.index(query.startIndex, offsetBy: offset)
-        let queryWithoutCompletion = query[completionRange]
-
         browserCore.callAction(module: "search", action: "reportSelection", args: [
             [
                 "action": "enter",
