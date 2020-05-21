@@ -6,7 +6,7 @@
   Copyright © 2019 Cliqz. All rights reserved.
 */
 "website" = "https://cliqz.com/";
-"whatsNewWebsite" = "https://cliqz.com/mobile/whatsnew-ios-350";
+"whatsNewWebsite" = "https://cliqz.com/mobile/whatsnew-ios-360";
 "humanWebInfoWebsite" = "https://0x65.dev/blog/2019-12-03/human-web-collecting-data-in-a-socially-responsible-manner.html";
 "repositoryWebsite" = "https://github.com/cliqz/user-agent-ios";
 "privacyPolicyWebsite" = "https://www.cliqz.com/mobile/privacy-cliqz-for-ios";
