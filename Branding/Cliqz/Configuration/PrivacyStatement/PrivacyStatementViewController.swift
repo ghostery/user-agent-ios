@@ -34,7 +34,7 @@ class PrivacyStatementViewController: UITableViewController {
         return TelemetrySetting(prefs: self.prefs, attributedStatusText: NSAttributedString(string: Strings.PrivacyStatement.StatisticStatus, attributes: [NSAttributedString.Key.foregroundColor: UIColor.Grey80]))
     }()
 
-    weak var delegate: PrivacyStatementViewControllerDelegate?
+    weak var delegate: DataAndPrivacyViewControllerDelegate?
 
     init(dataModel: PrivacyStatementData, prefs: Prefs) {
         self.dataModel = dataModel
@@ -61,7 +61,7 @@ class PrivacyStatementViewController: UITableViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done) { (_) in
             self.dismiss(animated: true)
-            self.delegate?.privacyStatementViewControllerDidClose()
+            self.delegate?.dataAndPrivacyViewControllerDidClose()
         }
         doneButton.accessibilityLabel = "PrivacyStatementDone"
         self.navigationItem.rightBarButtonItem = doneButton
@@ -272,7 +272,7 @@ extension PrivacyStatementViewController: PrivacyStatementFooterViewDelegate {
 
     func onClickOkButton() {
         self.dismiss(animated: true)
-        self.delegate?.privacyStatementViewControllerDidClose()
+        self.delegate?.dataAndPrivacyViewControllerDidClose()
     }
 
 }

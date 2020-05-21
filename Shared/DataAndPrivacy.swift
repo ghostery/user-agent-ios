@@ -8,17 +8,17 @@
 
 import UIKit
 
-public protocol OnboardingViewControllerDelegate: class {
-    func onboardingViewControllerDidFinish(_ onboardingViewController: UIViewController)
+public protocol DataAndPrivacyViewControllerDelegate: class {
+    func dataAndPrivacyViewControllerDidClose()
 }
 
-public class Onboarding {
+public class DataAndPrivacy {
 
     public static var isEnabled: Bool {
         return false
     }
 
-    public static func presentingViewController(delegate: OnboardingViewControllerDelegate?) -> UIViewController? {
+    public static func presentingViewController(prefs: Prefs, delegate: DataAndPrivacyViewControllerDelegate?) -> UIViewController? {
         return nil
     }
 

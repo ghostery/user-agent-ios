@@ -14,8 +14,10 @@ public extension Onboarding {
         return true
     }
 
-    static func presentingViewController() -> OnboardingViewController? {
-        return IntroViewController()
+    static func presentingViewController(delegate: OnboardingViewControllerDelegate?) -> UIViewController? {
+        let viewController = IntroViewController()
+        viewController.delegate = delegate
+        return viewController
     }
 
 }

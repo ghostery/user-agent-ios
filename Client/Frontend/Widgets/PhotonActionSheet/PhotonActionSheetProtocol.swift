@@ -48,13 +48,23 @@ extension PhotonActionSheetProtocol {
             }
         }
 
+        var secondSection: [PhotonActionSheetItem]!
+        if DataAndPrivacy.isEnabled {
+            secondSection = [
+                self.openWhatsNewItem(vcDelegate: vcDelegate),
+                self.openPrivacyStatementItem(vcDelegate: vcDelegate),
+            ]
+        } else {
+            secondSection = [
+                self.openWhatsNewItem(vcDelegate: vcDelegate),
+            ]
+        }
+
         return [
             [
                 privacyStats,
-            ], [
-                self.openWhatsNewItem(vcDelegate: vcDelegate),
-                self.openPrivacyStatementItem(vcDelegate: vcDelegate),
-            ], [
+            ], secondSection,
+            [
                 self.burnItem(vcDelegate: vcDelegate),
             ], [
                 PhotonActionSheetItem(title: "", collectionItems: [
@@ -508,7 +518,7 @@ extension PhotonActionSheetProtocol {
 
     private func openPrivacyStatementItem(vcDelegate: PageOptionsVC) -> PhotonActionSheetItem {
         let openSettings = PhotonActionSheetItem(title: Strings.Menu.PrivacyStatementTitleString, iconString: "menu-privacy") { action in
-            (vcDelegate as? BrowserViewController)?.presentPrivacyStatementViewController()
+            (vcDelegate as? BrowserViewController)?.presentDataAndPrivacyViewController()
         }
         return openSettings
     }
