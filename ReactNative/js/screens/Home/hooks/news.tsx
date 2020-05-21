@@ -1,30 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Settings } from 'react-native';
 
 export interface News {
   url: string;
   breaking_label: boolean;
 }
 
-const deepEqualNews = (oldNews: News[], news: News[]) => {
-  return oldNews.every((_, index) => {
-    try {
-      return oldNews[index].url === news[index].url;
-    } catch (e) {
-      return false;
-    }
-  });
-};
-
 export default (newsModule: any) => {
   const [data, setData] = useState<News[]>([]);
   const [edition, setEdition] = useState('de');
-  newsModule.action('getNews').then(async ({ news }: { news: News[] }) => {
-    const lang = await newsModule.action('getLanguage');
-    if (data.length === 0 || !deepEqualNews(data, news)) {
-      setData(news);
-      setEdition(lang);
-    }
-  });
+  const [updateCounter, setUpdateCounter] = useState(0);
+  const newsSettings = Settings.get('news') || {};
+
+  if (
+    updateCounter > 0 &&
+    newsSettings.lastUpdate < Date.now() - 1000 * 60 * 20
+  ) {
+    Settings.set({
+      news: {
+        lastUpdate: Date.now(),
+      },
+    });
+    setUpdateCounter(updateCounter + 1);
+  }
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const [{ news }, lang]: [{ news: News[] }, string] = await Promise.all([
+          newsModule.action('getNews'),
+          newsModule.action('getLanguage'),
+        ]);
+        setData(news);
+        setEdition(lang);
+      } catch (e) {
+        //
+      }
+    };
+    fetchNews();
+  }, [updateCounter, newsModule]);
 
   return [data, edition];
 };
