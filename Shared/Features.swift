@@ -42,4 +42,13 @@ public struct Features {
             return false
         }
     }
+    public struct Icons {
+        public enum IconType {
+            case cliqz
+            case favicon
+        }
+        public static var type: IconType {
+            return .favicon
+        }
+    }
 }

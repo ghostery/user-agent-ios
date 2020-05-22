@@ -11,13 +11,13 @@ import UIKit
 private let logoWidth: CGFloat = 29
 
 class SearchSettingsTableViewCell: ThemedTableViewCell {
-    let logoView = LogoView()
+    let iconView = IconView()
     let label = UILabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.label)
-        self.contentView.addSubview(self.logoView)
+        self.contentView.addSubview(self.iconView)
         self.label.adjustsFontSizeToFitWidth = true
         self.label.minimumScaleFactor = 0.5
         self.layout()
@@ -28,11 +28,11 @@ class SearchSettingsTableViewCell: ThemedTableViewCell {
     }
 
     func updateLogo(url: String) {
-        self.logoView.url = url
+        self.iconView.setIcon(urlString: url)
     }
 
     private func layout() {
-        self.logoView.snp.makeConstraints { make in
+        self.iconView.snp.makeConstraints { make in
             make.height.equalTo(logoWidth)
             make.width.equalTo(logoWidth)
             make.top.greaterThanOrEqualTo(self.contentView).offset(8)
@@ -43,7 +43,7 @@ class SearchSettingsTableViewCell: ThemedTableViewCell {
         self.label.snp.makeConstraints { make in
             make.top.equalTo(self.contentView).offset(10)
             make.bottom.equalTo(self.contentView).offset(-10)
-            make.leading.equalTo(self.logoView.snp.trailing).offset(20)
+            make.leading.equalTo(self.iconView.snp.trailing).offset(20)
             make.right.equalTo(self.contentView).offset(-10)
         }
     }

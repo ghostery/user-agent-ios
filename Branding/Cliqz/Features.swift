@@ -40,3 +40,9 @@ extension Features.News {
         return true
     }
 }
+
+extension Features.Icons {
+    public static var type: IconType {
+        return .favicon
+    }
+}

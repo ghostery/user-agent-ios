@@ -13,7 +13,7 @@ class FaviconHandler {
     private let backgroundQueue = OperationQueue()
 
     init() {
-        register(self, forTabEvents: .didLoadPageMetadata)
+        register(self, forTabEvents: .didLoadPageMetadata, .pageMetadataNotAvailable)
     }
 
     func loadFaviconURL(_ faviconURL: String, forTab tab: Tab) -> Deferred<Maybe<(Favicon, Data?)>> {
@@ -23,6 +23,8 @@ class FaviconHandler {
 
         let deferred = Deferred<Maybe<(Favicon, Data?)>>()
         let manager = SDWebImageManager.shared
+        let url = currentURL.absoluteString
+        let site = Site(url: url, title: "")
         let options: SDWebImageOptions = tab.isPrivate ? [SDWebImageOptions.lowPriority, SDWebImageOptions.fromCacheOnly] : SDWebImageOptions.lowPriority
 
         var fetch: SDWebImageOperation?
@@ -36,12 +38,14 @@ class FaviconHandler {
         let onSuccess: (Favicon, Data?) -> Void = { [weak tab] (favicon, data) -> Void in
             tab?.favicons.append(favicon)
 
-            guard !(tab?.isPrivate ?? true) else {
+            guard !(tab?.isPrivate ?? true), let appDelegate = UIApplication.shared.delegate as? AppDelegate, let profile = appDelegate.profile else {
                 deferred.fill(Maybe(success: (favicon, data)))
                 return
             }
 
-            deferred.fill(Maybe(success: (favicon, data)))
+            profile.favicons.addFavicon(favicon, forSite: site) >>> {
+                deferred.fill(Maybe(success: (favicon, data)))
+            }
         }
 
         let onCompletedSiteFavicon: SDInternalCompletionBlock = { (img, data, _, _, _, url) -> Void in
@@ -99,6 +103,9 @@ extension FaviconHandler: TabEventHandler {
             guard let (favicon, data) = result.successValue else { return }
             TabEvent.post(.didLoadFavicon(favicon, with: data), for: tab)
         }
+    }
+    func tabMetadataNotAvailable(_ tab: Tab) {
+        tab.favicons.removeAll(keepingCapacity: false)
     }
 }
 

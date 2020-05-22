@@ -297,6 +297,7 @@ extension SQLiteBookmarks {
     public func clearBookmarks() -> Success {
         return self.db.run([
             ("DELETE FROM bookmarksLocal WHERE parentid IS NOT ?", [BookmarkRoots.RootGUID]),
+            self.favicons.getCleanupFaviconsQuery(),
         ])
     }
 

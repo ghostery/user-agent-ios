@@ -54,6 +54,7 @@ protocol Profile: AnyObject {
     var history: BrowserHistory & SyncableHistory { get }
     var metadata: Metadata { get }
     var recommendations: HistoryRecommendations { get }
+    var favicons: Favicons { get }
     var certStore: CertStore { get }
     var recentlyClosedTabs: ClosedTabsStore { get }
     var panelDataObservers: PanelDataObservers { get }
@@ -228,9 +229,13 @@ open class BrowserProfile: Profile {
      * Any other class that needs to access any one of these should ensure
      * that this is initialized first.
      */
-    fileprivate lazy var places: BrowserHistory & SyncableHistory  & HistoryRecommendations  = {
+    fileprivate lazy var places: BrowserHistory & Favicons & SyncableHistory & HistoryRecommendations = {
         return SQLiteHistory(db: self.db, prefs: self.prefs)
     }()
+
+    var favicons: Favicons {
+        return self.places
+    }
 
     var history: BrowserHistory & SyncableHistory {
         return self.places

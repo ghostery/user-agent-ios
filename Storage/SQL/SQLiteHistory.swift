@@ -136,20 +136,22 @@ extension SDRow {
  */
 open class SQLiteHistory {
     let db: BrowserDB
+    let favicons: SQLiteFavicons
     let prefs: Prefs
     let clearTopSitesQuery: (String, Args?) = ("DELETE FROM cached_top_sites", nil)
 
     required public init(db: BrowserDB, prefs: Prefs) {
         self.db = db
+        self.favicons = SQLiteFavicons(db: self.db)
         self.prefs = prefs
     }
 
     public func getSites(forURLs urls: [String]) -> Deferred<Maybe<Cursor<Site?>>> {
         let inExpression = urls.joined(separator: "\",\"")
         let sql = """
-        SELECT history.id AS historyID, history.url AS url, title, guid
-        FROM history
-        WHERE history.url IN (\"\(inExpression)\")
+        SELECT history.id AS historyID, history.url AS url, title, guid, iconID, iconURL, iconDate, iconType, iconWidth
+        FROM view_favicons_widest, history
+        WHERE history.id = siteID AND history.url IN (\"\(inExpression)\")
         """
 
         let args: Args = []
@@ -458,6 +460,8 @@ extension SQLiteHistory: BrowserHistory {
         return db.run([
             (sql: deleteVisits, args: visitArgs),
             (sql: markDeleted, args: markArgs),
+            favicons.getCleanupFaviconsQuery(),
+            favicons.getCleanupFaviconSiteURLsQuery()
         ])
     }
 
@@ -469,7 +473,10 @@ extension SQLiteHistory: BrowserHistory {
         return db.run([
             (sql: deleteVisits, args: args),
             (sql: deleteHistory, args: args),
-            (sql: deleteDomains, args: args)])
+            (sql: deleteDomains, args: args),
+            favicons.getCleanupFaviconsQuery(),
+            favicons.getCleanupFaviconSiteURLsQuery()
+        ])
     }
 
     public func removeHistoryFromDate(_ date: Date) -> Success {
@@ -488,6 +495,8 @@ extension SQLiteHistory: BrowserHistory {
         return db.run([
             (sql: historyRemoval, args: historyRemovalArgs),
             (sql: visitRemoval, args: visitRemovalArgs),
+            favicons.getCleanupFaviconsQuery(),
+            favicons.getCleanupFaviconSiteURLsQuery()
         ])
     }
 

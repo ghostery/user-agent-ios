@@ -853,9 +853,7 @@ class TabCell: UICollectionViewCell, Themeable {
         return label
     }()
 
-    let logoView: LogoView = {
-        LogoView()
-    }()
+    let iconView = IconView()
 
     let closeButton: UIButton = {
         let button = UIButton()
@@ -891,21 +889,21 @@ class TabCell: UICollectionViewCell, Themeable {
         backgroundHolder.addSubview(title)
         title.contentView.addSubview(self.closeButton)
         title.contentView.addSubview(self.titleText)
-        title.contentView.addSubview(self.logoView)
+        title.contentView.addSubview(self.iconView)
 
         title.snp.makeConstraints { (make) in
             make.top.left.right.equalTo(backgroundHolder)
             make.height.equalTo(TabTrayControllerUX.TextBoxHeight)
         }
 
-        logoView.snp.makeConstraints { make in
+        iconView.snp.makeConstraints { make in
             make.leading.equalTo(title.contentView).offset(6)
             make.top.equalTo((TabTrayControllerUX.TextBoxHeight - TabTrayControllerUX.FaviconSize) / 2)
             make.size.equalTo(TabTrayControllerUX.FaviconSize)
         }
 
         titleText.snp.makeConstraints { (make) in
-            make.leading.equalTo(logoView.snp.trailing).offset(6)
+            make.leading.equalTo(iconView.snp.trailing).offset(6)
             make.trailing.equalTo(closeButton.snp.leading).offset(-6)
             make.centerY.equalTo(title.contentView)
         }
@@ -964,7 +962,7 @@ class TabCell: UICollectionViewCell, Themeable {
         isAccessibilityElement = true
         accessibilityHint = Strings.Accessibility.TabTray.Swipe
 
-        self.logoView.url = tab.logoURL.absoluteString
+        self.iconView.setTabIcon(tab: tab)
 
         if selected {
             setTabSelected(tab.isPrivate)

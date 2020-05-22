@@ -15,13 +15,12 @@ class BackForwardTableViewCell: UITableViewCell {
         static let labelPadding = 20
         static let borderSmall = 2
         static let borderBold = 5
+        static let IconSize = 23
         static let fontSize: CGFloat = 12.0
         static let textColor = UIColor.Grey80
     }
 
-    lazy var logoView: LogoView = {
-        LogoView()
-    }()
+    lazy var iconView = IconView()
 
     lazy var label: UILabel = {
         let label = UILabel()
@@ -45,12 +44,12 @@ class BackForwardTableViewCell: UITableViewCell {
     var site: Site? {
         didSet {
             if let s = site {
-                var url = s.url
+                var iconSite = s
                 if InternalURL.isValid(url: s.tileURL) || SearchURL.isValid(url: s.tileURL) {
-                    url = Strings.BrandWebsite
+                    iconSite = Site(url: Strings.BrandWebsite, title: s.title)
                 }
 
-                self.logoView.url = url
+                self.iconView.setIcon(site: iconSite, scaled: CGSize(width: BackForwardViewCellUX.IconSize, height: BackForwardViewCellUX.IconSize))
 
                 var title = s.title
                 if title.isEmpty {
@@ -71,10 +70,10 @@ class BackForwardTableViewCell: UITableViewCell {
         backgroundColor = UIColor.clear
         selectionStyle = .none
 
-        contentView.addSubview(self.logoView)
+        contentView.addSubview(self.iconView)
         contentView.addSubview(label)
 
-        self.logoView.snp.makeConstraints { make in
+        self.iconView.snp.makeConstraints { make in
             make.height.equalTo(BackForwardViewCellUX.faviconWidth)
             make.width.equalTo(BackForwardViewCellUX.faviconWidth)
             make.centerY.equalTo(self)
@@ -83,7 +82,7 @@ class BackForwardTableViewCell: UITableViewCell {
 
         label.snp.makeConstraints { make in
             make.centerY.equalTo(self)
-            make.leading.equalTo(self.logoView.snp.trailing).offset(BackForwardViewCellUX.labelPadding)
+            make.leading.equalTo(self.iconView.snp.trailing).offset(BackForwardViewCellUX.labelPadding)
             make.trailing.equalTo(self.snp.trailing).offset(-BackForwardViewCellUX.labelPadding)
         }
 
