@@ -29,7 +29,7 @@ class SearchSettingsTableViewCell: ThemedTableViewCell {
     }
 
     func updateLogo(url: String) {
-        self.iconView.fetchIonc(url: url)
+        self.iconView.fetchIcon(url: url)
     }
 
     private func layout() {

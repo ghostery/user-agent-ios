@@ -99,15 +99,22 @@ class IconView: UIView {
         }
     }
 
-    func fetchIonc(url: String) {
+    func fetchIcon(url: String) {
         switch Features.Icons.type {
         case .cliqz:
             self.logoView.url = url
         case .favicon:
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let profile = appDelegate.profile else { return }
-            guard let url = URL(string: url) else { return }
-            FaviconFetcher.fetchFavImageForURL(forURL: url, profile: profile).uponQueue(.main) { result in
-                let image = result.successValue ?? FaviconFetcher.letter(forUrl: url)
+            let site = Site(url: url, title: "")
+            profile.favicons.getFaviconImage(forSite: site).uponQueue(.main) { result in
+                guard let image = result.successValue else {
+                    guard let url = URL(string: url) else { return }
+                    FaviconFetcher.fetchFavImageForURL(forURL: url, profile: profile).uponQueue(.main) { result in
+                        let image = result.successValue ?? FaviconFetcher.letter(forUrl: url)
+                        self.faviconView.image = image
+                    }
+                    return
+                }
                 self.faviconView.image = image
             }
         }
