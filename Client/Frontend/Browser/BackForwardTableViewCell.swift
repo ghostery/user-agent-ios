@@ -44,13 +44,12 @@ class BackForwardTableViewCell: UITableViewCell {
     var site: Site? {
         didSet {
             if let s = site {
-                var iconSite = s
+                let scaled = CGSize(width: BackForwardViewCellUX.IconSize, height: BackForwardViewCellUX.IconSize)
                 if InternalURL.isValid(url: s.tileURL) || SearchURL.isValid(url: s.tileURL) {
-                    iconSite = Site(url: Strings.BrandWebsite, title: s.title)
+                    self.iconView.getIcon(site: Site(url: Strings.BrandWebsite, title: s.title), scaled: scaled)
+                } else {
+                    self.iconView.setIcon(site: s, scaled: scaled)
                 }
-
-                self.iconView.setIcon(site: iconSite, scaled: CGSize(width: BackForwardViewCellUX.IconSize, height: BackForwardViewCellUX.IconSize))
-
                 var title = s.title
                 if title.isEmpty {
                     if let fullUrl = URL(string: s.url), let searchUrl = SearchURL(fullUrl) {

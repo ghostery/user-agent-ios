@@ -219,11 +219,11 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.iconView.setIcon(urlString: nil)
+        self.iconView.clean()
     }
 
     func configure(with site: Site) {
-        self.iconView.setIcon(urlString: site.url)
+        self.iconView.getIcon(site: site)
         self.titleLabel.text = site.title.isEmpty ? site.url : site.title
         self.descriptionLabel.text = site.tileURL.baseDomain
         self.titleLabel.textColor = Theme.actionMenu.foreground

@@ -962,7 +962,11 @@ class TabCell: UICollectionViewCell, Themeable {
         isAccessibilityElement = true
         accessibilityHint = Strings.Accessibility.TabTray.Swipe
 
-        self.iconView.setTabIcon(tab: tab)
+        if InternalURL.isValid(url: tab.url) || SearchURL.isValid(url: tab.url) {
+            self.iconView.getIcon(site: Site(url: Strings.BrandWebsite, title: tab.title ?? ""))
+        } else {
+            self.iconView.setTabIcon(tab: tab)
+        }
 
         if selected {
             setTabSelected(tab.isPrivate)

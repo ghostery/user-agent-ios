@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Shared
 
 private let logoWidth: CGFloat = 29
 
@@ -28,7 +29,7 @@ class SearchSettingsTableViewCell: ThemedTableViewCell {
     }
 
     func updateLogo(url: String) {
-        self.iconView.setIcon(urlString: url)
+        self.iconView.fetchIonc(url: url)
     }
 
     private func layout() {

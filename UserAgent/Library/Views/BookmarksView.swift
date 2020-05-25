@@ -215,17 +215,7 @@ extension BookmarksView {
             cell.setLines(site.title, detailText: site.url)
             cell.imageView?.layer.borderColor = BookmarksPanelUX.IconBorderColor.cgColor
             cell.imageView?.layer.borderWidth = BookmarksPanelUX.IconBorderWidth
-            switch Features.Icons.type {
-            case .cliqz:
-                cell.iconView.setIcon(urlString: site.url)
-            case .favicon:
-                self.profile.favicons.getFaviconImage(forSite: site).uponQueue(.main) { result in
-                    guard let image = result.successValue else {
-                        return
-                    }
-                    cell.iconView.faviconView.image = image
-                }
-            }
+            cell.iconView.getIcon(site: site)
         }
         return cell
     }

@@ -60,7 +60,7 @@ class TwoLineTableViewCell: UITableViewCell, Themeable {
         super.prepareForReuse()
         self.textLabel!.alpha = 1
         self.imageView!.alpha = 1
-        self.iconView.setIcon(urlString: nil)
+        self.iconView.clean()
         self.selectionStyle = .default
         separatorInset = UIEdgeInsets(top: 0, left: TwoLineCellUX.ImageSize + 2 * TwoLineCellUX.BorderViewMargin, bottom: 0, right: 0)
         twoLineHelper.setupDynamicFonts()

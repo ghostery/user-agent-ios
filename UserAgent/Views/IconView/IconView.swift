@@ -16,10 +16,8 @@ class IconView: UIView {
 
     lazy private (set) var faviconView: UIImageView = {
         let faviconView = UIImageView(image: FaviconFetcher.defaultFavicon)
-        faviconView.backgroundColor = UIColor.white
+        faviconView.backgroundColor = .clear
         faviconView.layer.cornerRadius = 6
-        faviconView.layer.borderWidth = 0.5
-        faviconView.layer.borderColor = UIColor(white: 0, alpha: 0.1).cgColor
         faviconView.layer.masksToBounds = true
         return faviconView
     }()
@@ -44,6 +42,31 @@ class IconView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func clean() {
+        switch Features.Icons.type {
+        case .cliqz:
+            self.logoView.url = nil
+        case .favicon:
+            self.faviconView.image = UIImage(named: "defaultFavicon")
+        }
+    }
+
+    func setTabIcon(tab: Tab) {
+        switch Features.Icons.type {
+        case .cliqz:
+            self.logoView.url = tab.logoURL.absoluteString
+        case .favicon:
+            if let urlString = tab.displayFavicon?.url, let url = URL(string: urlString) {
+                self.faviconView.sd_setImage(with: url, placeholderImage: nil, options: [], completed: nil)
+            } else {
+                self.faviconView.image = UIImage(named: "defaultFavicon")
+                if tab.isPrivate {
+                    self.faviconView.tintColor = Theme.tabTray.faviconTint
+                }
+            }
+        }
+    }
+
     func setIcon(site: Site, scaled: CGSize? = nil) {
         switch Features.Icons.type {
         case .cliqz:
@@ -53,35 +76,40 @@ class IconView: UIView {
                 if let scaled = scaled {
                     self?.faviconView.image = self?.faviconView.image?.createScaled(scaled)
                 }
-                if self?.faviconView.backgroundColor == .clear {
-                    self?.faviconView.backgroundColor = .white
+            }
+        }
+    }
+
+    func getIcon(site: Site, scaled: CGSize? = nil) {
+        switch Features.Icons.type {
+        case .cliqz:
+            self.logoView.url = site.url
+        case .favicon:
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let profile = appDelegate.profile else { return }
+            profile.favicons.getFaviconImage(forSite: site).uponQueue(.main) { result in
+                guard let image = result.successValue else {
+                    return
+                }
+                if let scaled = scaled {
+                    self.faviconView.image = image.createScaled(scaled)
+                } else {
+                    self.faviconView.image = image
                 }
             }
         }
     }
 
-    func setIcon(urlString: String?, isPrivate: Bool = false) {
+    func fetchIonc(url: String) {
         switch Features.Icons.type {
         case .cliqz:
-            self.logoView.url = urlString
+            self.logoView.url = url
         case .favicon:
-            if let urlString = urlString, let url = URL(string: urlString) {
-                self.faviconView.sd_setImage(with: url, placeholderImage: UIImage(named: "defaultFavicon"), options: [], completed: nil)
-            } else {
-                self.faviconView.image = UIImage(named: "defaultFavicon")
-                if isPrivate {
-                    self.faviconView.tintColor = Theme.tabTray.faviconTint
-                }
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let profile = appDelegate.profile else { return }
+            guard let url = URL(string: url) else { return }
+            FaviconFetcher.fetchFavImageForURL(forURL: url, profile: profile).uponQueue(.main) { result in
+                let image = result.successValue ?? FaviconFetcher.letter(forUrl: url)
+                self.faviconView.image = image
             }
-        }
-    }
-
-    func setTabIcon(tab: Tab) {
-        switch Features.Icons.type {
-        case .cliqz:
-            self.logoView.url = tab.logoURL.absoluteString
-        case .favicon:
-            self.setIcon(urlString: tab.displayFavicon?.url, isPrivate: tab.isPrivate)
         }
     }
 
