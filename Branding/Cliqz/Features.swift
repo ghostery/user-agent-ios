@@ -43,6 +43,6 @@ extension Features.News {
 
 extension Features.Icons {
     public static var type: IconType {
-        return .favicon
+        return .cliqz
     }
 }
