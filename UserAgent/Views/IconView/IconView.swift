@@ -99,24 +99,14 @@ class IconView: UIView {
         }
     }
 
-    func fetchIcon(url: String) {
+    func updateIcon(engine: OpenSearchEngine, scaled: CGSize) {
         switch Features.Icons.type {
         case .cliqz:
-            self.logoView.url = url
-        case .favicon:
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let profile = appDelegate.profile else { return }
-            let site = Site(url: url, title: "")
-            profile.favicons.getFaviconImage(forSite: site).uponQueue(.main) { result in
-                guard let image = result.successValue else {
-                    guard let url = URL(string: url) else { return }
-                    FaviconFetcher.fetchFavImageForURL(forURL: url, profile: profile).uponQueue(.main) { result in
-                        let image = result.successValue ?? FaviconFetcher.letter(forUrl: url)
-                        self.faviconView.image = image
-                    }
-                    return
-                }
-                self.faviconView.image = image
+            if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
+                self.logoView.url = url.absoluteString
             }
+        case .favicon:
+            self.faviconView.image = engine.image?.createScaled(scaled)
         }
     }
 

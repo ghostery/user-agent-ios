@@ -90,12 +90,24 @@ class CustomSearchViewController: SettingsTableViewController {
             return deferred
         }
 
-        let engine = OpenSearchEngine(engineID: nil, shortName: name, searchTemplate: template, suggestTemplate: nil, isCustomEngine: true)
+        func fillDeferred(image: UIImage?) {
+            let engine = OpenSearchEngine(engineID: nil, shortName: name, image: image, searchTemplate: template, suggestTemplate: nil, isCustomEngine: true)
 
-        //Make sure a valid scheme is used
-        let testUrl = engine.searchURLForQuery("test")
-        let maybe = (testUrl == nil) ? Maybe(failure: CustomSearchError(.FormInput)) : Maybe(success: engine)
-        deferred.fill(maybe)
+            //Make sure a valid scheme is used
+            let testUrl = engine.searchURLForQuery("test")
+            let maybe = (testUrl == nil) ? Maybe(failure: CustomSearchError(.FormInput)) : Maybe(success: engine)
+            deferred.fill(maybe)
+        }
+
+        switch Features.Icons.type {
+        case .cliqz:
+            fillDeferred(image: nil)
+        case .favicon:
+            FaviconFetcher.fetchFavImageForURL(forURL: url, profile: profile).uponQueue(.main) { result in
+                let image = result.successValue ?? FaviconFetcher.letter(forUrl: url)
+                fillDeferred(image: image)
+            }
+        }
         return deferred
     }
 

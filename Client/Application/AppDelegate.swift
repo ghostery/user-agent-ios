@@ -413,6 +413,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
         SDWebImageDownloader.shared.setValue(firefoxUA, forHTTPHeaderField: "User-Agent")
         //SDWebImage is setting accept headers that report we support webp. We don't
         SDWebImageDownloader.shared.setValue("image/*;q=0.8", forHTTPHeaderField: "Accept")
+
+        FaviconFetcher.userAgent = UserAgent.desktopUserAgent()
     }
 
     private func shouldAskForReview() -> Bool {

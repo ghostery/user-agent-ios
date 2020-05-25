@@ -10,6 +10,7 @@ import UIKit
 import Shared
 
 private let logoWidth: CGFloat = 29
+private let IconSize = CGSize(width: OpenSearchEngine.PreferredIconSize, height: OpenSearchEngine.PreferredIconSize)
 
 class SearchSettingsTableViewCell: ThemedTableViewCell {
     let iconView = IconView()
@@ -28,8 +29,8 @@ class SearchSettingsTableViewCell: ThemedTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func updateLogo(url: String) {
-        self.iconView.fetchIcon(url: url)
+    func updateLogo(engine: OpenSearchEngine) {
+        self.iconView.updateIcon(engine: engine, scaled: IconSize)
     }
 
     private func layout() {
