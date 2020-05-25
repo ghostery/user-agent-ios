@@ -15,7 +15,7 @@ class IconView: UIView {
     lazy private var logoView = LogoView()
 
     lazy private (set) var faviconView: UIImageView = {
-        let faviconView = UIImageView(image: FaviconFetcher.defaultFavicon)
+        let faviconView = UIImageView()
         faviconView.backgroundColor = .clear
         faviconView.layer.cornerRadius = 6
         faviconView.layer.masksToBounds = true
@@ -47,7 +47,7 @@ class IconView: UIView {
         case .cliqz:
             self.logoView.url = nil
         case .favicon:
-            self.faviconView.image = UIImage(named: "defaultFavicon")
+            self.faviconView.image = nil
         }
     }
 
@@ -59,10 +59,7 @@ class IconView: UIView {
             if let urlString = tab.displayFavicon?.url, let url = URL(string: urlString) {
                 self.faviconView.sd_setImage(with: url, placeholderImage: nil, options: [], completed: nil)
             } else {
-                self.faviconView.image = UIImage(named: "defaultFavicon")
-                if tab.isPrivate {
-                    self.faviconView.tintColor = Theme.tabTray.faviconTint
-                }
+                self.faviconView.image = nil
             }
         }
     }
