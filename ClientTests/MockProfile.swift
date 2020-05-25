@@ -51,7 +51,7 @@ class MockFiles: FileAccessor {
 open class MockProfile: Client.Profile {
     // Read/Writeable properties for mocking
     public var recommendations: HistoryRecommendations
-    public var places: BrowserHistory & SyncableHistory & HistoryRecommendations
+    public var places: BrowserHistory & SyncableHistory & Favicons & HistoryRecommendations
     public var files: FileAccessor
     public var history: BrowserHistory & SyncableHistory
 
@@ -88,6 +88,10 @@ open class MockProfile: Client.Profile {
     }
 
     public var isShutdown: Bool = false
+
+    public var favicons: Favicons {
+        return self.places
+    }
 
     lazy public var queue: TabQueue = {
         return MockTabQueue()
