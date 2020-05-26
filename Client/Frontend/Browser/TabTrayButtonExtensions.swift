@@ -28,7 +28,7 @@ class PrivateModeButton: ToggleButton, PrivateModeUI {
         imageView?.tintColor = tintColor
         self.setTitleColor(self.tintColor, for: [])
 
-        accessibilityValue = isSelected ? Strings.PrivateBrowsingToggleAccessibilityValueOn : Strings.PrivateBrowsingToggleAccessibilityValueOff
+        accessibilityValue = isSelected ? Strings.Accessibility.PrivateBrowsing.ToggleAccessibilityValueOn : Strings.Accessibility.PrivateBrowsing.ToggleAccessibilityValueOff
     }
 
 }

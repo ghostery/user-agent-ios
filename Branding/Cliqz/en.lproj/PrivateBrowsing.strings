@@ -4,20 +4,11 @@
 /* Description text displayed when there are no open tabs while in private mode */
 "Empty.Private.Tab.Description" = "You are browsing in Forget Mode: Websites you visit in the mode will not be saved in your history, and local data, including cookies, will not be stored.";
 
-/* Toggled OFF accessibility value */
-"Off" = "Off";
-
-/* Toggled ON accessibility value */
-"On" = "On";
-
 /* Title displayed for when there are no open tabs while in private mode */
 "Private Browsing" = "Forget Mode";
 
 /* Accessibility label for toggling on/off private mode */
 "Private Mode" = "Forget Mode";
-
-/* Button displayed at the bottom of the tabs view. */
-"TabsView.Done.Title" = "Done";
 
 /* Accessiblity hint for toggling on/off private mode */
 "Turns private mode on or off" = "Turns forget mode on or off";

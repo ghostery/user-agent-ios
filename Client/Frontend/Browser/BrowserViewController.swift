@@ -321,8 +321,8 @@ class BrowserViewController: UIViewController {
             return
         }
         let icon = UIImage(named: "forgetMode")
-        let title = Strings.ContextualOnboarding.AutomaticForgetMode.Title
-        let description = Strings.ContextualOnboarding.AutomaticForgetMode.Description
+        let title = Strings.ForgetMode.AutomaticPrivateMode.Title
+        let description = Strings.ForgetMode.AutomaticPrivateMode.Description
         let detail = ContextualOnboardingDitail(backgroundGradientColors: [.COLightBlue, .CODarkBlue], title: title, icon: icon, description: description)
         self.presentContextualOnboardingViewController(detail: detail, prefKey: PrefsKeys.WipeAllTraces, contentSize: BrowserViewControllerUX.AutomaticForgetModeOnboardingContentSize)
     }

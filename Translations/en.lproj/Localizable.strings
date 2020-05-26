@@ -124,9 +124,6 @@
 /* The title for the Delete all traces context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.DeleteAllTraces" = "Delete all traces of %@";
 
-/* The title for the Open in New Private Tab context menu action for sites in Home Panels */
-"HomePanel.ContextMenu.OpenInNewPrivateTab" = "Open in New Forget Mode Tab";
-
 /* The title for the Open in New Tab context menu action for sites in Home Panels */
 "HomePanel.ContextMenu.OpenInNewTab" = "Open in New Tab";
 
@@ -156,9 +153,6 @@
 
 /* Label to switch to normal browsing mode */
 "Hotkeys.NormalMode.DiscoveryTitle" = "Normal Browsing Mode";
-
-/* Label to switch to forget mode */
-"Hotkeys.PrivateMode.DiscoveryTitle" = "Forget Mode";
 
 /* Label to display in the Discoverability overlay for keyboard shortcuts */
 "Hotkeys.Reload.DiscoveryTitle" = "Reload Page";
@@ -275,9 +269,6 @@
 
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normal Browsing Mode";
-
-/* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"TabTray.SwitchToPBM.KeyCodeTitle" = "Forget Mode";
 
 /* Hardware shortcut to open the tab tray from a tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.ShowTabTray.KeyCodeTitle" = "Show All Tabs";

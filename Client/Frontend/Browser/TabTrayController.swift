@@ -748,7 +748,7 @@ class TrayToolbar: UIView, Themeable, PrivateModeUI {
 
     lazy var doneButton: UIButton = {
         let button = UIButton()
-        button.setTitle(Strings.DoneTabsViewButtonTitle, for: [])
+        button.setTitle(Strings.General.DoneString, for: [])
         button.setTitleColor(Theme.tabTray.toolbarButtonTint, for: [])
         button.accessibilityLabel = Strings.Menu.TabTrayDeleteMenuButtonAccessibilityLabel
         button.accessibilityIdentifier = "TabTrayController.removeTabsButton"

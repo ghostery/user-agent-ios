@@ -54,6 +54,10 @@ extension Strings {
             public static let ShowTabs = NSLocalizedString("Accessibility.TabTray.ShowTabs", tableName: "Accessibility", comment: "Accessibility Label for the tabs button in the tab toolbar")
             public static let NewTab = NSLocalizedString("Accessibility.TabTray.NewTab", tableName: "Accessibility", comment: "Accessibility label for the New Tab button in the tab toolbar.")
         }
+        public struct PrivateBrowsing {
+            public static let ToggleAccessibilityValueOn = NSLocalizedString("Accessibility.PrivateBrowsing.On", tableName: "Accessibility", comment: "Toggled ON accessibility value")
+            public static let ToggleAccessibilityValueOff = NSLocalizedString("Accessibility.PrivateBrowsing.Off", tableName: "Accessibility", comment: "Toggled OFF accessibility value")
+        }
         public static let WebContent = NSLocalizedString("Accessibility.WebContent", tableName: "Accessibility", comment: "Accessibility label for the main web content view")
     }
 

@@ -1,0 +1,25 @@
+/* 
+  ForgetMode.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/26/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Action label on share extension to immediately open page in a private tab. */
+"ForgetMode.ShareExtension.OpenInPrivateTab" = "Open in New Forget Mode Tab";
+
+/* Title for Automatic forget mode screen */
+"ForgetMode.AutomaticForgetMode.Title" = "Automatic Forget Mode";
+
+/* Description for Automatic forget mode screen */
+"ForgetMode.AutomaticForgetMode.Description" = "Your spouse or partner may secretly read your private messages, but they'll never know if you've visited any porn sites. %@ this with its Automatic Forget Mode feature that prevents adult sites from appearing in your browsing history. You're welcome!";
+
+/* The title for the Open in New Private Tab context menu action for sites in Home Panels */
+"ForgetMode.ContextMenu.OpenInNewPrivateTab" = "Open in New Forget Mode Tab";
+
+/* Label to switch to forget mode */
+"ForgetMode.Hotkeys.PrivateBrowsingModeTitle" = "Forget Mode";
+
+/* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Forget Mode";

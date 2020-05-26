@@ -75,7 +75,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         let infinity = "\u{221E}"
         let tabCount = (count < 100) ? count.description : infinity
 
-        let privateBrowsingMode = PhotonActionSheetItem(title: Strings.Hotkeys.PrivateBrowsingModeTitle, iconString: "nav-tabcounter", iconType: .TabsButton, tabCount: tabCount) { _ in
+        let privateBrowsingMode = PhotonActionSheetItem(title: Strings.ForgetMode.Hotkeys.PrivateBrowsingModeTitle, iconString: "nav-tabcounter", iconType: .TabsButton, tabCount: tabCount) { _ in
             self.tabManager.switchPrivacyMode()
         }
         let normalBrowsingMode = PhotonActionSheetItem(title: Strings.Hotkeys.NormalBrowsingModeTitle, iconString: "nav-tabcounter", iconType: .TabsButton, tabCount: tabCount) { _ in
