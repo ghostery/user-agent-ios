@@ -19,13 +19,16 @@ class DataManagementTests: BaseTestCase {
     // Testing the search bar, search results and 'Show More' option.
     func testWebSiteDataOptions() {
         // Visiting some websites to create Website Data needed to reveal the "Show More" button
-        let websitesList = ["www.facebook.com", "www.youtube.com", "www.twitter.com", "www.google.com", "www.facebook.com", "www.mozilla.org"]
+        let websitesList = ["example.com", path(forTestPage: "test-mozilla-org.html"), path(forTestPage: "test-mozilla-book.html"), "youtube.com", "www.google.com", "bing.com"]
         for website in websitesList {
             navigator.openURL(website)
         }
         navigator.goto(WebsiteDataSettings)
+        waitForExistence(app.tables.otherElements["Website Data"], timeout: 3)
+        app.tables.otherElements["Website Data"].swipeDown()
+        waitForExistence(app.searchFields["Filter Sites"], timeout: 3)
         navigator.performAction(Action.TapOnFilterWebsites)
-        app.typeText("youtube")
+        app.typeText("bing")
         waitForExistence(app.tables["Search results"])
         let expectedSearchResults = app.tables["Search results"].cells.count
         XCTAssertEqual(expectedSearchResults, 1)
@@ -34,6 +37,7 @@ class DataManagementTests: BaseTestCase {
         let expectedNoSearchResults = app.tables["Search results"].cells.count
         XCTAssertEqual(expectedNoSearchResults, 0)
         app.buttons["Cancel"].tap()
+        waitForExistence(app.tables.cells["ShowMoreWebsiteData"], timeout: 3)
         navigator.performAction(Action.ShowMoreWebsiteDataEntries)
         let expectedShowMoreWebsites = app.tables.cells.count
         XCTAssertNotEqual(expectedShowMoreWebsites, 9)
