@@ -46,3 +46,9 @@ extension Features.Icons {
         return .cliqz
     }
 }
+
+extension Features.AntiPhishing {
+    public static var isEnabled: Bool {
+        return true
+    }
+}

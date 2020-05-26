@@ -303,7 +303,6 @@
 		464E6839234B75E300ABAC43 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E6837234B75E300ABAC43 /* LogoView.swift */; };
 		464E683B234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
 		464E683C234CB06200ABAC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464E683A234CB06200ABAC43 /* HomeView.swift */; };
-		464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46504060240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
 		46504061240FC1E80086CFAF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650405F240FC1E80086CFAF /* HistoryView.swift */; };
 		46504063240FC2520086CFAF /* BaseReactHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46504062240FC2520086CFAF /* BaseReactHomeView.swift */; };
@@ -342,7 +341,6 @@
 		4661C375246C11E200F36302 /* PrivateBrowsing.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEEC42F589C10B5A25A90238 /* PrivateBrowsing.strings */; };
 		4661C376246C11E700F36302 /* Search.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F9E430FA4DF366BB519164A /* Search.strings */; };
 		4661C378246C11ED00F36302 /* Storage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87334596ACEFC08E1CEC3543 /* Storage.strings */; };
-		4661C379246C125F00F36302 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B0E93682407A92300ED7703 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4667B08724210109001A4197 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4667B08924210109001A4197 /* InfoPlist.strings */; };
 		4667B090242123B1001A4197 /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4667B08F242123B1001A4197 /* Bridge.m */; };
 		4667B092242123EC001A4197 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4667B091242123EC001A4197 /* Bridge.swift */; };
@@ -1104,6 +1102,20 @@
 			remoteGlobalIDString = F84B21BD1A090F8100AAB793;
 			remoteInfo = Client;
 		};
+		46DE99C1247BD6CE00CAAC94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BE258D223BA2B4A0022ED28;
+			remoteInfo = OpenIn;
+		};
+		46DE99C3247BD6D600CAAC94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B308ABC242B2B4A009AF3D1;
+			remoteInfo = Siri;
+		};
 		7B9BF92E1E435DE400CB24F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -1186,11 +1198,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				4661C379246C125F00F36302 /* Today.appex in Embed App Extensions */,
 				46CF5F82246A9B790058D750 /* OpenIn.appex in Embed App Extensions */,
 				46CF5F81246A9B730058D750 /* Siri.appex in Embed App Extensions */,
 				46CF5F80246A9B640058D750 /* ShareTo.appex in Embed App Extensions */,
-				464F678B232793F00090D0B5 /* BuildFile in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4235,8 +4245,10 @@
 			dependencies = (
 				ACB7371223042BAB00FA5626 /* PBXTargetDependency */,
 				ACB7371423042BAB00FA5626 /* PBXTargetDependency */,
-				ACB7371A23042BAB00FA5626 /* PBXTargetDependency */,
 				049DBB0F23E45C4F00D2D38D /* PBXTargetDependency */,
+				ACB7371A23042BAB00FA5626 /* PBXTargetDependency */,
+				46DE99C2247BD6CE00CAAC94 /* PBXTargetDependency */,
+				46DE99C4247BD6D600CAAC94 /* PBXTargetDependency */,
 			);
 			name = Ghostery;
 			productName = Client;
@@ -6366,6 +6378,16 @@
 			target = F84B21BD1A090F8100AAB793 /* Cliqz */;
 			targetProxy = 3BFE4B0C1D342FB900DDF53F /* PBXContainerItemProxy */;
 		};
+		46DE99C2247BD6CE00CAAC94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BE258D223BA2B4A0022ED28 /* OpenIn */;
+			targetProxy = 46DE99C1247BD6CE00CAAC94 /* PBXContainerItemProxy */;
+		};
+		46DE99C4247BD6D600CAAC94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B308ABC242B2B4A009AF3D1 /* Siri */;
+			targetProxy = 46DE99C3247BD6D600CAAC94 /* PBXContainerItemProxy */;
+		};
 		7B9BF92F1E435DE400CB24F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2FCAE2231ABB51F800877008 /* StorageTests */;
@@ -7236,7 +7258,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DFB_SONARKIT_ENABLED";
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.${EXTENSION_OPEN_IN_APP_BUNDLE_ID_POSTFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -7268,7 +7290,7 @@
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DFB_SONARKIT_ENABLED";
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.${EXTENSION_OPEN_IN_APP_BUNDLE_ID_POSTFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -7300,7 +7322,7 @@
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DFB_SONARKIT_ENABLED";
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.${EXTENSION_OPEN_IN_APP_BUNDLE_ID_POSTFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -7332,7 +7354,7 @@
 				MARKETING_VERSION = "${APP_MARKETING_VERSION}";
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DFB_SONARKIT_ENABLED";
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.OpenIn";
+				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.${EXTENSION_OPEN_IN_APP_BUNDLE_ID_POSTFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

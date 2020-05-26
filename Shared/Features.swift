@@ -42,6 +42,7 @@ public struct Features {
             return false
         }
     }
+
     public struct Icons {
         public enum IconType {
             case cliqz
@@ -49,6 +50,12 @@ public struct Features {
         }
         public static var type: IconType {
             return .favicon
+        }
+    }
+  
+    public struct AntiPhishing {
+        public static var isEnabled: Bool {
+            return false
         }
     }
 }
