@@ -42,4 +42,9 @@ public struct Features {
             return false
         }
     }
+    public struct AntiPhishing {
+        public static var isEnabled: Bool {
+            return false
+        }
+    }
 }
