@@ -11,8 +11,10 @@ class FaviconHandler {
     static let MaximumFaviconSize = 1 * 1024 * 1024 // 1 MiB file size limit
 
     private let backgroundQueue = OperationQueue()
+    private var profile: Profile
 
-    init() {
+    init(profile: Profile) {
+        self.profile = profile
         register(self, forTabEvents: .didLoadPageMetadata, .pageMetadataNotAvailable)
     }
 
@@ -38,12 +40,12 @@ class FaviconHandler {
         let onSuccess: (Favicon, Data?) -> Void = { [weak tab] (favicon, data) -> Void in
             tab?.favicons.append(favicon)
 
-            guard !(tab?.isPrivate ?? true), let appDelegate = UIApplication.shared.delegate as? AppDelegate, let profile = appDelegate.profile else {
+            guard !(tab?.isPrivate ?? true) else {
                 deferred.fill(Maybe(success: (favicon, data)))
                 return
             }
 
-            profile.favicons.addFavicon(favicon, forSite: site) >>> {
+            self.profile.favicons.addFavicon(favicon, forSite: site) >>> {
                 deferred.fill(Maybe(success: (favicon, data)))
             }
         }

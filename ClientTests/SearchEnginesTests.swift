@@ -32,7 +32,7 @@ class SearchEnginesTests: XCTestCase {
     }
 
     func testAddingAndDeletingCustomEngines() {
-        let testEngine = OpenSearchEngine(engineID: "ATester", shortName: "ATester", searchTemplate: "http://firefox.com/find?q={searchTerm}", suggestTemplate: nil, isCustomEngine: true)
+        let testEngine = OpenSearchEngine(engineID: "ATester", shortName: "ATester", image: nil, searchTemplate: "http://firefox.com/find?q={searchTerm}", suggestTemplate: nil, isCustomEngine: true)
         let profile = MockProfile()
         let engines = SearchEngines(prefs: profile.prefs, files: profile.files)
         engines.addSearchEngine(testEngine)
