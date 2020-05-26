@@ -8,7 +8,7 @@ import Shared
 class TabEventHandlers {
     static func create(with profile: Profile) -> [TabEventHandler] {
         let handlers: [TabEventHandler] = [
-            FaviconHandler(),
+            FaviconHandler(profile: profile),
             UserActivityHandler(profile: profile),
             MetadataParserHelper(),
             MediaImageLoader(profile.prefs),

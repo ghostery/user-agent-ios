@@ -162,7 +162,7 @@ class TopTabsViewController: UIViewController {
             let alpha: CGFloat = reveal ? 1 : 0
             for cell in cells {
                 cell.titleText.alpha = alpha
-                cell.logoView.alpha = alpha
+                cell.iconView.alpha = alpha
             }
         }
     }

@@ -183,18 +183,16 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         return titleLabel
     }()
 
-    lazy var logoView: LogoView = {
-        LogoView()
-    }()
+    lazy var iconView = IconView()
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
 
         self.backgroundView = UIView()
         self.backgroundView?.backgroundColor = .clear
-        contentView.addSubview(logoView)
+        contentView.addSubview(iconView)
 
-        logoView.snp.remakeConstraints { make in
+        iconView.snp.remakeConstraints { make in
             make.top.equalTo(contentView).offset(PhotonActionSheetSiteHeaderView.Padding)
             make.centerY.equalTo(contentView)
             make.leading.equalTo(contentView).offset(PhotonActionSheetSiteHeaderView.Padding)
@@ -209,9 +207,9 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
         contentView.addSubview(stackView)
 
         stackView.snp.makeConstraints { make in
-            make.leading.equalTo(logoView.snp.trailing).offset(PhotonActionSheetSiteHeaderView.Padding)
+            make.leading.equalTo(iconView.snp.trailing).offset(PhotonActionSheetSiteHeaderView.Padding)
             make.trailing.equalTo(contentView).inset(PhotonActionSheetSiteHeaderView.Padding)
-            make.centerY.equalTo(logoView.snp.centerY)
+            make.centerY.equalTo(iconView.snp.centerY)
         }
     }
 
@@ -221,11 +219,11 @@ class PhotonActionSheetSiteHeaderView: UITableViewHeaderFooterView {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.logoView.url = nil
+        self.iconView.clean()
     }
 
     func configure(with site: Site) {
-        self.logoView.url = site.url
+        self.iconView.getIcon(site: site)
         self.titleLabel.text = site.title.isEmpty ? site.url : site.title
         self.descriptionLabel.text = site.tileURL.baseDomain
         self.titleLabel.textColor = Theme.actionMenu.foreground
