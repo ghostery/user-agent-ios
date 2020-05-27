@@ -19,7 +19,7 @@
 "ForgetMode.ContextMenu.OpenInNewPrivateTab" = "In neuem Ghost-Tab öffnen";
 
 /* Label to switch to forget mode */
-"ForgetMode.Hotkeys.PrivateBrowsingModeTitle" = "Vergessen-Modus";
+"ForgetMode.Hotkeys.PrivateBrowsingModeTitle" = "Ghost-Tabs";
 
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Vergessen-Modus";
