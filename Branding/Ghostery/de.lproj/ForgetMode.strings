@@ -7,7 +7,7 @@
 */
 
 /* Action label on share extension to immediately open page in a private tab. */
-"ForgetMode.ShareExtension.OpenInPrivateTab" = "In neuem Vergessen-Modus Tab öffnen";
+"ForgetMode.ShareExtension.OpenInPrivateTab" = "In neuem Ghost-Tab öffnen";
 
 /* Title for Automatic forget mode screen */
 "ForgetMode.AutomaticForgetMode.Title" = "Automatischer Vergessen-Modus";
