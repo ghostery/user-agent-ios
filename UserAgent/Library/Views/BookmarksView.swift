@@ -215,7 +215,7 @@ extension BookmarksView {
             cell.setLines(site.title, detailText: site.url)
             cell.imageView?.layer.borderColor = BookmarksPanelUX.IconBorderColor.cgColor
             cell.imageView?.layer.borderWidth = BookmarksPanelUX.IconBorderWidth
-            cell.logoView.url = site.url
+            cell.iconView.getIcon(site: site)
         }
         return cell
     }

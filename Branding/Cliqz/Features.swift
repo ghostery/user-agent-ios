@@ -40,3 +40,15 @@ extension Features.News {
         return true
     }
 }
+
+extension Features.Icons {
+    public static var type: IconType {
+        return .cliqz
+    }
+}
+
+extension Features.AntiPhishing {
+    public static var isEnabled: Bool {
+        return true
+    }
+}

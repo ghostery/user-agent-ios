@@ -29,9 +29,7 @@ class SearchEnginePicker: ThemedTableViewController {
             cell = SearchSettingsTableViewCell(style: .default, reuseIdentifier: identifier)
         }
         cell.label.text = engine.shortName
-        if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
-            cell.updateLogo(url: url.absoluteString)
-        }
+        cell.updateLogo(engine: engine)
         if engine.shortName == selectedSearchEngineName {
             cell.accessoryType = .checkmark
         }

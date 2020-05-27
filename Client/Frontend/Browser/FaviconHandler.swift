@@ -11,9 +11,11 @@ class FaviconHandler {
     static let MaximumFaviconSize = 1 * 1024 * 1024 // 1 MiB file size limit
 
     private let backgroundQueue = OperationQueue()
+    private var profile: Profile
 
-    init() {
-        register(self, forTabEvents: .didLoadPageMetadata)
+    init(profile: Profile) {
+        self.profile = profile
+        register(self, forTabEvents: .didLoadPageMetadata, .pageMetadataNotAvailable)
     }
 
     func loadFaviconURL(_ faviconURL: String, forTab tab: Tab) -> Deferred<Maybe<(Favicon, Data?)>> {
@@ -23,6 +25,8 @@ class FaviconHandler {
 
         let deferred = Deferred<Maybe<(Favicon, Data?)>>()
         let manager = SDWebImageManager.shared
+        let url = currentURL.absoluteString
+        let site = Site(url: url, title: "")
         let options: SDWebImageOptions = tab.isPrivate ? [SDWebImageOptions.lowPriority, SDWebImageOptions.fromCacheOnly] : SDWebImageOptions.lowPriority
 
         var fetch: SDWebImageOperation?
@@ -41,7 +45,9 @@ class FaviconHandler {
                 return
             }
 
-            deferred.fill(Maybe(success: (favicon, data)))
+            self.profile.favicons.addFavicon(favicon, forSite: site) >>> {
+                deferred.fill(Maybe(success: (favicon, data)))
+            }
         }
 
         let onCompletedSiteFavicon: SDInternalCompletionBlock = { (img, data, _, _, _, url) -> Void in
@@ -99,6 +105,9 @@ extension FaviconHandler: TabEventHandler {
             guard let (favicon, data) = result.successValue else { return }
             TabEvent.post(.didLoadFavicon(favicon, with: data), for: tab)
         }
+    }
+    func tabMetadataNotAvailable(_ tab: Tab) {
+        tab.favicons.removeAll(keepingCapacity: false)
     }
 }
 

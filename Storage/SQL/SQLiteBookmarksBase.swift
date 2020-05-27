@@ -19,6 +19,7 @@ class NoSuchSearchKeywordError: MaybeErrorType {
 
 open class SQLiteBookmarks: BookmarksModelFactorySource, KeywordSearchSource {
     let db: BrowserDB
+    let favicons: SQLiteFavicons
 
     static let defaultFolderTitle: String = "Untitled"
     static let defaultItemTitle: String = "Untitled"
@@ -28,6 +29,7 @@ open class SQLiteBookmarks: BookmarksModelFactorySource, KeywordSearchSource {
 
     public init(db: BrowserDB) {
         self.db = db
+        self.favicons = SQLiteFavicons(db: self.db)
     }
 
     open func isBookmarked(_ url: String, direction: Direction) -> Deferred<Maybe<Bool>> {

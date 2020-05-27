@@ -8,6 +8,7 @@
 
 import Foundation
 import WebKit
+import Shared
 
 protocol InterceptorUI: class {
     func showAntiPhishingAlert(tab: Tab, url: URL, policy: InterceptorPolicy)
@@ -31,7 +32,9 @@ class InterceptorFeature {
 
     // MARK: Private methods
     private func registerInterceptors() {
-        self.interceptor.register(policy: AntiPhishingPolicy())
+        if Features.AntiPhishing.isEnabled {
+            self.interceptor.register(policy: AntiPhishingPolicy())
+        }
         self.interceptor.register(policy: AutomaticForgetModePolicy())
     }
 }

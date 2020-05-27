@@ -58,6 +58,12 @@ extension UIColor {
         self.init(rgb: (Int) (colorInt))
     }
 
+    public convenience init(colorString: String) {
+        var colorInt: UInt32 = 0
+        Scanner(string: colorString).scanHexInt32(&colorInt)
+        self.init(rgb: (Int) (colorInt))
+    }
+
     public var hexString: String {
         let colorRef = cgColor.components
         let r = colorRef?[0] ?? 0
