@@ -281,6 +281,7 @@ extension Strings {
         public static let PasteTitle = NSLocalizedString("Menu.Paste.Title", comment: "The title for the button that lets you paste into the location bar")
         public static let CopyAddressTitle = NSLocalizedString("Menu.Copy.Title", comment: "The title for the button that lets you copy the url from the location bar.")
         public static let ClearSearchHistory = NSLocalizedString("Menu.ClearSearchHistory", comment: "Action item that deletes all queries from database, shown on long press on search icon")
+        public static let ShowQueryHistoryTitle = NSLocalizedString("Menu.QueryHistory.Title", comment: "The title for the button that query history list")
     }
 
     // MARK: - External Link
