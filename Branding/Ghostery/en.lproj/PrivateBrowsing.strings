@@ -8,7 +8,7 @@
 "Private Browsing" = "Forget Mode";
 
 /* Accessibility label for toggling on/off private mode */
-"Private Mode" = "Forget Mode";
+"Private Mode" = "Ghost Tabs";
 
 /* Accessiblity hint for toggling on/off private mode */
 "Turns private mode on or off" = "Turns forget mode on or off";
