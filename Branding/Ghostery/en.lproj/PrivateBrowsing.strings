@@ -5,7 +5,7 @@
 "Empty.Private.Tab.Description" = "You are browsing using Ghost Tabs: Websites you visit in this mode will not be saved in your history, and local data, including cookies, will not be stored.";
 
 /* Title displayed for when there are no open tabs while in private mode */
-"Private Browsing" = "Forget Mode";
+"Private Browsing" = "Ghost Tabs";
 
 /* Accessibility label for toggling on/off private mode */
 "Private Mode" = "Ghost Tabs";
