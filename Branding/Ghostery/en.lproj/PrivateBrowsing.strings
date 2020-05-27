@@ -11,7 +11,7 @@
 "Private Mode" = "Ghost Tabs";
 
 /* Accessiblity hint for toggling on/off private mode */
-"Turns private mode on or off" = "Turns forget mode on or off";
+"Turns private mode on or off" = "Turns Ghost Tabs on or off";
 
 /* Will be displayed in Settings under 'Close Private Tabs' */
 "When Leaving Private Browsing" = "When Leaving Ghost Tabs";
