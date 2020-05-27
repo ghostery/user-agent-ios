@@ -61,10 +61,6 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         }
     }
 
-    func tabToolbarDidLongPressSearch(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
-        self.showQueriesList(tabToolbar, button: button)
-    }
-
     func tabToolbarDidPressTabs(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
         showTabTray()
     }
@@ -131,7 +127,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
         }
     }
 
-    func showQueriesList(_ tabToolbar: TabToolbarProtocol, button: UIButton) {
+    func showQueriesList(_ view: UIView) {
         HapticFeedback.vibrate()
 
         self.profile.history.getRecentQueries().uponQueue(.main) { cursor in
@@ -165,7 +161,7 @@ extension BrowserViewController: TabToolbarDelegate, PhotonActionSheetProtocol {
             self.presentSheetWith(
                 actions: [queriesItems, [clearQueryLog]],
                 on: self,
-                from: button,
+                from: view,
                 suppressPopover: !self.topTabsVisible && UIDevice.current.isPad
             )
         }
