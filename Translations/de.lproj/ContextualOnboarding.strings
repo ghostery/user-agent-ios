@@ -14,9 +14,3 @@
 
 /* Don't show agian button title */
 "ContextualOnboarding.DontShowAgain" = "Nicht mehr anzeigen";
-
-/* Title for Automatic forget mode screen */
-"ContextualOnboarding.AutomaticForgotMode.Title" = "Automatischer Vergessen-Modus";
-
-/* Description for Automatic forget mode screen */
-"ContextualOnboarding.AutomaticForgotMode.Description" = "Dein Partner oder deine Partnerin mögen vielleicht heimlich deine privaten Nachrichten lesen, aber sie werden niemals erfahren, ob du irgendwelche Pornoseiten besucht hast. Dafür sorgt der Automatische Vergessen-Modus von %@. Er verhindert, dass nicht jugendfreie Seiten im Browserverlauf auftauchen. Gern geschehen!";

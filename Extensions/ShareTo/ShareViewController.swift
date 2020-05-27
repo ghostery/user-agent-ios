@@ -113,7 +113,7 @@ class ShareViewController: UIViewController {
 
         if shareItem?.isUrlType() ?? true {
             makeActionRow(addTo: stackView, label: Strings.ShareExtension.OpenIn, imageName: "Icon-Small", action: #selector(actionOpenInUserAgentNow), hasNavigation: false)
-            makeActionRow(addTo: stackView, label: Strings.ShareExtension.OpenInPrivateTab, imageName: "forgetMode", action: #selector(actionOpenInPrivateTabInUserAgentNow), hasNavigation: false)
+            makeActionRow(addTo: stackView, label: Strings.ForgetMode.ShareExtension.OpenInPrivateTab, imageName: "forgetMode", action: #selector(actionOpenInPrivateTabInUserAgentNow), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareExtension.LoadInBackground, imageName: "menu-Show-Tabs", action: #selector(actionLoadInBackground), hasNavigation: false)
             makeActionRow(addTo: stackView, label: Strings.ShareExtension.BookmarkThisPage, imageName: "AddToBookmarks", action: #selector(actionBookmarkThisPage), hasNavigation: false)
         } else {

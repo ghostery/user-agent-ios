@@ -96,5 +96,11 @@
 /* Accessibility label for the New Tab button in the tab toolbar. */
 "Accessibility.TabTray.NewTab" = "Neuer Tab";
 
+/* Toggled OFF accessibility value */
+"Accessibility.PrivateBrowsing.Off" = "Aus";
+
+/* Toggled ON accessibility value */
+"Accessibility.PrivateBrowsing.On" = "An";
+
 /* Error message that is shown in settings when there was a problem loading */
 "ErrorPages.CouldNotLoadPage" = "Seite konnte nicht geladen werden.";

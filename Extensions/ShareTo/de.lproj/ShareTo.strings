@@ -14,8 +14,5 @@
 /* Action label on share extension to immediately open page in UserAgent. */
 "ShareExtension.OpenInAction.Title" = "In %@ öffnen";
 
-/* Action label on share extension to immediately open page in a private tab. */
-"ShareExtension.OpenInPrivateTabAction.Title" = "In neuem Vergessen-Modus Tab öffnen";
-
 /* Action label on share extension to search for the selected text in UserAgent. */
 "ShareExtension.SeachInUserAgentAction.Title" = "In %@ suchen";

@@ -93,5 +93,11 @@
 /* Accessibility label for the tabs button in the (top) tab toolbar. Accessibility Label for the tabs button in the tab toolbar */
 "Accessibility.TabTray.ShowTabs" = "Show Tabs";
 
+/* Toggled OFF accessibility value */
+"Accessibility.PrivateBrowsing.Off" = "Off";
+
+/* Toggled ON accessibility value */
+"Accessibility.PrivateBrowsing.On" = "On";
+
 /* Accessibility label for the New Tab button in the tab toolbar. */
 "ErrorPages.CouldNotLoadPage" = "New Tab";

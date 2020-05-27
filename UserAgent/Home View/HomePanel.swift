@@ -60,7 +60,7 @@ extension HomePanelContextMenu {
             homePanelDelegate?.homePanelDidRequestToOpenInNewTab(siteURL, isPrivate: false)
         }
 
-        let openInNewPrivateTabAction = PhotonActionSheetItem(title: Strings.HomePanel.ContextMenu.OpenInNewPrivateTab, iconString: "forgetMode") { action in
+        let openInNewPrivateTabAction = PhotonActionSheetItem(title: Strings.ForgetMode.ContextMenu.OpenInNewPrivateTab, iconString: "forgetMode") { action in
             homePanelDelegate?.homePanelDidRequestToOpenInNewTab(siteURL, isPrivate: true)
         }
 

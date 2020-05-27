@@ -7,7 +7,7 @@ import UIKit
 
 extension TabTrayController {
     override var keyCommands: [UIKeyCommand]? {
-        let toggleText = tabDisplayManager.isPrivate ? Strings.TabTray.SwitchToNonPBMKeyCodeTitle: Strings.TabTray.SwitchToPBMKeyCodeTitle
+        let toggleText = tabDisplayManager.isPrivate ? Strings.TabTray.SwitchToNonPBMKeyCodeTitle: Strings.ForgetMode.TabTray.SwitchToPBMKeyCodeTitle
         var commands = [
             UIKeyCommand(input: "`", modifierFlags: .command, action: #selector(didTogglePrivateModeKeyCommand), discoverabilityTitle: toggleText),
             UIKeyCommand(input: "w", modifierFlags: .command, action: #selector(didCloseTabKeyCommand)),
