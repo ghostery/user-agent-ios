@@ -196,7 +196,7 @@
 "Menu.Paste.Title" = "Einfügen";
 
 /* The title for the button that query history list */
-"Menu.QueryHistory.Title" = "Show query history";
+"Menu.QueryHistory.Title" = "Show Query History";
 
 /* The title for the button that lets you paste and go to a URL */
 "Menu.PasteAndGo.Title" = "Einfügen & Los";

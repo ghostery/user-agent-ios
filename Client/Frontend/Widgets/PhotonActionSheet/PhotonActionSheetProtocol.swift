@@ -383,7 +383,7 @@ extension PhotonActionSheetProtocol {
                 urlBar.enterOverlayMode(pasteboardContents, pasted: true, search: true)
             }
         }
-        let showQueryHistoryAction = PhotonActionSheetItem(title: Strings.Menu.ShowQueryHistoryTitle, iconString: "menu-Paste") { action in
+        let showQueryHistoryAction = PhotonActionSheetItem(title: Strings.Menu.ShowQueryHistoryTitle, iconString: "search") { action in
             guard let appDel = UIApplication.shared.delegate as? AppDelegate else { return }
             appDel.browserViewController.showQueriesList(urlBar)
         }
