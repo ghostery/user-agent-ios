@@ -14,6 +14,7 @@ class OpenSearchEngine: NSObject, NSCoding {
 
     let shortName: String
     let engineID: String?
+    let image: UIImage?
     let isCustomEngine: Bool
     let searchTemplate: String
     fileprivate let suggestTemplate: String?
@@ -23,8 +24,9 @@ class OpenSearchEngine: NSObject, NSCoding {
 
     fileprivate lazy var searchQueryComponentKey: String? = self.getQueryArgFromTemplate()
 
-    init(engineID: String?, shortName: String, searchTemplate: String, suggestTemplate: String?, isCustomEngine: Bool) {
+    init(engineID: String?, shortName: String, image: UIImage?, searchTemplate: String, suggestTemplate: String?, isCustomEngine: Bool) {
         self.shortName = shortName
+        self.image = image
         self.searchTemplate = searchTemplate
         self.suggestTemplate = suggestTemplate
         self.isCustomEngine = isCustomEngine
@@ -47,6 +49,7 @@ class OpenSearchEngine: NSObject, NSCoding {
         self.isCustomEngine = isCustomEngine
         self.engineID = aDecoder.decodeObject(forKey: "engineID") as? String
         self.suggestTemplate = nil
+        self.image = aDecoder.decodeObject(forKey: "image") as? UIImage
     }
 
     func encode(with aCoder: NSCoder) {
@@ -54,6 +57,7 @@ class OpenSearchEngine: NSObject, NSCoding {
         aCoder.encode(shortName, forKey: "shortName")
         aCoder.encode(isCustomEngine, forKey: "isCustomEngine")
         aCoder.encode(engineID, forKey: "engineID")
+        aCoder.encode(image, forKey: "image")
     }
 
     /**
@@ -253,6 +257,44 @@ class OpenSearchParser {
             return nil
         }
 
-        return OpenSearchEngine(engineID: engineID, shortName: shortName, searchTemplate: searchTemplate, suggestTemplate: suggestTemplate, isCustomEngine: false)
+        let uiImage: UIImage?
+
+        switch Features.Icons.type {
+        case .cliqz:
+            uiImage = nil
+        case .favicon:
+            let imageIndexers = docIndexer.children(tag: "Image")
+            var largestImage = 0
+            var largestImageElement: XMLElement?
+
+            for imageIndexer in imageIndexers {
+                let imageWidth = Int(imageIndexer.attributes["width"] ?? "")
+                let imageHeight = Int(imageIndexer.attributes["height"] ?? "")
+
+                // Only accept square images.
+                if imageWidth != imageHeight {
+                    continue
+                }
+
+                if let imageWidth = imageWidth {
+                    if imageWidth > largestImage {
+                        largestImage = imageWidth
+                        largestImageElement = imageIndexer
+                    }
+                }
+            }
+
+            if let imageElement = largestImageElement,
+                let imageURL = URL(string: imageElement.stringValue),
+                let imageData = try? Data(contentsOf: imageURL),
+                let image = UIImage.imageFromDataThreadSafe(imageData) {
+                uiImage = image
+            } else {
+                print("Error: Invalid search image data")
+                return nil
+            }
+        }
+
+        return OpenSearchEngine(engineID: engineID, shortName: shortName, image: uiImage, searchTemplate: searchTemplate, suggestTemplate: suggestTemplate, isCustomEngine: false)
     }
 }

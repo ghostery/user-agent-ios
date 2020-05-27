@@ -645,7 +645,7 @@ extension URLBarView: TabToolbarProtocol {
     }
 
     func searchBadge(visible: Bool) {
-        let image = visible ? UIImage.templateImageNamed("AddSearch") : UIImage.templateImageNamed("search")
+        let image = visible ? UIImage.templateImageNamed("menu-Home") : UIImage.templateImageNamed("search")
         self.searchButton.setImage(image, for: .normal)
     }
 

@@ -86,9 +86,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
                 cell.accessibilityLabel = Strings.Settings.Search.AdditionalSearchEngines.DefaultSearchEngine
                 cell.accessibilityValue = engine.shortName
                 cell.label.text = engine.shortName
-                if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
-                    cell.updateLogo(url: url.absoluteString)
-                }
+                cell.updateLogo(engine: engine)
             case ItemDefaultSuggestions:
                 cell.textLabel?.text = Strings.Settings.Search.AdditionalSearchEngines.ItemDefaultEngine
                 let toggle = UISwitchThemed()
@@ -117,9 +115,7 @@ class SearchSettingsTableViewController: ThemedTableViewController {
 
                 cell.editingAccessoryView = toggle
                 cell.label.text = engine.shortName
-                if let url = URL(string: engine.searchTemplate.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? ""), url.isWebPage() {
-                    cell.updateLogo(url: url.absoluteString)
-                }
+                cell.updateLogo(engine: engine)
                 cell.selectionStyle = .none
             } else {
                 let identifier = "ThemedTableViewCell"
