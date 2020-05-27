@@ -14,4 +14,4 @@
 "Turns private mode on or off" = "Turns forget mode on or off";
 
 /* Will be displayed in Settings under 'Close Private Tabs' */
-"When Leaving Private Browsing" = "When Leaving Forget Mode";
+"When Leaving Private Browsing" = "When Leaving Ghost Tabs";
