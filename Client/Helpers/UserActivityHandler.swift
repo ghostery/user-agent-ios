@@ -17,6 +17,8 @@ class UserActivityHandler {
 
     private var profile: Profile
 
+    private let spotlightImageSize = CGSize(width: 80.0, height: 80.0)
+
     init(profile: Profile) {
         self.profile = profile
         register(self, forTabEvents: .didClose, .didLoseFocus, .didGainFocus, .didChangeURL, .didLoadPageMetadata) // .didLoadFavicon, // TO DO : Bug 1390294
@@ -56,7 +58,22 @@ class UserActivityHandler {
         attributeSet.title = tab.title
         attributeSet.relatedUniqueIdentifier = url.absoluteString
         attributeSet.contentDescription = url.absoluteString
+        if let imageURL = URL(string: tab.displayFavicon?.url ?? ""), let imageData = try? Data(contentsOf: imageURL) {
+            if let image = UIImage(data: imageData), image.size.width < self.spotlightImageSize.width, image.size.height < self.spotlightImageSize.height {
+                attributeSet.thumbnailData = self.createSearchableItemImage(icon: image)?.jpegData(compressionQuality: 1.0)
+            } else {
+                attributeSet.thumbnailData = imageData
+            }
+        }
         return attributeSet
+    }
+
+    private func createSearchableItemImage(icon: UIImage) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: self.spotlightImageSize.width, height: self.spotlightImageSize.height), false, 0.0)
+        icon.draw(at: CGPoint(x: (self.spotlightImageSize.width - icon.size.width) / 2, y: (self.spotlightImageSize.height - icon.size.height) / 2))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 
     fileprivate func addIndexSearchableItem(attributeSet: CSSearchableItemAttributeSet, url: URL) {
