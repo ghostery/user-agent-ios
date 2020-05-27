@@ -2,7 +2,7 @@
 "ContextMenu.OpenInNewPrivateTabButtonTitle" = "Open in New Forget Mode Tab";
 
 /* Description text displayed when there are no open tabs while in private mode */
-"Empty.Private.Tab.Description" = "You are browsing in Forget Mode: Websites you visit in the mode will not be saved in your history, and local data, including cookies, will not be stored.";
+"Empty.Private.Tab.Description" = "You are browsing using Ghost Tabs: Websites you visit in this mode will not be saved in your history, and local data, including cookies, will not be stored.";
 
 /* Title displayed for when there are no open tabs while in private mode */
 "Private Browsing" = "Forget Mode";
