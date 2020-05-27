@@ -52,7 +52,7 @@ public struct Features {
             return .favicon
         }
     }
-  
+
     public struct AntiPhishing {
         public static var isEnabled: Bool {
             return false
