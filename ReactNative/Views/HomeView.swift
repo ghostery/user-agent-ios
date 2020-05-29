@@ -9,6 +9,7 @@
 import Foundation
 import React
 import Storage
+import Shared
 
 class HomeView: UIView {
     private var speedDials: [Site]?
@@ -67,6 +68,7 @@ class HomeView: UIView {
                 "isNewsImagesEnabled": self.isNewsImagesEnabled,
                 "height": height,
                 "toolbarHeight": self.toolbarHeight,
+                "Features": Features.toDict(),
             ]
         )
 
