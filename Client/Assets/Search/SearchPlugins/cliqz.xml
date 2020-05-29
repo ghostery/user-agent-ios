@@ -8,5 +8,5 @@
 
 <Url type="text/html" method="GET" template="https://beta.cliqz.com/search?q={searchTerms}#channel=ios">
 </Url>
-<SearchForm>https://beta.cliqz.com</SearchForm>
+<SearchForm>https://cliqz.com</SearchForm>
 </SearchPlugin>
