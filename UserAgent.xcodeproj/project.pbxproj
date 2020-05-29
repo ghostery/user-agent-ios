@@ -130,6 +130,10 @@
 		2B79E3D2247D303B00263B90 /* PrivateBrowsing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3D0247D303B00263B90 /* PrivateBrowsing.strings */; };
 		2B79E3D6247D305500263B90 /* PrivateBrowsing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3D4247D305500263B90 /* PrivateBrowsing.strings */; };
 		2B79E415247E7E6D00263B90 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E414247E7E6D00263B90 /* LaunchScreen.xib */; };
+		2B79E4182480E4C300263B90 /* NativeFavicon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E4172480E4C300263B90 /* NativeFavicon.m */; };
+		2B79E4192480E4C300263B90 /* NativeFavicon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E4172480E4C300263B90 /* NativeFavicon.m */; };
+		2B79E41B2481041500263B90 /* NativeFaviconFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E41A2481041500263B90 /* NativeFaviconFetcher.swift */; };
+		2B79E41C2481041500263B90 /* NativeFaviconFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E41A2481041500263B90 /* NativeFaviconFetcher.swift */; };
 		2B84AF1E241A63EE000626A4 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */; };
 		2B84AF1F241A63EF000626A4 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */; };
 		2B8DDBA323A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
@@ -1383,6 +1387,8 @@
 		2B79E3D5247D305500263B90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
 		2B79E3D7247D305C00263B90 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
 		2B79E414247E7E6D00263B90 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		2B79E4172480E4C300263B90 /* NativeFavicon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeFavicon.m; sourceTree = "<group>"; };
+		2B79E41A2481041500263B90 /* NativeFaviconFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeFaviconFetcher.swift; sourceTree = "<group>"; };
 		2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AdHoc.xcconfig; sourceTree = "<group>"; };
 		2B85778F2403A0170052D6C7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -3071,6 +3077,8 @@
 			isa = PBXGroup;
 			children = (
 				46CA60ED2317E1390010CE6B /* NativeDrawable.m */,
+				2B79E4172480E4C300263B90 /* NativeFavicon.m */,
+				2B79E41A2481041500263B90 /* NativeFaviconFetcher.swift */,
 			);
 			path = NativeUIComponents;
 			sourceTree = "<group>";
@@ -5879,6 +5887,7 @@
 				4620EA4A2350ABF9004586CF /* Search.swift in Sources */,
 				ACB737C223042BAB00FA5626 /* ScreenshotHelper.swift in Sources */,
 				46E9660D236B33C2003C23F3 /* Constants.m in Sources */,
+				2B79E41C2481041500263B90 /* NativeFaviconFetcher.swift in Sources */,
 				46A4C4D7234775A800F4BCE0 /* AutoCompletion.m in Sources */,
 				ACB737C423042BAB00FA5626 /* DocumentServicesHelper.swift in Sources */,
 				ACB737C523042BAB00FA5626 /* TabManager.swift in Sources */,
@@ -5917,6 +5926,7 @@
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
+				2B79E4192480E4C300263B90 /* NativeFavicon.m in Sources */,
 				ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */,
 				ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */,
 				464E683C234CB06200ABAC43 /* HomeView.swift in Sources */,
@@ -5968,6 +5978,7 @@
 				2B84AF1E241A63EE000626A4 /* HapticFeedback.swift in Sources */,
 				EB9A179F20E6C1A200B12184 /* ThemedWidgets.swift in Sources */,
 				2B76E43F23A1313F001CF20E /* ChatBubbleViewCell.swift in Sources */,
+				2B79E41B2481041500263B90 /* NativeFaviconFetcher.swift in Sources */,
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
 				AC65328B2344E3D000FC7ADB /* TopSitesView.swift in Sources */,
 				46CA60F22317E4780010CE6B /* JSBridge.swift in Sources */,
@@ -6070,6 +6081,7 @@
 				46442CEE238BE61D002E6D85 /* HumanWebFeature.swift in Sources */,
 				74821FC51DB56A2500EEEA72 /* OpenWithSettingsViewController.swift in Sources */,
 				C5B83E5E239F9EB0003687AC /* ChatBubbleView.swift in Sources */,
+				2B79E4182480E4C300263B90 /* NativeFavicon.m in Sources */,
 				D3B6923D1B9F9444004B87A4 /* FindInPageBar.swift in Sources */,
 				2F44FC721A9E840300FD20CC /* SettingsNavigationController.swift in Sources */,
 				D3BA7E0E1B0E934F00153782 /* ContextMenuHelper.swift in Sources */,
