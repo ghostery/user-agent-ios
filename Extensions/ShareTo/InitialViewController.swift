@@ -105,7 +105,7 @@ class InitialViewController: UIViewController {
             }
 
         } else {
-            view.backgroundColor = UIColor(white: 0.0, alpha: UX.alphaForFullscreenOverlay)
+            view.backgroundColor = UIColor.black.withAlphaComponent(UX.alphaForFullscreenOverlay)
         }
         view.alpha = 0
 

@@ -21,6 +21,7 @@ extension UIColor {
     static let BrightBlue = UIColor(named: "BrightBlue")!
     static let DarkBlue = UIColor(named: "DarkBlue")!
     static let LightBlue = UIColor(named: "LightBlue")!
+    static let LightGrey = UIColor(named: "LightGrey")!
     static let Orange = UIColor(named: "Orange")!
 
     /// System Colors
@@ -32,8 +33,6 @@ extension UIColor {
     static let ReaderModeSepia = UIColor(named: "ReaderModeSepia")!
 
     // Functional Colors
-    static let Purple = UIColor(named: "Purple")!
-    static let LightGreen = UIColor(named: "LightGreen")!
     static let DarkGreen = UIColor(named: "DarkGreen")!
     static let BrightRed = UIColor(named: "BrightRed")!
     static let DarkRed = UIColor(named: "DarkRed")!

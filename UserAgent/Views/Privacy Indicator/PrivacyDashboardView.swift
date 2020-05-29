@@ -141,7 +141,7 @@ private extension PrivacyDashboardView {
         let view = PrivacyDashboardUtils.HStack { () -> (UIView, UILabel) in
             let name = Strings.PrivacyDashboard.Legend.NoTrackersSeen
             return (
-                PrivacyDashboardUtils.Dot(withColor: UIColor(named: "NoTrackersSeen")!),
+                PrivacyDashboardUtils.Dot(withColor: UIColor.NoTrackersSeen),
                 PrivacyDashboardUtils.Label(withType: .stat, name)
             )
         }
@@ -151,7 +151,7 @@ private extension PrivacyDashboardView {
     func renderStatForAllowListed(withWrapper wrapper: UIStackView) {
         let view = PrivacyDashboardUtils.HStack { () -> (UIView, UILabel) in
             let name = Strings.PrivacyDashboard.Legend.AllowListed
-            let color = UIColor(named: "PrivacyIndicatorBackground")!
+            let color = UIColor.PrivacyIndicatorBackground
             return (
                 PrivacyDashboardUtils.Dot(withColor: color),
                 PrivacyDashboardUtils.Label(withType: .stat, name)

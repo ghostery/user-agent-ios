@@ -118,7 +118,7 @@ class BackForwardTableViewCell: UITableViewCell {
 
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if highlighted {
-            self.backgroundColor = UIColor(white: 0, alpha: 0.1)
+            self.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         } else {
             self.backgroundColor = UIColor.clear
         }

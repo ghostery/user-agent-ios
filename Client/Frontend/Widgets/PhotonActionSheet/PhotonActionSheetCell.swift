@@ -16,7 +16,7 @@ private struct PhotonActionSheetCellUX {
     static let TitleLabelOffset = 10
     static let CellTopBottomOffset = 12
     static let StatusIconSize = 24
-    static let SelectedOverlayColor = UIColor(white: 0.0, alpha: 0.25)
+    static let SelectedOverlayColor = UIColor.black.withAlphaComponent(0.25)
     static let CornerRadius: CGFloat = 3
 }
 
