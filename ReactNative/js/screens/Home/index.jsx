@@ -95,6 +95,7 @@ export default function Home({
   isNewsImagesEnabled,
   height,
   toolbarHeight,
+  Features,
 }) {
   const [news, edition] = useNews(newsModule);
   const scrollViewElement = useRef(null);
@@ -143,7 +144,7 @@ export default function Home({
       contentContainerStyle={styles.contentContainer}
       scrollEnabled={isNewsEnabled}
     >
-      <Background height={height - toolbarHeight}>
+      <Background height={height - toolbarHeight} Features={Features}>
         <View style={styles.wrapper}>
           <View style={styles.logoWrapper}>
             <Image

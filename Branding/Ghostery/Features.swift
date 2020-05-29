@@ -10,13 +10,16 @@ import Shared
 
 extension Features.Search.AdditionalSearchEngines {
     public static var isEnabled: Bool {
-        return false
+        return true
     }
 }
 
 extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
         return .search
+    }
+    public static var defaultEngineName: String {
+        return "google"
     }
 }
 
@@ -27,6 +30,12 @@ extension Features.Search.QuickSearch {
 }
 
 extension Features.ControlCenter.PrivacyStats.SearchStats {
+    public static var isEnabled: Bool {
+        return false
+    }
+}
+
+extension Features.Home.DynamicBackgrounds {
     public static var isEnabled: Bool {
         return false
     }

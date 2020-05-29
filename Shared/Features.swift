@@ -78,4 +78,18 @@ public struct Features {
             return false
         }
     }
+
+    public struct Home {
+        public struct DynamicBackgrounds {
+            public static var isEnabled: Bool {
+                return true
+            }
+        }
+    }
+
+    public struct TodayWidget {
+        public static var isEnabled: Bool {
+            return false
+        }
+    }
 }

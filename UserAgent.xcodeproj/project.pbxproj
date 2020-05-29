@@ -7061,6 +7061,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -7098,6 +7099,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/Today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -7130,6 +7132,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/Today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -7161,6 +7164,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/Today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -7188,6 +7192,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -7220,6 +7225,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/Siri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -7247,6 +7253,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/Siri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -7274,6 +7281,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/Siri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -7306,6 +7314,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -7343,6 +7352,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -7375,6 +7385,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -7407,6 +7418,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -7764,6 +7776,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -7805,6 +7818,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -7846,6 +7860,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -8168,6 +8183,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/CliqzAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -8224,6 +8240,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareToAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -8469,6 +8486,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/GhosteryDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -8525,6 +8543,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/GhosteryAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -8581,6 +8600,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -8700,6 +8720,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -8765,6 +8786,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -8990,6 +9012,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/CliqzDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -9066,6 +9089,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareToDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;

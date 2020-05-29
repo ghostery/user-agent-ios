@@ -28,6 +28,11 @@ extension Features {
                     ],
                 ],
             ],
+            "Home": [
+                "DynamicBackgrounds": [
+                    "isEnabled": Features.Home.DynamicBackgrounds.isEnabled,
+                ],
+            ],
         ]
     }
 }
