@@ -355,6 +355,8 @@
 		466B37282463001D00747C50 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B37272463001D00747C50 /* Features.swift */; };
 		466B372A246301A200747C50 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B3729246301A200747C50 /* Features.swift */; };
 		467781D6242B64CD00B609F0 /* Strings+UrlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467781D5242B64CD00B609F0 /* Strings+UrlBar.swift */; };
+		46796FF724810C1100E64738 /* Features+toDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46796FF624810C1100E64738 /* Features+toDict.swift */; };
+		46796FF824810C1100E64738 /* Features+toDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46796FF624810C1100E64738 /* Features+toDict.swift */; };
 		467C107024572E66003F7101 /* Strings+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467C106F24572E66003F7101 /* Strings+Search.swift */; };
 		46828D7E233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
 		46828D7F233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */; };
@@ -1597,6 +1599,7 @@
 		466B3729246301A200747C50 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		467781D5242B64CD00B609F0 /* Strings+UrlBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+UrlBar.swift"; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		46796FF624810C1100E64738 /* Features+toDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features+toDict.swift"; sourceTree = "<group>"; };
 		467C106F24572E66003F7101 /* Strings+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Search.swift"; sourceTree = "<group>"; };
 		46828D7D233CF75000E7D8A3 /* BrowserViewController+InterceptorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+InterceptorUI.swift"; sourceTree = "<group>"; };
 		46828D80233D0A4900E7D8A3 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
@@ -3244,6 +3247,7 @@
 			isa = PBXGroup;
 			children = (
 				46CF5F7F246A99B10058D750 /* setup.sh */,
+				46796FF624810C1100E64738 /* Features+toDict.swift */,
 				C50ED2B22326AA9400EE71B8 /* Ghostery */,
 				C50ED2B12326AA8F00EE71B8 /* Cliqz */,
 			);
@@ -5866,6 +5870,7 @@
 				ACB737BF23042BAB00FA5626 /* SwipeAnimator.swift in Sources */,
 				ACB737C023042BAB00FA5626 /* SimpleToast.swift in Sources */,
 				46ECCD2423A3850D002E761C /* ContextMenu.m in Sources */,
+				46796FF824810C1100E64738 /* Features+toDict.swift in Sources */,
 				2B427C7323D6E76500BF1308 /* NewTabDefaulViewSettingsViewController.swift in Sources */,
 				ACB737C123042BAB00FA5626 /* TrackingProtectionPageStats.swift in Sources */,
 				466B37282463001D00747C50 /* Features.swift in Sources */,
@@ -6084,6 +6089,7 @@
 				396CDB55203C5B870034A3A3 /* TabTrayController+KeyCommands.swift in Sources */,
 				74E36D781B71323500D69DA1 /* SettingsContentViewController.swift in Sources */,
 				EBB8950C21939E4100EB91A0 /* FirefoxTabContentBlocker.swift in Sources */,
+				46796FF724810C1100E64738 /* Features+toDict.swift in Sources */,
 				742A56391D80B54A00BDB803 /* PhotonActionSheet.swift in Sources */,
 				C4EFEECF1CEBB6F2009762A4 /* BackForwardTableViewCell.swift in Sources */,
 				EBA3B2C32268F16300728BDB /* PhotonActionSheetCell.swift in Sources */,

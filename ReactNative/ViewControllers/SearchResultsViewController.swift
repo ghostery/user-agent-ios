@@ -47,13 +47,7 @@ class SearchResultsViewController: UIViewController {
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "SearchResults",
             initialProperties: [
-                "Features": [
-                    "Search": [
-                        "AdditionalSearchEngines": [
-                            "isEnabled": Features.Search.AdditionalSearchEngines.isEnabled,
-                        ],
-                    ],
-                ],
+                "Features": Features.toDict(),
             ]
         )
     }()
