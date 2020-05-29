@@ -8,6 +8,7 @@
 
 import Foundation
 import React
+import Shared
 
 class PrivacyStatsView: UIView, PhotonCustomViewCellContent {
     var onSizeChange: (() -> Void)?
@@ -16,7 +17,9 @@ class PrivacyStatsView: UIView, PhotonCustomViewCellContent {
         let reactView = RCTRootView(
             bridge: ReactNativeBridge.sharedInstance.bridge,
             moduleName: "PrivacyStats",
-            initialProperties: [:]
+            initialProperties: [
+                "Features": Features.toDict(),
+            ]
         )
 
         reactView.delegate = self

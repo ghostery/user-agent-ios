@@ -31,6 +31,15 @@ public struct Features {
             }
         }
     }
+    public struct ControlCenter {
+        public struct PrivacyStats {
+            public struct SearchStats {
+                public static var isEnabled: Bool {
+                    return true
+                }
+            }
+        }
+    }
     public struct PrivacyDashboard {
         public static var isAntiTrackingEnabled: Bool {
             return true
