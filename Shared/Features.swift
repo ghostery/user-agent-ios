@@ -72,4 +72,11 @@ public struct Features {
             return false
         }
     }
+
+    public struct TodayWidget {
+        public static var isEnabled: Bool {
+            return false
+        }
+    }
+
 }

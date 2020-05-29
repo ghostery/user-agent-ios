@@ -35,11 +35,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
             self.searchSettingSection(),
             self.privacySettingSection(),
             self.privacyDashboardSettingSection(),
-            self.todayWidgetSettingSection(),
             self.generalSettingSection(),
             self.supportSettingSection(),
             self.aboutSettingSection(),
         ]
+        if Features.TodayWidget.isEnabled {
+            settings.insert(self.todayWidgetSettingSection(), at: 3)
+        }
         if Features.News.isEnabled {
             settings.insert(self.newsSettingSection(), at: 5)
         }
