@@ -15,7 +15,7 @@ public extension DataAndPrivacy {
     }
 
     static func presentingViewController(prefs: Prefs, delegate: DataAndPrivacyViewControllerDelegate?) -> UIViewController? {
-                let settingsConversations = [
+        let settingsConversations = [
             String(format: Strings.PrivacyStatement.SettingsConversation1, AppInfo.displayName),
             String(format: Strings.PrivacyStatement.SettingsConversation2, AppInfo.displayName),
         ]

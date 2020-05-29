@@ -174,7 +174,7 @@ extension PrivacyStatementViewController {
                 self.humanWebSetting.onConfigureCell(cell)
                 cell.hasBottomSeparator = true
                 cell.hasTopSeparator = true
-                cell.bottomSeparatorOffsets = (PrivacyStatementViewControllerUI.separatorLeftOffset, 0.0)
+                cell.bottomSeparatorOffsets = (section.numberOfRows == 1 ? 0.0 : PrivacyStatementViewControllerUI.separatorLeftOffset, 0.0)
                 cell.infoButtonImage = UIImage(named: "humanWebInfoIcon")
                 cell.infoButton?.setImage(UIImage(named: "humanWebInfoIconHighlighted"), for: .highlighted)
             } else {

@@ -72,4 +72,10 @@ public struct Features {
             return false
         }
     }
+
+    public struct Telemetry {
+        public static var isEnabled: Bool {
+            return false
+        }
+    }
 }
