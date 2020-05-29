@@ -16,7 +16,7 @@ extension Features.Search.AdditionalSearchEngines {
 
 extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
-        return .dismiss
+        return .search
     }
     public static var defaultEngineName: String {
         return "Cliqz"
@@ -25,7 +25,7 @@ extension Features.Search {
 
 extension Features.Search.QuickSearch {
     public static var isEnabled: Bool {
-        return true
+        return false
     }
 }
 
@@ -43,7 +43,7 @@ extension Features.PrivacyDashboard {
 
 extension Features.News {
     public static var isEnabled: Bool {
-        return true
+        return false
     }
 }
 
@@ -55,6 +55,12 @@ extension Features.Icons {
 
 extension Features.AntiPhishing {
     public static var isEnabled: Bool {
-        return true
+        return false
+    }
+}
+
+extension Features.ControlCenter.PrivacyStats.SearchStats {
+    public static var isEnabled: Bool {
+        return false
     }
 }
