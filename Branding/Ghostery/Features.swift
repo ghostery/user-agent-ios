@@ -19,3 +19,9 @@ extension Features.Search {
         return .search
     }
 }
+
+extension Features.Search.QuickSearch {
+    public static var isEnabled: Bool {
+        return false
+    }
+}

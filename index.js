@@ -34,6 +34,11 @@ moment.locale(NativeModules.LocaleConstants.lang);
 prefs.set('tabSearchEnabled', true);
 prefs.set('modules.autoconsent.enabled', false);
 
+prefs.set(
+  'modules.search.providers.cliqz.enabled',
+  NativeModules.Constants.Features.Search.QuickSearch.isEnabled,
+);
+
 const isDebug = NativeModules.Constants.isDebug || NativeModules.Constants.isCI;
 
 const app = new App({

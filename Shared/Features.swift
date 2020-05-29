@@ -25,6 +25,11 @@ public struct Features {
         public static var defaultEngineName: String {
             return ""
         }
+        public struct QuickSearch {
+            public static var isEnabled: Bool {
+                return true
+            }
+        }
     }
     public struct PrivacyDashboard {
         public static var isAntiTrackingEnabled: Bool {
