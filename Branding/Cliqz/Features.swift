@@ -23,6 +23,12 @@ extension Features.Search {
     }
 }
 
+extension Features.Search.QuickSearch {
+    public static var isEnabled: Bool {
+        return false
+    }
+}
+
 extension Features.PrivacyDashboard {
     public static var isAntiTrackingEnabled: Bool {
         return true
