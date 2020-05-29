@@ -1,6 +1,9 @@
 import React from 'react';
+import { NativeModules } from 'react-native';
 import { Logo } from '@cliqz/component-ui-logo';
 import getLogo from 'cliqz-logo-database';
+
+import NativeFavIcon from './Logo/FavIcon';
 
 const convertLogoUrl = logo => ({
   ...logo,
@@ -10,7 +13,7 @@ const convertLogoUrl = logo => ({
 const DEFAULT_SIZE = 60;
 const DEFAULT_FONT_SIZE = 28;
 
-export default ({ url, size: _size, fontSize: _fontSize }) => {
+function CliqzLogo({ url, size: _size, fontSize: _fontSize }) {
   const size = _size || DEFAULT_SIZE;
   let fontSize = _fontSize || DEFAULT_FONT_SIZE;
 
@@ -27,4 +30,15 @@ export default ({ url, size: _size, fontSize: _fontSize }) => {
       fontSize={fontSize}
     />
   );
-};
+}
+
+function FavIcon({ url, size: _size }) {
+  if (!url.startsWith('http')) {
+    url = `http://${url}`;
+  }
+  return <NativeFavIcon style={{ width: _size, height: _size }} url={url} />;
+}
+
+export default (NativeModules.Constants.Features.Icons === 'cliqz'
+  ? CliqzLogo
+  : FavIcon);

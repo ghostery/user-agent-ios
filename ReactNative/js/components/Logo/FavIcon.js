@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import { requireNativeComponent, ViewPropTypes } from 'react-native';
 
 const componentInterface = {
-  name: 'NativeDrawable',
+  name: 'NativeFavicon',
   propTypes: {
     ...ViewPropTypes, // include the default view properties
-    source: PropTypes.string,
-    color: PropTypes.string,
+    url: PropTypes.string,
   },
 };
 
-export default requireNativeComponent('NativeDrawable', componentInterface);
+export default requireNativeComponent('NativeFavicon', componentInterface);
