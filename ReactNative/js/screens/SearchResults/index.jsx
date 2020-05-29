@@ -49,6 +49,7 @@ export default class SearchResults extends React.Component {
   render() {
     const { query, results } = this.state;
     const { searchModule, insightsModule, Features } = this.props;
+
     return (
       <Results
         results={results}
