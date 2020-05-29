@@ -1,0 +1,17 @@
+{
+  "images" : [
+    {
+      "filename" : "ghostery-background-6.png",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "ghostery-background-5.png",
+      "idiom" : "universal",
+      "width-class" : "compact"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

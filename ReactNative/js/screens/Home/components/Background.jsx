@@ -15,7 +15,7 @@ const styles = {
 const fallbackImageSource = { uri: 'home-background' };
 const maskSource = { uri: 'mask' };
 
-const useBackgroundImage = () => {
+const useBackgroundImage = hasDynamicBackground => {
   const [url, setUrl] = useState(Settings.get('backgroundUrl'));
   useEffect(() => {
     const fetchBackground = async () => {
@@ -35,6 +35,9 @@ const useBackgroundImage = () => {
         });
       }
     };
+    if (!hasDynamicBackground) {
+      return;
+    }
     if (
       !url ||
       Settings.get('backgroundTimestamp') < Date.now() - 1000 * 60 * 60 * 4 // check every 4h
@@ -46,8 +49,9 @@ const useBackgroundImage = () => {
   return url;
 };
 
-export default ({ height, children }) => {
-  const backgroundUrl = useBackgroundImage();
+export default ({ height, children, Features }) => {
+  const hasDynamicBackground = Features.Home.DynamicBackgrounds.isEnabled;
+  const backgroundUrl = useBackgroundImage(hasDynamicBackground);
   const style = useMemo(
     () => ({
       width: '100%',
@@ -66,7 +70,7 @@ export default ({ height, children }) => {
   const [hasError, setError] = useState(false);
   return (
     <View style={style} accessibilityIgnoresInvertColors>
-      {hasError ? (
+      {hasError || !hasDynamicBackground ? (
         <Image style={StyleSheet.absoluteFill} source={fallbackImageSource} />
       ) : (
         <FastImage
@@ -75,7 +79,9 @@ export default ({ height, children }) => {
           onError={setError}
         />
       )}
-      <Image style={styles.mask} source={maskSource} />
+      {hasDynamicBackground && (
+        <Image style={styles.mask} source={maskSource} />
+      )}
       {children}
     </View>
   );
