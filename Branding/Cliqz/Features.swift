@@ -64,3 +64,9 @@ extension Features.ControlCenter.PrivacyStats.SearchStats {
         return false
     }
 }
+
+extension Features.TodayWidget {
+    public static var isEnabled: Bool {
+        return true
+    }
+}
