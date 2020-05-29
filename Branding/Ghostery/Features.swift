@@ -25,3 +25,9 @@ extension Features.Search.QuickSearch {
         return false
     }
 }
+
+extension Features.ControlCenter.PrivacyStats.SearchStats {
+    public static var isEnabled: Bool {
+        return false
+    }
+}

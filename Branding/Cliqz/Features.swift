@@ -25,7 +25,7 @@ extension Features.Search {
 
 extension Features.Search.QuickSearch {
     public static var isEnabled: Bool {
-        return false
+        return true
     }
 }
 

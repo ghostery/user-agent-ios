@@ -24,13 +24,7 @@ class Constants: NSObject {
             "bundleIdentifier": AppInfo.applicationBundle.bundleIdentifier ?? "",
             "version": AppInfo.appVersion,
             "initialTheme": Self.getTheme(mode: colorScheme),
-            "Features": [
-                "Search": [
-                    "QuickSearch": [
-                        "isEnabled": Features.Search.QuickSearch.isEnabled,
-                    ],
-                ],
-            ],
+            "Features": Features.toDict()
         ]
     }
 
