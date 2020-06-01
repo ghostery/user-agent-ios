@@ -28,7 +28,7 @@ class SuggestionsView: UIView {
         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
         NSAttributedString.Key.foregroundColor: UIColor.Grey80,
     ]
-    private let separatorBgColor = UIColor(rgb: 0xC7CBD3)
+    private let separatorBgColor = UIColor.LightGrey
     private let margin: CGFloat = 10
 
     // MARK: - Private variables

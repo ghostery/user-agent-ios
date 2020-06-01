@@ -7,11 +7,11 @@ enum PrivacyIndicatorTransformation {
         stats: TPPageStats
     ) -> (arcs: [PrivacyIndicator.Segment], strike: PrivacyIndicator.Segment?) {
         if status == .NoBlockedURLs {
-            let color = UIColor(named: "NoTrackersSeen")!
+            let color = UIColor.NoTrackersSeen
             return (arcs: [(color, 1)], strike: nil)
         }
         if [.Disabled, .AllowListed].contains(status) {
-            let color = UIColor(named: "PrivacyIndicatorBackground")!
+            let color = UIColor.PrivacyIndicatorBackground
             return (arcs: [(color, 1)], strike: (color, 1))
         }
         let arcsWithKeys: [(UIColor, Int, WTMCategory)] = WTMCategory.statsDict(from: stats)

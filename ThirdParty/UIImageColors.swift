@@ -151,8 +151,8 @@ extension UIImage {
         let width: Int = cgImage.width
         let height: Int = cgImage.height
 
-        let blackColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        let whiteColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        let blackColor = UIColor.black
+        let whiteColor = UIColor.White
 
         let randomColorsThreshold = Int(CGFloat(height)*0.01)
         let sortedColorComparator: Comparator = { (main, other) -> ComparisonResult in

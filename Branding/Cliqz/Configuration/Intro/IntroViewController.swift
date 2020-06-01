@@ -9,9 +9,9 @@ import Shared
 struct IntroUX {
     static let MinimumFontScale: CGFloat = 0.5
     static let PagerCenterOffsetFromScrollViewBottom = UIScreen.main.bounds.width <= 320 ? 10 : 20
-    static let TitleColor = UIColor(hexString: "#1A1A25")
-    static let TextColor = UIColor(hexString: "#607c85")
-    static let SkipButtonColor = UIColor(hexString: "#97A4AE")
+    static let TitleColor = UIColor.CliqzBlack
+    static let TextColor = UIColor.DarkRain
+    static let SkipButtonColor = UIColor.NeutralGrey
     static let SkipButtonHeight = 50
     static let StartBrowsingButtonColor = UIColor.CliqzBlue
     static let StartBrowsingButtonHeight = UIScreen.main.bounds.width <= 320 ? 40 : 50

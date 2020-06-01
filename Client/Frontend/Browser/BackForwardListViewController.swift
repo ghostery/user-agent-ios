@@ -39,7 +39,7 @@ class BackForwardListViewController: UIViewController, UITableViewDataSource, UI
 
     lazy var shadow: UIView = {
         let shadow = UIView()
-        shadow.backgroundColor = UIColor(white: 0, alpha: 0.2)
+        shadow.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         return shadow
     }()
 

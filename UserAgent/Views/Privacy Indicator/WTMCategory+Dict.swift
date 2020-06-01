@@ -42,33 +42,33 @@ extension WTMCategory {
     var color: UIColor {
         switch self {
         case .advertising:
-            return UIColor(named: "Advertising")!
+            return UIColor.Advertising
         case .analytics:
-            return UIColor(named: "SiteAnalytics")!
+            return UIColor.Analytics
         case .content:
-            return UIColor(named: "Advertising")!
+            return UIColor.Content
         case .social:
-            return UIColor(named: "SocialMedia")!
+            return UIColor.Social
         case .essential:
-            return UIColor(named: "Essential")!
+            return UIColor.Essential
         case .misc:
-            return UIColor(named: "Misc")!
+            return UIColor.Misc
         case .hosting:
-            return UIColor(named: "Hosting")!
+            return UIColor.Hosting
         case .pornvertising:
-            return UIColor(named: "Pornvertising")!
+            return UIColor.Pornvertising
         case .audioVideoPlayer:
-            return UIColor(named: "AudioVideoPlayer")!
+            return UIColor.AudioVideoPlayer
         case .extensions:
-            return UIColor(named: "Extensions")!
+            return UIColor.Extensions
         case .customerInteraction:
-            return UIColor(named: "CustomerInteraction")!
+            return UIColor.CustomerInteraction
         case .comments:
-            return UIColor(named: "Comments")!
+            return UIColor.Comments
         case .cdn:
-            return UIColor(named: "Cdn")!
+            return UIColor.Cdn
         default:
-            return UIColor(named: "Unknown")!
+            return UIColor.Unknown
         }
     }
 
