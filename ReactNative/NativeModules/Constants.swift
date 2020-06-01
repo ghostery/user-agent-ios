@@ -24,6 +24,7 @@ class Constants: NSObject {
             "bundleIdentifier": AppInfo.applicationBundle.bundleIdentifier ?? "",
             "version": AppInfo.appVersion,
             "initialTheme": Self.getTheme(mode: colorScheme),
+            "Features": Features.toDict()
         ]
     }
 

@@ -35,11 +35,13 @@ class AppSettingsTableViewController: SettingsTableViewController {
             self.searchSettingSection(),
             self.privacySettingSection(),
             self.privacyDashboardSettingSection(),
-            self.todayWidgetSettingSection(),
             self.generalSettingSection(),
             self.supportSettingSection(),
             self.aboutSettingSection(),
         ]
+        if Features.TodayWidget.isEnabled {
+            settings.insert(self.todayWidgetSettingSection(), at: 3)
+        }
         if Features.News.isEnabled {
             settings.insert(self.newsSettingSection(), at: 5)
         }
@@ -63,12 +65,14 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     private func searchSettingSection() -> SettingSection {
         let prefs = self.profile.prefs
-        var searchSettings: [Setting] = [
-            SearchLanguageSetting(currentRegion: self.searchCurrentRegion, availableRegions: self.searchAvailableRegions),
-            BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.Settings.Search.AdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
+        var searchSettings: [Setting] = []
+
+        if Features.Search.QuickSearch.isEnabled {
+            searchSettings.append(SearchLanguageSetting(currentRegion: self.searchCurrentRegion, availableRegions: self.searchAvailableRegions))
+            searchSettings.append(BoolSetting(prefs: prefs, defaultValue: self.currentAdultFilterMode == .conservative, titleText: Strings.Settings.Search.AdultFilterMode, enabled: self.currentAdultFilterMode != nil) { (value) in
                 Search.setAdultFilter(filter: value ? .conservative : .liberal)
-            },
-        ]
+            })
+        }
         if Features.Search.AdditionalSearchEngines.isEnabled {
             searchSettings.append(SearchSetting(settings: self))
         }

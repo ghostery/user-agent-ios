@@ -25,6 +25,20 @@ public struct Features {
         public static var defaultEngineName: String {
             return ""
         }
+        public struct QuickSearch {
+            public static var isEnabled: Bool {
+                return true
+            }
+        }
+    }
+    public struct ControlCenter {
+        public struct PrivacyStats {
+            public struct SearchStats {
+                public static var isEnabled: Bool {
+                    return true
+                }
+            }
+        }
     }
     public struct PrivacyDashboard {
         public static var isAntiTrackingEnabled: Bool {
@@ -54,6 +68,18 @@ public struct Features {
     }
 
     public struct AntiPhishing {
+        public static var isEnabled: Bool {
+            return false
+        }
+    }
+    public struct Home {
+        public struct DynamicBackgrounds {
+            public static var isEnabled: Bool {
+                return true
+            }
+        }
+    }
+    public struct TodayWidget {
         public static var isEnabled: Bool {
             return false
         }

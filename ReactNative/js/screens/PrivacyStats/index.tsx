@@ -165,7 +165,13 @@ const mergeStyles = ([...styles], deps: any) => {
   return mergedStyles;
 };
 
-export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
+export default ({
+  insightsModule,
+  Features,
+}: {
+  insightsModule: BrowserCoreModule;
+  Features: any;
+}) => {
   const styles = useStyles(getStyle);
 
   const Stats = useCallback(
@@ -209,40 +215,47 @@ export default ({ insightsModule }: { insightsModule: BrowserCoreModule }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <NativeDrawable
-          style={styles.icon}
-          source="search"
-          color={styles.searchIcon.color}
-        />
-        <Text style={styles.title} allowFontScaling={false}>
-          {t('ControlCenter.SearchStats.Title')}
-        </Text>
-      </View>
-      <View style={styles.statsWrapper}>
-        <View style={styles.row}>
-          <View style={styles.leftRightRow}>
-            <Text style={styles.boldText} allowFontScaling={false}>
-              {formatPercent(searchStats.cliqzSearch)}
-            </Text>
-            <Text style={styles.right} allowFontScaling={false}>
-              {formatPercent(searchStats.otherSearch)}
+      {Features.ControlCenter.PrivacyStats.SearchStats.isEnabled && (
+        <>
+          <View style={styles.titleContainer}>
+            <NativeDrawable
+              style={styles.icon}
+              source="search"
+              color={styles.searchIcon.color}
+            />
+            <Text style={styles.title} allowFontScaling={false}>
+              {t('ControlCenter.SearchStats.Title')}
             </Text>
           </View>
-          <View style={styles.leftRightRow}>
-            <View style={cliqzSearchBarStyle} />
-            <View style={otherSearchBarStyle} />
+          <View style={styles.statsWrapper}>
+            <View style={styles.row}>
+              <View style={styles.leftRightRow}>
+                <Text style={styles.boldText} allowFontScaling={false}>
+                  {formatPercent(searchStats.cliqzSearch)}
+                </Text>
+                <Text style={styles.right} allowFontScaling={false}>
+                  {formatPercent(searchStats.otherSearch)}
+                </Text>
+              </View>
+              <View style={styles.leftRightRow}>
+                <View style={cliqzSearchBarStyle} />
+                <View style={otherSearchBarStyle} />
+              </View>
+              <View style={styles.leftRightRow}>
+                <Text style={styles.statsTitle} allowFontScaling={false}>
+                  {t('ControlCenter.SearchStats.CliqzSearch')}
+                </Text>
+                <Text
+                  style={otherSearchStatsLabelStyle}
+                  allowFontScaling={false}
+                >
+                  {t('ControlCenter.SearchStats.OtherSearch')}
+                </Text>
+              </View>
+            </View>
           </View>
-          <View style={styles.leftRightRow}>
-            <Text style={styles.statsTitle} allowFontScaling={false}>
-              {t('ControlCenter.SearchStats.CliqzSearch')}
-            </Text>
-            <Text style={otherSearchStatsLabelStyle} allowFontScaling={false}>
-              {t('ControlCenter.SearchStats.OtherSearch')}
-            </Text>
-          </View>
-        </View>
-      </View>
+        </>
+      )}
 
       <View style={styles.titleContainer}>
         <NativeDrawable
