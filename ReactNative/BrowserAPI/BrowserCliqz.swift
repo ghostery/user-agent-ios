@@ -33,6 +33,11 @@ class BrowserCliqz: RCTEventEmitter, NativeModuleBase {
             return
         }
 
+        guard pref != AppConstants.PrefSendUsageData || Features.Telemetry.isEnabled else {
+            resolve(nil)
+            return
+        }
+
         self.withAppDelegate { appDel in
             guard let profile = appDel.profile else {
                 resolve(nil)

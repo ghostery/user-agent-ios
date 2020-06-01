@@ -22,7 +22,7 @@ enum PrivacyStatementSection: Int, CaseIterable {
     var numberOfRows: Int {
         switch self {
         case .settings:
-            return 2
+            return 1 + (Features.Telemetry.isEnabled ? 1 : 0)
         case .repository, .privacy, .message:
             return 1
         default:

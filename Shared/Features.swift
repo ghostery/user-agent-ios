@@ -72,6 +72,13 @@ public struct Features {
             return false
         }
     }
+
+    public struct Telemetry {
+        public static var isEnabled: Bool {
+            return false
+        }
+    }
+
     public struct Home {
         public struct DynamicBackgrounds {
             public static var isEnabled: Bool {
@@ -79,6 +86,7 @@ public struct Features {
             }
         }
     }
+
     public struct TodayWidget {
         public static var isEnabled: Bool {
             return false

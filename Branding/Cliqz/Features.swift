@@ -65,6 +65,12 @@ extension Features.ControlCenter.PrivacyStats.SearchStats {
     }
 }
 
+extension Features.Telemetry {
+    public static var isEnabled: Bool {
+        return true
+    }
+}
+
 extension Features.TodayWidget {
     public static var isEnabled: Bool {
         return true
