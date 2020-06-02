@@ -118,6 +118,8 @@
 		2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D2E238BAC8B006D6B57 /* BookmarksView.swift */; };
 		2B516D3C238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */; };
 		2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */; };
+		2B5AED4C24862728001D15CE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* Colors.xcassets */; };
+		2B5AED4D24862756001D15CE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
 		2B66BE062362E26800D78A88 /* PrivacyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */; };
 		2B66BE072362E27600D78A88 /* PhotonCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */; };
 		2B723CDD2461676E008986E5 /* SearchEnginePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B723CDC2461676E008986E5 /* SearchEnginePicker.swift */; };
@@ -143,7 +145,6 @@
 		2B9072192477BB7E0003ADC1 /* Favicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9072182477BB7E0003ADC1 /* Favicons.swift */; };
 		2B90721B2477BEA00003ADC1 /* SQLiteFavicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B90721A2477BEA00003ADC1 /* SQLiteFavicons.swift */; };
 		2B90721D2477BF1C0003ADC1 /* SQLiteHistoryFavicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B90721C2477BF1C0003ADC1 /* SQLiteHistoryFavicons.swift */; };
-		2B9072202477C0150003ADC1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC4F2327F9FC000F5499 /* Colors.swift */; };
 		2B9072222477CEA10003ADC1 /* FaviconFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9072212477CEA10003ADC1 /* FaviconFetcher.swift */; };
 		2B9072232477CEA10003ADC1 /* FaviconFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9072212477CEA10003ADC1 /* FaviconFetcher.swift */; };
 		2B9072252477CF490003ADC1 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9072242477CF490003ADC1 /* UIImageViewExtensions.swift */; };
@@ -677,9 +678,8 @@
 		ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5623290C1A000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
-		ACC6EC5F2329460B000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
-		ACC6EC602329460F000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5D232945F0000F5499 /* colors.xcassets */; };
-		ACC6EC612329485E000F5499 /* colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* colors.xcassets */; };
+		ACC6EC5F2329460B000F5499 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* Colors.xcassets */; };
+		ACC6EC612329485E000F5499 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* Colors.xcassets */; };
 		ACD654792360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */; };
 		ACD6547A2360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */; };
 		ACD6547F23619B5C002D2EE0 /* PhotonCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */; };
@@ -1726,10 +1726,8 @@
 		ACB7398A2306847800FA5626 /* Jenkinsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jenkinsfile; sourceTree = "<group>"; };
 		ACB7398B230684AE00FA5626 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		ACC6EC492327F4B6000F5499 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		ACC6EC4F2327F9FC000F5499 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		ACC6EC5223290974000F5499 /* UIColor+Blending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Blending.swift"; sourceTree = "<group>"; };
-		ACC6EC5D232945F0000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
-		ACC6EC5E232945FF000F5499 /* colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = colors.xcassets; sourceTree = "<group>"; };
+		ACC6EC5E232945FF000F5499 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		ACCEBD8823476EBB00B87136 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		ACD654782360927F002D2EE0 /* PrivacyIndicatorColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyIndicatorColors.xcassets; sourceTree = "<group>"; };
 		ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotonCustomViewCell.swift; sourceTree = "<group>"; };
@@ -2563,7 +2561,6 @@
 			isa = PBXGroup;
 			children = (
 				C50ED2BC2326B17C00EE71B8 /* brand.xcassets */,
-				ACC6EC5D232945F0000F5499 /* colors.xcassets */,
 				2B8577BE2403E90B0052D6C7 /* ShareTo.xcassets */,
 				2B8577BF2403E90B0052D6C7 /* OpenIn.xcassets */,
 			);
@@ -2603,7 +2600,6 @@
 			isa = PBXGroup;
 			children = (
 				C50ED2B52326AB1100EE71B8 /* brand.xcassets */,
-				ACC6EC5E232945FF000F5499 /* colors.xcassets */,
 				2B8577DF2403EB6A0052D6C7 /* OpenIn.xcassets */,
 				2B8577E02403EB6A0052D6C7 /* ShareTo.xcassets */,
 			);
@@ -2951,6 +2947,7 @@
 				4620EA482350ABF9004586CF /* Search.swift */,
 				463432F72332521F0014A9F0 /* Telemetry.swift */,
 				2B4EFBDA2399233A007A10E0 /* News.swift */,
+				ACC6EC492327F4B6000F5499 /* Colors.swift */,
 			);
 			path = UserAgent;
 			sourceTree = "<group>";
@@ -3263,7 +3260,6 @@
 			children = (
 				2B8577C12403E9150052D6C7 /* Configuration */,
 				F84B22431A09165600AAB793 /* Info.plist */,
-				ACC6EC492327F4B6000F5499 /* Colors.swift */,
 				461E5E5A234F68A7004DDE84 /* brand.strings */,
 				466B37252462FF2400747C50 /* Features.swift */,
 				7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */,
@@ -3279,7 +3275,6 @@
 			children = (
 				2B8577B32403E90B0052D6C7 /* Configuration */,
 				ACB7398123042D9300FA5626 /* Info.plist */,
-				ACC6EC4F2327F9FC000F5499 /* Colors.swift */,
 				461E5E58234F6891004DDE84 /* brand.strings */,
 				466B37272463001D00747C50 /* Features.swift */,
 				2B79E3CA247D2B7500263B90 /* InfoPlist.strings */,
@@ -3977,6 +3972,7 @@
 				39A35AEC1C0662A3006B9E87 /* SpotlightHelper.js */,
 				D37524861C6E8B5A00A5F6C2 /* topdomains.txt */,
 				F84B21EF1A0910F600AAB793 /* Images.xcassets */,
+				ACC6EC5E232945FF000F5499 /* Colors.xcassets */,
 				2B9072272477D1B80003ADC1 /* top_sites.json */,
 				E699220D1B94E3EF007C480D /* About */,
 				F35B8D2A1D6380EA008E3D61 /* SessionRestore.html */,
@@ -4635,13 +4631,13 @@
 				ACB737F923042BAB00FA5626 /* NetError.css in Resources */,
 				4661C36B246C11C300F36302 /* 3DTouchActions.strings in Resources */,
 				ACB737FC23042BAB00FA5626 /* Images.xcassets in Resources */,
+				2B5AED4C24862728001D15CE /* Colors.xcassets in Resources */,
 				ACB737FD23042BAB00FA5626 /* SessionRestore.html in Resources */,
 				ACB737FF23042BAB00FA5626 /* Menu.xcassets in Resources */,
 				2B464954243F2003002913F5 /* ContextualOnboarding.strings in Resources */,
 				2B9072292477D1B90003ADC1 /* top_sites.json in Resources */,
 				46569CCC23CC902C00224DC2 /* ControlCenter.strings in Resources */,
 				ACB7380423042BAB00FA5626 /* Reader.html in Resources */,
-				ACC6EC602329460F000F5499 /* colors.xcassets in Resources */,
 				ACB7380623042BAB00FA5626 /* Licenses.html in Resources */,
 				ACB7380723042BAB00FA5626 /* Reader.css in Resources */,
 				ACB7380923042BAB00FA5626 /* AllFramesAtDocumentEnd.js in Resources */,
@@ -4715,7 +4711,7 @@
 				C50ED2B62326AB1100EE71B8 /* brand.xcassets in Resources */,
 				D0FCF8061FE4772D004A7995 /* AllFramesAtDocumentEnd.js in Resources */,
 				D37524871C6E8B5A00A5F6C2 /* topdomains.txt in Resources */,
-				ACC6EC5F2329460B000F5499 /* colors.xcassets in Resources */,
+				ACC6EC5F2329460B000F5499 /* Colors.xcassets in Resources */,
 				7B4980A81CE363ED0017547C /* Settings.xcassets in Resources */,
 				39F4C0FA2045D87400746155 /* FocusHelper.js in Resources */,
 				2B79E3D6247D305500263B90 /* PrivateBrowsing.strings in Resources */,
@@ -4778,7 +4774,7 @@
 				EBE7635920ADCB7600E27F2D /* SendTo.xcassets in Resources */,
 				F8708D2E1A0970B70051AB07 /* Images.xcassets in Resources */,
 				C50ED2A723269F2A00EE71B8 /* ShareTo.strings in Resources */,
-				ACC6EC612329485E000F5499 /* colors.xcassets in Resources */,
+				ACC6EC612329485E000F5499 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5841,7 +5837,6 @@
 				2B9072262477CF490003ADC1 /* UIImageViewExtensions.swift in Sources */,
 				ACB737A723042BAB00FA5626 /* SiriSettingsViewController.swift in Sources */,
 				ACB737A823042BAB00FA5626 /* ContentBlocker.swift in Sources */,
-				2B9072202477C0150003ADC1 /* Colors.swift in Sources */,
 				ACB737A923042BAB00FA5626 /* PhotonActionSheetProtocol.swift in Sources */,
 				2B516D30238BAC8B006D6B57 /* DownloadsViewController.swift in Sources */,
 				46CA60E12316CF300010CE6B /* BrowserActions.m in Sources */,
@@ -5882,6 +5877,7 @@
 				2B32B72C243F693A00607D0A /* GradientView.swift in Sources */,
 				2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
 				464830EC243B290C0052CC2C /* SearchURL.swift in Sources */,
+				2B5AED4D24862756001D15CE /* Colors.swift in Sources */,
 				46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
 				C53212E623A3EB3D00AEC9B2 /* ChatBubbleView.swift in Sources */,
 				46ECCD2723A3864E002E761C /* NativeModuleBase.swift in Sources */,

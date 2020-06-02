@@ -8,7 +8,7 @@ import Shared
 struct SimpleToastUX {
     static let ToastHeight = BottomToolbarHeight
     static let ToastAnimationDuration = 0.5
-    static let ToastDefaultColor = UIColor.CliqzBlue
+    static let ToastDefaultColor = UIColor.Blue
     static let ToastFont = UIFont.systemFont(ofSize: 15)
     static let ToastDismissAfter = DispatchTimeInterval.milliseconds(4500) // 4.5 seconds.
     static let ToastDelayBefore = DispatchTimeInterval.milliseconds(0) // 0 seconds

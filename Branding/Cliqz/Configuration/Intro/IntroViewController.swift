@@ -9,11 +9,11 @@ import Shared
 struct IntroUX {
     static let MinimumFontScale: CGFloat = 0.5
     static let PagerCenterOffsetFromScrollViewBottom = UIScreen.main.bounds.width <= 320 ? 10 : 20
-    static let TitleColor = UIColor.CliqzBlack
+    static let TitleColor = UIColor.Black
     static let TextColor = UIColor.DarkRain
     static let SkipButtonColor = UIColor.NeutralGrey
     static let SkipButtonHeight = 50
-    static let StartBrowsingButtonColor = UIColor.CliqzBlue
+    static let StartBrowsingButtonColor = UIColor.Blue
     static let StartBrowsingButtonHeight = UIScreen.main.bounds.width <= 320 ? 40 : 50
     static let StartBrowsingButtonWidth = UIScreen.main.bounds.width <= 320 ? 200 : 240
     static let PageControlHeight = 40
@@ -48,7 +48,7 @@ class IntroViewController: UIViewController {
     lazy var pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.3)
-        pc.currentPageIndicatorTintColor = UIColor.CliqzBlue
+        pc.currentPageIndicatorTintColor = UIColor.Blue
         pc.accessibilityIdentifier = "IntroViewController.pageControl"
         pc.addTarget(self, action: #selector(IntroViewController.changePage), for: UIControl.Event.valueChanged)
         return pc
