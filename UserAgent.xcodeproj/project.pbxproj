@@ -2533,10 +2533,6 @@
 		2B8577B32403E90B0052D6C7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				2B4400F7242BA54A00DD26DE /* Siri */,
-				2B8577D52403EB0F0052D6C7 /* InfoPlists */,
-				2B8577B92403E90B0052D6C7 /* Entitlements */,
-				2B8577BD2403E90B0052D6C7 /* Assets */,
 				2B8577B82403E90B0052D6C7 /* GhosteryDebug.xcconfig */,
 				2B8577C02403E90B0052D6C7 /* GhosteryAdHoc.xcconfig */,
 				2B8577BC2403E90B0052D6C7 /* GhosteryRelease.xcconfig */,
@@ -3273,6 +3269,10 @@
 		C50ED2B22326AA9400EE71B8 /* Ghostery */ = {
 			isa = PBXGroup;
 			children = (
+				2B4400F7242BA54A00DD26DE /* Siri */,
+				2B8577D52403EB0F0052D6C7 /* InfoPlists */,
+				2B8577B92403E90B0052D6C7 /* Entitlements */,
+				2B8577BD2403E90B0052D6C7 /* Assets */,
 				2B8577B32403E90B0052D6C7 /* Configuration */,
 				ACB7398123042D9300FA5626 /* Info.plist */,
 				461E5E58234F6891004DDE84 /* brand.strings */,
