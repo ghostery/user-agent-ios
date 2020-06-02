@@ -10,8 +10,8 @@ import UIKit
 
 extension UIColor {
     // Primary Colors
-    static let CliqzBlue = UIColor(named: "CliqzBlue")!
-    static let CliqzBlack = UIColor(named: "CliqzBlack")!
+    static let Blue = UIColor(named: "Blue")!
+    static let Black = UIColor(named: "Black")!
     static let White = UIColor(named: "White")!
 
     // Secondary Colors
@@ -57,5 +57,4 @@ extension UIColor {
     static let CODarkBlue = UIColor(named: "CODarkBlue")!
     static let COLightRed = UIColor(named: "COLightRed")!
     static let CODarkRed = UIColor(named: "CODarkRed")!
-
 }

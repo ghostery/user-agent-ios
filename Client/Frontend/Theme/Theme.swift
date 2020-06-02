@@ -78,7 +78,7 @@ class TableViewColor {
     var headerTextLight: UIColor { return UIColor.DarkBlue }
     // Used for table headers in home panel tables
     var headerTextDark: UIColor { return UIColor.Grey90 }
-    var rowActionAccessory: UIColor { return UIColor.CliqzBlue }
+    var rowActionAccessory: UIColor { return UIColor.Blue }
     var controlTint: UIColor { return rowActionAccessory }
     var syncText: UIColor { return Theme.defaultTextAndTint }
     var errorText: UIColor { return UIColor.BrightRed }
@@ -112,7 +112,7 @@ class ActionMenuColor {
 class URLBarColor {
     var border: UIColor { return UIColor.Grey90.with(alpha: .tenPercent) }
     func activeBorder(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.CliqzBlue.with(alpha: .eightyPercent) : UIColor.ForgetMode
+        return !isPrivate ? UIColor.Blue.with(alpha: .eightyPercent) : UIColor.ForgetMode
     }
     var tint: UIColor { return UIColor.Blue40.with(alpha: .thirtyPercent) }
     var background: UIColor {
@@ -150,13 +150,13 @@ class BrowserColor {
 
 // The back/forward/refresh/menu button (bottom toolbar)
 class ToolbarButtonColor {
-    var selectedTint: UIColor { return UIColor.CliqzBlue }
+    var selectedTint: UIColor { return UIColor.Blue }
     var disabledTint: UIColor { return UIColor.Grey30 }
 }
 
 class LoadingBarColor {
     func start(_ isPrivate: Bool) -> UIColor {
-        return !isPrivate ? UIColor.CliqzBlue : UIColor.Grey40
+        return !isPrivate ? UIColor.Blue : UIColor.Grey40
     }
 
     func end(_ isPrivate: Bool) -> UIColor {

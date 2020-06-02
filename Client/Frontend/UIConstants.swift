@@ -19,7 +19,7 @@ public struct UIConstants {
         return ToolbarHeight + bottomInset
     }
 
-    static let SystemBlueColor = UIColor.CliqzBlue
+    static let SystemBlueColor = UIColor.Blue
 
     // Static fonts
     static let DefaultChromeSize: CGFloat = 16

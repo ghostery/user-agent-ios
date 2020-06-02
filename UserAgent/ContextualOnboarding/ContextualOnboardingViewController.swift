@@ -74,7 +74,7 @@ class ContextualOnboardingViewController: UIViewController {
         self.view.backgroundColor = .clear
         if !self.isHorizontalSizeClassRegular {
             UIView.animate(withDuration: 0.1) {
-                self.view.backgroundColor = UIColor.CliqzBlack.withAlphaComponent(ContextualOnboardingUI.backgroundAlpha)
+                self.view.backgroundColor = UIColor.Black.withAlphaComponent(ContextualOnboardingUI.backgroundAlpha)
             }
         }
     }
@@ -114,7 +114,7 @@ class ContextualOnboardingViewController: UIViewController {
             let offset: CGFloat = point.y - self.initialTouchPoint.y
             self.backgroundViewBottomConstrint.update(offset: max(0, offset))
             let alpha = ContextualOnboardingUI.backgroundAlpha - ContextualOnboardingUI.backgroundAlpha * progress
-            self.view.backgroundColor = UIColor.CliqzBlack.withAlphaComponent(alpha)
+            self.view.backgroundColor = UIColor.Black.withAlphaComponent(alpha)
         case .cancelled, .ended, .failed:
             let point = sender.location(in: self.view)
             let backgroundViewY = self.view.frame.height - self.backgroundView.frame.height
@@ -123,7 +123,7 @@ class ContextualOnboardingViewController: UIViewController {
             } else {
                 self.backgroundViewBottomConstrint.update(offset: 0)
                 UIView.animate(withDuration: 0.1) {
-                    self.view.backgroundColor = UIColor.CliqzBlack.withAlphaComponent(ContextualOnboardingUI.backgroundAlpha)
+                    self.view.backgroundColor = UIColor.Black.withAlphaComponent(ContextualOnboardingUI.backgroundAlpha)
                     self.view.layoutIfNeeded()
                 }
             }
