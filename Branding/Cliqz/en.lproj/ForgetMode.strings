@@ -23,3 +23,18 @@
 
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Forget Mode";
+
+/* Description text displayed when there are no open tabs while in private mode */
+"ForgetMode.EmptyPrivateTabsDescription" = "You are browsing in Forget Mode: Websites you visit in the mode will not be saved in your history, and local data, including cookies, will not be stored.";
+
+/* Title displayed for when there are no open tabs while in private mode */
+"ForgetMode.EmptyPrivateTabsTitle" = "Forget Mode";
+
+/* Accessibility label for toggling on/off private mode */
+"ForgetMode.ToggleAccessibilityLabel" = "Forget Mode";
+
+/* Accessiblity hint for toggling on/off private mode */
+"ForgetMode.ToggleAccessibilityHint" = "Turns forget mode on or off";
+
+/* Will be displayed in Settings under 'Close Private Tabs' */
+"ForgetMode.ClosePrivateTabsDescription" = "When Leaving Forget Mode";

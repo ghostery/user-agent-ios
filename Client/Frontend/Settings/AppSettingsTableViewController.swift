@@ -89,7 +89,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
                 prefKey: "settings.closePrivateTabs",
                 defaultValue: false,
                 titleText: Strings.Settings.Privacy.ClosePrivateTabs,
-                statusText: Strings.ClosePrivateTabsDescription),
+                statusText: Strings.ForgetMode.ClosePrivateTabsDescription),
         ]
         return SettingSection(title: NSAttributedString(string: privacyTitle), children: privacySettings)
     }

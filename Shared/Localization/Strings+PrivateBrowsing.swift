@@ -16,7 +16,7 @@ extension Strings {
         }
         public struct AutomaticPrivateMode {
             public static let Title = NSLocalizedString("ForgetMode.AutomaticForgetMode.Title", tableName: "ForgetMode", comment: "Title for Automatic forget mode screen")
-            public static let Description = NSLocalizedString("ForgetMode.AutomaticForgetMode.Description", tableName: "ForgetMode", comment: "Description for Automatic forget mode screen")
+            public static let Description = String(format:  NSLocalizedString("ForgetMode.AutomaticForgetMode.Description", tableName: "ForgetMode", comment: "Description for Automatic forget mode screen"), AppInfo.displayName)
         }
         public struct ContextMenu {
             public static let OpenInNewPrivateTab = NSLocalizedString("ForgetMode.ContextMenu.OpenInNewPrivateTab", tableName: "ForgetMode", comment: "The title for the Open in New Private Tab context menu action for sites in Home Panels")
@@ -27,11 +27,10 @@ extension Strings {
         public struct TabTray {
             public static let SwitchToPBMKeyCodeTitle = NSLocalizedString("ForgetMode.TabTray.SwitchToPBMKeyCodeTitle", tableName: "ForgetMode", comment: "Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down.")
         }
+        public static let EmptyPrivateTabsTitle = NSLocalizedString("ForgetMode.EmptyPrivateTabsTitle", tableName: "ForgetMode", comment: "Title displayed for when there are no open tabs while in private mode")
+        public static let EmptyPrivateTabsDescription = NSLocalizedString("ForgetMode.EmptyPrivateTabsDescription", tableName: "ForgetMode", comment: "Empty tab title")
+        public static let ClosePrivateTabsDescription = NSLocalizedString("ForgetMode.ClosePrivateTabsDescription", tableName: "ForgetMode", comment: "Will be displayed in Settings under 'Close Private Tabs'")
+        public static let ToggleAccessibilityLabel = NSLocalizedString("ForgetMode.ToggleAccessibilityLabel", tableName: "ForgetMode", comment: "Accessibility label for toggling on/off private mode")
+        public static let ToggleAccessibilityHint = NSLocalizedString("ForgetMode.ToggleAccessibilityHint", tableName: "ForgetMode", comment: "Accessiblity hint for toggling on/off private mode")
     }
-    public static let PrivateBrowsingEmptyPrivateTabsTitle = NSLocalizedString("Private Browsing", tableName: "PrivateBrowsing", comment: "Title displayed for when there are no open tabs while in private mode")
-    public static let PrivateBrowsingEmptyPrivateTabsDescription = String(format: NSLocalizedString("Empty.Private.Tab.Description", tableName: "PrivateBrowsing", comment: "Empty tab title"), AppInfo.displayName)
-    public static let ClosePrivateTabsDescription = NSLocalizedString("When Leaving Private Browsing", tableName: "PrivateBrowsing", comment: "Will be displayed in Settings under 'Close Private Tabs'")
-    public static let ContextMenuOpenInNewPrivateTab = NSLocalizedString("ContextMenu.OpenInNewPrivateTabButtonTitle", tableName: "PrivateBrowsing", comment: "Context menu option for opening a link in a new private tab")
-    public static let PrivateBrowsingToggleAccessibilityLabel = NSLocalizedString("Private Mode", tableName: "PrivateBrowsing", comment: "Accessibility label for toggling on/off private mode")
-    public static let PrivateBrowsingToggleAccessibilityHint = NSLocalizedString("Turns private mode on or off", tableName: "PrivateBrowsing", comment: "Accessiblity hint for toggling on/off private mode")
 }

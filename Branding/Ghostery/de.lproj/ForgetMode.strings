@@ -22,4 +22,19 @@
 "ForgetMode.Hotkeys.PrivateBrowsingModeTitle" = "Ghost-Tabs";
 
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Vergessen-Modus";
+"ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Ghost-Tabs";
+
+/* Description text displayed when there are no open tabs while in private mode */
+"ForgetMode.EmptyPrivateTabsDescription" = "Du surfst mit Ghost-Tabs: Websites, die du in diesem Modus besuchst, werden nicht in deinem Browserverlauf gespeichert, und lokale Daten einschließlich Cookies werden nicht gespeichert.";
+
+/* Title displayed for when there are no open tabs while in private mode */
+"ForgetMode.EmptyPrivateTabsTitle" = "Ghost-Tab Surfen";
+
+/* Accessibility label for toggling on/off private mode */
+"ForgetMode.ToggleAccessibilityLabel" = "Ghost-Tabs";
+
+/* Accessiblity hint for toggling on/off private mode */
+"ForgetMode.ToggleAccessibilityHint" = "Schaltet den Ghost-Tabs an oder aus";
+
+/* Will be displayed in Settings under 'Close Private Tabs' */
+"ForgetMode.ClosePrivateTabsDescription" = "Beim Verlassen von Ghost-Tabs";
