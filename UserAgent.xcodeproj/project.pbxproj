@@ -2533,10 +2533,6 @@
 		2B8577B32403E90B0052D6C7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				2B4400F7242BA54A00DD26DE /* Siri */,
-				2B8577D52403EB0F0052D6C7 /* InfoPlists */,
-				2B8577B92403E90B0052D6C7 /* Entitlements */,
-				2B8577BD2403E90B0052D6C7 /* Assets */,
 				2B8577B82403E90B0052D6C7 /* GhosteryDebug.xcconfig */,
 				2B8577C02403E90B0052D6C7 /* GhosteryAdHoc.xcconfig */,
 				2B8577BC2403E90B0052D6C7 /* GhosteryRelease.xcconfig */,
@@ -2570,12 +2566,6 @@
 		2B8577C12403E9150052D6C7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				2B4400F3242BA51A00DD26DE /* Siri */,
-				2B8577DA2403EB530052D6C7 /* InfoPlists */,
-				2B8577C92403E9150052D6C7 /* Entitlements */,
-				2B8577CC2403E9150052D6C7 /* Assets */,
-				E49943F31AE6879C00BF9DE4 /* Intro */,
-				C5B83E5A239F9CF9003687AC /* PrivacyStatement */,
 				2B8577C32403E9150052D6C7 /* CliqzDebug.xcconfig */,
 				2B8577C42403E9150052D6C7 /* CliqzAdHoc.xcconfig */,
 				2B8577C22403E9150052D6C7 /* CliqzRelease.xcconfig */,
@@ -3258,6 +3248,12 @@
 		C50ED2B12326AA8F00EE71B8 /* Cliqz */ = {
 			isa = PBXGroup;
 			children = (
+				2B4400F3242BA51A00DD26DE /* Siri */,
+				2B8577DA2403EB530052D6C7 /* InfoPlists */,
+				2B8577C92403E9150052D6C7 /* Entitlements */,
+				2B8577CC2403E9150052D6C7 /* Assets */,
+				E49943F31AE6879C00BF9DE4 /* Intro */,
+				C5B83E5A239F9CF9003687AC /* PrivacyStatement */,
 				2B8577C12403E9150052D6C7 /* Configuration */,
 				F84B22431A09165600AAB793 /* Info.plist */,
 				461E5E5A234F68A7004DDE84 /* brand.strings */,
@@ -3273,6 +3269,10 @@
 		C50ED2B22326AA9400EE71B8 /* Ghostery */ = {
 			isa = PBXGroup;
 			children = (
+				2B4400F7242BA54A00DD26DE /* Siri */,
+				2B8577D52403EB0F0052D6C7 /* InfoPlists */,
+				2B8577B92403E90B0052D6C7 /* Entitlements */,
+				2B8577BD2403E90B0052D6C7 /* Assets */,
 				2B8577B32403E90B0052D6C7 /* Configuration */,
 				ACB7398123042D9300FA5626 /* Info.plist */,
 				461E5E58234F6891004DDE84 /* brand.strings */,
@@ -7775,7 +7775,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/Cliqz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
@@ -7817,7 +7817,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/Ghostery.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
@@ -8182,7 +8182,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/CliqzAdHoc.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Entitlements/CliqzAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
@@ -8485,7 +8485,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/GhosteryDebug.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Entitlements/GhosteryDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
@@ -8542,7 +8542,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Adhoc;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/GhosteryAdHoc.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Entitlements/GhosteryAdHoc.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
@@ -8599,7 +8599,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Configuration/Entitlements/Ghostery.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
@@ -8719,7 +8719,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/Cliqz.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Entitlements/Cliqz.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
@@ -9011,7 +9011,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
-				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Configuration/Entitlements/CliqzDebug.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Cliqz/Entitlements/CliqzDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
