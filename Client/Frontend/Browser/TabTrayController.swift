@@ -698,8 +698,8 @@ private class EmptyPrivateTabsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        titleLabel.text = Strings.PrivateBrowsingEmptyPrivateTabsTitle
-        descriptionLabel.text = Strings.PrivateBrowsingEmptyPrivateTabsDescription
+        titleLabel.text = Strings.ForgetMode.EmptyPrivateTabsTitle
+        descriptionLabel.text = Strings.ForgetMode.EmptyPrivateTabsDescription
 
         addSubview(titleLabel)
         addSubview(descriptionLabel)

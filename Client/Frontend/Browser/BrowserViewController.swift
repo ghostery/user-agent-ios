@@ -2031,7 +2031,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
                 actionSheetController.addAction(openNewTabAction, accessibilityIdentifier: "linkContextMenu.openInNewTab")
             }
 
-            let openNewPrivateTabAction =  UIAlertAction(title: Strings.ContextMenuOpenInNewPrivateTab, style: .default) { _ in
+            let openNewPrivateTabAction =  UIAlertAction(title: Strings.ForgetMode.ContextMenu.OpenInNewPrivateTab, style: .default) { _ in
                 addTab(url, true)
             }
             actionSheetController.addAction(openNewPrivateTabAction, accessibilityIdentifier: "linkContextMenu.openInNewPrivateTab")

@@ -11,8 +11,8 @@ class PrivateModeButton: ToggleButton, PrivateModeUI {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        accessibilityLabel = Strings.PrivateBrowsingToggleAccessibilityLabel
-        accessibilityHint = Strings.PrivateBrowsingToggleAccessibilityHint
+        accessibilityLabel = Strings.ForgetMode.ToggleAccessibilityLabel
+        accessibilityHint = Strings.ForgetMode.ToggleAccessibilityHint
         let maskImage = UIImage(named: "forgetMode")?.withRenderingMode(.alwaysTemplate)
         setImage(maskImage, for: [])
     }

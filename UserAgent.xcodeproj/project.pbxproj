@@ -129,8 +129,6 @@
 		2B79E3BF247D28FB00263B90 /* ForgetMode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3C1247D28FB00263B90 /* ForgetMode.strings */; };
 		2B79E3C3247D290D00263B90 /* ForgetMode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3C5247D290D00263B90 /* ForgetMode.strings */; };
 		2B79E3CC247D2B7500263B90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3CA247D2B7500263B90 /* InfoPlist.strings */; };
-		2B79E3D2247D303B00263B90 /* PrivateBrowsing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3D0247D303B00263B90 /* PrivateBrowsing.strings */; };
-		2B79E3D6247D305500263B90 /* PrivateBrowsing.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3D4247D305500263B90 /* PrivateBrowsing.strings */; };
 		2B79E415247E7E6D00263B90 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E414247E7E6D00263B90 /* LaunchScreen.xib */; };
 		2B79E41E24811FA500263B90 /* UIColor+PrivacyIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E41D24811FA500263B90 /* UIColor+PrivacyIndicator.swift */; };
 		2B79E41F24811FA500263B90 /* UIColor+PrivacyIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E41D24811FA500263B90 /* UIColor+PrivacyIndicator.swift */; };
@@ -1382,10 +1380,6 @@
 		2B79E3C6247D291000263B90 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ForgetMode.strings; sourceTree = "<group>"; };
 		2B79E3CB247D2B7500263B90 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B79E3CD247D2B7F00263B90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2B79E3D1247D303B00263B90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
-		2B79E3D3247D304200263B90 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
-		2B79E3D5247D305500263B90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
-		2B79E3D7247D305C00263B90 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PrivateBrowsing.strings; sourceTree = "<group>"; };
 		2B79E414247E7E6D00263B90 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		2B79E41D24811FA500263B90 /* UIColor+PrivacyIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PrivacyIndicator.swift"; sourceTree = "<group>"; };
 		2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
@@ -3259,7 +3253,6 @@
 				461E5E5A234F68A7004DDE84 /* brand.strings */,
 				466B37252462FF2400747C50 /* Features.swift */,
 				7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */,
-				2B79E3D4247D305500263B90 /* PrivateBrowsing.strings */,
 				2B79E3C1247D28FB00263B90 /* ForgetMode.strings */,
 				E4D6BEB81A0930EC00F538BD /* LaunchScreen.xib */,
 			);
@@ -3278,7 +3271,6 @@
 				461E5E58234F6891004DDE84 /* brand.strings */,
 				466B37272463001D00747C50 /* Features.swift */,
 				2B79E3CA247D2B7500263B90 /* InfoPlist.strings */,
-				2B79E3D0247D303B00263B90 /* PrivateBrowsing.strings */,
 				2B79E3C5247D290D00263B90 /* ForgetMode.strings */,
 				2B79E414247E7E6D00263B90 /* LaunchScreen.xib */,
 			);
@@ -4653,7 +4645,6 @@
 				ACD6547A2360927F002D2EE0 /* PrivacyIndicatorColors.xcassets in Resources */,
 				46CA610323180E1A0010CE6B /* Icons.xcassets in Resources */,
 				ACB7380E23042BAB00FA5626 /* FocusHelper.js in Resources */,
-				2B79E3D2247D303B00263B90 /* PrivateBrowsing.strings in Resources */,
 				4661C36F246C11D300F36302 /* ErrorPages.strings in Resources */,
 				ACB7381323042BAB00FA5626 /* MainFrameAtDocumentStart.js in Resources */,
 				ACB7381423042BAB00FA5626 /* SearchPlugins in Resources */,
@@ -4714,7 +4705,6 @@
 				ACC6EC5F2329460B000F5499 /* Colors.xcassets in Resources */,
 				7B4980A81CE363ED0017547C /* Settings.xcassets in Resources */,
 				39F4C0FA2045D87400746155 /* FocusHelper.js in Resources */,
-				2B79E3D6247D305500263B90 /* PrivateBrowsing.strings in Resources */,
 				D0FCF8081FE4772D004A7995 /* MainFrameAtDocumentStart.js in Resources */,
 				461E5E5B234F68A7004DDE84 /* brand.strings in Resources */,
 				2BE3BD87246ED02F0066D0BD /* ReaderMode.strings in Resources */,
@@ -6542,24 +6532,6 @@
 				2B79E3CD247D2B7F00263B90 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2B79E3D0247D303B00263B90 /* PrivateBrowsing.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2B79E3D1247D303B00263B90 /* en */,
-				2B79E3D3247D304200263B90 /* de */,
-			);
-			name = PrivateBrowsing.strings;
-			sourceTree = "<group>";
-		};
-		2B79E3D4247D305500263B90 /* PrivateBrowsing.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2B79E3D5247D305500263B90 /* en */,
-				2B79E3D7247D305C00263B90 /* de */,
-			);
-			name = PrivateBrowsing.strings;
 			sourceTree = "<group>";
 		};
 		2BD8957F24223D0C00589165 /* InfoPlist.strings */ = {
