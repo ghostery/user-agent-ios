@@ -13,15 +13,6 @@ use_frameworks!
 
 ## Definition for individual pods, or groups of pods
 def flipper
-  # flipperkit_version = '~> 0.35.0'
-
-  # pod 'FlipperKit', flipperkit_version, :configuration => 'Debug'
-  # # Layout and network plugins are not yet supported for swift projects
-  # pod 'FlipperKit/FlipperKitLayoutComponentKitSupport', flipperkit_version, :configuration => 'Debug'
-  # pod 'FlipperKit/SKIOSNetworkPlugin', flipperkit_version, :configuration => 'Debug'
-  # pod 'FlipperKit/FlipperKitUserDefaultsPlugin', flipperkit_version, :configuration => 'Debug'
-  # pod 'FlipperKit/FlipperKitReactPlugin', flipperkit_version, :configuration => 'Debug'
-
   versions = {}
   versions['Flipper'] ||= '~> 0.33.1'
   versions['DoubleConversion'] ||= '1.1.7'
