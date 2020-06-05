@@ -81,7 +81,6 @@ def fuzi
 end
 
 def sqlite
-  pod 'sqlite3', '~> 3.31.1'
   pod 'SQLCipher', '~> 4.3'
 end
 

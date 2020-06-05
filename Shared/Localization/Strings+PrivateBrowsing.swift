@@ -16,7 +16,7 @@ extension Strings {
         }
         public struct AutomaticPrivateMode {
             public static let Title = NSLocalizedString("ForgetMode.AutomaticForgetMode.Title", tableName: "ForgetMode", comment: "Title for Automatic forget mode screen")
-            public static let Description = String(format:  NSLocalizedString("ForgetMode.AutomaticForgetMode.Description", tableName: "ForgetMode", comment: "Description for Automatic forget mode screen"), AppInfo.displayName)
+            public static let Description = String(format: NSLocalizedString("ForgetMode.AutomaticForgetMode.Description", tableName: "ForgetMode", comment: "Description for Automatic forget mode screen"), AppInfo.displayName)
         }
         public struct ContextMenu {
             public static let OpenInNewPrivateTab = NSLocalizedString("ForgetMode.ContextMenu.OpenInNewPrivateTab", tableName: "ForgetMode", comment: "The title for the Open in New Private Tab context menu action for sites in Home Panels")
