@@ -58,9 +58,9 @@ public struct Features {
     }
 
     public struct Icons {
-        public enum IconType {
-            case cliqz
-            case favicon
+        public enum IconType: String {
+            case cliqz = "cliqz"
+            case favicon = "favicon"
         }
         public static var type: IconType {
             return .favicon
