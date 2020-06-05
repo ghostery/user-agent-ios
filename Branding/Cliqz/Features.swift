@@ -16,7 +16,7 @@ extension Features.Search.AdditionalSearchEngines {
 
 extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
-        return .search
+        return .dismiss
     }
     public static var defaultEngineName: String {
         return "Cliqz"
@@ -25,7 +25,7 @@ extension Features.Search {
 
 extension Features.Search.QuickSearch {
     public static var isEnabled: Bool {
-        return false
+        return true
     }
 }
 
