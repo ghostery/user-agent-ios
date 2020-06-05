@@ -188,7 +188,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
     private func setupFlipper(_ application: UIApplication) {
         let client = FlipperClient.shared()
         let layoutDescriptorMapper = SKDescriptorMapper(defaults: ())
-        FlipperKitLayoutComponentKitSupport.setUpWith(layoutDescriptorMapper)
         client?.add(FlipperKitLayoutPlugin(rootNode: application, with: layoutDescriptorMapper!))
         client?.add(FlipperKitNetworkPlugin(networkAdapter: SKIOSNetworkAdapter()))
         client?.add(FKUserDefaultsPlugin(suiteName: AppInfo.sharedContainerIdentifier))
