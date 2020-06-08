@@ -63,6 +63,8 @@
 		28E08C9A1AF44F00009BA2FA /* BrowserSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282915E51AF1A7920006EEB5 /* BrowserSchema.swift */; };
 		2B0360902350B07200273A24 /* tracker_db_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B03608F2350B07200273A24 /* tracker_db_v2.json */; };
 		2B0360912350B07200273A24 /* tracker_db_v2.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B03608F2350B07200273A24 /* tracker_db_v2.json */; };
+		2B0C81CC248E1B89003F97B4 /* BrandColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0C81CB248E1B89003F97B4 /* BrandColors.xcassets */; };
+		2B0C81CE248E1BF8003F97B4 /* BrandColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0C81CD248E1BF8003F97B4 /* BrandColors.xcassets */; };
 		2B0E93692407A92300ED7703 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3905274B1C874D35007E0BB7 /* NotificationCenter.framework */; };
 		2B0E936C2407A92300ED7703 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E936B2407A92300ED7703 /* TodayViewController.swift */; };
 		2B0E93732407A92300ED7703 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B0E93682407A92300ED7703 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -630,7 +632,7 @@
 		ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		ACB737E823042BAB00FA5626 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		ACB737E823042BAB00FA5626 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
 		ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */; };
 		ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6327A631BF6438E008D12E0 /* DebugSettingsBundleOptions.swift */; };
@@ -1312,6 +1314,8 @@
 		28D52E081BCDF44100187A1D /* ResetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetTests.swift; sourceTree = "<group>"; };
 		29FDDD173651239132A7DE8D /* Pods-GhosteryShareTo.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhosteryShareTo.adhoc.xcconfig"; path = "Target Support Files/Pods-GhosteryShareTo/Pods-GhosteryShareTo.adhoc.xcconfig"; sourceTree = "<group>"; };
 		2B03608F2350B07200273A24 /* tracker_db_v2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tracker_db_v2.json; sourceTree = "<group>"; };
+		2B0C81CB248E1B89003F97B4 /* BrandColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BrandColors.xcassets; sourceTree = "<group>"; };
+		2B0C81CD248E1BF8003F97B4 /* BrandColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BrandColors.xcassets; sourceTree = "<group>"; };
 		2B0E93682407A92300ED7703 /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0E936B2407A92300ED7703 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		2B0E93702407A92300ED7703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -3263,6 +3267,7 @@
 				7B2142FC1E5E055000CDD3FC /* InfoPlist.strings */,
 				2B79E3C1247D28FB00263B90 /* ForgetMode.strings */,
 				E4D6BEB81A0930EC00F538BD /* LaunchScreen.xib */,
+				2B0C81CD248E1BF8003F97B4 /* BrandColors.xcassets */,
 			);
 			path = Cliqz;
 			sourceTree = "<group>";
@@ -3281,6 +3286,7 @@
 				2B79E3CA247D2B7500263B90 /* InfoPlist.strings */,
 				2B79E3C5247D290D00263B90 /* ForgetMode.strings */,
 				2B79E414247E7E6D00263B90 /* LaunchScreen.xib */,
+				2B0C81CB248E1B89003F97B4 /* BrandColors.xcassets */,
 			);
 			path = Ghostery;
 			sourceTree = "<group>";
@@ -4654,6 +4660,7 @@
 				46CA610323180E1A0010CE6B /* Icons.xcassets in Resources */,
 				ACB7380E23042BAB00FA5626 /* FocusHelper.js in Resources */,
 				4661C36F246C11D300F36302 /* ErrorPages.strings in Resources */,
+				2B0C81CC248E1B89003F97B4 /* BrandColors.xcassets in Resources */,
 				ACB7381323042BAB00FA5626 /* MainFrameAtDocumentStart.js in Resources */,
 				ACB7381423042BAB00FA5626 /* SearchPlugins in Resources */,
 				ACB7381523042BAB00FA5626 /* MailSchemes.plist in Resources */,
@@ -4719,6 +4726,7 @@
 				D30684F11C84F12A002D8D82 /* SearchPlugins in Resources */,
 				74821FFE1DB6D3AC00EEEA72 /* MailSchemes.plist in Resources */,
 				D308EE561CBF0BF5006843F2 /* CertError.css in Resources */,
+				2B0C81CE248E1BF8003F97B4 /* BrandColors.xcassets in Resources */,
 				2B76E43B23A12DB4001CF20E /* PrivacyStatement.strings in Resources */,
 				2BE3BD91247270D10066D0BD /* Settings.strings in Resources */,
 				0BA1E00E1B03FB0B007675AF /* NetError.html in Resources */,
@@ -5910,7 +5918,7 @@
 				ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
-				ACB737E823042BAB00FA5626 /* BuildFile in Sources */,
+				ACB737E823042BAB00FA5626 /* (null) in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
