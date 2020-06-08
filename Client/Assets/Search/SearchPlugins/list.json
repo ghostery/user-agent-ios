@@ -725,7 +725,7 @@
     "uk": {
       "default": {
         "visibleDefaultEngines": [
-         "cliqz", "google-b-m", "twitter", "wikipedia-uk", "yandex-market"
+         "cliqz", "google-b-m", "twitter", "wikipedia-uk", "hotline"
         ]
       }
     },
