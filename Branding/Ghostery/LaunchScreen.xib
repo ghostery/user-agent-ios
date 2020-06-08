@@ -35,7 +35,7 @@
     <resources>
         <image name="splash-Icon" width="154" height="154"/>
         <namedColor name="LaunchScreenBackground">
-            <color red="0.94900000095367432" green="0.96100002527236938" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94899999999999995" green="0.94899999999999995" blue="0.97599999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
