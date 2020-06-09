@@ -173,7 +173,7 @@ class SearchEnginesTests: XCTestCase {
     func testSearchEnginesURLs() {
         let profile = MockProfile()
         let query: String = "query"
-        if let url = URL(string: "https://beta.cliqz.com/search/?q=\(query)") {
+        if let url = URL(string: "https://cliqz.com/search/?q=\(query)") {
             XCTAssertTrue(profile.searchEngines.isSearchEngineRedirectURL(url: url, query: query), "Should be search engine redirect url.")
         }
         if let url = URL(string: "https://www.google.com/search?q=\(query)") {
