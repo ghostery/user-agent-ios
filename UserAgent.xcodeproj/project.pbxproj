@@ -80,6 +80,7 @@
 		2B308AD0242B2DC1009AF3D1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B308ACE242B2DC1009AF3D1 /* IntentHandler.swift */; };
 		2B32B72B243F693A00607D0A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32B72A243F693A00607D0A /* GradientView.swift */; };
 		2B32B72C243F693A00607D0A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32B72A243F693A00607D0A /* GradientView.swift */; };
+		2B38E2302493A797001D6236 /* Strings+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B38E22F2493A797001D6236 /* Strings+Menu.swift */; };
 		2B427C7223D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */; };
 		2B427C7323D6E76500BF1308 /* NewTabDefaulViewSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */; };
 		2B4400E4242B9C7D00DD26DE /* SearchWithHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4400E3242B9C7D00DD26DE /* SearchWithHandling.swift */; };
@@ -1328,6 +1329,7 @@
 		2B308ACE242B2DC1009AF3D1 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		2B308ACF242B2DC1009AF3D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B32B72A243F693A00607D0A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		2B38E22F2493A797001D6236 /* Strings+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Menu.swift"; sourceTree = "<group>"; };
 		2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabDefaulViewSettingsViewController.swift; sourceTree = "<group>"; };
 		2B4400E3242B9C7D00DD26DE /* SearchWithHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWithHandling.swift; sourceTree = "<group>"; };
 		2B4400E5242B9DB500DD26DE /* SiriActivityTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiriActivityTypes.swift; sourceTree = "<group>"; };
@@ -3179,6 +3181,7 @@
 				2BE3BD7F246EC9C60066D0BD /* Strings+ErrorPages.swift */,
 				2BE3BD81246ECDFB0066D0BD /* Strings+ReaderMode.swift */,
 				2BE3BD97247272F90066D0BD /* Strings+Settings.swift */,
+				2B38E22F2493A797001D6236 /* Strings+Menu.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -5492,6 +5495,7 @@
 				E65075B61E37F7AB006961AC /* Loader.swift in Sources */,
 				E65075BF1E37F7AB006961AC /* UserAgent.swift in Sources */,
 				E65075C01E37F7AB006961AC /* WeakList.swift in Sources */,
+				2B38E2302493A797001D6236 /* Strings+Menu.swift in Sources */,
 				2BF5F142246E6CE500837817 /* Strings+AlertController.swift in Sources */,
 				E65075AE1E37F7AB006961AC /* UIImageExtensions.swift in Sources */,
 				E65075A71E37F7AB006961AC /* ScannerExtensions.swift in Sources */,

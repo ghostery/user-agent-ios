@@ -75,33 +75,33 @@ extension WTMCategory {
     var localizedName: String {
         switch self {
         case .advertising:
-            return Strings.Menu.TrackingProtectionAdsBlocked
+            return Strings.Menu.TrackingProtection.AdsBlocked
         case .analytics:
-            return Strings.Menu.TrackingProtectionAnalyticsBlocked
+            return Strings.Menu.TrackingProtection.AnalyticsBlocked
         case .content:
-            return Strings.Menu.TrackingProtectionContentBlocked
+            return Strings.Menu.TrackingProtection.ContentBlocked
         case .social:
-            return Strings.Menu.TrackingProtectionSocialBlocked
+            return Strings.Menu.TrackingProtection.SocialBlocked
         case .essential:
-            return Strings.Menu.TrackingProtectionEssentialBlocked
+            return Strings.Menu.TrackingProtection.EssentialBlocked
         case .misc:
-            return Strings.Menu.TrackingProtectionMiscBlocked
+            return Strings.Menu.TrackingProtection.MiscBlocked
         case .hosting:
-            return Strings.Menu.TrackingProtectionHostingBlocked
+            return Strings.Menu.TrackingProtection.HostingBlocked
         case .pornvertising:
-            return Strings.Menu.TrackingProtectionPornvertisingBlocked
+            return Strings.Menu.TrackingProtection.PornvertisingBlocked
         case .audioVideoPlayer:
-            return Strings.Menu.TrackingProtectionAudioVideoPlayerBlocked
+            return Strings.Menu.TrackingProtection.AudioVideoPlayerBlocked
         case .extensions:
-            return Strings.Menu.TrackingProtectionExtensionsBlocked
+            return Strings.Menu.TrackingProtection.ExtensionsBlocked
         case .customerInteraction:
-            return Strings.Menu.TrackingProtectionCustomerInteractionBlocked
+            return Strings.Menu.TrackingProtection.CustomerInteractionBlocked
         case .comments:
-            return Strings.Menu.TrackingProtectionCommentsBlocked
+            return Strings.Menu.TrackingProtection.CommentsBlocked
         case .cdn:
-            return Strings.Menu.TrackingProtectionCDNBlocked
+            return Strings.Menu.TrackingProtection.CDNBlocked
         default:
-            return Strings.Menu.TrackingProtectioUnknownBlocked
+            return Strings.Menu.TrackingProtection.UnknownBlocked
         }
     }
 }
