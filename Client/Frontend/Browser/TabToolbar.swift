@@ -92,7 +92,7 @@ open class TabToolbarHelper: NSObject {
 
         toolbar.menuButton.contentMode = .center
         toolbar.menuButton.setImage(UIImage(named: "nav-menu")?.tinted(withColor: Theme.general.controlTint), for: .normal)
-        toolbar.menuButton.accessibilityLabel = Strings.Menu.ButtonAccessibilityLabel
+        toolbar.menuButton.accessibilityLabel = Strings.Accessibility.Toolbar.MenuButtonAccessibilityLabel
         toolbar.menuButton.addTarget(self, action: #selector(didClickMenu), for: .touchUpInside)
         toolbar.menuButton.accessibilityIdentifier = "TabToolbar.menuButton"
         toolbar.menuButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(didLongPressMenu(_:))))

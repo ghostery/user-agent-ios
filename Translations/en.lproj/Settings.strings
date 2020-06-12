@@ -250,3 +250,30 @@
 
 /* Setting for closing private tabs */
 "Settings.Privacy.ClosePrivateTabs" = "Close Forget Mode Tabs";
+
+/* The message that asks the user to Add the search provider explaining where the search engine will appear */
+"Settings.Search.ThirdPartyEngines.AddMessage" = "The new search engine will appear in the quick search bar.";
+
+/* The success message that appears after a user sucessfully adds a new search engine */
+"Settings.Search.ThirdPartyEngines.AddSuccess" = "Added Search engine!";
+
+/* The title that asks the user to Add the search provider */
+"Settings.Search.ThirdPartyEngines.AddTitle" = "Add Search Provider?";
+
+/* A message explaining fault in custom search engine form. */
+"Settings.Search.ThirdPartyEngines.DuplicateErrorMessage" = "A search engine with this title or URL has already been added.";
+
+/* A title stating that we failed to add custom search engine. */
+"Settings.Search.ThirdPartyEngines.DuplicateErrorTitle" = "Failed";
+
+/* A title explaining that we failed to add a search engine */
+"Settings.Search.ThirdPartyEngines.FailedMessage" = "The search provider could not be added.";
+
+/* A title explaining that we failed to add a search engine */
+"Settings.Search.ThirdPartyEngines.FailedTitle" = "Failed";
+
+/* A message explaining fault in custom search engine form. */
+"Settings.Search.ThirdPartyEngines.FormErrorMessage" = "Please fill all fields correctly.";
+
+/* A title stating that we failed to add custom search engine. */
+"Settings.Search.ThirdPartyEngines.FormErrorTitle" = "Failed";

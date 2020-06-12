@@ -53,13 +53,17 @@ extension Strings {
             public static let Swipe = NSLocalizedString("Accessibility.TabTray.Swipe", tableName: "Accessibility", comment: "Accessibility hint for tab tray's displayed tab.")
             public static let ShowTabs = NSLocalizedString("Accessibility.TabTray.ShowTabs", tableName: "Accessibility", comment: "Accessibility Label for the tabs button in the tab toolbar")
             public static let NewTab = NSLocalizedString("Accessibility.TabTray.NewTab", tableName: "Accessibility", comment: "Accessibility label for the New Tab button in the tab toolbar.")
+            public static let DeleteMenuButton = NSLocalizedString("Accessibility.TabTray.DeleteMenu", comment: "Accessibility label for the Close All Tabs menu button.")
         }
         public struct PrivateBrowsing {
             public static let ToggleAccessibilityValueOn = NSLocalizedString("Accessibility.PrivateBrowsing.On", tableName: "Accessibility", comment: "Toggled ON accessibility value")
             public static let ToggleAccessibilityValueOff = NSLocalizedString("Accessibility.PrivateBrowsing.Off", tableName: "Accessibility", comment: "Toggled OFF accessibility value")
         }
         public struct TopSites {
-            public static let RemoveButtonAccessibilityLabel = NSLocalizedString("Accessibility.TopSites.RemovePage.Button", comment: "Button shown in editing mode to remove this site from the top sites panel.")
+            public static let RemoveButtonAccessibilityLabel = NSLocalizedString("Accessibility.TopSites.RemovePage.Button", tableName: "Accessibility", comment: "Button shown in editing mode to remove this site from the top sites panel.")
+        }
+        public struct Toolbar {
+            public static let MenuButtonAccessibilityLabel = NSLocalizedString("Accessibility.Toolbar.MenuButton", tableName: "Accessibility", comment: "Accessibility label for the Menu button.")
         }
         public static let WebContent = NSLocalizedString("Accessibility.WebContent", tableName: "Accessibility", comment: "Accessibility label for the main web content view")
     }

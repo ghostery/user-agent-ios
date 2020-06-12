@@ -229,8 +229,6 @@ extension Strings {
         public static let BurnTitleString = NSLocalizedString("Menu.Burn.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to navigate to the burn options.")
         public static let CloseAllTabsAndClearDataTitleString = NSLocalizedString("Menu.CloseAllTabsAndClearData.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to close all tabs and clear data.")
         public static let DownloadsTitleString = NSLocalizedString("Menu.OpenDownloadsAction.AccessibilityLabel", tableName: "Menu", comment: "Accessibility label for the button, displayed in the menu, used to open the Downloads home panel.")
-        public static let ButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.AccessibilityLabel", comment: "Accessibility label for the Menu button.")
-        public static let TabTrayDeleteMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.CloseAllTabs", comment: "Accessibility label for the Close All Tabs menu button.")
         public static let CopyURLConfirmMessage = NSLocalizedString("Menu.CopyURL.Confirm", comment: "Toast displayed to user after copy url pressed.")
         public static let AddBookmarkConfirmMessage = NSLocalizedString("Menu.AddBookmark.Confirm", comment: "Toast displayed to the user after a bookmark has been added.")
         public static let RemoveBookmarkConfirmMessage = NSLocalizedString("Menu.RemoveBookmark.Confirm", comment: "Toast displayed to the user after a bookmark has been removed.")

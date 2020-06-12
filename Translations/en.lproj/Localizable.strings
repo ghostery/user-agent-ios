@@ -270,12 +270,6 @@
 /* History tableview section header */
 "Today" = "Today";
 
-/* Accessibility label for the Menu button. */
-"Toolbar.Menu.AccessibilityLabel" = "Menu";
-
-/* Accessibility label for the Close All Tabs menu button. */
-"Toolbar.Menu.CloseAllTabs" = "Close All Tabs";
-
 /* Title for UserAgent about:home page in tab history list */
 "UserAgent.HomePage.Title" = "%@ Home Page";
 
