@@ -96,11 +96,20 @@
 /* Accessibility label for the New Tab button in the tab toolbar. */
 "Accessibility.TabTray.NewTab" = "Neuer Tab";
 
+/* Accessibility label for the Close All Tabs menu button. */
+"Accessibility.TabTray.DeleteMenu" = "Alle Tabs schließen";
+
 /* Toggled OFF accessibility value */
 "Accessibility.PrivateBrowsing.Off" = "Aus";
 
 /* Toggled ON accessibility value */
 "Accessibility.PrivateBrowsing.On" = "An";
+
+/* Button shown in editing mode to remove this site from the top sites panel. */
+"Accessibility.TopSites.RemovePage.Button" = "Seite entfernen – %@";
+
+/* Accessibility label for the Menu button. */
+"Accessibility.Toolbar.MenuButton" = "Menü";
 
 /* Error message that is shown in settings when there was a problem loading */
 "ErrorPages.CouldNotLoadPage" = "Seite konnte nicht geladen werden.";

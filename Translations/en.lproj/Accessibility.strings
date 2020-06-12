@@ -93,11 +93,20 @@
 /* Accessibility label for the tabs button in the (top) tab toolbar. Accessibility Label for the tabs button in the tab toolbar */
 "Accessibility.TabTray.ShowTabs" = "Show Tabs";
 
+/* Accessibility label for the Close All Tabs menu button. */
+"Accessibility.TabTray.DeleteMenu" = "Close All Tabs";
+
 /* Toggled OFF accessibility value */
 "Accessibility.PrivateBrowsing.Off" = "Off";
 
 /* Toggled ON accessibility value */
 "Accessibility.PrivateBrowsing.On" = "On";
+
+/* Button shown in editing mode to remove this site from the top sites panel. */
+"Accessibility.TopSites.RemovePage.Button" = "Remove page — %@";
+
+/* Accessibility label for the Menu button. */
+"Accessibility.Toolbar.MenuButton" = "Menu";
 
 /* Accessibility label for the New Tab button in the tab toolbar. */
 "ErrorPages.CouldNotLoadPage" = "New Tab";

@@ -17,20 +17,6 @@ private func applicationBundle() -> Bundle {
 }
 
 extension Strings {
-    // MARK: - General
-    public struct General {
-        public static let OKString = NSLocalizedString("OK", comment: "OK button")
-        public static let CancelString = NSLocalizedString("Cancel", comment: "Label for Cancel button")
-        public static let OpenSettingsString = NSLocalizedString("Open Settings", comment: "See http://mzl.la/1G7uHo7")
-        public static let CloseString = NSLocalizedString("Close", comment: "Label for Close button")
-        public static let DoneString = NSLocalizedString("Done", comment: "Label for Done button")
-        public static let SendString = NSLocalizedString("Send", comment: "Label for Send button")
-        public static let NoString = NSLocalizedString("No", comment: "Label for No button")
-        public static let CopyString = NSLocalizedString("Copy", comment: "Label for Copy button")
-        public static let DeleteString = NSLocalizedString("Delete", comment: "Label for Copy button")
-        public static let EditString = NSLocalizedString("Edit", comment: "Label for Edit button")
-        public static let SaveString = NSLocalizedString("Save", comment: "Label for Edit button")
-    }
 
     // MARK: - Table date section titles
     public struct TableDateSection {
@@ -38,11 +24,6 @@ extension Strings {
         public static let TitleYesterday = NSLocalizedString("Yesterday", comment: "History tableview section header")
         public static let TitleLastWeek = NSLocalizedString("Last week", comment: "History tableview section header")
         public static let TitleLastMonth = NSLocalizedString("Last month", comment: "History tableview section header")
-    }
-
-    // MARK: - Top Sites
-    public struct TopSites {
-        public static let RemoveButtonAccessibilityLabel = NSLocalizedString("TopSites.RemovePage.Button", comment: "Button shown in editing mode to remove this site from the top sites panel.")
     }
 
     // MARK: - Refresh Control
@@ -166,7 +147,6 @@ extension Strings {
             public static let Title = NSLocalizedString("Downloads.CancelDialog.Title", comment: "Alert dialog title when the user taps the cancel download icon.")
             public static let Message = NSLocalizedString("Downloads.CancelDialog.Message", comment: "Alert dialog body when the user taps the cancel download icon.")
             public static let Resume = NSLocalizedString("Downloads.CancelDialog.Resume", comment: "Button declining the cancellation of the download.")
-            public static let Cancel = NSLocalizedString("Downloads.CancelDialog.Cancel", comment: "Button confirming the cancellation of the download.")
         }
     }
 
@@ -228,54 +208,6 @@ extension Strings {
             public static let Title = NSLocalizedString("ContextualOnboarding.WipeAllTraces.Title", tableName: "ContextualOnboarding", comment: "Title for Wipe All Traces screen")
             public static let Description = NSLocalizedString("ContextualOnboarding.WipeAllTraces.Description", tableName: "ContextualOnboarding", comment: "Description for Wipe All Traces screen")
         }
-    }
-
-    // MARK: - Menu
-    public struct Menu {
-        public static let SharePageTitleString = NSLocalizedString("Menu.SharePageAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the share dialog.")
-        public static let NewTabTitleString = NSLocalizedString("Menu.NewTabAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open a new tab")
-        public static let AddBookmarkTitleString = NSLocalizedString("Menu.AddBookmarkAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to create a bookmark for the current website.")
-        public static let RemoveBookmarkTitleString = NSLocalizedString("Menu.RemoveBookmarkAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to delete an existing bookmark for the current website.")
-        public static let FindInPageTitleString = NSLocalizedString("Menu.FindInPageAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the toolbar to search for text within the current page.")
-        public static let ViewDesktopSiteTitleString = NSLocalizedString("Menu.ViewDekstopSiteAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to request the desktop version of the current website.")
-        public static let ViewMobileSiteTitleString = NSLocalizedString("Menu.ViewMobileSiteAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to request the mobile version of the current website.")
-        public static let ReaderModeTitleString = NSLocalizedString("Menu.ReaderMode.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to request the reader mode version of the current website")
-        public static let SettingsTitleString = NSLocalizedString("Menu.OpenSettingsAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the Settings menu.")
-        public static let WhatsNewTitleString = NSLocalizedString("Menu.OpenWhatsNewAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the What's new page.")
-        public static let PrivacyStatementTitleString = NSLocalizedString("Menu.OpenPrivacyStatementAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to open the Privacy Statement.")
-        public static let ReloadTitleString = NSLocalizedString("Reload", comment: "Reload")
-        public static let CloseAllTabsTitleString = NSLocalizedString("Menu.CloseAllTabsAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to close all tabs currently open.")
-        public static let OpenHomePageTitleString = NSLocalizedString("Menu.OpenHomePageAction.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to navigate to the home page.")
-        public static let BurnTitleString = NSLocalizedString("Menu.Burn.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to navigate to the burn options.")
-        public static let CloseAllTabsAndClearDataTitleString = NSLocalizedString("Menu.CloseAllTabsAndClearData.Title", tableName: "Menu", comment: "Label for the button, displayed in the menu, used to close all tabs and clear data.")
-        public static let DownloadsTitleString = NSLocalizedString("Menu.OpenDownloadsAction.AccessibilityLabel", tableName: "Menu", comment: "Accessibility label for the button, displayed in the menu, used to open the Downloads home panel.")
-        public static let ButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.AccessibilityLabel", comment: "Accessibility label for the Menu button.")
-        public static let TabTrayDeleteMenuButtonAccessibilityLabel = NSLocalizedString("Toolbar.Menu.CloseAllTabs", comment: "Accessibility label for the Close All Tabs menu button.")
-        public static let CopyURLConfirmMessage = NSLocalizedString("Menu.CopyURL.Confirm", comment: "Toast displayed to user after copy url pressed.")
-        public static let AddBookmarkConfirmMessage = NSLocalizedString("Menu.AddBookmark.Confirm", comment: "Toast displayed to the user after a bookmark has been added.")
-        public static let RemoveBookmarkConfirmMessage = NSLocalizedString("Menu.RemoveBookmark.Confirm", comment: "Toast displayed to the user after a bookmark has been removed.")
-        public static let PageActionMenuTitle = NSLocalizedString("Menu.PageActions.Title", comment: "Label for title in page action menu.")
-        public static let TPNoBlockingDescription = NSLocalizedString("Menu.TrackingProtectionNoBlocking.Description", comment: "The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled.")
-        public static let TPBlockingMoreInfo = NSLocalizedString("Menu.TrackingProtectionMoreInfo.Description", comment: "more info about what tracking protection is about")
-        public static let TrackingProtectionAdsBlocked = NSLocalizedString("Menu.TrackingProtectionAdsBlocked.Title", tableName: "Menu", comment: "The title that shows the number of Analytics scripts blocked")
-        public static let TrackingProtectionAnalyticsBlocked = NSLocalizedString("Menu.TrackingProtectionAnalyticsBlocked.Title", tableName: "Menu", comment: "The title that shows the number of Analytics scripts blocked")
-        public static let TrackingProtectionSocialBlocked = NSLocalizedString("Menu.TrackingProtectionSocialBlocked.Title", tableName: "Menu", comment: "The title that shows the number of social scripts blocked")
-        public static let TrackingProtectionContentBlocked = NSLocalizedString("Menu.TrackingProtectionContentBlocked.Title", tableName: "Menu", comment: "The title that shows the number of content scripts blocked")
-        public static let TrackingProtectionEssentialBlocked = NSLocalizedString("Menu.TrackingProtectionEssentialBlocked.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectionMiscBlocked = NSLocalizedString("Menu.TrackingProtectionEssentialMisc.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectionHostingBlocked = NSLocalizedString("Menu.TrackingProtectionHostingBlocked.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectionPornvertisingBlocked = NSLocalizedString("Menu.TrackingProtectionPornvertisingBlocked.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectionAudioVideoPlayerBlocked = NSLocalizedString("Menu.TrackingProtectionAVPLayerBlocked.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectionExtensionsBlocked = NSLocalizedString("Menu.TrackingProtectionExtensionsBlocked.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectionCustomerInteractionBlocked = NSLocalizedString("Menu.TrackingProtectionCustomerInteractionBlocked.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectionCommentsBlocked = NSLocalizedString("Menu.TrackingProtectionCommentsBlocked.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectionCDNBlocked = NSLocalizedString("Menu.TrackingProtectionCDNBlocked.Title", tableName: "Menu", comment: "")
-        public static let TrackingProtectioUnknownBlocked = NSLocalizedString("Menu.TrackingProtectionUnknownBlocked.Title", tableName: "Menu", comment: "")
-        public static let PasteAndGoTitle = NSLocalizedString("Menu.PasteAndGo.Title", comment: "The title for the button that lets you paste and go to a URL")
-        public static let PasteTitle = NSLocalizedString("Menu.Paste.Title", comment: "The title for the button that lets you paste into the location bar")
-        public static let CopyAddressTitle = NSLocalizedString("Menu.Copy.Title", comment: "The title for the button that lets you copy the url from the location bar.")
-        public static let ClearSearchHistory = NSLocalizedString("Menu.ClearSearchHistory", comment: "Action item that deletes all queries from database, shown on long press on search icon")
-        public static let ShowQueryHistoryTitle = NSLocalizedString("Menu.QueryHistory.Title", comment: "The title for the button that query history list")
     }
 
     // MARK: - External Link

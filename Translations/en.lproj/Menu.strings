@@ -74,3 +74,35 @@
 
 /* Label for the button, displayed in the menu, used to request the mobile version of the current website. */
 "Menu.ViewMobileSiteAction.Title" = "Request Mobile Site";
+
+/* Toast displayed to the user after a bookmark has been added. */
+"Menu.AddBookmark.Confirm" = "Bookmark Added";
+
+/* The title for the button that lets you copy the url from the location bar. */
+"Menu.Copy.Title" = "Copy Address";
+
+"Menu.ClearSearchHistory" = "Clear search history";
+
+/* Toast displayed to user after copy url pressed. */
+"Menu.CopyURL.Confirm" = "URL Copied To Clipboard";
+
+/* Label for title in page action menu. */
+"Menu.PageActions.Title" = "Page Actions";
+
+/* The title for the button that lets you paste into the location bar */
+"Menu.Paste.Title" = "Paste";
+
+/* The title for the button that query history list */
+"Menu.QueryHistory.Title" = "Show Query History";
+
+/* The title for the button that lets you paste and go to a URL */
+"Menu.PasteAndGo.Title" = "Paste & Go";
+
+/* Toast displayed to the user after a bookmark has been removed. */
+"Menu.RemoveBookmark.Confirm" = "Bookmark Removed";
+
+/* more info about what tracking protection is about */
+"Menu.TrackingProtectionMoreInfo.Description" = "Privacy Dashboard is disabled";
+
+/* The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled. */
+"Menu.TrackingProtectionNoBlocking.Description" = "No tracking elements detected on this page.";

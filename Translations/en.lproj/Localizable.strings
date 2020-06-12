@@ -34,12 +34,6 @@
 /* The label for the URL field when editing a bookmark */
 "Bookmark.DetailFieldURL.Label" = "URL";
 
-/* Label for Cancel button */
-"Cancel" = "Cancel";
-
-/* Label for Send button */
-"Send" = "Send";
-
 /* The button to open a new tab with the copied link */
 "ClipboardToast.GoToCopiedLink.Button" = "Go";
 
@@ -70,14 +64,8 @@
 /* Context menu item for sharing a link URL */
 "ContextMenu.ShareLinkButtonTitle" = "Share Link";
 
-/* Done button on left side of the Settings view controller title bar */
-"Done" = "Done";
-
 /* The label of the button the user will press to start downloading a file */
 "Downloads.Alert.DownloadNow" = "Download Now";
-
-/* Button confirming the cancellation of the download. */
-"Downloads.CancelDialog.Cancel" = "Cancel";
 
 /* Alert dialog body when the user taps the cancel download icon. */
 "Downloads.CancelDialog.Message" = "Are you sure you want to cancel this download?";
@@ -172,50 +160,6 @@
 /* History tableview section header */
 "Last week" = "Last week";
 
-/* Toast displayed to the user after a bookmark has been added. */
-"Menu.AddBookmark.Confirm" = "Bookmark Added";
-
-/* The title for the button that lets you copy the url from the location bar. */
-"Menu.Copy.Title" = "Copy Address";
-
-"Menu.ClearSearchHistory" = "Clear search history";
-
-/* Toast displayed to user after copy url pressed. */
-"Menu.CopyURL.Confirm" = "URL Copied To Clipboard";
-
-/* Label for title in page action menu. */
-"Menu.PageActions.Title" = "Page Actions";
-
-/* The title for the button that lets you paste into the location bar */
-"Menu.Paste.Title" = "Paste";
-
-/* The title for the button that query history list */
-"Menu.QueryHistory.Title" = "Show Query History";
-
-/* The title for the button that lets you paste and go to a URL */
-"Menu.PasteAndGo.Title" = "Paste & Go";
-
-/* Toast displayed to the user after a bookmark has been removed. */
-"Menu.RemoveBookmark.Confirm" = "Bookmark Removed";
-
-/* more info about what tracking protection is about */
-"Menu.TrackingProtectionMoreInfo.Description" = "Privacy Dashboard is disabled";
-
-/* The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled. */
-"Menu.TrackingProtectionNoBlocking.Description" = "No tracking elements detected on this page.";
-
-/* Restore Tabs Negative Action */
-"No" = "No";
-
-/* OK button */
-"OK" = "OK";
-
-/* Copy password text selection menu item */
-"Copy" = "Copy";
-
-/* See http://mzl.la/1G7uHo7 */
-"Open Settings" = "Open Settings";
-
 /* The message displayed to a user when they try to open a URL that cannot be handled by UserAgent, or any external app. */
 "OpenURL.Error.Message" = "%@ cannot open the page because it has an invalid address.";
 
@@ -261,15 +205,6 @@
 /* Label for an action used to view one or more tabs from a notification. */
 "SentTab.ViewAction.title" = "View";
 
-/* Label for Delete button */
-"Delete" = "Delete";
-
-/* Label for Edit button */
-"Edit" = "Edit";
-
-/* Label for Save button */
-"Save" = "Save";
-
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normal Browsing Mode";
 
@@ -302,15 +237,6 @@
 
 /* History tableview section header */
 "Today" = "Today";
-
-/* Accessibility label for the Menu button. */
-"Toolbar.Menu.AccessibilityLabel" = "Menu";
-
-/* Accessibility label for the Close All Tabs menu button. */
-"Toolbar.Menu.CloseAllTabs" = "Close All Tabs";
-
-/* Button shown in editing mode to remove this site from the top sites panel. */
-"TopSites.RemovePage.Button" = "Remove page — %@";
 
 /* Title for UserAgent about:home page in tab history list */
 "UserAgent.HomePage.Title" = "%@ Home Page";

@@ -1,0 +1,40 @@
+/* 
+  General.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 6/12/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* OK button */
+"OK" = "OK";
+
+/* Label for Cancel button */
+"Cancel" = "Cancel";
+
+/* See http://mzl.la/1G7uHo7 */
+"Open.Settings" = "Open Settings";
+
+/* Label for Close button */
+"Close" = "Close";
+
+/* Label for Done button */
+"Done" = "Done";
+
+/* Label for Send button */
+"Send" = "Send";
+
+/* Label for No button */
+"No" = "No";
+
+/* Label for Copy button */
+"Copy" = "Copy";
+
+/* Label for Delete button */
+"Delete" = "Delete";
+
+/* Label for Edit button */
+"Edit" = "Edit";
+
+/* Label for Save button */
+"Save" = "Save";

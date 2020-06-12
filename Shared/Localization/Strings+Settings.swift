@@ -31,6 +31,17 @@ extension Strings {
                 public static let TitlePlaceholder = NSLocalizedString("Settings.Search.AddCustomEngine.TitlePlaceholder", tableName: "Settings", comment: "The placeholder for Title Field when saving a custom search engine.")
                 public static let URLPlaceholder = NSLocalizedString("Settings.Search.AddCustomEngine.URLPlaceholder", tableName: "Settings", comment: "The placeholder for URL Field when saving a custom search engine")
             }
+            public struct ThirdPartyEngines {
+                public static let EngineAdded = NSLocalizedString("Settings.Search.ThirdPartyEngines.AddSuccess", tableName: "Settings", comment: "The success message that appears after a user sucessfully adds a new search engine")
+                public static let AddTitle = NSLocalizedString("Settings.Search.ThirdPartyEngines.AddTitle", tableName: "Settings", comment: "The title that asks the user to Add the search provider")
+                public static let AddMessage = NSLocalizedString("Settings.Search.ThirdPartyEngines.AddMessage", tableName: "Settings", comment: "The message that asks the user to Add the search provider explaining where the search engine will appear")
+                public static let FailedTitle = NSLocalizedString("Settings.Search.ThirdPartyEngines.FailedTitle", tableName: "Settings", comment: "A title explaining that we failed to add a search engine")
+                public static let FailedMessage = NSLocalizedString("Settings.Search.ThirdPartyEngines.FailedMessage", tableName: "Settings", comment: "A title explaining that we failed to add a search engine")
+                public static let FormErrorTitle = NSLocalizedString("Settings.Search.ThirdPartyEngines.FormErrorTitle", tableName: "Settings", comment: "A title stating that we failed to add custom search engine.")
+                public static let FormErrorMessage = NSLocalizedString("Settings.Search.ThirdPartyEngines.FormErrorMessage", tableName: "Settings", comment: "A message explaining fault in custom search engine form.")
+                public static let DuplicateErrorTitle = NSLocalizedString("Settings.Search.ThirdPartyEngines.DuplicateErrorTitle", tableName: "Settings", comment: "A title stating that we failed to add custom search engine.")
+                public static let DuplicateErrorMessage = NSLocalizedString("Settings.Search.ThirdPartyEngines.DuplicateErrorMessage", tableName: "Settings", comment: "A message explaining fault in custom search engine form.")
+            }
         }
         public struct Privacy {
             public static let Title = NSLocalizedString("Settings.Privacy.Title", tableName: "Settings", comment: "Privacy section title")

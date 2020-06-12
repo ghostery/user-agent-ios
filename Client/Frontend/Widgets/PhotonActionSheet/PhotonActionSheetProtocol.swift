@@ -393,12 +393,12 @@ extension PhotonActionSheetProtocol {
 
     @available(iOS 11.0, *)
     private func menuActionsForNotBlocking() -> [PhotonActionSheetItem] {
-        return [PhotonActionSheetItem(title: Strings.Settings.TrackingProtection.SectionName, text: Strings.Menu.TPNoBlockingDescription, iconString: "menu-TrackingProtection")]
+        return [PhotonActionSheetItem(title: Strings.Settings.TrackingProtection.SectionName, text: Strings.Menu.TrackingProtection.NoBlockingDescription, iconString: "menu-TrackingProtection")]
     }
 
     @available(iOS 11.0, *)
     private func menuActionsForTrackingProtectionDisabled(for tab: Tab, vcDelegate: PageOptionsVC) -> [[PhotonActionSheetItem]] {
-        let moreInfo = PhotonActionSheetItem(title: Strings.Menu.TPBlockingMoreInfo)
+        let moreInfo = PhotonActionSheetItem(title: Strings.Menu.TrackingProtection.BlockingMoreInfo)
         return [[moreInfo], [openSettingsItem(vcDelegate: vcDelegate)]]
     }
 

@@ -24,8 +24,8 @@ class ThirdPartySearchAlerts: UIAlertController {
 
     static func addThirdPartySearchEngine(_ okayCallback: @escaping (UIAlertAction) -> Void) -> UIAlertController {
         let alert = ThirdPartySearchAlerts(
-            title: Strings.Search.ThirdPartyEngines.AddTitle,
-            message: Strings.Search.ThirdPartyEngines.AddMessage,
+            title: Strings.Settings.Search.ThirdPartyEngines.AddTitle,
+            message: Strings.Settings.Search.ThirdPartyEngines.AddMessage,
             preferredStyle: .alert
         )
 
@@ -54,18 +54,18 @@ class ThirdPartySearchAlerts: UIAlertController {
      **/
 
     static func failedToAddThirdPartySearch() -> UIAlertController {
-        return searchAlertWithOK(title: Strings.Search.ThirdPartyEngines.FailedTitle,
-                                 message: Strings.Search.ThirdPartyEngines.FailedMessage)
+        return searchAlertWithOK(title: Strings.Settings.Search.ThirdPartyEngines.FailedTitle,
+                                 message: Strings.Settings.Search.ThirdPartyEngines.FailedMessage)
     }
 
     static func incorrectCustomEngineForm() -> UIAlertController {
-        return searchAlertWithOK(title: Strings.Search.ThirdPartyEngines.FormErrorTitle,
-                                 message: Strings.Search.ThirdPartyEngines.FormErrorMessage)
+        return searchAlertWithOK(title: Strings.Settings.Search.ThirdPartyEngines.FormErrorTitle,
+                                 message: Strings.Settings.Search.ThirdPartyEngines.FormErrorMessage)
     }
 
     static func duplicateCustomEngine() -> UIAlertController {
-        return searchAlertWithOK(title: Strings.Search.ThirdPartyEngines.DuplicateErrorTitle,
-                                 message: Strings.Search.ThirdPartyEngines.DuplicateErrorMessage)
+        return searchAlertWithOK(title: Strings.Settings.Search.ThirdPartyEngines.DuplicateErrorTitle,
+                                 message: Strings.Settings.Search.ThirdPartyEngines.DuplicateErrorMessage)
     }
 
     private static func searchAlertWithOK(title: String, message: String) -> UIAlertController {
