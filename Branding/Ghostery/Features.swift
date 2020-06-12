@@ -19,7 +19,7 @@ extension Features.Search {
         return .search
     }
     public static var defaultEngineName: String {
-        return "google"
+        return "DuckDuckGo"
     }
 }
 
