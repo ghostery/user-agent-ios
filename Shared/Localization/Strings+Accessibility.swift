@@ -58,6 +58,9 @@ extension Strings {
             public static let ToggleAccessibilityValueOn = NSLocalizedString("Accessibility.PrivateBrowsing.On", tableName: "Accessibility", comment: "Toggled ON accessibility value")
             public static let ToggleAccessibilityValueOff = NSLocalizedString("Accessibility.PrivateBrowsing.Off", tableName: "Accessibility", comment: "Toggled OFF accessibility value")
         }
+        public struct TopSites {
+            public static let RemoveButtonAccessibilityLabel = NSLocalizedString("Accessibility.TopSites.RemovePage.Button", comment: "Button shown in editing mode to remove this site from the top sites panel.")
+        }
         public static let WebContent = NSLocalizedString("Accessibility.WebContent", tableName: "Accessibility", comment: "Accessibility label for the main web content view")
     }
 

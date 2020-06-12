@@ -17,20 +17,6 @@ private func applicationBundle() -> Bundle {
 }
 
 extension Strings {
-    // MARK: - General
-    public struct General {
-        public static let OKString = NSLocalizedString("OK", comment: "OK button")
-        public static let CancelString = NSLocalizedString("Cancel", comment: "Label for Cancel button")
-        public static let OpenSettingsString = NSLocalizedString("Open Settings", comment: "See http://mzl.la/1G7uHo7")
-        public static let CloseString = NSLocalizedString("Close", comment: "Label for Close button")
-        public static let DoneString = NSLocalizedString("Done", comment: "Label for Done button")
-        public static let SendString = NSLocalizedString("Send", comment: "Label for Send button")
-        public static let NoString = NSLocalizedString("No", comment: "Label for No button")
-        public static let CopyString = NSLocalizedString("Copy", comment: "Label for Copy button")
-        public static let DeleteString = NSLocalizedString("Delete", comment: "Label for Copy button")
-        public static let EditString = NSLocalizedString("Edit", comment: "Label for Edit button")
-        public static let SaveString = NSLocalizedString("Save", comment: "Label for Edit button")
-    }
 
     // MARK: - Table date section titles
     public struct TableDateSection {
@@ -38,11 +24,6 @@ extension Strings {
         public static let TitleYesterday = NSLocalizedString("Yesterday", comment: "History tableview section header")
         public static let TitleLastWeek = NSLocalizedString("Last week", comment: "History tableview section header")
         public static let TitleLastMonth = NSLocalizedString("Last month", comment: "History tableview section header")
-    }
-
-    // MARK: - Top Sites
-    public struct TopSites {
-        public static let RemoveButtonAccessibilityLabel = NSLocalizedString("TopSites.RemovePage.Button", comment: "Button shown in editing mode to remove this site from the top sites panel.")
     }
 
     // MARK: - Refresh Control
@@ -166,7 +147,6 @@ extension Strings {
             public static let Title = NSLocalizedString("Downloads.CancelDialog.Title", comment: "Alert dialog title when the user taps the cancel download icon.")
             public static let Message = NSLocalizedString("Downloads.CancelDialog.Message", comment: "Alert dialog body when the user taps the cancel download icon.")
             public static let Resume = NSLocalizedString("Downloads.CancelDialog.Resume", comment: "Button declining the cancellation of the download.")
-            public static let Cancel = NSLocalizedString("Downloads.CancelDialog.Cancel", comment: "Button confirming the cancellation of the download.")
         }
     }
 

@@ -102,5 +102,8 @@
 /* Toggled ON accessibility value */
 "Accessibility.PrivateBrowsing.On" = "An";
 
+/* Button shown in editing mode to remove this site from the top sites panel. */
+"Accessibility.TopSites.RemovePage.Button" = "Seite entfernen – %@";
+
 /* Error message that is shown in settings when there was a problem loading */
 "ErrorPages.CouldNotLoadPage" = "Seite konnte nicht geladen werden.";

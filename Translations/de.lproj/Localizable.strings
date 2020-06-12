@@ -34,12 +34,6 @@
 /* The label for the URL field when editing a bookmark */
 "Bookmark.DetailFieldURL.Label" = "URL";
 
-/* Label for Cancel button */
-"Cancel" = "Abbrechen";
-
-/* Label for Send button */
-"Send" = "Senden";
-
 /* The button to open a new tab with the copied link */
 "ClipboardToast.GoToCopiedLink.Button" = "Los";
 
@@ -70,14 +64,8 @@
 /* Context menu item for sharing a link URL */
 "ContextMenu.ShareLinkButtonTitle" = "Link teilen";
 
-/* Done button on left side of the Settings view controller title bar */
-"Done" = "Fertig";
-
 /* The label of the button the user will press to start downloading a file */
 "Downloads.Alert.DownloadNow" = "Jetzt herunterladen";
-
-/* Button confirming the cancellation of the download. */
-"Downloads.CancelDialog.Cancel" = "Abbrechen";
 
 /* Alert dialog body when the user taps the cancel download icon. */
 "Downloads.CancelDialog.Message" = "Soll dieser Download wirklich abgebrochen werden?";
@@ -204,18 +192,6 @@
 /* The description of the Tracking Protection menu item when no scripts are blocked but tracking protection is enabled. */
 "Menu.TrackingProtectionNoBlocking.Description" = "Keine Inhalte zur Aktivitätenverfolgung auf dieser Seite gefunden.";
 
-/* Restore Tabs Negative Action */
-"No" = "Nein";
-
-/* OK button */
-"OK" = "OK";
-
-/* Copy password text selection menu item */
-"Copy" = "Kopieren";
-
-/* See http://mzl.la/1G7uHo7 */
-"Open Settings" = "Einstellungen öffnen";
-
 /* The message displayed to a user when they try to open a URL that cannot be handled by UserAgent, or any external app. */
 "OpenURL.Error.Message" = "%@ kann die Seite nicht öffnen, weil ihre Adresse ungültig ist.";
 
@@ -261,15 +237,6 @@
 /* Label for an action used to view one or more tabs from a notification. */
 "SentTab.ViewAction.title" = "Ansehen";
 
-/* Label for Delete button */
-"Delete" = "Löschen";
-
-/* Label for Edit button */
-"Edit" = "Bearbeiten";
-
-/* Label for Save button */
-"Save" = "Speichern";
-
 /* Hardware shortcut for non-private tab or tab. Shown in the Discoverability overlay when the hardware Command Key is held down. */
 "TabTray.SwitchToNonPBM.KeyCodeTitle" = "Normaler Surf-Modus";
 
@@ -308,9 +275,6 @@
 
 /* Accessibility label for the Close All Tabs menu button. */
 "Toolbar.Menu.CloseAllTabs" = "Alle Tabs schließen";
-
-/* Button shown in editing mode to remove this site from the top sites panel. */
-"TopSites.RemovePage.Button" = "Seite entfernen – %@";
 
 /* Title for UserAgent about:home page in tab history list */
 "UserAgent.HomePage.Title" = "%@-Startseite";
