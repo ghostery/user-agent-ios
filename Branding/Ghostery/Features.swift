@@ -8,6 +8,12 @@
 
 import Shared
 
+extension Features.BrowserCore {
+    public static var configUrl: String {
+        return "https://api.ghostery.net/api/v1/config"
+    }
+}
+
 extension Features.Search.AdditionalSearchEngines {
     public static var isEnabled: Bool {
         return true
@@ -38,5 +44,26 @@ extension Features.ControlCenter.PrivacyStats.SearchStats {
 extension Features.Home.DynamicBackgrounds {
     public static var isEnabled: Bool {
         return false
+    }
+}
+
+extension Features.HumanWeb {
+    public static var collectorDirectUrl: String {
+        return "https://collector-hpn.ghostery.net"
+    }
+    public static var collectorProxyUrl: String {
+        return "https://collector-hpn.ghostery.net"
+    }
+}
+
+extension Features.Telemetry {
+    public static var brand: String {
+        return "ghostery"
+    }
+    public static var anolysisUrl: String {
+        return "https://anolysis.privacy.ghostery.net"
+    }
+    public static var anolysisStagingUrl: String {
+        return "https://anolysis-staging.privacy.ghostery.net"
     }
 }
