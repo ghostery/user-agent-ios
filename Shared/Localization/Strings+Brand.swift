@@ -16,4 +16,5 @@ extension Strings {
     public static let RepositoryWebsite = NSLocalizedString("repositoryWebsite", tableName: "brand", comment: "brand repository url")
     public static let PrivacyPolicyWebsite = NSLocalizedString("privacyPolicyWebsite", tableName: "brand", comment: "brand privacy policy url")
     public static let FeedbackWebsite = NSLocalizedString("feedbackWebsite", tableName: "brand", comment: "brand feedback url")
+    public static let LicensesHeader = NSLocalizedString("licensesHeader", tableName: "brand", comment: "brand licenses header")
 }
