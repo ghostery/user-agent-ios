@@ -60,7 +60,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if #available(iOS 13.0, *) {
             mode = self.traitCollection.userInterfaceStyle == .dark ? "dark" : "light"
         }
-        let textColor = mode == "dark" ? UIColor.white.withAlphaComponent(0.61).hexString : UIColor.black.withAlphaComponent(0.61).hexString
+        let textColor = mode == "dark" ? UIColor.White.withAlphaComponent(0.61).hexString : UIColor.Black.withAlphaComponent(0.61).hexString
         return [
             "textColor": textColor,
             "descriptionColor": textColor,

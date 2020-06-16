@@ -122,7 +122,6 @@
 		2B516D3C238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */; };
 		2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */; };
 		2B5AED4C24862728001D15CE /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* Colors.xcassets */; };
-		2B5AED4D24862756001D15CE /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
 		2B66BE062362E26800D78A88 /* PrivacyDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6548023619EEB002D2EE0 /* PrivacyDashboardView.swift */; };
 		2B66BE072362E27600D78A88 /* PhotonCustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6547E23619B5C002D2EE0 /* PhotonCustomViewCell.swift */; };
 		2B723CDD2461676E008986E5 /* SearchEnginePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B723CDC2461676E008986E5 /* SearchEnginePicker.swift */; };
@@ -139,6 +138,8 @@
 		2B79E41C2481041500263B90 /* NativeFaviconFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E41A2481041500263B90 /* NativeFaviconFetcher.swift */; };
 		2B79E41E24811FA500263B90 /* UIColor+PrivacyIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E41D24811FA500263B90 /* UIColor+PrivacyIndicator.swift */; };
 		2B79E41F24811FA500263B90 /* UIColor+PrivacyIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E41D24811FA500263B90 /* UIColor+PrivacyIndicator.swift */; };
+		2B7C286C2498D1A800D43685 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7C286B2498D1A800D43685 /* Colors.swift */; };
+		2B7C286D2498D1D600D43685 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC6EC5E232945FF000F5499 /* Colors.xcassets */; };
 		2B84AF1E241A63EE000626A4 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */; };
 		2B84AF1F241A63EF000626A4 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */; };
 		2B8DDBA323A24C3E00D2CE7A /* PrivacyStatement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DDBA223A24C3E00D2CE7A /* PrivacyStatement.xcassets */; };
@@ -679,8 +680,6 @@
 		ACB7383323042BAB00FA5626 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABDA4AC20DA0FB800FBB0BD /* ObjcExceptionBridging.framework */; };
 		ACB7384023042BAB00FA5626 /* Storage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCAE21A1ABB51F800877008 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ACB7384123042BAB00FA5626 /* Shared.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		ACC6EC4A2327F4B6000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
-		ACC6EC4D2327F584000F5499 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC492327F4B6000F5499 /* Colors.swift */; };
 		ACC6EC5423290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		ACC6EC5623290C1A000F5499 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
@@ -1395,6 +1394,7 @@
 		2B79E4172480E4C300263B90 /* NativeFavicon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeFavicon.m; sourceTree = "<group>"; };
 		2B79E41A2481041500263B90 /* NativeFaviconFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeFaviconFetcher.swift; sourceTree = "<group>"; };
 		2B79E41D24811FA500263B90 /* UIColor+PrivacyIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PrivacyIndicator.swift"; sourceTree = "<group>"; };
+		2B7C286B2498D1A800D43685 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2B84AF1D241A63EE000626A4 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		2B85778E2403A0170052D6C7 /* AdHoc.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AdHoc.xcconfig; sourceTree = "<group>"; };
 		2B85778F2403A0170052D6C7 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -1734,7 +1734,6 @@
 		ACB7398123042D9300FA5626 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACB7398A2306847800FA5626 /* Jenkinsfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jenkinsfile; sourceTree = "<group>"; };
 		ACB7398B230684AE00FA5626 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		ACC6EC492327F4B6000F5499 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		ACC6EC5223290974000F5499 /* UIColor+Blending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Blending.swift"; sourceTree = "<group>"; };
 		ACC6EC5E232945FF000F5499 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		ACCEBD8823476EBB00B87136 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -2529,6 +2528,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2B7C286A2498D1A800D43685 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				2B7C286B2498D1A800D43685 /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		2B85778D2403A0170052D6C7 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -2945,7 +2952,6 @@
 				4620EA482350ABF9004586CF /* Search.swift */,
 				463432F72332521F0014A9F0 /* Telemetry.swift */,
 				2B4EFBDA2399233A007A10E0 /* News.swift */,
-				ACC6EC492327F4B6000F5499 /* Colors.swift */,
 			);
 			path = UserAgent;
 			sourceTree = "<group>";
@@ -3637,6 +3643,7 @@
 		E4E0BB141AFBC9E4008D6260 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2B7C286A2498D1A800D43685 /* Colors */,
 				AC3357942386C5F800693969 /* Localization */,
 				E650756F1E37F7AB006961AC /* Extensions */,
 				E4E0BB161AFBC9E4008D6260 /* Supporting Files */,
@@ -4582,6 +4589,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7C286D2498D1D600D43685 /* Colors.xcassets in Resources */,
 				4667B0952421266B001A4197 /* Today.strings in Resources */,
 				4667B08724210109001A4197 /* InfoPlist.strings in Resources */,
 			);
@@ -5517,6 +5525,7 @@
 				E65075B71E37F7AB006961AC /* Logger.swift in Sources */,
 				E65075961E37F7AB006961AC /* AsyncReducer.swift in Sources */,
 				7B9BF91C1E43472E00CB24F4 /* JSONExtensions.swift in Sources */,
+				2B7C286C2498D1A800D43685 /* Colors.swift in Sources */,
 				2BE3BD82246ECDFB0066D0BD /* Strings+ReaderMode.swift in Sources */,
 				46569CD323CC90C900224DC2 /* Strings+ControlCenter.swift in Sources */,
 				2BD94C34246E8AB000CAD463 /* Strings+Accessibility.swift in Sources */,
@@ -5884,7 +5893,6 @@
 				2B32B72C243F693A00607D0A /* GradientView.swift in Sources */,
 				2B516D3A238BAC8B006D6B57 /* BookmarksView.swift in Sources */,
 				464830EC243B290C0052CC2C /* SearchURL.swift in Sources */,
-				2B5AED4D24862756001D15CE /* Colors.swift in Sources */,
 				46ECCD1B23A11B8B002E761C /* HumanWebSetting.swift in Sources */,
 				C53212E623A3EB3D00AEC9B2 /* ChatBubbleView.swift in Sources */,
 				46ECCD2723A3864E002E761C /* NativeModuleBase.swift in Sources */,
@@ -6228,7 +6236,6 @@
 				D3BE7B261B054D4400641031 /* main.swift in Sources */,
 				EB8A0A77206ABCE000A9859A /* WebPagesForTesting.swift in Sources */,
 				D3A9949C1A3686BD008AD1AC /* BrowserViewController.swift in Sources */,
-				ACC6EC4A2327F4B6000F5499 /* Colors.swift in Sources */,
 				46CA60DC2316CED70010CE6B /* BrowserActions.swift in Sources */,
 				D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */,
 				465040702411386F0086CFAF /* HomeViewNavigation.m in Sources */,
@@ -6318,7 +6325,6 @@
 				DDA24A451FD84D630098F159 /* DefaultSearchPrefs.swift in Sources */,
 				EA0EE87723D0F1DE002BEDAA /* Theme.swift in Sources */,
 				F8708D321A0970B70051AB07 /* ShareViewController.swift in Sources */,
-				ACC6EC4D2327F584000F5499 /* Colors.swift in Sources */,
 				EB9407492081353100702E05 /* UXConstants.swift in Sources */,
 				E68F36AD1EA698650048CF44 /* PanelDataObservers.swift in Sources */,
 				28CDA55C1A43C37C005C318C /* NSUserDefaultsPrefs.swift in Sources */,

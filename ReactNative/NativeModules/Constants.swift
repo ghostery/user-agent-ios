@@ -63,7 +63,7 @@ class Constants: NSObject {
             "mode": mode,
             "backgroundColor": Theme.browser.homeBackground.hexString,
             "textColor": Theme.browser.tint.hexString,
-            "descriptionColor": mode == "dark" ? UIColor.White.withAlphaComponent(0.61).hexString : UIColor.black.withAlphaComponent(0.61).hexString,
+            "descriptionColor": mode == "dark" ? UIColor.White.withAlphaComponent(0.61).hexString : UIColor.Black.withAlphaComponent(0.61).hexString,
             "visitedColor": mode == "dark" ? "#BDB6FF" : "#610072",
             "separatorColor": Theme.homePanel.separatorColor.hexString,
             "unsafeUrlColor": mode == "dark" ? "#BE9681" : "#5D4037",
