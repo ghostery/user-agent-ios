@@ -143,7 +143,7 @@ private let log = Logger.syncLogger
  * We rely on SQLiteHistory having initialized the favicon table first.
  */
 open class BrowserSchema: Schema {
-    static let DefaultVersion = 42
+    static let DefaultVersion = 43
 
     public var name: String { return "BROWSER" }
     public var version: Int { return BrowserSchema.DefaultVersion }
@@ -1430,6 +1430,24 @@ open class BrowserSchema: Schema {
             if !self.run(db, queries: [
                 historyAfterUpdateTrigger,
                 historyAfterInsertTrigger,
+            ]) {
+                return false
+            }
+        }
+
+        if from < 42 && to >= 42 {
+            // Create indices on the bookmarks tables for the `keyword` column.
+            let deleteBetaURLs = """
+                DELETE FROM history
+                WHERE domain_id = (SELECT id FROM domains WHERE domain = "beta.cliqz.com")
+            """
+            let deleteBetaDomains = """
+                DELETE FROM domains
+                WHERE domain = "beta.cliqz.com"
+            """
+            if !self.run(db, queries: [
+                deleteBetaURLs,
+                deleteBetaDomains,
             ]) {
                 return false
             }
