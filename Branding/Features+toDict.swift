@@ -13,6 +13,9 @@ extension Features {
     // this function is defined in Shared
     public static func toDict() -> [String: Any] {
         return [
+            "BrowserCore": [
+                "configUrl": Features.BrowserCore.configUrl,
+            ],
             "Search": [
                 "AdditionalSearchEngines": [
                     "isEnabled": Features.Search.AdditionalSearchEngines.isEnabled,
@@ -35,6 +38,14 @@ extension Features {
             ],
             "Icons": [
                 "type": Features.Icons.type.rawValue,
+            ],
+            "HumanWeb": [
+                "collectorDirectUrl": Features.HumanWeb.collectorDirectUrl,
+                "collectorProxyUrl": Features.HumanWeb.collectorProxyUrl,
+            ],
+            "Telemetry": [
+                "anolysisUrl": Features.Telemetry.anolysisUrl,
+                "anolysisStagingUrl": Features.Telemetry.anolysisStagingUrl,
             ],
         ]
     }

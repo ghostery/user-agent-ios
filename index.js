@@ -41,23 +41,51 @@ prefs.set(
 
 const isDebug = NativeModules.Constants.isDebug || NativeModules.Constants.isCI;
 
+const { settings } = config;
+
+settings.telemetry = {
+  demographics: {
+    brand: NativeModules.Constants.Features.Telemetry.brand,
+    name: `browser:${NativeModules.Constants.bundleIdentifier}`,
+    platform: 'ios',
+  },
+};
+
+settings.HW_CHANNEL = isDebug ? 'ios-debug' : 'ios';
+settings.RESULTS_PROVIDER_ORDER = [
+  'instant',
+  'calculator',
+  'history',
+  'cliqz',
+  'querySuggestions',
+];
+if (NativeModules.Constants.Features.BrowserCore.configUrl) {
+  settings.CONFIG_PROVIDER =
+    NativeModules.Constants.Features.BrowserCore.configUrl;
+}
+if (NativeModules.Constants.Features.HumanWeb.collectorDirectUrl) {
+  settings.HUMAN_WEB_LITE_COLLECTOR_VIA_PROXY =
+    NativeModules.Constants.Features.HumanWeb.collectorDirectUrl;
+}
+if (NativeModules.Constants.Features.HumanWeb.collectorProxyUrl) {
+  settings.HUMAN_WEB_LITE_COLLECTOR_DIRECT =
+    NativeModules.Constants.Features.HumanWeb.collectorDirectUrl;
+}
+if (NativeModules.Constants.Features.Telemetry.anolysisUrl) {
+  settings.ANOLYSIS_BACKEND_URL =
+    NativeModules.Constants.Features.Telemetry.anolysisUrl;
+}
+if (NativeModules.Constants.Features.Telemetry.anolysisStagingUrl) {
+  settings.ANOLYSIS_STAGING_BACKEND_URL =
+    NativeModules.Constants.Features.Telemetry.anolysisStagingUrl;
+}
+
 const app = new App({
   browser: global.browser,
   debug: isDebug,
   config: {
     ...config,
-    settings: {
-      ...config.settings,
-      telemetry: {
-        demographics: {
-          brand: 'cliqz',
-          name: `browser:${NativeModules.Constants.bundleIdentifier}`,
-          platform: 'ios',
-        },
-      },
-      HW_CHANNEL: isDebug ? 'ios-debug' : 'ios',
-      RESULTS_PROVIDER_ORDER: ['instant', 'calculator', 'history', 'cliqz', 'querySuggestions'],
-    },
+    settings,
   },
 });
 

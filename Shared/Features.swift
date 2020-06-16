@@ -9,6 +9,12 @@
 import Foundation
 
 public struct Features {
+    public struct BrowserCore {
+        public static var configUrl: String {
+            return "https://api.cliqz.com/api/v1/config"
+        }
+    }
+
     public struct Search {
         public enum KeyboardReturnKeyBehavior {
             case dismiss
@@ -31,6 +37,7 @@ public struct Features {
             }
         }
     }
+
     public struct ControlCenter {
         public struct PrivacyStats {
             public struct SearchStats {
@@ -40,6 +47,7 @@ public struct Features {
             }
         }
     }
+
     public struct PrivacyDashboard {
         public static var isAntiTrackingEnabled: Bool {
             return true
@@ -51,6 +59,7 @@ public struct Features {
             return true
         }
     }
+
     public struct News {
         public static var isEnabled: Bool {
             return false
@@ -77,6 +86,15 @@ public struct Features {
         public static var isEnabled: Bool {
             return false
         }
+        public static var brand: String {
+            return "cliqz"
+        }
+        public static var anolysisUrl: String {
+            return "https://anolysis.privacy.cliqz.com"
+        }
+        public static var anolysisStagingUrl: String {
+            return "https://anolysis-staging.privacy.cliqz.com"
+        }
     }
 
     public struct Home {
@@ -90,6 +108,15 @@ public struct Features {
     public struct TodayWidget {
         public static var isEnabled: Bool {
             return false
+        }
+    }
+
+    public struct HumanWeb {
+        public static var collectorDirectUrl: String {
+            return "https://collector-hpn.cliqz.com"
+        }
+        public static var collectorProxyUrl: String {
+            return "https://proxy*.cliqz.foxyproxy.com"
         }
     }
 }
