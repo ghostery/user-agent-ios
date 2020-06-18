@@ -189,6 +189,17 @@ class Results extends React.Component {
   }
 
   openSearchEngineResultsPage = async (searchEngine, query, index) => {
+    if (!searchEngine) {
+      const { searchEngines } = this.state;
+      const { Features } = this.props;
+      if (Features.Search.QuickSearch.isEnabled) {
+        // eslint-disable-next-line no-param-reassign
+        searchEngine = { name: 'Cliqz' };
+      } else {
+        // eslint-disable-next-line no-param-reassign
+        searchEngine = searchEngines.find(e => e.isDefault);
+      }
+    }
     const { results = {}, searchModule, insightsModule } = this.props;
     const meta = results.meta || {};
     const { favIconUrl: url } = searchEngine;
@@ -302,9 +313,7 @@ class Results extends React.Component {
 
             <View style={styles.footer}>
               <TouchableWithoutFeedback
-                onPress={() =>
-                  this.openSearchEngineResultsPage({ name: 'Cliqz' }, query, 0)
-                }
+                onPress={() => this.openSearchEngineResultsPage(null, query, 0)}
               >
                 <View style={styles.showMoreButtonWrapper}>
                   <View style={styles.showMoreButton}>
