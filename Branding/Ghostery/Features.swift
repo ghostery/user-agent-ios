@@ -68,7 +68,7 @@ extension Features.Telemetry {
     }
 }
 
-extension Features.ReportPage {
+extension Features.PrivacyDashboard.ReportPage {
     public static var isEnabled: Bool {
         return false
     }

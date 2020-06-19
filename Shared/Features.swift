@@ -58,6 +58,11 @@ public struct Features {
         public static var isPopupBlockerEnabled: Bool {
             return true
         }
+        public struct ReportPage {
+            public static var isEnabled: Bool {
+                return true
+            }
+        }
     }
 
     public struct News {
@@ -120,9 +125,4 @@ public struct Features {
         }
     }
 
-    public struct ReportPage {
-        public static var isEnabled: Bool {
-            return true
-        }
-    }
 }

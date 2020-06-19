@@ -431,7 +431,7 @@ extension PhotonActionSheetProtocol {
         }
 
         let statisticAndReportPage: PhotonActionSheetItem = {
-            if Features.ReportPage.isEnabled {
+            if Features.PrivacyDashboard.ReportPage.isEnabled {
                 return PhotonActionSheetItem(title: "", collectionItems: [whoTracksMeLink, reportPage])
             } else {
                 return PhotonActionSheetItem(title: "", collectionItems: [whoTracksMeLink])
@@ -444,7 +444,7 @@ extension PhotonActionSheetProtocol {
         if blocker.stats.total > 0 {
             return [menuActions, [trackerInfo], [statisticAndReportPage]]
         } else {
-            if Features.ReportPage.isEnabled {
+            if Features.PrivacyDashboard.ReportPage.isEnabled {
                 return [menuActions, [trackerInfo], [reportPage]]
             } else {
                 return [menuActions, [trackerInfo]]
