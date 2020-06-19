@@ -303,7 +303,7 @@ class Results extends React.Component {
             />
           </View>
           <>
-            {results.length === 0 && (
+            {Features.Search.QuickSearch.isEnabled && results.length === 0 && (
               <View style={styles.noResults}>
                 <Text style={styles.noResultsText}>
                   {t('Search.UI.NoResults')}
@@ -317,11 +317,13 @@ class Results extends React.Component {
               >
                 <View style={styles.showMoreButtonWrapper}>
                   <View style={styles.showMoreButton}>
-                    <NativeDrawable
-                      style={styles.footerIcon}
-                      source="nav-menu"
-                      color="#ffffff"
-                    />
+                    {Features.Search.QuickSearch.isEnabled && (
+                      <NativeDrawable
+                        style={styles.footerIcon}
+                        source="nav-menu"
+                        color="#ffffff"
+                      />
+                    )}
                     <Text style={styles.footerText} allowFontScaling={false}>
                       {t('Search.UI.Footer')}
                     </Text>
