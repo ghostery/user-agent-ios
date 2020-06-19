@@ -119,4 +119,10 @@ public struct Features {
             return "https://proxy*.cliqz.foxyproxy.com"
         }
     }
+
+    public struct ReportPage {
+        public static var isEnabled: Bool {
+            return true
+        }
+    }
 }

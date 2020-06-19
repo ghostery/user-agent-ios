@@ -67,3 +67,9 @@ extension Features.Telemetry {
         return "https://anolysis-staging.privacy.ghostery.net"
     }
 }
+
+extension Features.ReportPage {
+    public static var isEnabled: Bool {
+        return false
+    }
+}

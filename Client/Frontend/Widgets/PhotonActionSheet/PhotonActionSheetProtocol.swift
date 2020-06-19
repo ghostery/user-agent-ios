@@ -430,7 +430,13 @@ extension PhotonActionSheetProtocol {
             appDel.browserViewController.presentReportPageScreenFor(url: url)
         }
 
-        let statisticAndReportPage = PhotonActionSheetItem(title: "", collectionItems: [whoTracksMeLink, reportPage])
+        let statisticAndReportPage: PhotonActionSheetItem = {
+            if Features.ReportPage.isEnabled {
+                return PhotonActionSheetItem(title: "", collectionItems: [whoTracksMeLink, reportPage])
+            } else {
+                return PhotonActionSheetItem(title: "", collectionItems: [whoTracksMeLink])
+            }
+        }()
 
         if blocker.status == .Disabled {
             return [menuActions, [statisticAndReportPage]]
@@ -438,7 +444,11 @@ extension PhotonActionSheetProtocol {
         if blocker.stats.total > 0 {
             return [menuActions, [trackerInfo], [statisticAndReportPage]]
         } else {
-            return [menuActions, [trackerInfo], [reportPage]]
+            if Features.ReportPage.isEnabled {
+                return [menuActions, [trackerInfo], [reportPage]]
+            } else {
+                return [menuActions, [trackerInfo]]
+            }
         }
     }
 
