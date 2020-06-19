@@ -103,7 +103,7 @@ def fuzi
 end
 
 def sqlite
-  pod 'SQLCipher', '~> 4.3'
+  pod 'SQLCipher', '~> 4.4.0'
 end
 
 def swiftyjson
