@@ -45,7 +45,6 @@ public struct PrefsKeys {
 
     public static let AppExtensionTelemetryOpenUrl = "AppExtensionTelemetryOpenUrl"
     public static let AppExtensionTelemetryEventArray = "AppExtensionTelemetryEvents"
-
     public static let KeyBlockPopups = "blockPopups"
 }
 
