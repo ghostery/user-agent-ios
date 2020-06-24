@@ -48,6 +48,9 @@ extension Features.Home.DynamicBackgrounds {
 }
 
 extension Features.HumanWeb {
+    public static var isEnabled: Bool {
+        return true
+    }
     public static var collectorDirectUrl: String {
         return "https://collector-hpn.ghostery.net"
     }

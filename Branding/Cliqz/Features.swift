@@ -76,3 +76,9 @@ extension Features.TodayWidget {
         return true
     }
 }
+
+extension Features.HumanWeb {
+    public static var isEnabled: Bool {
+        return true
+    }
+}

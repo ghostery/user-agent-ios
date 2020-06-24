@@ -117,6 +117,9 @@ public struct Features {
     }
 
     public struct HumanWeb {
+        public static var isEnabled: Bool {
+            return false
+        }
         public static var collectorDirectUrl: String {
             return "https://collector-hpn.cliqz.com"
         }

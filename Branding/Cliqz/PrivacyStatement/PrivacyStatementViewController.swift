@@ -169,7 +169,7 @@ extension PrivacyStatementViewController {
             return cell
         case .settings:
             let cell = PrivacyStatementSettingCell(style: .subtitle, reuseIdentifier: nil)
-            if indexPath.row == 0 {
+            if indexPath.row == 0 && Features.HumanWeb.isEnabled {
                 cell.delegate = self
                 self.humanWebSetting.onConfigureCell(cell)
                 cell.hasBottomSeparator = true
