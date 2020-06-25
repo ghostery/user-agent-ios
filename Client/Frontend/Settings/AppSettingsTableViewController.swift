@@ -190,15 +190,18 @@ class AppSettingsTableViewController: SettingsTableViewController {
         let prefs = self.profile.prefs
         var supportSettigns = [
             SendFeedbackSetting(),
-            HumanWebSetting(prefs: prefs),
             PrivacyPolicySetting(),
         ]
         if Onboarding.isEnabled {
             supportSettigns.insert(ShowIntroductionSetting(settings: self), at: 0)
         }
+        if Features.HumanWeb.isEnabled {
+            supportSettigns.insert(HumanWebSetting(prefs: prefs), at: 1 + (Onboarding.isEnabled ? 1 : 0))
+        }
         if Features.Telemetry.isEnabled {
             let telemetrySetting = TelemetrySetting(prefs: prefs, attributedStatusText: NSAttributedString(string: Strings.Settings.Support.SendUsageStatus, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight]))
-            supportSettigns.insert(telemetrySetting, at: (2 + (Onboarding.isEnabled ? 1 : 0)))
+            let index = 1 + (Onboarding.isEnabled ? 1 : 0) + (Features.HumanWeb.isEnabled ? 1 : 0)
+            supportSettigns.insert(telemetrySetting, at: index)
         }
         return SettingSection(title: NSAttributedString(string: Strings.Settings.Support.SectionTitle), children: supportSettigns)
     }

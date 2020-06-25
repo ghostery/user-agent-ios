@@ -140,7 +140,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
 
         self.useCases = UseCases(tabManager: self.tabManager, profile: self.profile!, viewController: self.browserViewController)
         self.interceptorFeature = InterceptorFeature(tabManager: self.tabManager, ui: self.browserViewController, useCases: self.useCases)
-        self.humanWebFeature = HumanWebFeature(tabManager: self.tabManager)
+        if Features.HumanWeb.isEnabled {
+            self.humanWebFeature = HumanWebFeature(tabManager: self.tabManager)
+        }
         self.insightsFeature = InsightsFeature(tabManager: self.tabManager)
 
         self.browserViewController.useCases = self.useCases
