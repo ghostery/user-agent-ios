@@ -473,10 +473,10 @@ class OpenLinkSetting: Setting {
     override var accessibilityIdentifier: String? { return "OpenLink.Setting" }
 
     override var status: NSAttributedString {
-        guard let segment = self.profile.prefs.intForKey(PrefsKeys.OpenLinks) else {
+        guard let setting = self.profile.prefs.intForKey(PrefsKeys.OpenLinks) else {
             return NSAttributedString(string: TabManager.OpenLinks.defaultValue.title)
         }
-        let title = TabManager.OpenLinks(rawValue: segment)?.title ?? ""
+        let title = TabManager.OpenLinks(rawValue: setting)?.title ?? ""
         return NSAttributedString(string: title)
     }
 

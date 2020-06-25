@@ -121,7 +121,7 @@ extension BrowserViewController: WKUIDelegate {
             let addTab = { (rURL: URL, isPrivate: Bool) in
                 let tab = self.tabManager.addTab(URLRequest(url: rURL as URL), afterTab: currentTab, isPrivate: isPrivate)
 
-                self.tabManager.selectTab(tab)
+                self.tabManager.selectTabOrOpenInBackground(tab)
             }
 
             let getImageData = { (_ url: URL, success: @escaping (Data) -> Void) in

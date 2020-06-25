@@ -20,7 +20,7 @@ extension BrowserViewController: UseCasesPresentationViewController {
     }
 
     func openURLInNewTab(_ url: URL, isPrivate: Bool) {
-        self.openURLInNewTab(url, isPrivate: isPrivate, isPrivileged: true)
+        self.openURLInNewTab(url, isPrivate: isPrivate, isPrivileged: true, forceInNewTab: false)
     }
 
     func showWipeAllTracesContextualOnboarding() {

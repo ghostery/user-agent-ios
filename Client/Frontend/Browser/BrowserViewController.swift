@@ -1011,13 +1011,13 @@ class BrowserViewController: UIViewController {
             self.urlBar.cancel()
         }
 
-        self.tabManager.selectTab(tab)
+        self.tabManager.selectTabOrOpenInBackground(tab)
     }
 
     func openAndShowURLInNewTab(url: URL, isPrivate: Bool) {
-           let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
-            self.tabManager.selectTab(tab)
-       }
+        let tab = self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
+        self.tabManager.selectTab(tab)
+    }
 
     func finishEditingAndSubmit(_ url: URL, visitType: VisitType, forTab tab: Tab) {
         urlBar.currentURL = url
@@ -1160,7 +1160,7 @@ class BrowserViewController: UIViewController {
         }
     }
 
-    func openURLInNewTab(_ url: URL?, isPrivate: Bool = false, isPrivileged: Bool) {
+    func openURLInNewTab(_ url: URL?, isPrivate: Bool = false, isPrivileged: Bool, forceInNewTab: Bool = true) {
         popToBVC()
         if let selectedTab = tabManager.selectedTab {
             screenshotHelper.takeScreenshot(selectedTab)
@@ -1173,7 +1173,11 @@ class BrowserViewController: UIViewController {
         }
 
         switchToPrivacyMode(isPrivate: isPrivate)
-        tabManager.selectTab(tabManager.addTab(request, isPrivate: isPrivate))
+        if forceInNewTab {
+            tabManager.selectTab(tabManager.addTab(request, isPrivate: isPrivate))
+        } else {
+            tabManager.selectTabOrOpenInBackground(tabManager.addTab(request, isPrivate: isPrivate))
+        }
     }
 
     func focusLocationTextField(forTab tab: Tab?, setSearchText searchText: String? = nil) {

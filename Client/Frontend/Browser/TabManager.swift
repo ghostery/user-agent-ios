@@ -241,6 +241,20 @@ class TabManager: NSObject {
         return nil
     }
 
+    func selectTabOrOpenInBackground(_ tab: Tab?, previous: Tab? = nil) {
+        var setting: TabManager.OpenLinks
+        if let rawValue = self.profile.prefs.intForKey(PrefsKeys.OpenLinks), let value = TabManager.OpenLinks(rawValue: rawValue) {
+            setting = value
+        } else {
+            setting = TabManager.OpenLinks.defaultValue
+        }
+        switch setting {
+        case .inNewTab:
+            self.selectTab(tab, previous: previous)
+        case .inBackground: break
+        }
+    }
+
     // This function updates the _selectedIndex.
     // Note: it is safe to call this with `tab` and `previous` as the same tab, for use in the case where the index of the tab has changed (such as after deletion).
     func selectTab(_ tab: Tab?, previous: Tab? = nil) {
