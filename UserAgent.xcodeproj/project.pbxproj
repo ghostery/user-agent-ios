@@ -78,6 +78,8 @@
 		2B2EA06B235F087100FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EA069235DE3DC00FCB9D3 /* ContentBlocker+Tracking+Whitelist.swift */; };
 		2B308AC4242B2B4A009AF3D1 /* Siri.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B308ABD242B2B4A009AF3D1 /* Siri.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2B308AD0242B2DC1009AF3D1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B308ACE242B2DC1009AF3D1 /* IntentHandler.swift */; };
+		2B31321724A4A3FE006A2B51 /* OpenLinksSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B31321624A4A3FE006A2B51 /* OpenLinksSettingsViewController.swift */; };
+		2B31321824A4A3FE006A2B51 /* OpenLinksSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B31321624A4A3FE006A2B51 /* OpenLinksSettingsViewController.swift */; };
 		2B32B72B243F693A00607D0A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32B72A243F693A00607D0A /* GradientView.swift */; };
 		2B32B72C243F693A00607D0A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B32B72A243F693A00607D0A /* GradientView.swift */; };
 		2B38E2302493A797001D6236 /* Strings+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B38E22F2493A797001D6236 /* Strings+Menu.swift */; };
@@ -636,7 +638,7 @@
 		ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		ACB737E823042BAB00FA5626 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		ACB737E823042BAB00FA5626 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
 		ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */; };
 		ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6327A631BF6438E008D12E0 /* DebugSettingsBundleOptions.swift */; };
@@ -1327,6 +1329,7 @@
 		2B308ABD242B2B4A009AF3D1 /* Siri.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Siri.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B308ACE242B2DC1009AF3D1 /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		2B308ACF242B2DC1009AF3D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B31321624A4A3FE006A2B51 /* OpenLinksSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinksSettingsViewController.swift; sourceTree = "<group>"; };
 		2B32B72A243F693A00607D0A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2B38E22F2493A797001D6236 /* Strings+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Menu.swift"; sourceTree = "<group>"; };
 		2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabDefaulViewSettingsViewController.swift; sourceTree = "<group>"; };
@@ -2756,6 +2759,7 @@
 				2B427C7123D6E76200BF1308 /* NewTabDefaulViewSettingsViewController.swift */,
 				2BE9C93023E169450074E55E /* OnBrowserStartShowSettingsViewController.swift */,
 				2BBAA44C242124E0006D8246 /* TodayWidgetViewController.swift */,
+				2B31321624A4A3FE006A2B51 /* OpenLinksSettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -5783,6 +5787,7 @@
 				ACB7376223042BAB00FA5626 /* PrivilegedRequest.swift in Sources */,
 				ACB7376323042BAB00FA5626 /* SnapKitExtensions.swift in Sources */,
 				ACB7376423042BAB00FA5626 /* Swizzling.m in Sources */,
+				2B31321824A4A3FE006A2B51 /* OpenLinksSettingsViewController.swift in Sources */,
 				ACB7376523042BAB00FA5626 /* OpenWithSettingsViewController.swift in Sources */,
 				ACB7376623042BAB00FA5626 /* FindInPageBar.swift in Sources */,
 				46442CEF238BE61D002E6D85 /* HumanWebFeature.swift in Sources */,
@@ -5935,7 +5940,7 @@
 				ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
-				ACB737E823042BAB00FA5626 /* BuildFile in Sources */,
+				ACB737E823042BAB00FA5626 /* (null) in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
@@ -6098,6 +6103,7 @@
 				D3B6923D1B9F9444004B87A4 /* FindInPageBar.swift in Sources */,
 				2F44FC721A9E840300FD20CC /* SettingsNavigationController.swift in Sources */,
 				D3BA7E0E1B0E934F00153782 /* ContextMenuHelper.swift in Sources */,
+				2B31321724A4A3FE006A2B51 /* OpenLinksSettingsViewController.swift in Sources */,
 				E660BE061BB0666D009AC090 /* InnerStrokedView.swift in Sources */,
 				46CA60E02316CF300010CE6B /* BrowserActions.m in Sources */,
 				46504060240FC1E80086CFAF /* HistoryView.swift in Sources */,

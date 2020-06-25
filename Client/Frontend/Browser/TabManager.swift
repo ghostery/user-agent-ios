@@ -71,6 +71,25 @@ class TabManager: NSObject {
 
     }
 
+    enum OpenLinks: Int32, CaseIterable {
+        case inNewTab = 0
+        case inBackground
+
+        var title: String {
+            switch self {
+            case .inNewTab:
+                return Strings.Settings.General.OpenLinks.InNewTab
+            case .inBackground:
+                return Strings.Settings.General.OpenLinks.InBackground
+            }
+        }
+
+        static var defaultValue: OpenLinks {
+            return .inNewTab
+        }
+
+    }
+
     fileprivate var delegates = [WeakTabManagerDelegate]()
     fileprivate let tabEventHandlers: [TabEventHandler]
     fileprivate let store: TabManagerStore

@@ -465,6 +465,41 @@ class NewTabPageDefaultViewSetting: Setting {
     }
 }
 
+class OpenLinkSetting: Setting {
+    let profile: Profile
+
+    override var accessoryType: UITableViewCell.AccessoryType { return .disclosureIndicator }
+
+    override var accessibilityIdentifier: String? { return "OpenLink.Setting" }
+
+    override var status: NSAttributedString {
+        guard let segment = self.profile.prefs.intForKey(PrefsKeys.OpenLinks) else {
+            return NSAttributedString(string: TabManager.OpenLinks.defaultValue.title)
+        }
+        let title = TabManager.OpenLinks(rawValue: segment)?.title ?? ""
+        return NSAttributedString(string: title)
+    }
+
+    override var style: UITableViewCell.CellStyle { return .value1 }
+
+    init(settings: SettingsTableViewController) {
+        self.profile = settings.profile
+
+        super.init(title: NSAttributedString(string: Strings.Settings.General.OpenLinks.SectionName, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.rowText]))
+    }
+
+    override func onClick(_ navigationController: UINavigationController?) {
+        var selectedSetting: TabManager.OpenLinks!
+        if let setting = self.profile.prefs.intForKey(PrefsKeys.OpenLinks) {
+            selectedSetting = TabManager.OpenLinks(rawValue: setting) ?? TabManager.OpenLinks.defaultValue
+        } else {
+            selectedSetting = TabManager.OpenLinks.defaultValue
+        }
+        let viewController = OpenLinksSettingsViewController(profile: self.profile, selectedSetting: selectedSetting)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 class OnBrowserStartShowSetting: Setting {
     let profile: Profile
 

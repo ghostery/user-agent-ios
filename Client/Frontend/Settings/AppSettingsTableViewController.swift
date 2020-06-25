@@ -132,6 +132,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
         var generalSettings: [Setting] = [
             OpenWithSetting(settings: self),
             NewTabPageDefaultViewSetting(settings: self),
+            OpenLinkSetting(settings: self),
             OnBrowserStartShowSetting(settings: self),
             BoolSetting(prefs: prefs, prefKey: PrefsKeys.RefreshControlEnabled, defaultValue: true,
                         titleText: Strings.Settings.General.RefreshControl),
