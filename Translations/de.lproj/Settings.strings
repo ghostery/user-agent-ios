@@ -170,6 +170,15 @@
 /* The option in settings to configure default selected view in new tab */
 "Settings.General.NewTabPageDefaultView.SectionName" = "Neuer Tab";
 
+/* The option in settings to configure open new tab behavior */
+"Settings.General.OpenLinks.SectionName" = "Links öffnen";
+
+/* The option in settings to configure open link in new tab */
+"Settings.General.OpenLinks.InNewTab" = "In neuem Tab";
+
+/* The option in settings to configure open link in background */
+"Settings.General.OpenLinks.InBackground" = "Im Hintergrund";
+
 /* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
 "Settings.TrackingProtection.SectionName" = "Schutz vor Aktivitätenverfolgung";
 

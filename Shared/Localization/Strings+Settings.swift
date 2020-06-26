@@ -102,6 +102,11 @@ extension Strings {
             public struct NewTabPageDefaultView {
                 public static let SectionName = NSLocalizedString("Settings.General.NewTabPageDefaultView.SectionName", tableName: "Settings", comment: "The option in settings to configure default selected view in new tab")
             }
+            public struct OpenLinks {
+                public static let SectionName = NSLocalizedString("Settings.General.OpenLinks.SectionName", tableName: "Settings", comment: "The option in settings to configure open new tab behavior")
+                public static let InNewTab = NSLocalizedString("Settings.General.OpenLinks.InNewTab", tableName: "Settings", comment: "The option in settings to configure open links in new tab")
+                public static let InBackground = NSLocalizedString("Settings.General.OpenLinks.InBackground", tableName: "Settings", comment: "The option in settings to configure open links in background")
+            }
             public struct OnBrowserStartTab {
                 public static let SectionName = NSLocalizedString("Settings.General.OnBrowserStartTab.SectionName", tableName: "Settings", comment: "The option in settings to configure first launch tab")
                 public static let LastOpenedTab = NSLocalizedString("Settings.General.OnBrowserStartTab.LastOpenedTab", tableName: "Settings", comment: "The option in settings to configure first launch to open last opened tab")

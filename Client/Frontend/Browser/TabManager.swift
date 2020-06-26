@@ -71,6 +71,25 @@ class TabManager: NSObject {
 
     }
 
+    enum OpenLinks: Int32, CaseIterable {
+        case inNewTab = 0
+        case inBackground
+
+        var title: String {
+            switch self {
+            case .inNewTab:
+                return Strings.Settings.General.OpenLinks.InNewTab
+            case .inBackground:
+                return Strings.Settings.General.OpenLinks.InBackground
+            }
+        }
+
+        static var defaultValue: OpenLinks {
+            return .inNewTab
+        }
+
+    }
+
     fileprivate var delegates = [WeakTabManagerDelegate]()
     fileprivate let tabEventHandlers: [TabEventHandler]
     fileprivate let store: TabManagerStore
@@ -220,6 +239,20 @@ class TabManager: NSObject {
         }
 
         return nil
+    }
+
+    func selectTabOrOpenInBackground(_ tab: Tab?, previous: Tab? = nil) {
+        var setting: TabManager.OpenLinks
+        if let rawValue = self.profile.prefs.intForKey(PrefsKeys.OpenLinks), let value = TabManager.OpenLinks(rawValue: rawValue) {
+            setting = value
+        } else {
+            setting = TabManager.OpenLinks.defaultValue
+        }
+        switch setting {
+        case .inNewTab:
+            self.selectTab(tab, previous: previous)
+        case .inBackground: break
+        }
     }
 
     // This function updates the _selectedIndex.
