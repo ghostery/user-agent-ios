@@ -72,7 +72,6 @@ open class UserAgent {
             return getUserAgent(domain: domain, platform: .Mobile)
         }
     }
-
 }
 
 public enum UserAgentPlatform {
@@ -110,7 +109,8 @@ public struct UserAgentBuilder {
         return removeEmptyComponentsAndJoin(uaItems: userAgentItems)
     }
 
-    public func clone(product: String? = nil, systemInfo: String? = nil, platform: String? = nil, platformDetails: String? = nil, extensions: String? = nil) -> String {    let userAgentItems = [product ?? self.product, systemInfo ?? self.systemInfo, platform ?? self.platform, platformDetails ?? self.platformDetails, extensions ?? self.extensions]
+    public func clone(product: String? = nil, systemInfo: String? = nil, platform: String? = nil, platformDetails: String? = nil, extensions: String? = nil) -> String {
+        let userAgentItems = [product ?? self.product, systemInfo ?? self.systemInfo, platform ?? self.platform, platformDetails ?? self.platformDetails, extensions ?? self.extensions]
         return removeEmptyComponentsAndJoin(uaItems: userAgentItems)
     }
 
@@ -126,6 +126,8 @@ public struct UserAgentBuilder {
     public static func defaultDesktopUserAgent(withBrand: Bool = true) -> UserAgentBuilder {
         return UserAgentBuilder(product: UserAgent.product, systemInfo: "(Macintosh; Intel Mac OS X 10_15)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: self.extensions(isMobile: false, withBrand: withBrand))
     }
+
+    // MARK: - Private methods
 
     private static func extensions(isMobile: Bool, withBrand: Bool = true) -> String {
         var extensions = "\(UserAgent.uaFxiOSVersion)"
