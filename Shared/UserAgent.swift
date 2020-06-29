@@ -12,9 +12,6 @@ open class UserAgent {
     public static let platform = "AppleWebKit/605.1.15"
     public static let platformDetails = "(KHTML, like Gecko)"
 
-    // Masking as Firefox trigger some website warning on User Agent string
-    public static let uaFxiOSVersion = "Version/13.0.4"
-
     private static var defaults = UserDefaults(suiteName: AppInfo.sharedContainerIdentifier)!
 
     private static func clientUserAgent(prefix: String) -> String {
@@ -72,7 +69,6 @@ open class UserAgent {
             return getUserAgent(domain: domain, platform: .Mobile)
         }
     }
-
 }
 
 public enum UserAgentPlatform {
@@ -110,7 +106,8 @@ public struct UserAgentBuilder {
         return removeEmptyComponentsAndJoin(uaItems: userAgentItems)
     }
 
-    public func clone(product: String? = nil, systemInfo: String? = nil, platform: String? = nil, platformDetails: String? = nil, extensions: String? = nil) -> String {    let userAgentItems = [product ?? self.product, systemInfo ?? self.systemInfo, platform ?? self.platform, platformDetails ?? self.platformDetails, extensions ?? self.extensions]
+    public func clone(product: String? = nil, systemInfo: String? = nil, platform: String? = nil, platformDetails: String? = nil, extensions: String? = nil) -> String {
+        let userAgentItems = [product ?? self.product, systemInfo ?? self.systemInfo, platform ?? self.platform, platformDetails ?? self.platformDetails, extensions ?? self.extensions]
         return removeEmptyComponentsAndJoin(uaItems: userAgentItems)
     }
 
@@ -119,23 +116,11 @@ public struct UserAgentBuilder {
         return uaItems.filter { !$0.isEmptyOrWhitespace() }.joined(separator: " ")
     }
 
-    public static func defaultMobileUserAgent(withBrand: Bool = true) -> UserAgentBuilder {
-        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(\(UIDevice.current.model); CPU \(UIDevice.current.model) OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: self.extensions(isMobile: true, withBrand: withBrand))
+    public static func defaultMobileUserAgent() -> UserAgentBuilder {
+        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(\(UIDevice.current.model); CPU OS \(UIDevice.current.systemVersion.replacingOccurrences(of: ".", with: "_")) like Mac OS X)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: "FxiOS/21.0  \(UserAgent.uaBitMobile) \(UserAgent.uaBitSafari)")
     }
 
-    public static func defaultDesktopUserAgent(withBrand: Bool = true) -> UserAgentBuilder {
-        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(Macintosh; Intel Mac OS X 10_15)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: self.extensions(isMobile: false, withBrand: withBrand))
-    }
-
-    private static func extensions(isMobile: Bool, withBrand: Bool = true) -> String {
-        var extensions = "\(UserAgent.uaFxiOSVersion)"
-        if isMobile {
-            extensions += " \(UserAgent.uaBitMobile)"
-        }
-        extensions +=  " \(UserAgent.uaBitSafari)"
-        if withBrand {
-            extensions += " \(AppInfo.displayName)"
-        }
-        return extensions
+    public static func defaultDesktopUserAgent() -> UserAgentBuilder {
+        return UserAgentBuilder(product: UserAgent.product, systemInfo: "(Macintosh; Intel Mac OS X 10.15)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: "FxiOS/21.0 \(UserAgent.uaBitSafari)")
     }
 }
