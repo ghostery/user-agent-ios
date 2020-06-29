@@ -157,11 +157,7 @@ class TopTabCell: UICollectionViewCell {
         }
 
         self.selectedTab = isSelected
-        if InternalURL.isValid(url: tab.url) || SearchURL.isValid(url: tab.url) || tab.isNewTabPage {
-            self.iconView.getIcon(site: Site(url: Strings.BrandWebsite, title: tab.title ?? ""))
-        } else {
-            self.iconView.setTabIcon(tab: tab)
-        }
+        self.iconView.setTabIcon(tab: tab)
     }
 
     required init?(coder aDecoder: NSCoder) {
