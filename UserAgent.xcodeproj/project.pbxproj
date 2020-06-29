@@ -68,7 +68,6 @@
 		2B0C81CE248E1BF8003F97B4 /* BrandColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0C81CD248E1BF8003F97B4 /* BrandColors.xcassets */; };
 		2B0E93692407A92300ED7703 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3905274B1C874D35007E0BB7 /* NotificationCenter.framework */; };
 		2B0E936C2407A92300ED7703 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E936B2407A92300ED7703 /* TodayViewController.swift */; };
-		2B0E93732407A92300ED7703 /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2B0E93682407A92300ED7703 /* Today.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2B189393247535EF003DA87D /* DataAndPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B189392247535EF003DA87D /* DataAndPrivacy.swift */; };
 		2B18939524753898003DA87D /* DataAndPrivacy+Cliqz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B18939424753898003DA87D /* DataAndPrivacy+Cliqz.swift */; };
 		2B18939624753C53003DA87D /* Strings+PrivacyStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B76E43323A129DB001CF20E /* Strings+PrivacyStatement.swift */; };
@@ -1372,13 +1371,6 @@
 			remoteGlobalIDString = 288A2D851AB8B3260023ABC3;
 			remoteInfo = Shared;
 		};
-		2B0E93712407A92300ED7703 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2B0E93672407A92300ED7703;
-			remoteInfo = Today;
-		};
 		2B308AC2242B2B4A009AF3D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -1668,7 +1660,6 @@
 			files = (
 				F84B22541A0920C600AAB793 /* ShareTo.appex in Embed App Extensions */,
 				2B308AC4242B2B4A009AF3D1 /* Siri.appex in Embed App Extensions */,
-				2B0E93732407A92300ED7703 /* Today.appex in Embed App Extensions */,
 				2BE258DF23BA2B4A0022ED28 /* OpenIn.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -4970,7 +4961,6 @@
 				F84B22521A0920C600AAB793 /* PBXTargetDependency */,
 				2BE258DE23BA2B4A0022ED28 /* PBXTargetDependency */,
 				049DBB0B23E45C4500D2D38D /* PBXTargetDependency */,
-				2B0E93722407A92300ED7703 /* PBXTargetDependency */,
 				2B308AC3242B2B4A009AF3D1 /* PBXTargetDependency */,
 			);
 			name = Cliqz;
@@ -7517,11 +7507,6 @@
 			isa = PBXTargetDependency;
 			target = 288A2D851AB8B3260023ABC3 /* Shared */;
 			targetProxy = 288A2D9B1AB8B3260023ABC3 /* PBXContainerItemProxy */;
-		};
-		2B0E93722407A92300ED7703 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2B0E93672407A92300ED7703 /* Today */;
-			targetProxy = 2B0E93712407A92300ED7703 /* PBXContainerItemProxy */;
 		};
 		2B308AC3242B2B4A009AF3D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
