@@ -962,7 +962,7 @@ class TabCell: UICollectionViewCell, Themeable {
         isAccessibilityElement = true
         accessibilityHint = Strings.Accessibility.TabTray.Swipe
 
-        if InternalURL.isValid(url: tab.url) || SearchURL.isValid(url: tab.url) || tab.isNewTabPage {
+        if tab.url != nil && (InternalURL.isValid(url: tab.url) || SearchURL.isValid(url: tab.url) || tab.isNewTabPage) {
             self.iconView.getIcon(site: Site(url: Strings.BrandWebsite, title: tab.title ?? ""))
         } else {
             self.iconView.setTabIcon(tab: tab)

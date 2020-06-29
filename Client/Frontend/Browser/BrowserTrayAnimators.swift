@@ -334,5 +334,8 @@ private func createTransitionCellFromTab(_ tab: Tab?, withFrame frame: CGRect) -
     let cell = TabCell(frame: frame)
     cell.screenshotView.image = tab?.screenshot
     cell.titleText.text = tab?.displayTitle
+    if let tab = tab {
+        cell.iconView.setTabIcon(tab: tab)
+    }
     return cell
 }

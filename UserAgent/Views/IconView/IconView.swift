@@ -57,9 +57,9 @@ class IconView: UIView {
             self.logoView.url = tab.logoURL.absoluteString
         case .favicon:
             if let urlString = tab.displayFavicon?.url, let url = URL(string: urlString) {
-                self.faviconView.sd_setImage(with: url, placeholderImage: nil, options: [], completed: nil)
+                self.faviconView.sd_setImage(with: url, placeholderImage: FaviconFetcher.defaultFavicon, options: [], completed: nil)
             } else {
-                self.faviconView.image = nil
+                self.faviconView.image = FaviconFetcher.defaultFavicon
             }
         }
     }
