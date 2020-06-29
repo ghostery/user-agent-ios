@@ -11,7 +11,7 @@ import Shared
 public extension Onboarding {
 
     static var isEnabled: Bool {
-        return true
+        return false
     }
 
     static func presentingViewController(delegate: OnboardingViewControllerDelegate?) -> UIViewController? {
