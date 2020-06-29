@@ -14,9 +14,15 @@ extension Features.Search.AdditionalSearchEngines {
     }
 }
 
+extension Features.Home.DynamicBackgrounds {
+    public static var isEnabled: Bool {
+        return false
+    }
+}
+
 extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
-        return .dismiss
+        return .search
     }
     public static var defaultEngineName: String {
         return "Cliqz"
@@ -25,7 +31,7 @@ extension Features.Search {
 
 extension Features.Search.QuickSearch {
     public static var isEnabled: Bool {
-        return true
+        return false
     }
 }
 
@@ -49,7 +55,7 @@ extension Features.News {
 
 extension Features.Icons {
     public static var type: IconType {
-        return .cliqz
+        return .favicon
     }
 }
 
@@ -67,13 +73,13 @@ extension Features.ControlCenter.PrivacyStats.SearchStats {
 
 extension Features.Telemetry {
     public static var isEnabled: Bool {
-        return true
+        return false
     }
 }
 
 extension Features.TodayWidget {
     public static var isEnabled: Bool {
-        return true
+        return false
     }
 }
 
