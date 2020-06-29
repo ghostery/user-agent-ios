@@ -17,8 +17,6 @@ class IconView: UIView {
     lazy private (set) var faviconView: UIImageView = {
         let faviconView = UIImageView()
         faviconView.backgroundColor = .clear
-        faviconView.layer.cornerRadius = 6
-        faviconView.layer.masksToBounds = true
         return faviconView
     }()
 
@@ -36,6 +34,8 @@ class IconView: UIView {
                 make.edges.equalToSuperview()
             }
         }
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 6
     }
 
     required init?(coder: NSCoder) {
@@ -57,9 +57,9 @@ class IconView: UIView {
             self.logoView.url = tab.logoURL.absoluteString
         case .favicon:
             if let urlString = tab.displayFavicon?.url, let url = URL(string: urlString) {
-                self.faviconView.sd_setImage(with: url, placeholderImage: nil, options: [], completed: nil)
+                self.faviconView.sd_setImage(with: url, placeholderImage: FaviconFetcher.defaultFavicon, options: [], completed: nil)
             } else {
-                self.faviconView.image = nil
+                self.faviconView.image = FaviconFetcher.defaultFavicon
             }
         }
     }
