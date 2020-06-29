@@ -127,6 +127,8 @@ public struct UserAgentBuilder {
         return UserAgentBuilder(product: UserAgent.product, systemInfo: "(Macintosh; Intel Mac OS X 10_15)", platform: UserAgent.platform, platformDetails: UserAgent.platformDetails, extensions: self.extensions(isMobile: false, withBrand: withBrand))
     }
 
+    // MARK: - Private methods
+
     private static func extensions(isMobile: Bool, withBrand: Bool = true) -> String {
         var extensions = "\(UserAgent.uaFxiOSVersion)"
         if isMobile {
