@@ -17,8 +17,6 @@ class IconView: UIView {
     lazy private (set) var faviconView: UIImageView = {
         let faviconView = UIImageView()
         faviconView.backgroundColor = .clear
-        faviconView.layer.cornerRadius = 6
-        faviconView.layer.masksToBounds = true
         return faviconView
     }()
 
@@ -36,6 +34,8 @@ class IconView: UIView {
                 make.edges.equalToSuperview()
             }
         }
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 6
     }
 
     required init?(coder: NSCoder) {
