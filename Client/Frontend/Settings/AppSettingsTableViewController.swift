@@ -136,7 +136,7 @@ class AppSettingsTableViewController: SettingsTableViewController {
             OnBrowserStartShowSetting(settings: self),
             BoolSetting(prefs: prefs, prefKey: PrefsKeys.RefreshControlEnabled, defaultValue: true,
                         titleText: Strings.Settings.General.RefreshControl),
-            BoolSetting(prefs: prefs, prefKey: "blockPopups", defaultValue: true,
+            BoolSetting(prefs: prefs, prefKey: PrefsKeys.KeyBlockPopups, defaultValue: true,
                         titleText: Strings.Settings.General.BlockPopUpWindows),
         ]
 

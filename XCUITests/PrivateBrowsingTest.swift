@@ -4,8 +4,10 @@
 
 import XCTest
 
-let url1 = "www.mozilla.org"
-let url2 = "www.facebook.com"
+let url1 = "example.com"
+let url2 = path(forTestPage: "test-mozilla-org.html")
+let url3 = path(forTestPage: "test-example.html")
+let urlIndexedDB = path(forTestPage: "test-indexeddb-private.html")
 
 let url1Label = "Internet for people, not profit — Mozilla"
 let url2Label = "Facebook - Log In or Sign Up"
@@ -135,6 +137,30 @@ class PrivateBrowsingTest: BaseTestCase {
 
         navigator.toggleOn(userState.isPrivate, withAction: Action.TogglePrivateMode)
         checkOpenTabsAfterClosingPrivateMode()
+    }
+
+    /* Loads a page that checks if an db file exists already. It uses indexedDB on both the main document, and in a web worker.
+     The loaded page has two staticTexts that get set when the db is correctly created (because the db didn't exist in the cache)
+     https://bugzilla.mozilla.org/show_bug.cgi?id=1646756
+     */
+    func testClearIndexedDB() {
+        enableClosePrivateBrowsingOptionWhenLeaving()
+
+        func checkIndexedDBIsCreated() {
+            navigator.openURL(urlIndexedDB)
+            waitUntilPageLoad()
+            XCTAssertTrue(app.webViews.staticTexts["DB_CREATED_PAGE"].exists)
+            XCTAssertTrue(app.webViews.staticTexts["DB_CREATED_WORKER"].exists)
+        }
+        
+        navigator.toggleOn(userState.isPrivate, withAction: Action.TogglePrivateMode)
+        checkIndexedDBIsCreated()
+
+        navigator.toggleOff(userState.isPrivate, withAction: Action.TogglePrivateMode)
+        checkIndexedDBIsCreated()
+
+        navigator.toggleOn(userState.isPrivate, withAction: Action.TogglePrivateMode)
+        checkIndexedDBIsCreated()
     }
 
     func testPrivateBrowserPanelView() {

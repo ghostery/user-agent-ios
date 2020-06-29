@@ -125,9 +125,10 @@ class TabManager: NSObject {
 
     fileprivate let navDelegate: TabManagerNavDelegate
 
-    public static func makeWebViewConfig(isPrivate: Bool, blockPopups: Bool) -> WKWebViewConfiguration {
+    public static func makeWebViewConfig(isPrivate: Bool, prefs: Prefs?) -> WKWebViewConfiguration {
         let configuration = WKWebViewConfiguration()
         configuration.processPool = WKProcessPool()
+        let blockPopups = prefs?.boolForKey(PrefsKeys.KeyBlockPopups) ?? true
         configuration.preferences.javaScriptCanOpenWindowsAutomatically = !blockPopups
         // We do this to go against the configuration of the <meta name="viewport">
         // tag to behave the same way as Safari :-(
@@ -143,14 +144,12 @@ class TabManager: NSObject {
 
     // A WKWebViewConfiguration used for normal tabs
     lazy fileprivate var configuration: WKWebViewConfiguration = {
-        let blockPopups = profile.prefs.boolForKey("blockPopups") ?? true
-        return TabManager.makeWebViewConfig(isPrivate: false, blockPopups: blockPopups)
+        return TabManager.makeWebViewConfig(isPrivate: false, prefs: profile.prefs)
     }()
 
     // A WKWebViewConfiguration used for private mode tabs
     lazy fileprivate var privateConfiguration: WKWebViewConfiguration = {
-        let blockPopups = profile.prefs.boolForKey("blockPopups") ?? true
-        return TabManager.makeWebViewConfig(isPrivate: true, blockPopups: blockPopups)
+        return TabManager.makeWebViewConfig(isPrivate: true, prefs: profile.prefs)
     }()
 
     var selectedIndex: Int { return _selectedIndex }
@@ -507,6 +506,10 @@ class TabManager: NSObject {
         tabs.remove(at: removalIndex)
         assert(count == prevCount - 1, "Make sure the tab count was actually removed")
 
+        if tab.isPrivate && privateTabs.count < 1 {
+            privateConfiguration = TabManager.makeWebViewConfig(isPrivate: true, prefs: profile.prefs)
+        }
+
         tab.closeAndRemovePrivateBrowsingData()
 
         if notify {
@@ -542,6 +545,8 @@ class TabManager: NSObject {
         }
         privateTabs.forEach { $0.closeAndRemovePrivateBrowsingData() }
         tabs = normalTabs
+
+        privateConfiguration = TabManager.makeWebViewConfig(isPrivate: true, prefs: profile.prefs)
     }
 
     func removeTabsWithUndoToast(_ tabs: [Tab]) {
@@ -619,7 +624,7 @@ class TabManager: NSObject {
 
     @objc func prefsDidChange() {
         DispatchQueue.main.async {
-            let allowPopups = !(self.profile.prefs.boolForKey("blockPopups") ?? true)
+            let allowPopups = !(self.profile.prefs.boolForKey(PrefsKeys.KeyBlockPopups) ?? true)
             let allowPullToRefresh = self.profile.prefs.boolForKey(PrefsKeys.RefreshControlEnabled) ?? true
             // Each tab may have its own configuration, so we should tell each of them in turn.
             for tab in self.tabs {
