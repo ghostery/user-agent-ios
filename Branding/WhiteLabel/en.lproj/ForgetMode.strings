@@ -7,34 +7,34 @@
 */
 
 /* Action label on share extension to immediately open page in a private tab. */
-"ForgetMode.ShareExtension.OpenInPrivateTab" = "Open in New Forget Mode Tab";
+"ForgetMode.ShareExtension.OpenInPrivateTab" = "Open in New Private Mode Tab";
 
 /* Title for Automatic forget mode screen */
-"ForgetMode.AutomaticForgetMode.Title" = "Automatic Forget Mode";
+"ForgetMode.AutomaticForgetMode.Title" = "Automatic Private Mode";
 
 /* Description for Automatic forget mode screen */
-"ForgetMode.AutomaticForgetMode.Description" = "Your spouse or partner may secretly read your private messages, but they'll never know if you've visited any porn sites. %@ this with its Automatic Forget Mode feature that prevents adult sites from appearing in your browsing history. You're welcome!";
+"ForgetMode.AutomaticForgetMode.Description" = "Your spouse or partner may secretly read your private messages, but they'll never know if you've visited any porn sites. %@ this with its Automatic Private Mode feature that prevents adult sites from appearing in your browsing history. You're welcome!";
 
 /* The title for the Open in New Private Tab context menu action for sites in Home Panels */
-"ForgetMode.ContextMenu.OpenInNewPrivateTab" = "Open in New Forget Mode Tab";
+"ForgetMode.ContextMenu.OpenInNewPrivateTab" = "Open in New Private Mode Tab";
 
 /* Label to switch to forget mode */
-"ForgetMode.Hotkeys.PrivateBrowsingModeTitle" = "Forget Mode";
+"ForgetMode.Hotkeys.PrivateBrowsingModeTitle" = "Private Mode";
 
 /* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
-"ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Forget Mode";
+"ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Private Mode";
 
 /* Description text displayed when there are no open tabs while in private mode */
-"ForgetMode.EmptyPrivateTabsDescription" = "You are browsing in Forget Mode: Websites you visit in the mode will not be saved in your history, and local data, including cookies, will not be stored.";
+"ForgetMode.EmptyPrivateTabsDescription" = "You are browsing in Private Mode: Websites you visit in the mode will not be saved in your history, and local data, including cookies, will not be stored.";
 
 /* Title displayed for when there are no open tabs while in private mode */
-"ForgetMode.EmptyPrivateTabsTitle" = "Forget Mode";
+"ForgetMode.EmptyPrivateTabsTitle" = "Private Mode";
 
 /* Accessibility label for toggling on/off private mode */
-"ForgetMode.ToggleAccessibilityLabel" = "Forget Mode";
+"ForgetMode.ToggleAccessibilityLabel" = "Private Mode";
 
 /* Accessiblity hint for toggling on/off private mode */
-"ForgetMode.ToggleAccessibilityHint" = "Turns forget mode on or off";
+"ForgetMode.ToggleAccessibilityHint" = "Turns Private mode on or off";
 
 /* Will be displayed in Settings under 'Close Private Tabs' */
-"ForgetMode.ClosePrivateTabsDescription" = "When Leaving Forget Mode";
+"ForgetMode.ClosePrivateTabsDescription" = "When Leaving Private Mode";
