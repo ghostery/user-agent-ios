@@ -1,0 +1,15 @@
+/* 
+  brand.strings
+  UserAgent
+
+  Created by Krzysztof Modras on 10.10.19.
+  Copyright © 2019 Cliqz. All rights reserved.
+*/
+
+"website" = "";
+"whatsNewWebsite" = "";
+"humanWebInfoWebsite" = "";
+"repositoryWebsite" = "";
+"privacyPolicyWebsite" = "";
+"feedbackWebsite" = "";
+"licensesHeader" = "WhiteLabel";

@@ -194,6 +194,10 @@ target 'Ghostery' do
   main_app
 end
 
+target 'WhiteLabel' do
+  main_app
+end
+
 target 'Storage' do
   snapkit
   sdwebimage
