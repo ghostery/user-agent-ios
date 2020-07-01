@@ -1,0 +1,17 @@
+{
+  "images" : [
+    {
+      "filename" : "background-6.png",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "background-5.png",
+      "idiom" : "universal",
+      "width-class" : "compact"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

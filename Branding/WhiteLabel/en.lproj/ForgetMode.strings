@@ -1,0 +1,40 @@
+/*
+  ForgetMode.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/26/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Action label on share extension to immediately open page in a private tab. */
+"ForgetMode.ShareExtension.OpenInPrivateTab" = "Open in New Private Mode Tab";
+
+/* Title for Automatic forget mode screen */
+"ForgetMode.AutomaticForgetMode.Title" = "Automatic Private Mode";
+
+/* Description for Automatic forget mode screen */
+"ForgetMode.AutomaticForgetMode.Description" = "Your spouse or partner may secretly read your private messages, but they'll never know if you've visited any porn sites. %@ this with its Automatic Private Mode feature that prevents adult sites from appearing in your browsing history. You're welcome!";
+
+/* The title for the Open in New Private Tab context menu action for sites in Home Panels */
+"ForgetMode.ContextMenu.OpenInNewPrivateTab" = "Open in New Private Mode Tab";
+
+/* Label to switch to forget mode */
+"ForgetMode.Hotkeys.PrivateBrowsingModeTitle" = "Private Mode";
+
+/* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Private Mode";
+
+/* Description text displayed when there are no open tabs while in private mode */
+"ForgetMode.EmptyPrivateTabsDescription" = "You are browsing in Private Mode: Websites you visit in the mode will not be saved in your history, and local data, including cookies, will not be stored.";
+
+/* Title displayed for when there are no open tabs while in private mode */
+"ForgetMode.EmptyPrivateTabsTitle" = "Private Mode";
+
+/* Accessibility label for toggling on/off private mode */
+"ForgetMode.ToggleAccessibilityLabel" = "Private Mode";
+
+/* Accessiblity hint for toggling on/off private mode */
+"ForgetMode.ToggleAccessibilityHint" = "Turns Private mode on or off";
+
+/* Will be displayed in Settings under 'Close Private Tabs' */
+"ForgetMode.ClosePrivateTabsDescription" = "When Leaving Private Mode";

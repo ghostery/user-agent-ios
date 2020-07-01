@@ -1,0 +1,40 @@
+/*
+  ForgetMode.strings
+  UserAgent
+
+  Created by Shahen Antonyan on 5/26/20.
+  Copyright © 2020 Cliqz. All rights reserved.
+*/
+
+/* Action label on share extension to immediately open page in a private tab. */
+"ForgetMode.ShareExtension.OpenInPrivateTab" = "In neuem Privat-Modus Tab öffnen";
+
+/* Title for Automatic forget mode screen */
+"ForgetMode.AutomaticForgetMode.Title" = "Automatischer Privat-Modus";
+
+/* Description for Automatic forget mode screen */
+"ForgetMode.AutomaticForgetMode.Description" = "Dein Partner oder deine Partnerin mögen vielleicht heimlich deine privaten Nachrichten lesen, aber sie werden niemals erfahren, ob du irgendwelche Pornoseiten besucht hast. Dafür sorgt der Automatische Privat-Modus von %@. Er verhindert, dass nicht jugendfreie Seiten im Browserverlauf auftauchen. Gern geschehen!";
+
+/* The title for the Open in New Private Tab context menu action for sites in Home Panels */
+"ForgetMode.ContextMenu.OpenInNewPrivateTab" = "In neuem Privat-Modus Tab öffnen";
+
+/* Label to switch to forget mode */
+"ForgetMode.Hotkeys.PrivateBrowsingModeTitle" = "Privat-Modus";
+
+/* Hardware shortcut switch to the private browsing tab or tab tray. Shown in the Discoverability overlay when the hardware Command Key is held down. */
+"ForgetMode.TabTray.SwitchToPBMKeyCodeTitle" = "Privat-Modus";
+
+/* Description text displayed when there are no open tabs while in private mode */
+"ForgetMode.EmptyPrivateTabsDescription" = "Du surfst im Privat-Modus: Websites, die du in diesem Modus besuchst, werden nicht in deinem Browserverlauf gespeichert, und lokale Daten einschließlich Cookies werden nicht gespeichert.";
+
+/* Title displayed for when there are no open tabs while in private mode */
+"ForgetMode.EmptyPrivateTabsTitle" = "Privat-Modus Surfen";
+
+/* Accessibility label for toggling on/off private mode */
+"ForgetMode.ToggleAccessibilityLabel" = "Privat-Modus";
+
+/* Accessiblity hint for toggling on/off private mode */
+"ForgetMode.ToggleAccessibilityHint" = "Schaltet den Privat-Modus an oder aus";
+
+/* Will be displayed in Settings under 'Close Private Tabs' */
+"ForgetMode.ClosePrivateTabsDescription" = "Beim Verlassen des Privat-Modus";
