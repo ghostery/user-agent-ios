@@ -31,20 +31,25 @@ class AppSettingsTableViewController: SettingsTableViewController {
     }
 
     override func generateSettings() -> [SettingSection] {
-        var settings = [
-            self.searchSettingSection(),
+        var settings = [SettingSection]()
+        if Features.Search.QuickSearch.isEnabled || Features.Search.AdditionalSearchEngines.isEnabled {
+            settings.append(self.searchSettingSection())
+        }
+        settings.append(contentsOf: [
             self.privacySettingSection(),
             self.privacyDashboardSettingSection(),
-            self.generalSettingSection(),
+        ])
+        if Features.TodayWidget.isEnabled {
+            settings.append(self.todayWidgetSettingSection())
+        }
+        settings.append(self.generalSettingSection())
+        if Features.News.isEnabled {
+            settings.append(self.newsSettingSection())
+        }
+        settings.append(contentsOf: [
             self.supportSettingSection(),
             self.aboutSettingSection(),
-        ]
-        if Features.TodayWidget.isEnabled {
-            settings.insert(self.todayWidgetSettingSection(), at: 3)
-        }
-        if Features.News.isEnabled {
-            settings.insert(self.newsSettingSection(), at: 5)
-        }
+        ])
         return settings
     }
 
@@ -189,21 +194,19 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     private func supportSettingSection() -> SettingSection {
         let prefs = self.profile.prefs
-        var supportSettigns = [
-            SendFeedbackSetting(),
-            PrivacyPolicySetting(),
-        ]
+        var supportSettigns = [Setting]()
         if Onboarding.isEnabled {
             supportSettigns.insert(ShowIntroductionSetting(settings: self), at: 0)
         }
+        supportSettigns.append(SendFeedbackSetting())
         if Features.HumanWeb.isEnabled {
-            supportSettigns.insert(HumanWebSetting(prefs: prefs), at: 1 + (Onboarding.isEnabled ? 1 : 0))
+            supportSettigns.append(HumanWebSetting(prefs: prefs))
         }
         if Features.Telemetry.isEnabled {
             let telemetrySetting = TelemetrySetting(prefs: prefs, attributedStatusText: NSAttributedString(string: Strings.Settings.Support.SendUsageStatus, attributes: [NSAttributedString.Key.foregroundColor: Theme.tableView.headerTextLight]))
-            let index = 1 + (Onboarding.isEnabled ? 1 : 0) + (Features.HumanWeb.isEnabled ? 1 : 0)
-            supportSettigns.insert(telemetrySetting, at: index)
+            supportSettigns.append(telemetrySetting)
         }
+        supportSettigns.append(PrivacyPolicySetting())
         return SettingSection(title: NSAttributedString(string: Strings.Settings.Support.SectionTitle), children: supportSettigns)
     }
 
