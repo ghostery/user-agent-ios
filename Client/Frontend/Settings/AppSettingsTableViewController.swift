@@ -32,18 +32,25 @@ class AppSettingsTableViewController: SettingsTableViewController {
 
     override func generateSettings() -> [SettingSection] {
         var settings = [
-            self.searchSettingSection(),
             self.privacySettingSection(),
             self.privacyDashboardSettingSection(),
             self.generalSettingSection(),
             self.supportSettingSection(),
             self.aboutSettingSection(),
         ]
+        var todayWidgetIndex = 2
+        var newsIndex = 3
+        if Features.Search.QuickSearch.isEnabled || Features.Search.AdditionalSearchEngines.isEnabled {
+            settings.insert(self.searchSettingSection(), at: 0)
+            todayWidgetIndex += 1
+            newsIndex += 1
+        }
         if Features.TodayWidget.isEnabled {
-            settings.insert(self.todayWidgetSettingSection(), at: 3)
+            settings.insert(self.todayWidgetSettingSection(), at: todayWidgetIndex)
+            newsIndex += 1
         }
         if Features.News.isEnabled {
-            settings.insert(self.newsSettingSection(), at: 5)
+            settings.insert(self.newsSettingSection(), at: newsIndex)
         }
         return settings
     }
