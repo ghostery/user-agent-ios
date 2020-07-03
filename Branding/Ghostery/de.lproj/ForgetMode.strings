@@ -13,7 +13,7 @@
 "ForgetMode.AutomaticForgetMode.Title" = "Automatischer Ghost-Tab-Modus";
 
 /* Description for Automatic forget mode screen */
-"ForgetMode.AutomaticForgetMode.Description" = "Dein Partner oder deine Partnerin mögen vielleicht heimlich deine privaten Nachrichten lesen, aber sie werden niemals erfahren, ob du irgendwelche Pornoseiten besucht hast. Dafür sorgt der Automatische Ghost-Tab-Modus von %@. Er verhindert, dass nicht jugendfreie Seiten im Browserverlauf auftauchen. Gern geschehen!";
+"ForgetMode.AutomaticForgetMode.Description" = "Ghostery verhindert jetzt, dass Websiten mit nicht-jungendfreien Inhalten in Ihrem Suchverlauf gespeichert werden.";
 
 /* The title for the Open in New Private Tab context menu action for sites in Home Panels */
 "ForgetMode.ContextMenu.OpenInNewPrivateTab" = "In neuem Ghost-Tab öffnen";

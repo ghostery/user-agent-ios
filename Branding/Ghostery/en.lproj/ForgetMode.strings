@@ -13,7 +13,7 @@
 "ForgetMode.AutomaticForgetMode.Title" = "Automatic Ghost Tab Mode";
 
 /* Description for Automatic forget mode screen */
-"ForgetMode.AutomaticForgetMode.Description" = "Your spouse or partner may secretly read your private messages, but they'll never know if you've visited any porn sites. %@ this with its Automatic Ghost Tab Mode feature that prevents adult sites from appearing in your browsing history. You're welcome!";
+"ForgetMode.AutomaticForgetMode.Description" = "Ghostery is now blocking adult sites from being stored in your search history.";
 
 /* The title for the Open in New Private Tab context menu action for sites in Home Panels */
 "ForgetMode.ContextMenu.OpenInNewPrivateTab" = "Open in New Ghost Tab";

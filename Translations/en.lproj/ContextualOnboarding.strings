@@ -7,10 +7,10 @@
 */
 
 /* Title for Wipe All Traces screen */
-"ContextualOnboarding.WipeAllTraces.Title" = "Delete All Website Traces";
+"ContextualOnboarding.WipeAllTraces.Title" = "Site Deleted from Browser History";
 
 /* Description for Wipe All Traces screen */
-"ContextualOnboarding.WipeAllTraces.Description" = "You don't want your boss, spouse or partner to see that you've visited a specific website? Don't worry! Your secret is safe with %@: You can easily delete all traces of this site stored in your browser, including history entries and cookies.";
+"ContextualOnboarding.WipeAllTraces.Description" = "We’ve erased all traces of this website from your browser history including cookies.";
 
 /* Don't show agian button title */
 "ContextualOnboarding.DontShowAgain" = "Don't show again";
