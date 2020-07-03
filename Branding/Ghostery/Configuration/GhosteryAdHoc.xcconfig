@@ -5,7 +5,7 @@ BUNDLE_DISPLAY_NAME = Ghostery Nightly
 APP_BUNDLE_ID = com.ghostery.browser.nightly
 
 // Marketing version
-APP_MARKETING_VERSION = 3.0.0
+APP_MARKETING_VERSION = 3.0.1
 
 // URL Scheme
 USER_AGENT_URL_SCHEME = GhosteryNightly
