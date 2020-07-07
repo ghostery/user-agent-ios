@@ -11,6 +11,7 @@ import { View, StyleSheet, NativeModules } from 'react-native';
 import GenericResult from './results/GenericResult';
 import WeatherSnippet from './results/WeatherResult';
 import NavigateToResult from './results/NavigateToResult';
+import SupplementarySearchResult from './results/SupplementarySearchResult';
 import { isSwitchToTab } from './helpers';
 
 const styles = StyleSheet.create({
@@ -84,6 +85,9 @@ export default class CardList extends React.PureComponent {
     switch (result.type) {
       case 'navigate-to':
         Component = NavigateToResult;
+        break;
+      case 'supplementary-search':
+        Component = SupplementarySearchResult;
         break;
       default:
         break;
