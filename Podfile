@@ -242,9 +242,9 @@ target 'Shared' do
   xclogger
 end
 
-target 'Today' do
-  react_native
-end
+#target 'Today' do
+# react_native
+#end
 
 pre_install do |installer|
   flipper_pre_install(installer)
