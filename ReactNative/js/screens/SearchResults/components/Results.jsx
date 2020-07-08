@@ -134,13 +134,8 @@ function reportSearchStats(insightsModule, searchEngine) {
   insightsModule.action('insertSearchStats', searchStats);
 }
 
-function isResultAllowed({ template, provider, type }) {
-  return (
-    !BLOCKED_TEMPLATES.includes(template) &&
-    type !== 'supplementary-search' &&
-    Boolean(provider) &&
-    provider !== 'rich-header' // promises sometimes arrive to ui
-  );
+function isResultAllowed({ template }) {
+  return !BLOCKED_TEMPLATES.includes(template);
 }
 
 function groupBy(arr, n) {

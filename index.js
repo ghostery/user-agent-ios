@@ -13,6 +13,7 @@ import App from 'browser-core-user-agent-ios/build/modules/core/app';
 import config from 'browser-core-user-agent-ios/build/modules/core/config';
 import inject from 'browser-core-user-agent-ios/build/modules/core/kord/inject';
 import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
+import { overrideSuggestionsHandler } from 'browser-core-user-agent-ios/build/modules/core/search-engines';
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
 import Home from './ReactNative/js/screens/Home';
 import PrivacyStats from './ReactNative/js/screens/PrivacyStats/index';
@@ -41,7 +42,21 @@ prefs.set(
 
 const isDebug = NativeModules.Constants.isDebug || NativeModules.Constants.isCI;
 
-const { settings } = config;
+const { settings, default_prefs } = config;
+
+if (!NativeModules.Constants.Features.Search.QuickSearch.isEnabled) {
+  default_prefs.suggestionChoice = 2;
+}
+
+overrideSuggestionsHandler(async query => {
+  if (NativeModules.Constants.Features.Search.QuickSearch.isEnabled) {
+    return [query, []];
+  }
+  const suggestions = await NativeModules.BrowserActions.getQuerySuggestions(
+    query,
+  );
+  return [query, suggestions];
+});
 
 settings.telemetry = {
   demographics: {

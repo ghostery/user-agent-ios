@@ -94,6 +94,31 @@ class BrowserActions: NSObject, NativeModuleBase {
         }
     }
 
+    @objc(getQuerySuggestions:resolve:reject:)
+    func getQuerySuggestions(
+        query: NSString,
+        resolve: @escaping RCTPromiseResolveBlock,
+        reject: @escaping RCTPromiseRejectBlock
+    ) {
+        self.withAppDelegate { appDel in
+            guard let profile = appDel.profile else {
+                reject("profile", "Profile not loaded", nil)
+                return
+            }
+            let engine = profile.searchEngines.defaultEngine
+            let ua = UserAgent.desktopUserAgent()
+
+            let suggestClient = SearchSuggestClient(searchEngine: engine, userAgent: ua)
+            suggestClient.query(query as String) { (suggestions, error) in
+                if error != nil {
+                    reject("suggestions", "something when wrong", nil)
+                    return
+                }
+                resolve(suggestions)
+            }
+        }
+    }
+
     @objc(requiresMainQueueSetup)
     static func requiresMainQueueSetup() -> Bool {
         return false

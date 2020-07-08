@@ -11,6 +11,7 @@ import { View, StyleSheet, NativeModules } from 'react-native';
 import GenericResult from './results/GenericResult';
 import WeatherSnippet from './results/WeatherResult';
 import NavigateToResult from './results/NavigateToResult';
+import SupplementarySearchResult from './results/SupplementarySearchResult';
 import { isSwitchToTab } from './helpers';
 
 const styles = StyleSheet.create({
@@ -85,11 +86,14 @@ export default class CardList extends React.PureComponent {
       case 'navigate-to':
         Component = NavigateToResult;
         break;
+      case 'supplementary-search':
+        Component = SupplementarySearchResult;
+        break;
       default:
         break;
     }
 
-    return (
+    const component = (
       <Component
         key={result.meta.domain}
         onPress={(link, linkMeta) =>
@@ -112,6 +116,11 @@ export default class CardList extends React.PureComponent {
         index={resultIndex}
       />
     );
+    const { isSeparatorDisabled } = Component;
+    return {
+      component,
+      isSeparatorDisabled,
+    };
   };
 
   render() {
@@ -128,12 +137,17 @@ export default class CardList extends React.PureComponent {
     return (
       <View style={listStyle}>
         {header || <View style={styles.defaultSeparator} />}
-        {results.map((result, resultIndex) => (
-          <View key={result.url}>
-            {this.getComponent({ result, resultIndex })}
-            {separator || <View style={styles.defaultSeparator} />}
-          </View>
-        ))}
+        {results.map((result, resultIndex) => {
+          const { component, isSeparatorDisabled } = this.getComponent({ result, resultIndex });
+          return (
+            <View key={result.url}>
+              {component}
+              {!isSeparatorDisabled && (
+                separator || <View style={styles.defaultSeparator} />
+              )}
+            </View>
+          );
+        })}
         {footer || <View style={styles.defaultSeparator} />}
       </View>
     );
