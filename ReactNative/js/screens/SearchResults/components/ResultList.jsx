@@ -93,7 +93,7 @@ export default class CardList extends React.PureComponent {
         break;
     }
 
-    return (
+    const component = (
       <Component
         key={result.meta.domain}
         onPress={(link, linkMeta) =>
@@ -116,6 +116,11 @@ export default class CardList extends React.PureComponent {
         index={resultIndex}
       />
     );
+    const { isSeparatorDisabled } = Component;
+    return {
+      component,
+      isSeparatorDisabled,
+    };
   };
 
   render() {
@@ -132,12 +137,17 @@ export default class CardList extends React.PureComponent {
     return (
       <View style={listStyle}>
         {header || <View style={styles.defaultSeparator} />}
-        {results.map((result, resultIndex) => (
-          <View key={result.url}>
-            {this.getComponent({ result, resultIndex })}
-            {separator || <View style={styles.defaultSeparator} />}
-          </View>
-        ))}
+        {results.map((result, resultIndex) => {
+          const { component, isSeparatorDisabled } = this.getComponent({ result, resultIndex });
+          return (
+            <View key={result.url}>
+              {component}
+              {!isSeparatorDisabled && (
+                separator || <View style={styles.defaultSeparator} />
+              )}
+            </View>
+          );
+        })}
         {footer || <View style={styles.defaultSeparator} />}
       </View>
     );

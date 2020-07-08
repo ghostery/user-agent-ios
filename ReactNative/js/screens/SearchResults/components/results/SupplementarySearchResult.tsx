@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import { View, StyleSheet, Text, TouchableWithoutFeedback } from 'react-native';
 import { useStyles } from '../../../../contexts/theme';
-import Logo from '../../../../components/Logo';
-import t from '../../../../services/i18n';
+import NativeDrawable from '../../../../components/NativeDrawable';
 
 const getStyles = (theme: any) =>
   StyleSheet.create({
@@ -20,23 +19,23 @@ const getStyles = (theme: any) =>
     },
     logoWrapper: {
       flex: 0,
-      marginRight: 7,
     },
-    link: {
-      color: theme.linkColor,
-      flexGrow: 0,
-      flexShrink: 1,
-      flexWrap: 'nowrap',
+    searchIcon: {
+      width: 20,
+      height: 20,
+      margin: 4,
+      color: theme.separatorColor,
     },
     description: {
       flexShrink: 0,
       flexGrow: 1,
-      color: theme.descriptionColor,
+      color: theme.textColor,
       marginLeft: 5,
+      fontSize: theme.fontSizeMedium,
     },
   });
 
-export default ({
+const SupplementarySearchResult = ({
   result,
   onPress,
   onLongPress,
@@ -63,8 +62,18 @@ export default ({
         onLongPress={onLongPressCallback}
       >
         <View style={styles.wrapper}>
-          <View style={styles.logoWrapper} />
-          <Text numberOfLines={2} ellipsizeMode="tail" style={styles.link}>
+          <View style={styles.logoWrapper}>
+            <NativeDrawable
+              style={styles.searchIcon}
+              color={styles.searchIcon.color}
+              source="search"
+            />
+          </View>
+          <Text
+            numberOfLines={2}
+            ellipsizeMode="tail"
+            style={styles.description}
+          >
             {suggestion}
           </Text>
         </View>
@@ -72,3 +81,7 @@ export default ({
     </View>
   );
 };
+
+SupplementarySearchResult.isSeparatorDisabled = true;
+
+export default SupplementarySearchResult;
