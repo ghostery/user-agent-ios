@@ -142,9 +142,12 @@ export default function Home({
       onScroll={onScroll}
       scrollEventThrottle={0}
       contentContainerStyle={styles.contentContainer}
-      scrollEnabled={isNewsEnabled}
+      scrollEnabled={isNewsEnabled || Dimensions.get('window').height < 500}
     >
-      <Background height={height - toolbarHeight} Features={Features}>
+      <Background
+        height={height - (isNewsEnabled ? toolbarHeight : 0)}
+        Features={Features}
+      >
         <View style={styles.wrapper}>
           <View style={styles.logoWrapper}>
             <Image
@@ -186,7 +189,7 @@ export default function Home({
           />
         </View>
       )}
-      <ToolbarArea height={toolbarHeight} />
+      {isNewsEnabled && <ToolbarArea height={toolbarHeight} />}
     </ScrollView>
   );
 }
