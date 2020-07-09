@@ -112,4 +112,7 @@ extension Search: BrowserCoreClient {
         }
     }
 
+    public static func notifySearchEngineChange() {
+        self.browserCore.notifySearchEngineChange()
+    }
 }

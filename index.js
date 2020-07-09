@@ -6,7 +6,12 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import React from 'react';
-import { AppRegistry, YellowBox, NativeModules } from 'react-native';
+import {
+  AppRegistry,
+  YellowBox,
+  NativeModules,
+  NativeEventEmitter,
+} from 'react-native';
 import './ReactNative/js/fixes';
 import './ReactNative/js/setup-globals';
 import App from 'browser-core-user-agent-ios/build/modules/core/app';
@@ -15,6 +20,7 @@ import inject from 'browser-core-user-agent-ios/build/modules/core/kord/inject';
 import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
 import { overrideSuggestionsHandler } from 'browser-core-user-agent-ios/build/modules/core/search-engines';
 import events from 'browser-core-user-agent-ios/build/modules/core/events';
+import { loadSearchEngines } from 'browser-core-user-agent-ios/build/modules/platform/search-engines';
 import Home from './ReactNative/js/screens/Home';
 import PrivacyStats from './ReactNative/js/screens/PrivacyStats/index';
 import History from './ReactNative/js/screens/History/index';
@@ -31,6 +37,12 @@ YellowBox.ignoreWarnings([
 ]);
 
 moment.locale(NativeModules.LocaleConstants.lang);
+
+const searchEnginesEventEmitter = new NativeEventEmitter(
+  NativeModules.SearchEnginesModule);
+searchEnginesEventEmitter.addListener('SearchEngines:SetDefault', () => {
+  loadSearchEngines();
+});
 
 prefs.set('tabSearchEnabled', true);
 prefs.set('modules.autoconsent.enabled', false);
