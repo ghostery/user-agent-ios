@@ -343,6 +343,7 @@ extension SearchSettingsTableViewController: SearchEnginePickerDelegate {
         if let engine = searchEngine {
             model.defaultEngine = engine
             self.tableView.reloadData()
+            Search.notifySearchEngineChange()
         }
         _ = navigationController?.popViewController(animated: true)
     }
