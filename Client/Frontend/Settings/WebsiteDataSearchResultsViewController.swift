@@ -7,13 +7,19 @@ import SnapKit
 import Shared
 import WebKit
 
+protocol WebsiteDataSearchResultsViewControllerDelegate: class {
+    func websiteDataSearchResultsViewController(_ viewController: WebsiteDataSearchResultsViewController, didDeleteRecord record: WKWebsiteDataRecord)
+}
+
 private let SectionHeaderFooterIdentifier = "SectionHeaderFooterIdentifier"
 
 class WebsiteDataSearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var tableView: UITableView!
+    weak var delegate: WebsiteDataSearchResultsViewControllerDelegate?
 
-    private var filteredSiteRecords = [WKWebsiteDataRecord]()
+    private var tableView: UITableView!
+
     var siteRecords = [WKWebsiteDataRecord]()
+    private var filteredSiteRecords = [WKWebsiteDataRecord]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +62,7 @@ class WebsiteDataSearchResultsViewController: UIViewController, UITableViewDataS
 
         let types = WKWebsiteDataStore.allWebsiteDataTypes()
         WKWebsiteDataStore.default().removeData(ofTypes: types, for: [record]) {
+            self.delegate?.websiteDataSearchResultsViewController(self, didDeleteRecord: record)
             self.filteredSiteRecords.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
