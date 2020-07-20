@@ -334,7 +334,7 @@ class Tab: NSObject {
         #endif
     }
 
-    func closeAndRemovePrivateBrowsingData() {
+    func close() {
         contentScriptManager.uninstall(tab: self)
 
         webView?.removeObserver(self, forKeyPath: KVOConstants.URL.rawValue)
@@ -344,21 +344,9 @@ class Tab: NSObject {
             tabDelegate?.tab?(self, willDeleteWebView: webView)
         }
 
-        if isPrivate {
-            removeAllBrowsingData()
-        }
-
         webView?.navigationDelegate = nil
         webView?.removeFromSuperview()
         webView = nil
-    }
-
-    func removeAllBrowsingData(completionHandler: @escaping () -> Void = {}) {
-        let dataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
-
-        webView?.configuration.websiteDataStore.removeData(ofTypes: dataTypes,
-                                                     modifiedSince: Date.distantPast,
-                                                 completionHandler: completionHandler)
     }
 
     var loading: Bool {
