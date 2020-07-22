@@ -42,7 +42,6 @@
     "react-native-svg": "^12.1.0",
     "react-native-swipe-list-view": "^2.3.0",
     "readability": "mozilla/readability#b9f47bcc8d3c223cabe2dec6a42eeb3bd778d85c",
-    "terser-webpack-plugin": "^3.0.1",
     "tldts": "^5.0.3"
   },
   "devDependencies": {
