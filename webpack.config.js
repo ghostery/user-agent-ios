@@ -1,8 +1,6 @@
 const glob = require("glob");
 const path = require("path");
 
-const UglifyJsPlugin = require("terser-webpack-plugin");
-
 const AllFramesAtDocumentStart = glob.sync("./Client/Frontend/UserContent/UserScripts/AllFrames/AtDocumentStart/*.js");
 const AllFramesAtDocumentEnd = glob.sync("./Client/Frontend/UserContent/UserScripts/AllFrames/AtDocumentEnd/*.js");
 const MainFrameAtDocumentStart = glob.sync("./Client/Frontend/UserContent/UserScripts/MainFrame/AtDocumentStart/*.js");
@@ -34,25 +32,13 @@ module.exports = {
     MainFrameAtDocumentStart,
     MainFrameAtDocumentEnd,
   },
+  // optimization: { minimize: false }, // use for debugging
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "Client/Assets")
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules\/(?!(readability|page-metadata-parser)\/).*/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: [require('./preset-env.config')],
-          }
-        }
-      }
-    ]
+    rules: []
   },
-  plugins: [
-    new UglifyJsPlugin()
-  ]
+  plugins: []
 };
