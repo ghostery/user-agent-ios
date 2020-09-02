@@ -80,7 +80,7 @@ enum NavigationPath {
 
         if urlString.starts(with: "\(scheme)://deep-link"), let deepURL = components.valueForQuery("url"), let link = DeepLink(urlString: deepURL.lowercased()) {
             self = .deepLink(link)
-        } else if urlString.starts(with: "\(scheme)://open-url") || urlString.starts(with: "http:") ||  urlString.starts(with: "https:") {
+        } else if urlString.starts(with: "\(scheme)://open-url") {
             let url = components.valueForQuery("url")?.asURL
             // Unless the `open-url` URL specifies a `private` parameter,
             // use the last browsing mode the user was in.
@@ -89,6 +89,23 @@ enum NavigationPath {
         } else if urlString.starts(with: "\(scheme)://open-text") {
             let text = components.valueForQuery("text")
             self = .text(text ?? "")
+        } else if urlString.starts(with: "\(scheme)://open-copied") {
+            if !UIPasteboard.general.hasURLs {
+                guard let searchText = UIPasteboard.general.string else {
+                    return nil
+                }
+                self = .text(searchText)
+            } else {
+                guard let url = UIPasteboard.general.url else {
+                    return nil
+                }
+                let isPrivate = UserDefaults.standard.bool(forKey: "wasLastSessionPrivate")
+                self = .url(webURL: url, isPrivate: isPrivate)
+            }
+        } else if urlString.starts(with: "http:") ||  urlString.starts(with: "https:") {
+            // Use the last browsing mode the user was in
+            let isPrivate = UserDefaults.standard.bool(forKey: "wasLastSessionPrivate")
+            self = .url(webURL: url, isPrivate: isPrivate)
         } else {
             return nil
         }
