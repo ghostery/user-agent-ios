@@ -148,7 +148,9 @@ class AppSettingsTableViewController: SettingsTableViewController {
         if #available(iOS 12.0, *) {
             generalSettings.insert(SiriPageSetting(settings: self), at: 1)
         }
-
+        if #available(iOS 14.0, *) {
+            generalSettings.insert(DefaultBrowserSetting(settings: self), at: 2)
+        }
         // There is nothing to show in the Customize section if we don't include the compact tab layout
         // setting on iPad. When more options are added that work on both device types, this logic can
         // be changed.
