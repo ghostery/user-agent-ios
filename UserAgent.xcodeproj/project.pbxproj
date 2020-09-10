@@ -712,6 +712,7 @@
 		466B37262462FF2400747C50 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B37252462FF2400747C50 /* Features.swift */; };
 		466B37282463001D00747C50 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B37272463001D00747C50 /* Features.swift */; };
 		466B372A246301A200747C50 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466B3729246301A200747C50 /* Features.swift */; };
+		466BF3C82521F9610070F922 /* WKWebViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466BF3C72521F9610070F922 /* WKWebViewExtensions.swift */; };
 		467781D6242B64CD00B609F0 /* Strings+UrlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467781D5242B64CD00B609F0 /* Strings+UrlBar.swift */; };
 		46796FF724810C1100E64738 /* Features+toDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46796FF624810C1100E64738 /* Features+toDict.swift */; };
 		46796FF824810C1100E64738 /* Features+toDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46796FF624810C1100E64738 /* Features+toDict.swift */; };
@@ -2043,6 +2044,7 @@
 		466B37252462FF2400747C50 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		466B37272463001D00747C50 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		466B3729246301A200747C50 /* Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
+		466BF3C72521F9610070F922 /* WKWebViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewExtensions.swift; sourceTree = "<group>"; };
 		467781D5242B64CD00B609F0 /* Strings+UrlBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+UrlBar.swift"; sourceTree = "<group>"; };
 		467805F323154A160031E226 /* libSentry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSentry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		46796FF624810C1100E64738 /* Features+toDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Features+toDict.swift"; sourceTree = "<group>"; };
@@ -4263,6 +4265,7 @@
 				E693F0D81E9D64BD0086DC17 /* OptionalExtensions.swift */,
 				D0543529226687A400FDE4EF /* UIBarButtonItemExtensions.swift */,
 				ACC6EC5223290974000F5499 /* UIColor+Blending.swift */,
+				466BF3C72521F9610070F922 /* WKWebViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -6297,6 +6300,7 @@
 				46BBFA6223575B0000283594 /* Strings+Brand.swift in Sources */,
 				E65075B71E37F7AB006961AC /* Logger.swift in Sources */,
 				E65075961E37F7AB006961AC /* AsyncReducer.swift in Sources */,
+				466BF3C82521F9610070F922 /* WKWebViewExtensions.swift in Sources */,
 				7B9BF91C1E43472E00CB24F4 /* JSONExtensions.swift in Sources */,
 				2B7C286C2498D1A800D43685 /* Colors.swift in Sources */,
 				2BE3BD82246ECDFB0066D0BD /* Strings+ReaderMode.swift in Sources */,
