@@ -91,7 +91,9 @@ class DownloadHelper: NSObject, OpenInHelper {
             return
         }
 
-        let download = HTTPDownload(preflightResponse: preflightResponse, request: request)
+        guard let download = HTTPDownload(preflightResponse: preflightResponse, request: request) else {
+            return
+        }
 
         let expectedSize = download.totalBytesExpected != nil ? ByteCountFormatter.string(fromByteCount: download.totalBytesExpected!, countStyle: .file) : nil
 
