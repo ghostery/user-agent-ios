@@ -39,6 +39,7 @@ class NavigationRouterTests: XCTestCase {
         XCTAssertEqual(NavigationPath(url: URL(string: "\(appScheme)://deep-link?url=/homepanel/bookmarks")!), NavigationPath.deepLink(DeepLink.homePanel(.bookmarks)))
         XCTAssertEqual(NavigationPath(url: URL(string: "\(appScheme)://deep-link?url=/homepanel/top-sites")!), NavigationPath.deepLink(DeepLink.homePanel(.topSites)))
         XCTAssertEqual(NavigationPath(url: URL(string: "\(appScheme)://deep-link?url=/homepanel/history")!), NavigationPath.deepLink(DeepLink.homePanel(.history)))
+        XCTAssertEqual(NavigationPath(url: URL(string: "\(appScheme)://deep-link?url=/default-browser/system-settings")!), NavigationPath.deepLink(DeepLink.defaultBrowser(.systemSettings)))
         XCTAssertEqual(NavigationPath(url: URL(string: "\(appScheme)://deep-link?url=/homepanel/badbad")!), nil)
     }
 
