@@ -19,7 +19,7 @@ jobs:
         node-version: '10'
     
     - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_12.app
+      run: sudo xcode-select -switch /Applications/Xcode_11.2.app
       
     - uses: actions/cache@v2
       with:
