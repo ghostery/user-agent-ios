@@ -24,8 +24,8 @@ pool:
 
 steps:
 - bash: |
-    sudo xcode-select --switch /Applications/Xcode_11.1.app
-  displayName: 'Change XCode to 11.1'
+    sudo xcode-select --switch /Applications/Xcode_12.app
+  displayName: 'Change XCode to 12'
 
 - task: NodeTool@0
   displayName: 'Define Node to v10.17.0'

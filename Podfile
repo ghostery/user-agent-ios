@@ -1,4 +1,5 @@
 platform :ios, '11.4'
+require_relative './node_modules/react-native/scripts/react_native_pods'
 require_relative './node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 project './UserAgent.xcodeproj'
@@ -6,93 +7,6 @@ workspace 'UserAgent'
 
 inhibit_all_warnings!
 use_frameworks!
-
-## How to use this file
-# We first create methods for each pod, so we can use the exact same configuration for each installation of a pod.
-# Then the individual targets are just lists of method calls (see bottom of the file).
-
-## Definition for individual pods, or groups of pods
-def flipper
-  versions = {}
-  versions['Flipper'] ||= '~> 0.33.1'
-  versions['DoubleConversion'] ||= '1.1.7'
-  versions['Flipper-Folly'] ||= '~> 2.1'
-  versions['Flipper-Glog'] ||= '0.3.6'
-  versions['Flipper-PeerTalk'] ||= '~> 0.0.4'
-  versions['Flipper-RSocket'] ||= '~> 1.0'
-
-  pod 'FlipperKit', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitLayoutPlugin', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/SKIOSNetworkPlugin', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitUserDefaultsPlugin', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitReactPlugin', versions['Flipper'], :configuration => 'Debug'
-
-  # List all transitive dependencies for FlipperKit pods
-  # to avoid them being linked in Release builds
-  pod 'Flipper', versions['Flipper'], :configuration => 'Debug'
-  pod 'Flipper-DoubleConversion', versions['DoubleConversion'], :configuration => 'Debug'
-  pod 'Flipper-Folly', versions['Flipper-Folly'], :configuration => 'Debug'
-  pod 'Flipper-Glog', versions['Flipper-Glog'], :configuration => 'Debug'
-  pod 'Flipper-PeerTalk', versions['Flipper-PeerTalk'], :configuration => 'Debug'
-  pod 'Flipper-RSocket', versions['Flipper-RSocket'], :configuration => 'Debug'
-  pod 'FlipperKit/Core', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/CppBridge', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FBCxxFollyDynamicConvert', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FBDefines', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FKPortForwarding', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitHighlightOverlay', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitLayoutTextSearchable', versions['Flipper'], :configuration => 'Debug'
-  pod 'FlipperKit/FlipperKitNetworkPlugin', versions['Flipper'], :configuration => 'Debug'
-end
-
-def flipper_post_install(installer)
-  installer.pods_project.targets.each do |target|
-    if target.name == 'YogaKit'
-      target.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '4.1'
-      end
-    end
-  end
-
-  file_name = Dir.glob("*.xcodeproj")[0]
-  app_project = Xcodeproj::Project.open(file_name)
-  app_project.native_targets.each do |target|
-      target.build_configurations.each do |config|
-        if (config.build_settings['OTHER_SWIFT_FLAGS'])
-          unless config.build_settings['OTHER_SWIFT_FLAGS'].include? '-DFB_SONARKIT_ENABLED'
-            puts 'Adding -DFB_SONARKIT_ENABLED ...'
-            swift_flags = config.build_settings['OTHER_SWIFT_FLAGS']
-            if swift_flags.split.last != '-Xcc'
-              config.build_settings['OTHER_SWIFT_FLAGS'] << ' -Xcc'
-            end
-            config.build_settings['OTHER_SWIFT_FLAGS'] << ' -DFB_SONARKIT_ENABLED'
-          end
-        else
-          puts 'OTHER_SWIFT_FLAGS does not exist thus assigning it to `$(inherited) -Xcc -DFB_SONARKIT_ENABLED`'
-          config.build_settings['OTHER_SWIFT_FLAGS'] = '$(inherited) -Xcc -DFB_SONARKIT_ENABLED'
-        end
-        app_project.save
-      end
-    end
-    installer.pods_project.save
-end
-
-def flipper_pre_install(installer)
-  Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
-
-  static_framework = ['FlipperKit', 'Flipper', 'Flipper-Folly',
-    'CocoaAsyncSocket', 'ComponentKit', 'Flipper-DoubleConversion',
-    'Flipper-Glog', 'Flipper-PeerTalk', 'Flipper-RSocket', 'YogaKit',
-    'CocoaLibEvent', 'OpenSSL-Universal', 'boost-for-react-native']
-
-  installer.pod_targets.each do |pod|
-    if static_framework.include?(pod.name)
-      def pod.build_type;
-        Pod::BuildType.static_library
-      end
-    end
-  end
-end
 
 def xclogger
   pod 'XCGLogger', '~> 7.0.0',  :modular_headers => true
@@ -131,40 +45,8 @@ def swiftlint
 end
 
 def react_native
-  pod 'FBLazyVector', :path => "./node_modules/react-native/Libraries/FBLazyVector"
-  pod 'FBReactNativeSpec', :path => "./node_modules/react-native/Libraries/FBReactNativeSpec"
-  pod 'RCTRequired', :path => "./node_modules/react-native/Libraries/RCTRequired"
-  pod 'RCTTypeSafety', :path => "./node_modules/react-native/Libraries/TypeSafety"
-  pod 'React', :path => './node_modules/react-native/'
-  pod 'React-Core', :path => './node_modules/react-native/'
-  pod 'React-CoreModules', :path => './node_modules/react-native/React/CoreModules'
-  pod 'React-Core/DevSupport', :path => './node_modules/react-native/'
-  pod 'React-RCTActionSheet', :path => './node_modules/react-native/Libraries/ActionSheetIOS'
-  pod 'React-RCTAnimation', :path => './node_modules/react-native/Libraries/NativeAnimation'
-  pod 'React-RCTBlob', :path => './node_modules/react-native/Libraries/Blob'
-  pod 'React-RCTImage', :path => './node_modules/react-native/Libraries/Image'
-  pod 'React-RCTLinking', :path => './node_modules/react-native/Libraries/LinkingIOS'
-  pod 'React-RCTNetwork', :path => './node_modules/react-native/Libraries/Network'
-  pod 'React-RCTSettings', :path => './node_modules/react-native/Libraries/Settings'
-  pod 'React-RCTText', :path => './node_modules/react-native/Libraries/Text'
-  pod 'React-RCTVibration', :path => './node_modules/react-native/Libraries/Vibration'
-  pod 'React-Core/RCTWebSocket', :path => './node_modules/react-native/'
-  pod 'React-cxxreact', :path => './node_modules/react-native/ReactCommon/cxxreact'
-  pod 'React-jsi', :path => './node_modules/react-native/ReactCommon/jsi'
-  pod 'React-jsiexecutor', :path => './node_modules/react-native/ReactCommon/jsiexecutor'
-  pod 'React-jsinspector', :path => './node_modules/react-native/ReactCommon/jsinspector'
-  pod 'ReactCommon/callinvoker', :path => "./node_modules/react-native/ReactCommon"
-  pod 'ReactCommon/turbomodule/core', :path => "./node_modules/react-native/ReactCommon"
-  pod 'Yoga', :path => './node_modules/react-native/ReactCommon/yoga', :modular_headers => true
-
-  pod 'DoubleConversion', :podspec => './node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'glog', :podspec => './node_modules/react-native/third-party-podspecs/glog.podspec'
-  pod 'Folly', :podspec => './node_modules/react-native/third-party-podspecs/Folly.podspec'
-
-  pod 'RNSqlite2', :path => './node_modules/react-native-sqlite-2/ios/'
-  pod 'RNFS', :path => './node_modules/react-native-fs'
-
-  use_native_modules!
+  config = use_native_modules!
+  use_react_native!(:path => './node_modules/react-native')
 end
 
 ## Definitions for targets
@@ -177,7 +59,6 @@ def main_app
   xclogger
   react_native
   gcdwebserver
-  flipper
 end
 
 def extensions
@@ -245,17 +126,3 @@ end
 #target 'Today' do
 # react_native
 #end
-
-pre_install do |installer|
-  flipper_pre_install(installer)
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'NO'
-    end
-  end
-
-  flipper_post_install(installer)
-end

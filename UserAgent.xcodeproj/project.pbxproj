@@ -370,7 +370,7 @@
 		2B65705224AB68A7005DE5D3 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		2B65705324AB68A7005DE5D3 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		2B65705424AB68A7005DE5D3 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		2B65705524AB68A7005DE5D3 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		2B65705524AB68A7005DE5D3 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		2B65705624AB68A7005DE5D3 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		2B65705724AB68A7005DE5D3 /* BrowserViewController+DownloadsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */; };
 		2B65705824AB68A7005DE5D3 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
@@ -991,7 +991,7 @@
 		ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		ACB737E823042BAB00FA5626 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		ACB737E823042BAB00FA5626 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
 		ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */; };
 		ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6327A631BF6438E008D12E0 /* DebugSettingsBundleOptions.swift */; };
@@ -1051,7 +1051,7 @@
 		C2EDC31C6828A137B57F370B /* Pods_SharedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D579CBD91B48866DE7B829 /* Pods_SharedTests.framework */; };
 		C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400467B1CF4E43E00B08303 /* BackForwardListViewController.swift */; };
 		C40046FA1CF8E0B200B08303 /* BackForwardListAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40046F91CF8E0B200B08303 /* BackForwardListAnimator.swift */; };
-		C401BCA43BB1B9DBEDBBF9A9 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		C401BCA43BB1B9DBEDBBF9A9 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		C45F44691D087DB600CB7EF0 /* TopTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45F44681D087DB600CB7EF0 /* TopTabsViewController.swift */; };
 		C4E3983D1D21F1E7004E89BA /* TopTabsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E3983C1D21F1E7004E89BA /* TopTabsViews.swift */; };
 		C4E3984C1D21F2FD004E89BA /* TabTrayButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E3984B1D21F2FD004E89BA /* TabTrayButtonExtensions.swift */; };
@@ -2653,7 +2653,7 @@
 				ACB7383223042BAB00FA5626 /* ImageIO.framework in Frameworks */,
 				ACB7383323042BAB00FA5626 /* ObjcExceptionBridging.framework in Frameworks */,
 				049DBB0C23E45C4F00D2D38D /* Widgets.framework in Frameworks */,
-				C401BCA43BB1B9DBEDBBF9A9 /* (null) in Frameworks */,
+				C401BCA43BB1B9DBEDBBF9A9 /* BuildFile in Frameworks */,
 				ECB039983B7D894B99AEF923 /* Pods_Ghostery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -6652,7 +6652,7 @@
 				2B65705224AB68A7005DE5D3 /* MailtoLinkHandler.swift in Sources */,
 				2B65705324AB68A7005DE5D3 /* DownloadToast.swift in Sources */,
 				2B65705424AB68A7005DE5D3 /* ChevronView.swift in Sources */,
-				2B65705524AB68A7005DE5D3 /* (null) in Sources */,
+				2B65705524AB68A7005DE5D3 /* BuildFile in Sources */,
 				2B65705624AB68A7005DE5D3 /* UIColor+Blending.swift in Sources */,
 				2B65705724AB68A7005DE5D3 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				2B65705824AB68A7005DE5D3 /* UIDeviceExtensions.swift in Sources */,
@@ -7064,7 +7064,7 @@
 				ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
-				ACB737E823042BAB00FA5626 /* (null) in Sources */,
+				ACB737E823042BAB00FA5626 /* BuildFile in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
