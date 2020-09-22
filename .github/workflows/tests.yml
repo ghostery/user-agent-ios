@@ -17,11 +17,11 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '10'
-    - name: look for xcode
-      run: ls /Applications
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_12.app
-    - name: npm ci
+    - name: Install Ruby Gems
+      run: bundle
+    - name: Install Node Modules
       run: npm ci
     - name: Generate User Scripts
       run: npm run build-user-scripts
