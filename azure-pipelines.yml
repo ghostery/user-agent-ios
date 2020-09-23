@@ -50,7 +50,7 @@ steps:
 
 - bash: |
     set -x
-    gem install bundler:2.0.2 --force
+    gem install bundler:2.1.4 --force
     bundle install --retry=3
     pod --version
     pod repo update
