@@ -23,15 +23,6 @@ PODS:
     - GCDWebServer/Core (= 3.5.4)
   - GCDWebServer/Core (3.5.4)
   - glog (0.3.5)
-  - libwebp (1.1.0):
-    - libwebp/demux (= 1.1.0)
-    - libwebp/mux (= 1.1.0)
-    - libwebp/webp (= 1.1.0)
-  - libwebp/demux (1.1.0):
-    - libwebp/webp
-  - libwebp/mux (1.1.0):
-    - libwebp/demux
-  - libwebp/webp (1.1.0)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
@@ -263,10 +254,6 @@ PODS:
     - React-Core (= 0.63.2)
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
-  - RNFastImage (8.1.5):
-    - React
-    - SDWebImage (~> 5.0)
-    - SDWebImageWebPCoder (~> 0.4.1)
   - RNFS (2.14.1):
     - React
   - RNSqlite2 (1.0.0):
@@ -276,9 +263,6 @@ PODS:
   - SDWebImage (5.8.1):
     - SDWebImage/Core (= 5.8.1)
   - SDWebImage/Core (5.8.1)
-  - SDWebImageWebPCoder (0.4.1):
-    - libwebp (~> 1.0)
-    - SDWebImage/Core (~> 5.5)
   - Sentry (4.3.1):
     - Sentry/Core (= 4.3.1)
   - Sentry/Core (4.3.1)
@@ -327,7 +311,6 @@ DEPENDENCIES:
   - React-RCTText (from `./node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `./node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `./node_modules/react-native/ReactCommon`)
-  - RNFastImage (from `node_modules/react-native-fast-image`)
   - RNFS (from `node_modules/react-native-fs`)
   - RNSqlite2 (from `node_modules/react-native-sqlite-2`)
   - RNSVG (from `node_modules/react-native-svg`)
@@ -345,10 +328,8 @@ SPEC REPOS:
     - boost-for-react-native
     - Fuzi
     - GCDWebServer
-    - libwebp
     - ObjcExceptionBridging
     - SDWebImage
-    - SDWebImageWebPCoder
     - SnapKit
     - SQLCipher
     - SwiftLint
@@ -408,8 +389,6 @@ EXTERNAL SOURCES:
     :path: "./node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "./node_modules/react-native/ReactCommon"
-  RNFastImage:
-    :path: node_modules/react-native-fast-image
   RNFS:
     :path: node_modules/react-native-fs
   RNSqlite2:
@@ -436,7 +415,6 @@ SPEC CHECKSUMS:
   Fuzi: dba7215e52fb39dd7b1a62f69ede1e30edff0ae1
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   RCTRequired: f13f25e7b12f925f1f6a6a8c69d929a03c0129fe
   RCTTypeSafety: 44982c5c8e43ff4141eb519a8ddc88059acd1f3a
@@ -459,12 +437,10 @@ SPEC CHECKSUMS:
   React-RCTText: 1b6773e776e4b33f90468c20fe3b16ca3e224bb8
   React-RCTVibration: 4d2e726957f4087449739b595f107c0d4b6c2d2d
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
-  RNFastImage: 35ae972d6727c84ee3f5c6897e07f84d0a3445e9
   RNFS: a8fbe7060fa49157d819466404794ad9c58e58cf
   RNSqlite2: f255020dc5fbfbf7d1943f0cc38550cf6f4e001c
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
-  SDWebImageWebPCoder: 36f8f47bd9879a8aea6044765c1351120fd8e3a8
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SQLCipher: e434ed542b24f38ea7b36468a13f9765e1b5c072
@@ -473,6 +449,6 @@ SPEC CHECKSUMS:
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
 
-PODFILE CHECKSUM: 18d13f4a93316ddec2903845a03641f10c7322da
+PODFILE CHECKSUM: 33b7c4cd292bdf031be485772dffa6cd63128b47
 
 COCOAPODS: 1.10.0.rc.1
