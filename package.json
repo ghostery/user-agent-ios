@@ -61,7 +61,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "lodash": "^4.17.19",
-    "metro-react-native-babel-preset": "^0.63.0",
+    "metro-react-native-babel-preset": "^0.59.0",
     "mocha": "^6.2.1",
     "node-fetch": "^2.6.1",
     "typescript": "^3.7.2",
