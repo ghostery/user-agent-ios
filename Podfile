@@ -46,7 +46,8 @@ end
 
 def react_native
   config = use_native_modules!
-  use_react_native!(:path => './node_modules/react-native')
+  config['reactNativePath'] = 'node_modules/react-native'
+  use_react_native!(:path => config['reactNativePath'])
 end
 
 ## Definitions for targets

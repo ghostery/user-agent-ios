@@ -28,9 +28,9 @@ steps:
   displayName: 'Change XCode to 12'
 
 - task: NodeTool@0
-  displayName: 'Define Node to v10.17.0'
+  displayName: 'Define Node to v12.18.4'
   inputs:
-    versionSpec: '10.17.0'
+    versionSpec: '12.18.4'
 
 - bash: |
     set -x

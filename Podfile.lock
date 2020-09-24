@@ -254,7 +254,7 @@ PODS:
     - React-Core (= 0.63.2)
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
-  - RNFS (2.14.1):
+  - RNFS (2.16.6):
     - React
   - RNSqlite2 (1.0.0):
     - React
@@ -281,36 +281,36 @@ PODS:
   - Yoga (1.14.0)
 
 DEPENDENCIES:
-  - DoubleConversion (from `./node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
-  - FBLazyVector (from `./node_modules/react-native/Libraries/FBLazyVector`)
-  - FBReactNativeSpec (from `./node_modules/react-native/Libraries/FBReactNativeSpec`)
-  - Folly (from `./node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - DoubleConversion (from `node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - FBLazyVector (from `node_modules/react-native/Libraries/FBLazyVector`)
+  - FBReactNativeSpec (from `node_modules/react-native/Libraries/FBReactNativeSpec`)
+  - Folly (from `node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - Fuzi (~> 3.0)
   - GCDWebServer (~> 3.3)
-  - glog (from `./node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - RCTRequired (from `./node_modules/react-native/Libraries/RCTRequired`)
-  - RCTTypeSafety (from `./node_modules/react-native/Libraries/TypeSafety`)
-  - React (from `./node_modules/react-native/`)
-  - React-callinvoker (from `./node_modules/react-native/ReactCommon/callinvoker`)
-  - React-Core (from `./node_modules/react-native/`)
-  - React-Core/DevSupport (from `./node_modules/react-native/`)
-  - React-Core/RCTWebSocket (from `./node_modules/react-native/`)
-  - React-CoreModules (from `./node_modules/react-native/React/CoreModules`)
-  - React-cxxreact (from `./node_modules/react-native/ReactCommon/cxxreact`)
-  - React-jsi (from `./node_modules/react-native/ReactCommon/jsi`)
-  - React-jsiexecutor (from `./node_modules/react-native/ReactCommon/jsiexecutor`)
-  - React-jsinspector (from `./node_modules/react-native/ReactCommon/jsinspector`)
+  - glog (from `node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - RCTRequired (from `node_modules/react-native/Libraries/RCTRequired`)
+  - RCTTypeSafety (from `node_modules/react-native/Libraries/TypeSafety`)
+  - React (from `node_modules/react-native/`)
+  - React-callinvoker (from `node_modules/react-native/ReactCommon/callinvoker`)
+  - React-Core (from `node_modules/react-native/`)
+  - React-Core/DevSupport (from `node_modules/react-native/`)
+  - React-Core/RCTWebSocket (from `node_modules/react-native/`)
+  - React-CoreModules (from `node_modules/react-native/React/CoreModules`)
+  - React-cxxreact (from `node_modules/react-native/ReactCommon/cxxreact`)
+  - React-jsi (from `node_modules/react-native/ReactCommon/jsi`)
+  - React-jsiexecutor (from `node_modules/react-native/ReactCommon/jsiexecutor`)
+  - React-jsinspector (from `node_modules/react-native/ReactCommon/jsinspector`)
   - "react-native-netinfo (from `node_modules/@react-native-community/netinfo`)"
-  - React-RCTActionSheet (from `./node_modules/react-native/Libraries/ActionSheetIOS`)
-  - React-RCTAnimation (from `./node_modules/react-native/Libraries/NativeAnimation`)
-  - React-RCTBlob (from `./node_modules/react-native/Libraries/Blob`)
-  - React-RCTImage (from `./node_modules/react-native/Libraries/Image`)
-  - React-RCTLinking (from `./node_modules/react-native/Libraries/LinkingIOS`)
-  - React-RCTNetwork (from `./node_modules/react-native/Libraries/Network`)
-  - React-RCTSettings (from `./node_modules/react-native/Libraries/Settings`)
-  - React-RCTText (from `./node_modules/react-native/Libraries/Text`)
-  - React-RCTVibration (from `./node_modules/react-native/Libraries/Vibration`)
-  - ReactCommon/turbomodule/core (from `./node_modules/react-native/ReactCommon`)
+  - React-RCTActionSheet (from `node_modules/react-native/Libraries/ActionSheetIOS`)
+  - React-RCTAnimation (from `node_modules/react-native/Libraries/NativeAnimation`)
+  - React-RCTBlob (from `node_modules/react-native/Libraries/Blob`)
+  - React-RCTImage (from `node_modules/react-native/Libraries/Image`)
+  - React-RCTLinking (from `node_modules/react-native/Libraries/LinkingIOS`)
+  - React-RCTNetwork (from `node_modules/react-native/Libraries/Network`)
+  - React-RCTSettings (from `node_modules/react-native/Libraries/Settings`)
+  - React-RCTText (from `node_modules/react-native/Libraries/Text`)
+  - React-RCTVibration (from `node_modules/react-native/Libraries/Vibration`)
+  - ReactCommon/turbomodule/core (from `node_modules/react-native/ReactCommon`)
   - RNFS (from `node_modules/react-native-fs`)
   - RNSqlite2 (from `node_modules/react-native-sqlite-2`)
   - RNSVG (from `node_modules/react-native-svg`)
@@ -321,7 +321,7 @@ DEPENDENCIES:
   - SwiftLint
   - SwiftyJSON (~> 5.0)
   - XCGLogger (~> 7.0.0)
-  - Yoga (from `./node_modules/react-native/ReactCommon/yoga`)
+  - Yoga (from `node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
@@ -338,57 +338,57 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   DoubleConversion:
-    :podspec: "./node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+    :podspec: node_modules/react-native/third-party-podspecs/DoubleConversion.podspec
   FBLazyVector:
-    :path: "./node_modules/react-native/Libraries/FBLazyVector"
+    :path: node_modules/react-native/Libraries/FBLazyVector
   FBReactNativeSpec:
-    :path: "./node_modules/react-native/Libraries/FBReactNativeSpec"
+    :path: node_modules/react-native/Libraries/FBReactNativeSpec
   Folly:
-    :podspec: "./node_modules/react-native/third-party-podspecs/Folly.podspec"
+    :podspec: node_modules/react-native/third-party-podspecs/Folly.podspec
   glog:
-    :podspec: "./node_modules/react-native/third-party-podspecs/glog.podspec"
+    :podspec: node_modules/react-native/third-party-podspecs/glog.podspec
   RCTRequired:
-    :path: "./node_modules/react-native/Libraries/RCTRequired"
+    :path: node_modules/react-native/Libraries/RCTRequired
   RCTTypeSafety:
-    :path: "./node_modules/react-native/Libraries/TypeSafety"
+    :path: node_modules/react-native/Libraries/TypeSafety
   React:
-    :path: "./node_modules/react-native/"
+    :path: node_modules/react-native/
   React-callinvoker:
-    :path: "./node_modules/react-native/ReactCommon/callinvoker"
+    :path: node_modules/react-native/ReactCommon/callinvoker
   React-Core:
-    :path: "./node_modules/react-native/"
+    :path: node_modules/react-native/
   React-CoreModules:
-    :path: "./node_modules/react-native/React/CoreModules"
+    :path: node_modules/react-native/React/CoreModules
   React-cxxreact:
-    :path: "./node_modules/react-native/ReactCommon/cxxreact"
+    :path: node_modules/react-native/ReactCommon/cxxreact
   React-jsi:
-    :path: "./node_modules/react-native/ReactCommon/jsi"
+    :path: node_modules/react-native/ReactCommon/jsi
   React-jsiexecutor:
-    :path: "./node_modules/react-native/ReactCommon/jsiexecutor"
+    :path: node_modules/react-native/ReactCommon/jsiexecutor
   React-jsinspector:
-    :path: "./node_modules/react-native/ReactCommon/jsinspector"
+    :path: node_modules/react-native/ReactCommon/jsinspector
   react-native-netinfo:
     :path: "node_modules/@react-native-community/netinfo"
   React-RCTActionSheet:
-    :path: "./node_modules/react-native/Libraries/ActionSheetIOS"
+    :path: node_modules/react-native/Libraries/ActionSheetIOS
   React-RCTAnimation:
-    :path: "./node_modules/react-native/Libraries/NativeAnimation"
+    :path: node_modules/react-native/Libraries/NativeAnimation
   React-RCTBlob:
-    :path: "./node_modules/react-native/Libraries/Blob"
+    :path: node_modules/react-native/Libraries/Blob
   React-RCTImage:
-    :path: "./node_modules/react-native/Libraries/Image"
+    :path: node_modules/react-native/Libraries/Image
   React-RCTLinking:
-    :path: "./node_modules/react-native/Libraries/LinkingIOS"
+    :path: node_modules/react-native/Libraries/LinkingIOS
   React-RCTNetwork:
-    :path: "./node_modules/react-native/Libraries/Network"
+    :path: node_modules/react-native/Libraries/Network
   React-RCTSettings:
-    :path: "./node_modules/react-native/Libraries/Settings"
+    :path: node_modules/react-native/Libraries/Settings
   React-RCTText:
-    :path: "./node_modules/react-native/Libraries/Text"
+    :path: node_modules/react-native/Libraries/Text
   React-RCTVibration:
-    :path: "./node_modules/react-native/Libraries/Vibration"
+    :path: node_modules/react-native/Libraries/Vibration
   ReactCommon:
-    :path: "./node_modules/react-native/ReactCommon"
+    :path: node_modules/react-native/ReactCommon
   RNFS:
     :path: node_modules/react-native-fs
   RNSqlite2:
@@ -399,7 +399,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/getsentry/sentry-cocoa.git
     :tag: 4.3.1
   Yoga:
-    :path: "./node_modules/react-native/ReactCommon/yoga"
+    :path: node_modules/react-native/ReactCommon/yoga
 
 CHECKOUT OPTIONS:
   Sentry:
@@ -437,7 +437,7 @@ SPEC CHECKSUMS:
   React-RCTText: 1b6773e776e4b33f90468c20fe3b16ca3e224bb8
   React-RCTVibration: 4d2e726957f4087449739b595f107c0d4b6c2d2d
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
-  RNFS: a8fbe7060fa49157d819466404794ad9c58e58cf
+  RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNSqlite2: f255020dc5fbfbf7d1943f0cc38550cf6f4e001c
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
@@ -449,6 +449,6 @@ SPEC CHECKSUMS:
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   Yoga: 7740b94929bbacbddda59bf115b5317e9a161598
 
-PODFILE CHECKSUM: 33b7c4cd292bdf031be485772dffa6cd63128b47
+PODFILE CHECKSUM: 62f6ac6e7c594dea9efa4cbf8debe454c8b6ffa3
 
 COCOAPODS: 1.10.0.rc.1
