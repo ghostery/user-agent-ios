@@ -370,7 +370,7 @@
 		2B65705224AB68A7005DE5D3 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		2B65705324AB68A7005DE5D3 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		2B65705424AB68A7005DE5D3 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		2B65705524AB68A7005DE5D3 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		2B65705524AB68A7005DE5D3 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		2B65705624AB68A7005DE5D3 /* UIColor+Blending.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC6EC5223290974000F5499 /* UIColor+Blending.swift */; };
 		2B65705724AB68A7005DE5D3 /* BrowserViewController+DownloadsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B516D3B238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift */; };
 		2B65705824AB68A7005DE5D3 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7DC1A234485B9000125D7 /* UIDeviceExtensions.swift */; };
@@ -994,7 +994,7 @@
 		ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744ED5601DBFEB8D00A2B5BE /* MailtoLinkHandler.swift */; };
 		ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D1B852097859B0074B35F /* DownloadToast.swift */; };
 		ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B844E3C1BBDDB9D00E733A2 /* ChevronView.swift */; };
-		ACB737E823042BAB00FA5626 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		ACB737E823042BAB00FA5626 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		ACB737EA23042BAB00FA5626 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E663D5771BB341C4001EF30E /* ToggleButton.swift */; };
 		ACB737EB23042BAB00FA5626 /* BadgeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3B2D12268F57E00728BDB /* BadgeIcon.swift */; };
 		ACB737EC23042BAB00FA5626 /* DebugSettingsBundleOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6327A631BF6438E008D12E0 /* DebugSettingsBundleOptions.swift */; };
@@ -6588,7 +6588,7 @@
 				2B65705224AB68A7005DE5D3 /* MailtoLinkHandler.swift in Sources */,
 				2B65705324AB68A7005DE5D3 /* DownloadToast.swift in Sources */,
 				2B65705424AB68A7005DE5D3 /* ChevronView.swift in Sources */,
-				2B65705524AB68A7005DE5D3 /* BuildFile in Sources */,
+				2B65705524AB68A7005DE5D3 /* (null) in Sources */,
 				2B65705624AB68A7005DE5D3 /* UIColor+Blending.swift in Sources */,
 				2B65705724AB68A7005DE5D3 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				2B65705824AB68A7005DE5D3 /* UIDeviceExtensions.swift in Sources */,
@@ -7000,7 +7000,7 @@
 				ACB737E323042BAB00FA5626 /* MailtoLinkHandler.swift in Sources */,
 				ACB737E523042BAB00FA5626 /* DownloadToast.swift in Sources */,
 				ACB737E623042BAB00FA5626 /* ChevronView.swift in Sources */,
-				ACB737E823042BAB00FA5626 /* BuildFile in Sources */,
+				ACB737E823042BAB00FA5626 /* (null) in Sources */,
 				ACC6EC5523290C19000F5499 /* UIColor+Blending.swift in Sources */,
 				2B516D3D238BACE4006D6B57 /* BrowserViewController+DownloadsDelegate.swift in Sources */,
 				B3E94BBB2344D5AB009858C5 /* UIDeviceExtensions.swift in Sources */,
@@ -8154,6 +8154,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = WidgetsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -9283,6 +9284,7 @@
 			baseConfigurationReference = 543C9FCBDC94E77C386DC467 /* Pods-ClientTests.ci.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)",
@@ -9308,6 +9310,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = SharedTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -9347,6 +9350,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -9377,6 +9381,7 @@
 			baseConfigurationReference = C233A04DDAEE61750AD3A246 /* Pods-StorageTests.ci.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = StorageTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
@@ -9411,6 +9416,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
