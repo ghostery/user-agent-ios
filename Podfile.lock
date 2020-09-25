@@ -255,11 +255,11 @@ PODS:
     - React-cxxreact (= 0.63.2)
     - React-jsi (= 0.63.2)
   - RNFS (2.16.6):
-    - React
+    - React-Core
   - RNSqlite2 (1.0.0):
-    - React
+    - React-Core
   - RNSVG (12.1.0):
-    - React
+    - React-Core
   - SDWebImage (5.8.1):
     - SDWebImage/Core (= 5.8.1)
   - SDWebImage/Core (5.8.1)
@@ -437,9 +437,9 @@ SPEC CHECKSUMS:
   React-RCTText: 1b6773e776e4b33f90468c20fe3b16ca3e224bb8
   React-RCTVibration: 4d2e726957f4087449739b595f107c0d4b6c2d2d
   ReactCommon: a0a1edbebcac5e91338371b72ffc66aa822792ce
-  RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
-  RNSqlite2: f255020dc5fbfbf7d1943f0cc38550cf6f4e001c
-  RNSVG: ce9d996113475209013317e48b05c21ee988d42e
+  RNFS: 7161a36db9bbdaab96d91fff660820f94e29ca58
+  RNSqlite2: aba98937d707abaf15d97f7bdeaf99335268c283
+  RNSVG: 59dfa0b461f9e94136e1b1f3878da58a743d4795
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
@@ -451,4 +451,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 62f6ac6e7c594dea9efa4cbf8debe454c8b6ffa3
 
-COCOAPODS: 1.10.0.rc.1
+COCOAPODS: 1.9.3

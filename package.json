@@ -9,7 +9,7 @@
     "build-user-scripts": "webpack --config webpack.config.js",
     "test-detox": "detox test --take-screenshots all",
     "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx ./ReactNative/js",
-    "postinstall": "sed -i -e 's/import \"sqlite3\\.h\"/import <sqlite3\\.h>/g' node_modules/react-native-sqlite-2/ios/RNSqlite2.m"
+    "postinstall": "patch-package && sed -i -e 's/import \"sqlite3\\.h\"/import <sqlite3\\.h>/g' node_modules/react-native-sqlite-2/ios/RNSqlite2.m"
   },
   "repository": {
     "type": "git",
@@ -64,6 +64,7 @@
     "metro-react-native-babel-preset": "^0.59.0",
     "mocha": "^6.2.1",
     "node-fetch": "^2.6.1",
+    "patch-package": "^6.2.2",
     "typescript": "^3.7.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.6"
