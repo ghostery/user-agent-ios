@@ -20,17 +20,17 @@ strategy:
       actions: 'test'
 
 pool:
-  vmImage: 'macOS 10.14'
+  vmImage: 'macOS-10.15'
 
 steps:
 - bash: |
-    sudo xcode-select --switch /Applications/Xcode_11.1.app
-  displayName: 'Change XCode to 11.1'
+    sudo xcode-select --switch /Applications/Xcode_12.app
+  displayName: 'Change XCode to 12'
 
 - task: NodeTool@0
-  displayName: 'Define Node to v10.17.0'
+  displayName: 'Define Node to v12.18.4'
   inputs:
-    versionSpec: '10.17.0'
+    versionSpec: '12.18.4'
 
 - bash: |
     set -x
@@ -50,8 +50,9 @@ steps:
 
 - bash: |
     set -x
-    gem install bundler:2.0.2 --force
+    gem install bundler:2.1.4 --force
     bundle install --retry=3
+    bundle exec pod repo update
     bundle exec pod install
   displayName: 'Install CocoaPods'
 
@@ -70,28 +71,3 @@ steps:
     destinationSimulators: 'iPhone 11'
     publishJUnitResults: true
     args: '-derivedDataPath builds'
-
-- bash: |
-    brew tap wix/brew
-    brew install applesimutils
-  displayName: Install dependencies
-
-- bash: |
-    npm run test-detox
-  displayName: e2e test
-
-- task: PublishBuildArtifacts@1
-  condition: or(succeeded(), failed())
-  displayName: Publish e2e tests screenshots
-  inputs:
-    pathtoPublish: './artifacts'
-    artifactName: 'Screenshots'
-    publishLocation: 'Container'
-
-- task: PublishBuildArtifacts@1
-  condition: or(succeeded(), failed())
-  displayName: Publish e2e tests screenshots
-  inputs:
-    pathtoPublish: './builds/Build/Products/CI-iphonesimulator/UserAgent.app'
-    artifactName: 'App'
-    publishLocation: 'Container'

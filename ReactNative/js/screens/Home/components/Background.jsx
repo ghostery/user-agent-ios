@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { View, StyleSheet, Platform, Image, Settings } from 'react-native';
-import FastImage from 'react-native-fast-image';
+// import FastImage from 'react-native-fast-image';
 
 const DAY_OF_MONTH = new Date().getDate();
 const BACKGROUND_URL = `https://cdn.cliqz.com/serp/configs/config_${DAY_OF_MONTH}.json`;
@@ -63,7 +63,7 @@ export default ({ height, children, Features }) => {
   const backgroundSource = useMemo(
     () => ({
       uri: backgroundUrl,
-      priority: FastImage.priority.normal,
+      // priority: FastImage.priority.normal,
     }),
     [backgroundUrl],
   );
@@ -73,7 +73,7 @@ export default ({ height, children, Features }) => {
       {hasError || !hasDynamicBackground ? (
         <Image style={StyleSheet.absoluteFill} source={fallbackImageSource} />
       ) : (
-        <FastImage
+        <Image
           style={StyleSheet.absoluteFill}
           source={backgroundSource}
           onError={setError}
