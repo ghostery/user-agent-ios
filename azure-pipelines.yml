@@ -71,28 +71,3 @@ steps:
     destinationSimulators: 'iPhone 11'
     publishJUnitResults: true
     args: '-derivedDataPath builds'
-
-- bash: |
-    brew tap wix/brew
-    brew install applesimutils
-  displayName: Install dependencies
-
-- bash: |
-    npm run test-detox
-  displayName: e2e test
-
-- task: PublishBuildArtifacts@1
-  condition: or(succeeded(), failed())
-  displayName: Publish e2e tests screenshots
-  inputs:
-    pathtoPublish: './artifacts'
-    artifactName: 'Screenshots'
-    publishLocation: 'Container'
-
-- task: PublishBuildArtifacts@1
-  condition: or(succeeded(), failed())
-  displayName: Publish e2e tests screenshots
-  inputs:
-    pathtoPublish: './builds/Build/Products/CI-iphonesimulator/UserAgent.app'
-    artifactName: 'App'
-    publishLocation: 'Container'
