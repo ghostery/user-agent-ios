@@ -626,10 +626,8 @@ class TabManager: NSObject {
     @objc func prefsDidChange() {
         DispatchQueue.main.async {
             let allowPopups = !(self.profile.prefs.boolForKey(PrefsKeys.KeyBlockPopups) ?? true)
-<<<<<<< HEAD
             let allowPullToRefresh = self.profile.prefs.boolForKey(PrefsKeys.RefreshControlEnabled) ?? true
-=======
->>>>>>> 0a6ae4d6c... Bugzilla 1646756: close last priv tab clears the WKWebViewConfiguration (#6827)
+
             // Each tab may have its own configuration, so we should tell each of them in turn.
             for tab in self.tabs {
                 tab.webView?.configuration.preferences.javaScriptCanOpenWindowsAutomatically = allowPopups
