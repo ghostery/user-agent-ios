@@ -69,7 +69,7 @@ class LoginsHelper: TabContentScript {
         var dict: [String: Any] = [
             "hostname": origin,
             "username": username,
-            "password": password
+            "password": password,
         ]
 
         if let string = script["formSubmitURL"] as? String,
@@ -266,7 +266,7 @@ class LoginsHelper: TabContentScript {
             let dict: [String: Any] = [
                 "requestId": requestId,
                 "name": "RemoteLogins:loginsFound",
-                "logins": logins
+                "logins": logins,
             ]
 
             let json = JSON(dict)

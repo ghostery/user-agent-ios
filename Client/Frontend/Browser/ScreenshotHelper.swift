@@ -17,7 +17,7 @@ class ScreenshotHelper {
     init(controller: BrowserViewController) {
         self.controller = controller
     }
-    
+
     /// Takes a screenshot of the WebView to be displayed on the tab view page
     /**
      If taking a screenshot of the home page, uses our custom screenshot `UIView` extension function

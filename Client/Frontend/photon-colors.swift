@@ -101,7 +101,7 @@ extension UIColor {
     struct Pocket {
         static let red = UIColor(rgb: 0xEF4156)
     }
-    
+
     struct Custom {
         static let selectedHighlightDark = UIColor(rgb: 0x2D2D2D)
         static let selectedHighlightLight = UIColor(rgb: 0xd1d1d6)

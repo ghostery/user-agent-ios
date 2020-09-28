@@ -77,7 +77,7 @@ class HTTPDownload: Download {
     init?(preflightResponse: URLResponse, request: URLRequest) {
         self.preflightResponse = preflightResponse
         self.request = request
-        
+
         // Verify scheme is a secure http or https scheme before moving forward with HTTPDownload initialization
         guard let scheme = request.url?.scheme, (scheme == "http" || scheme == "https") else {
             return nil

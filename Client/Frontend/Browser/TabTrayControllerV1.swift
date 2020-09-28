@@ -135,7 +135,6 @@ class TabTrayControllerV1: UIViewController {
         collectionView.dragDelegate = tabDisplayManager
         collectionView.dropDelegate = tabDisplayManager
 
-
         [webViewContainerBackdrop, collectionView, toolbar].forEach { view.addSubview($0) }
 
         makeConstraints()
@@ -185,11 +184,11 @@ class TabTrayControllerV1: UIViewController {
     }
 
     fileprivate func makeConstraints() {
-        
+
         webViewContainerBackdrop.snp.makeConstraints { make in
             make.edges.equalTo(self.view)
         }
-        
+
         collectionView.snp.makeConstraints { make in
             make.left.equalTo(view.safeArea.left)
             make.right.equalTo(view.safeArea.right)

@@ -144,7 +144,6 @@ class BrowserViewController: UIViewController {
     let downloadQueue = DownloadQueue()
     var isCmdClickForNewTab = false
 
-
     init(profile: Profile, tabManager: TabManager) {
         self.profile = profile
         self.tabManager = tabManager
@@ -1308,7 +1307,7 @@ class BrowserViewController: UIViewController {
         case url
         case finishedNavigation
     }
-    
+
     func navigateInTab(tab: Tab, to navigation: WKNavigation? = nil, webViewStatus: WebViewUpdateStatus) {
         tabManager.expireSnackbars()
 
@@ -1330,7 +1329,7 @@ class BrowserViewController: UIViewController {
 
             TabEvent.post(.didChangeURL(url), for: tab)
         }
-        
+
         // Represents WebView observation or delegate update that called this function
         switch webViewStatus {
         case .title, .url, .finishedNavigation:
@@ -1341,7 +1340,7 @@ class BrowserViewController: UIViewController {
                 // This is kind of a hacky fix for Bug 1476637 to prevent webpages from focusing the
                 // touch-screen keyboard from the background even though they shouldn't be able to.
                 webView.resignFirstResponder()
-                
+
                 // We need a better way of identifying when webviews are finished rendering
                 // There are cases in which the page will still show a loading animation or nothing when the screenshot is being taken,
                 // depending on internet connection
@@ -2211,13 +2210,13 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             self.displayedPopoverController = nil
         }
     }
-    
+
     //Support for CMD+ Click on link to open in a new tab
      override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
          guard let key = presses.first?.key, (key.keyCode == .keyboardLeftGUI || key.keyCode == .keyboardRightGUI) else { return } //GUI buttons = CMD buttons on ipad/mac
          self.isCmdClickForNewTab = true
     }
-    
+
     override func pressesEnded(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         guard let key = presses.first?.key, (key.keyCode == .keyboardLeftGUI || key.keyCode == .keyboardRightGUI) else { return }
         self.isCmdClickForNewTab = false

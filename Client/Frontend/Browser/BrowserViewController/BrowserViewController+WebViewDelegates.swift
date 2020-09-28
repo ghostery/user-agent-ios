@@ -560,7 +560,7 @@ extension BrowserViewController: WKNavigationDelegate {
 
             tab.mimeType = response.mimeType
         }
-        
+
         if isCmdClickForNewTab {
             guard let url = webView.url, let isPrivate = self.tabManager.selectedTab?.isPrivate else { return }
             homePanelDidRequestToOpenInNewTab(url, isPrivate: isPrivate)
