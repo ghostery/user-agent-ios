@@ -16,10 +16,10 @@ jobs:
     - uses: ruby/setup-ruby@v1
     - uses: actions/setup-node@v1
       with:
-        node-version: '10'
+        node-version: '12.8'
     
     - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_11.2.app
+      run: sudo xcode-select -switch /Applications/Xcode_12.app
       
     - uses: actions/cache@v2
       with:
@@ -61,6 +61,6 @@ jobs:
     - uses: sersoft-gmbh/xcodebuild-action@v1
       with:
         workspace: UserAgent.xcworkspace
-        scheme: Ghostery
+        scheme: Cliqz
         destination: platform=iOS
         action: test
