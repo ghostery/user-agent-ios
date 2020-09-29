@@ -57,10 +57,6 @@ jobs:
           
     - name: Install Cocoa Pods
       run: bundle exec pod install
-      
-    - uses: sersoft-gmbh/xcodebuild-action@v1
-      with:
-        workspace: UserAgent.xcworkspace
-        scheme: Cliqz
-        destination: platform=iOS
-        action: test
+    
+    - name: Build and test
+      run: xcodebuild clean test -scheme Cliqz -destination 'platform=iOS' -showBuildTimingSummary  
