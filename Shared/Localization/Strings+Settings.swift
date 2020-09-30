@@ -118,7 +118,7 @@ extension Strings {
             public static let OfferClipboardBarStatus = String(format: NSLocalizedString("Settings.General.OfferClipboardBarStatus", tableName: "Settings", comment: "Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349"), AppInfo.displayName)
             public static let ShowLinkPreviewsTitle = NSLocalizedString("Settings.General.ShowLinkPreivewsTitle", tableName: "Settings", comment: "Title of setting to enable link previews when long-pressing links.")
             public static let ShowLinkPreviewsStatus = NSLocalizedString("Settings.General.ShowLinkPreviewsStatus", tableName: "Settings", comment: "Description displayed under the ”Show Link Previews” option")
-            public static let DefaultBrowserMenuItem = NSLocalizedString("Settings.DefaultBrowserMenuItem", tableName: "Default Browser", value: "Set as Default Browser", comment: "Menu option for setting Firefox as default browser.")
+            public static let DefaultBrowserMenuItem = NSLocalizedString("Settings.General.DefaultBrowserMenuItem", tableName: "Settings", value: "Set as Default Browser", comment: "Menu option for setting User Agent as default browser.")
         }
         public struct News {
             public static let SectionTitle = NSLocalizedString("Settings.News.SectionName", tableName: "Settings", comment: "News settings section title")

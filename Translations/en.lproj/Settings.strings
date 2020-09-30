@@ -179,6 +179,9 @@
 /* The option in settings to configure open link in background */
 "Settings.General.OpenLinks.InBackground" = "In Background";
 
+/* Menu option for setting User Agent as default browser. */
+"Settings.General.DefaultBrowserMenuItem" = "Set as Default Browser";
+
 /* Row in top-level of settings that gets tapped to show the tracking protection settings detail view. */
 "Settings.TrackingProtection.SectionName" = "Tracking Protection";
 
