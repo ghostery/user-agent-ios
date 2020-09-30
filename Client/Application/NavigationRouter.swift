@@ -80,7 +80,7 @@ enum NavigationPath {
 
         if urlString.starts(with: "\(scheme)://deep-link"), let deepURL = components.valueForQuery("url"), let link = DeepLink(urlString: deepURL.lowercased()) {
             self = .deepLink(link)
-        } else if urlString.starts(with: "\(scheme)://open-url") {
+        } else if urlString.starts(with: "\(scheme)://open-url") || urlString.starts(with: "http:") ||  urlString.starts(with: "https:") {
             let url = components.valueForQuery("url")?.asURL
             // Unless the `open-url` URL specifies a `private` parameter,
             // use the last browsing mode the user was in.
