@@ -128,6 +128,9 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the open with (mail links) behaviour. */
 "Settings.General.OpenWith.SectionName" = "Mail-App";
 
+/* Menu option for setting User Agent as default browser. */
+"Settings.General.DefaultBrowserMenuItem" = "Als Standardbrowser festlegen";
+
 /* Privacy Dashboard Title */
 "Settings.PrivacyDashboard.Title" = "Datenschutz-Dashboard";
 
