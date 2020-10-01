@@ -9,24 +9,24 @@ APPS = {
     app_group_identifier: "group.com.cliqz",
 
     app_identifier: "com.cliqz",
-    provisioning_profile: "41227350-a044-42d6-bc6f-c9222fd52d7e",
-    provisioning_profile_name: "match AppStore com.cliqz 1601477132",
+    provisioning_profile: "7fb76ca0-3239-4601-bf21-bf9fe617c35c",
+    provisioning_profile_name: "match AppStore com.cliqz",
 
     share_to_identifier: "com.cliqz.ShareTo",
-    share_to_provisioning_profile: "969130c3-cae3-4840-901b-b8334f9fe2ab",
-    share_to_provisioning_profile_name: "match AppStore com.cliqz.ShareTo 1601477287",
+    share_to_provisioning_profile: "4b0509eb-660d-4a21-b8a4-a54a25db6b41",
+    share_to_provisioning_profile_name: "match AppStore com.cliqz.ShareTo",
 
     open_in_identifier: "com.cliqz.OpenIn",
-    open_in_provisioning_profile: "498efd34-7d20-40dd-9b63-f58e91561430",
-    open_in_provisioning_profile_name: "match AppStore com.cliqz.OpenIn 1601477295",
+    open_in_provisioning_profile: "18550bb3-d4bf-48fa-9372-7acb6f21627e",
+    open_in_provisioning_profile_name: "match AppStore com.cliqz.OpenIn",
 
     today_identifier: "com.cliqz.Today",
-    today_provisioning_profile: "cb471101-e0e5-4b2d-a734-4f597ea4de6e",
-    today_provisioning_profile_name: "match AppStore com.cliqz.Today 1601477454",
+    today_provisioning_profile: "c6df81d6-e9bf-47bb-a019-619bb93a4f94",
+    today_provisioning_profile_name: "match AppStore com.cliqz.Today",
 
     siri_identifier: "com.cliqz.Siri",
-    siri_provisioning_profile: "87a93905-e387-493b-8658-bb92d42eb1ca",
-    siri_provisioning_profile_name: "match AppStore com.cliqz.Siri 1601477460",
+    siri_provisioning_profile: "6d28d3fb-d0e7-4f4e-945f-e00cce3415e0",
+    siri_provisioning_profile_name: "match AppStore com.cliqz.Siri",
 
     sentry_slug: "cliqz-ios",
     match_branch: "cliqz",
@@ -39,24 +39,24 @@ APPS = {
     app_group_identifier: "group.com.cliqz.browser.nightly",
 
     app_identifier: "com.cliqz.browser.nightly",
-    provisioning_profile: "f3748cb4-8834-4072-9dec-bf613d66f149",
-    provisioning_profile_name: "match AppStore com.cliqz.browser.nightly 1601477467",
+    provisioning_profile: "0067dc5b-5e61-4e5e-a808-15a2a20b43f4",
+    provisioning_profile_name: "match AppStore com.cliqz.browser.nightly",
 
     share_to_identifier: "com.cliqz.browser.nightly.ShareTo",
-    share_to_provisioning_profile: "53c34a0f-81b5-4cad-81d5-b5fcfa34c461",
-    share_to_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.ShareTo 1601477474",
+    share_to_provisioning_profile: "b05942bd-0a85-4e7a-b664-fc67bab03e55",
+    share_to_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.ShareTo",
 
     open_in_identifier: "com.cliqz.browser.nightly.OpenIn",
-    open_in_provisioning_profile: "8a7fe132-0c24-455e-bbba-1d2d474ad644",
-    open_in_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.OpenIn 1601477482",
+    open_in_provisioning_profile: "013772a0-e691-4bc5-87ad-9bbb2a86d7be",
+    open_in_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.OpenIn",
 
     today_identifier: "com.cliqz.browser.nightly.Today",
-    today_provisioning_profile: "20c7142f-9c3d-4b60-89d3-0c5c840e86a4",
-    today_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.Today 1601477488",
+    today_provisioning_profile: "14aa1e09-cb31-48a7-954e-0c5561d9232d",
+    today_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.Today",
 
     siri_identifier: "com.cliqz.browser.nightly.Siri",
-    siri_provisioning_profile: "ad157af1-a9dc-41cc-a3aa-68d65c07de94",
-    siri_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.Siri 1601477495",
+    siri_provisioning_profile: "73ef5ef9-c286-4f5c-a81d-aec6f24fc77d",
+    siri_provisioning_profile_name: "match AppStore com.cliqz.browser.nightly.Siri",
 
     sentry_slug: "cliqznighly-ios",
     match_branch: "cliqz",
