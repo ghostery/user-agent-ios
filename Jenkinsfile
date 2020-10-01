@@ -129,7 +129,7 @@ node('gideon') {
                     ],
                     string(credentialsId: '8b4f7459-c446-4058-be61-3c3d98fe72e2', variable: 'ITUNES_USER'),
                     string(credentialsId: '05be12cd-5177-4adf-9812-809f01451fa0', variable: 'FASTLANE_PASSWORD'),
-                    string(credentialsId: 'ea8c47ad-1de8-4300-ae93-ec9ff4b68f39', variable: 'MATCH_PASSWORD'),
+                    string(credentialsId: '151f96d8-9ef6-4f0c-9157-8827c51941be', variable: 'MATCH_PASSWORD'),
                     string(credentialsId: 'ab91f92a-4588-4034-8d7f-c1a741fa31ab', variable: 'FASTLANE_ITC_TEAM_ID'),
                     string(credentialsId: app.sentryDSN, variable: 'SENTRY_DSN'),
                 ]) {
