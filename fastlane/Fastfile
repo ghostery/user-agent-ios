@@ -9,7 +9,7 @@ APPS = {
     app_group_identifier: "group.com.cliqz",
 
     app_identifier: "com.cliqz",
-    provisioning_profile: "7fb76ca0-3239-4601-bf21-bf9fe617c35c",
+    provisioning_profile: "abe86566-4b9f-41b6-bf0d-ff2f9810e109",
     provisioning_profile_name: "match AppStore com.cliqz",
 
     share_to_identifier: "com.cliqz.ShareTo",
@@ -39,7 +39,7 @@ APPS = {
     app_group_identifier: "group.com.cliqz.browser.nightly",
 
     app_identifier: "com.cliqz.browser.nightly",
-    provisioning_profile: "0067dc5b-5e61-4e5e-a808-15a2a20b43f4",
+    provisioning_profile: "463c4868-6bcc-471d-af07-09b7a41ebbb4",
     provisioning_profile_name: "match AppStore com.cliqz.browser.nightly",
 
     share_to_identifier: "com.cliqz.browser.nightly.ShareTo",
