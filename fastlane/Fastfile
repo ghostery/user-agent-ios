@@ -187,7 +187,7 @@ platform :ios do
       scheme: app.scheme,
       configuration: app.configuration,
       skip_profile_detection: true,
-      codesigning_identity: "iPhone Distribution: Cliqz GmbH (2UYYSSHVUH)",
+      codesigning_identity: "Apple Distribution: Cliqz GmbH (2UYYSSHVUH)",
       export_method: "app-store",
       export_team_id: "2UYYSSHVUH",
       export_options: {
