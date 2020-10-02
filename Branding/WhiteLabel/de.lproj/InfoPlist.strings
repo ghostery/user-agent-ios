@@ -7,8 +7,6 @@
 
 "NSPhotoLibraryAddUsageDescription" = "Damit können Sie Fotos speichern.";
 
-"NSPhotoLibraryUsageDescription" = "Hiermit können Sie Fotos speichern und hochladen.";
-
 "ShortcutItemTitleNewPrivateTab" = "Neuer Privat-Modus Tab";
 
 "ShortcutItemTitleNewTab" = "Neuer Tab";

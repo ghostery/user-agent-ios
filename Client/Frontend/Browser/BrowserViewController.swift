@@ -2230,7 +2230,6 @@ extension BrowserViewController {
     }
 }
 
-
 extension BrowserViewController: KeyboardHelperDelegate {
     func keyboardHelper(_ keyboardHelper: KeyboardHelper, keyboardWillShowWithState state: KeyboardState) {
         keyboardState = state
