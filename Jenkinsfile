@@ -36,7 +36,7 @@ node_id = URI::encode(ENV['NODE_ID'] || '')
 name = "catalina-xcode11.3-#{ENV['BRANCH_NAME'] || ''}"
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "catalina"
+    config.vm.box = "catalinaXcode12"
     config.vm.synced_folder ".", "/vagrant", disabled: true
 
     config.vm.define "catalina" do |image|
