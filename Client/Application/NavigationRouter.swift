@@ -189,7 +189,7 @@ enum NavigationPath {
             break
         }
     }
-    
+
     private static func handleDefaultBrowser(path: DefaultBrowserPath) {
         switch path {
         case .systemSettings:
