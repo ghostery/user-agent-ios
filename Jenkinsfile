@@ -33,7 +33,7 @@ def vagrantfile = '''
 require 'uri'
 
 node_id = URI::encode(ENV['NODE_ID'] || '')
-name = "catalina-xcode11.3-#{ENV['BRANCH_NAME'] || ''}"
+name = "catalina-xcode12-#{ENV['BRANCH_NAME'] || ''}"
 
 Vagrant.configure("2") do |config|
     config.vm.box = "catalinaXcode12"
