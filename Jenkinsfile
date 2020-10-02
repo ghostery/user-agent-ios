@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder ".", "/vagrant", disabled: true
 
     config.vm.define "catalina" do |image|
-        image.vm.hostname = "catalina-xcode11.3"
+        image.vm.hostname = "catalinaXcode12"
         image.ssh.forward_agent = true
 
         config.vm.provider "parallels" do |prl|
