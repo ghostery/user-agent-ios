@@ -33,14 +33,14 @@ def vagrantfile = '''
 require 'uri'
 
 node_id = URI::encode(ENV['NODE_ID'] || '')
-name = "catalina-xcode12-#{ENV['BRANCH_NAME'] || ''}"
+name = "xcode12-#{ENV['BRANCH_NAME'] || ''}"
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "catalinaXcode12"
+    config.vm.box = "xcode12"
     config.vm.synced_folder ".", "/vagrant", disabled: true
 
-    config.vm.define "catalina" do |image|
-        image.vm.hostname = "catalinaXcode12"
+    config.vm.define "xcode12" do |image|
+        image.vm.hostname = "xcode12"
         image.ssh.forward_agent = true
 
         config.vm.provider "parallels" do |prl|
