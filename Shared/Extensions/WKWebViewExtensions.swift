@@ -18,7 +18,7 @@ extension WKWebView {
     ///     - javascript: String representing javascript to be evaluated
     public func evaluateJavascriptInDefaultContentWorld(_ javascript: String) {
         #if compiler(>=5.3)
-            if #available(iOS 14.0, *), USE_NEW_SANDBOX_APIS {
+            if #available(iOS 14.3, *), USE_NEW_SANDBOX_APIS {
                 self.evaluateJavaScript(javascript, in: nil, in: .defaultClient, completionHandler: { _ in })
             } else {
                 self.evaluateJavaScript(javascript)
@@ -37,7 +37,7 @@ extension WKWebView {
 
     public func evaluateJavascriptInDefaultContentWorld(_ javascript: String, completion: @escaping ((Any?, Error?) -> Void)) {
         #if compiler(>=5.3)
-            if #available(iOS 14.0, *), USE_NEW_SANDBOX_APIS {
+            if #available(iOS 14.3, *), USE_NEW_SANDBOX_APIS {
                 self.evaluateJavaScript(javascript, in: nil, in: .defaultClient) { result in
                     switch result {
                     case .success(let value):
@@ -61,7 +61,7 @@ extension WKWebView {
 
 extension WKUserContentController {
     public func addInDefaultContentWorld(scriptMessageHandler: WKScriptMessageHandler, name: String) {
-        if #available(iOS 14.0, *), USE_NEW_SANDBOX_APIS {
+        if #available(iOS 14.3, *), USE_NEW_SANDBOX_APIS {
             add(scriptMessageHandler, contentWorld: .defaultClient, name: name)
         } else {
             add(scriptMessageHandler, name: name)
@@ -71,7 +71,7 @@ extension WKUserContentController {
 
 extension WKUserScript {
     public class func createInDefaultContentWorld(source: String, injectionTime: WKUserScriptInjectionTime, forMainFrameOnly: Bool) -> WKUserScript {
-        if #available(iOS 14.0, *), USE_NEW_SANDBOX_APIS {
+        if #available(iOS 14.3, *), USE_NEW_SANDBOX_APIS {
             return WKUserScript(source: source, injectionTime: injectionTime, forMainFrameOnly: forMainFrameOnly, in: .defaultClient)
         } else {
             return WKUserScript(source: source, injectionTime: injectionTime, forMainFrameOnly: forMainFrameOnly)
