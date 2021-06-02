@@ -70,6 +70,15 @@ extension Strings {
             public static let BookmarksTitle = NSLocalizedString("HomeView.SegmentedControl.Bookmarks.Title", tableName: "UserAgent", comment: "")
             public static let HistoryTitle = NSLocalizedString("HomeView.SegmentedControl.History.Title", tableName: "UserAgent", comment: "")
         }
+        public struct CliqzOffboarding {
+            public static let Header = NSLocalizedString("HomeView.CliqzOffboarding.Header", tableName: "UserAgent", comment: "")
+            public static let Text1 = NSLocalizedString("HomeView.CliqzOffboarding.Text1", tableName: "UserAgent", comment: "")
+            public static let Text2 = NSLocalizedString("HomeView.CliqzOffboarding.Text2", tableName: "UserAgent", comment: "")
+            public static let Text3 = NSLocalizedString("HomeView.CliqzOffboarding.Text3", tableName: "UserAgent", comment: "")
+            public static let Alternatives = NSLocalizedString("HomeView.CliqzOffboarding.Alternatives", tableName: "UserAgent", comment: "")
+            public static let CTA = NSLocalizedString("HomeView.CliqzOffboarding.CTA", tableName: "UserAgent", comment: "")
+            public static let Footer = NSLocalizedString("HomeView.CliqzOffboarding.Footer", tableName: "UserAgent", comment: "")
+        }
     }
 
     // MARK: - Downloads Panel

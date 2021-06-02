@@ -35,6 +35,9 @@ extension Features {
                 "DynamicBackgrounds": [
                     "isEnabled": Features.Home.DynamicBackgrounds.isEnabled,
                 ],
+                "CliqzOffboarding": [
+                    "isEnabled": Features.Home.CliqzOffboarding.isEnabled,
+                ],
             ],
             "Icons": [
                 "type": Features.Icons.type.rawValue,

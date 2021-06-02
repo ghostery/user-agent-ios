@@ -33,6 +33,13 @@ class LocaleConstants: NSObject {
             "Search.UI.Footer": Strings.Search.UI.Footer,
             "Search.UI.AdditionalSearchEnginesHeader": Strings.Search.UI.AdditionalSearchEnginesHeader,
             "Search.UI.SwitchToTab": Strings.Search.UI.SwitchToTab,
+            "HomeView.CliqzOffboarding.Header": Strings.HomeView.CliqzOffboarding.Header,
+            "HomeView.CliqzOffboarding.Text1": Strings.HomeView.CliqzOffboarding.Text1,
+            "HomeView.CliqzOffboarding.Text2": Strings.HomeView.CliqzOffboarding.Text2,
+            "HomeView.CliqzOffboarding.Text3": Strings.HomeView.CliqzOffboarding.Text3,
+            "HomeView.CliqzOffboarding.Alternatives": Strings.HomeView.CliqzOffboarding.Alternatives,
+            "HomeView.CliqzOffboarding.CTA": Strings.HomeView.CliqzOffboarding.CTA,
+            "HomeView.CliqzOffboarding.Footer": Strings.HomeView.CliqzOffboarding.Footer,
         ]
     }
 

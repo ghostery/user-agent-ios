@@ -13,6 +13,14 @@
 /* Home View */
 "HomeView.SegmentedControl.TopSites.Title" = "Top Sites";
 
+"HomeView.CliqzOffboarding.Header" = "Dear Cliqz User,";
+"HomeView.CliqzOffboarding.Text1" = "Unfortunately the Cliqz browser is not supported anymore.";
+"HomeView.CliqzOffboarding.Text2" = "For your safety we recommend you to stop using Cliqz";
+"HomeView.CliqzOffboarding.Text3" = "The Cliqz Team invite you to use the Ghostery Browser or suggest picking alternative of your choice.";
+"HomeView.CliqzOffboarding.Alternatives" = "Alternative web browsers";
+"HomeView.CliqzOffboarding.CTA" = "OK";
+"HomeView.CliqzOffboarding.Footer" = "I will migrate shortly";
+
 "Interceptor.AntiPhishing.UI.BackButtonLabel" = "Back to safe site";
 
 "Interceptor.AntiPhishing.UI.ContinueButtonLabel" = "Continue despite warning";

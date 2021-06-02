@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol DataAndPrivacyViewControllerDelegate: class {
+public protocol DataAndPrivacyViewControllerDelegate: AnyObject {
     func dataAndPrivacyViewControllerDidClose()
 }
 
