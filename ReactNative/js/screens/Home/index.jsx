@@ -16,8 +16,12 @@ import UrlBar from './components/UrlBar';
 import Background from './components/Background';
 import NewsToolbar from './components/NewsToolbar';
 import useNews from './hooks/news';
+import CliqzOffboarding from './components/CliqzOffboarding';
 
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
+
+const showCliqzOffboarding =
+  NativeModules.Constants.Features.Home.CliqzOffboarding;
 
 const getStyles = toolbarHeight => {
   const maxWidth = Math.min(
@@ -148,6 +152,7 @@ export default function Home({
         height={height - (isNewsEnabled ? toolbarHeight : 0)}
         Features={Features}
       >
+        {showCliqzOffboarding ? <CliqzOffboarding /> : null}
         <View style={styles.wrapper}>
           <View style={styles.logoWrapper}>
             <Image

@@ -20,6 +20,12 @@ extension Features.Home.DynamicBackgrounds {
     }
 }
 
+extension Features.Home.CliqzOffboarding {
+    public static var isEnabled: Bool {
+        return true
+    }
+}
+
 extension Features.Search {
     public static var keyboardReturnKeyBehavior: Features.Search.KeyboardReturnKeyBehavior {
         return .search

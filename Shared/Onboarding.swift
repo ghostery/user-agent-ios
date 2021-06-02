@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol OnboardingViewControllerDelegate: class {
+public protocol OnboardingViewControllerDelegate: AnyObject {
     func onboardingViewControllerDidFinish(_ onboardingViewController: UIViewController)
 }
 

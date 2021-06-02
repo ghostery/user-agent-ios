@@ -108,6 +108,11 @@ public struct Features {
                 return true
             }
         }
+        public struct CliqzOffboarding {
+            public static var isEnabled: Bool {
+                return false
+            }
+        }
     }
 
     public struct TodayWidget {
