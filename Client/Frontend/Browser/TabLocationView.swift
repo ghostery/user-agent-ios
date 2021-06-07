@@ -284,7 +284,7 @@ class TabLocationView: UIView {
         if url.isHostIPAddress || url.isIPv6 || url.isFileURL {
             return url.host ?? ""
         }
-        return url.publicSuffix(additionalPartCount: 1) ?? ""
+        return url.publicSuffixPlusOne ?? ""
     }
 
     private func urlTextLabelAlignCenter(duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
