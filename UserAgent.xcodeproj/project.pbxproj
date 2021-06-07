@@ -1077,7 +1077,6 @@
 		C50ED2E723290BBA00EE71B8 /* MMScreenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2D92328F99C00EE71B8 /* MMScreenGraph.swift */; };
 		C50ED2EE232914B100EE71B8 /* GraphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2EC232914B100EE71B8 /* GraphNode.swift */; };
 		C50ED2EF232914B100EE71B8 /* SortedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50ED2ED232914B100EE71B8 /* SortedArray.swift */; };
-		C520FF5A2388218A0097BA0C /* effective_tld_names.swift in Sources */ = {isa = PBXBuildFile; fileRef = C520FF592388218A0097BA0C /* effective_tld_names.swift */; };
 		C52F2D52235610C800146300 /* Tab+ChangeUserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82CDD45233E8996002E2743 /* Tab+ChangeUserAgent.swift */; };
 		C52F2D5723561BFA00146300 /* SearchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */; };
 		C52F2D5823561BFA00146300 /* SearchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */; };
@@ -2212,7 +2211,6 @@
 		C50ED2DB2328F99C00EE71B8 /* GraphRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphRepresentation.swift; sourceTree = "<group>"; };
 		C50ED2EC232914B100EE71B8 /* GraphNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphNode.swift; sourceTree = "<group>"; };
 		C50ED2ED232914B100EE71B8 /* SortedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedArray.swift; sourceTree = "<group>"; };
-		C520FF592388218A0097BA0C /* effective_tld_names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = effective_tld_names.swift; sourceTree = "<group>"; };
 		C52F2D5623561BFA00146300 /* SearchSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		C56ED496233B692B006A63B1 /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		C56ED49D233B712F006A63B1 /* InterceptorFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorFeature.swift; sourceTree = "<group>"; };
@@ -4218,7 +4216,6 @@
 				E65075901E37F7AB006961AC /* UserAgent.swift */,
 				E65075911E37F7AB006961AC /* WeakList.swift */,
 				C8DFFE482294AAB600296DB1 /* NetworkUtils.swift */,
-				C520FF592388218A0097BA0C /* effective_tld_names.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -5503,6 +5500,8 @@
 				"${BUILT_PRODUCTS_DIR}/react-native-netinfo/react_native_netinfo.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/Punycode/Punycode.framework",
+				"${BUILT_PRODUCTS_DIR}/TLDExtract/TLDExtract.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -5540,6 +5539,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_netinfo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Punycode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TLDExtract.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5873,6 +5874,8 @@
 				"${BUILT_PRODUCTS_DIR}/react-native-netinfo/react_native_netinfo.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/Punycode/Punycode.framework",
+				"${BUILT_PRODUCTS_DIR}/TLDExtract/TLDExtract.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -5910,6 +5913,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_netinfo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Punycode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TLDExtract.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5950,6 +5955,8 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/Punycode/Punycode.framework",
+				"${BUILT_PRODUCTS_DIR}/TLDExtract/TLDExtract.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -5958,6 +5965,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Punycode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TLDExtract.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -6125,6 +6134,8 @@
 				"${BUILT_PRODUCTS_DIR}/react-native-netinfo/react_native_netinfo.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLCipher/SQLCipher.framework",
 				"${BUILT_PRODUCTS_DIR}/Sentry/Sentry.framework",
+				"${BUILT_PRODUCTS_DIR}/Punycode/Punycode.framework",
+				"${BUILT_PRODUCTS_DIR}/TLDExtract/TLDExtract.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -6162,6 +6173,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_netinfo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLCipher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Punycode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TLDExtract.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -6238,7 +6251,6 @@
 				E65075BA1E37F7AB006961AC /* Prefs.swift in Sources */,
 				7B10AABB1E3A1F650002DD08 /* URLRequestExtensions.swift in Sources */,
 				D02818611EF056C800240CAA /* SentryIntegration.swift in Sources */,
-				C520FF5A2388218A0097BA0C /* effective_tld_names.swift in Sources */,
 				E693F0D91E9D64BD0086DC17 /* OptionalExtensions.swift in Sources */,
 				AC33579D23882D2900693969 /* Strings+Storage.swift in Sources */,
 				2BE3BD9A247298490066D0BD /* Strings+Today.swift in Sources */,

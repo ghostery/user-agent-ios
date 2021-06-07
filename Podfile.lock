@@ -26,6 +26,7 @@ PODS:
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - Punycode (1.0.1)
   - RCTRequired (0.63.3)
   - RCTTypeSafety (0.63.3):
     - FBLazyVector (= 0.63.3)
@@ -274,6 +275,8 @@ PODS:
     - SQLCipher/common
   - SwiftLint (0.39.2)
   - SwiftyJSON (5.0.0)
+  - TLDExtract (1.0.1):
+    - Punycode (~> 1.0)
   - XCGLogger (7.0.1):
     - XCGLogger/Core (= 7.0.1)
   - XCGLogger/Core (7.0.1):
@@ -320,6 +323,7 @@ DEPENDENCIES:
   - SQLCipher (~> 4.4.0)
   - SwiftLint
   - SwiftyJSON (~> 5.0)
+  - TLDExtract (~> 1.0)
   - XCGLogger (~> 7.0.0)
   - Yoga (from `node_modules/react-native/ReactCommon/yoga`)
 
@@ -329,11 +333,13 @@ SPEC REPOS:
     - Fuzi
     - GCDWebServer
     - ObjcExceptionBridging
+    - Punycode
     - SDWebImage
     - SnapKit
     - SQLCipher
     - SwiftLint
     - SwiftyJSON
+    - TLDExtract
     - XCGLogger
 
 EXTERNAL SOURCES:
@@ -416,6 +422,7 @@ SPEC CHECKSUMS:
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  Punycode: ddbef4a269780c8f19a7e8deb01d9f101cb2ef86
   RCTRequired: 48884c74035a0b5b76dbb7a998bd93bcfc5f2047
   RCTTypeSafety: edf4b618033c2f1c5b7bc3d90d8e085ed95ba2ab
   React: f36e90f3ceb976546e97df3403e37d226f79d0e3
@@ -446,9 +453,10 @@ SPEC CHECKSUMS:
   SQLCipher: e434ed542b24f38ea7b36468a13f9765e1b5c072
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  TLDExtract: 63aa739e9b50052ef04e792927c43db62b2bb6b5
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
 
-PODFILE CHECKSUM: 62f6ac6e7c594dea9efa4cbf8debe454c8b6ffa3
+PODFILE CHECKSUM: feeda49a3205216d5074edab539b0daaeccdf6db
 
 COCOAPODS: 1.9.3
