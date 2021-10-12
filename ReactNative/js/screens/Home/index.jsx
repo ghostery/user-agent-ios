@@ -21,7 +21,7 @@ import CliqzOffboarding from './components/CliqzOffboarding';
 const hideKeyboard = () => NativeModules.BrowserActions.hideKeyboard();
 
 const showCliqzOffboarding =
-  NativeModules.Constants.Features.Home.CliqzOffboarding;
+  NativeModules.Constants.Features.Home.CliqzOffboarding.isEnabled;
 
 const getStyles = toolbarHeight => {
   const maxWidth = Math.min(
