@@ -25,7 +25,7 @@ extension Features.Search {
         return .search
     }
     public static var defaultEngineName: String {
-        return "DuckDuckGo"
+        return "GhosteryGlow"
     }
 }
 

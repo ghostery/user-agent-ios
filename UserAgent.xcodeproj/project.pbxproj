@@ -477,7 +477,7 @@
 		2B79E3BF247D28FB00263B90 /* ForgetMode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3C1247D28FB00263B90 /* ForgetMode.strings */; };
 		2B79E3C3247D290D00263B90 /* ForgetMode.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3C5247D290D00263B90 /* ForgetMode.strings */; };
 		2B79E3CC247D2B7500263B90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E3CA247D2B7500263B90 /* InfoPlist.strings */; };
-		2B79E415247E7E6D00263B90 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E414247E7E6D00263B90 /* LaunchScreen.xib */; };
+		2B79E415247E7E6D00263B90 /* LaunchScreen2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B79E414247E7E6D00263B90 /* LaunchScreen2.xib */; };
 		2B79E4182480E4C300263B90 /* NativeFavicon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E4172480E4C300263B90 /* NativeFavicon.m */; };
 		2B79E4192480E4C300263B90 /* NativeFavicon.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E4172480E4C300263B90 /* NativeFavicon.m */; };
 		2B79E41B2481041500263B90 /* NativeFaviconFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B79E41A2481041500263B90 /* NativeFaviconFetcher.swift */; };
@@ -1829,7 +1829,7 @@
 		2B79E3C6247D291000263B90 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ForgetMode.strings; sourceTree = "<group>"; };
 		2B79E3CB247D2B7500263B90 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2B79E3CD247D2B7F00263B90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2B79E414247E7E6D00263B90 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		2B79E414247E7E6D00263B90 /* LaunchScreen2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen2.xib; sourceTree = "<group>"; };
 		2B79E4172480E4C300263B90 /* NativeFavicon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeFavicon.m; sourceTree = "<group>"; };
 		2B79E41A2481041500263B90 /* NativeFaviconFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeFaviconFetcher.swift; sourceTree = "<group>"; };
 		2B79E41D24811FA500263B90 /* UIColor+PrivacyIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PrivacyIndicator.swift"; sourceTree = "<group>"; };
@@ -3835,7 +3835,7 @@
 				466B37272463001D00747C50 /* Features.swift */,
 				2B79E3CA247D2B7500263B90 /* InfoPlist.strings */,
 				2B79E3C5247D290D00263B90 /* ForgetMode.strings */,
-				2B79E414247E7E6D00263B90 /* LaunchScreen.xib */,
+				2B79E414247E7E6D00263B90 /* LaunchScreen2.xib */,
 				2B0C81CB248E1B89003F97B4 /* BrandColors.xcassets */,
 			);
 			path = Ghostery;
@@ -4986,22 +4986,22 @@
 					};
 					2B0E93672407A92300ED7703 = {
 						CreatedOnToolsVersion = 11.3.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 					};
 					2B308ABC242B2B4A009AF3D1 = {
 						CreatedOnToolsVersion = 11.3.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 					};
 					2B656F4C24AB68A7005DE5D3 = {
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 					};
 					2BE258D223BA2B4A0022ED28 = {
 						CreatedOnToolsVersion = 11.3;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 					};
 					2FCAE2191ABB51F800877008 = {
@@ -5031,7 +5031,7 @@
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
 					ACB7371123042BAB00FA5626 = {
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -5050,7 +5050,7 @@
 					};
 					F84B21BD1A090F8100AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -5079,7 +5079,7 @@
 					};
 					F84B22481A0920C600AAB793 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 2UYYSSHVUH;
+						DevelopmentTeam = HPY23A294X;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -5296,7 +5296,7 @@
 				ACB7380623042BAB00FA5626 /* Licenses.html in Resources */,
 				ACB7380723042BAB00FA5626 /* Reader.css in Resources */,
 				ACB7380923042BAB00FA5626 /* AllFramesAtDocumentEnd.js in Resources */,
-				2B79E415247E7E6D00263B90 /* LaunchScreen.xib in Resources */,
+				2B79E415247E7E6D00263B90 /* LaunchScreen2.xib in Resources */,
 				4661C370246C11D500F36302 /* MenuHelper.strings in Resources */,
 				4661C374246C11DF00F36302 /* Menu.strings in Resources */,
 				2BE3BD92247270D10066D0BD /* Settings.strings in Resources */,

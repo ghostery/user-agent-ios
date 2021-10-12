@@ -8,7 +8,7 @@
 
 "website" = "https://www.ghostery.com/";
 "whatsNewWebsite" = "https://github.com/ghostery/user-agent-ios/releases";
-"humanWebInfoWebsite" = "https://www.ghostery.com/faqs/human-web-data-collected/";
+"humanWebInfoWebsite" = "https://www.ghostery.com/faqs";
 "repositoryWebsite" = "https://github.com/ghostery/user-agent-ios";
 "privacyPolicyWebsite" = "https://www.ghostery.com/about-ghostery/mobile-browser-privacy-policy/";
 "feedbackWebsite" = "https://www.ghostery.com/support";
