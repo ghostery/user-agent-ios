@@ -5,7 +5,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import { getMessage } from 'browser-core-user-agent-ios/build/modules/core/i18n';
+import { getMessage } from 'ghostery-common/build/ios/modules/core/i18n';
 import React from 'react';
 import { Image, View, StyleSheet } from 'react-native';
 import {

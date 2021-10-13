@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native';
-import { getMessage } from 'browser-core-user-agent-ios/build/modules/core/i18n';
+import { getMessage } from 'ghostery-common/build/ios/modules/core/i18n';
 
 import { withTheme } from '../../../../../../contexts/theme';
 import NativeDrawable from '../../../../../../components/NativeDrawable';

@@ -21,7 +21,7 @@ import {
   Weather,
   styles as weatherStyles,
 } from '@cliqz/component-ui-snippet-weather';
-import CONFIG from 'browser-core-user-agent-ios/build/modules/core/config';
+import CONFIG from 'ghostery-common/build/ios/modules/core/config';
 
 const ImageRenderer = ({ uri, height, width }) => {
   return (
