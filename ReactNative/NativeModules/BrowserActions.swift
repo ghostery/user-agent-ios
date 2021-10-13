@@ -111,7 +111,7 @@ class BrowserActions: NSObject, NativeModuleBase {
             let suggestClient = SearchSuggestClient(searchEngine: engine, userAgent: ua)
             suggestClient.query(query as String) { (suggestions, error) in
                 if error != nil {
-                    reject("suggestions", "something when wrong", nil)
+                    reject("suggestions", "something went wrong", nil)
                     return
                 }
                 resolve(suggestions)
