@@ -19,6 +19,9 @@ class BrowserSearch: NSObject, NativeModuleBase {
                 return
             }
             let engines = profile.searchEngines.orderedEngines.filter({
+                if profile.searchEngines.isEngineDefault($0) {
+                    return true
+                }
                 return profile.searchEngines.isEngineEnabled($0)
             }).map { self.serializeSearchEngine($0, searchEngines: profile.searchEngines) }
             resolve(engines)

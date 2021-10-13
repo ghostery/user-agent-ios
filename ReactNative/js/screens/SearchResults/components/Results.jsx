@@ -189,7 +189,7 @@ class Results extends React.Component {
       const { Features } = this.props;
       if (Features.Search.QuickSearch.isEnabled) {
         // eslint-disable-next-line no-param-reassign
-        searchEngine = { name: 'Cliqz' };
+        searchEngine = { name: 'Ghostery Glow' };
       } else {
         // eslint-disable-next-line no-param-reassign
         searchEngine = searchEngines.find(e => e.isDefault);

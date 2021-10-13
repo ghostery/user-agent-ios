@@ -1,0 +1,19 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+- License, v. 2.0. If a copy of the MPL was not distributed with this
+- file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>Startpage</ShortName>
+    <Image width="16" height="16" type="image/x-icon">https://www.startpage.com/assets/images/logo-32x32.png</Image>
+
+    <Url type="application/x-suggestions+json" method="GET" template="https://www.startpage.com/suggestions">
+        <Param name="q" value="{searchTerms}"/>
+        <Param name="segment" value="startpage.ghostery"/>
+        <Param name="format" value="opensearch"/>
+    </Url>
+    <Url type="text/html" method="GET" template="https://www.startpage.com/sp/search">
+        <Param name="query" value="{searchTerms}"/>
+        <Param name="segment" value="startpage.ghostery"/>
+    </Url>
+    <SearchForm>https://www.startpage.com</SearchForm>
+</SearchPlugin>
