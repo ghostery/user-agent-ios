@@ -1,5 +1,5 @@
 import RNFS from 'react-native-fs';
-import ResourceLoaderStorage from 'browser-core-user-agent-ios/build/modules/platform/resource-loader-storage';
+import ResourceLoaderStorage from 'ghostery-common/build/ios/modules/platform/resource-loader-storage';
 
 const ASSETS = ['tracker_db_v2.json'];
 const { load } = ResourceLoaderStorage.prototype;

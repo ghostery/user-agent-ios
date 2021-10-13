@@ -1,5 +1,5 @@
 import { NativeEventEmitter } from 'react-native';
-import prefs from 'browser-core-user-agent-ios/build/modules/core/prefs';
+import prefs from 'ghostery-common/build/ios/modules/core/prefs';
 
 export default class BridgeManager {
   constructor(bridge, inject, appReady) {
