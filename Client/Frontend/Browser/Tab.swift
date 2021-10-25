@@ -587,8 +587,8 @@ class Tab: NSObject {
         return sequence(first: parent) { $0?.parent }.contains { $0 == ancestor }
     }
 
-    func observeURLChanges(delegate: URLChangeDelegate) {
-        self.urlDidChangeDelegate = delegate
+    func observeStateChanges(delegate: TabStateChangeDelegate) {
+        self.tabStateChangeDelegates.insert(delegate)
     }
 
     func removeStateChangeObserver(delegate: TabStateChangeDelegate) {

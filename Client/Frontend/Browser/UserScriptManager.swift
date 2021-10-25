@@ -12,8 +12,7 @@ class UserScriptManager {
     // Singleton instance.
     public static let shared = UserScriptManager()
 
-    private let noImageModeUserScript = WKUserScript.createInDefaultContentWorld(source: "window.__firefox__.NoImageMode.setEnabled(true)", injectionTime: .atDocumentStart, forMainFrameOnly: true)
-    private let nightModeUserScript = WKUserScript.createInDefaultContentWorld(source: "window.__firefox__.NightMode.setEnabled(true)", injectionTime: .atDocumentStart, forMainFrameOnly: true)
+    private let compiledUserScripts: [String: WKUserScript]
 
     private init() {
         var compiledUserScripts: [String: WKUserScript] = [:]
