@@ -200,7 +200,7 @@ class ErrorPageHandler: InternalSchemeResponse {
             variables["warning_advanced1"] = Strings.ErrorPages.AdvancedWarning1
             variables["warning_advanced2"] = Strings.ErrorPages.AdvancedWarning2
             variables["warning_actions"] =
-                "<p><a id='\(UserScriptManager.appIdToken)__firefox__visitOnce' href='#'>\(Strings.ErrorPagesVisitOnceButton)</button></p>"
+                "<p><a id='\(UserScriptManager.appIdToken)__firefox__visitOnce' href='#'>\(MessageCertVisitOnce)</button></p>"
         }
 
         variables["actions"] = actions
