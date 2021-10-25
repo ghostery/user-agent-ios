@@ -60,6 +60,9 @@ extension Features.HumanWeb {
 }
 
 extension Features.Telemetry {
+    public static var isEnabled: Bool {
+        return true
+    }
     public static var brand: String {
         return "ghostery"
     }
