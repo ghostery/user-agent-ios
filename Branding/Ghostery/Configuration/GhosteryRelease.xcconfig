@@ -5,7 +5,7 @@ BUNDLE_DISPLAY_NAME = Ghostery Dawn
 APP_BUNDLE_ID = com.evidon.Ghostery
 
 // Marketing version
-APP_MARKETING_VERSION = 3.1.0
+APP_MARKETING_VERSION = 3.1.1
 
 // URL Scheme
 USER_AGENT_URL_SCHEME = Ghostery
