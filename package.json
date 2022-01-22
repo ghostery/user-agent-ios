@@ -62,7 +62,7 @@
     "lodash": "^4.17.21",
     "metro-react-native-babel-preset": "^0.59.0",
     "mocha": "^6.2.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "patch-package": "^6.2.2",
     "typescript": "^3.7.2",
     "webpack": "^4.44.2",
