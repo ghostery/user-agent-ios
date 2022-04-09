@@ -31,7 +31,7 @@
     "ghostery-common": "^1.2.14",
     "glob-to-regexp": "^0.4.1",
     "jsdom-jscore-rn": "^0.1.7",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "page-metadata-parser": "1.1.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
