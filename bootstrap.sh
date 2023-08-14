@@ -12,19 +12,11 @@ else
    sh Branding/setup.sh $1 ./
 fi
 
-set -e
+# nodejs
+npm ci
+npm run build-user-scripts
 
-brew update
-brew bundle
-
-nodenv install -s
-eval "$(nodenv init -)"
-nodenv exec npm i -g npm@6.5
-nodenv exec npm ci
-nodenv exec npm run build-user-scripts
-
-rbenv install -s
-eval "$(rbenv init -)"
-rbenv exec gem install bundler
-rbenv exec bundle install
-rbenv exec bundle exec pod install --repo-update
+# ruby
+exec gem install bundler
+exec bundle install
+exec bundle exec pod install --repo-update
