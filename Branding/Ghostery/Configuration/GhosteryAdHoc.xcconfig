@@ -1,5 +1,5 @@
 // Display name
-BUNDLE_DISPLAY_NAME = Ghostery Dawn
+BUNDLE_DISPLAY_NAME = Ghostery Private Browser
 
 // Bundle Identifier
 APP_BUNDLE_ID = com.ghostery.browser.nightly
