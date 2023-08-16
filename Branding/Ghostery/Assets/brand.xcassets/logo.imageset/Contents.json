@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ghostery-wordmark-white (2).png",
+      "filename" : "ghostery-wordmark-white-1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ghostery-wordmark-white (3).png",
+      "filename" : "ghostery-wordmark-white-2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ghostery-wordmark-white (4).png",
+      "filename" : "ghostery-wordmark-white-3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
