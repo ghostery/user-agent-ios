@@ -1,0 +1,51 @@
+name: Test Extenision Manifest V2
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: macos-latest-xl
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup branding
+        run: sh Branding/setup.sh Ghostery ./
+      - name: Install Nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.tool-versions'
+          cache: 'npm'
+          cache-dependency-path: ./package-lock.json
+      - name: Instal Node Modules
+        run: npm ci
+      - name: Build content scripts
+        run: npm run build-user-scripts
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Setup CocoaPods cache
+        uses: actions/cache@v2
+        id: cocoapods-cache
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+      - name: Update Cocoapods
+        if: steps.cocoapods-cache.outputs.cache-hit != 'true'
+        run: bundle exec pod install --repo-update
+      - name: Build
+        uses: sersoft-gmbh/xcodebuild-action@v2
+        with:
+          workspace: UserAgent.xcworkspace
+          scheme: Ghostery
+          configuration: CI
+          sdk: iphonesimulator
+          destination: platform=iOS Simulator,name=iPhone 14
+          action: build
+          output-formatter: ''
