@@ -6,8 +6,8 @@
 #
 
 if [ -z "$1" ]; then
-   echo "No argument specified. Fallback to Cliqz"
-   sh Branding/setup.sh Cliqz ./
+   echo "No argument specified. Fallback to Ghostery"
+   sh Branding/setup.sh Ghostery ./
 else
    sh Branding/setup.sh $1 ./
 fi
@@ -17,6 +17,6 @@ npm ci
 npm run build-user-scripts
 
 # ruby
-exec gem install bundler
-exec bundle install
-exec bundle exec pod install --repo-update
+gem install bundler
+bundle install
+bundle exec pod install --repo-update

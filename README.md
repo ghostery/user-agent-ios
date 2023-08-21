@@ -13,6 +13,15 @@ User Agent is the internal name for the Ghostery iOS browser. A diferent name wa
 ```shell
 git clone git@github.com:ghostery/user-agent-ios.git
 ```
+
+1. Setup ASDF for nodejs and ruby
+```shell
+brew install asdf
+asdf plugin add nodejs
+asdf plugin add ruby
+asdf install
+```
+
 1. Run the bootstrap script to install dependencies
 ```shell
 cd user-agent-ios
