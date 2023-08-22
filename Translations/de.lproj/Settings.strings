@@ -156,7 +156,7 @@
 "Settings.Support.SendUsageTitle" = "Interaktions-Statistiken";
 
 /* The title for the human web setting. */
-"Settings.Support.HumanWebTitle" = "Human Web";
+"Settings.Support.HumanWebTitle" = "WhoTracks.Me";
 
 /* The description of the open new tab siri shortcut */
 "Settings.General.Siri.OpenTabShortcut" = "Neuen Tab öffnen";
