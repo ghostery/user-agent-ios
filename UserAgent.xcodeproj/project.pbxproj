@@ -5615,7 +5615,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=~/.asdf/shims/node\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "export NODE_BINARY=`asdf which node`\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2DC5D550E7F9897533FC0409 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -5713,7 +5713,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=~/.asdf/shims/node\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "export NODE_BINARY=`asdf which node`\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		46504079241672C30086CFAF /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -5767,7 +5767,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=~/.asdf/shims/node\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "export NODE_BINARY=`asdf which node`\n./node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		6D73AECF1E1B3946094B40BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
