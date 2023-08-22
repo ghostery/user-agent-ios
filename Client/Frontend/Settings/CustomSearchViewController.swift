@@ -93,7 +93,7 @@ class CustomSearchViewController: SettingsTableViewController {
         func fillDeferred(image: UIImage?) {
             let engine = OpenSearchEngine(engineID: nil, shortName: name, image: image, searchTemplate: template, suggestTemplate: nil, isCustomEngine: true)
 
-            //Make sure a valid scheme is used
+            // Make sure a valid scheme is used
             let testUrl = engine.searchURLForQuery("test")
             let maybe = (testUrl == nil) ? Maybe(failure: CustomSearchError(.FormInput)) : Maybe(success: engine)
             deferred.fill(maybe)
@@ -118,8 +118,8 @@ class CustomSearchViewController: SettingsTableViewController {
     }
 
     func getSearchTemplate(withString query: String) -> String? {
-        let SearchTermComponent = "%s"      //Placeholder in User Entered String
-        let placeholder = "{searchTerms}"   //Placeholder looked for when using Custom Search Engine in OpenSearch.swift
+        let SearchTermComponent = "%s"      // Placeholder in User Entered String
+        let placeholder = "{searchTerms}"   // Placeholder looked for when using Custom Search Engine in OpenSearch.swift
 
         if query.contains(SearchTermComponent) {
             return query.replacingOccurrences(of: SearchTermComponent, with: placeholder)
@@ -148,7 +148,7 @@ class CustomSearchViewController: SettingsTableViewController {
         titleField.textField.accessibilityIdentifier = "customEngineTitle"
 
         let urlField = CustomSearchEngineTextView(placeholder: Strings.Settings.Search.AddCustomEngine.URLPlaceholder, height: 133, keyboardType: .URL, settingIsValid: { text in
-            //Can check url text text validity here.
+            // Can check url text text validity here.
             return true
         }, settingDidChange: {fieldText in
             self.urlString = fieldText

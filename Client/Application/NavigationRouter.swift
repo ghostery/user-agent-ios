@@ -140,9 +140,9 @@ enum NavigationPath {
 
     private static func handleHomePanel(panel: HomePanelPath, with bvc: BrowserViewController) {
         switch panel {
-        case .bookmarks: break //Todo: #228 show bookmarks
-        case .history: break //Todo: #228 show history
-        case .downloads: break //Todo: #228 show downloads
+        case .bookmarks: break // Todo: #228 show bookmarks
+        case .history: break // Todo: #228 show history
+        case .downloads: break // Todo: #228 show downloads
         case .topSites: bvc.openURLInNewTab(HomePanelType.topSites.internalUrl, isPrivileged: true)
         case .newPrivateTab: bvc.openBlankNewTab(focusLocationField: false, isPrivate: true)
         }

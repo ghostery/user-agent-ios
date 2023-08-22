@@ -833,7 +833,7 @@ class BrowserViewController: UIViewController {
         }
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        //always fill the view
+        // always fill the view
         blurEffectView.frame = self.view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.view.addSubview(blurEffectView)
@@ -2065,7 +2065,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             let downloadAction = UIAlertAction(title: Strings.ContextMenu.DownloadLink, style: .default) { _ in
                 // This checks if download is a blob, if yes, begin blob download process
                 if !DownloadContentScript.requestBlobDownload(url: url, tab: currentTab) {
-                    //if not a blob, set pendingDownloadWebView and load the request in the webview, which will trigger the WKWebView navigationResponse delegate function and eventually downloadHelper.open()
+                    // if not a blob, set pendingDownloadWebView and load the request in the webview, which will trigger the WKWebView navigationResponse delegate function and eventually downloadHelper.open()
                     self.pendingDownloadWebView = currentTab.webView
                     let request = URLRequest(url: url)
                     currentTab.webView?.load(request)
@@ -2178,10 +2178,10 @@ extension BrowserViewController: ContextMenuHelperDelegate {
         }
     }
 
-    //Support for CMD+ Click on link to open in a new tab
+    // Support for CMD+ Click on link to open in a new tab
      override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
          super.pressesBegan(presses, with: event)
-         guard let key = presses.first?.key, (key.keyCode == .keyboardLeftGUI || key.keyCode == .keyboardRightGUI) else { return } //GUI buttons = CMD buttons on ipad/mac
+         guard let key = presses.first?.key, (key.keyCode == .keyboardLeftGUI || key.keyCode == .keyboardRightGUI) else { return } // GUI buttons = CMD buttons on ipad/mac
          self.isCmdClickForNewTab = true
     }
 

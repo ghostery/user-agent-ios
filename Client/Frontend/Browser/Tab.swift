@@ -389,7 +389,7 @@ class Tab: NSObject {
             return Strings.Menu.OpenHomePageTitleString
         }
 
-        //lets double check the sessionData in case this is a non-restored new tab
+        // lets double check the sessionData in case this is a non-restored new tab
         if let firstURL = sessionData?.urls.first, sessionData?.urls.count == 1, InternalURL(firstURL)?.isAboutHomeURL ?? false {
             return Strings.Menu.OpenHomePageTitleString
         }
@@ -731,7 +731,7 @@ class TabWebView: WKWebView, MenuHelperInterface {
 
     /// Override evaluateJavascript - should not be called directly on TabWebViews any longer
     // We should only be calling evaluateJavascriptInDefaultContentWorld in the future
-    @available(*, unavailable, message:"Do not call evaluateJavaScript directly on TabWebViews, should only be called on super class")
+    @available(*, unavailable, message: "Do not call evaluateJavaScript directly on TabWebViews, should only be called on super class")
     override func evaluateJavaScript(_ javaScriptString: String, completionHandler: ((Any?, Error?) -> Void)? = nil) {
         super.evaluateJavaScript(javaScriptString, completionHandler: completionHandler)
     }

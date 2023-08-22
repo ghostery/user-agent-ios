@@ -648,7 +648,7 @@ class BookmarkFactory {
         let hasDupe = row.getBoolean("hasDupe")
 
         // Mirror only. TO DO
-        //let is_overridden = row.getBoolean("is_overridden")
+        // let is_overridden = row.getBoolean("is_overridden")
 
         // Use the struct initializer directly. Yes, this doesn't validate as strongly as
         // using the static constructors, but it'll be as valid as the contents of the DB.

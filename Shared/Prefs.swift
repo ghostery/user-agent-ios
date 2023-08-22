@@ -15,10 +15,10 @@ public struct PrefsKeys {
     public static let OpenLinks = "OpenLinks"
     public static let OnBrowserStartTab = "OnBrowserStartTab"
 
-    //Today Widget
+    // Today Widget
     public static let TodayWidgetWeatherLocation = "WeatherLocation"
 
-    //Pull to refresh
+    // Pull to refresh
     public static let RefreshControlEnabled = "RefreshControlEnabled"
 
     // Contextual Onboarding
@@ -30,14 +30,14 @@ public struct PrefsKeys {
     public static let Adblocker = "Adblocker"
     public static let PopupBlocker = "PopupBlocker"
 
-    //News
+    // News
     public static let NewTabNewsEnabled = "NewTabNewsEnabled"
     public static let NewTabNewsImagesEnabled = "NewTabNewsImagesEnabled"
 
     public static let ContextMenuShowLinkPreviews = "showLinkPreviews"
 
     public static let NewTabCustomUrlPrefKey = "HomePageURLPref"
-    //Activity Stream
+    // Activity Stream
     public static let KeyTopSitesCacheIsValid = "topSitesCacheIsValid"
     public static let KeyTopSitesCacheSize = "topSitesCacheSize"
 

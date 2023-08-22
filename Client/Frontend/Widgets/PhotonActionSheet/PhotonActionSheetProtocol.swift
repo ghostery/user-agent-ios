@@ -34,8 +34,8 @@ extension PhotonActionSheetProtocol {
         viewController.present(sheet, animated: true, completion: nil)
     }
 
-    //Returns a list of actions which is used to build a menu
-    //OpenURL is a closure that can open a given URL in some view controller. It is up to the class using the menu to know how to open it
+    // Returns a list of actions which is used to build a menu
+    // OpenURL is a closure that can open a given URL in some view controller. It is up to the class using the menu to know how to open it
     func getControlCenterActions(vcDelegate: PageOptionsVC) -> [[PhotonActionSheetItem]] {
         guard let tab = self.tabManager.selectedTab else { return [] }
 
@@ -213,7 +213,7 @@ extension PhotonActionSheetProtocol {
 
     func getTabActions(tab: Tab, buttonView: UIView,
                        presentShareMenu: @escaping (URL, Tab, UIView, UIPopoverArrowDirection) -> Void,
-                       findInPage:  @escaping () -> Void,
+                       findInPage: @escaping () -> Void,
                        presentableVC: PresentableVC,
                        isBookmarked: Bool,
                        isPinned: Bool,

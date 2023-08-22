@@ -41,7 +41,7 @@ class TopTabsViewLayout: UICollectionViewFlowLayout {
     var decorationAttributeArr: [Int: UICollectionViewLayoutAttributes?] = [:]
     let separatorYOffset = TopTabsUX.SeparatorYOffset
     let separatorSize = TopTabsUX.SeparatorHeight
-    let SeparatorZIndex = -2 ///Prevent the header/footer from appearing above the Tabs
+    let SeparatorZIndex = -2 /// Prevent the header/footer from appearing above the Tabs
 
     override var collectionViewContentSize: CGSize {
         let tabsWidth = ((CGFloat(collectionView!.numberOfItems(inSection: 0))) * (TopTabsUX.TabWidth + TopTabsUX.SeparatorWidth)) - TopTabsUX.SeparatorWidth
