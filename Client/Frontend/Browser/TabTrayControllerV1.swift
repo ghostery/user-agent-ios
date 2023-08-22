@@ -176,7 +176,7 @@ class TabTrayControllerV1: UIViewController {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        //special case for iPad
+        // special case for iPad
         if UIDevice.current.isPad {
             return .default
         }
@@ -238,7 +238,7 @@ class TabTrayControllerV1: UIViewController {
         let toView: UIView
         if !privateTabsAreEmpty(), let newSnapshot = collectionView.snapshotView(afterScreenUpdates: !exitingPrivateMode) {
             emptyPrivateTabsView.isHidden = true
-            //when exiting private mode don't screenshot the collectionview (causes the UI to hang)
+            // when exiting private mode don't screenshot the collectionview (causes the UI to hang)
             newSnapshot.frame = collectionView.frame
             view.insertSubview(newSnapshot, aboveSubview: fromView)
             collectionView.alpha = 0

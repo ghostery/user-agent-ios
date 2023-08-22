@@ -64,7 +64,7 @@ class TopTabsHeaderFooter: UICollectionReusableView {
 class TopTabCell: UICollectionViewCell {
 
     static let Identifier = "TopTabCellIdentifier"
-    static let ShadowOffsetSize: CGFloat = 2 //The shadow is used to hide the tab separator
+    static let ShadowOffsetSize: CGFloat = 2 // The shadow is used to hide the tab separator
 
     var selectedTab = false {
         didSet {

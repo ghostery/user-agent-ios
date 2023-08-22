@@ -273,7 +273,7 @@ PODS:
   - SQLCipher/common (4.4.0)
   - SQLCipher/standard (4.4.0):
     - SQLCipher/common
-  - SwiftLint (0.39.2)
+  - SwiftLint (0.52.4)
   - SwiftyJSON (5.0.0)
   - TLDExtract (1.0.1):
     - Punycode (~> 1.0)
@@ -451,7 +451,7 @@ SPEC CHECKSUMS:
   Sentry: 5267d493a398663538317e4dcc438c12c66202ed
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SQLCipher: e434ed542b24f38ea7b36468a13f9765e1b5c072
-  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
+  SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TLDExtract: 63aa739e9b50052ef04e792927c43db62b2bb6b5
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
