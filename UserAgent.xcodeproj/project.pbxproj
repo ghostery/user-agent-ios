@@ -8389,9 +8389,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HPY23A294X;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/Siri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -8401,6 +8403,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DFB_SONARKIT_ENABLED";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Siri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ghostery Private Browser - Siri";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -8418,9 +8422,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HPY23A294X;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/Siri/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -8430,6 +8436,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DFB_SONARKIT_ENABLED";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.Siri";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ghostery Private Browser - Siri";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -8723,9 +8731,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HPY23A294X;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -8735,6 +8745,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DFB_SONARKIT_ENABLED";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.${EXTENSION_OPEN_IN_APP_BUNDLE_ID_POSTFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ghostery Private Browser - OpenIn";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -8757,9 +8769,11 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = Extensions/OpenIn/Entitlements/OpenIn.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HPY23A294X;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = Extensions/OpenIn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -8769,6 +8783,8 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -DFB_SONARKIT_ENABLED";
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.${EXTENSION_OPEN_IN_APP_BUNDLE_ID_POSTFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ghostery Private Browser - OpenIn";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -9159,8 +9175,10 @@
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HPY23A294X;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -9188,6 +9206,7 @@
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ghostery Private Browser";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 			};
 			name = CI;
@@ -9201,8 +9220,10 @@
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HPY23A294X;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -9212,6 +9233,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ghostery Private Browser - ShareTo";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -9947,8 +9969,10 @@
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Branding/Ghostery/Entitlements/Ghostery.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HPY23A294X;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
@@ -9976,6 +10000,7 @@
 				PRODUCT_MODULE_NAME = Client;
 				PRODUCT_NAME = UserAgent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ghostery Private Browser";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Client/Client-Bridging-Header.h";
 			};
 			name = Release;
@@ -10134,8 +10159,10 @@
 				BUNDLE_DISPLAY_NAME = "${BUNDLE_DISPLAY_NAME}";
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/ShareTo/Entitlements/ShareTo.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "${APP_DEVELOPMENT_TEAM}";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HPY23A294X;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -10145,6 +10172,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}.ShareTo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Ghostery Private Browser - ShareTo";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
