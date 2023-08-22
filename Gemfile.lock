@@ -256,6 +256,7 @@ DEPENDENCIES
   fastlane
   fastlane-plugin-changelog
   fastlane-plugin-sentry
+  xcpretty (~> 0.3.0)
 
 BUNDLED WITH
    2.4.19
