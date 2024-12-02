@@ -1,3 +1,9 @@
+# This project is discontinued.
+
+We recommend to use [Ghostery Tracker and Ad Blocker](https://apps.apple.com/us/app/ghostery-privacy-ad-blocker/id6504861501) in Safari.
+
+---
+
 # User Agent iOS
 
 User Agent is the internal name for the Ghostery iOS browser. A diferent name was chosen to highlight the new project, differentiate the project from the previous code bases, and to keep the option open to build multiple apps (e.g. Ghostery and Cliqz) out of the same codebase.
